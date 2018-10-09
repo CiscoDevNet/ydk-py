@@ -15,6 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class LldpEntries(Entity):
     """
     Data nodes for lldp entries
@@ -45,6 +46,7 @@ class LldpEntries(Entity):
 
         self.lldp_entry = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-lldp-oper:lldp-entries"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(LldpEntries, [], name, value)
@@ -98,10 +100,10 @@ class LldpEntries(Entity):
             self.ylist_key_names = ['device_id','local_interface','connecting_interface']
             self._child_classes = OrderedDict([("capabilities", ("capabilities", LldpEntries.LldpEntry.Capabilities))])
             self._leafs = OrderedDict([
-                ('device_id', YLeaf(YType.str, 'device-id')),
-                ('local_interface', YLeaf(YType.str, 'local-interface')),
-                ('connecting_interface', YLeaf(YType.str, 'connecting-interface')),
-                ('ttl', YLeaf(YType.uint32, 'ttl')),
+                ('device_id', (YLeaf(YType.str, 'device-id'), ['str'])),
+                ('local_interface', (YLeaf(YType.str, 'local-interface'), ['str'])),
+                ('connecting_interface', (YLeaf(YType.str, 'connecting-interface'), ['str'])),
+                ('ttl', (YLeaf(YType.uint32, 'ttl'), ['int'])),
             ])
             self.device_id = None
             self.local_interface = None
@@ -113,6 +115,7 @@ class LldpEntries(Entity):
             self._children_name_map["capabilities"] = "capabilities"
             self._segment_path = lambda: "lldp-entry" + "[device-id='" + str(self.device_id) + "']" + "[local-interface='" + str(self.local_interface) + "']" + "[connecting-interface='" + str(self.connecting_interface) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-lldp-oper:lldp-entries/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LldpEntries.LldpEntry, ['device_id', 'local_interface', 'connecting_interface', 'ttl'], name, value)
@@ -179,14 +182,14 @@ class LldpEntries(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('repeater', YLeaf(YType.empty, 'repeater')),
-                    ('bridge', YLeaf(YType.empty, 'bridge')),
-                    ('access_point', YLeaf(YType.empty, 'access-point')),
-                    ('router', YLeaf(YType.empty, 'router')),
-                    ('telephone', YLeaf(YType.empty, 'telephone')),
-                    ('docsis', YLeaf(YType.empty, 'docsis')),
-                    ('station', YLeaf(YType.empty, 'station')),
-                    ('other', YLeaf(YType.empty, 'other')),
+                    ('repeater', (YLeaf(YType.empty, 'repeater'), ['Empty'])),
+                    ('bridge', (YLeaf(YType.empty, 'bridge'), ['Empty'])),
+                    ('access_point', (YLeaf(YType.empty, 'access-point'), ['Empty'])),
+                    ('router', (YLeaf(YType.empty, 'router'), ['Empty'])),
+                    ('telephone', (YLeaf(YType.empty, 'telephone'), ['Empty'])),
+                    ('docsis', (YLeaf(YType.empty, 'docsis'), ['Empty'])),
+                    ('station', (YLeaf(YType.empty, 'station'), ['Empty'])),
+                    ('other', (YLeaf(YType.empty, 'other'), ['Empty'])),
                 ])
                 self.repeater = None
                 self.bridge = None
@@ -197,6 +200,7 @@ class LldpEntries(Entity):
                 self.station = None
                 self.other = None
                 self._segment_path = lambda: "capabilities"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LldpEntries.LldpEntry.Capabilities, ['repeater', 'bridge', 'access_point', 'router', 'telephone', 'docsis', 'station', 'other'], name, value)

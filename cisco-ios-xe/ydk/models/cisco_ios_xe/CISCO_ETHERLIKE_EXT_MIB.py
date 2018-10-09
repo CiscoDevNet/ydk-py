@@ -17,6 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOETHERLIKEEXTMIB(Entity):
     """
     
@@ -58,6 +59,7 @@ class CISCOETHERLIKEEXTMIB(Entity):
         self.ceesubinterfacetable.parent = self
         self._children_name_map["ceesubinterfacetable"] = "ceeSubInterfaceTable"
         self._segment_path = lambda: "CISCO-ETHERLIKE-EXT-MIB:CISCO-ETHERLIKE-EXT-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOETHERLIKEEXTMIB, [], name, value)
@@ -100,6 +102,7 @@ class CISCOETHERLIKEEXTMIB(Entity):
             self.ceedot3pauseextentry = YList(self)
             self._segment_path = lambda: "ceeDot3PauseExtTable"
             self._absolute_path = lambda: "CISCO-ETHERLIKE-EXT-MIB:CISCO-ETHERLIKE-EXT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOETHERLIKEEXTMIB.CeeDot3PauseExtTable, [], name, value)
@@ -148,15 +151,16 @@ class CISCOETHERLIKEEXTMIB(Entity):
                 self.ylist_key_names = ['dot3statsindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('dot3statsindex', YLeaf(YType.str, 'dot3StatsIndex')),
-                    ('ceedot3pauseextadminmode', YLeaf(YType.bits, 'ceeDot3PauseExtAdminMode')),
-                    ('ceedot3pauseextopermode', YLeaf(YType.bits, 'ceeDot3PauseExtOperMode')),
+                    ('dot3statsindex', (YLeaf(YType.str, 'dot3StatsIndex'), ['int'])),
+                    ('ceedot3pauseextadminmode', (YLeaf(YType.bits, 'ceeDot3PauseExtAdminMode'), ['Bits'])),
+                    ('ceedot3pauseextopermode', (YLeaf(YType.bits, 'ceeDot3PauseExtOperMode'), ['Bits'])),
                 ])
                 self.dot3statsindex = None
                 self.ceedot3pauseextadminmode = Bits()
                 self.ceedot3pauseextopermode = Bits()
                 self._segment_path = lambda: "ceeDot3PauseExtEntry" + "[dot3StatsIndex='" + str(self.dot3statsindex) + "']"
                 self._absolute_path = lambda: "CISCO-ETHERLIKE-EXT-MIB:CISCO-ETHERLIKE-EXT-MIB/ceeDot3PauseExtTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOETHERLIKEEXTMIB.CeeDot3PauseExtTable.CeeDot3PauseExtEntry, ['dot3statsindex', 'ceedot3pauseextadminmode', 'ceedot3pauseextopermode'], name, value)
@@ -200,6 +204,7 @@ class CISCOETHERLIKEEXTMIB(Entity):
             self.ceesubinterfaceentry = YList(self)
             self._segment_path = lambda: "ceeSubInterfaceTable"
             self._absolute_path = lambda: "CISCO-ETHERLIKE-EXT-MIB:CISCO-ETHERLIKE-EXT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOETHERLIKEEXTMIB.CeeSubInterfaceTable, [], name, value)
@@ -254,13 +259,14 @@ class CISCOETHERLIKEEXTMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('ceesubinterfacecount', YLeaf(YType.uint32, 'ceeSubInterfaceCount')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('ceesubinterfacecount', (YLeaf(YType.uint32, 'ceeSubInterfaceCount'), ['int'])),
                 ])
                 self.ifindex = None
                 self.ceesubinterfacecount = None
                 self._segment_path = lambda: "ceeSubInterfaceEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-ETHERLIKE-EXT-MIB:CISCO-ETHERLIKE-EXT-MIB/ceeSubInterfaceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOETHERLIKEEXTMIB.CeeSubInterfaceTable.CeeSubInterfaceEntry, ['ifindex', 'ceesubinterfacecount'], name, value)

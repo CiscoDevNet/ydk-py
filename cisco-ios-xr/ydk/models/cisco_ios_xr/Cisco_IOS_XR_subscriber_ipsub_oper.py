@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ip\-subscriber\: IP subscriber operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class IpsubMaIntfInitiatorData(Enum):
@@ -238,6 +239,7 @@ class IpSubscriber(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(IpSubscriber, [], name, value)
@@ -274,6 +276,7 @@ class IpSubscriber(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IpSubscriber.Nodes, [], name, value)
@@ -322,7 +325,7 @@ class IpSubscriber(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("summary", ("summary", IpSubscriber.Nodes.Node.Summary)), ("interfaces", ("interfaces", IpSubscriber.Nodes.Node.Interfaces)), ("access-interfaces", ("access_interfaces", IpSubscriber.Nodes.Node.AccessInterfaces))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -339,6 +342,7 @@ class IpSubscriber(Entity):
                 self._children_name_map["access_interfaces"] = "access-interfaces"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-ipsub-oper:ip-subscriber/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IpSubscriber.Nodes.Node, ['node_name'], name, value)
@@ -391,6 +395,7 @@ class IpSubscriber(Entity):
 
                     self.vrf = YList(self)
                     self._segment_path = lambda: "summary"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(IpSubscriber.Nodes.Node.Summary, [], name, value)
@@ -434,7 +439,7 @@ class IpSubscriber(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("initiators", ("initiators", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators)), ("ipv6-initiators", ("ipv6_initiators", IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators))])
                         self._leafs = OrderedDict([
-                            ('interfaces', YLeaf(YType.uint32, 'interfaces')),
+                            ('interfaces', (YLeaf(YType.uint32, 'interfaces'), ['int'])),
                         ])
                         self.interfaces = None
 
@@ -446,6 +451,7 @@ class IpSubscriber(Entity):
                         self.ipv6_initiators.parent = self
                         self._children_name_map["ipv6_initiators"] = "ipv6-initiators"
                         self._segment_path = lambda: "access-interface-summary"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary, [u'interfaces'], name, value)
@@ -491,6 +497,7 @@ class IpSubscriber(Entity):
                             self.packet_trigger.parent = self
                             self._children_name_map["packet_trigger"] = "packet-trigger"
                             self._segment_path = lambda: "initiators"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators, [], name, value)
@@ -533,12 +540,13 @@ class IpSubscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('fsol_packets', YLeaf(YType.uint32, 'fsol-packets')),
-                                    ('fsol_bytes', YLeaf(YType.uint32, 'fsol-bytes')),
+                                    ('fsol_packets', (YLeaf(YType.uint32, 'fsol-packets'), ['int'])),
+                                    ('fsol_bytes', (YLeaf(YType.uint32, 'fsol-bytes'), ['int'])),
                                 ])
                                 self.fsol_packets = None
                                 self.fsol_bytes = None
                                 self._segment_path = lambda: "dhcp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.Dhcp, [u'fsol_packets', u'fsol_bytes'], name, value)
@@ -581,12 +589,13 @@ class IpSubscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('fsol_packets', YLeaf(YType.uint32, 'fsol-packets')),
-                                    ('fsol_bytes', YLeaf(YType.uint32, 'fsol-bytes')),
+                                    ('fsol_packets', (YLeaf(YType.uint32, 'fsol-packets'), ['int'])),
+                                    ('fsol_bytes', (YLeaf(YType.uint32, 'fsol-bytes'), ['int'])),
                                 ])
                                 self.fsol_packets = None
                                 self.fsol_bytes = None
                                 self._segment_path = lambda: "packet-trigger"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Initiators.PacketTrigger, [u'fsol_packets', u'fsol_bytes'], name, value)
@@ -632,6 +641,7 @@ class IpSubscriber(Entity):
                             self.packet_trigger.parent = self
                             self._children_name_map["packet_trigger"] = "packet-trigger"
                             self._segment_path = lambda: "ipv6-initiators"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators, [], name, value)
@@ -674,12 +684,13 @@ class IpSubscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('fsol_packets', YLeaf(YType.uint32, 'fsol-packets')),
-                                    ('fsol_bytes', YLeaf(YType.uint32, 'fsol-bytes')),
+                                    ('fsol_packets', (YLeaf(YType.uint32, 'fsol-packets'), ['int'])),
+                                    ('fsol_bytes', (YLeaf(YType.uint32, 'fsol-bytes'), ['int'])),
                                 ])
                                 self.fsol_packets = None
                                 self.fsol_bytes = None
                                 self._segment_path = lambda: "dhcp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.Dhcp, [u'fsol_packets', u'fsol_bytes'], name, value)
@@ -722,12 +733,13 @@ class IpSubscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('fsol_packets', YLeaf(YType.uint32, 'fsol-packets')),
-                                    ('fsol_bytes', YLeaf(YType.uint32, 'fsol-bytes')),
+                                    ('fsol_packets', (YLeaf(YType.uint32, 'fsol-packets'), ['int'])),
+                                    ('fsol_bytes', (YLeaf(YType.uint32, 'fsol-bytes'), ['int'])),
                                 ])
                                 self.fsol_packets = None
                                 self.fsol_bytes = None
                                 self._segment_path = lambda: "packet-trigger"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.AccessInterfaceSummary.Ipv6Initiators.PacketTrigger, [u'fsol_packets', u'fsol_bytes'], name, value)
@@ -773,6 +785,7 @@ class IpSubscriber(Entity):
                         self.ipv6_initiators.parent = self
                         self._children_name_map["ipv6_initiators"] = "ipv6-initiators"
                         self._segment_path = lambda: "interface-counts"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts, [], name, value)
@@ -818,6 +831,7 @@ class IpSubscriber(Entity):
                             self.packet_trigger.parent = self
                             self._children_name_map["packet_trigger"] = "packet-trigger"
                             self._segment_path = lambda: "initiators"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators, [], name, value)
@@ -949,21 +963,21 @@ class IpSubscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('invalid', YLeaf(YType.uint32, 'invalid')),
-                                    ('initialized', YLeaf(YType.uint32, 'initialized')),
-                                    ('session_creation_started', YLeaf(YType.uint32, 'session-creation-started')),
-                                    ('control_policy_executing', YLeaf(YType.uint32, 'control-policy-executing')),
-                                    ('control_policy_executed', YLeaf(YType.uint32, 'control-policy-executed')),
-                                    ('session_features_applied', YLeaf(YType.uint32, 'session-features-applied')),
-                                    ('vrf_configured', YLeaf(YType.uint32, 'vrf-configured')),
-                                    ('adding_adjacency', YLeaf(YType.uint32, 'adding-adjacency')),
-                                    ('adjacency_added', YLeaf(YType.uint32, 'adjacency-added')),
-                                    ('up', YLeaf(YType.uint32, 'up')),
-                                    ('down', YLeaf(YType.uint32, 'down')),
-                                    ('disconnecting', YLeaf(YType.uint32, 'disconnecting')),
-                                    ('disconnected', YLeaf(YType.uint32, 'disconnected')),
-                                    ('error', YLeaf(YType.uint32, 'error')),
-                                    ('total_interfaces', YLeaf(YType.uint32, 'total-interfaces')),
+                                    ('invalid', (YLeaf(YType.uint32, 'invalid'), ['int'])),
+                                    ('initialized', (YLeaf(YType.uint32, 'initialized'), ['int'])),
+                                    ('session_creation_started', (YLeaf(YType.uint32, 'session-creation-started'), ['int'])),
+                                    ('control_policy_executing', (YLeaf(YType.uint32, 'control-policy-executing'), ['int'])),
+                                    ('control_policy_executed', (YLeaf(YType.uint32, 'control-policy-executed'), ['int'])),
+                                    ('session_features_applied', (YLeaf(YType.uint32, 'session-features-applied'), ['int'])),
+                                    ('vrf_configured', (YLeaf(YType.uint32, 'vrf-configured'), ['int'])),
+                                    ('adding_adjacency', (YLeaf(YType.uint32, 'adding-adjacency'), ['int'])),
+                                    ('adjacency_added', (YLeaf(YType.uint32, 'adjacency-added'), ['int'])),
+                                    ('up', (YLeaf(YType.uint32, 'up'), ['int'])),
+                                    ('down', (YLeaf(YType.uint32, 'down'), ['int'])),
+                                    ('disconnecting', (YLeaf(YType.uint32, 'disconnecting'), ['int'])),
+                                    ('disconnected', (YLeaf(YType.uint32, 'disconnected'), ['int'])),
+                                    ('error', (YLeaf(YType.uint32, 'error'), ['int'])),
+                                    ('total_interfaces', (YLeaf(YType.uint32, 'total-interfaces'), ['int'])),
                                 ])
                                 self.invalid = None
                                 self.initialized = None
@@ -981,6 +995,7 @@ class IpSubscriber(Entity):
                                 self.error = None
                                 self.total_interfaces = None
                                 self._segment_path = lambda: "dhcp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.Dhcp, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
@@ -1112,21 +1127,21 @@ class IpSubscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('invalid', YLeaf(YType.uint32, 'invalid')),
-                                    ('initialized', YLeaf(YType.uint32, 'initialized')),
-                                    ('session_creation_started', YLeaf(YType.uint32, 'session-creation-started')),
-                                    ('control_policy_executing', YLeaf(YType.uint32, 'control-policy-executing')),
-                                    ('control_policy_executed', YLeaf(YType.uint32, 'control-policy-executed')),
-                                    ('session_features_applied', YLeaf(YType.uint32, 'session-features-applied')),
-                                    ('vrf_configured', YLeaf(YType.uint32, 'vrf-configured')),
-                                    ('adding_adjacency', YLeaf(YType.uint32, 'adding-adjacency')),
-                                    ('adjacency_added', YLeaf(YType.uint32, 'adjacency-added')),
-                                    ('up', YLeaf(YType.uint32, 'up')),
-                                    ('down', YLeaf(YType.uint32, 'down')),
-                                    ('disconnecting', YLeaf(YType.uint32, 'disconnecting')),
-                                    ('disconnected', YLeaf(YType.uint32, 'disconnected')),
-                                    ('error', YLeaf(YType.uint32, 'error')),
-                                    ('total_interfaces', YLeaf(YType.uint32, 'total-interfaces')),
+                                    ('invalid', (YLeaf(YType.uint32, 'invalid'), ['int'])),
+                                    ('initialized', (YLeaf(YType.uint32, 'initialized'), ['int'])),
+                                    ('session_creation_started', (YLeaf(YType.uint32, 'session-creation-started'), ['int'])),
+                                    ('control_policy_executing', (YLeaf(YType.uint32, 'control-policy-executing'), ['int'])),
+                                    ('control_policy_executed', (YLeaf(YType.uint32, 'control-policy-executed'), ['int'])),
+                                    ('session_features_applied', (YLeaf(YType.uint32, 'session-features-applied'), ['int'])),
+                                    ('vrf_configured', (YLeaf(YType.uint32, 'vrf-configured'), ['int'])),
+                                    ('adding_adjacency', (YLeaf(YType.uint32, 'adding-adjacency'), ['int'])),
+                                    ('adjacency_added', (YLeaf(YType.uint32, 'adjacency-added'), ['int'])),
+                                    ('up', (YLeaf(YType.uint32, 'up'), ['int'])),
+                                    ('down', (YLeaf(YType.uint32, 'down'), ['int'])),
+                                    ('disconnecting', (YLeaf(YType.uint32, 'disconnecting'), ['int'])),
+                                    ('disconnected', (YLeaf(YType.uint32, 'disconnected'), ['int'])),
+                                    ('error', (YLeaf(YType.uint32, 'error'), ['int'])),
+                                    ('total_interfaces', (YLeaf(YType.uint32, 'total-interfaces'), ['int'])),
                                 ])
                                 self.invalid = None
                                 self.initialized = None
@@ -1144,6 +1159,7 @@ class IpSubscriber(Entity):
                                 self.error = None
                                 self.total_interfaces = None
                                 self._segment_path = lambda: "packet-trigger"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Initiators.PacketTrigger, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
@@ -1189,6 +1205,7 @@ class IpSubscriber(Entity):
                             self.packet_trigger.parent = self
                             self._children_name_map["packet_trigger"] = "packet-trigger"
                             self._segment_path = lambda: "ipv6-initiators"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators, [], name, value)
@@ -1320,21 +1337,21 @@ class IpSubscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('invalid', YLeaf(YType.uint32, 'invalid')),
-                                    ('initialized', YLeaf(YType.uint32, 'initialized')),
-                                    ('session_creation_started', YLeaf(YType.uint32, 'session-creation-started')),
-                                    ('control_policy_executing', YLeaf(YType.uint32, 'control-policy-executing')),
-                                    ('control_policy_executed', YLeaf(YType.uint32, 'control-policy-executed')),
-                                    ('session_features_applied', YLeaf(YType.uint32, 'session-features-applied')),
-                                    ('vrf_configured', YLeaf(YType.uint32, 'vrf-configured')),
-                                    ('adding_adjacency', YLeaf(YType.uint32, 'adding-adjacency')),
-                                    ('adjacency_added', YLeaf(YType.uint32, 'adjacency-added')),
-                                    ('up', YLeaf(YType.uint32, 'up')),
-                                    ('down', YLeaf(YType.uint32, 'down')),
-                                    ('disconnecting', YLeaf(YType.uint32, 'disconnecting')),
-                                    ('disconnected', YLeaf(YType.uint32, 'disconnected')),
-                                    ('error', YLeaf(YType.uint32, 'error')),
-                                    ('total_interfaces', YLeaf(YType.uint32, 'total-interfaces')),
+                                    ('invalid', (YLeaf(YType.uint32, 'invalid'), ['int'])),
+                                    ('initialized', (YLeaf(YType.uint32, 'initialized'), ['int'])),
+                                    ('session_creation_started', (YLeaf(YType.uint32, 'session-creation-started'), ['int'])),
+                                    ('control_policy_executing', (YLeaf(YType.uint32, 'control-policy-executing'), ['int'])),
+                                    ('control_policy_executed', (YLeaf(YType.uint32, 'control-policy-executed'), ['int'])),
+                                    ('session_features_applied', (YLeaf(YType.uint32, 'session-features-applied'), ['int'])),
+                                    ('vrf_configured', (YLeaf(YType.uint32, 'vrf-configured'), ['int'])),
+                                    ('adding_adjacency', (YLeaf(YType.uint32, 'adding-adjacency'), ['int'])),
+                                    ('adjacency_added', (YLeaf(YType.uint32, 'adjacency-added'), ['int'])),
+                                    ('up', (YLeaf(YType.uint32, 'up'), ['int'])),
+                                    ('down', (YLeaf(YType.uint32, 'down'), ['int'])),
+                                    ('disconnecting', (YLeaf(YType.uint32, 'disconnecting'), ['int'])),
+                                    ('disconnected', (YLeaf(YType.uint32, 'disconnected'), ['int'])),
+                                    ('error', (YLeaf(YType.uint32, 'error'), ['int'])),
+                                    ('total_interfaces', (YLeaf(YType.uint32, 'total-interfaces'), ['int'])),
                                 ])
                                 self.invalid = None
                                 self.initialized = None
@@ -1352,6 +1369,7 @@ class IpSubscriber(Entity):
                                 self.error = None
                                 self.total_interfaces = None
                                 self._segment_path = lambda: "dhcp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.Dhcp, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
@@ -1483,21 +1501,21 @@ class IpSubscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('invalid', YLeaf(YType.uint32, 'invalid')),
-                                    ('initialized', YLeaf(YType.uint32, 'initialized')),
-                                    ('session_creation_started', YLeaf(YType.uint32, 'session-creation-started')),
-                                    ('control_policy_executing', YLeaf(YType.uint32, 'control-policy-executing')),
-                                    ('control_policy_executed', YLeaf(YType.uint32, 'control-policy-executed')),
-                                    ('session_features_applied', YLeaf(YType.uint32, 'session-features-applied')),
-                                    ('vrf_configured', YLeaf(YType.uint32, 'vrf-configured')),
-                                    ('adding_adjacency', YLeaf(YType.uint32, 'adding-adjacency')),
-                                    ('adjacency_added', YLeaf(YType.uint32, 'adjacency-added')),
-                                    ('up', YLeaf(YType.uint32, 'up')),
-                                    ('down', YLeaf(YType.uint32, 'down')),
-                                    ('disconnecting', YLeaf(YType.uint32, 'disconnecting')),
-                                    ('disconnected', YLeaf(YType.uint32, 'disconnected')),
-                                    ('error', YLeaf(YType.uint32, 'error')),
-                                    ('total_interfaces', YLeaf(YType.uint32, 'total-interfaces')),
+                                    ('invalid', (YLeaf(YType.uint32, 'invalid'), ['int'])),
+                                    ('initialized', (YLeaf(YType.uint32, 'initialized'), ['int'])),
+                                    ('session_creation_started', (YLeaf(YType.uint32, 'session-creation-started'), ['int'])),
+                                    ('control_policy_executing', (YLeaf(YType.uint32, 'control-policy-executing'), ['int'])),
+                                    ('control_policy_executed', (YLeaf(YType.uint32, 'control-policy-executed'), ['int'])),
+                                    ('session_features_applied', (YLeaf(YType.uint32, 'session-features-applied'), ['int'])),
+                                    ('vrf_configured', (YLeaf(YType.uint32, 'vrf-configured'), ['int'])),
+                                    ('adding_adjacency', (YLeaf(YType.uint32, 'adding-adjacency'), ['int'])),
+                                    ('adjacency_added', (YLeaf(YType.uint32, 'adjacency-added'), ['int'])),
+                                    ('up', (YLeaf(YType.uint32, 'up'), ['int'])),
+                                    ('down', (YLeaf(YType.uint32, 'down'), ['int'])),
+                                    ('disconnecting', (YLeaf(YType.uint32, 'disconnecting'), ['int'])),
+                                    ('disconnected', (YLeaf(YType.uint32, 'disconnected'), ['int'])),
+                                    ('error', (YLeaf(YType.uint32, 'error'), ['int'])),
+                                    ('total_interfaces', (YLeaf(YType.uint32, 'total-interfaces'), ['int'])),
                                 ])
                                 self.invalid = None
                                 self.initialized = None
@@ -1515,6 +1533,7 @@ class IpSubscriber(Entity):
                                 self.error = None
                                 self.total_interfaces = None
                                 self._segment_path = lambda: "packet-trigger"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.Summary.InterfaceCounts.Ipv6Initiators.PacketTrigger, [u'invalid', u'initialized', u'session_creation_started', u'control_policy_executing', u'control_policy_executed', u'session_features_applied', u'vrf_configured', u'adding_adjacency', u'adjacency_added', u'up', u'down', u'disconnecting', u'disconnected', u'error', u'total_interfaces'], name, value)
@@ -1565,16 +1584,17 @@ class IpSubscriber(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                            ('ipv6vrf_name', YLeaf(YType.str, 'ipv6vrf-name')),
-                            ('interfaces', YLeaf(YType.uint64, 'interfaces')),
-                            ('ipv6_interfaces', YLeaf(YType.uint64, 'ipv6-interfaces')),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                            ('ipv6vrf_name', (YLeaf(YType.str, 'ipv6vrf-name'), ['str'])),
+                            ('interfaces', (YLeaf(YType.uint64, 'interfaces'), ['int'])),
+                            ('ipv6_interfaces', (YLeaf(YType.uint64, 'ipv6-interfaces'), ['int'])),
                         ])
                         self.vrf_name = None
                         self.ipv6vrf_name = None
                         self.interfaces = None
                         self.ipv6_interfaces = None
                         self._segment_path = lambda: "vrf"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpSubscriber.Nodes.Node.Summary.Vrf, [u'vrf_name', u'ipv6vrf_name', u'interfaces', u'ipv6_interfaces'], name, value)
@@ -1609,6 +1629,7 @@ class IpSubscriber(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces, [], name, value)
@@ -1623,7 +1644,7 @@ class IpSubscriber(Entity):
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: vrf
                     
@@ -1640,7 +1661,7 @@ class IpSubscriber(Entity):
                     	Access interface through which this subscriber is accessible
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: subscriber_ipv4_address
                     
@@ -1755,26 +1776,26 @@ class IpSubscriber(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("vrf", ("vrf", IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf)), ("ipv6vrf", ("ipv6vrf", IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('access_interface', YLeaf(YType.str, 'access-interface')),
-                            ('subscriber_ipv4_address', YLeaf(YType.str, 'subscriber-ipv4-address')),
-                            ('subscriber_ipv6_address', YLeaf(YType.str, 'subscriber-ipv6-address')),
-                            ('subscriber_mac_addres', YLeaf(YType.str, 'subscriber-mac-addres')),
-                            ('subscriber_label', YLeaf(YType.uint32, 'subscriber-label')),
-                            ('interface_creation_time', YLeaf(YType.str, 'interface-creation-time')),
-                            ('age', YLeaf(YType.str, 'age')),
-                            ('initiator', YLeaf(YType.enumeration, 'initiator')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('old_state', YLeaf(YType.enumeration, 'old-state')),
-                            ('last_state_change_time', YLeaf(YType.str, 'last-state-change-time')),
-                            ('current_change_age', YLeaf(YType.str, 'current-change-age')),
-                            ('ipv6_initiator', YLeaf(YType.enumeration, 'ipv6-initiator')),
-                            ('ipv6_state', YLeaf(YType.enumeration, 'ipv6-state')),
-                            ('ipv6_old_state', YLeaf(YType.enumeration, 'ipv6-old-state')),
-                            ('ipv6_last_state_change_time', YLeaf(YType.str, 'ipv6-last-state-change-time')),
-                            ('ipv6_current_change_age', YLeaf(YType.str, 'ipv6-current-change-age')),
-                            ('is_l2_connected', YLeaf(YType.boolean, 'is-l2-connected')),
-                            ('session_type', YLeaf(YType.str, 'session-type')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('access_interface', (YLeaf(YType.str, 'access-interface'), ['str'])),
+                            ('subscriber_ipv4_address', (YLeaf(YType.str, 'subscriber-ipv4-address'), ['str'])),
+                            ('subscriber_ipv6_address', (YLeaf(YType.str, 'subscriber-ipv6-address'), ['str'])),
+                            ('subscriber_mac_addres', (YLeaf(YType.str, 'subscriber-mac-addres'), ['str'])),
+                            ('subscriber_label', (YLeaf(YType.uint32, 'subscriber-label'), ['int'])),
+                            ('interface_creation_time', (YLeaf(YType.str, 'interface-creation-time'), ['str'])),
+                            ('age', (YLeaf(YType.str, 'age'), ['str'])),
+                            ('initiator', (YLeaf(YType.enumeration, 'initiator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper', 'IpsubMaIntfInitiatorData', '')])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper', 'IpsubMaIntfStateData', '')])),
+                            ('old_state', (YLeaf(YType.enumeration, 'old-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper', 'IpsubMaIntfStateData', '')])),
+                            ('last_state_change_time', (YLeaf(YType.str, 'last-state-change-time'), ['str'])),
+                            ('current_change_age', (YLeaf(YType.str, 'current-change-age'), ['str'])),
+                            ('ipv6_initiator', (YLeaf(YType.enumeration, 'ipv6-initiator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper', 'IpsubMaIntfInitiatorData', '')])),
+                            ('ipv6_state', (YLeaf(YType.enumeration, 'ipv6-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper', 'IpsubMaIntfStateData', '')])),
+                            ('ipv6_old_state', (YLeaf(YType.enumeration, 'ipv6-old-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper', 'IpsubMaIntfStateData', '')])),
+                            ('ipv6_last_state_change_time', (YLeaf(YType.str, 'ipv6-last-state-change-time'), ['str'])),
+                            ('ipv6_current_change_age', (YLeaf(YType.str, 'ipv6-current-change-age'), ['str'])),
+                            ('is_l2_connected', (YLeaf(YType.boolean, 'is-l2-connected'), ['bool'])),
+                            ('session_type', (YLeaf(YType.str, 'session-type'), ['str'])),
                         ])
                         self.interface_name = None
                         self.access_interface = None
@@ -1805,6 +1826,7 @@ class IpSubscriber(Entity):
                         self.ipv6vrf.parent = self
                         self._children_name_map["ipv6vrf"] = "ipv6vrf"
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface, ['interface_name', u'access_interface', u'subscriber_ipv4_address', u'subscriber_ipv6_address', u'subscriber_mac_addres', u'subscriber_label', u'interface_creation_time', u'age', u'initiator', u'state', u'old_state', u'last_state_change_time', u'current_change_age', u'ipv6_initiator', u'ipv6_state', u'ipv6_old_state', u'ipv6_last_state_change_time', u'ipv6_current_change_age', u'is_l2_connected', u'session_type'], name, value)
@@ -1841,12 +1863,13 @@ class IpSubscriber(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                ('table_name', YLeaf(YType.str, 'table-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                ('table_name', (YLeaf(YType.str, 'table-name'), ['str'])),
                             ])
                             self.vrf_name = None
                             self.table_name = None
                             self._segment_path = lambda: "vrf"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Vrf, [u'vrf_name', u'table_name'], name, value)
@@ -1883,12 +1906,13 @@ class IpSubscriber(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                ('table_name', YLeaf(YType.str, 'table-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                ('table_name', (YLeaf(YType.str, 'table-name'), ['str'])),
                             ])
                             self.vrf_name = None
                             self.table_name = None
                             self._segment_path = lambda: "ipv6vrf"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpSubscriber.Nodes.Node.Interfaces.Interface.Ipv6vrf, [u'vrf_name', u'table_name'], name, value)
@@ -1923,6 +1947,7 @@ class IpSubscriber(Entity):
 
                     self.access_interface = YList(self)
                     self._segment_path = lambda: "access-interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces, [], name, value)
@@ -1937,7 +1962,7 @@ class IpSubscriber(Entity):
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: initiators
                     
@@ -2001,13 +2026,13 @@ class IpSubscriber(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("initiators", ("initiators", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators)), ("ipv6-initiators", ("ipv6_initiators", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators)), ("session-limit", ("session_limit", IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('interface_creation_time', YLeaf(YType.str, 'interface-creation-time')),
-                            ('age', YLeaf(YType.str, 'age')),
-                            ('interface_type', YLeaf(YType.str, 'interface-type')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('ipv6_state', YLeaf(YType.enumeration, 'ipv6-state')),
-                            ('vlan_type', YLeaf(YType.enumeration, 'vlan-type')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('interface_creation_time', (YLeaf(YType.str, 'interface-creation-time'), ['str'])),
+                            ('age', (YLeaf(YType.str, 'age'), ['str'])),
+                            ('interface_type', (YLeaf(YType.str, 'interface-type'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper', 'IpsubMaParentIntfStateData', '')])),
+                            ('ipv6_state', (YLeaf(YType.enumeration, 'ipv6-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper', 'IpsubMaParentIntfStateData', '')])),
+                            ('vlan_type', (YLeaf(YType.enumeration, 'vlan-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_ipsub_oper', 'IpsubMaParentIntfVlan', '')])),
                         ])
                         self.interface_name = None
                         self.interface_creation_time = None
@@ -2029,6 +2054,7 @@ class IpSubscriber(Entity):
                         self.session_limit.parent = self
                         self._children_name_map["session_limit"] = "session-limit"
                         self._segment_path = lambda: "access-interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface, ['interface_name', u'interface_creation_time', u'age', u'interface_type', u'state', u'ipv6_state', u'vlan_type'], name, value)
@@ -2076,6 +2102,7 @@ class IpSubscriber(Entity):
                             self.packet_trigger.parent = self
                             self._children_name_map["packet_trigger"] = "packet-trigger"
                             self._segment_path = lambda: "initiators"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators, [], name, value)
@@ -2172,16 +2199,16 @@ class IpSubscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_configured', YLeaf(YType.boolean, 'is-configured')),
-                                    ('unique_ip_check', YLeaf(YType.boolean, 'unique-ip-check')),
-                                    ('sessions', YLeaf(YType.uint32, 'sessions')),
-                                    ('fsol_packets', YLeaf(YType.uint32, 'fsol-packets')),
-                                    ('fsol_bytes', YLeaf(YType.uint32, 'fsol-bytes')),
-                                    ('fsol_dropped_packets', YLeaf(YType.uint32, 'fsol-dropped-packets')),
-                                    ('fsol_dropped_bytes', YLeaf(YType.uint32, 'fsol-dropped-bytes')),
-                                    ('fsol_dropped_packets_flow', YLeaf(YType.uint32, 'fsol-dropped-packets-flow')),
-                                    ('fsol_dropped_packets_session_limit', YLeaf(YType.uint32, 'fsol-dropped-packets-session-limit')),
-                                    ('fsol_dropped_packets_dup_addr', YLeaf(YType.uint32, 'fsol-dropped-packets-dup-addr')),
+                                    ('is_configured', (YLeaf(YType.boolean, 'is-configured'), ['bool'])),
+                                    ('unique_ip_check', (YLeaf(YType.boolean, 'unique-ip-check'), ['bool'])),
+                                    ('sessions', (YLeaf(YType.uint32, 'sessions'), ['int'])),
+                                    ('fsol_packets', (YLeaf(YType.uint32, 'fsol-packets'), ['int'])),
+                                    ('fsol_bytes', (YLeaf(YType.uint32, 'fsol-bytes'), ['int'])),
+                                    ('fsol_dropped_packets', (YLeaf(YType.uint32, 'fsol-dropped-packets'), ['int'])),
+                                    ('fsol_dropped_bytes', (YLeaf(YType.uint32, 'fsol-dropped-bytes'), ['int'])),
+                                    ('fsol_dropped_packets_flow', (YLeaf(YType.uint32, 'fsol-dropped-packets-flow'), ['int'])),
+                                    ('fsol_dropped_packets_session_limit', (YLeaf(YType.uint32, 'fsol-dropped-packets-session-limit'), ['int'])),
+                                    ('fsol_dropped_packets_dup_addr', (YLeaf(YType.uint32, 'fsol-dropped-packets-dup-addr'), ['int'])),
                                 ])
                                 self.is_configured = None
                                 self.unique_ip_check = None
@@ -2194,6 +2221,7 @@ class IpSubscriber(Entity):
                                 self.fsol_dropped_packets_session_limit = None
                                 self.fsol_dropped_packets_dup_addr = None
                                 self._segment_path = lambda: "dhcp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.Dhcp, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
@@ -2290,16 +2318,16 @@ class IpSubscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_configured', YLeaf(YType.boolean, 'is-configured')),
-                                    ('unique_ip_check', YLeaf(YType.boolean, 'unique-ip-check')),
-                                    ('sessions', YLeaf(YType.uint32, 'sessions')),
-                                    ('fsol_packets', YLeaf(YType.uint32, 'fsol-packets')),
-                                    ('fsol_bytes', YLeaf(YType.uint32, 'fsol-bytes')),
-                                    ('fsol_dropped_packets', YLeaf(YType.uint32, 'fsol-dropped-packets')),
-                                    ('fsol_dropped_bytes', YLeaf(YType.uint32, 'fsol-dropped-bytes')),
-                                    ('fsol_dropped_packets_flow', YLeaf(YType.uint32, 'fsol-dropped-packets-flow')),
-                                    ('fsol_dropped_packets_session_limit', YLeaf(YType.uint32, 'fsol-dropped-packets-session-limit')),
-                                    ('fsol_dropped_packets_dup_addr', YLeaf(YType.uint32, 'fsol-dropped-packets-dup-addr')),
+                                    ('is_configured', (YLeaf(YType.boolean, 'is-configured'), ['bool'])),
+                                    ('unique_ip_check', (YLeaf(YType.boolean, 'unique-ip-check'), ['bool'])),
+                                    ('sessions', (YLeaf(YType.uint32, 'sessions'), ['int'])),
+                                    ('fsol_packets', (YLeaf(YType.uint32, 'fsol-packets'), ['int'])),
+                                    ('fsol_bytes', (YLeaf(YType.uint32, 'fsol-bytes'), ['int'])),
+                                    ('fsol_dropped_packets', (YLeaf(YType.uint32, 'fsol-dropped-packets'), ['int'])),
+                                    ('fsol_dropped_bytes', (YLeaf(YType.uint32, 'fsol-dropped-bytes'), ['int'])),
+                                    ('fsol_dropped_packets_flow', (YLeaf(YType.uint32, 'fsol-dropped-packets-flow'), ['int'])),
+                                    ('fsol_dropped_packets_session_limit', (YLeaf(YType.uint32, 'fsol-dropped-packets-session-limit'), ['int'])),
+                                    ('fsol_dropped_packets_dup_addr', (YLeaf(YType.uint32, 'fsol-dropped-packets-dup-addr'), ['int'])),
                                 ])
                                 self.is_configured = None
                                 self.unique_ip_check = None
@@ -2312,6 +2340,7 @@ class IpSubscriber(Entity):
                                 self.fsol_dropped_packets_session_limit = None
                                 self.fsol_dropped_packets_dup_addr = None
                                 self._segment_path = lambda: "packet-trigger"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Initiators.PacketTrigger, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
@@ -2359,6 +2388,7 @@ class IpSubscriber(Entity):
                             self.packet_trigger.parent = self
                             self._children_name_map["packet_trigger"] = "packet-trigger"
                             self._segment_path = lambda: "ipv6-initiators"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators, [], name, value)
@@ -2455,16 +2485,16 @@ class IpSubscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_configured', YLeaf(YType.boolean, 'is-configured')),
-                                    ('unique_ip_check', YLeaf(YType.boolean, 'unique-ip-check')),
-                                    ('sessions', YLeaf(YType.uint32, 'sessions')),
-                                    ('fsol_packets', YLeaf(YType.uint32, 'fsol-packets')),
-                                    ('fsol_bytes', YLeaf(YType.uint32, 'fsol-bytes')),
-                                    ('fsol_dropped_packets', YLeaf(YType.uint32, 'fsol-dropped-packets')),
-                                    ('fsol_dropped_bytes', YLeaf(YType.uint32, 'fsol-dropped-bytes')),
-                                    ('fsol_dropped_packets_flow', YLeaf(YType.uint32, 'fsol-dropped-packets-flow')),
-                                    ('fsol_dropped_packets_session_limit', YLeaf(YType.uint32, 'fsol-dropped-packets-session-limit')),
-                                    ('fsol_dropped_packets_dup_addr', YLeaf(YType.uint32, 'fsol-dropped-packets-dup-addr')),
+                                    ('is_configured', (YLeaf(YType.boolean, 'is-configured'), ['bool'])),
+                                    ('unique_ip_check', (YLeaf(YType.boolean, 'unique-ip-check'), ['bool'])),
+                                    ('sessions', (YLeaf(YType.uint32, 'sessions'), ['int'])),
+                                    ('fsol_packets', (YLeaf(YType.uint32, 'fsol-packets'), ['int'])),
+                                    ('fsol_bytes', (YLeaf(YType.uint32, 'fsol-bytes'), ['int'])),
+                                    ('fsol_dropped_packets', (YLeaf(YType.uint32, 'fsol-dropped-packets'), ['int'])),
+                                    ('fsol_dropped_bytes', (YLeaf(YType.uint32, 'fsol-dropped-bytes'), ['int'])),
+                                    ('fsol_dropped_packets_flow', (YLeaf(YType.uint32, 'fsol-dropped-packets-flow'), ['int'])),
+                                    ('fsol_dropped_packets_session_limit', (YLeaf(YType.uint32, 'fsol-dropped-packets-session-limit'), ['int'])),
+                                    ('fsol_dropped_packets_dup_addr', (YLeaf(YType.uint32, 'fsol-dropped-packets-dup-addr'), ['int'])),
                                 ])
                                 self.is_configured = None
                                 self.unique_ip_check = None
@@ -2477,6 +2507,7 @@ class IpSubscriber(Entity):
                                 self.fsol_dropped_packets_session_limit = None
                                 self.fsol_dropped_packets_dup_addr = None
                                 self._segment_path = lambda: "dhcp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.Dhcp, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
@@ -2573,16 +2604,16 @@ class IpSubscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('is_configured', YLeaf(YType.boolean, 'is-configured')),
-                                    ('unique_ip_check', YLeaf(YType.boolean, 'unique-ip-check')),
-                                    ('sessions', YLeaf(YType.uint32, 'sessions')),
-                                    ('fsol_packets', YLeaf(YType.uint32, 'fsol-packets')),
-                                    ('fsol_bytes', YLeaf(YType.uint32, 'fsol-bytes')),
-                                    ('fsol_dropped_packets', YLeaf(YType.uint32, 'fsol-dropped-packets')),
-                                    ('fsol_dropped_bytes', YLeaf(YType.uint32, 'fsol-dropped-bytes')),
-                                    ('fsol_dropped_packets_flow', YLeaf(YType.uint32, 'fsol-dropped-packets-flow')),
-                                    ('fsol_dropped_packets_session_limit', YLeaf(YType.uint32, 'fsol-dropped-packets-session-limit')),
-                                    ('fsol_dropped_packets_dup_addr', YLeaf(YType.uint32, 'fsol-dropped-packets-dup-addr')),
+                                    ('is_configured', (YLeaf(YType.boolean, 'is-configured'), ['bool'])),
+                                    ('unique_ip_check', (YLeaf(YType.boolean, 'unique-ip-check'), ['bool'])),
+                                    ('sessions', (YLeaf(YType.uint32, 'sessions'), ['int'])),
+                                    ('fsol_packets', (YLeaf(YType.uint32, 'fsol-packets'), ['int'])),
+                                    ('fsol_bytes', (YLeaf(YType.uint32, 'fsol-bytes'), ['int'])),
+                                    ('fsol_dropped_packets', (YLeaf(YType.uint32, 'fsol-dropped-packets'), ['int'])),
+                                    ('fsol_dropped_bytes', (YLeaf(YType.uint32, 'fsol-dropped-bytes'), ['int'])),
+                                    ('fsol_dropped_packets_flow', (YLeaf(YType.uint32, 'fsol-dropped-packets-flow'), ['int'])),
+                                    ('fsol_dropped_packets_session_limit', (YLeaf(YType.uint32, 'fsol-dropped-packets-session-limit'), ['int'])),
+                                    ('fsol_dropped_packets_dup_addr', (YLeaf(YType.uint32, 'fsol-dropped-packets-dup-addr'), ['int'])),
                                 ])
                                 self.is_configured = None
                                 self.unique_ip_check = None
@@ -2595,6 +2626,7 @@ class IpSubscriber(Entity):
                                 self.fsol_dropped_packets_session_limit = None
                                 self.fsol_dropped_packets_dup_addr = None
                                 self._segment_path = lambda: "packet-trigger"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.Ipv6Initiators.PacketTrigger, [u'is_configured', u'unique_ip_check', u'sessions', u'fsol_packets', u'fsol_bytes', u'fsol_dropped_packets', u'fsol_dropped_bytes', u'fsol_dropped_packets_flow', u'fsol_dropped_packets_session_limit', u'fsol_dropped_packets_dup_addr'], name, value)
@@ -2641,6 +2673,7 @@ class IpSubscriber(Entity):
                             self.total.parent = self
                             self._children_name_map["total"] = "total"
                             self._segment_path = lambda: "session-limit"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit, [], name, value)
@@ -2674,10 +2707,11 @@ class IpSubscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('per_vlan', YLeaf(YType.uint32, 'per-vlan')),
+                                    ('per_vlan', (YLeaf(YType.uint32, 'per-vlan'), ['int'])),
                                 ])
                                 self.per_vlan = None
                                 self._segment_path = lambda: "unclassified-source"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.UnclassifiedSource, [u'per_vlan'], name, value)
@@ -2711,10 +2745,11 @@ class IpSubscriber(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('per_vlan', YLeaf(YType.uint32, 'per-vlan')),
+                                    ('per_vlan', (YLeaf(YType.uint32, 'per-vlan'), ['int'])),
                                 ])
                                 self.per_vlan = None
                                 self._segment_path = lambda: "total"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(IpSubscriber.Nodes.Node.AccessInterfaces.AccessInterface.SessionLimit.Total, [u'per_vlan'], name, value)

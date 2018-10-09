@@ -167,6 +167,16 @@ module Cisco-IOS-XE-dot1x {
         }
       }
     }
+    // dot1x logging 
+    container logging {
+      description
+        "Set logging parameters";
+      leaf verbose {
+        description
+          "Show verbose messages in system logs";
+        type empty;
+      }
+    }
     // dot1x supplicant
     container supplicant {
       description

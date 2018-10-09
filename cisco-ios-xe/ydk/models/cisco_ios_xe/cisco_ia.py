@@ -13,6 +13,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class CiaLogLevel(Enum):
     """
     CiaLogLevel (Enum Class)
@@ -228,7 +229,7 @@ class SyncFrom(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2018-01-22'
+    _revision = '2018-03-28'
 
     def __init__(self):
         super(SyncFrom, self).__init__()
@@ -250,6 +251,7 @@ class SyncFrom(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "cisco-ia:sync-from"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -271,7 +273,7 @@ class SyncFrom(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-01-22'
+        _revision = '2018-03-28'
 
         def __init__(self):
             super(SyncFrom.Input, self).__init__()
@@ -283,13 +285,14 @@ class SyncFrom(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('sync_defaults', YLeaf(YType.empty, 'sync-defaults')),
-                ('ignore_presrv_paths', YLeaf(YType.empty, 'ignore-presrv-paths')),
+                ('sync_defaults', (YLeaf(YType.empty, 'sync-defaults'), ['Empty'])),
+                ('ignore_presrv_paths', (YLeaf(YType.empty, 'ignore-presrv-paths'), ['Empty'])),
             ])
             self.sync_defaults = None
             self.ignore_presrv_paths = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "cisco-ia:sync-from/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SyncFrom.Input, ['sync_defaults', 'ignore_presrv_paths'], name, value)
@@ -309,7 +312,7 @@ class SyncFrom(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-01-22'
+        _revision = '2018-03-28'
 
         def __init__(self):
             super(SyncFrom.Output, self).__init__()
@@ -321,11 +324,12 @@ class SyncFrom(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-ia:sync-from/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SyncFrom.Output, ['result'], name, value)
@@ -350,7 +354,7 @@ class SaveConfig(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2018-01-22'
+    _revision = '2018-03-28'
 
     def __init__(self):
         super(SaveConfig, self).__init__()
@@ -368,6 +372,7 @@ class SaveConfig(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "cisco-ia:save-config"
+        self._is_frozen = True
 
 
     class Output(Entity):
@@ -384,7 +389,7 @@ class SaveConfig(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-01-22'
+        _revision = '2018-03-28'
 
         def __init__(self):
             super(SaveConfig.Output, self).__init__()
@@ -396,11 +401,12 @@ class SaveConfig(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-ia:save-config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SaveConfig.Output, ['result'], name, value)
@@ -425,7 +431,7 @@ class IsSyncing(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2018-01-22'
+    _revision = '2018-03-28'
 
     def __init__(self):
         super(IsSyncing, self).__init__()
@@ -443,6 +449,7 @@ class IsSyncing(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "cisco-ia:is-syncing"
+        self._is_frozen = True
 
 
     class Output(Entity):
@@ -459,7 +466,7 @@ class IsSyncing(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-01-22'
+        _revision = '2018-03-28'
 
         def __init__(self):
             super(IsSyncing.Output, self).__init__()
@@ -471,11 +478,12 @@ class IsSyncing(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-ia:is-syncing/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IsSyncing.Output, ['result'], name, value)
@@ -499,7 +507,7 @@ class Checkpoint(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2018-01-22'
+    _revision = '2018-03-28'
 
     def __init__(self):
         super(Checkpoint, self).__init__()
@@ -517,6 +525,7 @@ class Checkpoint(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "cisco-ia:checkpoint"
+        self._is_frozen = True
 
 
     class Output(Entity):
@@ -533,7 +542,7 @@ class Checkpoint(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-01-22'
+        _revision = '2018-03-28'
 
         def __init__(self):
             super(Checkpoint.Output, self).__init__()
@@ -545,11 +554,12 @@ class Checkpoint(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-ia:checkpoint/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Checkpoint.Output, ['result'], name, value)
@@ -579,7 +589,7 @@ class Revert(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2018-01-22'
+    _revision = '2018-03-28'
 
     def __init__(self):
         super(Revert, self).__init__()
@@ -601,6 +611,7 @@ class Revert(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "cisco-ia:revert"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -631,7 +642,7 @@ class Revert(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-01-22'
+        _revision = '2018-03-28'
 
         def __init__(self):
             super(Revert.Input, self).__init__()
@@ -643,15 +654,16 @@ class Revert(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('now', YLeaf(YType.empty, 'now')),
-                ('timer', YLeaf(YType.int16, 'timer')),
-                ('idle', YLeaf(YType.int16, 'idle')),
+                ('now', (YLeaf(YType.empty, 'now'), ['Empty'])),
+                ('timer', (YLeaf(YType.int16, 'timer'), ['int'])),
+                ('idle', (YLeaf(YType.int16, 'idle'), ['int'])),
             ])
             self.now = None
             self.timer = None
             self.idle = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "cisco-ia:revert/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Revert.Input, ['now', 'timer', 'idle'], name, value)
@@ -671,7 +683,7 @@ class Revert(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-01-22'
+        _revision = '2018-03-28'
 
         def __init__(self):
             super(Revert.Output, self).__init__()
@@ -683,11 +695,12 @@ class Revert(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-ia:revert/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Revert.Output, ['result'], name, value)
@@ -716,7 +729,7 @@ class Rollback(Entity):
     """
 
     _prefix = 'cisco-ia'
-    _revision = '2018-01-22'
+    _revision = '2018-03-28'
 
     def __init__(self):
         super(Rollback, self).__init__()
@@ -738,6 +751,7 @@ class Rollback(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "cisco-ia:rollback"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -782,7 +796,7 @@ class Rollback(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-01-22'
+        _revision = '2018-03-28'
 
         def __init__(self):
             super(Rollback.Input, self).__init__()
@@ -794,11 +808,11 @@ class Rollback(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('target_url', YLeaf(YType.str, 'target-url')),
-                ('verbose', YLeaf(YType.boolean, 'verbose')),
-                ('nolock', YLeaf(YType.boolean, 'nolock')),
-                ('revert_on_error', YLeaf(YType.empty, 'revert-on-error')),
-                ('revert_timer', YLeaf(YType.int16, 'revert-timer')),
+                ('target_url', (YLeaf(YType.str, 'target-url'), ['str'])),
+                ('verbose', (YLeaf(YType.boolean, 'verbose'), ['bool'])),
+                ('nolock', (YLeaf(YType.boolean, 'nolock'), ['bool'])),
+                ('revert_on_error', (YLeaf(YType.empty, 'revert-on-error'), ['Empty'])),
+                ('revert_timer', (YLeaf(YType.int16, 'revert-timer'), ['int'])),
             ])
             self.target_url = None
             self.verbose = None
@@ -807,6 +821,7 @@ class Rollback(Entity):
             self.revert_timer = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "cisco-ia:rollback/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Rollback.Input, ['target_url', 'verbose', 'nolock', 'revert_on_error', 'revert_timer'], name, value)
@@ -826,7 +841,7 @@ class Rollback(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-01-22'
+        _revision = '2018-03-28'
 
         def __init__(self):
             super(Rollback.Output, self).__init__()
@@ -838,11 +853,12 @@ class Rollback(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "cisco-ia:rollback/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Rollback.Output, ['result'], name, value)

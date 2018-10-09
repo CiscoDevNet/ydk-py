@@ -13,6 +13,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class SensorDataScale(Enum):
     """
     SensorDataScale (Enum Class)
@@ -371,6 +372,7 @@ class CISCOENTITYSENSORMIB(Entity):
         self.entsensorthresholdtable.parent = self
         self._children_name_map["entsensorthresholdtable"] = "entSensorThresholdTable"
         self._segment_path = lambda: "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOENTITYSENSORMIB, [], name, value)
@@ -402,11 +404,12 @@ class CISCOENTITYSENSORMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('entsensorthreshnotifglobalenable', YLeaf(YType.boolean, 'entSensorThreshNotifGlobalEnable')),
+                ('entsensorthreshnotifglobalenable', (YLeaf(YType.boolean, 'entSensorThreshNotifGlobalEnable'), ['bool'])),
             ])
             self.entsensorthreshnotifglobalenable = None
             self._segment_path = lambda: "entSensorGlobalObjects"
             self._absolute_path = lambda: "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorGlobalObjects, ['entsensorthreshnotifglobalenable'], name, value)
@@ -443,6 +446,7 @@ class CISCOENTITYSENSORMIB(Entity):
             self.entsensorvalueentry = YList(self)
             self._segment_path = lambda: "entSensorValueTable"
             self._absolute_path = lambda: "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorValueTable, [], name, value)
@@ -532,15 +536,15 @@ class CISCOENTITYSENSORMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('entsensortype', YLeaf(YType.enumeration, 'entSensorType')),
-                    ('entsensorscale', YLeaf(YType.enumeration, 'entSensorScale')),
-                    ('entsensorprecision', YLeaf(YType.int32, 'entSensorPrecision')),
-                    ('entsensorvalue', YLeaf(YType.int32, 'entSensorValue')),
-                    ('entsensorstatus', YLeaf(YType.enumeration, 'entSensorStatus')),
-                    ('entsensorvaluetimestamp', YLeaf(YType.uint32, 'entSensorValueTimeStamp')),
-                    ('entsensorvalueupdaterate', YLeaf(YType.int32, 'entSensorValueUpdateRate')),
-                    ('entsensormeasuredentity', YLeaf(YType.int32, 'entSensorMeasuredEntity')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('entsensortype', (YLeaf(YType.enumeration, 'entSensorType'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB', 'SensorDataType', '')])),
+                    ('entsensorscale', (YLeaf(YType.enumeration, 'entSensorScale'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB', 'SensorDataScale', '')])),
+                    ('entsensorprecision', (YLeaf(YType.int32, 'entSensorPrecision'), ['int'])),
+                    ('entsensorvalue', (YLeaf(YType.int32, 'entSensorValue'), ['int'])),
+                    ('entsensorstatus', (YLeaf(YType.enumeration, 'entSensorStatus'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB', 'SensorStatus', '')])),
+                    ('entsensorvaluetimestamp', (YLeaf(YType.uint32, 'entSensorValueTimeStamp'), ['int'])),
+                    ('entsensorvalueupdaterate', (YLeaf(YType.int32, 'entSensorValueUpdateRate'), ['int'])),
+                    ('entsensormeasuredentity', (YLeaf(YType.int32, 'entSensorMeasuredEntity'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.entsensortype = None
@@ -553,6 +557,7 @@ class CISCOENTITYSENSORMIB(Entity):
                 self.entsensormeasuredentity = None
                 self._segment_path = lambda: "entSensorValueEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB/entSensorValueTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorValueTable.EntSensorValueEntry, ['entphysicalindex', 'entsensortype', 'entsensorscale', 'entsensorprecision', 'entsensorvalue', 'entsensorstatus', 'entsensorvaluetimestamp', 'entsensorvalueupdaterate', 'entsensormeasuredentity'], name, value)
@@ -590,6 +595,7 @@ class CISCOENTITYSENSORMIB(Entity):
             self.entsensorthresholdentry = YList(self)
             self._segment_path = lambda: "entSensorThresholdTable"
             self._absolute_path = lambda: "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorThresholdTable, [], name, value)
@@ -672,13 +678,13 @@ class CISCOENTITYSENSORMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','entsensorthresholdindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('entsensorthresholdindex', YLeaf(YType.int32, 'entSensorThresholdIndex')),
-                    ('entsensorthresholdseverity', YLeaf(YType.enumeration, 'entSensorThresholdSeverity')),
-                    ('entsensorthresholdrelation', YLeaf(YType.enumeration, 'entSensorThresholdRelation')),
-                    ('entsensorthresholdvalue', YLeaf(YType.int32, 'entSensorThresholdValue')),
-                    ('entsensorthresholdevaluation', YLeaf(YType.boolean, 'entSensorThresholdEvaluation')),
-                    ('entsensorthresholdnotificationenable', YLeaf(YType.boolean, 'entSensorThresholdNotificationEnable')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('entsensorthresholdindex', (YLeaf(YType.int32, 'entSensorThresholdIndex'), ['int'])),
+                    ('entsensorthresholdseverity', (YLeaf(YType.enumeration, 'entSensorThresholdSeverity'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB', 'SensorThresholdSeverity', '')])),
+                    ('entsensorthresholdrelation', (YLeaf(YType.enumeration, 'entSensorThresholdRelation'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_SENSOR_MIB', 'SensorThresholdRelation', '')])),
+                    ('entsensorthresholdvalue', (YLeaf(YType.int32, 'entSensorThresholdValue'), ['int'])),
+                    ('entsensorthresholdevaluation', (YLeaf(YType.boolean, 'entSensorThresholdEvaluation'), ['bool'])),
+                    ('entsensorthresholdnotificationenable', (YLeaf(YType.boolean, 'entSensorThresholdNotificationEnable'), ['bool'])),
                 ])
                 self.entphysicalindex = None
                 self.entsensorthresholdindex = None
@@ -689,6 +695,7 @@ class CISCOENTITYSENSORMIB(Entity):
                 self.entsensorthresholdnotificationenable = None
                 self._segment_path = lambda: "entSensorThresholdEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[entSensorThresholdIndex='" + str(self.entsensorthresholdindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-SENSOR-MIB:CISCO-ENTITY-SENSOR-MIB/entSensorThresholdTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYSENSORMIB.EntSensorThresholdTable.EntSensorThresholdEntry, ['entphysicalindex', 'entsensorthresholdindex', 'entsensorthresholdseverity', 'entsensorthresholdrelation', 'entsensorthresholdvalue', 'entsensorthresholdevaluation', 'entsensorthresholdnotificationenable'], name, value)

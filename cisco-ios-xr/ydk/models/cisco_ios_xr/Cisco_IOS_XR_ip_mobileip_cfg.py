@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   mobile\-ip\: MobileIP configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class EncapOpt(Enum):
@@ -287,6 +288,7 @@ class MobileIp(Entity):
         self.lmas.parent = self
         self._children_name_map["lmas"] = "lmas"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MobileIp, [], name, value)
@@ -322,6 +324,7 @@ class MobileIp(Entity):
             self.domain = YList(self)
             self._segment_path = lambda: "domains"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MobileIp.Domains, [], name, value)
@@ -380,8 +383,8 @@ class MobileIp(Entity):
                 self.ylist_key_names = ['domain_name']
                 self._child_classes = OrderedDict([("mags", ("mags", MobileIp.Domains.Domain.Mags)), ("nais", ("nais", MobileIp.Domains.Domain.Nais)), ("authenticate-option", ("authenticate_option", MobileIp.Domains.Domain.AuthenticateOption)), ("lmas", ("lmas", MobileIp.Domains.Domain.Lmas))])
                 self._leafs = OrderedDict([
-                    ('domain_name', YLeaf(YType.str, 'domain-name')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.domain_name = None
                 self.enable = None
@@ -403,6 +406,7 @@ class MobileIp(Entity):
                 self._children_name_map["lmas"] = "lmas"
                 self._segment_path = lambda: "domain" + "[domain-name='" + str(self.domain_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/domains/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MobileIp.Domains.Domain, ['domain_name', 'enable'], name, value)
@@ -437,6 +441,7 @@ class MobileIp(Entity):
 
                     self.mag = YList(self)
                     self._segment_path = lambda: "mags"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Domains.Domain.Mags, [], name, value)
@@ -470,10 +475,11 @@ class MobileIp(Entity):
                         self.ylist_key_names = ['mag_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('mag_name', YLeaf(YType.str, 'mag-name')),
+                            ('mag_name', (YLeaf(YType.str, 'mag-name'), ['str'])),
                         ])
                         self.mag_name = None
                         self._segment_path = lambda: "mag" + "[mag-name='" + str(self.mag_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Domains.Domain.Mags.Mag, ['mag_name'], name, value)
@@ -508,6 +514,7 @@ class MobileIp(Entity):
 
                     self.nai = YList(self)
                     self._segment_path = lambda: "nais"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Domains.Domain.Nais, [], name, value)
@@ -574,12 +581,12 @@ class MobileIp(Entity):
                         self.ylist_key_names = ['nai_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('nai_name', YLeaf(YType.str, 'nai-name')),
-                            ('lma', YLeaf(YType.str, 'lma')),
-                            ('apn', YLeaf(YType.str, 'apn')),
-                            ('customer', YLeaf(YType.str, 'customer')),
-                            ('service', YLeaf(YType.enumeration, 'service')),
-                            ('network', YLeaf(YType.str, 'network')),
+                            ('nai_name', (YLeaf(YType.str, 'nai-name'), ['str'])),
+                            ('lma', (YLeaf(YType.str, 'lma'), ['str'])),
+                            ('apn', (YLeaf(YType.str, 'apn'), ['str'])),
+                            ('customer', (YLeaf(YType.str, 'customer'), ['str'])),
+                            ('service', (YLeaf(YType.enumeration, 'service'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg', 'ServiceType', '')])),
+                            ('network', (YLeaf(YType.str, 'network'), ['str'])),
                         ])
                         self.nai_name = None
                         self.lma = None
@@ -588,6 +595,7 @@ class MobileIp(Entity):
                         self.service = None
                         self.network = None
                         self._segment_path = lambda: "nai" + "[nai-name='" + str(self.nai_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Domains.Domain.Nais.Nai, ['nai_name', 'lma', 'apn', 'customer', 'service', 'network'], name, value)
@@ -628,12 +636,13 @@ class MobileIp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('spi', YLeaf(YType.str, 'spi')),
-                        ('key', YLeaf(YType.str, 'key')),
+                        ('spi', (YLeaf(YType.str, 'spi'), ['str'])),
+                        ('key', (YLeaf(YType.str, 'key'), ['str'])),
                     ])
                     self.spi = None
                     self.key = None
                     self._segment_path = lambda: "authenticate-option"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Domains.Domain.AuthenticateOption, ['spi', 'key'], name, value)
@@ -668,6 +677,7 @@ class MobileIp(Entity):
 
                     self.lma = YList(self)
                     self._segment_path = lambda: "lmas"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Domains.Domain.Lmas, [], name, value)
@@ -701,10 +711,11 @@ class MobileIp(Entity):
                         self.ylist_key_names = ['lma_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('lma_name', YLeaf(YType.str, 'lma-name')),
+                            ('lma_name', (YLeaf(YType.str, 'lma-name'), ['str'])),
                         ])
                         self.lma_name = None
                         self._segment_path = lambda: "lma" + "[lma-name='" + str(self.lma_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Domains.Domain.Lmas.Lma, ['lma_name'], name, value)
@@ -740,6 +751,7 @@ class MobileIp(Entity):
             self.lma = YList(self)
             self._segment_path = lambda: "lmas"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MobileIp.Lmas, [], name, value)
@@ -887,7 +899,7 @@ class MobileIp(Entity):
             	CN facing interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: mobile_map
             
@@ -918,18 +930,18 @@ class MobileIp(Entity):
                 self.ylist_key_names = ['lma_name','domain_name']
                 self._child_classes = OrderedDict([("binding-revocation-attributes", ("binding_revocation_attributes", MobileIp.Lmas.Lma.BindingRevocationAttributes)), ("rat-attributes", ("rat_attributes", MobileIp.Lmas.Lma.RatAttributes)), ("heart-beat-attributes", ("heart_beat_attributes", MobileIp.Lmas.Lma.HeartBeatAttributes)), ("lmaipv6-addresses", ("lmaipv6_addresses", MobileIp.Lmas.Lma.Lmaipv6Addresses)), ("hnp", ("hnp", MobileIp.Lmas.Lma.Hnp)), ("redistribute", ("redistribute", MobileIp.Lmas.Lma.Redistribute)), ("aaa", ("aaa", MobileIp.Lmas.Lma.Aaa)), ("dscp", ("dscp", MobileIp.Lmas.Lma.Dscp)), ("lmaipv4-addresses", ("lmaipv4_addresses", MobileIp.Lmas.Lma.Lmaipv4Addresses)), ("roles", ("roles", MobileIp.Lmas.Lma.Roles)), ("binding-attributes", ("binding_attributes", MobileIp.Lmas.Lma.BindingAttributes)), ("mags", ("mags", MobileIp.Lmas.Lma.Mags)), ("tunnel-attributes", ("tunnel_attributes", MobileIp.Lmas.Lma.TunnelAttributes)), ("services", ("services", MobileIp.Lmas.Lma.Services)), ("networks", ("networks", MobileIp.Lmas.Lma.Networks)), ("replay-protection", ("replay_protection", MobileIp.Lmas.Lma.ReplayProtection))])
                 self._leafs = OrderedDict([
-                    ('lma_name', YLeaf(YType.str, 'lma-name')),
-                    ('domain_name', YLeaf(YType.str, 'domain-name')),
-                    ('generate', YLeaf(YType.empty, 'generate')),
-                    ('mobile_route_ad', YLeaf(YType.uint32, 'mobile-route-ad')),
-                    ('ani', YLeaf(YType.empty, 'ani')),
-                    ('multipath', YLeaf(YType.empty, 'multipath')),
-                    ('dynamic', YLeaf(YType.empty, 'dynamic')),
-                    ('enforce', YLeaf(YType.empty, 'enforce')),
-                    ('default_profile', YLeaf(YType.str, 'default-profile')),
-                    ('interface', YLeaf(YType.str, 'interface')),
-                    ('mobile_map', YLeaf(YType.str, 'mobile-map')),
-                    ('pgw_subs_cont', YLeaf(YType.empty, 'pgw-subs-cont')),
+                    ('lma_name', (YLeaf(YType.str, 'lma-name'), ['str'])),
+                    ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                    ('generate', (YLeaf(YType.empty, 'generate'), ['Empty'])),
+                    ('mobile_route_ad', (YLeaf(YType.uint32, 'mobile-route-ad'), ['int'])),
+                    ('ani', (YLeaf(YType.empty, 'ani'), ['Empty'])),
+                    ('multipath', (YLeaf(YType.empty, 'multipath'), ['Empty'])),
+                    ('dynamic', (YLeaf(YType.empty, 'dynamic'), ['Empty'])),
+                    ('enforce', (YLeaf(YType.empty, 'enforce'), ['Empty'])),
+                    ('default_profile', (YLeaf(YType.str, 'default-profile'), ['str'])),
+                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                    ('mobile_map', (YLeaf(YType.str, 'mobile-map'), ['str'])),
+                    ('pgw_subs_cont', (YLeaf(YType.empty, 'pgw-subs-cont'), ['Empty'])),
                 ])
                 self.lma_name = None
                 self.domain_name = None
@@ -1009,6 +1021,7 @@ class MobileIp(Entity):
                 self._children_name_map["replay_protection"] = "replay-protection"
                 self._segment_path = lambda: "lma" + "[lma-name='" + str(self.lma_name) + "']" + "[domain-name='" + str(self.domain_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-mobileip-cfg:mobile-ip/lmas/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MobileIp.Lmas.Lma, ['lma_name', 'domain_name', 'generate', 'mobile_route_ad', 'ani', 'multipath', 'dynamic', 'enforce', 'default_profile', 'interface', 'mobile_map', 'pgw_subs_cont'], name, value)
@@ -1047,7 +1060,7 @@ class MobileIp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("delay", ("delay", MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay))])
                     self._leafs = OrderedDict([
-                        ('retry', YLeaf(YType.uint32, 'retry')),
+                        ('retry', (YLeaf(YType.uint32, 'retry'), ['int'])),
                     ])
                     self.retry = None
 
@@ -1055,6 +1068,7 @@ class MobileIp(Entity):
                     self.delay.parent = self
                     self._children_name_map["delay"] = "delay"
                     self._segment_path = lambda: "binding-revocation-attributes"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.BindingRevocationAttributes, ['retry'], name, value)
@@ -1096,12 +1110,13 @@ class MobileIp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('br_min', YLeaf(YType.uint32, 'br-min')),
-                            ('br_max', YLeaf(YType.uint32, 'br-max')),
+                            ('br_min', (YLeaf(YType.uint32, 'br-min'), ['int'])),
+                            ('br_max', (YLeaf(YType.uint32, 'br-max'), ['int'])),
                         ])
                         self.br_min = None
                         self.br_max = None
                         self._segment_path = lambda: "delay"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Lmas.Lma.BindingRevocationAttributes.Delay, ['br_min', 'br_max'], name, value)
@@ -1140,12 +1155,13 @@ class MobileIp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('lma_rat', YLeaf(YType.enumeration, 'lma-rat')),
-                        ('priority_value', YLeaf(YType.uint32, 'priority-value')),
+                        ('lma_rat', (YLeaf(YType.enumeration, 'lma-rat'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg', 'LmaRat', '')])),
+                        ('priority_value', (YLeaf(YType.uint32, 'priority-value'), ['int'])),
                     ])
                     self.lma_rat = None
                     self.priority_value = None
                     self._segment_path = lambda: "rat-attributes"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.RatAttributes, ['lma_rat', 'priority_value'], name, value)
@@ -1193,14 +1209,15 @@ class MobileIp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interval', YLeaf(YType.uint32, 'interval')),
-                        ('retries', YLeaf(YType.uint32, 'retries')),
-                        ('timeout', YLeaf(YType.uint32, 'timeout')),
+                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                        ('retries', (YLeaf(YType.uint32, 'retries'), ['int'])),
+                        ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
                     ])
                     self.interval = None
                     self.retries = None
                     self.timeout = None
                     self._segment_path = lambda: "heart-beat-attributes"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.HeartBeatAttributes, ['interval', 'retries', 'timeout'], name, value)
@@ -1235,6 +1252,7 @@ class MobileIp(Entity):
 
                     self.lmaipv6_address = YList(self)
                     self._segment_path = lambda: "lmaipv6-addresses"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Lmaipv6Addresses, [], name, value)
@@ -1268,10 +1286,11 @@ class MobileIp(Entity):
                         self.ylist_key_names = ['address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('address', YLeaf(YType.str, 'address')),
+                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
                         ])
                         self.address = None
                         self._segment_path = lambda: "lmaipv6-address" + "[address='" + str(self.address) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Lmas.Lma.Lmaipv6Addresses.Lmaipv6Address, ['address'], name, value)
@@ -1305,10 +1324,11 @@ class MobileIp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('maximum', YLeaf(YType.uint32, 'maximum')),
+                        ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
                     ])
                     self.maximum = None
                     self._segment_path = lambda: "hnp"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Hnp, ['maximum'], name, value)
@@ -1345,12 +1365,13 @@ class MobileIp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('redist_type', YLeaf(YType.enumeration, 'redist-type')),
-                        ('redist_sub_type', YLeaf(YType.enumeration, 'redist-sub-type')),
+                        ('redist_type', (YLeaf(YType.enumeration, 'redist-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg', 'RedistType', '')])),
+                        ('redist_sub_type', (YLeaf(YType.enumeration, 'redist-sub-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg', 'RedistSubType', '')])),
                     ])
                     self.redist_type = None
                     self.redist_sub_type = None
                     self._segment_path = lambda: "redistribute"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Redistribute, ['redist_type', 'redist_sub_type'], name, value)
@@ -1387,6 +1408,7 @@ class MobileIp(Entity):
                     self.accounting.parent = self
                     self._children_name_map["accounting"] = "accounting"
                     self._segment_path = lambda: "aaa"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Aaa, [], name, value)
@@ -1427,12 +1449,13 @@ class MobileIp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('interim_interval', YLeaf(YType.uint32, 'interim-interval')),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('interim_interval', (YLeaf(YType.uint32, 'interim-interval'), ['int'])),
                         ])
                         self.enable = None
                         self.interim_interval = None
                         self._segment_path = lambda: "accounting"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Lmas.Lma.Aaa.Accounting, ['enable', 'interim_interval'], name, value)
@@ -1471,12 +1494,13 @@ class MobileIp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('value', YLeaf(YType.uint32, 'value')),
-                        ('force', YLeaf(YType.empty, 'force')),
+                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                        ('force', (YLeaf(YType.empty, 'force'), ['Empty'])),
                     ])
                     self.value = None
                     self.force = None
                     self._segment_path = lambda: "dscp"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Dscp, ['value', 'force'], name, value)
@@ -1511,6 +1535,7 @@ class MobileIp(Entity):
 
                     self.lmaipv4_address = YList(self)
                     self._segment_path = lambda: "lmaipv4-addresses"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Lmaipv4Addresses, [], name, value)
@@ -1544,10 +1569,11 @@ class MobileIp(Entity):
                         self.ylist_key_names = ['address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('address', YLeaf(YType.str, 'address')),
+                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
                         ])
                         self.address = None
                         self._segment_path = lambda: "lmaipv4-address" + "[address='" + str(self.address) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Lmas.Lma.Lmaipv4Addresses.Lmaipv4Address, ['address'], name, value)
@@ -1582,6 +1608,7 @@ class MobileIp(Entity):
 
                     self.role = YList(self)
                     self._segment_path = lambda: "roles"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Roles, [], name, value)
@@ -1613,10 +1640,11 @@ class MobileIp(Entity):
                         self.ylist_key_names = ['lma_role']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('lma_role', YLeaf(YType.enumeration, 'lma-role')),
+                            ('lma_role', (YLeaf(YType.enumeration, 'lma-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg', 'LmaRole', '')])),
                         ])
                         self.lma_role = None
                         self._segment_path = lambda: "role" + "[lma-role='" + str(self.lma_role) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Lmas.Lma.Roles.Role, ['lma_role'], name, value)
@@ -1682,11 +1710,11 @@ class MobileIp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('refresh_time', YLeaf(YType.uint32, 'refresh-time')),
-                        ('delete_wait_interval', YLeaf(YType.uint32, 'delete-wait-interval')),
-                        ('create_wait_interval', YLeaf(YType.uint32, 'create-wait-interval')),
-                        ('max_life_time', YLeaf(YType.uint32, 'max-life-time')),
-                        ('maximum', YLeaf(YType.uint32, 'maximum')),
+                        ('refresh_time', (YLeaf(YType.uint32, 'refresh-time'), ['int'])),
+                        ('delete_wait_interval', (YLeaf(YType.uint32, 'delete-wait-interval'), ['int'])),
+                        ('create_wait_interval', (YLeaf(YType.uint32, 'create-wait-interval'), ['int'])),
+                        ('max_life_time', (YLeaf(YType.uint32, 'max-life-time'), ['int'])),
+                        ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
                     ])
                     self.refresh_time = None
                     self.delete_wait_interval = None
@@ -1694,6 +1722,7 @@ class MobileIp(Entity):
                     self.max_life_time = None
                     self.maximum = None
                     self._segment_path = lambda: "binding-attributes"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.BindingAttributes, ['refresh_time', 'delete_wait_interval', 'create_wait_interval', 'max_life_time', 'maximum'], name, value)
@@ -1728,6 +1757,7 @@ class MobileIp(Entity):
 
                     self.mag = YList(self)
                     self._segment_path = lambda: "mags"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Mags, [], name, value)
@@ -1785,7 +1815,7 @@ class MobileIp(Entity):
                     	static tunnel for this peer MAG
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     
 
@@ -1804,12 +1834,12 @@ class MobileIp(Entity):
                         self.ylist_key_names = ['mag_name','domain_name']
                         self._child_classes = OrderedDict([("authenticate-option", ("authenticate_option", MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption)), ("dscp", ("dscp", MobileIp.Lmas.Lma.Mags.Mag.Dscp))])
                         self._leafs = OrderedDict([
-                            ('mag_name', YLeaf(YType.str, 'mag-name')),
-                            ('domain_name', YLeaf(YType.str, 'domain-name')),
-                            ('encap_option', YLeaf(YType.enumeration, 'encap-option')),
-                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                            ('tunnel', YLeaf(YType.str, 'tunnel')),
+                            ('mag_name', (YLeaf(YType.str, 'mag-name'), ['str'])),
+                            ('domain_name', (YLeaf(YType.str, 'domain-name'), ['str'])),
+                            ('encap_option', (YLeaf(YType.enumeration, 'encap-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg', 'EncapOpt', '')])),
+                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                            ('tunnel', (YLeaf(YType.str, 'tunnel'), ['str'])),
                         ])
                         self.mag_name = None
                         self.domain_name = None
@@ -1826,6 +1856,7 @@ class MobileIp(Entity):
                         self.dscp.parent = self
                         self._children_name_map["dscp"] = "dscp"
                         self._segment_path = lambda: "mag" + "[mag-name='" + str(self.mag_name) + "']" + "[domain-name='" + str(self.domain_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Lmas.Lma.Mags.Mag, ['mag_name', 'domain_name', 'encap_option', 'ipv4_address', 'ipv6_address', 'tunnel'], name, value)
@@ -1867,12 +1898,13 @@ class MobileIp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('spi', YLeaf(YType.str, 'spi')),
-                                ('key', YLeaf(YType.str, 'key')),
+                                ('spi', (YLeaf(YType.str, 'spi'), ['str'])),
+                                ('key', (YLeaf(YType.str, 'key'), ['str'])),
                             ])
                             self.spi = None
                             self.key = None
                             self._segment_path = lambda: "authenticate-option"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MobileIp.Lmas.Lma.Mags.Mag.AuthenticateOption, ['spi', 'key'], name, value)
@@ -1911,12 +1943,13 @@ class MobileIp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('value', YLeaf(YType.uint32, 'value')),
-                                ('force', YLeaf(YType.empty, 'force')),
+                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                ('force', (YLeaf(YType.empty, 'force'), ['Empty'])),
                             ])
                             self.value = None
                             self.force = None
                             self._segment_path = lambda: "dscp"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MobileIp.Lmas.Lma.Mags.Mag.Dscp, ['value', 'force'], name, value)
@@ -1957,12 +1990,13 @@ class MobileIp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('mtu', YLeaf(YType.uint32, 'mtu')),
-                        ('acl', YLeaf(YType.str, 'acl')),
+                        ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                        ('acl', (YLeaf(YType.str, 'acl'), ['str'])),
                     ])
                     self.mtu = None
                     self.acl = None
                     self._segment_path = lambda: "tunnel-attributes"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.TunnelAttributes, ['mtu', 'acl'], name, value)
@@ -1997,6 +2031,7 @@ class MobileIp(Entity):
 
                     self.service = YList(self)
                     self._segment_path = lambda: "services"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Services, [], name, value)
@@ -2080,14 +2115,14 @@ class MobileIp(Entity):
                         self.ylist_key_names = ['lma_service']
                         self._child_classes = OrderedDict([("customers", ("customers", MobileIp.Lmas.Lma.Services.Service.Customers))])
                         self._leafs = OrderedDict([
-                            ('lma_service', YLeaf(YType.enumeration, 'lma-service')),
-                            ('mnp_customer', YLeaf(YType.uint32, 'mnp-customer')),
-                            ('mnp_ipv4_lmn', YLeaf(YType.uint32, 'mnp-ipv4-lmn')),
-                            ('mnp_ipv6_lmn', YLeaf(YType.uint32, 'mnp-ipv6-lmn')),
-                            ('mnp_lmn', YLeaf(YType.uint32, 'mnp-lmn')),
-                            ('ignore_home_address', YLeaf(YType.empty, 'ignore-home-address')),
-                            ('mnp_ipv4_customer', YLeaf(YType.uint32, 'mnp-ipv4-customer')),
-                            ('mnp_ipv6_customer', YLeaf(YType.uint32, 'mnp-ipv6-customer')),
+                            ('lma_service', (YLeaf(YType.enumeration, 'lma-service'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg', 'LmaService', '')])),
+                            ('mnp_customer', (YLeaf(YType.uint32, 'mnp-customer'), ['int'])),
+                            ('mnp_ipv4_lmn', (YLeaf(YType.uint32, 'mnp-ipv4-lmn'), ['int'])),
+                            ('mnp_ipv6_lmn', (YLeaf(YType.uint32, 'mnp-ipv6-lmn'), ['int'])),
+                            ('mnp_lmn', (YLeaf(YType.uint32, 'mnp-lmn'), ['int'])),
+                            ('ignore_home_address', (YLeaf(YType.empty, 'ignore-home-address'), ['Empty'])),
+                            ('mnp_ipv4_customer', (YLeaf(YType.uint32, 'mnp-ipv4-customer'), ['int'])),
+                            ('mnp_ipv6_customer', (YLeaf(YType.uint32, 'mnp-ipv6-customer'), ['int'])),
                         ])
                         self.lma_service = None
                         self.mnp_customer = None
@@ -2102,6 +2137,7 @@ class MobileIp(Entity):
                         self.customers.parent = self
                         self._children_name_map["customers"] = "customers"
                         self._segment_path = lambda: "service" + "[lma-service='" + str(self.lma_service) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service, ['lma_service', 'mnp_customer', 'mnp_ipv4_lmn', 'mnp_ipv6_lmn', 'mnp_lmn', 'ignore_home_address', 'mnp_ipv4_customer', 'mnp_ipv6_customer'], name, value)
@@ -2136,6 +2172,7 @@ class MobileIp(Entity):
 
                             self.customer = YList(self)
                             self._segment_path = lambda: "customers"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers, [], name, value)
@@ -2265,16 +2302,16 @@ class MobileIp(Entity):
                                 self.ylist_key_names = ['customer_name','vrf_name']
                                 self._child_classes = OrderedDict([("authenticate-option", ("authenticate_option", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption)), ("heart-beat-attributes", ("heart_beat_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes)), ("transports", ("transports", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports)), ("network-attributes", ("network_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes)), ("gre-key", ("gre_key", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey)), ("binding-attributes", ("binding_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes))])
                                 self._leafs = OrderedDict([
-                                    ('customer_name', YLeaf(YType.str, 'customer-name')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                    ('mnp_customer', YLeaf(YType.uint32, 'mnp-customer')),
-                                    ('mnp_ipv4_lmn', YLeaf(YType.uint32, 'mnp-ipv4-lmn')),
-                                    ('mnp_ipv6_lmn', YLeaf(YType.uint32, 'mnp-ipv6-lmn')),
-                                    ('mnp_lmn', YLeaf(YType.uint32, 'mnp-lmn')),
-                                    ('mnp_ipv4_customer', YLeaf(YType.uint32, 'mnp-ipv4-customer')),
-                                    ('mnp_ipv6_customer', YLeaf(YType.uint32, 'mnp-ipv6-customer')),
-                                    ('mobile_route_ad', YLeaf(YType.uint32, 'mobile-route-ad')),
-                                    ('bandwidth_aggregate', YLeaf(YType.uint32, 'bandwidth-aggregate')),
+                                    ('customer_name', (YLeaf(YType.str, 'customer-name'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                    ('mnp_customer', (YLeaf(YType.uint32, 'mnp-customer'), ['int'])),
+                                    ('mnp_ipv4_lmn', (YLeaf(YType.uint32, 'mnp-ipv4-lmn'), ['int'])),
+                                    ('mnp_ipv6_lmn', (YLeaf(YType.uint32, 'mnp-ipv6-lmn'), ['int'])),
+                                    ('mnp_lmn', (YLeaf(YType.uint32, 'mnp-lmn'), ['int'])),
+                                    ('mnp_ipv4_customer', (YLeaf(YType.uint32, 'mnp-ipv4-customer'), ['int'])),
+                                    ('mnp_ipv6_customer', (YLeaf(YType.uint32, 'mnp-ipv6-customer'), ['int'])),
+                                    ('mobile_route_ad', (YLeaf(YType.uint32, 'mobile-route-ad'), ['int'])),
+                                    ('bandwidth_aggregate', (YLeaf(YType.uint32, 'bandwidth-aggregate'), ['int'])),
                                 ])
                                 self.customer_name = None
                                 self.vrf_name = None
@@ -2311,6 +2348,7 @@ class MobileIp(Entity):
                                 self.binding_attributes.parent = self
                                 self._children_name_map["binding_attributes"] = "binding-attributes"
                                 self._segment_path = lambda: "customer" + "[customer-name='" + str(self.customer_name) + "']" + "[vrf-name='" + str(self.vrf_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer, ['customer_name', 'vrf_name', 'mnp_customer', 'mnp_ipv4_lmn', 'mnp_ipv6_lmn', 'mnp_lmn', 'mnp_ipv4_customer', 'mnp_ipv6_customer', 'mobile_route_ad', 'bandwidth_aggregate'], name, value)
@@ -2352,12 +2390,13 @@ class MobileIp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('spi', YLeaf(YType.str, 'spi')),
-                                        ('key', YLeaf(YType.str, 'key')),
+                                        ('spi', (YLeaf(YType.str, 'spi'), ['str'])),
+                                        ('key', (YLeaf(YType.str, 'key'), ['str'])),
                                     ])
                                     self.spi = None
                                     self.key = None
                                     self._segment_path = lambda: "authenticate-option"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.AuthenticateOption, ['spi', 'key'], name, value)
@@ -2405,14 +2444,15 @@ class MobileIp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('interval', YLeaf(YType.uint32, 'interval')),
-                                        ('retries', YLeaf(YType.uint32, 'retries')),
-                                        ('timeout', YLeaf(YType.uint32, 'timeout')),
+                                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                        ('retries', (YLeaf(YType.uint32, 'retries'), ['int'])),
+                                        ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
                                     ])
                                     self.interval = None
                                     self.retries = None
                                     self.timeout = None
                                     self._segment_path = lambda: "heart-beat-attributes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.HeartBeatAttributes, ['interval', 'retries', 'timeout'], name, value)
@@ -2447,6 +2487,7 @@ class MobileIp(Entity):
 
                                     self.transport = YList(self)
                                     self._segment_path = lambda: "transports"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports, [], name, value)
@@ -2494,14 +2535,15 @@ class MobileIp(Entity):
                                         self.ylist_key_names = ['vrf_name']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                         ])
                                         self.vrf_name = None
                                         self.ipv4_address = None
                                         self.ipv6_address = None
                                         self._segment_path = lambda: "transport" + "[vrf-name='" + str(self.vrf_name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.Transports.Transport, ['vrf_name', 'ipv4_address', 'ipv6_address'], name, value)
@@ -2538,7 +2580,7 @@ class MobileIp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("authorizes", ("authorizes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes))])
                                     self._leafs = OrderedDict([
-                                        ('unauthorize', YLeaf(YType.empty, 'unauthorize')),
+                                        ('unauthorize', (YLeaf(YType.empty, 'unauthorize'), ['Empty'])),
                                     ])
                                     self.unauthorize = None
 
@@ -2546,6 +2588,7 @@ class MobileIp(Entity):
                                     self.authorizes.parent = self
                                     self._children_name_map["authorizes"] = "authorizes"
                                     self._segment_path = lambda: "network-attributes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes, ['unauthorize'], name, value)
@@ -2580,6 +2623,7 @@ class MobileIp(Entity):
 
                                         self.authorize = YList(self)
                                         self._segment_path = lambda: "authorizes"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes, [], name, value)
@@ -2618,7 +2662,7 @@ class MobileIp(Entity):
                                             self.ylist_key_names = ['name']
                                             self._child_classes = OrderedDict([("pool-attributes", ("pool_attributes", MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes))])
                                             self._leafs = OrderedDict([
-                                                ('name', YLeaf(YType.str, 'name')),
+                                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
                                             ])
                                             self.name = None
 
@@ -2626,6 +2670,7 @@ class MobileIp(Entity):
                                             self.pool_attributes.parent = self
                                             self._children_name_map["pool_attributes"] = "pool-attributes"
                                             self._segment_path = lambda: "authorize" + "[name='" + str(self.name) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize, ['name'], name, value)
@@ -2671,6 +2716,7 @@ class MobileIp(Entity):
                                                 self.mobile_network.parent = self
                                                 self._children_name_map["mobile_network"] = "mobile-network"
                                                 self._segment_path = lambda: "pool-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes, [], name, value)
@@ -2716,6 +2762,7 @@ class MobileIp(Entity):
                                                     self.ipv6_pool.parent = self
                                                     self._children_name_map["ipv6_pool"] = "ipv6-pool"
                                                     self._segment_path = lambda: "mobile-node"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode, [], name, value)
@@ -2756,12 +2803,13 @@ class MobileIp(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('start_address', YLeaf(YType.str, 'start-address')),
-                                                            ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
+                                                            ('start_address', (YLeaf(YType.str, 'start-address'), ['str'])),
+                                                            ('pool_prefix', (YLeaf(YType.uint32, 'pool-prefix'), ['int'])),
                                                         ])
                                                         self.start_address = None
                                                         self.pool_prefix = None
                                                         self._segment_path = lambda: "ipv4-pool"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv4Pool, ['start_address', 'pool_prefix'], name, value)
@@ -2802,12 +2850,13 @@ class MobileIp(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('start_address', YLeaf(YType.str, 'start-address')),
-                                                            ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
+                                                            ('start_address', (YLeaf(YType.str, 'start-address'), ['str'])),
+                                                            ('pool_prefix', (YLeaf(YType.uint32, 'pool-prefix'), ['int'])),
                                                         ])
                                                         self.start_address = None
                                                         self.pool_prefix = None
                                                         self._segment_path = lambda: "ipv6-pool"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNode.Ipv6Pool, ['start_address', 'pool_prefix'], name, value)
@@ -2853,6 +2902,7 @@ class MobileIp(Entity):
                                                     self.mripv4_pools.parent = self
                                                     self._children_name_map["mripv4_pools"] = "mripv4-pools"
                                                     self._segment_path = lambda: "mobile-network"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork, [], name, value)
@@ -2887,6 +2937,7 @@ class MobileIp(Entity):
 
                                                         self.mripv6_pool = YList(self)
                                                         self._segment_path = lambda: "mripv6-pools"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools, [], name, value)
@@ -2934,14 +2985,15 @@ class MobileIp(Entity):
                                                             self.ylist_key_names = ['start_address']
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('start_address', YLeaf(YType.str, 'start-address')),
-                                                                ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
-                                                                ('network_prefix', YLeaf(YType.uint32, 'network-prefix')),
+                                                                ('start_address', (YLeaf(YType.str, 'start-address'), ['str'])),
+                                                                ('pool_prefix', (YLeaf(YType.uint32, 'pool-prefix'), ['int'])),
+                                                                ('network_prefix', (YLeaf(YType.uint32, 'network-prefix'), ['int'])),
                                                             ])
                                                             self.start_address = None
                                                             self.pool_prefix = None
                                                             self.network_prefix = None
                                                             self._segment_path = lambda: "mripv6-pool" + "[start-address='" + str(self.start_address) + "']"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
@@ -2976,6 +3028,7 @@ class MobileIp(Entity):
 
                                                         self.mripv4_pool = YList(self)
                                                         self._segment_path = lambda: "mripv4-pools"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools, [], name, value)
@@ -3023,14 +3076,15 @@ class MobileIp(Entity):
                                                             self.ylist_key_names = ['start_address']
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('start_address', YLeaf(YType.str, 'start-address')),
-                                                                ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
-                                                                ('network_prefix', YLeaf(YType.uint32, 'network-prefix')),
+                                                                ('start_address', (YLeaf(YType.str, 'start-address'), ['str'])),
+                                                                ('pool_prefix', (YLeaf(YType.uint32, 'pool-prefix'), ['int'])),
+                                                                ('network_prefix', (YLeaf(YType.uint32, 'network-prefix'), ['int'])),
                                                             ])
                                                             self.start_address = None
                                                             self.pool_prefix = None
                                                             self.network_prefix = None
                                                             self._segment_path = lambda: "mripv4-pool" + "[start-address='" + str(self.start_address) + "']"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.NetworkAttributes.Authorizes.Authorize.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
@@ -3069,12 +3123,13 @@ class MobileIp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('gre_key_type', YLeaf(YType.enumeration, 'gre-key-type')),
-                                        ('gre_key_value', YLeaf(YType.uint32, 'gre-key-value')),
+                                        ('gre_key_type', (YLeaf(YType.enumeration, 'gre-key-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_mobileip_cfg', 'GreKeyType', '')])),
+                                        ('gre_key_value', (YLeaf(YType.uint32, 'gre-key-value'), ['int'])),
                                     ])
                                     self.gre_key_type = None
                                     self.gre_key_value = None
                                     self._segment_path = lambda: "gre-key"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.GreKey, ['gre_key_type', 'gre_key_value'], name, value)
@@ -3110,10 +3165,11 @@ class MobileIp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('max_life_time', YLeaf(YType.uint32, 'max-life-time')),
+                                        ('max_life_time', (YLeaf(YType.uint32, 'max-life-time'), ['int'])),
                                     ])
                                     self.max_life_time = None
                                     self._segment_path = lambda: "binding-attributes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Services.Service.Customers.Customer.BindingAttributes, ['max_life_time'], name, value)
@@ -3148,6 +3204,7 @@ class MobileIp(Entity):
 
                     self.network = YList(self)
                     self._segment_path = lambda: "networks"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.Networks, [], name, value)
@@ -3186,7 +3243,7 @@ class MobileIp(Entity):
                         self.ylist_key_names = ['lma_network']
                         self._child_classes = OrderedDict([("pool-attributes", ("pool_attributes", MobileIp.Lmas.Lma.Networks.Network.PoolAttributes))])
                         self._leafs = OrderedDict([
-                            ('lma_network', YLeaf(YType.str, 'lma-network')),
+                            ('lma_network', (YLeaf(YType.str, 'lma-network'), ['str'])),
                         ])
                         self.lma_network = None
 
@@ -3194,6 +3251,7 @@ class MobileIp(Entity):
                         self.pool_attributes.parent = self
                         self._children_name_map["pool_attributes"] = "pool-attributes"
                         self._segment_path = lambda: "network" + "[lma-network='" + str(self.lma_network) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network, ['lma_network'], name, value)
@@ -3239,6 +3297,7 @@ class MobileIp(Entity):
                             self.mobile_network.parent = self
                             self._children_name_map["mobile_network"] = "mobile-network"
                             self._segment_path = lambda: "pool-attributes"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes, [], name, value)
@@ -3284,6 +3343,7 @@ class MobileIp(Entity):
                                 self.ipv6_pool.parent = self
                                 self._children_name_map["ipv6_pool"] = "ipv6-pool"
                                 self._segment_path = lambda: "mobile-node"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode, [], name, value)
@@ -3324,12 +3384,13 @@ class MobileIp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('start_address', YLeaf(YType.str, 'start-address')),
-                                        ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
+                                        ('start_address', (YLeaf(YType.str, 'start-address'), ['str'])),
+                                        ('pool_prefix', (YLeaf(YType.uint32, 'pool-prefix'), ['int'])),
                                     ])
                                     self.start_address = None
                                     self.pool_prefix = None
                                     self._segment_path = lambda: "ipv4-pool"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv4Pool, ['start_address', 'pool_prefix'], name, value)
@@ -3370,12 +3431,13 @@ class MobileIp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('start_address', YLeaf(YType.str, 'start-address')),
-                                        ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
+                                        ('start_address', (YLeaf(YType.str, 'start-address'), ['str'])),
+                                        ('pool_prefix', (YLeaf(YType.uint32, 'pool-prefix'), ['int'])),
                                     ])
                                     self.start_address = None
                                     self.pool_prefix = None
                                     self._segment_path = lambda: "ipv6-pool"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNode.Ipv6Pool, ['start_address', 'pool_prefix'], name, value)
@@ -3421,6 +3483,7 @@ class MobileIp(Entity):
                                 self.mripv4_pools.parent = self
                                 self._children_name_map["mripv4_pools"] = "mripv4-pools"
                                 self._segment_path = lambda: "mobile-network"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork, [], name, value)
@@ -3455,6 +3518,7 @@ class MobileIp(Entity):
 
                                     self.mripv6_pool = YList(self)
                                     self._segment_path = lambda: "mripv6-pools"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools, [], name, value)
@@ -3502,14 +3566,15 @@ class MobileIp(Entity):
                                         self.ylist_key_names = ['start_address']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('start_address', YLeaf(YType.str, 'start-address')),
-                                            ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
-                                            ('network_prefix', YLeaf(YType.uint32, 'network-prefix')),
+                                            ('start_address', (YLeaf(YType.str, 'start-address'), ['str'])),
+                                            ('pool_prefix', (YLeaf(YType.uint32, 'pool-prefix'), ['int'])),
+                                            ('network_prefix', (YLeaf(YType.uint32, 'network-prefix'), ['int'])),
                                         ])
                                         self.start_address = None
                                         self.pool_prefix = None
                                         self.network_prefix = None
                                         self._segment_path = lambda: "mripv6-pool" + "[start-address='" + str(self.start_address) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv6Pools.Mripv6Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
@@ -3544,6 +3609,7 @@ class MobileIp(Entity):
 
                                     self.mripv4_pool = YList(self)
                                     self._segment_path = lambda: "mripv4-pools"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools, [], name, value)
@@ -3591,14 +3657,15 @@ class MobileIp(Entity):
                                         self.ylist_key_names = ['start_address']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('start_address', YLeaf(YType.str, 'start-address')),
-                                            ('pool_prefix', YLeaf(YType.uint32, 'pool-prefix')),
-                                            ('network_prefix', YLeaf(YType.uint32, 'network-prefix')),
+                                            ('start_address', (YLeaf(YType.str, 'start-address'), ['str'])),
+                                            ('pool_prefix', (YLeaf(YType.uint32, 'pool-prefix'), ['int'])),
+                                            ('network_prefix', (YLeaf(YType.uint32, 'network-prefix'), ['int'])),
                                         ])
                                         self.start_address = None
                                         self.pool_prefix = None
                                         self.network_prefix = None
                                         self._segment_path = lambda: "mripv4-pool" + "[start-address='" + str(self.start_address) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MobileIp.Lmas.Lma.Networks.Network.PoolAttributes.MobileNetwork.Mripv4Pools.Mripv4Pool, ['start_address', 'pool_prefix', 'network_prefix'], name, value)
@@ -3634,10 +3701,11 @@ class MobileIp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('timestamp_window', YLeaf(YType.uint32, 'timestamp-window')),
+                        ('timestamp_window', (YLeaf(YType.uint32, 'timestamp-window'), ['int'])),
                     ])
                     self.timestamp_window = None
                     self._segment_path = lambda: "replay-protection"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MobileIp.Lmas.Lma.ReplayProtection, ['timestamp_window'], name, value)

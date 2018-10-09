@@ -22,6 +22,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class CiscoBfdDiag(Enum):
     """
     CiscoBfdDiag (Enum Class)
@@ -136,6 +137,7 @@ class CISCOIETFBFDMIB(Entity):
         self.ciscobfdsessipmaptable.parent = self
         self._children_name_map["ciscobfdsessipmaptable"] = "ciscoBfdSessIpMapTable"
         self._segment_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIETFBFDMIB, [], name, value)
@@ -179,15 +181,16 @@ class CISCOIETFBFDMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ciscobfdadminstatus', YLeaf(YType.enumeration, 'ciscoBfdAdminStatus')),
-                ('ciscobfdversionnumber', YLeaf(YType.uint32, 'ciscoBfdVersionNumber')),
-                ('ciscobfdsessnotificationsenable', YLeaf(YType.boolean, 'ciscoBfdSessNotificationsEnable')),
+                ('ciscobfdadminstatus', (YLeaf(YType.enumeration, 'ciscoBfdAdminStatus'), [('ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB', 'CISCOIETFBFDMIB', 'CiscoBfdScalarObjects.CiscoBfdAdminStatus')])),
+                ('ciscobfdversionnumber', (YLeaf(YType.uint32, 'ciscoBfdVersionNumber'), ['int'])),
+                ('ciscobfdsessnotificationsenable', (YLeaf(YType.boolean, 'ciscoBfdSessNotificationsEnable'), ['bool'])),
             ])
             self.ciscobfdadminstatus = None
             self.ciscobfdversionnumber = None
             self.ciscobfdsessnotificationsenable = None
             self._segment_path = lambda: "ciscoBfdScalarObjects"
             self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdScalarObjects, ['ciscobfdadminstatus', 'ciscobfdversionnumber', 'ciscobfdsessnotificationsenable'], name, value)
@@ -246,6 +249,7 @@ class CISCOIETFBFDMIB(Entity):
             self.ciscobfdsessentry = YList(self)
             self._segment_path = lambda: "ciscoBfdSessTable"
             self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessTable, [], name, value)
@@ -482,40 +486,40 @@ class CISCOIETFBFDMIB(Entity):
                 self.ylist_key_names = ['ciscobfdsessindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciscobfdsessindex', YLeaf(YType.uint32, 'ciscoBfdSessIndex')),
-                    ('ciscobfdsessapplicationid', YLeaf(YType.uint32, 'ciscoBfdSessApplicationId')),
-                    ('ciscobfdsessdiscriminator', YLeaf(YType.uint32, 'ciscoBfdSessDiscriminator')),
-                    ('ciscobfdsessremotediscr', YLeaf(YType.uint32, 'ciscoBfdSessRemoteDiscr')),
-                    ('ciscobfdsessudpport', YLeaf(YType.uint16, 'ciscoBfdSessUdpPort')),
-                    ('ciscobfdsessstate', YLeaf(YType.enumeration, 'ciscoBfdSessState')),
-                    ('ciscobfdsessremoteheardflag', YLeaf(YType.boolean, 'ciscoBfdSessRemoteHeardFlag')),
-                    ('ciscobfdsessdiag', YLeaf(YType.enumeration, 'ciscoBfdSessDiag')),
-                    ('ciscobfdsessopermode', YLeaf(YType.enumeration, 'ciscoBfdSessOperMode')),
-                    ('ciscobfdsessdemandmodedesiredflag', YLeaf(YType.boolean, 'ciscoBfdSessDemandModeDesiredFlag')),
-                    ('ciscobfdsessechofuncmodedesiredflag', YLeaf(YType.boolean, 'ciscoBfdSessEchoFuncModeDesiredFlag')),
-                    ('ciscobfdsesscontrolplanindepflag', YLeaf(YType.boolean, 'ciscoBfdSessControlPlanIndepFlag')),
-                    ('ciscobfdsessaddrtype', YLeaf(YType.enumeration, 'ciscoBfdSessAddrType')),
-                    ('ciscobfdsessaddr', YLeaf(YType.str, 'ciscoBfdSessAddr')),
-                    ('ciscobfdsessdesiredmintxinterval', YLeaf(YType.uint32, 'ciscoBfdSessDesiredMinTxInterval')),
-                    ('ciscobfdsessreqminrxinterval', YLeaf(YType.uint32, 'ciscoBfdSessReqMinRxInterval')),
-                    ('ciscobfdsessreqminechorxinterval', YLeaf(YType.uint32, 'ciscoBfdSessReqMinEchoRxInterval')),
-                    ('ciscobfdsessdetectmult', YLeaf(YType.uint32, 'ciscoBfdSessDetectMult')),
-                    ('ciscobfdsessstortype', YLeaf(YType.enumeration, 'ciscoBfdSessStorType')),
-                    ('ciscobfdsessrowstatus', YLeaf(YType.enumeration, 'ciscoBfdSessRowStatus')),
-                    ('ciscobfdsessauthpresflag', YLeaf(YType.boolean, 'ciscoBfdSessAuthPresFlag')),
-                    ('ciscobfdsessauthenticationtype', YLeaf(YType.enumeration, 'ciscoBfdSessAuthenticationType')),
-                    ('ciscobfdsessversionnumber', YLeaf(YType.uint32, 'ciscoBfdSessVersionNumber')),
-                    ('ciscobfdsesstype', YLeaf(YType.enumeration, 'ciscoBfdSessType')),
-                    ('ciscobfdsessinterface', YLeaf(YType.int32, 'ciscoBfdSessInterface')),
-                    ('ciscobfdsessperfpktin', YLeaf(YType.uint32, 'ciscoBfdSessPerfPktIn')),
-                    ('ciscobfdsessperfpktout', YLeaf(YType.uint32, 'ciscoBfdSessPerfPktOut')),
-                    ('ciscobfdsessuptime', YLeaf(YType.uint32, 'ciscoBfdSessUpTime')),
-                    ('ciscobfdsessperflastsessdowntime', YLeaf(YType.uint32, 'ciscoBfdSessPerfLastSessDownTime')),
-                    ('ciscobfdsessperflastcommlostdiag', YLeaf(YType.enumeration, 'ciscoBfdSessPerfLastCommLostDiag')),
-                    ('ciscobfdsessperfsessupcount', YLeaf(YType.uint32, 'ciscoBfdSessPerfSessUpCount')),
-                    ('ciscobfdsessperfdisctime', YLeaf(YType.uint32, 'ciscoBfdSessPerfDiscTime')),
-                    ('ciscobfdsessperfpktinhc', YLeaf(YType.uint64, 'ciscoBfdSessPerfPktInHC')),
-                    ('ciscobfdsessperfpktouthc', YLeaf(YType.uint64, 'ciscoBfdSessPerfPktOutHC')),
+                    ('ciscobfdsessindex', (YLeaf(YType.uint32, 'ciscoBfdSessIndex'), ['int'])),
+                    ('ciscobfdsessapplicationid', (YLeaf(YType.uint32, 'ciscoBfdSessApplicationId'), ['int'])),
+                    ('ciscobfdsessdiscriminator', (YLeaf(YType.uint32, 'ciscoBfdSessDiscriminator'), ['int'])),
+                    ('ciscobfdsessremotediscr', (YLeaf(YType.uint32, 'ciscoBfdSessRemoteDiscr'), ['int'])),
+                    ('ciscobfdsessudpport', (YLeaf(YType.uint16, 'ciscoBfdSessUdpPort'), ['int'])),
+                    ('ciscobfdsessstate', (YLeaf(YType.enumeration, 'ciscoBfdSessState'), [('ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB', 'CISCOIETFBFDMIB', 'CiscoBfdSessTable.CiscoBfdSessEntry.CiscoBfdSessState')])),
+                    ('ciscobfdsessremoteheardflag', (YLeaf(YType.boolean, 'ciscoBfdSessRemoteHeardFlag'), ['bool'])),
+                    ('ciscobfdsessdiag', (YLeaf(YType.enumeration, 'ciscoBfdSessDiag'), [('ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB', 'CiscoBfdDiag', '')])),
+                    ('ciscobfdsessopermode', (YLeaf(YType.enumeration, 'ciscoBfdSessOperMode'), [('ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB', 'CISCOIETFBFDMIB', 'CiscoBfdSessTable.CiscoBfdSessEntry.CiscoBfdSessOperMode')])),
+                    ('ciscobfdsessdemandmodedesiredflag', (YLeaf(YType.boolean, 'ciscoBfdSessDemandModeDesiredFlag'), ['bool'])),
+                    ('ciscobfdsessechofuncmodedesiredflag', (YLeaf(YType.boolean, 'ciscoBfdSessEchoFuncModeDesiredFlag'), ['bool'])),
+                    ('ciscobfdsesscontrolplanindepflag', (YLeaf(YType.boolean, 'ciscoBfdSessControlPlanIndepFlag'), ['bool'])),
+                    ('ciscobfdsessaddrtype', (YLeaf(YType.enumeration, 'ciscoBfdSessAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ciscobfdsessaddr', (YLeaf(YType.str, 'ciscoBfdSessAddr'), ['str'])),
+                    ('ciscobfdsessdesiredmintxinterval', (YLeaf(YType.uint32, 'ciscoBfdSessDesiredMinTxInterval'), ['int'])),
+                    ('ciscobfdsessreqminrxinterval', (YLeaf(YType.uint32, 'ciscoBfdSessReqMinRxInterval'), ['int'])),
+                    ('ciscobfdsessreqminechorxinterval', (YLeaf(YType.uint32, 'ciscoBfdSessReqMinEchoRxInterval'), ['int'])),
+                    ('ciscobfdsessdetectmult', (YLeaf(YType.uint32, 'ciscoBfdSessDetectMult'), ['int'])),
+                    ('ciscobfdsessstortype', (YLeaf(YType.enumeration, 'ciscoBfdSessStorType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('ciscobfdsessrowstatus', (YLeaf(YType.enumeration, 'ciscoBfdSessRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('ciscobfdsessauthpresflag', (YLeaf(YType.boolean, 'ciscoBfdSessAuthPresFlag'), ['bool'])),
+                    ('ciscobfdsessauthenticationtype', (YLeaf(YType.enumeration, 'ciscoBfdSessAuthenticationType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB', 'CISCOIETFBFDMIB', 'CiscoBfdSessTable.CiscoBfdSessEntry.CiscoBfdSessAuthenticationType')])),
+                    ('ciscobfdsessversionnumber', (YLeaf(YType.uint32, 'ciscoBfdSessVersionNumber'), ['int'])),
+                    ('ciscobfdsesstype', (YLeaf(YType.enumeration, 'ciscoBfdSessType'), [('ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB', 'CISCOIETFBFDMIB', 'CiscoBfdSessTable.CiscoBfdSessEntry.CiscoBfdSessType')])),
+                    ('ciscobfdsessinterface', (YLeaf(YType.int32, 'ciscoBfdSessInterface'), ['int'])),
+                    ('ciscobfdsessperfpktin', (YLeaf(YType.uint32, 'ciscoBfdSessPerfPktIn'), ['int'])),
+                    ('ciscobfdsessperfpktout', (YLeaf(YType.uint32, 'ciscoBfdSessPerfPktOut'), ['int'])),
+                    ('ciscobfdsessuptime', (YLeaf(YType.uint32, 'ciscoBfdSessUpTime'), ['int'])),
+                    ('ciscobfdsessperflastsessdowntime', (YLeaf(YType.uint32, 'ciscoBfdSessPerfLastSessDownTime'), ['int'])),
+                    ('ciscobfdsessperflastcommlostdiag', (YLeaf(YType.enumeration, 'ciscoBfdSessPerfLastCommLostDiag'), [('ydk.models.cisco_ios_xe.CISCO_IETF_BFD_MIB', 'CiscoBfdDiag', '')])),
+                    ('ciscobfdsessperfsessupcount', (YLeaf(YType.uint32, 'ciscoBfdSessPerfSessUpCount'), ['int'])),
+                    ('ciscobfdsessperfdisctime', (YLeaf(YType.uint32, 'ciscoBfdSessPerfDiscTime'), ['int'])),
+                    ('ciscobfdsessperfpktinhc', (YLeaf(YType.uint64, 'ciscoBfdSessPerfPktInHC'), ['int'])),
+                    ('ciscobfdsessperfpktouthc', (YLeaf(YType.uint64, 'ciscoBfdSessPerfPktOutHC'), ['int'])),
                 ])
                 self.ciscobfdsessindex = None
                 self.ciscobfdsessapplicationid = None
@@ -553,6 +557,7 @@ class CISCOIETFBFDMIB(Entity):
                 self.ciscobfdsessperfpktouthc = None
                 self._segment_path = lambda: "ciscoBfdSessEntry" + "[ciscoBfdSessIndex='" + str(self.ciscobfdsessindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/ciscoBfdSessTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessTable.CiscoBfdSessEntry, ['ciscobfdsessindex', 'ciscobfdsessapplicationid', 'ciscobfdsessdiscriminator', 'ciscobfdsessremotediscr', 'ciscobfdsessudpport', 'ciscobfdsessstate', 'ciscobfdsessremoteheardflag', 'ciscobfdsessdiag', 'ciscobfdsessopermode', 'ciscobfdsessdemandmodedesiredflag', 'ciscobfdsessechofuncmodedesiredflag', 'ciscobfdsesscontrolplanindepflag', 'ciscobfdsessaddrtype', 'ciscobfdsessaddr', 'ciscobfdsessdesiredmintxinterval', 'ciscobfdsessreqminrxinterval', 'ciscobfdsessreqminechorxinterval', 'ciscobfdsessdetectmult', 'ciscobfdsessstortype', 'ciscobfdsessrowstatus', 'ciscobfdsessauthpresflag', 'ciscobfdsessauthenticationtype', 'ciscobfdsessversionnumber', 'ciscobfdsesstype', 'ciscobfdsessinterface', 'ciscobfdsessperfpktin', 'ciscobfdsessperfpktout', 'ciscobfdsessuptime', 'ciscobfdsessperflastsessdowntime', 'ciscobfdsessperflastcommlostdiag', 'ciscobfdsessperfsessupcount', 'ciscobfdsessperfdisctime', 'ciscobfdsessperfpktinhc', 'ciscobfdsessperfpktouthc'], name, value)
@@ -694,6 +699,7 @@ class CISCOIETFBFDMIB(Entity):
             self.ciscobfdsessmapentry = YList(self)
             self._segment_path = lambda: "ciscoBfdSessMapTable"
             self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessMapTable, [], name, value)
@@ -760,11 +766,11 @@ class CISCOIETFBFDMIB(Entity):
                 self.ylist_key_names = ['ciscobfdsessapplicationid','ciscobfdsessdiscriminator','ciscobfdsessaddrtype','ciscobfdsessaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciscobfdsessapplicationid', YLeaf(YType.str, 'ciscoBfdSessApplicationId')),
-                    ('ciscobfdsessdiscriminator', YLeaf(YType.str, 'ciscoBfdSessDiscriminator')),
-                    ('ciscobfdsessaddrtype', YLeaf(YType.enumeration, 'ciscoBfdSessAddrType')),
-                    ('ciscobfdsessaddr', YLeaf(YType.str, 'ciscoBfdSessAddr')),
-                    ('ciscobfdsessmapbfdindex', YLeaf(YType.uint32, 'ciscoBfdSessMapBfdIndex')),
+                    ('ciscobfdsessapplicationid', (YLeaf(YType.str, 'ciscoBfdSessApplicationId'), ['int'])),
+                    ('ciscobfdsessdiscriminator', (YLeaf(YType.str, 'ciscoBfdSessDiscriminator'), ['int'])),
+                    ('ciscobfdsessaddrtype', (YLeaf(YType.enumeration, 'ciscoBfdSessAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ciscobfdsessaddr', (YLeaf(YType.str, 'ciscoBfdSessAddr'), ['str'])),
+                    ('ciscobfdsessmapbfdindex', (YLeaf(YType.uint32, 'ciscoBfdSessMapBfdIndex'), ['int'])),
                 ])
                 self.ciscobfdsessapplicationid = None
                 self.ciscobfdsessdiscriminator = None
@@ -773,6 +779,7 @@ class CISCOIETFBFDMIB(Entity):
                 self.ciscobfdsessmapbfdindex = None
                 self._segment_path = lambda: "ciscoBfdSessMapEntry" + "[ciscoBfdSessApplicationId='" + str(self.ciscobfdsessapplicationid) + "']" + "[ciscoBfdSessDiscriminator='" + str(self.ciscobfdsessdiscriminator) + "']" + "[ciscoBfdSessAddrType='" + str(self.ciscobfdsessaddrtype) + "']" + "[ciscoBfdSessAddr='" + str(self.ciscobfdsessaddr) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/ciscoBfdSessMapTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessMapTable.CiscoBfdSessMapEntry, ['ciscobfdsessapplicationid', 'ciscobfdsessdiscriminator', 'ciscobfdsessaddrtype', 'ciscobfdsessaddr', 'ciscobfdsessmapbfdindex'], name, value)
@@ -810,6 +817,7 @@ class CISCOIETFBFDMIB(Entity):
             self.ciscobfdsessdiscmapentry = YList(self)
             self._segment_path = lambda: "ciscoBfdSessDiscMapTable"
             self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessDiscMapTable, [], name, value)
@@ -853,13 +861,14 @@ class CISCOIETFBFDMIB(Entity):
                 self.ylist_key_names = ['ciscobfdsessdiscriminator']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciscobfdsessdiscriminator', YLeaf(YType.str, 'ciscoBfdSessDiscriminator')),
-                    ('ciscobfdsessdiscmapindex', YLeaf(YType.uint32, 'ciscoBfdSessDiscMapIndex')),
+                    ('ciscobfdsessdiscriminator', (YLeaf(YType.str, 'ciscoBfdSessDiscriminator'), ['int'])),
+                    ('ciscobfdsessdiscmapindex', (YLeaf(YType.uint32, 'ciscoBfdSessDiscMapIndex'), ['int'])),
                 ])
                 self.ciscobfdsessdiscriminator = None
                 self.ciscobfdsessdiscmapindex = None
                 self._segment_path = lambda: "ciscoBfdSessDiscMapEntry" + "[ciscoBfdSessDiscriminator='" + str(self.ciscobfdsessdiscriminator) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/ciscoBfdSessDiscMapTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessDiscMapTable.CiscoBfdSessDiscMapEntry, ['ciscobfdsessdiscriminator', 'ciscobfdsessdiscmapindex'], name, value)
@@ -900,6 +909,7 @@ class CISCOIETFBFDMIB(Entity):
             self.ciscobfdsessipmapentry = YList(self)
             self._segment_path = lambda: "ciscoBfdSessIpMapTable"
             self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessIpMapTable, [], name, value)
@@ -958,10 +968,10 @@ class CISCOIETFBFDMIB(Entity):
                 self.ylist_key_names = ['ciscobfdsessinterface','ciscobfdsessaddrtype','ciscobfdsessaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciscobfdsessinterface', YLeaf(YType.str, 'ciscoBfdSessInterface')),
-                    ('ciscobfdsessaddrtype', YLeaf(YType.enumeration, 'ciscoBfdSessAddrType')),
-                    ('ciscobfdsessaddr', YLeaf(YType.str, 'ciscoBfdSessAddr')),
-                    ('ciscobfdsessipmapindex', YLeaf(YType.uint32, 'ciscoBfdSessIpMapIndex')),
+                    ('ciscobfdsessinterface', (YLeaf(YType.str, 'ciscoBfdSessInterface'), ['int'])),
+                    ('ciscobfdsessaddrtype', (YLeaf(YType.enumeration, 'ciscoBfdSessAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ciscobfdsessaddr', (YLeaf(YType.str, 'ciscoBfdSessAddr'), ['str'])),
+                    ('ciscobfdsessipmapindex', (YLeaf(YType.uint32, 'ciscoBfdSessIpMapIndex'), ['int'])),
                 ])
                 self.ciscobfdsessinterface = None
                 self.ciscobfdsessaddrtype = None
@@ -969,6 +979,7 @@ class CISCOIETFBFDMIB(Entity):
                 self.ciscobfdsessipmapindex = None
                 self._segment_path = lambda: "ciscoBfdSessIpMapEntry" + "[ciscoBfdSessInterface='" + str(self.ciscobfdsessinterface) + "']" + "[ciscoBfdSessAddrType='" + str(self.ciscobfdsessaddrtype) + "']" + "[ciscoBfdSessAddr='" + str(self.ciscobfdsessaddr) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-BFD-MIB:CISCO-IETF-BFD-MIB/ciscoBfdSessIpMapTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFBFDMIB.CiscoBfdSessIpMapTable.CiscoBfdSessIpMapEntry, ['ciscobfdsessinterface', 'ciscobfdsessaddrtype', 'ciscobfdsessaddr', 'ciscobfdsessipmapindex'], name, value)

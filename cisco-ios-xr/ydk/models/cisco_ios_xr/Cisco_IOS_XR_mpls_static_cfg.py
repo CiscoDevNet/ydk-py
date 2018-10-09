@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   mpls\-static\: MPLS Static Configuration Data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class MplsStaticAddressFamily(Enum):
@@ -235,7 +236,7 @@ class MplsStatic(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("vrfs", ("vrfs", MplsStatic.Vrfs)), ("interfaces", ("interfaces", MplsStatic.Interfaces)), ("default-vrf", ("default_vrf", MplsStatic.DefaultVrf))])
         self._leafs = OrderedDict([
-            ('enable', YLeaf(YType.empty, 'enable')),
+            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
         ])
         self.enable = None
 
@@ -251,6 +252,7 @@ class MplsStatic(Entity):
         self.default_vrf.parent = self
         self._children_name_map["default_vrf"] = "default-vrf"
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MplsStatic, ['enable'], name, value)
@@ -286,6 +288,7 @@ class MplsStatic(Entity):
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsStatic.Vrfs, [], name, value)
@@ -334,8 +337,8 @@ class MplsStatic(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("label-switched-paths", ("label_switched_paths", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths)), ("afs", ("afs", MplsStatic.Vrfs.Vrf.Afs))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.vrf_name = None
                 self.enable = None
@@ -349,6 +352,7 @@ class MplsStatic(Entity):
                 self._children_name_map["afs"] = "afs"
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/vrfs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsStatic.Vrfs.Vrf, ['vrf_name', 'enable'], name, value)
@@ -383,6 +387,7 @@ class MplsStatic(Entity):
 
                     self.label_switched_path = YList(self)
                     self._segment_path = lambda: "label-switched-paths"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths, [], name, value)
@@ -436,8 +441,8 @@ class MplsStatic(Entity):
                         self.ylist_key_names = ['lsp_name']
                         self._child_classes = OrderedDict([("backup-paths", ("backup_paths", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths)), ("in-label", ("in_label", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel)), ("paths", ("paths", MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths))])
                         self._leafs = OrderedDict([
-                            ('lsp_name', YLeaf(YType.str, 'lsp-name')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('lsp_name', (YLeaf(YType.str, 'lsp-name'), ['str'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
                         self.lsp_name = None
                         self.enable = None
@@ -454,6 +459,7 @@ class MplsStatic(Entity):
                         self.paths.parent = self
                         self._children_name_map["paths"] = "paths"
                         self._segment_path = lambda: "label-switched-path" + "[lsp-name='" + str(self.lsp_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath, ['lsp_name', 'enable'], name, value)
@@ -488,6 +494,7 @@ class MplsStatic(Entity):
 
                             self.path = YList(self)
                             self._segment_path = lambda: "backup-paths"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, [], name, value)
@@ -545,7 +552,7 @@ class MplsStatic(Entity):
                             	Next hop Interface with form <Interface>R/S/I/P
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: afi
                             
@@ -603,17 +610,17 @@ class MplsStatic(Entity):
                                 self.ylist_key_names = ['path_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                    ('path_type', YLeaf(YType.enumeration, 'path-type')),
-                                    ('label_type', YLeaf(YType.enumeration, 'label-type')),
-                                    ('next_hop_label', YLeaf(YType.uint32, 'next-hop-label')),
-                                    ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                    ('metric', YLeaf(YType.uint32, 'metric')),
-                                    ('nh_mode', YLeaf(YType.enumeration, 'nh-mode')),
-                                    ('path_role', YLeaf(YType.enumeration, 'path-role')),
-                                    ('backup_id', YLeaf(YType.uint32, 'backup-id')),
+                                    ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                    ('path_type', (YLeaf(YType.enumeration, 'path-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPath', '')])),
+                                    ('label_type', (YLeaf(YType.enumeration, 'label-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypes', '')])),
+                                    ('next_hop_label', (YLeaf(YType.uint32, 'next-hop-label'), ['int'])),
+                                    ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str','str'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhAddressFamily', '')])),
+                                    ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                    ('nh_mode', (YLeaf(YType.enumeration, 'nh-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhMode', '')])),
+                                    ('path_role', (YLeaf(YType.enumeration, 'path-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathRole', '')])),
+                                    ('backup_id', (YLeaf(YType.uint32, 'backup-id'), ['int'])),
                                 ])
                                 self.path_id = None
                                 self.path_type = None
@@ -627,6 +634,7 @@ class MplsStatic(Entity):
                                 self.path_role = None
                                 self.backup_id = None
                                 self._segment_path = lambda: "path" + "[path-id='" + str(self.path_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
@@ -690,11 +698,11 @@ class MplsStatic(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('in_label_value', YLeaf(YType.uint32, 'in-label-value')),
-                                ('label_mode', YLeaf(YType.enumeration, 'label-mode')),
-                                ('prefix', YLeaf(YType.str, 'prefix')),
-                                ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                ('tlh_mode', YLeaf(YType.boolean, 'tlh-mode')),
+                                ('in_label_value', (YLeaf(YType.uint32, 'in-label-value'), ['int'])),
+                                ('label_mode', (YLeaf(YType.enumeration, 'label-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelMode', '')])),
+                                ('prefix', (YLeaf(YType.str, 'prefix'), ['str','str'])),
+                                ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                ('tlh_mode', (YLeaf(YType.boolean, 'tlh-mode'), ['bool'])),
                             ])
                             self.in_label_value = None
                             self.label_mode = None
@@ -702,6 +710,7 @@ class MplsStatic(Entity):
                             self.prefix_length = None
                             self.tlh_mode = None
                             self._segment_path = lambda: "in-label"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, ['in_label_value', 'label_mode', 'prefix', 'prefix_length', 'tlh_mode'], name, value)
@@ -736,6 +745,7 @@ class MplsStatic(Entity):
 
                             self.path = YList(self)
                             self._segment_path = lambda: "paths"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, [], name, value)
@@ -793,7 +803,7 @@ class MplsStatic(Entity):
                             	Next hop Interface with form <Interface>R/S/I/P
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: afi
                             
@@ -851,17 +861,17 @@ class MplsStatic(Entity):
                                 self.ylist_key_names = ['path_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                    ('path_type', YLeaf(YType.enumeration, 'path-type')),
-                                    ('label_type', YLeaf(YType.enumeration, 'label-type')),
-                                    ('next_hop_label', YLeaf(YType.uint32, 'next-hop-label')),
-                                    ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                    ('metric', YLeaf(YType.uint32, 'metric')),
-                                    ('nh_mode', YLeaf(YType.enumeration, 'nh-mode')),
-                                    ('path_role', YLeaf(YType.enumeration, 'path-role')),
-                                    ('backup_id', YLeaf(YType.uint32, 'backup-id')),
+                                    ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                    ('path_type', (YLeaf(YType.enumeration, 'path-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPath', '')])),
+                                    ('label_type', (YLeaf(YType.enumeration, 'label-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypes', '')])),
+                                    ('next_hop_label', (YLeaf(YType.uint32, 'next-hop-label'), ['int'])),
+                                    ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str','str'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhAddressFamily', '')])),
+                                    ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                    ('nh_mode', (YLeaf(YType.enumeration, 'nh-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhMode', '')])),
+                                    ('path_role', (YLeaf(YType.enumeration, 'path-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathRole', '')])),
+                                    ('backup_id', (YLeaf(YType.uint32, 'backup-id'), ['int'])),
                                 ])
                                 self.path_id = None
                                 self.path_type = None
@@ -875,6 +885,7 @@ class MplsStatic(Entity):
                                 self.path_role = None
                                 self.backup_id = None
                                 self._segment_path = lambda: "path" + "[path-id='" + str(self.path_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
@@ -909,6 +920,7 @@ class MplsStatic(Entity):
 
                     self.af = YList(self)
                     self._segment_path = lambda: "afs"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs, [], name, value)
@@ -955,8 +967,8 @@ class MplsStatic(Entity):
                         self.ylist_key_names = ['afi']
                         self._child_classes = OrderedDict([("top-label-hash", ("top_label_hash", MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash)), ("local-labels", ("local_labels", MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels))])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticAddressFamily', '')])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
                         self.afi = None
                         self.enable = None
@@ -969,6 +981,7 @@ class MplsStatic(Entity):
                         self.local_labels.parent = self
                         self._children_name_map["local_labels"] = "local-labels"
                         self._segment_path = lambda: "af" + "[afi='" + str(self.afi) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af, ['afi', 'enable'], name, value)
@@ -1005,6 +1018,7 @@ class MplsStatic(Entity):
                             self.local_labels.parent = self
                             self._children_name_map["local_labels"] = "local-labels"
                             self._segment_path = lambda: "top-label-hash"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash, [], name, value)
@@ -1039,6 +1053,7 @@ class MplsStatic(Entity):
 
                                 self.local_label = YList(self)
                                 self._segment_path = lambda: "local-labels"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels, [], name, value)
@@ -1082,7 +1097,7 @@ class MplsStatic(Entity):
                                     self.ylist_key_names = ['local_label_id']
                                     self._child_classes = OrderedDict([("label-type", ("label_type", MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType)), ("paths", ("paths", MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths))])
                                     self._leafs = OrderedDict([
-                                        ('local_label_id', YLeaf(YType.uint32, 'local-label-id')),
+                                        ('local_label_id', (YLeaf(YType.uint32, 'local-label-id'), ['int'])),
                                     ])
                                     self.local_label_id = None
 
@@ -1094,6 +1109,7 @@ class MplsStatic(Entity):
                                     self.paths.parent = self
                                     self._children_name_map["paths"] = "paths"
                                     self._segment_path = lambda: "local-label" + "[local-label-id='" + str(self.local_label_id) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel, ['local_label_id'], name, value)
@@ -1145,14 +1161,15 @@ class MplsStatic(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('label_mode', YLeaf(YType.enumeration, 'label-mode')),
-                                            ('prefix', YLeaf(YType.str, 'prefix')),
-                                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                                            ('label_mode', (YLeaf(YType.enumeration, 'label-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelMode', '')])),
+                                            ('prefix', (YLeaf(YType.str, 'prefix'), ['str','str'])),
+                                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
                                         ])
                                         self.label_mode = None
                                         self.prefix = None
                                         self.prefix_length = None
                                         self._segment_path = lambda: "label-type"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
@@ -1187,6 +1204,7 @@ class MplsStatic(Entity):
 
                                         self.path = YList(self)
                                         self._segment_path = lambda: "paths"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths, [], name, value)
@@ -1244,7 +1262,7 @@ class MplsStatic(Entity):
                                         	Next hop Interface with form <Interface>R/S/I/P
                                         	**type**\: str
                                         
-                                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                         
                                         .. attribute:: afi
                                         
@@ -1302,17 +1320,17 @@ class MplsStatic(Entity):
                                             self.ylist_key_names = ['path_id']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                                ('path_type', YLeaf(YType.enumeration, 'path-type')),
-                                                ('label_type', YLeaf(YType.enumeration, 'label-type')),
-                                                ('next_hop_label', YLeaf(YType.uint32, 'next-hop-label')),
-                                                ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
-                                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                                ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                ('metric', YLeaf(YType.uint32, 'metric')),
-                                                ('nh_mode', YLeaf(YType.enumeration, 'nh-mode')),
-                                                ('path_role', YLeaf(YType.enumeration, 'path-role')),
-                                                ('backup_id', YLeaf(YType.uint32, 'backup-id')),
+                                                ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                                ('path_type', (YLeaf(YType.enumeration, 'path-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPath', '')])),
+                                                ('label_type', (YLeaf(YType.enumeration, 'label-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypes', '')])),
+                                                ('next_hop_label', (YLeaf(YType.uint32, 'next-hop-label'), ['int'])),
+                                                ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str','str'])),
+                                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                                ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhAddressFamily', '')])),
+                                                ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                ('nh_mode', (YLeaf(YType.enumeration, 'nh-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhMode', '')])),
+                                                ('path_role', (YLeaf(YType.enumeration, 'path-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathRole', '')])),
+                                                ('backup_id', (YLeaf(YType.uint32, 'backup-id'), ['int'])),
                                             ])
                                             self.path_id = None
                                             self.path_type = None
@@ -1326,6 +1344,7 @@ class MplsStatic(Entity):
                                             self.path_role = None
                                             self.backup_id = None
                                             self._segment_path = lambda: "path" + "[path-id='" + str(self.path_id) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
@@ -1360,6 +1379,7 @@ class MplsStatic(Entity):
 
                             self.local_label = YList(self)
                             self._segment_path = lambda: "local-labels"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels, [], name, value)
@@ -1403,7 +1423,7 @@ class MplsStatic(Entity):
                                 self.ylist_key_names = ['local_label_id']
                                 self._child_classes = OrderedDict([("label-type", ("label_type", MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType)), ("paths", ("paths", MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths))])
                                 self._leafs = OrderedDict([
-                                    ('local_label_id', YLeaf(YType.uint32, 'local-label-id')),
+                                    ('local_label_id', (YLeaf(YType.uint32, 'local-label-id'), ['int'])),
                                 ])
                                 self.local_label_id = None
 
@@ -1415,6 +1435,7 @@ class MplsStatic(Entity):
                                 self.paths.parent = self
                                 self._children_name_map["paths"] = "paths"
                                 self._segment_path = lambda: "local-label" + "[local-label-id='" + str(self.local_label_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel, ['local_label_id'], name, value)
@@ -1466,14 +1487,15 @@ class MplsStatic(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('label_mode', YLeaf(YType.enumeration, 'label-mode')),
-                                        ('prefix', YLeaf(YType.str, 'prefix')),
-                                        ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                                        ('label_mode', (YLeaf(YType.enumeration, 'label-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelMode', '')])),
+                                        ('prefix', (YLeaf(YType.str, 'prefix'), ['str','str'])),
+                                        ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
                                     ])
                                     self.label_mode = None
                                     self.prefix = None
                                     self.prefix_length = None
                                     self._segment_path = lambda: "label-type"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
@@ -1508,6 +1530,7 @@ class MplsStatic(Entity):
 
                                     self.path = YList(self)
                                     self._segment_path = lambda: "paths"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths, [], name, value)
@@ -1565,7 +1588,7 @@ class MplsStatic(Entity):
                                     	Next hop Interface with form <Interface>R/S/I/P
                                     	**type**\: str
                                     
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                     
                                     .. attribute:: afi
                                     
@@ -1623,17 +1646,17 @@ class MplsStatic(Entity):
                                         self.ylist_key_names = ['path_id']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                            ('path_type', YLeaf(YType.enumeration, 'path-type')),
-                                            ('label_type', YLeaf(YType.enumeration, 'label-type')),
-                                            ('next_hop_label', YLeaf(YType.uint32, 'next-hop-label')),
-                                            ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
-                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                                            ('metric', YLeaf(YType.uint32, 'metric')),
-                                            ('nh_mode', YLeaf(YType.enumeration, 'nh-mode')),
-                                            ('path_role', YLeaf(YType.enumeration, 'path-role')),
-                                            ('backup_id', YLeaf(YType.uint32, 'backup-id')),
+                                            ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                            ('path_type', (YLeaf(YType.enumeration, 'path-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPath', '')])),
+                                            ('label_type', (YLeaf(YType.enumeration, 'label-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypes', '')])),
+                                            ('next_hop_label', (YLeaf(YType.uint32, 'next-hop-label'), ['int'])),
+                                            ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str','str'])),
+                                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhAddressFamily', '')])),
+                                            ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                            ('nh_mode', (YLeaf(YType.enumeration, 'nh-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhMode', '')])),
+                                            ('path_role', (YLeaf(YType.enumeration, 'path-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathRole', '')])),
+                                            ('backup_id', (YLeaf(YType.uint32, 'backup-id'), ['int'])),
                                         ])
                                         self.path_id = None
                                         self.path_type = None
@@ -1647,6 +1670,7 @@ class MplsStatic(Entity):
                                         self.path_role = None
                                         self.backup_id = None
                                         self._segment_path = lambda: "path" + "[path-id='" + str(self.path_id) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsStatic.Vrfs.Vrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
@@ -1682,6 +1706,7 @@ class MplsStatic(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsStatic.Interfaces, [], name, value)
@@ -1696,7 +1721,7 @@ class MplsStatic(Entity):
             	Name of Interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             
 
@@ -1715,11 +1740,12 @@ class MplsStatic(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                 ])
                 self.interface_name = None
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsStatic.Interfaces.Interface, ['interface_name'], name, value)
@@ -1761,7 +1787,7 @@ class MplsStatic(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("label-switched-paths", ("label_switched_paths", MplsStatic.DefaultVrf.LabelSwitchedPaths)), ("afs", ("afs", MplsStatic.DefaultVrf.Afs))])
             self._leafs = OrderedDict([
-                ('enable', YLeaf(YType.empty, 'enable')),
+                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
             ])
             self.enable = None
 
@@ -1774,6 +1800,7 @@ class MplsStatic(Entity):
             self._children_name_map["afs"] = "afs"
             self._segment_path = lambda: "default-vrf"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsStatic.DefaultVrf, ['enable'], name, value)
@@ -1809,6 +1836,7 @@ class MplsStatic(Entity):
                 self.label_switched_path = YList(self)
                 self._segment_path = lambda: "label-switched-paths"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/default-vrf/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths, [], name, value)
@@ -1862,8 +1890,8 @@ class MplsStatic(Entity):
                     self.ylist_key_names = ['lsp_name']
                     self._child_classes = OrderedDict([("backup-paths", ("backup_paths", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths)), ("in-label", ("in_label", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel)), ("paths", ("paths", MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths))])
                     self._leafs = OrderedDict([
-                        ('lsp_name', YLeaf(YType.str, 'lsp-name')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
+                        ('lsp_name', (YLeaf(YType.str, 'lsp-name'), ['str'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.lsp_name = None
                     self.enable = None
@@ -1881,6 +1909,7 @@ class MplsStatic(Entity):
                     self._children_name_map["paths"] = "paths"
                     self._segment_path = lambda: "label-switched-path" + "[lsp-name='" + str(self.lsp_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/default-vrf/label-switched-paths/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath, ['lsp_name', 'enable'], name, value)
@@ -1915,6 +1944,7 @@ class MplsStatic(Entity):
 
                         self.path = YList(self)
                         self._segment_path = lambda: "backup-paths"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths, [], name, value)
@@ -1972,7 +2002,7 @@ class MplsStatic(Entity):
                         	Next hop Interface with form <Interface>R/S/I/P
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: afi
                         
@@ -2030,17 +2060,17 @@ class MplsStatic(Entity):
                             self.ylist_key_names = ['path_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                ('path_type', YLeaf(YType.enumeration, 'path-type')),
-                                ('label_type', YLeaf(YType.enumeration, 'label-type')),
-                                ('next_hop_label', YLeaf(YType.uint32, 'next-hop-label')),
-                                ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('afi', YLeaf(YType.enumeration, 'afi')),
-                                ('metric', YLeaf(YType.uint32, 'metric')),
-                                ('nh_mode', YLeaf(YType.enumeration, 'nh-mode')),
-                                ('path_role', YLeaf(YType.enumeration, 'path-role')),
-                                ('backup_id', YLeaf(YType.uint32, 'backup-id')),
+                                ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                ('path_type', (YLeaf(YType.enumeration, 'path-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPath', '')])),
+                                ('label_type', (YLeaf(YType.enumeration, 'label-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypes', '')])),
+                                ('next_hop_label', (YLeaf(YType.uint32, 'next-hop-label'), ['int'])),
+                                ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str','str'])),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhAddressFamily', '')])),
+                                ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                ('nh_mode', (YLeaf(YType.enumeration, 'nh-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhMode', '')])),
+                                ('path_role', (YLeaf(YType.enumeration, 'path-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathRole', '')])),
+                                ('backup_id', (YLeaf(YType.uint32, 'backup-id'), ['int'])),
                             ])
                             self.path_id = None
                             self.path_type = None
@@ -2054,6 +2084,7 @@ class MplsStatic(Entity):
                             self.path_role = None
                             self.backup_id = None
                             self._segment_path = lambda: "path" + "[path-id='" + str(self.path_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.BackupPaths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
@@ -2117,11 +2148,11 @@ class MplsStatic(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('in_label_value', YLeaf(YType.uint32, 'in-label-value')),
-                            ('label_mode', YLeaf(YType.enumeration, 'label-mode')),
-                            ('prefix', YLeaf(YType.str, 'prefix')),
-                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                            ('tlh_mode', YLeaf(YType.boolean, 'tlh-mode')),
+                            ('in_label_value', (YLeaf(YType.uint32, 'in-label-value'), ['int'])),
+                            ('label_mode', (YLeaf(YType.enumeration, 'label-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelMode', '')])),
+                            ('prefix', (YLeaf(YType.str, 'prefix'), ['str','str'])),
+                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                            ('tlh_mode', (YLeaf(YType.boolean, 'tlh-mode'), ['bool'])),
                         ])
                         self.in_label_value = None
                         self.label_mode = None
@@ -2129,6 +2160,7 @@ class MplsStatic(Entity):
                         self.prefix_length = None
                         self.tlh_mode = None
                         self._segment_path = lambda: "in-label"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.InLabel, ['in_label_value', 'label_mode', 'prefix', 'prefix_length', 'tlh_mode'], name, value)
@@ -2163,6 +2195,7 @@ class MplsStatic(Entity):
 
                         self.path = YList(self)
                         self._segment_path = lambda: "paths"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths, [], name, value)
@@ -2220,7 +2253,7 @@ class MplsStatic(Entity):
                         	Next hop Interface with form <Interface>R/S/I/P
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: afi
                         
@@ -2278,17 +2311,17 @@ class MplsStatic(Entity):
                             self.ylist_key_names = ['path_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                ('path_type', YLeaf(YType.enumeration, 'path-type')),
-                                ('label_type', YLeaf(YType.enumeration, 'label-type')),
-                                ('next_hop_label', YLeaf(YType.uint32, 'next-hop-label')),
-                                ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('afi', YLeaf(YType.enumeration, 'afi')),
-                                ('metric', YLeaf(YType.uint32, 'metric')),
-                                ('nh_mode', YLeaf(YType.enumeration, 'nh-mode')),
-                                ('path_role', YLeaf(YType.enumeration, 'path-role')),
-                                ('backup_id', YLeaf(YType.uint32, 'backup-id')),
+                                ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                ('path_type', (YLeaf(YType.enumeration, 'path-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPath', '')])),
+                                ('label_type', (YLeaf(YType.enumeration, 'label-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypes', '')])),
+                                ('next_hop_label', (YLeaf(YType.uint32, 'next-hop-label'), ['int'])),
+                                ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str','str'])),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhAddressFamily', '')])),
+                                ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                ('nh_mode', (YLeaf(YType.enumeration, 'nh-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhMode', '')])),
+                                ('path_role', (YLeaf(YType.enumeration, 'path-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathRole', '')])),
+                                ('backup_id', (YLeaf(YType.uint32, 'backup-id'), ['int'])),
                             ])
                             self.path_id = None
                             self.path_type = None
@@ -2302,6 +2335,7 @@ class MplsStatic(Entity):
                             self.path_role = None
                             self.backup_id = None
                             self._segment_path = lambda: "path" + "[path-id='" + str(self.path_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.DefaultVrf.LabelSwitchedPaths.LabelSwitchedPath.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
@@ -2337,6 +2371,7 @@ class MplsStatic(Entity):
                 self.af = YList(self)
                 self._segment_path = lambda: "afs"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/default-vrf/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsStatic.DefaultVrf.Afs, [], name, value)
@@ -2383,8 +2418,8 @@ class MplsStatic(Entity):
                     self.ylist_key_names = ['afi']
                     self._child_classes = OrderedDict([("top-label-hash", ("top_label_hash", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash)), ("local-labels", ("local_labels", MplsStatic.DefaultVrf.Afs.Af.LocalLabels))])
                     self._leafs = OrderedDict([
-                        ('afi', YLeaf(YType.enumeration, 'afi')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
+                        ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticAddressFamily', '')])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.afi = None
                     self.enable = None
@@ -2398,6 +2433,7 @@ class MplsStatic(Entity):
                     self._children_name_map["local_labels"] = "local-labels"
                     self._segment_path = lambda: "af" + "[afi='" + str(self.afi) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-cfg:mpls-static/default-vrf/afs/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af, ['afi', 'enable'], name, value)
@@ -2434,6 +2470,7 @@ class MplsStatic(Entity):
                         self.local_labels.parent = self
                         self._children_name_map["local_labels"] = "local-labels"
                         self._segment_path = lambda: "top-label-hash"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash, [], name, value)
@@ -2468,6 +2505,7 @@ class MplsStatic(Entity):
 
                             self.local_label = YList(self)
                             self._segment_path = lambda: "local-labels"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels, [], name, value)
@@ -2511,7 +2549,7 @@ class MplsStatic(Entity):
                                 self.ylist_key_names = ['local_label_id']
                                 self._child_classes = OrderedDict([("label-type", ("label_type", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType)), ("paths", ("paths", MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths))])
                                 self._leafs = OrderedDict([
-                                    ('local_label_id', YLeaf(YType.uint32, 'local-label-id')),
+                                    ('local_label_id', (YLeaf(YType.uint32, 'local-label-id'), ['int'])),
                                 ])
                                 self.local_label_id = None
 
@@ -2523,6 +2561,7 @@ class MplsStatic(Entity):
                                 self.paths.parent = self
                                 self._children_name_map["paths"] = "paths"
                                 self._segment_path = lambda: "local-label" + "[local-label-id='" + str(self.local_label_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel, ['local_label_id'], name, value)
@@ -2574,14 +2613,15 @@ class MplsStatic(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('label_mode', YLeaf(YType.enumeration, 'label-mode')),
-                                        ('prefix', YLeaf(YType.str, 'prefix')),
-                                        ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                                        ('label_mode', (YLeaf(YType.enumeration, 'label-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelMode', '')])),
+                                        ('prefix', (YLeaf(YType.str, 'prefix'), ['str','str'])),
+                                        ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
                                     ])
                                     self.label_mode = None
                                     self.prefix = None
                                     self.prefix_length = None
                                     self._segment_path = lambda: "label-type"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
@@ -2616,6 +2656,7 @@ class MplsStatic(Entity):
 
                                     self.path = YList(self)
                                     self._segment_path = lambda: "paths"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths, [], name, value)
@@ -2673,7 +2714,7 @@ class MplsStatic(Entity):
                                     	Next hop Interface with form <Interface>R/S/I/P
                                     	**type**\: str
                                     
-                                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                     
                                     .. attribute:: afi
                                     
@@ -2731,17 +2772,17 @@ class MplsStatic(Entity):
                                         self.ylist_key_names = ['path_id']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                            ('path_type', YLeaf(YType.enumeration, 'path-type')),
-                                            ('label_type', YLeaf(YType.enumeration, 'label-type')),
-                                            ('next_hop_label', YLeaf(YType.uint32, 'next-hop-label')),
-                                            ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
-                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                                            ('metric', YLeaf(YType.uint32, 'metric')),
-                                            ('nh_mode', YLeaf(YType.enumeration, 'nh-mode')),
-                                            ('path_role', YLeaf(YType.enumeration, 'path-role')),
-                                            ('backup_id', YLeaf(YType.uint32, 'backup-id')),
+                                            ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                            ('path_type', (YLeaf(YType.enumeration, 'path-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPath', '')])),
+                                            ('label_type', (YLeaf(YType.enumeration, 'label-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypes', '')])),
+                                            ('next_hop_label', (YLeaf(YType.uint32, 'next-hop-label'), ['int'])),
+                                            ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str','str'])),
+                                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhAddressFamily', '')])),
+                                            ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                            ('nh_mode', (YLeaf(YType.enumeration, 'nh-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhMode', '')])),
+                                            ('path_role', (YLeaf(YType.enumeration, 'path-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathRole', '')])),
+                                            ('backup_id', (YLeaf(YType.uint32, 'backup-id'), ['int'])),
                                         ])
                                         self.path_id = None
                                         self.path_type = None
@@ -2755,6 +2796,7 @@ class MplsStatic(Entity):
                                         self.path_role = None
                                         self.backup_id = None
                                         self._segment_path = lambda: "path" + "[path-id='" + str(self.path_id) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.TopLabelHash.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)
@@ -2789,6 +2831,7 @@ class MplsStatic(Entity):
 
                         self.local_label = YList(self)
                         self._segment_path = lambda: "local-labels"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels, [], name, value)
@@ -2832,7 +2875,7 @@ class MplsStatic(Entity):
                             self.ylist_key_names = ['local_label_id']
                             self._child_classes = OrderedDict([("label-type", ("label_type", MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType)), ("paths", ("paths", MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths))])
                             self._leafs = OrderedDict([
-                                ('local_label_id', YLeaf(YType.uint32, 'local-label-id')),
+                                ('local_label_id', (YLeaf(YType.uint32, 'local-label-id'), ['int'])),
                             ])
                             self.local_label_id = None
 
@@ -2844,6 +2887,7 @@ class MplsStatic(Entity):
                             self.paths.parent = self
                             self._children_name_map["paths"] = "paths"
                             self._segment_path = lambda: "local-label" + "[local-label-id='" + str(self.local_label_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel, ['local_label_id'], name, value)
@@ -2895,14 +2939,15 @@ class MplsStatic(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('label_mode', YLeaf(YType.enumeration, 'label-mode')),
-                                    ('prefix', YLeaf(YType.str, 'prefix')),
-                                    ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
+                                    ('label_mode', (YLeaf(YType.enumeration, 'label-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticLabelMode', '')])),
+                                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str','str'])),
+                                    ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
                                 ])
                                 self.label_mode = None
                                 self.prefix = None
                                 self.prefix_length = None
                                 self._segment_path = lambda: "label-type"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.LabelType, ['label_mode', 'prefix', 'prefix_length'], name, value)
@@ -2937,6 +2982,7 @@ class MplsStatic(Entity):
 
                                 self.path = YList(self)
                                 self._segment_path = lambda: "paths"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths, [], name, value)
@@ -2994,7 +3040,7 @@ class MplsStatic(Entity):
                                 	Next hop Interface with form <Interface>R/S/I/P
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: afi
                                 
@@ -3052,17 +3098,17 @@ class MplsStatic(Entity):
                                     self.ylist_key_names = ['path_id']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                        ('path_type', YLeaf(YType.enumeration, 'path-type')),
-                                        ('label_type', YLeaf(YType.enumeration, 'label-type')),
-                                        ('next_hop_label', YLeaf(YType.uint32, 'next-hop-label')),
-                                        ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('afi', YLeaf(YType.enumeration, 'afi')),
-                                        ('metric', YLeaf(YType.uint32, 'metric')),
-                                        ('nh_mode', YLeaf(YType.enumeration, 'nh-mode')),
-                                        ('path_role', YLeaf(YType.enumeration, 'path-role')),
-                                        ('backup_id', YLeaf(YType.uint32, 'backup-id')),
+                                        ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                        ('path_type', (YLeaf(YType.enumeration, 'path-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPath', '')])),
+                                        ('label_type', (YLeaf(YType.enumeration, 'label-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticOutLabelTypes', '')])),
+                                        ('next_hop_label', (YLeaf(YType.uint32, 'next-hop-label'), ['int'])),
+                                        ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str','str'])),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhAddressFamily', '')])),
+                                        ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                        ('nh_mode', (YLeaf(YType.enumeration, 'nh-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticNhMode', '')])),
+                                        ('path_role', (YLeaf(YType.enumeration, 'path-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_cfg', 'MplsStaticPathRole', '')])),
+                                        ('backup_id', (YLeaf(YType.uint32, 'backup-id'), ['int'])),
                                     ])
                                     self.path_id = None
                                     self.path_type = None
@@ -3076,6 +3122,7 @@ class MplsStatic(Entity):
                                     self.path_role = None
                                     self.backup_id = None
                                     self._segment_path = lambda: "path" + "[path-id='" + str(self.path_id) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.DefaultVrf.Afs.Af.LocalLabels.LocalLabel.Paths.Path, ['path_id', 'path_type', 'label_type', 'next_hop_label', 'next_hop_address', 'interface_name', 'afi', 'metric', 'nh_mode', 'path_role', 'backup_id'], name, value)

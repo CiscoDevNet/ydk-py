@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   otu\: OTU operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class GmplsOtuTtiMode(Enum):
@@ -52,6 +53,33 @@ class GmplsOtuTtiMode(Enum):
     gmpls_otu_tti_mode_tcm = Enum.YLeaf(3, "gmpls-otu-tti-mode-tcm")
 
 
+class OtuAinsStateEt(Enum):
+    """
+    OtuAinsStateEt (Enum Class)
+
+    Otu ains state et
+
+    .. data:: none = 0
+
+    	None
+
+    .. data:: active_running = 1
+
+    	Running
+
+    .. data:: active_pending = 2
+
+    	Pending
+
+    """
+
+    none = Enum.YLeaf(0, "none")
+
+    active_running = Enum.YLeaf(1, "active-running")
+
+    active_pending = Enum.YLeaf(2, "active-pending")
+
+
 class OtuDerState(Enum):
     """
     OtuDerState (Enum Class)
@@ -70,7 +98,7 @@ class OtuDerState(Enum):
 
     	Maintenance
 
-    .. data:: ais = 3
+    .. data:: ains = 3
 
     	Automatic In Service
 
@@ -82,7 +110,7 @@ class OtuDerState(Enum):
 
     maintenance = Enum.YLeaf(2, "maintenance")
 
-    ais = Enum.YLeaf(3, "ais")
+    ains = Enum.YLeaf(3, "ains")
 
 
 class OtuG709fecMode(Enum):
@@ -127,7 +155,15 @@ class OtuG709fecMode(Enum):
 
     	Soft-Decision 7
 
-    .. data:: otu_bag_all_fec = 512
+    .. data:: otu_bag_sd15_fec = 512
+
+    	Soft-Decision 15
+
+    .. data:: otu_bag_sd27_fec = 1024
+
+    	Soft-Decision 27
+
+    .. data:: otu_bag_all_fec = 2048
 
     	ALL
 
@@ -151,7 +187,11 @@ class OtuG709fecMode(Enum):
 
     otu_bag_sd7_fec = Enum.YLeaf(256, "otu-bag-sd7-fec")
 
-    otu_bag_all_fec = Enum.YLeaf(512, "otu-bag-all-fec")
+    otu_bag_sd15_fec = Enum.YLeaf(512, "otu-bag-sd15-fec")
+
+    otu_bag_sd27_fec = Enum.YLeaf(1024, "otu-bag-sd27-fec")
+
+    otu_bag_all_fec = Enum.YLeaf(2048, "otu-bag-all-fec")
 
 
 class OtuLoopBackMode(Enum):
@@ -450,7 +490,7 @@ class OtuSecState(Enum):
 
     	Maintenance
 
-    .. data:: ais = 2
+    .. data:: ains = 2
 
     	Automatic In Service
 
@@ -460,7 +500,7 @@ class OtuSecState(Enum):
 
     maintenance = Enum.YLeaf(1, "maintenance")
 
-    ais = Enum.YLeaf(2, "ais")
+    ains = Enum.YLeaf(2, "ains")
 
 
 class OtuStateEt(Enum):
@@ -652,6 +692,7 @@ class Otu(Entity):
         self.controllers.parent = self
         self._children_name_map["controllers"] = "controllers"
         self._segment_path = lambda: "Cisco-IOS-XR-controller-otu-oper:otu"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Otu, [], name, value)
@@ -687,6 +728,7 @@ class Otu(Entity):
             self.controller = YList(self)
             self._segment_path = lambda: "controllers"
             self._absolute_path = lambda: "Cisco-IOS-XR-controller-otu-oper:otu/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Otu.Controllers, [], name, value)
@@ -701,7 +743,7 @@ class Otu(Entity):
             	Port name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: prbs
             
@@ -730,7 +772,7 @@ class Otu(Entity):
                 self.ylist_key_names = ['controller_name']
                 self._child_classes = OrderedDict([("prbs", ("prbs", Otu.Controllers.Controller.Prbs)), ("info", ("info", Otu.Controllers.Controller.Info))])
                 self._leafs = OrderedDict([
-                    ('controller_name', YLeaf(YType.str, 'controller-name')),
+                    ('controller_name', (YLeaf(YType.str, 'controller-name'), ['str'])),
                 ])
                 self.controller_name = None
 
@@ -743,6 +785,7 @@ class Otu(Entity):
                 self._children_name_map["info"] = "info"
                 self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-controller-otu-oper:otu/controllers/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Otu.Controllers.Controller, ['controller_name'], name, value)
@@ -789,19 +832,20 @@ class Otu(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('otu_prbs_test', YLeaf(YType.enumeration, 'otu-prbs-test')),
-                        ('otu_prbs_mode', YLeaf(YType.enumeration, 'otu-prbs-mode')),
-                        ('otu_prbs_pattern', YLeaf(YType.enumeration, 'otu-prbs-pattern')),
-                        ('otu_prbs_status', YLeaf(YType.enumeration, 'otu-prbs-status')),
+                        ('otu_prbs_test', (YLeaf(YType.enumeration, 'otu-prbs-test'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuPrbsTest', '')])),
+                        ('otu_prbs_mode', (YLeaf(YType.enumeration, 'otu-prbs-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuPrbsMode', '')])),
+                        ('otu_prbs_pattern', (YLeaf(YType.enumeration, 'otu-prbs-pattern'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuPrbsPattern', '')])),
+                        ('otu_prbs_status', (YLeaf(YType.enumeration, 'otu-prbs-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuPrbsStatus', '')])),
                     ])
                     self.otu_prbs_test = None
                     self.otu_prbs_mode = None
                     self.otu_prbs_pattern = None
                     self.otu_prbs_status = None
                     self._segment_path = lambda: "prbs"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Otu.Controllers.Controller.Prbs, ['otu_prbs_test', 'otu_prbs_mode', 'otu_prbs_pattern', 'otu_prbs_status'], name, value)
+                    self._perform_setattr(Otu.Controllers.Controller.Prbs, [u'otu_prbs_test', u'otu_prbs_mode', u'otu_prbs_pattern', u'otu_prbs_status'], name, value)
 
 
             class Info(Entity):
@@ -842,6 +886,11 @@ class Otu(Entity):
                 
                 	OTU FEC Statistics
                 	**type**\:  :py:class:`OtuFecSatistics <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.OtuFecSatistics>`
+                
+                .. attribute:: ains_info
+                
+                	AINS information
+                	**type**\:  :py:class:`AinsInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.Otu.Controllers.Controller.Info.AinsInfo>`
                 
                 .. attribute:: state
                 
@@ -1006,34 +1055,34 @@ class Otu(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("local", ("local", Otu.Controllers.Controller.Info.Local)), ("remote", ("remote", Otu.Controllers.Controller.Info.Remote)), ("tti-mode", ("tti_mode", Otu.Controllers.Controller.Info.TtiMode)), ("network-srlg", ("network_srlg", Otu.Controllers.Controller.Info.NetworkSrlg)), ("otu-alarm-info", ("otu_alarm_info", Otu.Controllers.Controller.Info.OtuAlarmInfo)), ("proactive", ("proactive", Otu.Controllers.Controller.Info.Proactive)), ("otu-fec-satistics", ("otu_fec_satistics", Otu.Controllers.Controller.Info.OtuFecSatistics))])
+                    self._child_classes = OrderedDict([("local", ("local", Otu.Controllers.Controller.Info.Local)), ("remote", ("remote", Otu.Controllers.Controller.Info.Remote)), ("tti-mode", ("tti_mode", Otu.Controllers.Controller.Info.TtiMode)), ("network-srlg", ("network_srlg", Otu.Controllers.Controller.Info.NetworkSrlg)), ("otu-alarm-info", ("otu_alarm_info", Otu.Controllers.Controller.Info.OtuAlarmInfo)), ("proactive", ("proactive", Otu.Controllers.Controller.Info.Proactive)), ("otu-fec-satistics", ("otu_fec_satistics", Otu.Controllers.Controller.Info.OtuFecSatistics)), ("ains-info", ("ains_info", Otu.Controllers.Controller.Info.AinsInfo))])
                     self._leafs = OrderedDict([
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('sf', YLeaf(YType.uint8, 'sf')),
-                        ('sd', YLeaf(YType.uint8, 'sd')),
-                        ('loopback_mode', YLeaf(YType.enumeration, 'loopback-mode')),
-                        ('fec_mode', YLeaf(YType.enumeration, 'fec-mode')),
-                        ('derivedstate_mode', YLeaf(YType.enumeration, 'derivedstate-mode')),
-                        ('inherit_sec_state', YLeaf(YType.enumeration, 'inherit-sec-state')),
-                        ('config_sec_state', YLeaf(YType.enumeration, 'config-sec-state')),
-                        ('gcc_mode', YLeaf(YType.boolean, 'gcc-mode')),
-                        ('q', YLeaf(YType.uint64, 'q')),
-                        ('q_margin', YLeaf(YType.uint64, 'q-margin')),
-                        ('performance_monitoring', YLeaf(YType.enumeration, 'performance-monitoring')),
-                        ('ec', YLeaf(YType.uint64, 'ec')),
-                        ('uc', YLeaf(YType.uint64, 'uc')),
-                        ('pre_fec_val', YLeaf(YType.int32, 'pre-fec-val')),
-                        ('pre_fec_mantissa', YLeaf(YType.int8, 'pre-fec-mantissa')),
-                        ('ec_value', YLeaf(YType.boolean, 'ec-value')),
-                        ('uc_value', YLeaf(YType.boolean, 'uc-value')),
-                        ('pre_fec_ber_value', YLeaf(YType.boolean, 'pre-fec-ber-value')),
-                        ('pre_fec_ber_mantissa', YLeaf(YType.boolean, 'pre-fec-ber-mantissa')),
-                        ('nv_optical_support', YLeaf(YType.boolean, 'nv-optical-support')),
-                        ('gmpls_tti_mode', YLeaf(YType.enumeration, 'gmpls-tti-mode')),
-                        ('gmpls_tvm_id', YLeaf(YType.uint8, 'gmpls-tvm-id')),
-                        ('auto_tti_flag', YLeaf(YType.boolean, 'auto-tti-flag')),
-                        ('description', YLeaf(YType.str, 'description')),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuStateEt', '')])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('sf', (YLeaf(YType.uint8, 'sf'), ['int'])),
+                        ('sd', (YLeaf(YType.uint8, 'sd'), ['int'])),
+                        ('loopback_mode', (YLeaf(YType.enumeration, 'loopback-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuLoopBackMode', '')])),
+                        ('fec_mode', (YLeaf(YType.enumeration, 'fec-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuG709fecMode', '')])),
+                        ('derivedstate_mode', (YLeaf(YType.enumeration, 'derivedstate-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuDerState', '')])),
+                        ('inherit_sec_state', (YLeaf(YType.enumeration, 'inherit-sec-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuSecState', '')])),
+                        ('config_sec_state', (YLeaf(YType.enumeration, 'config-sec-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuSecState', '')])),
+                        ('gcc_mode', (YLeaf(YType.boolean, 'gcc-mode'), ['bool'])),
+                        ('q', (YLeaf(YType.uint64, 'q'), ['int'])),
+                        ('q_margin', (YLeaf(YType.uint64, 'q-margin'), ['int'])),
+                        ('performance_monitoring', (YLeaf(YType.enumeration, 'performance-monitoring'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuPerMon', '')])),
+                        ('ec', (YLeaf(YType.uint64, 'ec'), ['int'])),
+                        ('uc', (YLeaf(YType.uint64, 'uc'), ['int'])),
+                        ('pre_fec_val', (YLeaf(YType.int32, 'pre-fec-val'), ['int'])),
+                        ('pre_fec_mantissa', (YLeaf(YType.int8, 'pre-fec-mantissa'), ['int'])),
+                        ('ec_value', (YLeaf(YType.boolean, 'ec-value'), ['bool'])),
+                        ('uc_value', (YLeaf(YType.boolean, 'uc-value'), ['bool'])),
+                        ('pre_fec_ber_value', (YLeaf(YType.boolean, 'pre-fec-ber-value'), ['bool'])),
+                        ('pre_fec_ber_mantissa', (YLeaf(YType.boolean, 'pre-fec-ber-mantissa'), ['bool'])),
+                        ('nv_optical_support', (YLeaf(YType.boolean, 'nv-optical-support'), ['bool'])),
+                        ('gmpls_tti_mode', (YLeaf(YType.enumeration, 'gmpls-tti-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'GmplsOtuTtiMode', '')])),
+                        ('gmpls_tvm_id', (YLeaf(YType.uint8, 'gmpls-tvm-id'), ['int'])),
+                        ('auto_tti_flag', (YLeaf(YType.boolean, 'auto-tti-flag'), ['bool'])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
                     ])
                     self.state = None
                     self.name = None
@@ -1089,10 +1138,15 @@ class Otu(Entity):
                     self.otu_fec_satistics = Otu.Controllers.Controller.Info.OtuFecSatistics()
                     self.otu_fec_satistics.parent = self
                     self._children_name_map["otu_fec_satistics"] = "otu-fec-satistics"
+
+                    self.ains_info = Otu.Controllers.Controller.Info.AinsInfo()
+                    self.ains_info.parent = self
+                    self._children_name_map["ains_info"] = "ains-info"
                     self._segment_path = lambda: "info"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Otu.Controllers.Controller.Info, ['state', 'name', 'sf', 'sd', 'loopback_mode', 'fec_mode', 'derivedstate_mode', 'inherit_sec_state', 'config_sec_state', 'gcc_mode', 'q', 'q_margin', 'performance_monitoring', 'ec', 'uc', 'pre_fec_val', 'pre_fec_mantissa', 'ec_value', 'uc_value', 'pre_fec_ber_value', 'pre_fec_ber_mantissa', 'nv_optical_support', 'gmpls_tti_mode', 'gmpls_tvm_id', 'auto_tti_flag', 'description'], name, value)
+                    self._perform_setattr(Otu.Controllers.Controller.Info, [u'state', u'name', u'sf', u'sd', u'loopback_mode', u'fec_mode', u'derivedstate_mode', u'inherit_sec_state', u'config_sec_state', u'gcc_mode', u'q', u'q_margin', u'performance_monitoring', u'ec', u'uc', u'pre_fec_val', u'pre_fec_mantissa', u'ec_value', u'uc_value', u'pre_fec_ber_value', u'pre_fec_ber_mantissa', u'nv_optical_support', u'gmpls_tti_mode', u'gmpls_tvm_id', u'auto_tti_flag', u'description'], name, value)
 
 
                 class Local(Entity):
@@ -1130,15 +1184,16 @@ class Otu(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('router_id', YLeaf(YType.uint32, 'router-id')),
-                            ('if_index', YLeaf(YType.uint32, 'if-index')),
+                            ('router_id', (YLeaf(YType.uint32, 'router-id'), ['int'])),
+                            ('if_index', (YLeaf(YType.uint32, 'if-index'), ['int'])),
                         ])
                         self.router_id = None
                         self.if_index = None
                         self._segment_path = lambda: "local"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Otu.Controllers.Controller.Info.Local, ['router_id', 'if_index'], name, value)
+                        self._perform_setattr(Otu.Controllers.Controller.Info.Local, [u'router_id', u'if_index'], name, value)
 
 
                 class Remote(Entity):
@@ -1176,15 +1231,16 @@ class Otu(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('router_id', YLeaf(YType.uint32, 'router-id')),
-                            ('if_index', YLeaf(YType.uint32, 'if-index')),
+                            ('router_id', (YLeaf(YType.uint32, 'router-id'), ['int'])),
+                            ('if_index', (YLeaf(YType.uint32, 'if-index'), ['int'])),
                         ])
                         self.router_id = None
                         self.if_index = None
                         self._segment_path = lambda: "remote"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Otu.Controllers.Controller.Info.Remote, ['router_id', 'if_index'], name, value)
+                        self._perform_setattr(Otu.Controllers.Controller.Info.Remote, [u'router_id', u'if_index'], name, value)
 
 
                 class TtiMode(Entity):
@@ -1253,12 +1309,12 @@ class Otu(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("tx", ("tx", Otu.Controllers.Controller.Info.TtiMode.Tx)), ("exp", ("exp", Otu.Controllers.Controller.Info.TtiMode.Exp)), ("rec", ("rec", Otu.Controllers.Controller.Info.TtiMode.Rec))])
                         self._leafs = OrderedDict([
-                            ('g709tti_sent_mode', YLeaf(YType.enumeration, 'g709tti-sent-mode')),
-                            ('g709tti_exp_mode', YLeaf(YType.enumeration, 'g709tti-exp-mode')),
-                            ('g709tti_rec_mode', YLeaf(YType.enumeration, 'g709tti-rec-mode')),
-                            ('remote_interface', YLeaf(YType.str, 'remote-interface')),
-                            ('remote_host_name', YLeaf(YType.str, 'remote-host-name')),
-                            ('remote_ip_addr', YLeaf(YType.str, 'remote-ip-addr')),
+                            ('g709tti_sent_mode', (YLeaf(YType.enumeration, 'g709tti-sent-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuTtiEt', '')])),
+                            ('g709tti_exp_mode', (YLeaf(YType.enumeration, 'g709tti-exp-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuTtiEt', '')])),
+                            ('g709tti_rec_mode', (YLeaf(YType.enumeration, 'g709tti-rec-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuTtiEt', '')])),
+                            ('remote_interface', (YLeaf(YType.str, 'remote-interface'), ['str'])),
+                            ('remote_host_name', (YLeaf(YType.str, 'remote-host-name'), ['str'])),
+                            ('remote_ip_addr', (YLeaf(YType.str, 'remote-ip-addr'), ['str'])),
                         ])
                         self.g709tti_sent_mode = None
                         self.g709tti_exp_mode = None
@@ -1279,9 +1335,10 @@ class Otu(Entity):
                         self.rec.parent = self
                         self._children_name_map["rec"] = "rec"
                         self._segment_path = lambda: "tti-mode"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode, ['g709tti_sent_mode', 'g709tti_exp_mode', 'g709tti_rec_mode', 'remote_interface', 'remote_host_name', 'remote_ip_addr'], name, value)
+                        self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode, [u'g709tti_sent_mode', u'g709tti_exp_mode', u'g709tti_rec_mode', u'remote_interface', u'remote_host_name', u'remote_ip_addr'], name, value)
 
 
                     class Tx(Entity):
@@ -1325,7 +1382,7 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("sapi", ("sapi", Otu.Controllers.Controller.Info.TtiMode.Tx.Sapi)), ("dapi", ("dapi", Otu.Controllers.Controller.Info.TtiMode.Tx.Dapi)), ("operator-specific", ("operator_specific", Otu.Controllers.Controller.Info.TtiMode.Tx.OperatorSpecific))])
                             self._leafs = OrderedDict([
-                                ('full_tti_ascii_string', YLeaf(YType.str, 'full-tti-ascii-string')),
+                                ('full_tti_ascii_string', (YLeaf(YType.str, 'full-tti-ascii-string'), ['str'])),
                             ])
                             self.full_tti_ascii_string = None
 
@@ -1333,9 +1390,10 @@ class Otu(Entity):
                             self.dapi = YList(self)
                             self.operator_specific = YList(self)
                             self._segment_path = lambda: "tx"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx, ['full_tti_ascii_string'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx, [u'full_tti_ascii_string'], name, value)
 
 
                         class Sapi(Entity):
@@ -1366,13 +1424,14 @@ class Otu(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('entry', YLeaf(YType.uint8, 'entry')),
+                                    ('entry', (YLeaf(YType.uint8, 'entry'), ['int'])),
                                 ])
                                 self.entry = None
                                 self._segment_path = lambda: "sapi"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx.Sapi, ['entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx.Sapi, [u'entry'], name, value)
 
 
                         class Dapi(Entity):
@@ -1403,13 +1462,14 @@ class Otu(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('entry', YLeaf(YType.uint8, 'entry')),
+                                    ('entry', (YLeaf(YType.uint8, 'entry'), ['int'])),
                                 ])
                                 self.entry = None
                                 self._segment_path = lambda: "dapi"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx.Dapi, ['entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx.Dapi, [u'entry'], name, value)
 
 
                         class OperatorSpecific(Entity):
@@ -1440,13 +1500,14 @@ class Otu(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('entry', YLeaf(YType.uint8, 'entry')),
+                                    ('entry', (YLeaf(YType.uint8, 'entry'), ['int'])),
                                 ])
                                 self.entry = None
                                 self._segment_path = lambda: "operator-specific"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx.OperatorSpecific, ['entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Tx.OperatorSpecific, [u'entry'], name, value)
 
 
                     class Exp(Entity):
@@ -1490,7 +1551,7 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("sapi", ("sapi", Otu.Controllers.Controller.Info.TtiMode.Exp.Sapi)), ("dapi", ("dapi", Otu.Controllers.Controller.Info.TtiMode.Exp.Dapi)), ("operator-specific", ("operator_specific", Otu.Controllers.Controller.Info.TtiMode.Exp.OperatorSpecific))])
                             self._leafs = OrderedDict([
-                                ('full_tti_ascii_string', YLeaf(YType.str, 'full-tti-ascii-string')),
+                                ('full_tti_ascii_string', (YLeaf(YType.str, 'full-tti-ascii-string'), ['str'])),
                             ])
                             self.full_tti_ascii_string = None
 
@@ -1498,9 +1559,10 @@ class Otu(Entity):
                             self.dapi = YList(self)
                             self.operator_specific = YList(self)
                             self._segment_path = lambda: "exp"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp, ['full_tti_ascii_string'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp, [u'full_tti_ascii_string'], name, value)
 
 
                         class Sapi(Entity):
@@ -1531,13 +1593,14 @@ class Otu(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('entry', YLeaf(YType.uint8, 'entry')),
+                                    ('entry', (YLeaf(YType.uint8, 'entry'), ['int'])),
                                 ])
                                 self.entry = None
                                 self._segment_path = lambda: "sapi"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp.Sapi, ['entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp.Sapi, [u'entry'], name, value)
 
 
                         class Dapi(Entity):
@@ -1568,13 +1631,14 @@ class Otu(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('entry', YLeaf(YType.uint8, 'entry')),
+                                    ('entry', (YLeaf(YType.uint8, 'entry'), ['int'])),
                                 ])
                                 self.entry = None
                                 self._segment_path = lambda: "dapi"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp.Dapi, ['entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp.Dapi, [u'entry'], name, value)
 
 
                         class OperatorSpecific(Entity):
@@ -1605,13 +1669,14 @@ class Otu(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('entry', YLeaf(YType.uint8, 'entry')),
+                                    ('entry', (YLeaf(YType.uint8, 'entry'), ['int'])),
                                 ])
                                 self.entry = None
                                 self._segment_path = lambda: "operator-specific"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp.OperatorSpecific, ['entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Exp.OperatorSpecific, [u'entry'], name, value)
 
 
                     class Rec(Entity):
@@ -1655,7 +1720,7 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("sapi", ("sapi", Otu.Controllers.Controller.Info.TtiMode.Rec.Sapi)), ("dapi", ("dapi", Otu.Controllers.Controller.Info.TtiMode.Rec.Dapi)), ("operator-specific", ("operator_specific", Otu.Controllers.Controller.Info.TtiMode.Rec.OperatorSpecific))])
                             self._leafs = OrderedDict([
-                                ('full_tti_ascii_string', YLeaf(YType.str, 'full-tti-ascii-string')),
+                                ('full_tti_ascii_string', (YLeaf(YType.str, 'full-tti-ascii-string'), ['str'])),
                             ])
                             self.full_tti_ascii_string = None
 
@@ -1663,9 +1728,10 @@ class Otu(Entity):
                             self.dapi = YList(self)
                             self.operator_specific = YList(self)
                             self._segment_path = lambda: "rec"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec, ['full_tti_ascii_string'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec, [u'full_tti_ascii_string'], name, value)
 
 
                         class Sapi(Entity):
@@ -1696,13 +1762,14 @@ class Otu(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('entry', YLeaf(YType.uint8, 'entry')),
+                                    ('entry', (YLeaf(YType.uint8, 'entry'), ['int'])),
                                 ])
                                 self.entry = None
                                 self._segment_path = lambda: "sapi"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec.Sapi, ['entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec.Sapi, [u'entry'], name, value)
 
 
                         class Dapi(Entity):
@@ -1733,13 +1800,14 @@ class Otu(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('entry', YLeaf(YType.uint8, 'entry')),
+                                    ('entry', (YLeaf(YType.uint8, 'entry'), ['int'])),
                                 ])
                                 self.entry = None
                                 self._segment_path = lambda: "dapi"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec.Dapi, ['entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec.Dapi, [u'entry'], name, value)
 
 
                         class OperatorSpecific(Entity):
@@ -1770,13 +1838,14 @@ class Otu(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('entry', YLeaf(YType.uint8, 'entry')),
+                                    ('entry', (YLeaf(YType.uint8, 'entry'), ['int'])),
                                 ])
                                 self.entry = None
                                 self._segment_path = lambda: "operator-specific"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec.OperatorSpecific, ['entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.TtiMode.Rec.OperatorSpecific, [u'entry'], name, value)
 
 
                 class NetworkSrlg(Entity):
@@ -1808,6 +1877,7 @@ class Otu(Entity):
 
                         self.srlg_info = YList(self)
                         self._segment_path = lambda: "network-srlg"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Otu.Controllers.Controller.Info.NetworkSrlg, [], name, value)
@@ -1847,15 +1917,16 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("srlg", ("srlg", Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo.Srlg))])
                             self._leafs = OrderedDict([
-                                ('set_id', YLeaf(YType.uint32, 'set-id')),
+                                ('set_id', (YLeaf(YType.uint32, 'set-id'), ['int'])),
                             ])
                             self.set_id = None
 
                             self.srlg = YList(self)
                             self._segment_path = lambda: "srlg-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo, ['set_id'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo, [u'set_id'], name, value)
 
 
                         class Srlg(Entity):
@@ -1888,13 +1959,14 @@ class Otu(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('entry', YLeaf(YType.uint32, 'entry')),
+                                    ('entry', (YLeaf(YType.uint32, 'entry'), ['int'])),
                                 ])
                                 self.entry = None
                                 self._segment_path = lambda: "srlg"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo.Srlg, ['entry'], name, value)
+                                self._perform_setattr(Otu.Controllers.Controller.Info.NetworkSrlg.SrlgInfo.Srlg, [u'entry'], name, value)
 
 
                 class OtuAlarmInfo(Entity):
@@ -2072,6 +2144,7 @@ class Otu(Entity):
                         self.fecunc.parent = self
                         self._children_name_map["fecunc"] = "fecunc"
                         self._segment_path = lambda: "otu-alarm-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo, [], name, value)
@@ -2120,19 +2193,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "los"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Los, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Los, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class Lof(Entity):
@@ -2178,19 +2252,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "lof"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lof, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class Lom(Entity):
@@ -2236,19 +2311,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "lom"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Lom, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class Oof(Entity):
@@ -2294,19 +2370,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "oof"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oof, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class Oom(Entity):
@@ -2352,19 +2429,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "oom"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Oom, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class Ais(Entity):
@@ -2410,19 +2488,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "ais"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ais, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class Iae(Entity):
@@ -2468,19 +2547,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "iae"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Iae, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class Biae(Entity):
@@ -2526,19 +2606,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "biae"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Biae, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class Bdi(Entity):
@@ -2584,19 +2665,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "bdi"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Bdi, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class Tim(Entity):
@@ -2642,19 +2724,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "tim"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Tim, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class Eoc(Entity):
@@ -2700,19 +2783,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "eoc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Eoc, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class FecMismatch(Entity):
@@ -2758,19 +2842,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "fec-mismatch"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.FecMismatch, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class SfBer(Entity):
@@ -2816,19 +2901,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "sf-ber"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.SfBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class SdBer(Entity):
@@ -2874,19 +2960,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "sd-ber"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.SdBer, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class Ec(Entity):
@@ -2932,19 +3019,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "ec"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Ec, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class Uc(Entity):
@@ -2990,19 +3078,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "uc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Uc, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                     class Fecunc(Entity):
@@ -3048,19 +3137,20 @@ class Otu(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('reporting_enabled', YLeaf(YType.boolean, 'reporting-enabled')),
-                                ('is_detected', YLeaf(YType.boolean, 'is-detected')),
-                                ('is_asserted', YLeaf(YType.boolean, 'is-asserted')),
-                                ('counter', YLeaf(YType.uint64, 'counter')),
+                                ('reporting_enabled', (YLeaf(YType.boolean, 'reporting-enabled'), ['bool'])),
+                                ('is_detected', (YLeaf(YType.boolean, 'is-detected'), ['bool'])),
+                                ('is_asserted', (YLeaf(YType.boolean, 'is-asserted'), ['bool'])),
+                                ('counter', (YLeaf(YType.uint64, 'counter'), ['int'])),
                             ])
                             self.reporting_enabled = None
                             self.is_detected = None
                             self.is_asserted = None
                             self.counter = None
                             self._segment_path = lambda: "fecunc"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc, ['reporting_enabled', 'is_detected', 'is_asserted', 'counter'], name, value)
+                            self._perform_setattr(Otu.Controllers.Controller.Info.OtuAlarmInfo.Fecunc, [u'reporting_enabled', u'is_detected', u'is_asserted', u'counter'], name, value)
 
 
                 class Proactive(Entity):
@@ -3151,17 +3241,17 @@ class Otu(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('proactive_status', YLeaf(YType.boolean, 'proactive-status')),
-                            ('inherit_sec_state', YLeaf(YType.enumeration, 'inherit-sec-state')),
-                            ('config_sec_state', YLeaf(YType.enumeration, 'config-sec-state')),
-                            ('proactive_fsm_state', YLeaf(YType.enumeration, 'proactive-fsm-state')),
-                            ('proactive_fsm_if_state', YLeaf(YType.enumeration, 'proactive-fsm-if-state')),
-                            ('trig_thresh_coeff', YLeaf(YType.uint8, 'trig-thresh-coeff')),
-                            ('trig_thresh_power', YLeaf(YType.uint8, 'trig-thresh-power')),
-                            ('rvrt_thresh_coeff', YLeaf(YType.uint8, 'rvrt-thresh-coeff')),
-                            ('rvrt_thresh_power', YLeaf(YType.uint8, 'rvrt-thresh-power')),
-                            ('trigger_window', YLeaf(YType.uint32, 'trigger-window')),
-                            ('revert_window', YLeaf(YType.uint32, 'revert-window')),
+                            ('proactive_status', (YLeaf(YType.boolean, 'proactive-status'), ['bool'])),
+                            ('inherit_sec_state', (YLeaf(YType.enumeration, 'inherit-sec-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuSecState', '')])),
+                            ('config_sec_state', (YLeaf(YType.enumeration, 'config-sec-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuSecState', '')])),
+                            ('proactive_fsm_state', (YLeaf(YType.enumeration, 'proactive-fsm-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuPpFsmState', '')])),
+                            ('proactive_fsm_if_state', (YLeaf(YType.enumeration, 'proactive-fsm-if-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuPpIntfState', '')])),
+                            ('trig_thresh_coeff', (YLeaf(YType.uint8, 'trig-thresh-coeff'), ['int'])),
+                            ('trig_thresh_power', (YLeaf(YType.uint8, 'trig-thresh-power'), ['int'])),
+                            ('rvrt_thresh_coeff', (YLeaf(YType.uint8, 'rvrt-thresh-coeff'), ['int'])),
+                            ('rvrt_thresh_power', (YLeaf(YType.uint8, 'rvrt-thresh-power'), ['int'])),
+                            ('trigger_window', (YLeaf(YType.uint32, 'trigger-window'), ['int'])),
+                            ('revert_window', (YLeaf(YType.uint32, 'revert-window'), ['int'])),
                         ])
                         self.proactive_status = None
                         self.inherit_sec_state = None
@@ -3175,9 +3265,10 @@ class Otu(Entity):
                         self.trigger_window = None
                         self.revert_window = None
                         self._segment_path = lambda: "proactive"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Otu.Controllers.Controller.Info.Proactive, ['proactive_status', 'inherit_sec_state', 'config_sec_state', 'proactive_fsm_state', 'proactive_fsm_if_state', 'trig_thresh_coeff', 'trig_thresh_power', 'rvrt_thresh_coeff', 'rvrt_thresh_power', 'trigger_window', 'revert_window'], name, value)
+                        self._perform_setattr(Otu.Controllers.Controller.Info.Proactive, [u'proactive_status', u'inherit_sec_state', u'config_sec_state', u'proactive_fsm_state', u'proactive_fsm_if_state', u'trig_thresh_coeff', u'trig_thresh_power', u'rvrt_thresh_coeff', u'rvrt_thresh_power', u'trigger_window', u'revert_window'], name, value)
 
 
                 class OtuFecSatistics(Entity):
@@ -3211,15 +3302,74 @@ class Otu(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('post_fec_ber', YLeaf(YType.str, 'post-fec-ber')),
-                            ('pre_fec_ber', YLeaf(YType.str, 'pre-fec-ber')),
+                            ('post_fec_ber', (YLeaf(YType.str, 'post-fec-ber'), ['str'])),
+                            ('pre_fec_ber', (YLeaf(YType.str, 'pre-fec-ber'), ['str'])),
                         ])
                         self.post_fec_ber = None
                         self.pre_fec_ber = None
                         self._segment_path = lambda: "otu-fec-satistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Otu.Controllers.Controller.Info.OtuFecSatistics, ['post_fec_ber', 'pre_fec_ber'], name, value)
+                        self._perform_setattr(Otu.Controllers.Controller.Info.OtuFecSatistics, [u'post_fec_ber', u'pre_fec_ber'], name, value)
+
+
+                class AinsInfo(Entity):
+                    """
+                    AINS information
+                    
+                    .. attribute:: ains_state
+                    
+                    	AINS State
+                    	**type**\:  :py:class:`OtuAinsStateEt <ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper.OtuAinsStateEt>`
+                    
+                    .. attribute:: ains_timer_minutes
+                    
+                    	AINS Timer in Minutes
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: minute
+                    
+                    .. attribute:: ains_remaining_secs
+                    
+                    	AINS Remaining Seconds
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    	**units**\: second
+                    
+                    
+
+                    """
+
+                    _prefix = 'controller-otu-oper'
+                    _revision = '2017-05-01'
+
+                    def __init__(self):
+                        super(Otu.Controllers.Controller.Info.AinsInfo, self).__init__()
+
+                        self.yang_name = "ains-info"
+                        self.yang_parent_name = "info"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('ains_state', (YLeaf(YType.enumeration, 'ains-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper', 'OtuAinsStateEt', '')])),
+                            ('ains_timer_minutes', (YLeaf(YType.uint32, 'ains-timer-minutes'), ['int'])),
+                            ('ains_remaining_secs', (YLeaf(YType.uint32, 'ains-remaining-secs'), ['int'])),
+                        ])
+                        self.ains_state = None
+                        self.ains_timer_minutes = None
+                        self.ains_remaining_secs = None
+                        self._segment_path = lambda: "ains-info"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Otu.Controllers.Controller.Info.AinsInfo, [u'ains_state', u'ains_timer_minutes', u'ains_remaining_secs'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Otu()

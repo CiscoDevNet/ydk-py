@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class NOTIFICATIONLOGMIB(Entity):
     """
     
@@ -81,6 +82,7 @@ class NOTIFICATIONLOGMIB(Entity):
         self.nlmlogvariabletable.parent = self
         self._children_name_map["nlmlogvariabletable"] = "nlmLogVariableTable"
         self._segment_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(NOTIFICATIONLOGMIB, [], name, value)
@@ -123,13 +125,14 @@ class NOTIFICATIONLOGMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('nlmconfigglobalentrylimit', YLeaf(YType.uint32, 'nlmConfigGlobalEntryLimit')),
-                ('nlmconfigglobalageout', YLeaf(YType.uint32, 'nlmConfigGlobalAgeOut')),
+                ('nlmconfigglobalentrylimit', (YLeaf(YType.uint32, 'nlmConfigGlobalEntryLimit'), ['int'])),
+                ('nlmconfigglobalageout', (YLeaf(YType.uint32, 'nlmConfigGlobalAgeOut'), ['int'])),
             ])
             self.nlmconfigglobalentrylimit = None
             self.nlmconfigglobalageout = None
             self._segment_path = lambda: "nlmConfig"
             self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NOTIFICATIONLOGMIB.NlmConfig, ['nlmconfigglobalentrylimit', 'nlmconfigglobalageout'], name, value)
@@ -174,13 +177,14 @@ class NOTIFICATIONLOGMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('nlmstatsglobalnotificationslogged', YLeaf(YType.uint32, 'nlmStatsGlobalNotificationsLogged')),
-                ('nlmstatsglobalnotificationsbumped', YLeaf(YType.uint32, 'nlmStatsGlobalNotificationsBumped')),
+                ('nlmstatsglobalnotificationslogged', (YLeaf(YType.uint32, 'nlmStatsGlobalNotificationsLogged'), ['int'])),
+                ('nlmstatsglobalnotificationsbumped', (YLeaf(YType.uint32, 'nlmStatsGlobalNotificationsBumped'), ['int'])),
             ])
             self.nlmstatsglobalnotificationslogged = None
             self.nlmstatsglobalnotificationsbumped = None
             self._segment_path = lambda: "nlmStats"
             self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NOTIFICATIONLOGMIB.NlmStats, ['nlmstatsglobalnotificationslogged', 'nlmstatsglobalnotificationsbumped'], name, value)
@@ -216,6 +220,7 @@ class NOTIFICATIONLOGMIB(Entity):
             self.nlmconfiglogentry = YList(self)
             self._segment_path = lambda: "nlmConfigLogTable"
             self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NOTIFICATIONLOGMIB.NlmConfigLogTable, [], name, value)
@@ -303,15 +308,15 @@ class NOTIFICATIONLOGMIB(Entity):
                 self.ylist_key_names = ['nlmlogname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('nlmlogname', YLeaf(YType.str, 'nlmLogName')),
-                    ('nlmconfiglogfiltername', YLeaf(YType.str, 'nlmConfigLogFilterName')),
-                    ('nlmconfiglogentrylimit', YLeaf(YType.uint32, 'nlmConfigLogEntryLimit')),
-                    ('nlmconfiglogadminstatus', YLeaf(YType.enumeration, 'nlmConfigLogAdminStatus')),
-                    ('nlmconfiglogoperstatus', YLeaf(YType.enumeration, 'nlmConfigLogOperStatus')),
-                    ('nlmconfiglogstoragetype', YLeaf(YType.enumeration, 'nlmConfigLogStorageType')),
-                    ('nlmconfiglogentrystatus', YLeaf(YType.enumeration, 'nlmConfigLogEntryStatus')),
-                    ('nlmstatslognotificationslogged', YLeaf(YType.uint32, 'nlmStatsLogNotificationsLogged')),
-                    ('nlmstatslognotificationsbumped', YLeaf(YType.uint32, 'nlmStatsLogNotificationsBumped')),
+                    ('nlmlogname', (YLeaf(YType.str, 'nlmLogName'), ['str'])),
+                    ('nlmconfiglogfiltername', (YLeaf(YType.str, 'nlmConfigLogFilterName'), ['str'])),
+                    ('nlmconfiglogentrylimit', (YLeaf(YType.uint32, 'nlmConfigLogEntryLimit'), ['int'])),
+                    ('nlmconfiglogadminstatus', (YLeaf(YType.enumeration, 'nlmConfigLogAdminStatus'), [('ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB', 'NOTIFICATIONLOGMIB', 'NlmConfigLogTable.NlmConfigLogEntry.NlmConfigLogAdminStatus')])),
+                    ('nlmconfiglogoperstatus', (YLeaf(YType.enumeration, 'nlmConfigLogOperStatus'), [('ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB', 'NOTIFICATIONLOGMIB', 'NlmConfigLogTable.NlmConfigLogEntry.NlmConfigLogOperStatus')])),
+                    ('nlmconfiglogstoragetype', (YLeaf(YType.enumeration, 'nlmConfigLogStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('nlmconfiglogentrystatus', (YLeaf(YType.enumeration, 'nlmConfigLogEntryStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('nlmstatslognotificationslogged', (YLeaf(YType.uint32, 'nlmStatsLogNotificationsLogged'), ['int'])),
+                    ('nlmstatslognotificationsbumped', (YLeaf(YType.uint32, 'nlmStatsLogNotificationsBumped'), ['int'])),
                 ])
                 self.nlmlogname = None
                 self.nlmconfiglogfiltername = None
@@ -324,6 +329,7 @@ class NOTIFICATIONLOGMIB(Entity):
                 self.nlmstatslognotificationsbumped = None
                 self._segment_path = lambda: "nlmConfigLogEntry" + "[nlmLogName='" + str(self.nlmlogname) + "']"
                 self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/nlmConfigLogTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NOTIFICATIONLOGMIB.NlmConfigLogTable.NlmConfigLogEntry, ['nlmlogname', 'nlmconfiglogfiltername', 'nlmconfiglogentrylimit', 'nlmconfiglogadminstatus', 'nlmconfiglogoperstatus', 'nlmconfiglogstoragetype', 'nlmconfiglogentrystatus', 'nlmstatslognotificationslogged', 'nlmstatslognotificationsbumped'], name, value)
@@ -428,6 +434,7 @@ class NOTIFICATIONLOGMIB(Entity):
             self.nlmlogentry = YList(self)
             self._segment_path = lambda: "nlmLogTable"
             self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NOTIFICATIONLOGMIB.NlmLogTable, [], name, value)
@@ -540,16 +547,16 @@ class NOTIFICATIONLOGMIB(Entity):
                 self.ylist_key_names = ['nlmlogname','nlmlogindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('nlmlogname', YLeaf(YType.str, 'nlmLogName')),
-                    ('nlmlogindex', YLeaf(YType.uint32, 'nlmLogIndex')),
-                    ('nlmlogtime', YLeaf(YType.uint32, 'nlmLogTime')),
-                    ('nlmlogdateandtime', YLeaf(YType.str, 'nlmLogDateAndTime')),
-                    ('nlmlogengineid', YLeaf(YType.str, 'nlmLogEngineID')),
-                    ('nlmlogenginetaddress', YLeaf(YType.str, 'nlmLogEngineTAddress')),
-                    ('nlmlogenginetdomain', YLeaf(YType.str, 'nlmLogEngineTDomain')),
-                    ('nlmlogcontextengineid', YLeaf(YType.str, 'nlmLogContextEngineID')),
-                    ('nlmlogcontextname', YLeaf(YType.str, 'nlmLogContextName')),
-                    ('nlmlognotificationid', YLeaf(YType.str, 'nlmLogNotificationID')),
+                    ('nlmlogname', (YLeaf(YType.str, 'nlmLogName'), ['str'])),
+                    ('nlmlogindex', (YLeaf(YType.uint32, 'nlmLogIndex'), ['int'])),
+                    ('nlmlogtime', (YLeaf(YType.uint32, 'nlmLogTime'), ['int'])),
+                    ('nlmlogdateandtime', (YLeaf(YType.str, 'nlmLogDateAndTime'), ['str'])),
+                    ('nlmlogengineid', (YLeaf(YType.str, 'nlmLogEngineID'), ['str'])),
+                    ('nlmlogenginetaddress', (YLeaf(YType.str, 'nlmLogEngineTAddress'), ['str'])),
+                    ('nlmlogenginetdomain', (YLeaf(YType.str, 'nlmLogEngineTDomain'), ['str'])),
+                    ('nlmlogcontextengineid', (YLeaf(YType.str, 'nlmLogContextEngineID'), ['str'])),
+                    ('nlmlogcontextname', (YLeaf(YType.str, 'nlmLogContextName'), ['str'])),
+                    ('nlmlognotificationid', (YLeaf(YType.str, 'nlmLogNotificationID'), ['str'])),
                 ])
                 self.nlmlogname = None
                 self.nlmlogindex = None
@@ -563,6 +570,7 @@ class NOTIFICATIONLOGMIB(Entity):
                 self.nlmlognotificationid = None
                 self._segment_path = lambda: "nlmLogEntry" + "[nlmLogName='" + str(self.nlmlogname) + "']" + "[nlmLogIndex='" + str(self.nlmlogindex) + "']"
                 self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/nlmLogTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NOTIFICATIONLOGMIB.NlmLogTable.NlmLogEntry, ['nlmlogname', 'nlmlogindex', 'nlmlogtime', 'nlmlogdateandtime', 'nlmlogengineid', 'nlmlogenginetaddress', 'nlmlogenginetdomain', 'nlmlogcontextengineid', 'nlmlogcontextname', 'nlmlognotificationid'], name, value)
@@ -598,6 +606,7 @@ class NOTIFICATIONLOGMIB(Entity):
             self.nlmlogvariableentry = YList(self)
             self._segment_path = lambda: "nlmLogVariableTable"
             self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NOTIFICATIONLOGMIB.NlmLogVariableTable, [], name, value)
@@ -723,20 +732,20 @@ class NOTIFICATIONLOGMIB(Entity):
                 self.ylist_key_names = ['nlmlogname','nlmlogindex','nlmlogvariableindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('nlmlogname', YLeaf(YType.str, 'nlmLogName')),
-                    ('nlmlogindex', YLeaf(YType.str, 'nlmLogIndex')),
-                    ('nlmlogvariableindex', YLeaf(YType.uint32, 'nlmLogVariableIndex')),
-                    ('nlmlogvariableid', YLeaf(YType.str, 'nlmLogVariableID')),
-                    ('nlmlogvariablevaluetype', YLeaf(YType.enumeration, 'nlmLogVariableValueType')),
-                    ('nlmlogvariablecounter32val', YLeaf(YType.uint32, 'nlmLogVariableCounter32Val')),
-                    ('nlmlogvariableunsigned32val', YLeaf(YType.uint32, 'nlmLogVariableUnsigned32Val')),
-                    ('nlmlogvariabletimeticksval', YLeaf(YType.uint32, 'nlmLogVariableTimeTicksVal')),
-                    ('nlmlogvariableinteger32val', YLeaf(YType.int32, 'nlmLogVariableInteger32Val')),
-                    ('nlmlogvariableoctetstringval', YLeaf(YType.str, 'nlmLogVariableOctetStringVal')),
-                    ('nlmlogvariableipaddressval', YLeaf(YType.str, 'nlmLogVariableIpAddressVal')),
-                    ('nlmlogvariableoidval', YLeaf(YType.str, 'nlmLogVariableOidVal')),
-                    ('nlmlogvariablecounter64val', YLeaf(YType.uint64, 'nlmLogVariableCounter64Val')),
-                    ('nlmlogvariableopaqueval', YLeaf(YType.str, 'nlmLogVariableOpaqueVal')),
+                    ('nlmlogname', (YLeaf(YType.str, 'nlmLogName'), ['str'])),
+                    ('nlmlogindex', (YLeaf(YType.str, 'nlmLogIndex'), ['int'])),
+                    ('nlmlogvariableindex', (YLeaf(YType.uint32, 'nlmLogVariableIndex'), ['int'])),
+                    ('nlmlogvariableid', (YLeaf(YType.str, 'nlmLogVariableID'), ['str'])),
+                    ('nlmlogvariablevaluetype', (YLeaf(YType.enumeration, 'nlmLogVariableValueType'), [('ydk.models.cisco_ios_xe.NOTIFICATION_LOG_MIB', 'NOTIFICATIONLOGMIB', 'NlmLogVariableTable.NlmLogVariableEntry.NlmLogVariableValueType')])),
+                    ('nlmlogvariablecounter32val', (YLeaf(YType.uint32, 'nlmLogVariableCounter32Val'), ['int'])),
+                    ('nlmlogvariableunsigned32val', (YLeaf(YType.uint32, 'nlmLogVariableUnsigned32Val'), ['int'])),
+                    ('nlmlogvariabletimeticksval', (YLeaf(YType.uint32, 'nlmLogVariableTimeTicksVal'), ['int'])),
+                    ('nlmlogvariableinteger32val', (YLeaf(YType.int32, 'nlmLogVariableInteger32Val'), ['int'])),
+                    ('nlmlogvariableoctetstringval', (YLeaf(YType.str, 'nlmLogVariableOctetStringVal'), ['str'])),
+                    ('nlmlogvariableipaddressval', (YLeaf(YType.str, 'nlmLogVariableIpAddressVal'), ['str'])),
+                    ('nlmlogvariableoidval', (YLeaf(YType.str, 'nlmLogVariableOidVal'), ['str'])),
+                    ('nlmlogvariablecounter64val', (YLeaf(YType.uint64, 'nlmLogVariableCounter64Val'), ['int'])),
+                    ('nlmlogvariableopaqueval', (YLeaf(YType.str, 'nlmLogVariableOpaqueVal'), ['str'])),
                 ])
                 self.nlmlogname = None
                 self.nlmlogindex = None
@@ -754,6 +763,7 @@ class NOTIFICATIONLOGMIB(Entity):
                 self.nlmlogvariableopaqueval = None
                 self._segment_path = lambda: "nlmLogVariableEntry" + "[nlmLogName='" + str(self.nlmlogname) + "']" + "[nlmLogIndex='" + str(self.nlmlogindex) + "']" + "[nlmLogVariableIndex='" + str(self.nlmlogvariableindex) + "']"
                 self._absolute_path = lambda: "NOTIFICATION-LOG-MIB:NOTIFICATION-LOG-MIB/nlmLogVariableTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NOTIFICATIONLOGMIB.NlmLogVariableTable.NlmLogVariableEntry, ['nlmlogname', 'nlmlogindex', 'nlmlogvariableindex', 'nlmlogvariableid', 'nlmlogvariablevaluetype', 'nlmlogvariablecounter32val', 'nlmlogvariableunsigned32val', 'nlmlogvariabletimeticksval', 'nlmlogvariableinteger32val', 'nlmlogvariableoctetstringval', 'nlmlogvariableipaddressval', 'nlmlogvariableoidval', 'nlmlogvariablecounter64val', 'nlmlogvariableopaqueval'], name, value)

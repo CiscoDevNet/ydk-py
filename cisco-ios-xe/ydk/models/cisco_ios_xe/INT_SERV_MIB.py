@@ -12,6 +12,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class QosService(Enum):
     """
     QosService (Enum Class)
@@ -84,6 +85,7 @@ class INTSERVMIB(Entity):
         self.intsrvflowtable.parent = self
         self._children_name_map["intsrvflowtable"] = "intSrvFlowTable"
         self._segment_path = lambda: "INT-SERV-MIB:INT-SERV-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(INTSERVMIB, [], name, value)
@@ -117,14 +119,15 @@ class INTSERVMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('intsrvflownewindex', YLeaf(YType.int32, 'intSrvFlowNewIndex')),
+                ('intsrvflownewindex', (YLeaf(YType.int32, 'intSrvFlowNewIndex'), ['int'])),
             ])
             self.intsrvflownewindex = None
             self._segment_path = lambda: "intSrvGenObjects"
             self._absolute_path = lambda: "INT-SERV-MIB:INT-SERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(INTSERVMIB.IntSrvGenObjects, ['intsrvflownewindex'], name, value)
+            self._perform_setattr(INTSERVMIB.IntSrvGenObjects, [u'intsrvflownewindex'], name, value)
 
 
     class IntSrvIfAttribTable(Entity):
@@ -158,6 +161,7 @@ class INTSERVMIB(Entity):
             self.intsrvifattribentry = YList(self)
             self._segment_path = lambda: "intSrvIfAttribTable"
             self._absolute_path = lambda: "INT-SERV-MIB:INT-SERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(INTSERVMIB.IntSrvIfAttribTable, [], name, value)
@@ -242,13 +246,13 @@ class INTSERVMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('intsrvifattriballocatedbits', YLeaf(YType.int32, 'intSrvIfAttribAllocatedBits')),
-                    ('intsrvifattribmaxallocatedbits', YLeaf(YType.int32, 'intSrvIfAttribMaxAllocatedBits')),
-                    ('intsrvifattriballocatedbuffer', YLeaf(YType.int32, 'intSrvIfAttribAllocatedBuffer')),
-                    ('intsrvifattribflows', YLeaf(YType.uint32, 'intSrvIfAttribFlows')),
-                    ('intsrvifattribpropagationdelay', YLeaf(YType.int32, 'intSrvIfAttribPropagationDelay')),
-                    ('intsrvifattribstatus', YLeaf(YType.enumeration, 'intSrvIfAttribStatus')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('intsrvifattriballocatedbits', (YLeaf(YType.int32, 'intSrvIfAttribAllocatedBits'), ['int'])),
+                    ('intsrvifattribmaxallocatedbits', (YLeaf(YType.int32, 'intSrvIfAttribMaxAllocatedBits'), ['int'])),
+                    ('intsrvifattriballocatedbuffer', (YLeaf(YType.int32, 'intSrvIfAttribAllocatedBuffer'), ['int'])),
+                    ('intsrvifattribflows', (YLeaf(YType.uint32, 'intSrvIfAttribFlows'), ['int'])),
+                    ('intsrvifattribpropagationdelay', (YLeaf(YType.int32, 'intSrvIfAttribPropagationDelay'), ['int'])),
+                    ('intsrvifattribstatus', (YLeaf(YType.enumeration, 'intSrvIfAttribStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ifindex = None
                 self.intsrvifattriballocatedbits = None
@@ -259,9 +263,10 @@ class INTSERVMIB(Entity):
                 self.intsrvifattribstatus = None
                 self._segment_path = lambda: "intSrvIfAttribEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "INT-SERV-MIB:INT-SERV-MIB/intSrvIfAttribTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(INTSERVMIB.IntSrvIfAttribTable.IntSrvIfAttribEntry, ['ifindex', 'intsrvifattriballocatedbits', 'intsrvifattribmaxallocatedbits', 'intsrvifattriballocatedbuffer', 'intsrvifattribflows', 'intsrvifattribpropagationdelay', 'intsrvifattribstatus'], name, value)
+                self._perform_setattr(INTSERVMIB.IntSrvIfAttribTable.IntSrvIfAttribEntry, [u'ifindex', u'intsrvifattriballocatedbits', u'intsrvifattribmaxallocatedbits', u'intsrvifattriballocatedbuffer', u'intsrvifattribflows', u'intsrvifattribpropagationdelay', u'intsrvifattribstatus'], name, value)
 
 
     class IntSrvFlowTable(Entity):
@@ -295,6 +300,7 @@ class INTSERVMIB(Entity):
             self.intsrvflowentry = YList(self)
             self._segment_path = lambda: "intSrvFlowTable"
             self._absolute_path = lambda: "INT-SERV-MIB:INT-SERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(INTSERVMIB.IntSrvFlowTable, [], name, value)
@@ -495,31 +501,31 @@ class INTSERVMIB(Entity):
                 self.ylist_key_names = ['intsrvflownumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('intsrvflownumber', YLeaf(YType.int32, 'intSrvFlowNumber')),
-                    ('intsrvflowtype', YLeaf(YType.int32, 'intSrvFlowType')),
-                    ('intsrvflowowner', YLeaf(YType.enumeration, 'intSrvFlowOwner')),
-                    ('intsrvflowdestaddr', YLeaf(YType.str, 'intSrvFlowDestAddr')),
-                    ('intsrvflowsenderaddr', YLeaf(YType.str, 'intSrvFlowSenderAddr')),
-                    ('intsrvflowdestaddrlength', YLeaf(YType.int32, 'intSrvFlowDestAddrLength')),
-                    ('intsrvflowsenderaddrlength', YLeaf(YType.int32, 'intSrvFlowSenderAddrLength')),
-                    ('intsrvflowprotocol', YLeaf(YType.int32, 'intSrvFlowProtocol')),
-                    ('intsrvflowdestport', YLeaf(YType.str, 'intSrvFlowDestPort')),
-                    ('intsrvflowport', YLeaf(YType.str, 'intSrvFlowPort')),
-                    ('intsrvflowflowid', YLeaf(YType.int32, 'intSrvFlowFlowId')),
-                    ('intsrvflowinterface', YLeaf(YType.int32, 'intSrvFlowInterface')),
-                    ('intsrvflowifaddr', YLeaf(YType.str, 'intSrvFlowIfAddr')),
-                    ('intsrvflowrate', YLeaf(YType.int32, 'intSrvFlowRate')),
-                    ('intsrvflowburst', YLeaf(YType.int32, 'intSrvFlowBurst')),
-                    ('intsrvflowweight', YLeaf(YType.int32, 'intSrvFlowWeight')),
-                    ('intsrvflowqueue', YLeaf(YType.int32, 'intSrvFlowQueue')),
-                    ('intsrvflowmintu', YLeaf(YType.int32, 'intSrvFlowMinTU')),
-                    ('intsrvflowmaxtu', YLeaf(YType.int32, 'intSrvFlowMaxTU')),
-                    ('intsrvflowbesteffort', YLeaf(YType.uint32, 'intSrvFlowBestEffort')),
-                    ('intsrvflowpoliced', YLeaf(YType.uint32, 'intSrvFlowPoliced')),
-                    ('intsrvflowdiscard', YLeaf(YType.boolean, 'intSrvFlowDiscard')),
-                    ('intsrvflowservice', YLeaf(YType.enumeration, 'intSrvFlowService')),
-                    ('intsrvfloworder', YLeaf(YType.int32, 'intSrvFlowOrder')),
-                    ('intsrvflowstatus', YLeaf(YType.enumeration, 'intSrvFlowStatus')),
+                    ('intsrvflownumber', (YLeaf(YType.int32, 'intSrvFlowNumber'), ['int'])),
+                    ('intsrvflowtype', (YLeaf(YType.int32, 'intSrvFlowType'), ['int'])),
+                    ('intsrvflowowner', (YLeaf(YType.enumeration, 'intSrvFlowOwner'), [('ydk.models.cisco_ios_xe.INT_SERV_MIB', 'INTSERVMIB', 'IntSrvFlowTable.IntSrvFlowEntry.IntSrvFlowOwner')])),
+                    ('intsrvflowdestaddr', (YLeaf(YType.str, 'intSrvFlowDestAddr'), ['str'])),
+                    ('intsrvflowsenderaddr', (YLeaf(YType.str, 'intSrvFlowSenderAddr'), ['str'])),
+                    ('intsrvflowdestaddrlength', (YLeaf(YType.int32, 'intSrvFlowDestAddrLength'), ['int'])),
+                    ('intsrvflowsenderaddrlength', (YLeaf(YType.int32, 'intSrvFlowSenderAddrLength'), ['int'])),
+                    ('intsrvflowprotocol', (YLeaf(YType.int32, 'intSrvFlowProtocol'), ['int'])),
+                    ('intsrvflowdestport', (YLeaf(YType.str, 'intSrvFlowDestPort'), ['str'])),
+                    ('intsrvflowport', (YLeaf(YType.str, 'intSrvFlowPort'), ['str'])),
+                    ('intsrvflowflowid', (YLeaf(YType.int32, 'intSrvFlowFlowId'), ['int'])),
+                    ('intsrvflowinterface', (YLeaf(YType.int32, 'intSrvFlowInterface'), ['int'])),
+                    ('intsrvflowifaddr', (YLeaf(YType.str, 'intSrvFlowIfAddr'), ['str'])),
+                    ('intsrvflowrate', (YLeaf(YType.int32, 'intSrvFlowRate'), ['int'])),
+                    ('intsrvflowburst', (YLeaf(YType.int32, 'intSrvFlowBurst'), ['int'])),
+                    ('intsrvflowweight', (YLeaf(YType.int32, 'intSrvFlowWeight'), ['int'])),
+                    ('intsrvflowqueue', (YLeaf(YType.int32, 'intSrvFlowQueue'), ['int'])),
+                    ('intsrvflowmintu', (YLeaf(YType.int32, 'intSrvFlowMinTU'), ['int'])),
+                    ('intsrvflowmaxtu', (YLeaf(YType.int32, 'intSrvFlowMaxTU'), ['int'])),
+                    ('intsrvflowbesteffort', (YLeaf(YType.uint32, 'intSrvFlowBestEffort'), ['int'])),
+                    ('intsrvflowpoliced', (YLeaf(YType.uint32, 'intSrvFlowPoliced'), ['int'])),
+                    ('intsrvflowdiscard', (YLeaf(YType.boolean, 'intSrvFlowDiscard'), ['bool'])),
+                    ('intsrvflowservice', (YLeaf(YType.enumeration, 'intSrvFlowService'), [('ydk.models.cisco_ios_xe.INT_SERV_MIB', 'QosService', '')])),
+                    ('intsrvfloworder', (YLeaf(YType.int32, 'intSrvFlowOrder'), ['int'])),
+                    ('intsrvflowstatus', (YLeaf(YType.enumeration, 'intSrvFlowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.intsrvflownumber = None
                 self.intsrvflowtype = None
@@ -548,9 +554,10 @@ class INTSERVMIB(Entity):
                 self.intsrvflowstatus = None
                 self._segment_path = lambda: "intSrvFlowEntry" + "[intSrvFlowNumber='" + str(self.intsrvflownumber) + "']"
                 self._absolute_path = lambda: "INT-SERV-MIB:INT-SERV-MIB/intSrvFlowTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(INTSERVMIB.IntSrvFlowTable.IntSrvFlowEntry, ['intsrvflownumber', 'intsrvflowtype', 'intsrvflowowner', 'intsrvflowdestaddr', 'intsrvflowsenderaddr', 'intsrvflowdestaddrlength', 'intsrvflowsenderaddrlength', 'intsrvflowprotocol', 'intsrvflowdestport', 'intsrvflowport', 'intsrvflowflowid', 'intsrvflowinterface', 'intsrvflowifaddr', 'intsrvflowrate', 'intsrvflowburst', 'intsrvflowweight', 'intsrvflowqueue', 'intsrvflowmintu', 'intsrvflowmaxtu', 'intsrvflowbesteffort', 'intsrvflowpoliced', 'intsrvflowdiscard', 'intsrvflowservice', 'intsrvfloworder', 'intsrvflowstatus'], name, value)
+                self._perform_setattr(INTSERVMIB.IntSrvFlowTable.IntSrvFlowEntry, [u'intsrvflownumber', u'intsrvflowtype', u'intsrvflowowner', u'intsrvflowdestaddr', u'intsrvflowsenderaddr', u'intsrvflowdestaddrlength', u'intsrvflowsenderaddrlength', u'intsrvflowprotocol', u'intsrvflowdestport', u'intsrvflowport', u'intsrvflowflowid', u'intsrvflowinterface', u'intsrvflowifaddr', u'intsrvflowrate', u'intsrvflowburst', u'intsrvflowweight', u'intsrvflowqueue', u'intsrvflowmintu', u'intsrvflowmaxtu', u'intsrvflowbesteffort', u'intsrvflowpoliced', u'intsrvflowdiscard', u'intsrvflowservice', u'intsrvfloworder', u'intsrvflowstatus'], name, value)
 
             class IntSrvFlowOwner(Enum):
                 """

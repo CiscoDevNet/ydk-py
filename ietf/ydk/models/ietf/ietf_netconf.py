@@ -24,6 +24,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class EditOperationType(Enum):
     """
     EditOperationType (Enum Class)
@@ -359,6 +360,7 @@ class GetConfig(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "ietf-netconf:get-config"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -397,8 +399,8 @@ class GetConfig(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("source", ("source", GetConfig.Input.Source))])
             self._leafs = OrderedDict([
-                ('filter', YLeaf(YType.str, 'filter')),
-                ('with_defaults', YLeaf(YType.enumeration, 'ietf-netconf-with-defaults:with-defaults')),
+                ('filter', (YLeaf(YType.str, 'filter'), ['str'])),
+                ('with_defaults', (YLeaf(YType.enumeration, 'ietf-netconf-with-defaults:with-defaults'), [('ydk.models.ietf.ietf_netconf_with_defaults', 'WithDefaultsMode', '')])),
             ])
             self.filter = None
             self.with_defaults = None
@@ -408,6 +410,7 @@ class GetConfig(Entity):
             self._children_name_map["source"] = "source"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf:get-config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(GetConfig.Input, ['filter', 'with_defaults'], name, value)
@@ -449,15 +452,16 @@ class GetConfig(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('candidate', YLeaf(YType.empty, 'candidate')),
-                    ('running', YLeaf(YType.empty, 'running')),
-                    ('startup', YLeaf(YType.empty, 'startup')),
+                    ('candidate', (YLeaf(YType.empty, 'candidate'), ['Empty'])),
+                    ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
+                    ('startup', (YLeaf(YType.empty, 'startup'), ['Empty'])),
                 ])
                 self.candidate = None
                 self.running = None
                 self.startup = None
                 self._segment_path = lambda: "source"
                 self._absolute_path = lambda: "ietf-netconf:get-config/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(GetConfig.Input.Source, ['candidate', 'running', 'startup'], name, value)
@@ -489,11 +493,12 @@ class GetConfig(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('data', YLeaf(YType.str, 'data')),
+                ('data', (YLeaf(YType.str, 'data'), ['str'])),
             ])
             self.data = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "ietf-netconf:get-config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(GetConfig.Output, ['data'], name, value)
@@ -535,6 +540,7 @@ class EditConfig(Entity):
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._segment_path = lambda: "ietf-netconf:edit-config"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -594,11 +600,11 @@ class EditConfig(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("target", ("target", EditConfig.Input.Target))])
             self._leafs = OrderedDict([
-                ('default_operation', YLeaf(YType.enumeration, 'default-operation')),
-                ('test_option', YLeaf(YType.enumeration, 'test-option')),
-                ('error_option', YLeaf(YType.enumeration, 'error-option')),
-                ('config', YLeaf(YType.str, 'config')),
-                ('url', YLeaf(YType.str, 'url')),
+                ('default_operation', (YLeaf(YType.enumeration, 'default-operation'), [('ydk.models.ietf.ietf_netconf', 'EditConfig', 'Input.DefaultOperation')])),
+                ('test_option', (YLeaf(YType.enumeration, 'test-option'), [('ydk.models.ietf.ietf_netconf', 'EditConfig', 'Input.TestOption')])),
+                ('error_option', (YLeaf(YType.enumeration, 'error-option'), [('ydk.models.ietf.ietf_netconf', 'EditConfig', 'Input.ErrorOption')])),
+                ('config', (YLeaf(YType.str, 'config'), ['str'])),
+                ('url', (YLeaf(YType.str, 'url'), ['str'])),
             ])
             self.default_operation = None
             self.test_option = None
@@ -611,6 +617,7 @@ class EditConfig(Entity):
             self._children_name_map["target"] = "target"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf:edit-config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EditConfig.Input, ['default_operation', 'test_option', 'error_option', 'config', 'url'], name, value)
@@ -734,13 +741,14 @@ class EditConfig(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('candidate', YLeaf(YType.empty, 'candidate')),
-                    ('running', YLeaf(YType.empty, 'running')),
+                    ('candidate', (YLeaf(YType.empty, 'candidate'), ['Empty'])),
+                    ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
                 ])
                 self.candidate = None
                 self.running = None
                 self._segment_path = lambda: "target"
                 self._absolute_path = lambda: "ietf-netconf:edit-config/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EditConfig.Input.Target, ['candidate', 'running'], name, value)
@@ -782,6 +790,7 @@ class CopyConfig(Entity):
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._segment_path = lambda: "ietf-netconf:copy-config"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -820,7 +829,7 @@ class CopyConfig(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("target", ("target", CopyConfig.Input.Target)), ("source", ("source", CopyConfig.Input.Source))])
             self._leafs = OrderedDict([
-                ('with_defaults', YLeaf(YType.enumeration, 'ietf-netconf-with-defaults:with-defaults')),
+                ('with_defaults', (YLeaf(YType.enumeration, 'ietf-netconf-with-defaults:with-defaults'), [('ydk.models.ietf.ietf_netconf_with_defaults', 'WithDefaultsMode', '')])),
             ])
             self.with_defaults = None
 
@@ -833,6 +842,7 @@ class CopyConfig(Entity):
             self._children_name_map["source"] = "source"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf:copy-config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CopyConfig.Input, ['with_defaults'], name, value)
@@ -879,10 +889,10 @@ class CopyConfig(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('candidate', YLeaf(YType.empty, 'candidate')),
-                    ('running', YLeaf(YType.empty, 'running')),
-                    ('startup', YLeaf(YType.empty, 'startup')),
-                    ('url', YLeaf(YType.str, 'url')),
+                    ('candidate', (YLeaf(YType.empty, 'candidate'), ['Empty'])),
+                    ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
+                    ('startup', (YLeaf(YType.empty, 'startup'), ['Empty'])),
+                    ('url', (YLeaf(YType.str, 'url'), ['str'])),
                 ])
                 self.candidate = None
                 self.running = None
@@ -890,6 +900,7 @@ class CopyConfig(Entity):
                 self.url = None
                 self._segment_path = lambda: "target"
                 self._absolute_path = lambda: "ietf-netconf:copy-config/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CopyConfig.Input.Target, ['candidate', 'running', 'startup', 'url'], name, value)
@@ -941,11 +952,11 @@ class CopyConfig(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('candidate', YLeaf(YType.empty, 'candidate')),
-                    ('running', YLeaf(YType.empty, 'running')),
-                    ('startup', YLeaf(YType.empty, 'startup')),
-                    ('url', YLeaf(YType.str, 'url')),
-                    ('config', YLeaf(YType.str, 'config')),
+                    ('candidate', (YLeaf(YType.empty, 'candidate'), ['Empty'])),
+                    ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
+                    ('startup', (YLeaf(YType.empty, 'startup'), ['Empty'])),
+                    ('url', (YLeaf(YType.str, 'url'), ['str'])),
+                    ('config', (YLeaf(YType.str, 'config'), ['str'])),
                 ])
                 self.candidate = None
                 self.running = None
@@ -954,6 +965,7 @@ class CopyConfig(Entity):
                 self.config = None
                 self._segment_path = lambda: "source"
                 self._absolute_path = lambda: "ietf-netconf:copy-config/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CopyConfig.Input.Source, ['candidate', 'running', 'startup', 'url', 'config'], name, value)
@@ -994,6 +1006,7 @@ class DeleteConfig(Entity):
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._segment_path = lambda: "ietf-netconf:delete-config"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -1028,6 +1041,7 @@ class DeleteConfig(Entity):
             self._children_name_map["target"] = "target"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf:delete-config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DeleteConfig.Input, [], name, value)
@@ -1064,13 +1078,14 @@ class DeleteConfig(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('startup', YLeaf(YType.empty, 'startup')),
-                    ('url', YLeaf(YType.str, 'url')),
+                    ('startup', (YLeaf(YType.empty, 'startup'), ['Empty'])),
+                    ('url', (YLeaf(YType.str, 'url'), ['str'])),
                 ])
                 self.startup = None
                 self.url = None
                 self._segment_path = lambda: "target"
                 self._absolute_path = lambda: "ietf-netconf:delete-config/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DeleteConfig.Input.Target, ['startup', 'url'], name, value)
@@ -1112,6 +1127,7 @@ class Lock(Entity):
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._segment_path = lambda: "ietf-netconf:lock"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -1146,6 +1162,7 @@ class Lock(Entity):
             self._children_name_map["target"] = "target"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf:lock/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Lock.Input, [], name, value)
@@ -1187,15 +1204,16 @@ class Lock(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('candidate', YLeaf(YType.empty, 'candidate')),
-                    ('running', YLeaf(YType.empty, 'running')),
-                    ('startup', YLeaf(YType.empty, 'startup')),
+                    ('candidate', (YLeaf(YType.empty, 'candidate'), ['Empty'])),
+                    ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
+                    ('startup', (YLeaf(YType.empty, 'startup'), ['Empty'])),
                 ])
                 self.candidate = None
                 self.running = None
                 self.startup = None
                 self._segment_path = lambda: "target"
                 self._absolute_path = lambda: "ietf-netconf:lock/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lock.Input.Target, ['candidate', 'running', 'startup'], name, value)
@@ -1237,6 +1255,7 @@ class Unlock(Entity):
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._segment_path = lambda: "ietf-netconf:unlock"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -1271,6 +1290,7 @@ class Unlock(Entity):
             self._children_name_map["target"] = "target"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf:unlock/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Unlock.Input, [], name, value)
@@ -1312,15 +1332,16 @@ class Unlock(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('candidate', YLeaf(YType.empty, 'candidate')),
-                    ('running', YLeaf(YType.empty, 'running')),
-                    ('startup', YLeaf(YType.empty, 'startup')),
+                    ('candidate', (YLeaf(YType.empty, 'candidate'), ['Empty'])),
+                    ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
+                    ('startup', (YLeaf(YType.empty, 'startup'), ['Empty'])),
                 ])
                 self.candidate = None
                 self.running = None
                 self.startup = None
                 self._segment_path = lambda: "target"
                 self._absolute_path = lambda: "ietf-netconf:unlock/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Unlock.Input.Target, ['candidate', 'running', 'startup'], name, value)
@@ -1370,6 +1391,7 @@ class Get(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "ietf-netconf:get"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -1403,13 +1425,14 @@ class Get(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('filter', YLeaf(YType.str, 'filter')),
-                ('with_defaults', YLeaf(YType.enumeration, 'ietf-netconf-with-defaults:with-defaults')),
+                ('filter', (YLeaf(YType.str, 'filter'), ['str'])),
+                ('with_defaults', (YLeaf(YType.enumeration, 'ietf-netconf-with-defaults:with-defaults'), [('ydk.models.ietf.ietf_netconf_with_defaults', 'WithDefaultsMode', '')])),
             ])
             self.filter = None
             self.with_defaults = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf:get/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Get.Input, ['filter', 'with_defaults'], name, value)
@@ -1441,11 +1464,12 @@ class Get(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('data', YLeaf(YType.str, 'data')),
+                ('data', (YLeaf(YType.str, 'data'), ['str'])),
             ])
             self.data = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "ietf-netconf:get/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Get.Output, ['data'], name, value)
@@ -1477,6 +1501,7 @@ class CloseSession(Entity):
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "ietf-netconf:close-session"
+        self._is_frozen = True
 
     def clone_ptr(self):
         self._top_entity = CloseSession()
@@ -1514,6 +1539,7 @@ class KillSession(Entity):
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._segment_path = lambda: "ietf-netconf:kill-session"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -1546,11 +1572,12 @@ class KillSession(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('session_id', YLeaf(YType.uint32, 'session-id')),
+                ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
             ])
             self.session_id = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf:kill-session/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(KillSession.Input, ['session_id'], name, value)
@@ -1592,6 +1619,7 @@ class Commit(Entity):
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._segment_path = lambda: "ietf-netconf:commit"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -1641,10 +1669,10 @@ class Commit(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('confirmed', YLeaf(YType.empty, 'confirmed')),
-                ('confirm_timeout', YLeaf(YType.uint32, 'confirm-timeout')),
-                ('persist', YLeaf(YType.str, 'persist')),
-                ('persist_id', YLeaf(YType.str, 'persist-id')),
+                ('confirmed', (YLeaf(YType.empty, 'confirmed'), ['Empty'])),
+                ('confirm_timeout', (YLeaf(YType.uint32, 'confirm-timeout'), ['int'])),
+                ('persist', (YLeaf(YType.str, 'persist'), ['str'])),
+                ('persist_id', (YLeaf(YType.str, 'persist-id'), ['str'])),
             ])
             self.confirmed = None
             self.confirm_timeout = None
@@ -1652,6 +1680,7 @@ class Commit(Entity):
             self.persist_id = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf:commit/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Commit.Input, ['confirmed', 'confirm_timeout', 'persist', 'persist_id'], name, value)
@@ -1684,6 +1713,7 @@ class DiscardChanges(Entity):
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict()
         self._segment_path = lambda: "ietf-netconf:discard-changes"
+        self._is_frozen = True
 
     def clone_ptr(self):
         self._top_entity = DiscardChanges()
@@ -1724,6 +1754,7 @@ class CancelCommit(Entity):
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._segment_path = lambda: "ietf-netconf:cancel-commit"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -1752,11 +1783,12 @@ class CancelCommit(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('persist_id', YLeaf(YType.str, 'persist-id')),
+                ('persist_id', (YLeaf(YType.str, 'persist-id'), ['str'])),
             ])
             self.persist_id = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf:cancel-commit/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CancelCommit.Input, ['persist_id'], name, value)
@@ -1797,6 +1829,7 @@ class Validate(Entity):
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._segment_path = lambda: "ietf-netconf:validate"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -1831,6 +1864,7 @@ class Validate(Entity):
             self._children_name_map["source"] = "source"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-netconf:validate/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Validate.Input, [], name, value)
@@ -1882,11 +1916,11 @@ class Validate(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('candidate', YLeaf(YType.empty, 'candidate')),
-                    ('running', YLeaf(YType.empty, 'running')),
-                    ('startup', YLeaf(YType.empty, 'startup')),
-                    ('url', YLeaf(YType.str, 'url')),
-                    ('config', YLeaf(YType.str, 'config')),
+                    ('candidate', (YLeaf(YType.empty, 'candidate'), ['Empty'])),
+                    ('running', (YLeaf(YType.empty, 'running'), ['Empty'])),
+                    ('startup', (YLeaf(YType.empty, 'startup'), ['Empty'])),
+                    ('url', (YLeaf(YType.str, 'url'), ['str'])),
+                    ('config', (YLeaf(YType.str, 'config'), ['str'])),
                 ])
                 self.candidate = None
                 self.running = None
@@ -1895,6 +1929,7 @@ class Validate(Entity):
                 self.config = None
                 self._segment_path = lambda: "source"
                 self._absolute_path = lambda: "ietf-netconf:validate/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Validate.Input.Source, ['candidate', 'running', 'startup', 'url', 'config'], name, value)

@@ -12,7 +12,7 @@ sysadmin plane.
 Copyright(c) 2016 by Cisco Systems, Inc.
 All rights reserved.
 
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
+Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -22,6 +22,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -57,6 +58,7 @@ class Service(Entity):
         self.cli.parent = self
         self._children_name_map["cli"] = "cli"
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-services:service"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Service, [], name, value)
@@ -94,6 +96,7 @@ class Service(Entity):
             self._children_name_map["interactive"] = "interactive"
             self._segment_path = lambda: "cli"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-services:service/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Service.Cli, [], name, value)
@@ -127,11 +130,12 @@ class Service(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                    ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                 ])
                 self.enabled = None
                 self._segment_path = lambda: "interactive"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-services:service/cli/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Service.Cli.Interactive, ['enabled'], name, value)

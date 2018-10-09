@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   oc\-bgp\: OC\-BGP operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class BgpOcAfi(Enum):
@@ -139,6 +140,7 @@ class OcBgp(Entity):
         self.bgp_rib.parent = self
         self._children_name_map["bgp_rib"] = "bgp-rib"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(OcBgp, [], name, value)
@@ -176,6 +178,7 @@ class OcBgp(Entity):
             self._children_name_map["afi_safi_table"] = "afi-safi-table"
             self._segment_path = lambda: "bgp-rib"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(OcBgp.BgpRib, [], name, value)
@@ -222,6 +225,7 @@ class OcBgp(Entity):
                 self._children_name_map["ipv6_unicast"] = "ipv6-unicast"
                 self._segment_path = lambda: "afi-safi-table"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable, [], name, value)
@@ -268,6 +272,7 @@ class OcBgp(Entity):
                     self._children_name_map["open_config_neighbors"] = "open-config-neighbors"
                     self._segment_path = lambda: "ipv4-unicast"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast, [], name, value)
@@ -314,6 +319,7 @@ class OcBgp(Entity):
                         self._children_name_map["num_routes"] = "num-routes"
                         self._segment_path = lambda: "loc-rib"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib, [], name, value)
@@ -349,6 +355,7 @@ class OcBgp(Entity):
                             self.route = YList(self)
                             self._segment_path = lambda: "routes"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes, [], name, value)
@@ -448,12 +455,12 @@ class OcBgp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastUpdateRecieved))])
                                 self._leafs = OrderedDict([
-                                    ('route', YLeaf(YType.str, 'route')),
-                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                    ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                    ('valid_route', YLeaf(YType.boolean, 'valid-route')),
-                                    ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
-                                    ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                    ('route', (YLeaf(YType.str, 'route'), ['str','str'])),
+                                    ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
+                                    ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                    ('valid_route', (YLeaf(YType.boolean, 'valid-route'), ['bool'])),
+                                    ('invalid_reason', (YLeaf(YType.enumeration, 'invalid-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcInvalidRouteReason', '')])),
+                                    ('best_path', (YLeaf(YType.boolean, 'best-path'), ['bool'])),
                                 ])
                                 self.route = None
                                 self.neighbor_address = None
@@ -483,6 +490,7 @@ class OcBgp(Entity):
                                 self._children_name_map["last_update_recieved"] = "last-update-recieved"
                                 self._segment_path = lambda: "route"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
@@ -521,7 +529,7 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName.Prefix))])
                                     self._leafs = OrderedDict([
-                                        ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                        ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                                     ])
                                     self.prefix_length = None
 
@@ -530,6 +538,7 @@ class OcBgp(Entity):
                                     self._children_name_map["prefix"] = "prefix"
                                     self._segment_path = lambda: "prefix-name"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName, ['prefix_length'], name, value)
@@ -575,15 +584,16 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                         ])
                                         self.afi = None
                                         self.ipv4_address = None
                                         self.ipv6_address = None
                                         self._segment_path = lambda: "prefix"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/prefix-name/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -659,12 +669,12 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.Community))])
                                     self._leafs = OrderedDict([
-                                        ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
-                                        ('as_path', YLeaf(YType.str, 'as-path')),
-                                        ('as4_path', YLeaf(YType.str, 'as4-path')),
-                                        ('med', YLeaf(YType.uint32, 'med')),
-                                        ('local_pref', YLeaf(YType.uint32, 'local-pref')),
-                                        ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                        ('origin_type', (YLeaf(YType.enumeration, 'origin-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcOriginAttr', '')])),
+                                        ('as_path', (YLeaf(YType.str, 'as-path'), ['str'])),
+                                        ('as4_path', (YLeaf(YType.str, 'as4-path'), ['str'])),
+                                        ('med', (YLeaf(YType.uint32, 'med'), ['int'])),
+                                        ('local_pref', (YLeaf(YType.uint32, 'local-pref'), ['int'])),
+                                        ('atomic_aggr', (YLeaf(YType.boolean, 'atomic-aggr'), ['bool'])),
                                     ])
                                     self.origin_type = None
                                     self.as_path = None
@@ -684,6 +694,7 @@ class OcBgp(Entity):
                                     self.community = YList(self)
                                     self._segment_path = lambda: "route-attr-list"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
@@ -729,15 +740,16 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                         ])
                                         self.afi = None
                                         self.ipv4_address = None
                                         self.ipv6_address = None
                                         self._segment_path = lambda: "next-hop"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/route-attr-list/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -785,15 +797,16 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('as_', YLeaf(YType.uint32, 'as')),
-                                            ('as4', YLeaf(YType.uint32, 'as4')),
-                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                            ('as4', (YLeaf(YType.uint32, 'as4'), ['int'])),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                         ])
                                         self.as_ = None
                                         self.as4 = None
                                         self.address = None
                                         self._segment_path = lambda: "aggregrator-attributes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/route-attr-list/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
@@ -825,11 +838,12 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('objects', YLeaf(YType.str, 'objects')),
+                                            ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                         ])
                                         self.objects = None
                                         self._segment_path = lambda: "community"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/route-attr-list/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
@@ -894,10 +908,10 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                     self._leafs = OrderedDict([
-                                        ('originator_id', YLeaf(YType.str, 'originator-id')),
-                                        ('aigp', YLeaf(YType.uint64, 'aigp')),
-                                        ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                        ('cluster', YLeafList(YType.str, 'cluster')),
+                                        ('originator_id', (YLeaf(YType.str, 'originator-id'), ['str'])),
+                                        ('aigp', (YLeaf(YType.uint64, 'aigp'), ['int'])),
+                                        ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                        ('cluster', (YLeafList(YType.str, 'cluster'), ['str'])),
                                     ])
                                     self.originator_id = None
                                     self.aigp = None
@@ -908,6 +922,7 @@ class OcBgp(Entity):
                                     self.unknown_attributes = YList(self)
                                     self._segment_path = lambda: "ext-attributes-list"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
@@ -939,11 +954,12 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('objects', YLeaf(YType.str, 'objects')),
+                                            ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                         ])
                                         self.objects = None
                                         self._segment_path = lambda: "ext-community"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/ext-attributes-list/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
@@ -991,15 +1007,16 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
-                                            ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
-                                            ('attribute_value', YLeaf(YType.str, 'attribute-value')),
+                                            ('attribute_type', (YLeaf(YType.uint16, 'attribute-type'), ['int'])),
+                                            ('attribute_length', (YLeaf(YType.uint16, 'attribute-length'), ['int'])),
+                                            ('attribute_value', (YLeaf(YType.str, 'attribute-value'), ['str'])),
                                         ])
                                         self.attribute_type = None
                                         self.attribute_length = None
                                         self.attribute_value = None
                                         self._segment_path = lambda: "unknown-attributes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/ext-attributes-list/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
@@ -1031,11 +1048,12 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('time_value', YLeaf(YType.str, 'time-value')),
+                                        ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                     ])
                                     self.time_value = None
                                     self._segment_path = lambda: "last-modified-date"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastModifiedDate, ['time_value'], name, value)
@@ -1067,11 +1085,12 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('time_value', YLeaf(YType.str, 'time-value')),
+                                        ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                     ])
                                     self.time_value = None
                                     self._segment_path = lambda: "last-update-recieved"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/routes/route/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
@@ -1106,11 +1125,12 @@ class OcBgp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                ('num_routes', (YLeaf(YType.uint64, 'num-routes'), ['int'])),
                             ])
                             self.num_routes = None
                             self._segment_path = lambda: "num-routes"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/loc-rib/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.LocRib.NumRoutes, ['num_routes'], name, value)
@@ -1146,6 +1166,7 @@ class OcBgp(Entity):
                         self.open_config_neighbor = YList(self)
                         self._segment_path = lambda: "open-config-neighbors"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors, [], name, value)
@@ -1205,7 +1226,7 @@ class OcBgp(Entity):
                             self.ylist_key_names = ['neighbor_address']
                             self._child_classes = OrderedDict([("adj-rib-in-post", ("adj_rib_in_post", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost)), ("adj-rib-out-post", ("adj_rib_out_post", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost)), ("adj-rib-out-pre", ("adj_rib_out_pre", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre)), ("adj-rib-in-pre", ("adj_rib_in_pre", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre))])
                             self._leafs = OrderedDict([
-                                ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
                             ])
                             self.neighbor_address = None
 
@@ -1226,6 +1247,7 @@ class OcBgp(Entity):
                             self._children_name_map["adj_rib_in_pre"] = "adj-rib-in-pre"
                             self._segment_path = lambda: "open-config-neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv4-unicast/open-config-neighbors/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor, ['neighbor_address'], name, value)
@@ -1271,6 +1293,7 @@ class OcBgp(Entity):
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
                                 self._segment_path = lambda: "adj-rib-in-post"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost, [], name, value)
@@ -1305,6 +1328,7 @@ class OcBgp(Entity):
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes, [], name, value)
@@ -1404,12 +1428,12 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
-                                            ('route', YLeaf(YType.str, 'route')),
-                                            ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
-                                            ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
-                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                            ('route', (YLeaf(YType.str, 'route'), ['str','str'])),
+                                            ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
+                                            ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                            ('valid_route', (YLeaf(YType.boolean, 'valid-route'), ['bool'])),
+                                            ('invalid_reason', (YLeaf(YType.enumeration, 'invalid-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcInvalidRouteReason', '')])),
+                                            ('best_path', (YLeaf(YType.boolean, 'best-path'), ['bool'])),
                                         ])
                                         self.route = None
                                         self.neighbor_address = None
@@ -1438,6 +1462,7 @@ class OcBgp(Entity):
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
                                         self._segment_path = lambda: "route"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
@@ -1476,7 +1501,7 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
-                                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                                             ])
                                             self.prefix_length = None
 
@@ -1484,6 +1509,7 @@ class OcBgp(Entity):
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
                                             self._segment_path = lambda: "prefix-name"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName, ['prefix_length'], name, value)
@@ -1529,14 +1555,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "prefix"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -1612,12 +1639,12 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
-                                                ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
-                                                ('as_path', YLeaf(YType.str, 'as-path')),
-                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
-                                                ('med', YLeaf(YType.uint32, 'med')),
-                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
-                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('origin_type', (YLeaf(YType.enumeration, 'origin-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcOriginAttr', '')])),
+                                                ('as_path', (YLeaf(YType.str, 'as-path'), ['str'])),
+                                                ('as4_path', (YLeaf(YType.str, 'as4-path'), ['str'])),
+                                                ('med', (YLeaf(YType.uint32, 'med'), ['int'])),
+                                                ('local_pref', (YLeaf(YType.uint32, 'local-pref'), ['int'])),
+                                                ('atomic_aggr', (YLeaf(YType.boolean, 'atomic-aggr'), ['bool'])),
                                             ])
                                             self.origin_type = None
                                             self.as_path = None
@@ -1636,6 +1663,7 @@ class OcBgp(Entity):
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
@@ -1681,14 +1709,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "next-hop"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -1736,14 +1765,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('as_', YLeaf(YType.uint32, 'as')),
-                                                    ('as4', YLeaf(YType.uint32, 'as4')),
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                                    ('as4', (YLeaf(YType.uint32, 'as4'), ['int'])),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                                 ])
                                                 self.as_ = None
                                                 self.as4 = None
                                                 self.address = None
                                                 self._segment_path = lambda: "aggregrator-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
@@ -1775,10 +1805,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
@@ -1843,10 +1874,10 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
-                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
-                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
-                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                                ('cluster', YLeafList(YType.str, 'cluster')),
+                                                ('originator_id', (YLeaf(YType.str, 'originator-id'), ['str'])),
+                                                ('aigp', (YLeaf(YType.uint64, 'aigp'), ['int'])),
+                                                ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                                ('cluster', (YLeafList(YType.str, 'cluster'), ['str'])),
                                             ])
                                             self.originator_id = None
                                             self.aigp = None
@@ -1856,6 +1887,7 @@ class OcBgp(Entity):
                                             self.ext_community = YList(self)
                                             self.unknown_attributes = YList(self)
                                             self._segment_path = lambda: "ext-attributes-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
@@ -1887,10 +1919,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "ext-community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
@@ -1938,14 +1971,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
-                                                    ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
-                                                    ('attribute_value', YLeaf(YType.str, 'attribute-value')),
+                                                    ('attribute_type', (YLeaf(YType.uint16, 'attribute-type'), ['int'])),
+                                                    ('attribute_length', (YLeaf(YType.uint16, 'attribute-length'), ['int'])),
+                                                    ('attribute_value', (YLeaf(YType.str, 'attribute-value'), ['str'])),
                                                 ])
                                                 self.attribute_type = None
                                                 self.attribute_length = None
                                                 self.attribute_value = None
                                                 self._segment_path = lambda: "unknown-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
@@ -1977,10 +2011,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-modified-date"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate, ['time_value'], name, value)
@@ -2012,10 +2047,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-update-recieved"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
@@ -2050,10 +2086,11 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                        ('num_routes', (YLeaf(YType.uint64, 'num-routes'), ['int'])),
                                     ])
                                     self.num_routes = None
                                     self._segment_path = lambda: "num-routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes, ['num_routes'], name, value)
@@ -2099,6 +2136,7 @@ class OcBgp(Entity):
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
                                 self._segment_path = lambda: "adj-rib-out-post"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost, [], name, value)
@@ -2133,6 +2171,7 @@ class OcBgp(Entity):
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes, [], name, value)
@@ -2232,12 +2271,12 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
-                                            ('route', YLeaf(YType.str, 'route')),
-                                            ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
-                                            ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
-                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                            ('route', (YLeaf(YType.str, 'route'), ['str','str'])),
+                                            ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
+                                            ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                            ('valid_route', (YLeaf(YType.boolean, 'valid-route'), ['bool'])),
+                                            ('invalid_reason', (YLeaf(YType.enumeration, 'invalid-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcInvalidRouteReason', '')])),
+                                            ('best_path', (YLeaf(YType.boolean, 'best-path'), ['bool'])),
                                         ])
                                         self.route = None
                                         self.neighbor_address = None
@@ -2266,6 +2305,7 @@ class OcBgp(Entity):
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
                                         self._segment_path = lambda: "route"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
@@ -2304,7 +2344,7 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
-                                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                                             ])
                                             self.prefix_length = None
 
@@ -2312,6 +2352,7 @@ class OcBgp(Entity):
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
                                             self._segment_path = lambda: "prefix-name"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName, ['prefix_length'], name, value)
@@ -2357,14 +2398,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "prefix"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -2440,12 +2482,12 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
-                                                ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
-                                                ('as_path', YLeaf(YType.str, 'as-path')),
-                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
-                                                ('med', YLeaf(YType.uint32, 'med')),
-                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
-                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('origin_type', (YLeaf(YType.enumeration, 'origin-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcOriginAttr', '')])),
+                                                ('as_path', (YLeaf(YType.str, 'as-path'), ['str'])),
+                                                ('as4_path', (YLeaf(YType.str, 'as4-path'), ['str'])),
+                                                ('med', (YLeaf(YType.uint32, 'med'), ['int'])),
+                                                ('local_pref', (YLeaf(YType.uint32, 'local-pref'), ['int'])),
+                                                ('atomic_aggr', (YLeaf(YType.boolean, 'atomic-aggr'), ['bool'])),
                                             ])
                                             self.origin_type = None
                                             self.as_path = None
@@ -2464,6 +2506,7 @@ class OcBgp(Entity):
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
@@ -2509,14 +2552,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "next-hop"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -2564,14 +2608,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('as_', YLeaf(YType.uint32, 'as')),
-                                                    ('as4', YLeaf(YType.uint32, 'as4')),
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                                    ('as4', (YLeaf(YType.uint32, 'as4'), ['int'])),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                                 ])
                                                 self.as_ = None
                                                 self.as4 = None
                                                 self.address = None
                                                 self._segment_path = lambda: "aggregrator-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
@@ -2603,10 +2648,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
@@ -2671,10 +2717,10 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
-                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
-                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
-                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                                ('cluster', YLeafList(YType.str, 'cluster')),
+                                                ('originator_id', (YLeaf(YType.str, 'originator-id'), ['str'])),
+                                                ('aigp', (YLeaf(YType.uint64, 'aigp'), ['int'])),
+                                                ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                                ('cluster', (YLeafList(YType.str, 'cluster'), ['str'])),
                                             ])
                                             self.originator_id = None
                                             self.aigp = None
@@ -2684,6 +2730,7 @@ class OcBgp(Entity):
                                             self.ext_community = YList(self)
                                             self.unknown_attributes = YList(self)
                                             self._segment_path = lambda: "ext-attributes-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
@@ -2715,10 +2762,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "ext-community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
@@ -2766,14 +2814,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
-                                                    ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
-                                                    ('attribute_value', YLeaf(YType.str, 'attribute-value')),
+                                                    ('attribute_type', (YLeaf(YType.uint16, 'attribute-type'), ['int'])),
+                                                    ('attribute_length', (YLeaf(YType.uint16, 'attribute-length'), ['int'])),
+                                                    ('attribute_value', (YLeaf(YType.str, 'attribute-value'), ['str'])),
                                                 ])
                                                 self.attribute_type = None
                                                 self.attribute_length = None
                                                 self.attribute_value = None
                                                 self._segment_path = lambda: "unknown-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
@@ -2805,10 +2854,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-modified-date"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate, ['time_value'], name, value)
@@ -2840,10 +2890,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-update-recieved"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
@@ -2878,10 +2929,11 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                        ('num_routes', (YLeaf(YType.uint64, 'num-routes'), ['int'])),
                                     ])
                                     self.num_routes = None
                                     self._segment_path = lambda: "num-routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes, ['num_routes'], name, value)
@@ -2927,6 +2979,7 @@ class OcBgp(Entity):
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
                                 self._segment_path = lambda: "adj-rib-out-pre"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre, [], name, value)
@@ -2961,6 +3014,7 @@ class OcBgp(Entity):
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes, [], name, value)
@@ -3060,12 +3114,12 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
-                                            ('route', YLeaf(YType.str, 'route')),
-                                            ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
-                                            ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
-                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                            ('route', (YLeaf(YType.str, 'route'), ['str','str'])),
+                                            ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
+                                            ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                            ('valid_route', (YLeaf(YType.boolean, 'valid-route'), ['bool'])),
+                                            ('invalid_reason', (YLeaf(YType.enumeration, 'invalid-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcInvalidRouteReason', '')])),
+                                            ('best_path', (YLeaf(YType.boolean, 'best-path'), ['bool'])),
                                         ])
                                         self.route = None
                                         self.neighbor_address = None
@@ -3094,6 +3148,7 @@ class OcBgp(Entity):
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
                                         self._segment_path = lambda: "route"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
@@ -3132,7 +3187,7 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
-                                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                                             ])
                                             self.prefix_length = None
 
@@ -3140,6 +3195,7 @@ class OcBgp(Entity):
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
                                             self._segment_path = lambda: "prefix-name"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName, ['prefix_length'], name, value)
@@ -3185,14 +3241,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "prefix"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -3268,12 +3325,12 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
-                                                ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
-                                                ('as_path', YLeaf(YType.str, 'as-path')),
-                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
-                                                ('med', YLeaf(YType.uint32, 'med')),
-                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
-                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('origin_type', (YLeaf(YType.enumeration, 'origin-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcOriginAttr', '')])),
+                                                ('as_path', (YLeaf(YType.str, 'as-path'), ['str'])),
+                                                ('as4_path', (YLeaf(YType.str, 'as4-path'), ['str'])),
+                                                ('med', (YLeaf(YType.uint32, 'med'), ['int'])),
+                                                ('local_pref', (YLeaf(YType.uint32, 'local-pref'), ['int'])),
+                                                ('atomic_aggr', (YLeaf(YType.boolean, 'atomic-aggr'), ['bool'])),
                                             ])
                                             self.origin_type = None
                                             self.as_path = None
@@ -3292,6 +3349,7 @@ class OcBgp(Entity):
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
@@ -3337,14 +3395,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "next-hop"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -3392,14 +3451,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('as_', YLeaf(YType.uint32, 'as')),
-                                                    ('as4', YLeaf(YType.uint32, 'as4')),
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                                    ('as4', (YLeaf(YType.uint32, 'as4'), ['int'])),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                                 ])
                                                 self.as_ = None
                                                 self.as4 = None
                                                 self.address = None
                                                 self._segment_path = lambda: "aggregrator-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
@@ -3431,10 +3491,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
@@ -3499,10 +3560,10 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
-                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
-                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
-                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                                ('cluster', YLeafList(YType.str, 'cluster')),
+                                                ('originator_id', (YLeaf(YType.str, 'originator-id'), ['str'])),
+                                                ('aigp', (YLeaf(YType.uint64, 'aigp'), ['int'])),
+                                                ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                                ('cluster', (YLeafList(YType.str, 'cluster'), ['str'])),
                                             ])
                                             self.originator_id = None
                                             self.aigp = None
@@ -3512,6 +3573,7 @@ class OcBgp(Entity):
                                             self.ext_community = YList(self)
                                             self.unknown_attributes = YList(self)
                                             self._segment_path = lambda: "ext-attributes-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
@@ -3543,10 +3605,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "ext-community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
@@ -3594,14 +3657,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
-                                                    ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
-                                                    ('attribute_value', YLeaf(YType.str, 'attribute-value')),
+                                                    ('attribute_type', (YLeaf(YType.uint16, 'attribute-type'), ['int'])),
+                                                    ('attribute_length', (YLeaf(YType.uint16, 'attribute-length'), ['int'])),
+                                                    ('attribute_value', (YLeaf(YType.str, 'attribute-value'), ['str'])),
                                                 ])
                                                 self.attribute_type = None
                                                 self.attribute_length = None
                                                 self.attribute_value = None
                                                 self._segment_path = lambda: "unknown-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
@@ -3633,10 +3697,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-modified-date"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate, ['time_value'], name, value)
@@ -3668,10 +3733,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-update-recieved"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
@@ -3706,10 +3772,11 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                        ('num_routes', (YLeaf(YType.uint64, 'num-routes'), ['int'])),
                                     ])
                                     self.num_routes = None
                                     self._segment_path = lambda: "num-routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes, ['num_routes'], name, value)
@@ -3755,6 +3822,7 @@ class OcBgp(Entity):
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
                                 self._segment_path = lambda: "adj-rib-in-pre"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre, [], name, value)
@@ -3789,6 +3857,7 @@ class OcBgp(Entity):
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes, [], name, value)
@@ -3888,12 +3957,12 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
-                                            ('route', YLeaf(YType.str, 'route')),
-                                            ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
-                                            ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
-                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                            ('route', (YLeaf(YType.str, 'route'), ['str','str'])),
+                                            ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
+                                            ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                            ('valid_route', (YLeaf(YType.boolean, 'valid-route'), ['bool'])),
+                                            ('invalid_reason', (YLeaf(YType.enumeration, 'invalid-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcInvalidRouteReason', '')])),
+                                            ('best_path', (YLeaf(YType.boolean, 'best-path'), ['bool'])),
                                         ])
                                         self.route = None
                                         self.neighbor_address = None
@@ -3922,6 +3991,7 @@ class OcBgp(Entity):
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
                                         self._segment_path = lambda: "route"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
@@ -3960,7 +4030,7 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
-                                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                                             ])
                                             self.prefix_length = None
 
@@ -3968,6 +4038,7 @@ class OcBgp(Entity):
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
                                             self._segment_path = lambda: "prefix-name"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName, ['prefix_length'], name, value)
@@ -4013,14 +4084,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "prefix"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -4096,12 +4168,12 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
-                                                ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
-                                                ('as_path', YLeaf(YType.str, 'as-path')),
-                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
-                                                ('med', YLeaf(YType.uint32, 'med')),
-                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
-                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('origin_type', (YLeaf(YType.enumeration, 'origin-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcOriginAttr', '')])),
+                                                ('as_path', (YLeaf(YType.str, 'as-path'), ['str'])),
+                                                ('as4_path', (YLeaf(YType.str, 'as4-path'), ['str'])),
+                                                ('med', (YLeaf(YType.uint32, 'med'), ['int'])),
+                                                ('local_pref', (YLeaf(YType.uint32, 'local-pref'), ['int'])),
+                                                ('atomic_aggr', (YLeaf(YType.boolean, 'atomic-aggr'), ['bool'])),
                                             ])
                                             self.origin_type = None
                                             self.as_path = None
@@ -4120,6 +4192,7 @@ class OcBgp(Entity):
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
@@ -4165,14 +4238,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "next-hop"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -4220,14 +4294,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('as_', YLeaf(YType.uint32, 'as')),
-                                                    ('as4', YLeaf(YType.uint32, 'as4')),
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                                    ('as4', (YLeaf(YType.uint32, 'as4'), ['int'])),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                                 ])
                                                 self.as_ = None
                                                 self.as4 = None
                                                 self.address = None
                                                 self._segment_path = lambda: "aggregrator-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
@@ -4259,10 +4334,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
@@ -4327,10 +4403,10 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
-                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
-                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
-                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                                ('cluster', YLeafList(YType.str, 'cluster')),
+                                                ('originator_id', (YLeaf(YType.str, 'originator-id'), ['str'])),
+                                                ('aigp', (YLeaf(YType.uint64, 'aigp'), ['int'])),
+                                                ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                                ('cluster', (YLeafList(YType.str, 'cluster'), ['str'])),
                                             ])
                                             self.originator_id = None
                                             self.aigp = None
@@ -4340,6 +4416,7 @@ class OcBgp(Entity):
                                             self.ext_community = YList(self)
                                             self.unknown_attributes = YList(self)
                                             self._segment_path = lambda: "ext-attributes-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
@@ -4371,10 +4448,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "ext-community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
@@ -4422,14 +4500,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
-                                                    ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
-                                                    ('attribute_value', YLeaf(YType.str, 'attribute-value')),
+                                                    ('attribute_type', (YLeaf(YType.uint16, 'attribute-type'), ['int'])),
+                                                    ('attribute_length', (YLeaf(YType.uint16, 'attribute-length'), ['int'])),
+                                                    ('attribute_value', (YLeaf(YType.str, 'attribute-value'), ['str'])),
                                                 ])
                                                 self.attribute_type = None
                                                 self.attribute_length = None
                                                 self.attribute_value = None
                                                 self._segment_path = lambda: "unknown-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
@@ -4461,10 +4540,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-modified-date"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate, ['time_value'], name, value)
@@ -4496,10 +4576,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-update-recieved"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
@@ -4534,10 +4615,11 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                        ('num_routes', (YLeaf(YType.uint64, 'num-routes'), ['int'])),
                                     ])
                                     self.num_routes = None
                                     self._segment_path = lambda: "num-routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv4Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes, ['num_routes'], name, value)
@@ -4584,6 +4666,7 @@ class OcBgp(Entity):
                     self._children_name_map["open_config_neighbors"] = "open-config-neighbors"
                     self._segment_path = lambda: "ipv6-unicast"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast, [], name, value)
@@ -4630,6 +4713,7 @@ class OcBgp(Entity):
                         self._children_name_map["num_routes"] = "num-routes"
                         self._segment_path = lambda: "loc-rib"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib, [], name, value)
@@ -4665,6 +4749,7 @@ class OcBgp(Entity):
                             self.route = YList(self)
                             self._segment_path = lambda: "routes"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes, [], name, value)
@@ -4764,12 +4849,12 @@ class OcBgp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastUpdateRecieved))])
                                 self._leafs = OrderedDict([
-                                    ('route', YLeaf(YType.str, 'route')),
-                                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                    ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                    ('valid_route', YLeaf(YType.boolean, 'valid-route')),
-                                    ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
-                                    ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                    ('route', (YLeaf(YType.str, 'route'), ['str','str'])),
+                                    ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
+                                    ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                    ('valid_route', (YLeaf(YType.boolean, 'valid-route'), ['bool'])),
+                                    ('invalid_reason', (YLeaf(YType.enumeration, 'invalid-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcInvalidRouteReason', '')])),
+                                    ('best_path', (YLeaf(YType.boolean, 'best-path'), ['bool'])),
                                 ])
                                 self.route = None
                                 self.neighbor_address = None
@@ -4799,6 +4884,7 @@ class OcBgp(Entity):
                                 self._children_name_map["last_update_recieved"] = "last-update-recieved"
                                 self._segment_path = lambda: "route"
                                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/%s" % self._segment_path()
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
@@ -4837,7 +4923,7 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName.Prefix))])
                                     self._leafs = OrderedDict([
-                                        ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                        ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                                     ])
                                     self.prefix_length = None
 
@@ -4846,6 +4932,7 @@ class OcBgp(Entity):
                                     self._children_name_map["prefix"] = "prefix"
                                     self._segment_path = lambda: "prefix-name"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName, ['prefix_length'], name, value)
@@ -4891,15 +4978,16 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                         ])
                                         self.afi = None
                                         self.ipv4_address = None
                                         self.ipv6_address = None
                                         self._segment_path = lambda: "prefix"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/prefix-name/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -4975,12 +5063,12 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.Community))])
                                     self._leafs = OrderedDict([
-                                        ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
-                                        ('as_path', YLeaf(YType.str, 'as-path')),
-                                        ('as4_path', YLeaf(YType.str, 'as4-path')),
-                                        ('med', YLeaf(YType.uint32, 'med')),
-                                        ('local_pref', YLeaf(YType.uint32, 'local-pref')),
-                                        ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                        ('origin_type', (YLeaf(YType.enumeration, 'origin-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcOriginAttr', '')])),
+                                        ('as_path', (YLeaf(YType.str, 'as-path'), ['str'])),
+                                        ('as4_path', (YLeaf(YType.str, 'as4-path'), ['str'])),
+                                        ('med', (YLeaf(YType.uint32, 'med'), ['int'])),
+                                        ('local_pref', (YLeaf(YType.uint32, 'local-pref'), ['int'])),
+                                        ('atomic_aggr', (YLeaf(YType.boolean, 'atomic-aggr'), ['bool'])),
                                     ])
                                     self.origin_type = None
                                     self.as_path = None
@@ -5000,6 +5088,7 @@ class OcBgp(Entity):
                                     self.community = YList(self)
                                     self._segment_path = lambda: "route-attr-list"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
@@ -5045,15 +5134,16 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                         ])
                                         self.afi = None
                                         self.ipv4_address = None
                                         self.ipv6_address = None
                                         self._segment_path = lambda: "next-hop"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/route-attr-list/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -5101,15 +5191,16 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('as_', YLeaf(YType.uint32, 'as')),
-                                            ('as4', YLeaf(YType.uint32, 'as4')),
-                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                            ('as4', (YLeaf(YType.uint32, 'as4'), ['int'])),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                         ])
                                         self.as_ = None
                                         self.as4 = None
                                         self.address = None
                                         self._segment_path = lambda: "aggregrator-attributes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/route-attr-list/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
@@ -5141,11 +5232,12 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('objects', YLeaf(YType.str, 'objects')),
+                                            ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                         ])
                                         self.objects = None
                                         self._segment_path = lambda: "community"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/route-attr-list/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
@@ -5210,10 +5302,10 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                     self._leafs = OrderedDict([
-                                        ('originator_id', YLeaf(YType.str, 'originator-id')),
-                                        ('aigp', YLeaf(YType.uint64, 'aigp')),
-                                        ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                        ('cluster', YLeafList(YType.str, 'cluster')),
+                                        ('originator_id', (YLeaf(YType.str, 'originator-id'), ['str'])),
+                                        ('aigp', (YLeaf(YType.uint64, 'aigp'), ['int'])),
+                                        ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                        ('cluster', (YLeafList(YType.str, 'cluster'), ['str'])),
                                     ])
                                     self.originator_id = None
                                     self.aigp = None
@@ -5224,6 +5316,7 @@ class OcBgp(Entity):
                                     self.unknown_attributes = YList(self)
                                     self._segment_path = lambda: "ext-attributes-list"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
@@ -5255,11 +5348,12 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('objects', YLeaf(YType.str, 'objects')),
+                                            ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                         ])
                                         self.objects = None
                                         self._segment_path = lambda: "ext-community"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/ext-attributes-list/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
@@ -5307,15 +5401,16 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
-                                            ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
-                                            ('attribute_value', YLeaf(YType.str, 'attribute-value')),
+                                            ('attribute_type', (YLeaf(YType.uint16, 'attribute-type'), ['int'])),
+                                            ('attribute_length', (YLeaf(YType.uint16, 'attribute-length'), ['int'])),
+                                            ('attribute_value', (YLeaf(YType.str, 'attribute-value'), ['str'])),
                                         ])
                                         self.attribute_type = None
                                         self.attribute_length = None
                                         self.attribute_value = None
                                         self._segment_path = lambda: "unknown-attributes"
                                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/ext-attributes-list/%s" % self._segment_path()
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
@@ -5347,11 +5442,12 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('time_value', YLeaf(YType.str, 'time-value')),
+                                        ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                     ])
                                     self.time_value = None
                                     self._segment_path = lambda: "last-modified-date"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastModifiedDate, ['time_value'], name, value)
@@ -5383,11 +5479,12 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('time_value', YLeaf(YType.str, 'time-value')),
+                                        ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                     ])
                                     self.time_value = None
                                     self._segment_path = lambda: "last-update-recieved"
                                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/routes/route/%s" % self._segment_path()
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
@@ -5422,11 +5519,12 @@ class OcBgp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                ('num_routes', (YLeaf(YType.uint64, 'num-routes'), ['int'])),
                             ])
                             self.num_routes = None
                             self._segment_path = lambda: "num-routes"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/loc-rib/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.LocRib.NumRoutes, ['num_routes'], name, value)
@@ -5462,6 +5560,7 @@ class OcBgp(Entity):
                         self.open_config_neighbor = YList(self)
                         self._segment_path = lambda: "open-config-neighbors"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors, [], name, value)
@@ -5521,7 +5620,7 @@ class OcBgp(Entity):
                             self.ylist_key_names = ['neighbor_address']
                             self._child_classes = OrderedDict([("adj-rib-in-post", ("adj_rib_in_post", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost)), ("adj-rib-out-post", ("adj_rib_out_post", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost)), ("adj-rib-out-pre", ("adj_rib_out_pre", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre)), ("adj-rib-in-pre", ("adj_rib_in_pre", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre))])
                             self._leafs = OrderedDict([
-                                ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                                ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
                             ])
                             self.neighbor_address = None
 
@@ -5542,6 +5641,7 @@ class OcBgp(Entity):
                             self._children_name_map["adj_rib_in_pre"] = "adj-rib-in-pre"
                             self._segment_path = lambda: "open-config-neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-bgp-oc-oper:oc-bgp/bgp-rib/afi-safi-table/ipv6-unicast/open-config-neighbors/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor, ['neighbor_address'], name, value)
@@ -5587,6 +5687,7 @@ class OcBgp(Entity):
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
                                 self._segment_path = lambda: "adj-rib-in-post"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost, [], name, value)
@@ -5621,6 +5722,7 @@ class OcBgp(Entity):
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes, [], name, value)
@@ -5720,12 +5822,12 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
-                                            ('route', YLeaf(YType.str, 'route')),
-                                            ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
-                                            ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
-                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                            ('route', (YLeaf(YType.str, 'route'), ['str','str'])),
+                                            ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
+                                            ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                            ('valid_route', (YLeaf(YType.boolean, 'valid-route'), ['bool'])),
+                                            ('invalid_reason', (YLeaf(YType.enumeration, 'invalid-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcInvalidRouteReason', '')])),
+                                            ('best_path', (YLeaf(YType.boolean, 'best-path'), ['bool'])),
                                         ])
                                         self.route = None
                                         self.neighbor_address = None
@@ -5754,6 +5856,7 @@ class OcBgp(Entity):
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
                                         self._segment_path = lambda: "route"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
@@ -5792,7 +5895,7 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
-                                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                                             ])
                                             self.prefix_length = None
 
@@ -5800,6 +5903,7 @@ class OcBgp(Entity):
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
                                             self._segment_path = lambda: "prefix-name"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName, ['prefix_length'], name, value)
@@ -5845,14 +5949,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "prefix"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -5928,12 +6033,12 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
-                                                ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
-                                                ('as_path', YLeaf(YType.str, 'as-path')),
-                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
-                                                ('med', YLeaf(YType.uint32, 'med')),
-                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
-                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('origin_type', (YLeaf(YType.enumeration, 'origin-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcOriginAttr', '')])),
+                                                ('as_path', (YLeaf(YType.str, 'as-path'), ['str'])),
+                                                ('as4_path', (YLeaf(YType.str, 'as4-path'), ['str'])),
+                                                ('med', (YLeaf(YType.uint32, 'med'), ['int'])),
+                                                ('local_pref', (YLeaf(YType.uint32, 'local-pref'), ['int'])),
+                                                ('atomic_aggr', (YLeaf(YType.boolean, 'atomic-aggr'), ['bool'])),
                                             ])
                                             self.origin_type = None
                                             self.as_path = None
@@ -5952,6 +6057,7 @@ class OcBgp(Entity):
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
@@ -5997,14 +6103,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "next-hop"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -6052,14 +6159,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('as_', YLeaf(YType.uint32, 'as')),
-                                                    ('as4', YLeaf(YType.uint32, 'as4')),
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                                    ('as4', (YLeaf(YType.uint32, 'as4'), ['int'])),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                                 ])
                                                 self.as_ = None
                                                 self.as4 = None
                                                 self.address = None
                                                 self._segment_path = lambda: "aggregrator-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
@@ -6091,10 +6199,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
@@ -6159,10 +6268,10 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
-                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
-                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
-                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                                ('cluster', YLeafList(YType.str, 'cluster')),
+                                                ('originator_id', (YLeaf(YType.str, 'originator-id'), ['str'])),
+                                                ('aigp', (YLeaf(YType.uint64, 'aigp'), ['int'])),
+                                                ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                                ('cluster', (YLeafList(YType.str, 'cluster'), ['str'])),
                                             ])
                                             self.originator_id = None
                                             self.aigp = None
@@ -6172,6 +6281,7 @@ class OcBgp(Entity):
                                             self.ext_community = YList(self)
                                             self.unknown_attributes = YList(self)
                                             self._segment_path = lambda: "ext-attributes-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
@@ -6203,10 +6313,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "ext-community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
@@ -6254,14 +6365,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
-                                                    ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
-                                                    ('attribute_value', YLeaf(YType.str, 'attribute-value')),
+                                                    ('attribute_type', (YLeaf(YType.uint16, 'attribute-type'), ['int'])),
+                                                    ('attribute_length', (YLeaf(YType.uint16, 'attribute-length'), ['int'])),
+                                                    ('attribute_value', (YLeaf(YType.str, 'attribute-value'), ['str'])),
                                                 ])
                                                 self.attribute_type = None
                                                 self.attribute_length = None
                                                 self.attribute_value = None
                                                 self._segment_path = lambda: "unknown-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
@@ -6293,10 +6405,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-modified-date"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastModifiedDate, ['time_value'], name, value)
@@ -6328,10 +6441,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-update-recieved"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
@@ -6366,10 +6480,11 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                        ('num_routes', (YLeaf(YType.uint64, 'num-routes'), ['int'])),
                                     ])
                                     self.num_routes = None
                                     self._segment_path = lambda: "num-routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPost.NumRoutes, ['num_routes'], name, value)
@@ -6415,6 +6530,7 @@ class OcBgp(Entity):
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
                                 self._segment_path = lambda: "adj-rib-out-post"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost, [], name, value)
@@ -6449,6 +6565,7 @@ class OcBgp(Entity):
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes, [], name, value)
@@ -6548,12 +6665,12 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
-                                            ('route', YLeaf(YType.str, 'route')),
-                                            ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
-                                            ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
-                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                            ('route', (YLeaf(YType.str, 'route'), ['str','str'])),
+                                            ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
+                                            ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                            ('valid_route', (YLeaf(YType.boolean, 'valid-route'), ['bool'])),
+                                            ('invalid_reason', (YLeaf(YType.enumeration, 'invalid-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcInvalidRouteReason', '')])),
+                                            ('best_path', (YLeaf(YType.boolean, 'best-path'), ['bool'])),
                                         ])
                                         self.route = None
                                         self.neighbor_address = None
@@ -6582,6 +6699,7 @@ class OcBgp(Entity):
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
                                         self._segment_path = lambda: "route"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
@@ -6620,7 +6738,7 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
-                                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                                             ])
                                             self.prefix_length = None
 
@@ -6628,6 +6746,7 @@ class OcBgp(Entity):
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
                                             self._segment_path = lambda: "prefix-name"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName, ['prefix_length'], name, value)
@@ -6673,14 +6792,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "prefix"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -6756,12 +6876,12 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
-                                                ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
-                                                ('as_path', YLeaf(YType.str, 'as-path')),
-                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
-                                                ('med', YLeaf(YType.uint32, 'med')),
-                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
-                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('origin_type', (YLeaf(YType.enumeration, 'origin-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcOriginAttr', '')])),
+                                                ('as_path', (YLeaf(YType.str, 'as-path'), ['str'])),
+                                                ('as4_path', (YLeaf(YType.str, 'as4-path'), ['str'])),
+                                                ('med', (YLeaf(YType.uint32, 'med'), ['int'])),
+                                                ('local_pref', (YLeaf(YType.uint32, 'local-pref'), ['int'])),
+                                                ('atomic_aggr', (YLeaf(YType.boolean, 'atomic-aggr'), ['bool'])),
                                             ])
                                             self.origin_type = None
                                             self.as_path = None
@@ -6780,6 +6900,7 @@ class OcBgp(Entity):
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
@@ -6825,14 +6946,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "next-hop"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -6880,14 +7002,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('as_', YLeaf(YType.uint32, 'as')),
-                                                    ('as4', YLeaf(YType.uint32, 'as4')),
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                                    ('as4', (YLeaf(YType.uint32, 'as4'), ['int'])),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                                 ])
                                                 self.as_ = None
                                                 self.as4 = None
                                                 self.address = None
                                                 self._segment_path = lambda: "aggregrator-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
@@ -6919,10 +7042,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
@@ -6987,10 +7111,10 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
-                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
-                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
-                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                                ('cluster', YLeafList(YType.str, 'cluster')),
+                                                ('originator_id', (YLeaf(YType.str, 'originator-id'), ['str'])),
+                                                ('aigp', (YLeaf(YType.uint64, 'aigp'), ['int'])),
+                                                ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                                ('cluster', (YLeafList(YType.str, 'cluster'), ['str'])),
                                             ])
                                             self.originator_id = None
                                             self.aigp = None
@@ -7000,6 +7124,7 @@ class OcBgp(Entity):
                                             self.ext_community = YList(self)
                                             self.unknown_attributes = YList(self)
                                             self._segment_path = lambda: "ext-attributes-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
@@ -7031,10 +7156,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "ext-community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
@@ -7082,14 +7208,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
-                                                    ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
-                                                    ('attribute_value', YLeaf(YType.str, 'attribute-value')),
+                                                    ('attribute_type', (YLeaf(YType.uint16, 'attribute-type'), ['int'])),
+                                                    ('attribute_length', (YLeaf(YType.uint16, 'attribute-length'), ['int'])),
+                                                    ('attribute_value', (YLeaf(YType.str, 'attribute-value'), ['str'])),
                                                 ])
                                                 self.attribute_type = None
                                                 self.attribute_length = None
                                                 self.attribute_value = None
                                                 self._segment_path = lambda: "unknown-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
@@ -7121,10 +7248,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-modified-date"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastModifiedDate, ['time_value'], name, value)
@@ -7156,10 +7284,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-update-recieved"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
@@ -7194,10 +7323,11 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                        ('num_routes', (YLeaf(YType.uint64, 'num-routes'), ['int'])),
                                     ])
                                     self.num_routes = None
                                     self._segment_path = lambda: "num-routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPost.NumRoutes, ['num_routes'], name, value)
@@ -7243,6 +7373,7 @@ class OcBgp(Entity):
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
                                 self._segment_path = lambda: "adj-rib-out-pre"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre, [], name, value)
@@ -7277,6 +7408,7 @@ class OcBgp(Entity):
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes, [], name, value)
@@ -7376,12 +7508,12 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
-                                            ('route', YLeaf(YType.str, 'route')),
-                                            ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
-                                            ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
-                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                            ('route', (YLeaf(YType.str, 'route'), ['str','str'])),
+                                            ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
+                                            ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                            ('valid_route', (YLeaf(YType.boolean, 'valid-route'), ['bool'])),
+                                            ('invalid_reason', (YLeaf(YType.enumeration, 'invalid-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcInvalidRouteReason', '')])),
+                                            ('best_path', (YLeaf(YType.boolean, 'best-path'), ['bool'])),
                                         ])
                                         self.route = None
                                         self.neighbor_address = None
@@ -7410,6 +7542,7 @@ class OcBgp(Entity):
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
                                         self._segment_path = lambda: "route"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
@@ -7448,7 +7581,7 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
-                                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                                             ])
                                             self.prefix_length = None
 
@@ -7456,6 +7589,7 @@ class OcBgp(Entity):
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
                                             self._segment_path = lambda: "prefix-name"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName, ['prefix_length'], name, value)
@@ -7501,14 +7635,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "prefix"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -7584,12 +7719,12 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
-                                                ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
-                                                ('as_path', YLeaf(YType.str, 'as-path')),
-                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
-                                                ('med', YLeaf(YType.uint32, 'med')),
-                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
-                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('origin_type', (YLeaf(YType.enumeration, 'origin-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcOriginAttr', '')])),
+                                                ('as_path', (YLeaf(YType.str, 'as-path'), ['str'])),
+                                                ('as4_path', (YLeaf(YType.str, 'as4-path'), ['str'])),
+                                                ('med', (YLeaf(YType.uint32, 'med'), ['int'])),
+                                                ('local_pref', (YLeaf(YType.uint32, 'local-pref'), ['int'])),
+                                                ('atomic_aggr', (YLeaf(YType.boolean, 'atomic-aggr'), ['bool'])),
                                             ])
                                             self.origin_type = None
                                             self.as_path = None
@@ -7608,6 +7743,7 @@ class OcBgp(Entity):
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
@@ -7653,14 +7789,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "next-hop"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -7708,14 +7845,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('as_', YLeaf(YType.uint32, 'as')),
-                                                    ('as4', YLeaf(YType.uint32, 'as4')),
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                                    ('as4', (YLeaf(YType.uint32, 'as4'), ['int'])),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                                 ])
                                                 self.as_ = None
                                                 self.as4 = None
                                                 self.address = None
                                                 self._segment_path = lambda: "aggregrator-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
@@ -7747,10 +7885,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
@@ -7815,10 +7954,10 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
-                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
-                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
-                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                                ('cluster', YLeafList(YType.str, 'cluster')),
+                                                ('originator_id', (YLeaf(YType.str, 'originator-id'), ['str'])),
+                                                ('aigp', (YLeaf(YType.uint64, 'aigp'), ['int'])),
+                                                ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                                ('cluster', (YLeafList(YType.str, 'cluster'), ['str'])),
                                             ])
                                             self.originator_id = None
                                             self.aigp = None
@@ -7828,6 +7967,7 @@ class OcBgp(Entity):
                                             self.ext_community = YList(self)
                                             self.unknown_attributes = YList(self)
                                             self._segment_path = lambda: "ext-attributes-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
@@ -7859,10 +7999,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "ext-community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
@@ -7910,14 +8051,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
-                                                    ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
-                                                    ('attribute_value', YLeaf(YType.str, 'attribute-value')),
+                                                    ('attribute_type', (YLeaf(YType.uint16, 'attribute-type'), ['int'])),
+                                                    ('attribute_length', (YLeaf(YType.uint16, 'attribute-length'), ['int'])),
+                                                    ('attribute_value', (YLeaf(YType.str, 'attribute-value'), ['str'])),
                                                 ])
                                                 self.attribute_type = None
                                                 self.attribute_length = None
                                                 self.attribute_value = None
                                                 self._segment_path = lambda: "unknown-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
@@ -7949,10 +8091,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-modified-date"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastModifiedDate, ['time_value'], name, value)
@@ -7984,10 +8127,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-update-recieved"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
@@ -8022,10 +8166,11 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                        ('num_routes', (YLeaf(YType.uint64, 'num-routes'), ['int'])),
                                     ])
                                     self.num_routes = None
                                     self._segment_path = lambda: "num-routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibOutPre.NumRoutes, ['num_routes'], name, value)
@@ -8071,6 +8216,7 @@ class OcBgp(Entity):
                                 self.num_routes.parent = self
                                 self._children_name_map["num_routes"] = "num-routes"
                                 self._segment_path = lambda: "adj-rib-in-pre"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre, [], name, value)
@@ -8105,6 +8251,7 @@ class OcBgp(Entity):
 
                                     self.route = YList(self)
                                     self._segment_path = lambda: "routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes, [], name, value)
@@ -8204,12 +8351,12 @@ class OcBgp(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("prefix-name", ("prefix_name", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName)), ("route-attr-list", ("route_attr_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList)), ("ext-attributes-list", ("ext_attributes_list", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList)), ("last-modified-date", ("last_modified_date", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate)), ("last-update-recieved", ("last_update_recieved", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved))])
                                         self._leafs = OrderedDict([
-                                            ('route', YLeaf(YType.str, 'route')),
-                                            ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                                            ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                            ('valid_route', YLeaf(YType.boolean, 'valid-route')),
-                                            ('invalid_reason', YLeaf(YType.enumeration, 'invalid-reason')),
-                                            ('best_path', YLeaf(YType.boolean, 'best-path')),
+                                            ('route', (YLeaf(YType.str, 'route'), ['str','str'])),
+                                            ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str','str'])),
+                                            ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                            ('valid_route', (YLeaf(YType.boolean, 'valid-route'), ['bool'])),
+                                            ('invalid_reason', (YLeaf(YType.enumeration, 'invalid-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcInvalidRouteReason', '')])),
+                                            ('best_path', (YLeaf(YType.boolean, 'best-path'), ['bool'])),
                                         ])
                                         self.route = None
                                         self.neighbor_address = None
@@ -8238,6 +8385,7 @@ class OcBgp(Entity):
                                         self.last_update_recieved.parent = self
                                         self._children_name_map["last_update_recieved"] = "last-update-recieved"
                                         self._segment_path = lambda: "route"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route, ['route', 'neighbor_address', 'path_id', 'valid_route', 'invalid_reason', 'best_path'], name, value)
@@ -8276,7 +8424,7 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("prefix", ("prefix", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix))])
                                             self._leafs = OrderedDict([
-                                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                                             ])
                                             self.prefix_length = None
 
@@ -8284,6 +8432,7 @@ class OcBgp(Entity):
                                             self.prefix.parent = self
                                             self._children_name_map["prefix"] = "prefix"
                                             self._segment_path = lambda: "prefix-name"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName, ['prefix_length'], name, value)
@@ -8329,14 +8478,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "prefix"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.PrefixName.Prefix, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -8412,12 +8562,12 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("next-hop", ("next_hop", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop)), ("aggregrator-attributes", ("aggregrator_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes)), ("community", ("community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community))])
                                             self._leafs = OrderedDict([
-                                                ('origin_type', YLeaf(YType.enumeration, 'origin-type')),
-                                                ('as_path', YLeaf(YType.str, 'as-path')),
-                                                ('as4_path', YLeaf(YType.str, 'as4-path')),
-                                                ('med', YLeaf(YType.uint32, 'med')),
-                                                ('local_pref', YLeaf(YType.uint32, 'local-pref')),
-                                                ('atomic_aggr', YLeaf(YType.boolean, 'atomic-aggr')),
+                                                ('origin_type', (YLeaf(YType.enumeration, 'origin-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcOriginAttr', '')])),
+                                                ('as_path', (YLeaf(YType.str, 'as-path'), ['str'])),
+                                                ('as4_path', (YLeaf(YType.str, 'as4-path'), ['str'])),
+                                                ('med', (YLeaf(YType.uint32, 'med'), ['int'])),
+                                                ('local_pref', (YLeaf(YType.uint32, 'local-pref'), ['int'])),
+                                                ('atomic_aggr', (YLeaf(YType.boolean, 'atomic-aggr'), ['bool'])),
                                             ])
                                             self.origin_type = None
                                             self.as_path = None
@@ -8436,6 +8586,7 @@ class OcBgp(Entity):
 
                                             self.community = YList(self)
                                             self._segment_path = lambda: "route-attr-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList, ['origin_type', 'as_path', 'as4_path', 'med', 'local_pref', 'atomic_aggr'], name, value)
@@ -8481,14 +8632,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('afi', YLeaf(YType.enumeration, 'afi')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_oc_oper', 'BgpOcAfi', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.afi = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "next-hop"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.NextHop, ['afi', 'ipv4_address', 'ipv6_address'], name, value)
@@ -8536,14 +8688,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('as_', YLeaf(YType.uint32, 'as')),
-                                                    ('as4', YLeaf(YType.uint32, 'as4')),
-                                                    ('address', YLeaf(YType.str, 'address')),
+                                                    ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                                    ('as4', (YLeaf(YType.uint32, 'as4'), ['int'])),
+                                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                                 ])
                                                 self.as_ = None
                                                 self.as4 = None
                                                 self.address = None
                                                 self._segment_path = lambda: "aggregrator-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.AggregratorAttributes, ['as_', 'as4', 'address'], name, value)
@@ -8575,10 +8728,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.RouteAttrList.Community, ['objects'], name, value)
@@ -8643,10 +8797,10 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("ext-community", ("ext_community", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity)), ("unknown-attributes", ("unknown_attributes", OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes))])
                                             self._leafs = OrderedDict([
-                                                ('originator_id', YLeaf(YType.str, 'originator-id')),
-                                                ('aigp', YLeaf(YType.uint64, 'aigp')),
-                                                ('path_id', YLeaf(YType.uint32, 'path-id')),
-                                                ('cluster', YLeafList(YType.str, 'cluster')),
+                                                ('originator_id', (YLeaf(YType.str, 'originator-id'), ['str'])),
+                                                ('aigp', (YLeaf(YType.uint64, 'aigp'), ['int'])),
+                                                ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                                                ('cluster', (YLeafList(YType.str, 'cluster'), ['str'])),
                                             ])
                                             self.originator_id = None
                                             self.aigp = None
@@ -8656,6 +8810,7 @@ class OcBgp(Entity):
                                             self.ext_community = YList(self)
                                             self.unknown_attributes = YList(self)
                                             self._segment_path = lambda: "ext-attributes-list"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList, ['originator_id', 'aigp', 'path_id', 'cluster'], name, value)
@@ -8687,10 +8842,11 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('objects', YLeaf(YType.str, 'objects')),
+                                                    ('objects', (YLeaf(YType.str, 'objects'), ['str'])),
                                                 ])
                                                 self.objects = None
                                                 self._segment_path = lambda: "ext-community"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.ExtCommunity, ['objects'], name, value)
@@ -8738,14 +8894,15 @@ class OcBgp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('attribute_type', YLeaf(YType.uint16, 'attribute-type')),
-                                                    ('attribute_length', YLeaf(YType.uint16, 'attribute-length')),
-                                                    ('attribute_value', YLeaf(YType.str, 'attribute-value')),
+                                                    ('attribute_type', (YLeaf(YType.uint16, 'attribute-type'), ['int'])),
+                                                    ('attribute_length', (YLeaf(YType.uint16, 'attribute-length'), ['int'])),
+                                                    ('attribute_value', (YLeaf(YType.str, 'attribute-value'), ['str'])),
                                                 ])
                                                 self.attribute_type = None
                                                 self.attribute_length = None
                                                 self.attribute_value = None
                                                 self._segment_path = lambda: "unknown-attributes"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.ExtAttributesList.UnknownAttributes, ['attribute_type', 'attribute_length', 'attribute_value'], name, value)
@@ -8777,10 +8934,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-modified-date"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastModifiedDate, ['time_value'], name, value)
@@ -8812,10 +8970,11 @@ class OcBgp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('time_value', YLeaf(YType.str, 'time-value')),
+                                                ('time_value', (YLeaf(YType.str, 'time-value'), ['str'])),
                                             ])
                                             self.time_value = None
                                             self._segment_path = lambda: "last-update-recieved"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.Routes.Route.LastUpdateRecieved, ['time_value'], name, value)
@@ -8850,10 +9009,11 @@ class OcBgp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('num_routes', YLeaf(YType.uint64, 'num-routes')),
+                                        ('num_routes', (YLeaf(YType.uint64, 'num-routes'), ['int'])),
                                     ])
                                     self.num_routes = None
                                     self._segment_path = lambda: "num-routes"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(OcBgp.BgpRib.AfiSafiTable.Ipv6Unicast.OpenConfigNeighbors.OpenConfigNeighbor.AdjRibInPre.NumRoutes, ['num_routes'], name, value)

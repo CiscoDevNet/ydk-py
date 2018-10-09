@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   cfg\-hist\-gl\: Configuration History Global path information
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class HistRecord(Enum):
@@ -119,6 +120,7 @@ class CfgHistGl(Entity):
 
         self.record_type = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CfgHistGl, [], name, value)
@@ -158,13 +160,14 @@ class CfgHistGl(Entity):
             self.ylist_key_names = ['record_type']
             self._child_classes = OrderedDict([("record", ("record", CfgHistGl.RecordType.Record))])
             self._leafs = OrderedDict([
-                ('record_type', YLeaf(YType.str, 'record-type')),
+                ('record_type', (YLeaf(YType.str, 'record-type'), ['str'])),
             ])
             self.record_type = None
 
             self.record = YList(self)
             self._segment_path = lambda: "record-type" + "[record-type='" + str(self.record_type) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-config-cfgmgr-exec-oper:cfg-hist-gl/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CfgHistGl.RecordType, ['record_type'], name, value)
@@ -216,9 +219,9 @@ class CfgHistGl(Entity):
                 self.ylist_key_names = ['record']
                 self._child_classes = OrderedDict([("info", ("info", CfgHistGl.RecordType.Record.Info))])
                 self._leafs = OrderedDict([
-                    ('record', YLeaf(YType.uint32, 'record')),
-                    ('timestamp', YLeaf(YType.uint32, 'timestamp')),
-                    ('record_type', YLeaf(YType.enumeration, 'record-type')),
+                    ('record', (YLeaf(YType.uint32, 'record'), ['int'])),
+                    ('timestamp', (YLeaf(YType.uint32, 'timestamp'), ['int'])),
+                    ('record_type', (YLeaf(YType.enumeration, 'record-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper', 'HistRecord', '')])),
                 ])
                 self.record = None
                 self.timestamp = None
@@ -228,6 +231,7 @@ class CfgHistGl(Entity):
                 self.info.parent = self
                 self._children_name_map["info"] = "info"
                 self._segment_path = lambda: "record" + "[record='" + str(self.record) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CfgHistGl.RecordType.Record, ['record', 'timestamp', 'record_type'], name, value)
@@ -301,8 +305,8 @@ class CfgHistGl(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("alarm-info", ("alarm_info", CfgHistGl.RecordType.Record.Info.AlarmInfo)), ("cfscheck-info", ("cfscheck_info", CfgHistGl.RecordType.Record.Info.CfscheckInfo)), ("commit-info", ("commit_info", CfgHistGl.RecordType.Record.Info.CommitInfo)), ("oir-info", ("oir_info", CfgHistGl.RecordType.Record.Info.OirInfo)), ("shutdown-info", ("shutdown_info", CfgHistGl.RecordType.Record.Info.ShutdownInfo)), ("startup-info", ("startup_info", CfgHistGl.RecordType.Record.Info.StartupInfo)), ("backup-info", ("backup_info", CfgHistGl.RecordType.Record.Info.BackupInfo))])
                     self._leafs = OrderedDict([
-                        ('type', YLeaf(YType.enumeration, 'type')),
-                        ('a', YLeaf(YType.uint32, 'a')),
+                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_cfgmgr_exec_oper', 'HistRecord', '')])),
+                        ('a', (YLeaf(YType.uint32, 'a'), ['int'])),
                     ])
                     self.type = None
                     self.a = None
@@ -335,6 +339,7 @@ class CfgHistGl(Entity):
                     self.backup_info.parent = self
                     self._children_name_map["backup_info"] = "backup-info"
                     self._segment_path = lambda: "info"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(CfgHistGl.RecordType.Record.Info, ['type', 'a'], name, value)
@@ -371,12 +376,13 @@ class CfgHistGl(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('state', YLeaf(YType.str, 'state')),
-                            ('where', YLeaf(YType.str, 'where')),
+                            ('state', (YLeaf(YType.str, 'state'), ['str'])),
+                            ('where', (YLeaf(YType.str, 'where'), ['str'])),
                         ])
                         self.state = None
                         self.where = None
                         self._segment_path = lambda: "alarm-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CfgHistGl.RecordType.Record.Info.AlarmInfo, ['state', 'where'], name, value)
@@ -413,12 +419,13 @@ class CfgHistGl(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('user_id', YLeaf(YType.str, 'user-id')),
-                            ('line', YLeaf(YType.str, 'line')),
+                            ('user_id', (YLeaf(YType.str, 'user-id'), ['str'])),
+                            ('line', (YLeaf(YType.str, 'line'), ['str'])),
                         ])
                         self.user_id = None
                         self.line = None
                         self._segment_path = lambda: "cfscheck-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CfgHistGl.RecordType.Record.Info.CfscheckInfo, ['user_id', 'line'], name, value)
@@ -475,12 +482,12 @@ class CfgHistGl(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('commit_id', YLeaf(YType.str, 'commit-id')),
-                            ('user_id', YLeaf(YType.str, 'user-id')),
-                            ('line', YLeaf(YType.str, 'line')),
-                            ('client_name', YLeaf(YType.str, 'client-name')),
-                            ('label', YLeaf(YType.str, 'label')),
-                            ('comment', YLeaf(YType.str, 'comment')),
+                            ('commit_id', (YLeaf(YType.str, 'commit-id'), ['str'])),
+                            ('user_id', (YLeaf(YType.str, 'user-id'), ['str'])),
+                            ('line', (YLeaf(YType.str, 'line'), ['str'])),
+                            ('client_name', (YLeaf(YType.str, 'client-name'), ['str'])),
+                            ('label', (YLeaf(YType.str, 'label'), ['str'])),
+                            ('comment', (YLeaf(YType.str, 'comment'), ['str'])),
                         ])
                         self.commit_id = None
                         self.user_id = None
@@ -489,6 +496,7 @@ class CfgHistGl(Entity):
                         self.label = None
                         self.comment = None
                         self._segment_path = lambda: "commit-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CfgHistGl.RecordType.Record.Info.CommitInfo, ['commit_id', 'user_id', 'line', 'client_name', 'label', 'comment'], name, value)
@@ -530,14 +538,15 @@ class CfgHistGl(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('config_type', YLeaf(YType.str, 'config-type')),
-                            ('operation_', YLeaf(YType.str, 'operation')),
-                            ('config_name', YLeaf(YType.str, 'config-name')),
+                            ('config_type', (YLeaf(YType.str, 'config-type'), ['str'])),
+                            ('operation_', (YLeaf(YType.str, 'operation'), ['str'])),
+                            ('config_name', (YLeaf(YType.str, 'config-name'), ['str'])),
                         ])
                         self.config_type = None
                         self.operation_ = None
                         self.config_name = None
                         self._segment_path = lambda: "oir-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CfgHistGl.RecordType.Record.Info.OirInfo, ['config_type', 'operation_', 'config_name'], name, value)
@@ -569,10 +578,11 @@ class CfgHistGl(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('comment', YLeaf(YType.str, 'comment')),
+                            ('comment', (YLeaf(YType.str, 'comment'), ['str'])),
                         ])
                         self.comment = None
                         self._segment_path = lambda: "shutdown-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CfgHistGl.RecordType.Record.Info.ShutdownInfo, ['comment'], name, value)
@@ -609,12 +619,13 @@ class CfgHistGl(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('how_booted', YLeaf(YType.str, 'how-booted')),
-                            ('boot_path', YLeaf(YType.str, 'boot-path')),
+                            ('how_booted', (YLeaf(YType.str, 'how-booted'), ['str'])),
+                            ('boot_path', (YLeaf(YType.str, 'boot-path'), ['str'])),
                         ])
                         self.how_booted = None
                         self.boot_path = None
                         self._segment_path = lambda: "startup-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CfgHistGl.RecordType.Record.Info.StartupInfo, ['how_booted', 'boot_path'], name, value)
@@ -646,10 +657,11 @@ class CfgHistGl(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('comment', YLeaf(YType.str, 'comment')),
+                            ('comment', (YLeaf(YType.str, 'comment'), ['str'])),
                         ])
                         self.comment = None
                         self._segment_path = lambda: "backup-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(CfgHistGl.RecordType.Record.Info.BackupInfo, ['comment'], name, value)

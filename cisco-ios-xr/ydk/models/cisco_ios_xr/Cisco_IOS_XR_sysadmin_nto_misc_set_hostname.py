@@ -1,8 +1,5 @@
 """ Cisco_IOS_XR_sysadmin_nto_misc_set_hostname 
 
-This module contains definitions
-for the Calvados model objects.
-
 This module contains a collection of YANG definitions
 for Cisco IOS\-XR syadmin hostname configuration and cli.
 
@@ -13,9 +10,6 @@ hostname cli and configuration data
 Copyright (c) 2017 by Cisco Systems, Inc.
 All rights reserved.
 
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
-All rights reserved.
-
 """
 from collections import OrderedDict
 
@@ -23,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -55,10 +50,11 @@ class Hostname(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
-            ('name', YLeaf(YType.str, 'name')),
+            ('name', (YLeaf(YType.str, 'name'), ['str'])),
         ])
         self.name = None
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-nto-misc-set-hostname:hostname"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Hostname, ['name'], name, value)

@@ -15,6 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class EfpStats(Entity):
     """
     Service instance stats
@@ -45,6 +46,7 @@ class EfpStats(Entity):
 
         self.efp_stat = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-efp-oper:efp-stats"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(EfpStats, [], name, value)
@@ -111,12 +113,12 @@ class EfpStats(Entity):
             self.ylist_key_names = ['id','interface']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('id', YLeaf(YType.uint32, 'id')),
-                ('interface', YLeaf(YType.str, 'interface')),
-                ('in_pkts', YLeaf(YType.uint64, 'in-pkts')),
-                ('in_bytes', YLeaf(YType.uint64, 'in-bytes')),
-                ('out_pkts', YLeaf(YType.uint64, 'out-pkts')),
-                ('out_bytes', YLeaf(YType.uint64, 'out-bytes')),
+                ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                ('in_pkts', (YLeaf(YType.uint64, 'in-pkts'), ['int'])),
+                ('in_bytes', (YLeaf(YType.uint64, 'in-bytes'), ['int'])),
+                ('out_pkts', (YLeaf(YType.uint64, 'out-pkts'), ['int'])),
+                ('out_bytes', (YLeaf(YType.uint64, 'out-bytes'), ['int'])),
             ])
             self.id = None
             self.interface = None
@@ -126,6 +128,7 @@ class EfpStats(Entity):
             self.out_bytes = None
             self._segment_path = lambda: "efp-stat" + "[id='" + str(self.id) + "']" + "[interface='" + str(self.interface) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-efp-oper:efp-stats/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EfpStats.EfpStat, ['id', 'interface', 'in_pkts', 'in_bytes', 'out_pkts', 'out_bytes'], name, value)

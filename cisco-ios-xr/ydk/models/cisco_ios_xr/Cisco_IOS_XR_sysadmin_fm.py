@@ -1,11 +1,17 @@
 """ Cisco_IOS_XR_sysadmin_fm 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 Fault management YANG model. 
 
 Copyright(c) 2014\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -15,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class FmActionResultT(Enum):
@@ -271,6 +278,7 @@ class Fm(Entity):
 
         self.agents = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-fm:fm"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Fm, [], name, value)
@@ -342,10 +350,10 @@ class Fm(Entity):
             self.ylist_key_names = ['location','process','subsystem','agent']
             self._child_classes = OrderedDict([("fm_initials", ("fm_initials", Fm.Agents.FmInitials)), ("fm_table", ("fm_table", Fm.Agents.FmTable)), ("fm_internals", ("fm_internals", Fm.Agents.FmInternals)), ("fm_alarm_mapping", ("fm_alarm_mapping", Fm.Agents.FmAlarmMapping)), ("fm_statistics", ("fm_statistics", Fm.Agents.FmStatistics))])
             self._leafs = OrderedDict([
-                ('location', YLeaf(YType.str, 'location')),
-                ('process', YLeaf(YType.str, 'process')),
-                ('subsystem', YLeaf(YType.str, 'subsystem')),
-                ('agent', YLeaf(YType.str, 'agent')),
+                ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                ('process', (YLeaf(YType.str, 'process'), ['str'])),
+                ('subsystem', (YLeaf(YType.str, 'subsystem'), ['str'])),
+                ('agent', (YLeaf(YType.str, 'agent'), ['str'])),
             ])
             self.location = None
             self.process = None
@@ -373,6 +381,7 @@ class Fm(Entity):
             self._children_name_map["fm_statistics"] = "fm_statistics"
             self._segment_path = lambda: "agents" + "[location='" + str(self.location) + "']" + "[process='" + str(self.process) + "']" + "[subsystem='" + str(self.subsystem) + "']" + "[agent='" + str(self.agent) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-fm:fm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Fm.Agents, ['location', 'process', 'subsystem', 'agent'], name, value)
@@ -453,14 +462,14 @@ class Fm(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('levm', YLeaf(YType.uint64, 'levm')),
-                    ('comp_id', YLeaf(YType.uint32, 'comp_id')),
-                    ('process', YLeaf(YType.str, 'process')),
-                    ('default_rule_cb', YLeaf(YType.uint64, 'default_rule_cb')),
-                    ('default_action_cb', YLeaf(YType.uint64, 'default_action_cb')),
-                    ('default_notif_cb', YLeaf(YType.uint64, 'default_notif_cb')),
-                    ('default_error_cb', YLeaf(YType.uint64, 'default_error_cb')),
-                    ('replica_cb', YLeaf(YType.uint64, 'replica_cb')),
+                    ('levm', (YLeaf(YType.uint64, 'levm'), ['int'])),
+                    ('comp_id', (YLeaf(YType.uint32, 'comp_id'), ['int'])),
+                    ('process', (YLeaf(YType.str, 'process'), ['str'])),
+                    ('default_rule_cb', (YLeaf(YType.uint64, 'default_rule_cb'), ['int'])),
+                    ('default_action_cb', (YLeaf(YType.uint64, 'default_action_cb'), ['int'])),
+                    ('default_notif_cb', (YLeaf(YType.uint64, 'default_notif_cb'), ['int'])),
+                    ('default_error_cb', (YLeaf(YType.uint64, 'default_error_cb'), ['int'])),
+                    ('replica_cb', (YLeaf(YType.uint64, 'replica_cb'), ['int'])),
                 ])
                 self.levm = None
                 self.comp_id = None
@@ -471,6 +480,7 @@ class Fm(Entity):
                 self.default_error_cb = None
                 self.replica_cb = None
                 self._segment_path = lambda: "fm_initials"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Fm.Agents.FmInitials, ['levm', 'comp_id', 'process', 'default_rule_cb', 'default_action_cb', 'default_notif_cb', 'default_error_cb', 'replica_cb'], name, value)
@@ -511,6 +521,7 @@ class Fm(Entity):
                 self.brief = YList(self)
                 self.entry = YList(self)
                 self._segment_path = lambda: "fm_table"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Fm.Agents.FmTable, [], name, value)
@@ -557,16 +568,17 @@ class Fm(Entity):
                     self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
-                        ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
-                        ('fm_fault_tag', YLeaf(YType.str, 'fm_fault_tag')),
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('fm_subsystem_id', (YLeaf(YType.str, 'fm_subsystem_id'), ['str'])),
+                        ('fm_fault_type', (YLeaf(YType.str, 'fm_fault_type'), ['str'])),
+                        ('fm_fault_tag', (YLeaf(YType.str, 'fm_fault_tag'), ['str'])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.fm_subsystem_id = None
                     self.fm_fault_type = None
                     self.fm_fault_tag = None
                     self.name = None
                     self._segment_path = lambda: "brief" + "[fm_subsystem_id='" + str(self.fm_subsystem_id) + "']" + "[fm_fault_type='" + str(self.fm_fault_type) + "']" + "[fm_fault_tag='" + str(self.fm_fault_tag) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fm.Agents.FmTable.Brief, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'name'], name, value)
@@ -648,9 +660,9 @@ class Fm(Entity):
                     self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
                     self._child_classes = OrderedDict([("detail", ("detail", Fm.Agents.FmTable.Entry.Detail)), ("causal_list", ("causal_list", Fm.Agents.FmTable.Entry.CausalList)), ("dependency_list", ("dependency_list", Fm.Agents.FmTable.Entry.DependencyList)), ("propagation_list", ("propagation_list", Fm.Agents.FmTable.Entry.PropagationList)), ("notification_list", ("notification_list", Fm.Agents.FmTable.Entry.NotificationList)), ("escalation_list", ("escalation_list", Fm.Agents.FmTable.Entry.EscalationList)), ("faults", ("faults", Fm.Agents.FmTable.Entry.Faults)), ("waiting_list", ("waiting_list", Fm.Agents.FmTable.Entry.WaitingList))])
                     self._leafs = OrderedDict([
-                        ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
-                        ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
-                        ('fm_fault_tag', YLeaf(YType.str, 'fm_fault_tag')),
+                        ('fm_subsystem_id', (YLeaf(YType.str, 'fm_subsystem_id'), ['str'])),
+                        ('fm_fault_type', (YLeaf(YType.str, 'fm_fault_type'), ['str'])),
+                        ('fm_fault_tag', (YLeaf(YType.str, 'fm_fault_tag'), ['str'])),
                     ])
                     self.fm_subsystem_id = None
                     self.fm_fault_type = None
@@ -674,6 +686,7 @@ class Fm(Entity):
                     self.notification_list = YList(self)
                     self.escalation_list = YList(self)
                     self._segment_path = lambda: "entry" + "[fm_subsystem_id='" + str(self.fm_subsystem_id) + "']" + "[fm_fault_type='" + str(self.fm_fault_type) + "']" + "[fm_fault_tag='" + str(self.fm_fault_tag) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fm.Agents.FmTable.Entry, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag'], name, value)
@@ -735,13 +748,13 @@ class Fm(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
-                            ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
-                            ('fm_fault_tag', YLeaf(YType.str, 'fm_fault_tag')),
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('detection_logic', YLeaf(YType.str, 'detection_logic')),
-                            ('corr_obj_qualifier', YLeaf(YType.enumeration, 'corr_obj_qualifier')),
+                            ('fm_subsystem_id', (YLeaf(YType.str, 'fm_subsystem_id'), ['str'])),
+                            ('fm_fault_type', (YLeaf(YType.str, 'fm_fault_type'), ['str'])),
+                            ('fm_fault_tag', (YLeaf(YType.str, 'fm_fault_tag'), ['str'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('detection_logic', (YLeaf(YType.str, 'detection_logic'), ['str'])),
+                            ('corr_obj_qualifier', (YLeaf(YType.enumeration, 'corr_obj_qualifier'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmCorrelationObjQualifierT', '')])),
                         ])
                         self.fm_subsystem_id = None
                         self.fm_fault_type = None
@@ -751,6 +764,7 @@ class Fm(Entity):
                         self.detection_logic = None
                         self.corr_obj_qualifier = None
                         self._segment_path = lambda: "detail"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.Detail, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'name', 'description', 'detection_logic', 'corr_obj_qualifier'], name, value)
@@ -792,14 +806,15 @@ class Fm(Entity):
                         self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
-                            ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
-                            ('fm_fault_tag', YLeaf(YType.str, 'fm_fault_tag')),
+                            ('fm_subsystem_id', (YLeaf(YType.str, 'fm_subsystem_id'), ['str'])),
+                            ('fm_fault_type', (YLeaf(YType.str, 'fm_fault_type'), ['str'])),
+                            ('fm_fault_tag', (YLeaf(YType.str, 'fm_fault_tag'), ['str'])),
                         ])
                         self.fm_subsystem_id = None
                         self.fm_fault_type = None
                         self.fm_fault_tag = None
                         self._segment_path = lambda: "causal_list" + "[fm_subsystem_id='" + str(self.fm_subsystem_id) + "']" + "[fm_fault_type='" + str(self.fm_fault_type) + "']" + "[fm_fault_tag='" + str(self.fm_fault_tag) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.CausalList, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag'], name, value)
@@ -841,14 +856,15 @@ class Fm(Entity):
                         self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
-                            ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
-                            ('fm_fault_tag', YLeaf(YType.str, 'fm_fault_tag')),
+                            ('fm_subsystem_id', (YLeaf(YType.str, 'fm_subsystem_id'), ['str'])),
+                            ('fm_fault_type', (YLeaf(YType.str, 'fm_fault_type'), ['str'])),
+                            ('fm_fault_tag', (YLeaf(YType.str, 'fm_fault_tag'), ['str'])),
                         ])
                         self.fm_subsystem_id = None
                         self.fm_fault_type = None
                         self.fm_fault_tag = None
                         self._segment_path = lambda: "dependency_list" + "[fm_subsystem_id='" + str(self.fm_subsystem_id) + "']" + "[fm_fault_type='" + str(self.fm_fault_type) + "']" + "[fm_fault_tag='" + str(self.fm_fault_tag) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.DependencyList, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag'], name, value)
@@ -895,16 +911,17 @@ class Fm(Entity):
                         self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
-                            ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
-                            ('fm_fault_tag', YLeaf(YType.str, 'fm_fault_tag')),
-                            ('remote_agent_id', YLeaf(YType.str, 'remote_agent_id')),
+                            ('fm_subsystem_id', (YLeaf(YType.str, 'fm_subsystem_id'), ['str'])),
+                            ('fm_fault_type', (YLeaf(YType.str, 'fm_fault_type'), ['str'])),
+                            ('fm_fault_tag', (YLeaf(YType.str, 'fm_fault_tag'), ['str'])),
+                            ('remote_agent_id', (YLeaf(YType.str, 'remote_agent_id'), ['str'])),
                         ])
                         self.fm_subsystem_id = None
                         self.fm_fault_type = None
                         self.fm_fault_tag = None
                         self.remote_agent_id = None
                         self._segment_path = lambda: "propagation_list" + "[fm_subsystem_id='" + str(self.fm_subsystem_id) + "']" + "[fm_fault_type='" + str(self.fm_fault_type) + "']" + "[fm_fault_tag='" + str(self.fm_fault_tag) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.PropagationList, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'remote_agent_id'], name, value)
@@ -951,16 +968,17 @@ class Fm(Entity):
                         self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
-                            ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
-                            ('fm_fault_tag', YLeaf(YType.str, 'fm_fault_tag')),
-                            ('remote_agent_id', YLeaf(YType.str, 'remote_agent_id')),
+                            ('fm_subsystem_id', (YLeaf(YType.str, 'fm_subsystem_id'), ['str'])),
+                            ('fm_fault_type', (YLeaf(YType.str, 'fm_fault_type'), ['str'])),
+                            ('fm_fault_tag', (YLeaf(YType.str, 'fm_fault_tag'), ['str'])),
+                            ('remote_agent_id', (YLeaf(YType.str, 'remote_agent_id'), ['str'])),
                         ])
                         self.fm_subsystem_id = None
                         self.fm_fault_type = None
                         self.fm_fault_tag = None
                         self.remote_agent_id = None
                         self._segment_path = lambda: "notification_list" + "[fm_subsystem_id='" + str(self.fm_subsystem_id) + "']" + "[fm_fault_type='" + str(self.fm_fault_type) + "']" + "[fm_fault_tag='" + str(self.fm_fault_tag) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.NotificationList, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'remote_agent_id'], name, value)
@@ -1007,16 +1025,17 @@ class Fm(Entity):
                         self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
-                            ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
-                            ('fm_fault_tag', YLeaf(YType.str, 'fm_fault_tag')),
-                            ('remote_agent_id', YLeaf(YType.str, 'remote_agent_id')),
+                            ('fm_subsystem_id', (YLeaf(YType.str, 'fm_subsystem_id'), ['str'])),
+                            ('fm_fault_type', (YLeaf(YType.str, 'fm_fault_type'), ['str'])),
+                            ('fm_fault_tag', (YLeaf(YType.str, 'fm_fault_tag'), ['str'])),
+                            ('remote_agent_id', (YLeaf(YType.str, 'remote_agent_id'), ['str'])),
                         ])
                         self.fm_subsystem_id = None
                         self.fm_fault_type = None
                         self.fm_fault_tag = None
                         self.remote_agent_id = None
                         self._segment_path = lambda: "escalation_list" + "[fm_subsystem_id='" + str(self.fm_subsystem_id) + "']" + "[fm_fault_type='" + str(self.fm_fault_type) + "']" + "[fm_fault_tag='" + str(self.fm_fault_tag) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.EscalationList, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'remote_agent_id'], name, value)
@@ -1062,6 +1081,7 @@ class Fm(Entity):
                         self.history.parent = self
                         self._children_name_map["history"] = "history"
                         self._segment_path = lambda: "faults"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.Faults, [], name, value)
@@ -1102,6 +1122,7 @@ class Fm(Entity):
                             self.brief = YList(self)
                             self.detail = YList(self)
                             self._segment_path = lambda: "active"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.Active, [], name, value)
@@ -1140,12 +1161,13 @@ class Fm(Entity):
                                 self.ylist_key_names = ['object_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('object_id', YLeaf(YType.str, 'object_id')),
-                                    ('fault_timestamp', YLeaf(YType.str, 'fault_timestamp')),
+                                    ('object_id', (YLeaf(YType.str, 'object_id'), ['str'])),
+                                    ('fault_timestamp', (YLeaf(YType.str, 'fault_timestamp'), ['str'])),
                                 ])
                                 self.object_id = None
                                 self.fault_timestamp = None
                                 self._segment_path = lambda: "brief" + "[object_id='" + str(self.object_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.Active.Brief, ['object_id', 'fault_timestamp'], name, value)
@@ -1270,24 +1292,24 @@ class Fm(Entity):
                                 self.ylist_key_names = ['object_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('object_id', YLeaf(YType.str, 'object_id')),
-                                    ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
-                                    ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
-                                    ('fm_fault_tag', YLeaf(YType.str, 'fm_fault_tag')),
-                                    ('fault_severity', YLeaf(YType.uint16, 'fault_severity')),
-                                    ('fault_state', YLeaf(YType.enumeration, 'fault_state')),
-                                    ('fault_agent_id', YLeaf(YType.str, 'fault_agent_id')),
-                                    ('fault_timestamp', YLeaf(YType.str, 'fault_timestamp')),
-                                    ('fault_timer_state', YLeaf(YType.boolean, 'fault_timer_state')),
-                                    ('fault_processed', YLeaf(YType.boolean, 'fault_processed')),
-                                    ('mitigation_result', YLeaf(YType.enumeration, 'mitigation_result')),
-                                    ('recovery_result', YLeaf(YType.enumeration, 'recovery_result')),
-                                    ('correlation_result', YLeaf(YType.enumeration, 'correlation_result')),
-                                    ('alarm_result', YLeaf(YType.enumeration, 'alarm_result')),
-                                    ('default_result', YLeaf(YType.enumeration, 'default_result')),
-                                    ('opaque_data_len', YLeaf(YType.uint16, 'opaque_data_len')),
-                                    ('occurrence_count', YLeaf(YType.uint64, 'occurrence_count')),
-                                    ('history_state', YLeaf(YType.enumeration, 'history_state')),
+                                    ('object_id', (YLeaf(YType.str, 'object_id'), ['str'])),
+                                    ('fm_subsystem_id', (YLeaf(YType.str, 'fm_subsystem_id'), ['str'])),
+                                    ('fm_fault_type', (YLeaf(YType.str, 'fm_fault_type'), ['str'])),
+                                    ('fm_fault_tag', (YLeaf(YType.str, 'fm_fault_tag'), ['str'])),
+                                    ('fault_severity', (YLeaf(YType.uint16, 'fault_severity'), ['int'])),
+                                    ('fault_state', (YLeaf(YType.enumeration, 'fault_state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmFaultStateT', '')])),
+                                    ('fault_agent_id', (YLeaf(YType.str, 'fault_agent_id'), ['str'])),
+                                    ('fault_timestamp', (YLeaf(YType.str, 'fault_timestamp'), ['str'])),
+                                    ('fault_timer_state', (YLeaf(YType.boolean, 'fault_timer_state'), ['bool'])),
+                                    ('fault_processed', (YLeaf(YType.boolean, 'fault_processed'), ['bool'])),
+                                    ('mitigation_result', (YLeaf(YType.enumeration, 'mitigation_result'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmActionResultT', '')])),
+                                    ('recovery_result', (YLeaf(YType.enumeration, 'recovery_result'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmActionResultT', '')])),
+                                    ('correlation_result', (YLeaf(YType.enumeration, 'correlation_result'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmActionResultT', '')])),
+                                    ('alarm_result', (YLeaf(YType.enumeration, 'alarm_result'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmActionResultT', '')])),
+                                    ('default_result', (YLeaf(YType.enumeration, 'default_result'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmActionResultT', '')])),
+                                    ('opaque_data_len', (YLeaf(YType.uint16, 'opaque_data_len'), ['int'])),
+                                    ('occurrence_count', (YLeaf(YType.uint64, 'occurrence_count'), ['int'])),
+                                    ('history_state', (YLeaf(YType.enumeration, 'history_state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmHistoryStateT', '')])),
                                 ])
                                 self.object_id = None
                                 self.fm_subsystem_id = None
@@ -1308,6 +1330,7 @@ class Fm(Entity):
                                 self.occurrence_count = None
                                 self.history_state = None
                                 self._segment_path = lambda: "detail" + "[object_id='" + str(self.object_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.Active.Detail, ['object_id', 'fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'fault_severity', 'fault_state', 'fault_agent_id', 'fault_timestamp', 'fault_timer_state', 'fault_processed', 'mitigation_result', 'recovery_result', 'correlation_result', 'alarm_result', 'default_result', 'opaque_data_len', 'occurrence_count', 'history_state'], name, value)
@@ -1348,6 +1371,7 @@ class Fm(Entity):
                             self.brief = YList(self)
                             self.detail = YList(self)
                             self._segment_path = lambda: "history"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.History, [], name, value)
@@ -1386,12 +1410,13 @@ class Fm(Entity):
                                 self.ylist_key_names = ['object_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('object_id', YLeaf(YType.str, 'object_id')),
-                                    ('fault_timestamp', YLeaf(YType.str, 'fault_timestamp')),
+                                    ('object_id', (YLeaf(YType.str, 'object_id'), ['str'])),
+                                    ('fault_timestamp', (YLeaf(YType.str, 'fault_timestamp'), ['str'])),
                                 ])
                                 self.object_id = None
                                 self.fault_timestamp = None
                                 self._segment_path = lambda: "brief" + "[object_id='" + str(self.object_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.History.Brief, ['object_id', 'fault_timestamp'], name, value)
@@ -1516,24 +1541,24 @@ class Fm(Entity):
                                 self.ylist_key_names = ['object_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('object_id', YLeaf(YType.str, 'object_id')),
-                                    ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
-                                    ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
-                                    ('fm_fault_tag', YLeaf(YType.str, 'fm_fault_tag')),
-                                    ('fault_severity', YLeaf(YType.uint16, 'fault_severity')),
-                                    ('fault_state', YLeaf(YType.enumeration, 'fault_state')),
-                                    ('fault_agent_id', YLeaf(YType.str, 'fault_agent_id')),
-                                    ('fault_timestamp', YLeaf(YType.str, 'fault_timestamp')),
-                                    ('fault_timer_state', YLeaf(YType.boolean, 'fault_timer_state')),
-                                    ('fault_processed', YLeaf(YType.boolean, 'fault_processed')),
-                                    ('mitigation_result', YLeaf(YType.enumeration, 'mitigation_result')),
-                                    ('recovery_result', YLeaf(YType.enumeration, 'recovery_result')),
-                                    ('correlation_result', YLeaf(YType.enumeration, 'correlation_result')),
-                                    ('alarm_result', YLeaf(YType.enumeration, 'alarm_result')),
-                                    ('default_result', YLeaf(YType.enumeration, 'default_result')),
-                                    ('opaque_data_len', YLeaf(YType.uint16, 'opaque_data_len')),
-                                    ('occurrence_count', YLeaf(YType.uint64, 'occurrence_count')),
-                                    ('history_state', YLeaf(YType.enumeration, 'history_state')),
+                                    ('object_id', (YLeaf(YType.str, 'object_id'), ['str'])),
+                                    ('fm_subsystem_id', (YLeaf(YType.str, 'fm_subsystem_id'), ['str'])),
+                                    ('fm_fault_type', (YLeaf(YType.str, 'fm_fault_type'), ['str'])),
+                                    ('fm_fault_tag', (YLeaf(YType.str, 'fm_fault_tag'), ['str'])),
+                                    ('fault_severity', (YLeaf(YType.uint16, 'fault_severity'), ['int'])),
+                                    ('fault_state', (YLeaf(YType.enumeration, 'fault_state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmFaultStateT', '')])),
+                                    ('fault_agent_id', (YLeaf(YType.str, 'fault_agent_id'), ['str'])),
+                                    ('fault_timestamp', (YLeaf(YType.str, 'fault_timestamp'), ['str'])),
+                                    ('fault_timer_state', (YLeaf(YType.boolean, 'fault_timer_state'), ['bool'])),
+                                    ('fault_processed', (YLeaf(YType.boolean, 'fault_processed'), ['bool'])),
+                                    ('mitigation_result', (YLeaf(YType.enumeration, 'mitigation_result'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmActionResultT', '')])),
+                                    ('recovery_result', (YLeaf(YType.enumeration, 'recovery_result'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmActionResultT', '')])),
+                                    ('correlation_result', (YLeaf(YType.enumeration, 'correlation_result'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmActionResultT', '')])),
+                                    ('alarm_result', (YLeaf(YType.enumeration, 'alarm_result'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmActionResultT', '')])),
+                                    ('default_result', (YLeaf(YType.enumeration, 'default_result'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmActionResultT', '')])),
+                                    ('opaque_data_len', (YLeaf(YType.uint16, 'opaque_data_len'), ['int'])),
+                                    ('occurrence_count', (YLeaf(YType.uint64, 'occurrence_count'), ['int'])),
+                                    ('history_state', (YLeaf(YType.enumeration, 'history_state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmHistoryStateT', '')])),
                                 ])
                                 self.object_id = None
                                 self.fm_subsystem_id = None
@@ -1554,6 +1579,7 @@ class Fm(Entity):
                                 self.occurrence_count = None
                                 self.history_state = None
                                 self._segment_path = lambda: "detail" + "[object_id='" + str(self.object_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Fm.Agents.FmTable.Entry.Faults.History.Detail, ['object_id', 'fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'fault_severity', 'fault_state', 'fault_agent_id', 'fault_timestamp', 'fault_timer_state', 'fault_processed', 'mitigation_result', 'recovery_result', 'correlation_result', 'alarm_result', 'default_result', 'opaque_data_len', 'occurrence_count', 'history_state'], name, value)
@@ -1594,6 +1620,7 @@ class Fm(Entity):
                         self.brief = YList(self)
                         self.entry = YList(self)
                         self._segment_path = lambda: "waiting_list"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmTable.Entry.WaitingList, [], name, value)
@@ -1666,14 +1693,14 @@ class Fm(Entity):
                             self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
-                                ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
-                                ('fm_fault_tag', YLeaf(YType.str, 'fm_fault_tag')),
-                                ('object_id', YLeaf(YType.str, 'object_id')),
-                                ('fault_timestamp', YLeaf(YType.str, 'fault_timestamp')),
-                                ('fault_state', YLeaf(YType.enumeration, 'fault_state')),
-                                ('fault_count', YLeaf(YType.uint64, 'fault_count')),
-                                ('fault_flag', YLeaf(YType.uint64, 'fault_flag')),
+                                ('fm_subsystem_id', (YLeaf(YType.str, 'fm_subsystem_id'), ['str'])),
+                                ('fm_fault_type', (YLeaf(YType.str, 'fm_fault_type'), ['str'])),
+                                ('fm_fault_tag', (YLeaf(YType.str, 'fm_fault_tag'), ['str'])),
+                                ('object_id', (YLeaf(YType.str, 'object_id'), ['str'])),
+                                ('fault_timestamp', (YLeaf(YType.str, 'fault_timestamp'), ['str'])),
+                                ('fault_state', (YLeaf(YType.enumeration, 'fault_state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmFaultStateT', '')])),
+                                ('fault_count', (YLeaf(YType.uint64, 'fault_count'), ['int'])),
+                                ('fault_flag', (YLeaf(YType.uint64, 'fault_flag'), ['int'])),
                             ])
                             self.fm_subsystem_id = None
                             self.fm_fault_type = None
@@ -1684,6 +1711,7 @@ class Fm(Entity):
                             self.fault_count = None
                             self.fault_flag = None
                             self._segment_path = lambda: "brief" + "[fm_subsystem_id='" + str(self.fm_subsystem_id) + "']" + "[fm_fault_type='" + str(self.fm_fault_type) + "']" + "[fm_fault_tag='" + str(self.fm_fault_tag) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Fm.Agents.FmTable.Entry.WaitingList.Brief, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'object_id', 'fault_timestamp', 'fault_state', 'fault_count', 'fault_flag'], name, value)
@@ -1756,14 +1784,14 @@ class Fm(Entity):
                             self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
-                                ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
-                                ('fm_fault_tag', YLeaf(YType.str, 'fm_fault_tag')),
-                                ('object_id', YLeaf(YType.str, 'object_id')),
-                                ('fault_timestamp', YLeaf(YType.str, 'fault_timestamp')),
-                                ('fault_state', YLeaf(YType.enumeration, 'fault_state')),
-                                ('fault_count', YLeaf(YType.uint64, 'fault_count')),
-                                ('fault_flag', YLeaf(YType.uint64, 'fault_flag')),
+                                ('fm_subsystem_id', (YLeaf(YType.str, 'fm_subsystem_id'), ['str'])),
+                                ('fm_fault_type', (YLeaf(YType.str, 'fm_fault_type'), ['str'])),
+                                ('fm_fault_tag', (YLeaf(YType.str, 'fm_fault_tag'), ['str'])),
+                                ('object_id', (YLeaf(YType.str, 'object_id'), ['str'])),
+                                ('fault_timestamp', (YLeaf(YType.str, 'fault_timestamp'), ['str'])),
+                                ('fault_state', (YLeaf(YType.enumeration, 'fault_state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_fm', 'FmFaultStateT', '')])),
+                                ('fault_count', (YLeaf(YType.uint64, 'fault_count'), ['int'])),
+                                ('fault_flag', (YLeaf(YType.uint64, 'fault_flag'), ['int'])),
                             ])
                             self.fm_subsystem_id = None
                             self.fm_fault_type = None
@@ -1774,6 +1802,7 @@ class Fm(Entity):
                             self.fault_count = None
                             self.fault_flag = None
                             self._segment_path = lambda: "entry" + "[fm_subsystem_id='" + str(self.fm_subsystem_id) + "']" + "[fm_fault_type='" + str(self.fm_fault_type) + "']" + "[fm_fault_tag='" + str(self.fm_fault_tag) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Fm.Agents.FmTable.Entry.WaitingList.Entry_, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'object_id', 'fault_timestamp', 'fault_state', 'fault_count', 'fault_flag'], name, value)
@@ -1808,6 +1837,7 @@ class Fm(Entity):
 
                 self.detail = YList(self)
                 self._segment_path = lambda: "fm_internals"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Fm.Agents.FmInternals, [], name, value)
@@ -1914,19 +1944,19 @@ class Fm(Entity):
                     self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
                     self._child_classes = OrderedDict([("rules", ("rules", Fm.Agents.FmInternals.Detail.Rules))])
                     self._leafs = OrderedDict([
-                        ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
-                        ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
-                        ('fm_fault_tag', YLeaf(YType.str, 'fm_fault_tag')),
-                        ('common_action', YLeaf(YType.uint16, 'common_action')),
-                        ('opaque_action', YLeaf(YType.uint16, 'opaque_action')),
-                        ('mitigation_cb', YLeaf(YType.uint64, 'mitigation_cb')),
-                        ('recovery_cb', YLeaf(YType.uint64, 'recovery_cb')),
-                        ('alarm_severity_dirty', YLeaf(YType.boolean, 'alarm_severity_dirty')),
-                        ('disable_action', YLeaf(YType.boolean, 'disable_action')),
-                        ('repeat_action', YLeaf(YType.boolean, 'repeat_action')),
-                        ('has_causal_list', YLeaf(YType.boolean, 'has_causal_list')),
-                        ('parser_tag', YLeaf(YType.uint64, 'parser_tag')),
-                        ('parser_tag_string', YLeaf(YType.str, 'parser_tag_string')),
+                        ('fm_subsystem_id', (YLeaf(YType.str, 'fm_subsystem_id'), ['str'])),
+                        ('fm_fault_type', (YLeaf(YType.str, 'fm_fault_type'), ['str'])),
+                        ('fm_fault_tag', (YLeaf(YType.str, 'fm_fault_tag'), ['str'])),
+                        ('common_action', (YLeaf(YType.uint16, 'common_action'), ['int'])),
+                        ('opaque_action', (YLeaf(YType.uint16, 'opaque_action'), ['int'])),
+                        ('mitigation_cb', (YLeaf(YType.uint64, 'mitigation_cb'), ['int'])),
+                        ('recovery_cb', (YLeaf(YType.uint64, 'recovery_cb'), ['int'])),
+                        ('alarm_severity_dirty', (YLeaf(YType.boolean, 'alarm_severity_dirty'), ['bool'])),
+                        ('disable_action', (YLeaf(YType.boolean, 'disable_action'), ['bool'])),
+                        ('repeat_action', (YLeaf(YType.boolean, 'repeat_action'), ['bool'])),
+                        ('has_causal_list', (YLeaf(YType.boolean, 'has_causal_list'), ['bool'])),
+                        ('parser_tag', (YLeaf(YType.uint64, 'parser_tag'), ['int'])),
+                        ('parser_tag_string', (YLeaf(YType.str, 'parser_tag_string'), ['str'])),
                     ])
                     self.fm_subsystem_id = None
                     self.fm_fault_type = None
@@ -1944,6 +1974,7 @@ class Fm(Entity):
 
                     self.rules = YList(self)
                     self._segment_path = lambda: "detail" + "[fm_subsystem_id='" + str(self.fm_subsystem_id) + "']" + "[fm_fault_type='" + str(self.fm_fault_type) + "']" + "[fm_fault_tag='" + str(self.fm_fault_tag) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fm.Agents.FmInternals.Detail, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'common_action', 'opaque_action', 'mitigation_cb', 'recovery_cb', 'alarm_severity_dirty', 'disable_action', 'repeat_action', 'has_causal_list', 'parser_tag', 'parser_tag_string'], name, value)
@@ -1982,12 +2013,13 @@ class Fm(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('fault_location', YLeaf(YType.str, 'fault_location')),
-                            ('rule_cb', YLeaf(YType.uint64, 'rule_cb')),
+                            ('fault_location', (YLeaf(YType.str, 'fault_location'), ['str'])),
+                            ('rule_cb', (YLeaf(YType.uint64, 'rule_cb'), ['int'])),
                         ])
                         self.fault_location = None
                         self.rule_cb = None
                         self._segment_path = lambda: "rules"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Fm.Agents.FmInternals.Detail.Rules, ['fault_location', 'rule_cb'], name, value)
@@ -2022,6 +2054,7 @@ class Fm(Entity):
 
                 self.detail = YList(self)
                 self._segment_path = lambda: "fm_alarm_mapping"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Fm.Agents.FmAlarmMapping, [], name, value)
@@ -2077,11 +2110,11 @@ class Fm(Entity):
                     self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
-                        ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
-                        ('fm_fault_tag', YLeaf(YType.str, 'fm_fault_tag')),
-                        ('alarm_group', YLeaf(YType.uint16, 'alarm_group')),
-                        ('alarm_severity', YLeaf(YType.uint16, 'alarm_severity')),
+                        ('fm_subsystem_id', (YLeaf(YType.str, 'fm_subsystem_id'), ['str'])),
+                        ('fm_fault_type', (YLeaf(YType.str, 'fm_fault_type'), ['str'])),
+                        ('fm_fault_tag', (YLeaf(YType.str, 'fm_fault_tag'), ['str'])),
+                        ('alarm_group', (YLeaf(YType.uint16, 'alarm_group'), ['int'])),
+                        ('alarm_severity', (YLeaf(YType.uint16, 'alarm_severity'), ['int'])),
                     ])
                     self.fm_subsystem_id = None
                     self.fm_fault_type = None
@@ -2089,6 +2122,7 @@ class Fm(Entity):
                     self.alarm_group = None
                     self.alarm_severity = None
                     self._segment_path = lambda: "detail" + "[fm_subsystem_id='" + str(self.fm_subsystem_id) + "']" + "[fm_fault_type='" + str(self.fm_fault_type) + "']" + "[fm_fault_tag='" + str(self.fm_fault_tag) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fm.Agents.FmAlarmMapping.Detail, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'alarm_group', 'alarm_severity'], name, value)
@@ -2123,6 +2157,7 @@ class Fm(Entity):
 
                 self.detail = YList(self)
                 self._segment_path = lambda: "fm_statistics"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Fm.Agents.FmStatistics, [], name, value)
@@ -2206,15 +2241,15 @@ class Fm(Entity):
                     self.ylist_key_names = ['fm_subsystem_id','fm_fault_type','fm_fault_tag']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('fm_subsystem_id', YLeaf(YType.str, 'fm_subsystem_id')),
-                        ('fm_fault_type', YLeaf(YType.str, 'fm_fault_type')),
-                        ('fm_fault_tag', YLeaf(YType.str, 'fm_fault_tag')),
-                        ('threshold_count', YLeaf(YType.uint32, 'threshold_count')),
-                        ('all_object_occur_count', YLeaf(YType.uint32, 'all_object_occur_count')),
-                        ('declared_count', YLeaf(YType.uint32, 'declared_count')),
-                        ('cleared_count', YLeaf(YType.uint32, 'cleared_count')),
-                        ('info_count', YLeaf(YType.uint32, 'info_count')),
-                        ('hold_time', YLeaf(YType.uint32, 'hold_time')),
+                        ('fm_subsystem_id', (YLeaf(YType.str, 'fm_subsystem_id'), ['str'])),
+                        ('fm_fault_type', (YLeaf(YType.str, 'fm_fault_type'), ['str'])),
+                        ('fm_fault_tag', (YLeaf(YType.str, 'fm_fault_tag'), ['str'])),
+                        ('threshold_count', (YLeaf(YType.uint32, 'threshold_count'), ['int'])),
+                        ('all_object_occur_count', (YLeaf(YType.uint32, 'all_object_occur_count'), ['int'])),
+                        ('declared_count', (YLeaf(YType.uint32, 'declared_count'), ['int'])),
+                        ('cleared_count', (YLeaf(YType.uint32, 'cleared_count'), ['int'])),
+                        ('info_count', (YLeaf(YType.uint32, 'info_count'), ['int'])),
+                        ('hold_time', (YLeaf(YType.uint32, 'hold_time'), ['int'])),
                     ])
                     self.fm_subsystem_id = None
                     self.fm_fault_type = None
@@ -2226,6 +2261,7 @@ class Fm(Entity):
                     self.info_count = None
                     self.hold_time = None
                     self._segment_path = lambda: "detail" + "[fm_subsystem_id='" + str(self.fm_subsystem_id) + "']" + "[fm_fault_type='" + str(self.fm_fault_type) + "']" + "[fm_fault_tag='" + str(self.fm_fault_tag) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fm.Agents.FmStatistics.Detail, ['fm_subsystem_id', 'fm_fault_type', 'fm_fault_tag', 'threshold_count', 'all_object_occur_count', 'declared_count', 'cleared_count', 'info_count', 'hold_time'], name, value)

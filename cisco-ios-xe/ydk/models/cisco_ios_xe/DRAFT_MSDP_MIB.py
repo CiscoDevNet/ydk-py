@@ -12,6 +12,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class DRAFTMSDPMIB(Entity):
     """
     
@@ -71,6 +72,7 @@ class DRAFTMSDPMIB(Entity):
         self.msdpsacachetable.parent = self
         self._children_name_map["msdpsacachetable"] = "msdpSACacheTable"
         self._segment_path = lambda: "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(DRAFTMSDPMIB, [], name, value)
@@ -125,10 +127,10 @@ class DRAFTMSDPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('msdpenabled', YLeaf(YType.boolean, 'msdpEnabled')),
-                ('msdpcachelifetime', YLeaf(YType.uint32, 'msdpCacheLifetime')),
-                ('msdpnumsacacheentries', YLeaf(YType.uint32, 'msdpNumSACacheEntries')),
-                ('msdpsaholddownperiod', YLeaf(YType.int32, 'msdpSAHoldDownPeriod')),
+                ('msdpenabled', (YLeaf(YType.boolean, 'msdpEnabled'), ['bool'])),
+                ('msdpcachelifetime', (YLeaf(YType.uint32, 'msdpCacheLifetime'), ['int'])),
+                ('msdpnumsacacheentries', (YLeaf(YType.uint32, 'msdpNumSACacheEntries'), ['int'])),
+                ('msdpsaholddownperiod', (YLeaf(YType.int32, 'msdpSAHoldDownPeriod'), ['int'])),
             ])
             self.msdpenabled = None
             self.msdpcachelifetime = None
@@ -136,6 +138,7 @@ class DRAFTMSDPMIB(Entity):
             self.msdpsaholddownperiod = None
             self._segment_path = lambda: "msdp"
             self._absolute_path = lambda: "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DRAFTMSDPMIB.Msdp, ['msdpenabled', 'msdpcachelifetime', 'msdpnumsacacheentries', 'msdpsaholddownperiod'], name, value)
@@ -174,6 +177,7 @@ class DRAFTMSDPMIB(Entity):
             self.msdprequestsentry = YList(self)
             self._segment_path = lambda: "msdpRequestsTable"
             self._absolute_path = lambda: "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DRAFTMSDPMIB.MsdpRequestsTable, [], name, value)
@@ -228,10 +232,10 @@ class DRAFTMSDPMIB(Entity):
                 self.ylist_key_names = ['msdprequestsgroupaddress','msdprequestsgroupmask']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('msdprequestsgroupaddress', YLeaf(YType.str, 'msdpRequestsGroupAddress')),
-                    ('msdprequestsgroupmask', YLeaf(YType.str, 'msdpRequestsGroupMask')),
-                    ('msdprequestspeer', YLeaf(YType.str, 'msdpRequestsPeer')),
-                    ('msdprequestsstatus', YLeaf(YType.enumeration, 'msdpRequestsStatus')),
+                    ('msdprequestsgroupaddress', (YLeaf(YType.str, 'msdpRequestsGroupAddress'), ['str'])),
+                    ('msdprequestsgroupmask', (YLeaf(YType.str, 'msdpRequestsGroupMask'), ['str'])),
+                    ('msdprequestspeer', (YLeaf(YType.str, 'msdpRequestsPeer'), ['str'])),
+                    ('msdprequestsstatus', (YLeaf(YType.enumeration, 'msdpRequestsStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.msdprequestsgroupaddress = None
                 self.msdprequestsgroupmask = None
@@ -239,6 +243,7 @@ class DRAFTMSDPMIB(Entity):
                 self.msdprequestsstatus = None
                 self._segment_path = lambda: "msdpRequestsEntry" + "[msdpRequestsGroupAddress='" + str(self.msdprequestsgroupaddress) + "']" + "[msdpRequestsGroupMask='" + str(self.msdprequestsgroupmask) + "']"
                 self._absolute_path = lambda: "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/msdpRequestsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DRAFTMSDPMIB.MsdpRequestsTable.MsdpRequestsEntry, ['msdprequestsgroupaddress', 'msdprequestsgroupmask', 'msdprequestspeer', 'msdprequestsstatus'], name, value)
@@ -275,6 +280,7 @@ class DRAFTMSDPMIB(Entity):
             self.msdppeerentry = YList(self)
             self._segment_path = lambda: "msdpPeerTable"
             self._absolute_path = lambda: "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DRAFTMSDPMIB.MsdpPeerTable, [], name, value)
@@ -527,38 +533,38 @@ class DRAFTMSDPMIB(Entity):
                 self.ylist_key_names = ['msdppeerremoteaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('msdppeerremoteaddress', YLeaf(YType.str, 'msdpPeerRemoteAddress')),
-                    ('msdppeerstate', YLeaf(YType.enumeration, 'msdpPeerState')),
-                    ('msdppeerrpffailures', YLeaf(YType.uint32, 'msdpPeerRPFFailures')),
-                    ('msdppeerinsas', YLeaf(YType.uint32, 'msdpPeerInSAs')),
-                    ('msdppeeroutsas', YLeaf(YType.uint32, 'msdpPeerOutSAs')),
-                    ('msdppeerinsarequests', YLeaf(YType.uint32, 'msdpPeerInSARequests')),
-                    ('msdppeeroutsarequests', YLeaf(YType.uint32, 'msdpPeerOutSARequests')),
-                    ('msdppeerinsaresponses', YLeaf(YType.uint32, 'msdpPeerInSAResponses')),
-                    ('msdppeeroutsaresponses', YLeaf(YType.uint32, 'msdpPeerOutSAResponses')),
-                    ('msdppeerincontrolmessages', YLeaf(YType.uint32, 'msdpPeerInControlMessages')),
-                    ('msdppeeroutcontrolmessages', YLeaf(YType.uint32, 'msdpPeerOutControlMessages')),
-                    ('msdppeerindatapackets', YLeaf(YType.uint32, 'msdpPeerInDataPackets')),
-                    ('msdppeeroutdatapackets', YLeaf(YType.uint32, 'msdpPeerOutDataPackets')),
-                    ('msdppeerfsmestablishedtransitions', YLeaf(YType.uint32, 'msdpPeerFsmEstablishedTransitions')),
-                    ('msdppeerfsmestablishedtime', YLeaf(YType.uint32, 'msdpPeerFsmEstablishedTime')),
-                    ('msdppeerinmessageelapsedtime', YLeaf(YType.uint32, 'msdpPeerInMessageElapsedTime')),
-                    ('msdppeerlocaladdress', YLeaf(YType.str, 'msdpPeerLocalAddress')),
-                    ('msdppeersaadvperiod', YLeaf(YType.int32, 'msdpPeerSAAdvPeriod')),
-                    ('msdppeerconnectretryinterval', YLeaf(YType.int32, 'msdpPeerConnectRetryInterval')),
-                    ('msdppeerholdtimeconfigured', YLeaf(YType.int32, 'msdpPeerHoldTimeConfigured')),
-                    ('msdppeerkeepaliveconfigured', YLeaf(YType.int32, 'msdpPeerKeepAliveConfigured')),
-                    ('msdppeerdatattl', YLeaf(YType.int32, 'msdpPeerDataTtl')),
-                    ('msdppeerprocessrequestsfrom', YLeaf(YType.boolean, 'msdpPeerProcessRequestsFrom')),
-                    ('msdppeerstatus', YLeaf(YType.enumeration, 'msdpPeerStatus')),
-                    ('msdppeerremoteport', YLeaf(YType.int32, 'msdpPeerRemotePort')),
-                    ('msdppeerlocalport', YLeaf(YType.int32, 'msdpPeerLocalPort')),
-                    ('msdppeerencapsulationstate', YLeaf(YType.enumeration, 'msdpPeerEncapsulationState')),
-                    ('msdppeerencapsulationtype', YLeaf(YType.enumeration, 'msdpPeerEncapsulationType')),
-                    ('msdppeerconnectionattempts', YLeaf(YType.uint32, 'msdpPeerConnectionAttempts')),
-                    ('msdppeerinnotifications', YLeaf(YType.uint32, 'msdpPeerInNotifications')),
-                    ('msdppeeroutnotifications', YLeaf(YType.uint32, 'msdpPeerOutNotifications')),
-                    ('msdppeerlasterror', YLeaf(YType.str, 'msdpPeerLastError')),
+                    ('msdppeerremoteaddress', (YLeaf(YType.str, 'msdpPeerRemoteAddress'), ['str'])),
+                    ('msdppeerstate', (YLeaf(YType.enumeration, 'msdpPeerState'), [('ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB', 'DRAFTMSDPMIB', 'MsdpPeerTable.MsdpPeerEntry.MsdpPeerState')])),
+                    ('msdppeerrpffailures', (YLeaf(YType.uint32, 'msdpPeerRPFFailures'), ['int'])),
+                    ('msdppeerinsas', (YLeaf(YType.uint32, 'msdpPeerInSAs'), ['int'])),
+                    ('msdppeeroutsas', (YLeaf(YType.uint32, 'msdpPeerOutSAs'), ['int'])),
+                    ('msdppeerinsarequests', (YLeaf(YType.uint32, 'msdpPeerInSARequests'), ['int'])),
+                    ('msdppeeroutsarequests', (YLeaf(YType.uint32, 'msdpPeerOutSARequests'), ['int'])),
+                    ('msdppeerinsaresponses', (YLeaf(YType.uint32, 'msdpPeerInSAResponses'), ['int'])),
+                    ('msdppeeroutsaresponses', (YLeaf(YType.uint32, 'msdpPeerOutSAResponses'), ['int'])),
+                    ('msdppeerincontrolmessages', (YLeaf(YType.uint32, 'msdpPeerInControlMessages'), ['int'])),
+                    ('msdppeeroutcontrolmessages', (YLeaf(YType.uint32, 'msdpPeerOutControlMessages'), ['int'])),
+                    ('msdppeerindatapackets', (YLeaf(YType.uint32, 'msdpPeerInDataPackets'), ['int'])),
+                    ('msdppeeroutdatapackets', (YLeaf(YType.uint32, 'msdpPeerOutDataPackets'), ['int'])),
+                    ('msdppeerfsmestablishedtransitions', (YLeaf(YType.uint32, 'msdpPeerFsmEstablishedTransitions'), ['int'])),
+                    ('msdppeerfsmestablishedtime', (YLeaf(YType.uint32, 'msdpPeerFsmEstablishedTime'), ['int'])),
+                    ('msdppeerinmessageelapsedtime', (YLeaf(YType.uint32, 'msdpPeerInMessageElapsedTime'), ['int'])),
+                    ('msdppeerlocaladdress', (YLeaf(YType.str, 'msdpPeerLocalAddress'), ['str'])),
+                    ('msdppeersaadvperiod', (YLeaf(YType.int32, 'msdpPeerSAAdvPeriod'), ['int'])),
+                    ('msdppeerconnectretryinterval', (YLeaf(YType.int32, 'msdpPeerConnectRetryInterval'), ['int'])),
+                    ('msdppeerholdtimeconfigured', (YLeaf(YType.int32, 'msdpPeerHoldTimeConfigured'), ['int'])),
+                    ('msdppeerkeepaliveconfigured', (YLeaf(YType.int32, 'msdpPeerKeepAliveConfigured'), ['int'])),
+                    ('msdppeerdatattl', (YLeaf(YType.int32, 'msdpPeerDataTtl'), ['int'])),
+                    ('msdppeerprocessrequestsfrom', (YLeaf(YType.boolean, 'msdpPeerProcessRequestsFrom'), ['bool'])),
+                    ('msdppeerstatus', (YLeaf(YType.enumeration, 'msdpPeerStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('msdppeerremoteport', (YLeaf(YType.int32, 'msdpPeerRemotePort'), ['int'])),
+                    ('msdppeerlocalport', (YLeaf(YType.int32, 'msdpPeerLocalPort'), ['int'])),
+                    ('msdppeerencapsulationstate', (YLeaf(YType.enumeration, 'msdpPeerEncapsulationState'), [('ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB', 'DRAFTMSDPMIB', 'MsdpPeerTable.MsdpPeerEntry.MsdpPeerEncapsulationState')])),
+                    ('msdppeerencapsulationtype', (YLeaf(YType.enumeration, 'msdpPeerEncapsulationType'), [('ydk.models.cisco_ios_xe.DRAFT_MSDP_MIB', 'DRAFTMSDPMIB', 'MsdpPeerTable.MsdpPeerEntry.MsdpPeerEncapsulationType')])),
+                    ('msdppeerconnectionattempts', (YLeaf(YType.uint32, 'msdpPeerConnectionAttempts'), ['int'])),
+                    ('msdppeerinnotifications', (YLeaf(YType.uint32, 'msdpPeerInNotifications'), ['int'])),
+                    ('msdppeeroutnotifications', (YLeaf(YType.uint32, 'msdpPeerOutNotifications'), ['int'])),
+                    ('msdppeerlasterror', (YLeaf(YType.str, 'msdpPeerLastError'), ['str'])),
                 ])
                 self.msdppeerremoteaddress = None
                 self.msdppeerstate = None
@@ -594,6 +600,7 @@ class DRAFTMSDPMIB(Entity):
                 self.msdppeerlasterror = None
                 self._segment_path = lambda: "msdpPeerEntry" + "[msdpPeerRemoteAddress='" + str(self.msdppeerremoteaddress) + "']"
                 self._absolute_path = lambda: "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/msdpPeerTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DRAFTMSDPMIB.MsdpPeerTable.MsdpPeerEntry, ['msdppeerremoteaddress', 'msdppeerstate', 'msdppeerrpffailures', 'msdppeerinsas', 'msdppeeroutsas', 'msdppeerinsarequests', 'msdppeeroutsarequests', 'msdppeerinsaresponses', 'msdppeeroutsaresponses', 'msdppeerincontrolmessages', 'msdppeeroutcontrolmessages', 'msdppeerindatapackets', 'msdppeeroutdatapackets', 'msdppeerfsmestablishedtransitions', 'msdppeerfsmestablishedtime', 'msdppeerinmessageelapsedtime', 'msdppeerlocaladdress', 'msdppeersaadvperiod', 'msdppeerconnectretryinterval', 'msdppeerholdtimeconfigured', 'msdppeerkeepaliveconfigured', 'msdppeerdatattl', 'msdppeerprocessrequestsfrom', 'msdppeerstatus', 'msdppeerremoteport', 'msdppeerlocalport', 'msdppeerencapsulationstate', 'msdppeerencapsulationtype', 'msdppeerconnectionattempts', 'msdppeerinnotifications', 'msdppeeroutnotifications', 'msdppeerlasterror'], name, value)
@@ -717,6 +724,7 @@ class DRAFTMSDPMIB(Entity):
             self.msdpsacacheentry = YList(self)
             self._segment_path = lambda: "msdpSACacheTable"
             self._absolute_path = lambda: "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DRAFTMSDPMIB.MsdpSACacheTable, [], name, value)
@@ -812,16 +820,16 @@ class DRAFTMSDPMIB(Entity):
                 self.ylist_key_names = ['msdpsacachegroupaddr','msdpsacachesourceaddr','msdpsacacheoriginrp']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('msdpsacachegroupaddr', YLeaf(YType.str, 'msdpSACacheGroupAddr')),
-                    ('msdpsacachesourceaddr', YLeaf(YType.str, 'msdpSACacheSourceAddr')),
-                    ('msdpsacacheoriginrp', YLeaf(YType.str, 'msdpSACacheOriginRP')),
-                    ('msdpsacachepeerlearnedfrom', YLeaf(YType.str, 'msdpSACachePeerLearnedFrom')),
-                    ('msdpsacacherpfpeer', YLeaf(YType.str, 'msdpSACacheRPFPeer')),
-                    ('msdpsacacheinsas', YLeaf(YType.uint32, 'msdpSACacheInSAs')),
-                    ('msdpsacacheindatapackets', YLeaf(YType.uint32, 'msdpSACacheInDataPackets')),
-                    ('msdpsacacheuptime', YLeaf(YType.uint32, 'msdpSACacheUpTime')),
-                    ('msdpsacacheexpirytime', YLeaf(YType.uint32, 'msdpSACacheExpiryTime')),
-                    ('msdpsacachestatus', YLeaf(YType.enumeration, 'msdpSACacheStatus')),
+                    ('msdpsacachegroupaddr', (YLeaf(YType.str, 'msdpSACacheGroupAddr'), ['str'])),
+                    ('msdpsacachesourceaddr', (YLeaf(YType.str, 'msdpSACacheSourceAddr'), ['str'])),
+                    ('msdpsacacheoriginrp', (YLeaf(YType.str, 'msdpSACacheOriginRP'), ['str'])),
+                    ('msdpsacachepeerlearnedfrom', (YLeaf(YType.str, 'msdpSACachePeerLearnedFrom'), ['str'])),
+                    ('msdpsacacherpfpeer', (YLeaf(YType.str, 'msdpSACacheRPFPeer'), ['str'])),
+                    ('msdpsacacheinsas', (YLeaf(YType.uint32, 'msdpSACacheInSAs'), ['int'])),
+                    ('msdpsacacheindatapackets', (YLeaf(YType.uint32, 'msdpSACacheInDataPackets'), ['int'])),
+                    ('msdpsacacheuptime', (YLeaf(YType.uint32, 'msdpSACacheUpTime'), ['int'])),
+                    ('msdpsacacheexpirytime', (YLeaf(YType.uint32, 'msdpSACacheExpiryTime'), ['int'])),
+                    ('msdpsacachestatus', (YLeaf(YType.enumeration, 'msdpSACacheStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.msdpsacachegroupaddr = None
                 self.msdpsacachesourceaddr = None
@@ -835,6 +843,7 @@ class DRAFTMSDPMIB(Entity):
                 self.msdpsacachestatus = None
                 self._segment_path = lambda: "msdpSACacheEntry" + "[msdpSACacheGroupAddr='" + str(self.msdpsacachegroupaddr) + "']" + "[msdpSACacheSourceAddr='" + str(self.msdpsacachesourceaddr) + "']" + "[msdpSACacheOriginRP='" + str(self.msdpsacacheoriginrp) + "']"
                 self._absolute_path = lambda: "DRAFT-MSDP-MIB:DRAFT-MSDP-MIB/msdpSACacheTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DRAFTMSDPMIB.MsdpSACacheTable.MsdpSACacheEntry, ['msdpsacachegroupaddr', 'msdpsacachesourceaddr', 'msdpsacacheoriginrp', 'msdpsacachepeerlearnedfrom', 'msdpsacacherpfpeer', 'msdpsacacheinsas', 'msdpsacacheindatapackets', 'msdpsacacheuptime', 'msdpsacacheexpirytime', 'msdpsacachestatus'], name, value)

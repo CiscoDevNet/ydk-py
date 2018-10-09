@@ -8,7 +8,7 @@ for the following management objects\:
   traffic\-collector\: Global Traffic Collector configuration
     commands
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class CollectIonInterval(Enum):
@@ -169,7 +170,7 @@ class TrafficCollector(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("external-interfaces", ("external_interfaces", TrafficCollector.ExternalInterfaces)), ("statistics", ("statistics", TrafficCollector.Statistics))])
         self._leafs = OrderedDict([
-            ('enable_traffic_collector', YLeaf(YType.empty, 'enable-traffic-collector')),
+            ('enable_traffic_collector', (YLeaf(YType.empty, 'enable-traffic-collector'), ['Empty'])),
         ])
         self.enable_traffic_collector = None
 
@@ -181,6 +182,7 @@ class TrafficCollector(Entity):
         self.statistics.parent = self
         self._children_name_map["statistics"] = "statistics"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-tc-cfg:traffic-collector"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(TrafficCollector, ['enable_traffic_collector'], name, value)
@@ -216,6 +218,7 @@ class TrafficCollector(Entity):
             self.external_interface = YList(self)
             self._segment_path = lambda: "external-interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-cfg:traffic-collector/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TrafficCollector.ExternalInterfaces, [], name, value)
@@ -230,7 +233,7 @@ class TrafficCollector(Entity):
             	Name of interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: enable
             
@@ -254,13 +257,14 @@ class TrafficCollector(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.interface_name = None
                 self.enable = None
                 self._segment_path = lambda: "external-interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-cfg:traffic-collector/external-interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TrafficCollector.ExternalInterfaces.ExternalInterface, ['interface_name', 'enable'], name, value)
@@ -319,10 +323,10 @@ class TrafficCollector(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('history_size', YLeaf(YType.str, 'history-size')),
-                ('collection_interval', YLeaf(YType.enumeration, 'collection-interval')),
-                ('enable_traffic_collector_statistics', YLeaf(YType.empty, 'enable-traffic-collector-statistics')),
-                ('history_timeout', YLeaf(YType.str, 'history-timeout')),
+                ('history_size', (YLeaf(YType.str, 'history-size'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg', 'HistorySize', ''),'int'])),
+                ('collection_interval', (YLeaf(YType.enumeration, 'collection-interval'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg', 'CollectIonInterval', '')])),
+                ('enable_traffic_collector_statistics', (YLeaf(YType.empty, 'enable-traffic-collector-statistics'), ['Empty'])),
+                ('history_timeout', (YLeaf(YType.str, 'history-timeout'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_tc_cfg', 'HistoryTimeout', ''),'int'])),
             ])
             self.history_size = None
             self.collection_interval = None
@@ -330,6 +334,7 @@ class TrafficCollector(Entity):
             self.history_timeout = None
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-tc-cfg:traffic-collector/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TrafficCollector.Statistics, ['history_size', 'collection_interval', 'enable_traffic_collector_statistics', 'history_timeout'], name, value)

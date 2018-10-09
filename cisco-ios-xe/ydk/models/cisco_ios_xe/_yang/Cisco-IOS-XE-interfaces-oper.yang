@@ -25,9 +25,14 @@ module Cisco-IOS-XE-interfaces-oper {
   description
     "This module contains a collection of YANG definitions for
      monitoring the interfaces in a Network Element.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-02-01 {
+    description
+      "IPv6 addresses";
+    reference "2.0.0";
+  }
   revision 2017-10-10 {
     description
       "Initial revision";
@@ -101,6 +106,34 @@ module Cisco-IOS-XE-interfaces-oper {
       "QoS direction indication";
   }
 
+  typedef aggregation-type {
+    type enumeration {
+      enum "lag-off" {
+        value 0;
+        description
+          "LAG mode is off";
+      }
+      enum "lag-auto" {
+        value 1;
+        description
+          "LAG mode is auto";
+      }
+      enum "lag-active" {
+        value 2;
+        description
+          "LAG mode is active";
+      }
+      enum "lag-passive" {
+        value 3;
+        description
+          "LAG mode is passive";
+      }
+    }
+    description
+      "Type to define the lag-type, i.e., how the LAG is
+       defined and managed";
+  }
+
   typedef intf-state {
     type enumeration {
       enum "if-state-unknown" {
@@ -153,7 +186,7 @@ module Cisco-IOS-XE-interfaces-oper {
       enum "speed-1gb" {
         value 2;
       }
-      enum "speed-10bg" {
+      enum "speed-10gb" {
         value 3;
       }
       enum "speed-25gb" {
@@ -165,7 +198,7 @@ module Cisco-IOS-XE-interfaces-oper {
       enum "speed-50gb" {
         value 6;
       }
-      enum "speed-100bg" {
+      enum "speed-100gb" {
         value 7;
       }
       enum "speed-unknown" {
@@ -2184,6 +2217,44 @@ module Cisco-IOS-XE-interfaces-oper {
     }
   }
 
+  grouping lag-aggregate-state {
+    description
+      "Operational state variables for logical
+       aggregate / LAG interfaces";
+    leaf aggregate-id {
+      type string;
+      description
+        "Specify the logical aggregate interface to which
+         this id belongs";
+    }
+    leaf lag-type {
+      type interfaces-ios-xe-oper:aggregation-type;
+      description
+        "Type to define the lag-type, i.e., how the LAG is
+         defined and managed";
+    }
+    leaf min-links {
+      type uint16;
+      description
+        "Specifies the minimum number of member
+         interfaces that must be active for the aggregate interface
+         to be available";
+    }
+    leaf lag-speed {
+      type uint32;
+      description
+        "Reports effective speed of the aggregate interface,
+         based on speed of active member interfaces";
+    }
+    leaf-list members {
+      type string;
+      ordered-by user;
+      description
+        "List of current member interfaces for the aggregate,
+         expressed as references to existing interfaces";
+    }
+  }
+
   grouping protocol-statistics {
     description
       "Protocol specific statistics";
@@ -2316,7 +2387,7 @@ module Cisco-IOS-XE-interfaces-oper {
          other times as indicated by the value of
          'discontinuity-time'.";
     }
-    leaf new-name {
+    leaf in-broadcast-pkts {
       type uint64;
       description
         "The number of packets, delivered by this sub-layer to a
@@ -2772,6 +2843,33 @@ module Cisco-IOS-XE-interfaces-oper {
          interface from manufacturing. This is only relevant for
          interfaces that have the concept of burnt in ethernet 
          addresses, otherwise it is zero.";
+    }
+    leaf-list ipv6-addrs {
+      type inet:ip-address;
+      ordered-by user;
+      description
+        "A list of the IPv6 addresses associated with the interface.
+         This conatins all the IPv6 addresses, including the link local
+         addresses, assigned to the interface";
+    }
+    list lag-aggregate-state {
+      key "aggregate-id";
+      description
+        "Operational state variables for logical
+         aggregate / LAG interfaces";
+      uses interfaces-ios-xe-oper:lag-aggregate-state;
+    }
+    leaf ipv4-tcp-adjust-mss {
+      type uint16;
+      description
+        "When ip tcp adjust-mss is configured, this vlaue shows
+         the tcp mss, or the value is zero.";
+    }
+    leaf ipv6-tcp-adjust-mss {
+      type uint16;
+      description
+        "When ipv6 tcp adjust-mss is configured, this value shows
+         the tcp mss, or the value is zero.";
     }
     choice interface-class-choice {
       description

@@ -12,6 +12,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOPINGMIB(Entity):
     """
     
@@ -44,6 +45,7 @@ class CISCOPINGMIB(Entity):
         self.ciscopingtable.parent = self
         self._children_name_map["ciscopingtable"] = "ciscoPingTable"
         self._segment_path = lambda: "CISCO-PING-MIB:CISCO-PING-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOPINGMIB, [], name, value)
@@ -79,6 +81,7 @@ class CISCOPINGMIB(Entity):
             self.ciscopingentry = YList(self)
             self._segment_path = lambda: "ciscoPingTable"
             self._absolute_path = lambda: "CISCO-PING-MIB:CISCO-PING-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPINGMIB.CiscoPingTable, [], name, value)
@@ -251,23 +254,23 @@ class CISCOPINGMIB(Entity):
                 self.ylist_key_names = ['ciscopingserialnumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ciscopingserialnumber', YLeaf(YType.int32, 'ciscoPingSerialNumber')),
-                    ('ciscopingprotocol', YLeaf(YType.enumeration, 'ciscoPingProtocol')),
-                    ('ciscopingaddress', YLeaf(YType.str, 'ciscoPingAddress')),
-                    ('ciscopingpacketcount', YLeaf(YType.int32, 'ciscoPingPacketCount')),
-                    ('ciscopingpacketsize', YLeaf(YType.int32, 'ciscoPingPacketSize')),
-                    ('ciscopingpackettimeout', YLeaf(YType.int32, 'ciscoPingPacketTimeout')),
-                    ('ciscopingdelay', YLeaf(YType.int32, 'ciscoPingDelay')),
-                    ('ciscopingtraponcompletion', YLeaf(YType.boolean, 'ciscoPingTrapOnCompletion')),
-                    ('ciscopingsentpackets', YLeaf(YType.uint32, 'ciscoPingSentPackets')),
-                    ('ciscopingreceivedpackets', YLeaf(YType.uint32, 'ciscoPingReceivedPackets')),
-                    ('ciscopingminrtt', YLeaf(YType.int32, 'ciscoPingMinRtt')),
-                    ('ciscopingavgrtt', YLeaf(YType.int32, 'ciscoPingAvgRtt')),
-                    ('ciscopingmaxrtt', YLeaf(YType.int32, 'ciscoPingMaxRtt')),
-                    ('ciscopingcompleted', YLeaf(YType.boolean, 'ciscoPingCompleted')),
-                    ('ciscopingentryowner', YLeaf(YType.str, 'ciscoPingEntryOwner')),
-                    ('ciscopingentrystatus', YLeaf(YType.enumeration, 'ciscoPingEntryStatus')),
-                    ('ciscopingvrfname', YLeaf(YType.str, 'ciscoPingVrfName')),
+                    ('ciscopingserialnumber', (YLeaf(YType.int32, 'ciscoPingSerialNumber'), ['int'])),
+                    ('ciscopingprotocol', (YLeaf(YType.enumeration, 'ciscoPingProtocol'), [('ydk.models.cisco_ios_xe.CISCO_TC', 'CiscoNetworkProtocol', '')])),
+                    ('ciscopingaddress', (YLeaf(YType.str, 'ciscoPingAddress'), ['str'])),
+                    ('ciscopingpacketcount', (YLeaf(YType.int32, 'ciscoPingPacketCount'), ['int'])),
+                    ('ciscopingpacketsize', (YLeaf(YType.int32, 'ciscoPingPacketSize'), ['int'])),
+                    ('ciscopingpackettimeout', (YLeaf(YType.int32, 'ciscoPingPacketTimeout'), ['int'])),
+                    ('ciscopingdelay', (YLeaf(YType.int32, 'ciscoPingDelay'), ['int'])),
+                    ('ciscopingtraponcompletion', (YLeaf(YType.boolean, 'ciscoPingTrapOnCompletion'), ['bool'])),
+                    ('ciscopingsentpackets', (YLeaf(YType.uint32, 'ciscoPingSentPackets'), ['int'])),
+                    ('ciscopingreceivedpackets', (YLeaf(YType.uint32, 'ciscoPingReceivedPackets'), ['int'])),
+                    ('ciscopingminrtt', (YLeaf(YType.int32, 'ciscoPingMinRtt'), ['int'])),
+                    ('ciscopingavgrtt', (YLeaf(YType.int32, 'ciscoPingAvgRtt'), ['int'])),
+                    ('ciscopingmaxrtt', (YLeaf(YType.int32, 'ciscoPingMaxRtt'), ['int'])),
+                    ('ciscopingcompleted', (YLeaf(YType.boolean, 'ciscoPingCompleted'), ['bool'])),
+                    ('ciscopingentryowner', (YLeaf(YType.str, 'ciscoPingEntryOwner'), ['str'])),
+                    ('ciscopingentrystatus', (YLeaf(YType.enumeration, 'ciscoPingEntryStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('ciscopingvrfname', (YLeaf(YType.str, 'ciscoPingVrfName'), ['str'])),
                 ])
                 self.ciscopingserialnumber = None
                 self.ciscopingprotocol = None
@@ -288,6 +291,7 @@ class CISCOPINGMIB(Entity):
                 self.ciscopingvrfname = None
                 self._segment_path = lambda: "ciscoPingEntry" + "[ciscoPingSerialNumber='" + str(self.ciscopingserialnumber) + "']"
                 self._absolute_path = lambda: "CISCO-PING-MIB:CISCO-PING-MIB/ciscoPingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPINGMIB.CiscoPingTable.CiscoPingEntry, ['ciscopingserialnumber', 'ciscopingprotocol', 'ciscopingaddress', 'ciscopingpacketcount', 'ciscopingpacketsize', 'ciscopingpackettimeout', 'ciscopingdelay', 'ciscopingtraponcompletion', 'ciscopingsentpackets', 'ciscopingreceivedpackets', 'ciscopingminrtt', 'ciscopingavgrtt', 'ciscopingmaxrtt', 'ciscopingcompleted', 'ciscopingentryowner', 'ciscopingentrystatus', 'ciscopingvrfname'], name, value)

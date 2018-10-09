@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-aaa\-locald\-oper
 module with state data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -38,7 +39,7 @@ class Radius(Entity):
     """
 
     _prefix = 'aaa-protocol-radius-oper'
-    _revision = '2017-05-01'
+    _revision = '2017-11-13'
 
     def __init__(self):
         super(Radius, self).__init__()
@@ -56,6 +57,7 @@ class Radius(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-aaa-protocol-radius-oper:radius"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Radius, [], name, value)
@@ -75,7 +77,7 @@ class Radius(Entity):
         """
 
         _prefix = 'aaa-protocol-radius-oper'
-        _revision = '2017-05-01'
+        _revision = '2017-11-13'
 
         def __init__(self):
             super(Radius.Nodes, self).__init__()
@@ -91,6 +93,7 @@ class Radius(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Radius.Nodes, [], name, value)
@@ -127,6 +130,11 @@ class Radius(Entity):
             	RADIUS accounting data
             	**type**\:  :py:class:`Accounting <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.Accounting>`
             
+            .. attribute:: dynamic_authorization_clients
+            
+            	Dynamic authorization client data
+            	**type**\:  :py:class:`DynamicAuthorizationClients <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DynamicAuthorizationClients>`
+            
             .. attribute:: server_groups
             
             	RADIUS server group table
@@ -142,7 +150,7 @@ class Radius(Entity):
             """
 
             _prefix = 'aaa-protocol-radius-oper'
-            _revision = '2017-05-01'
+            _revision = '2017-11-13'
 
             def __init__(self):
                 super(Radius.Nodes.Node, self).__init__()
@@ -152,9 +160,9 @@ class Radius(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_name']
-                self._child_classes = OrderedDict([("client", ("client", Radius.Nodes.Node.Client)), ("dead-criteria", ("dead_criteria", Radius.Nodes.Node.DeadCriteria)), ("authentication", ("authentication", Radius.Nodes.Node.Authentication)), ("accounting", ("accounting", Radius.Nodes.Node.Accounting)), ("server-groups", ("server_groups", Radius.Nodes.Node.ServerGroups)), ("dynamic-authorization", ("dynamic_authorization", Radius.Nodes.Node.DynamicAuthorization))])
+                self._child_classes = OrderedDict([("client", ("client", Radius.Nodes.Node.Client)), ("dead-criteria", ("dead_criteria", Radius.Nodes.Node.DeadCriteria)), ("authentication", ("authentication", Radius.Nodes.Node.Authentication)), ("accounting", ("accounting", Radius.Nodes.Node.Accounting)), ("dynamic-authorization-clients", ("dynamic_authorization_clients", Radius.Nodes.Node.DynamicAuthorizationClients)), ("server-groups", ("server_groups", Radius.Nodes.Node.ServerGroups)), ("dynamic-authorization", ("dynamic_authorization", Radius.Nodes.Node.DynamicAuthorization))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -174,6 +182,10 @@ class Radius(Entity):
                 self.accounting.parent = self
                 self._children_name_map["accounting"] = "accounting"
 
+                self.dynamic_authorization_clients = Radius.Nodes.Node.DynamicAuthorizationClients()
+                self.dynamic_authorization_clients.parent = self
+                self._children_name_map["dynamic_authorization_clients"] = "dynamic-authorization-clients"
+
                 self.server_groups = Radius.Nodes.Node.ServerGroups()
                 self.server_groups.parent = self
                 self._children_name_map["server_groups"] = "server-groups"
@@ -183,6 +195,7 @@ class Radius(Entity):
                 self._children_name_map["dynamic_authorization"] = "dynamic-authorization"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-aaa-protocol-radius-oper:radius/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Radius.Nodes.Node, ['node_name'], name, value)
@@ -216,7 +229,7 @@ class Radius(Entity):
                 """
 
                 _prefix = 'aaa-protocol-radius-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-11-13'
 
                 def __init__(self):
                     super(Radius.Nodes.Node.Client, self).__init__()
@@ -228,17 +241,18 @@ class Radius(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('unknown_authentication_responses', YLeaf(YType.uint32, 'unknown-authentication-responses')),
-                        ('authentication_nas_id', YLeaf(YType.str, 'authentication-nas-id')),
-                        ('unknown_accounting_responses', YLeaf(YType.uint32, 'unknown-accounting-responses')),
+                        ('unknown_authentication_responses', (YLeaf(YType.uint32, 'unknown-authentication-responses'), ['int'])),
+                        ('authentication_nas_id', (YLeaf(YType.str, 'authentication-nas-id'), ['str'])),
+                        ('unknown_accounting_responses', (YLeaf(YType.uint32, 'unknown-accounting-responses'), ['int'])),
                     ])
                     self.unknown_authentication_responses = None
                     self.authentication_nas_id = None
                     self.unknown_accounting_responses = None
                     self._segment_path = lambda: "client"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Radius.Nodes.Node.Client, ['unknown_authentication_responses', 'authentication_nas_id', 'unknown_accounting_responses'], name, value)
+                    self._perform_setattr(Radius.Nodes.Node.Client, [u'unknown_authentication_responses', u'authentication_nas_id', u'unknown_accounting_responses'], name, value)
 
 
             class DeadCriteria(Entity):
@@ -255,7 +269,7 @@ class Radius(Entity):
                 """
 
                 _prefix = 'aaa-protocol-radius-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-11-13'
 
                 def __init__(self):
                     super(Radius.Nodes.Node.DeadCriteria, self).__init__()
@@ -272,6 +286,7 @@ class Radius(Entity):
                     self.hosts.parent = self
                     self._children_name_map["hosts"] = "hosts"
                     self._segment_path = lambda: "dead-criteria"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Radius.Nodes.Node.DeadCriteria, [], name, value)
@@ -291,7 +306,7 @@ class Radius(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-11-13'
 
                     def __init__(self):
                         super(Radius.Nodes.Node.DeadCriteria.Hosts, self).__init__()
@@ -306,6 +321,7 @@ class Radius(Entity):
 
                         self.host = YList(self)
                         self._segment_path = lambda: "hosts"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts, [], name, value)
@@ -357,7 +373,7 @@ class Radius(Entity):
                         """
 
                         _prefix = 'aaa-protocol-radius-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-11-13'
 
                         def __init__(self):
                             super(Radius.Nodes.Node.DeadCriteria.Hosts.Host, self).__init__()
@@ -369,9 +385,9 @@ class Radius(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("time", ("time", Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time)), ("tries", ("tries", Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries))])
                             self._leafs = OrderedDict([
-                                ('ip_address', YLeaf(YType.str, 'ip-address')),
-                                ('auth_port_number', YLeaf(YType.uint32, 'auth-port-number')),
-                                ('acct_port_number', YLeaf(YType.uint32, 'acct-port-number')),
+                                ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str','str'])),
+                                ('auth_port_number', (YLeaf(YType.uint32, 'auth-port-number'), ['int'])),
+                                ('acct_port_number', (YLeaf(YType.uint32, 'acct-port-number'), ['int'])),
                             ])
                             self.ip_address = None
                             self.auth_port_number = None
@@ -385,6 +401,7 @@ class Radius(Entity):
                             self.tries.parent = self
                             self._children_name_map["tries"] = "tries"
                             self._segment_path = lambda: "host"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host, ['ip_address', 'auth_port_number', 'acct_port_number'], name, value)
@@ -411,7 +428,7 @@ class Radius(Entity):
                             """
 
                             _prefix = 'aaa-protocol-radius-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-11-13'
 
                             def __init__(self):
                                 super(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time, self).__init__()
@@ -423,15 +440,16 @@ class Radius(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('value', YLeaf(YType.uint32, 'value')),
-                                    ('is_computed', YLeaf(YType.boolean, 'is-computed')),
+                                    ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                    ('is_computed', (YLeaf(YType.boolean, 'is-computed'), ['bool'])),
                                 ])
                                 self.value = None
                                 self.is_computed = None
                                 self._segment_path = lambda: "time"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time, ['value', 'is_computed'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Time, [u'value', u'is_computed'], name, value)
 
 
                         class Tries(Entity):
@@ -455,7 +473,7 @@ class Radius(Entity):
                             """
 
                             _prefix = 'aaa-protocol-radius-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-11-13'
 
                             def __init__(self):
                                 super(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries, self).__init__()
@@ -467,15 +485,16 @@ class Radius(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('value', YLeaf(YType.uint32, 'value')),
-                                    ('is_computed', YLeaf(YType.boolean, 'is-computed')),
+                                    ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                    ('is_computed', (YLeaf(YType.boolean, 'is-computed'), ['bool'])),
                                 ])
                                 self.value = None
                                 self.is_computed = None
                                 self._segment_path = lambda: "tries"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries, ['value', 'is_computed'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.DeadCriteria.Hosts.Host.Tries, [u'value', u'is_computed'], name, value)
 
 
             class Authentication(Entity):
@@ -492,7 +511,7 @@ class Radius(Entity):
                 """
 
                 _prefix = 'aaa-protocol-radius-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-11-13'
 
                 def __init__(self):
                     super(Radius.Nodes.Node.Authentication, self).__init__()
@@ -507,6 +526,7 @@ class Radius(Entity):
 
                     self.authentication_group = YList(self)
                     self._segment_path = lambda: "authentication"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Radius.Nodes.Node.Authentication, [], name, value)
@@ -550,7 +570,7 @@ class Radius(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-11-13'
 
                     def __init__(self):
                         super(Radius.Nodes.Node.Authentication.AuthenticationGroup, self).__init__()
@@ -562,10 +582,10 @@ class Radius(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("authentication", ("authentication", Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_))])
                         self._leafs = OrderedDict([
-                            ('server_address', YLeaf(YType.str, 'server-address')),
-                            ('port', YLeaf(YType.uint32, 'port')),
-                            ('ip_address', YLeaf(YType.str, 'ip-address')),
-                            ('family', YLeaf(YType.str, 'family')),
+                            ('server_address', (YLeaf(YType.str, 'server-address'), ['str'])),
+                            ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
+                            ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                            ('family', (YLeaf(YType.str, 'family'), ['str'])),
                         ])
                         self.server_address = None
                         self.port = None
@@ -576,9 +596,10 @@ class Radius(Entity):
                         self.authentication.parent = self
                         self._children_name_map["authentication"] = "authentication"
                         self._segment_path = lambda: "authentication-group"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup, ['server_address', 'port', 'ip_address', 'family'], name, value)
+                        self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup, [u'server_address', u'port', u'ip_address', u'family'], name, value)
 
 
                     class Authentication_(Entity):
@@ -718,7 +739,7 @@ class Radius(Entity):
                         """
 
                         _prefix = 'aaa-protocol-radius-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-11-13'
 
                         def __init__(self):
                             super(Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_, self).__init__()
@@ -730,24 +751,24 @@ class Radius(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('access_requests', YLeaf(YType.uint32, 'access-requests')),
-                                ('pending_access_requests', YLeaf(YType.uint32, 'pending-access-requests')),
-                                ('access_request_retransmits', YLeaf(YType.uint32, 'access-request-retransmits')),
-                                ('access_accepts', YLeaf(YType.uint32, 'access-accepts')),
-                                ('access_rejects', YLeaf(YType.uint32, 'access-rejects')),
-                                ('access_challenges', YLeaf(YType.uint32, 'access-challenges')),
-                                ('access_timeouts', YLeaf(YType.uint32, 'access-timeouts')),
-                                ('bad_access_responses', YLeaf(YType.uint32, 'bad-access-responses')),
-                                ('bad_access_authenticators', YLeaf(YType.uint32, 'bad-access-authenticators')),
-                                ('unknown_access_types', YLeaf(YType.uint32, 'unknown-access-types')),
-                                ('dropped_access_responses', YLeaf(YType.uint32, 'dropped-access-responses')),
-                                ('rtt', YLeaf(YType.uint32, 'rtt')),
-                                ('authen_response_time', YLeaf(YType.uint32, 'authen-response-time')),
-                                ('authen_transaction_successess', YLeaf(YType.uint32, 'authen-transaction-successess')),
-                                ('authen_transaction_failure', YLeaf(YType.uint32, 'authen-transaction-failure')),
-                                ('authen_unexpected_responses', YLeaf(YType.uint32, 'authen-unexpected-responses')),
-                                ('authen_server_error_responses', YLeaf(YType.uint32, 'authen-server-error-responses')),
-                                ('authen_incorrect_responses', YLeaf(YType.uint32, 'authen-incorrect-responses')),
+                                ('access_requests', (YLeaf(YType.uint32, 'access-requests'), ['int'])),
+                                ('pending_access_requests', (YLeaf(YType.uint32, 'pending-access-requests'), ['int'])),
+                                ('access_request_retransmits', (YLeaf(YType.uint32, 'access-request-retransmits'), ['int'])),
+                                ('access_accepts', (YLeaf(YType.uint32, 'access-accepts'), ['int'])),
+                                ('access_rejects', (YLeaf(YType.uint32, 'access-rejects'), ['int'])),
+                                ('access_challenges', (YLeaf(YType.uint32, 'access-challenges'), ['int'])),
+                                ('access_timeouts', (YLeaf(YType.uint32, 'access-timeouts'), ['int'])),
+                                ('bad_access_responses', (YLeaf(YType.uint32, 'bad-access-responses'), ['int'])),
+                                ('bad_access_authenticators', (YLeaf(YType.uint32, 'bad-access-authenticators'), ['int'])),
+                                ('unknown_access_types', (YLeaf(YType.uint32, 'unknown-access-types'), ['int'])),
+                                ('dropped_access_responses', (YLeaf(YType.uint32, 'dropped-access-responses'), ['int'])),
+                                ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
+                                ('authen_response_time', (YLeaf(YType.uint32, 'authen-response-time'), ['int'])),
+                                ('authen_transaction_successess', (YLeaf(YType.uint32, 'authen-transaction-successess'), ['int'])),
+                                ('authen_transaction_failure', (YLeaf(YType.uint32, 'authen-transaction-failure'), ['int'])),
+                                ('authen_unexpected_responses', (YLeaf(YType.uint32, 'authen-unexpected-responses'), ['int'])),
+                                ('authen_server_error_responses', (YLeaf(YType.uint32, 'authen-server-error-responses'), ['int'])),
+                                ('authen_incorrect_responses', (YLeaf(YType.uint32, 'authen-incorrect-responses'), ['int'])),
                             ])
                             self.access_requests = None
                             self.pending_access_requests = None
@@ -768,9 +789,10 @@ class Radius(Entity):
                             self.authen_server_error_responses = None
                             self.authen_incorrect_responses = None
                             self._segment_path = lambda: "authentication"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_, ['access_requests', 'pending_access_requests', 'access_request_retransmits', 'access_accepts', 'access_rejects', 'access_challenges', 'access_timeouts', 'bad_access_responses', 'bad_access_authenticators', 'unknown_access_types', 'dropped_access_responses', 'rtt', 'authen_response_time', 'authen_transaction_successess', 'authen_transaction_failure', 'authen_unexpected_responses', 'authen_server_error_responses', 'authen_incorrect_responses'], name, value)
+                            self._perform_setattr(Radius.Nodes.Node.Authentication.AuthenticationGroup.Authentication_, [u'access_requests', u'pending_access_requests', u'access_request_retransmits', u'access_accepts', u'access_rejects', u'access_challenges', u'access_timeouts', u'bad_access_responses', u'bad_access_authenticators', u'unknown_access_types', u'dropped_access_responses', u'rtt', u'authen_response_time', u'authen_transaction_successess', u'authen_transaction_failure', u'authen_unexpected_responses', u'authen_server_error_responses', u'authen_incorrect_responses'], name, value)
 
 
             class Accounting(Entity):
@@ -787,7 +809,7 @@ class Radius(Entity):
                 """
 
                 _prefix = 'aaa-protocol-radius-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-11-13'
 
                 def __init__(self):
                     super(Radius.Nodes.Node.Accounting, self).__init__()
@@ -802,6 +824,7 @@ class Radius(Entity):
 
                     self.accounting_group = YList(self)
                     self._segment_path = lambda: "accounting"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Radius.Nodes.Node.Accounting, [], name, value)
@@ -845,7 +868,7 @@ class Radius(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-11-13'
 
                     def __init__(self):
                         super(Radius.Nodes.Node.Accounting.AccountingGroup, self).__init__()
@@ -857,10 +880,10 @@ class Radius(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("accounting", ("accounting", Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_))])
                         self._leafs = OrderedDict([
-                            ('server_address', YLeaf(YType.str, 'server-address')),
-                            ('port', YLeaf(YType.uint32, 'port')),
-                            ('ip_address', YLeaf(YType.str, 'ip-address')),
-                            ('family', YLeaf(YType.str, 'family')),
+                            ('server_address', (YLeaf(YType.str, 'server-address'), ['str'])),
+                            ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
+                            ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                            ('family', (YLeaf(YType.str, 'family'), ['str'])),
                         ])
                         self.server_address = None
                         self.port = None
@@ -871,9 +894,10 @@ class Radius(Entity):
                         self.accounting.parent = self
                         self._children_name_map["accounting"] = "accounting"
                         self._segment_path = lambda: "accounting-group"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup, ['server_address', 'port', 'ip_address', 'family'], name, value)
+                        self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup, [u'server_address', u'port', u'ip_address', u'family'], name, value)
 
 
                     class Accounting_(Entity):
@@ -999,7 +1023,7 @@ class Radius(Entity):
                         """
 
                         _prefix = 'aaa-protocol-radius-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-11-13'
 
                         def __init__(self):
                             super(Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_, self).__init__()
@@ -1011,22 +1035,22 @@ class Radius(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('requests', YLeaf(YType.uint32, 'requests')),
-                                ('pending_requests', YLeaf(YType.uint32, 'pending-requests')),
-                                ('retransmits', YLeaf(YType.uint32, 'retransmits')),
-                                ('responses', YLeaf(YType.uint32, 'responses')),
-                                ('timeouts', YLeaf(YType.uint32, 'timeouts')),
-                                ('bad_responses', YLeaf(YType.uint32, 'bad-responses')),
-                                ('bad_authenticators', YLeaf(YType.uint32, 'bad-authenticators')),
-                                ('unknown_packet_types', YLeaf(YType.uint32, 'unknown-packet-types')),
-                                ('dropped_responses', YLeaf(YType.uint32, 'dropped-responses')),
-                                ('rtt', YLeaf(YType.uint32, 'rtt')),
-                                ('acct_unexpected_responses', YLeaf(YType.uint32, 'acct-unexpected-responses')),
-                                ('acct_server_error_responses', YLeaf(YType.uint32, 'acct-server-error-responses')),
-                                ('acct_incorrect_responses', YLeaf(YType.uint32, 'acct-incorrect-responses')),
-                                ('acct_response_time', YLeaf(YType.uint32, 'acct-response-time')),
-                                ('acct_transaction_successess', YLeaf(YType.uint32, 'acct-transaction-successess')),
-                                ('acct_transaction_failure', YLeaf(YType.uint32, 'acct-transaction-failure')),
+                                ('requests', (YLeaf(YType.uint32, 'requests'), ['int'])),
+                                ('pending_requests', (YLeaf(YType.uint32, 'pending-requests'), ['int'])),
+                                ('retransmits', (YLeaf(YType.uint32, 'retransmits'), ['int'])),
+                                ('responses', (YLeaf(YType.uint32, 'responses'), ['int'])),
+                                ('timeouts', (YLeaf(YType.uint32, 'timeouts'), ['int'])),
+                                ('bad_responses', (YLeaf(YType.uint32, 'bad-responses'), ['int'])),
+                                ('bad_authenticators', (YLeaf(YType.uint32, 'bad-authenticators'), ['int'])),
+                                ('unknown_packet_types', (YLeaf(YType.uint32, 'unknown-packet-types'), ['int'])),
+                                ('dropped_responses', (YLeaf(YType.uint32, 'dropped-responses'), ['int'])),
+                                ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
+                                ('acct_unexpected_responses', (YLeaf(YType.uint32, 'acct-unexpected-responses'), ['int'])),
+                                ('acct_server_error_responses', (YLeaf(YType.uint32, 'acct-server-error-responses'), ['int'])),
+                                ('acct_incorrect_responses', (YLeaf(YType.uint32, 'acct-incorrect-responses'), ['int'])),
+                                ('acct_response_time', (YLeaf(YType.uint32, 'acct-response-time'), ['int'])),
+                                ('acct_transaction_successess', (YLeaf(YType.uint32, 'acct-transaction-successess'), ['int'])),
+                                ('acct_transaction_failure', (YLeaf(YType.uint32, 'acct-transaction-failure'), ['int'])),
                             ])
                             self.requests = None
                             self.pending_requests = None
@@ -1045,9 +1069,297 @@ class Radius(Entity):
                             self.acct_transaction_successess = None
                             self.acct_transaction_failure = None
                             self._segment_path = lambda: "accounting"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_, ['requests', 'pending_requests', 'retransmits', 'responses', 'timeouts', 'bad_responses', 'bad_authenticators', 'unknown_packet_types', 'dropped_responses', 'rtt', 'acct_unexpected_responses', 'acct_server_error_responses', 'acct_incorrect_responses', 'acct_response_time', 'acct_transaction_successess', 'acct_transaction_failure'], name, value)
+                            self._perform_setattr(Radius.Nodes.Node.Accounting.AccountingGroup.Accounting_, [u'requests', u'pending_requests', u'retransmits', u'responses', u'timeouts', u'bad_responses', u'bad_authenticators', u'unknown_packet_types', u'dropped_responses', u'rtt', u'acct_unexpected_responses', u'acct_server_error_responses', u'acct_incorrect_responses', u'acct_response_time', u'acct_transaction_successess', u'acct_transaction_failure'], name, value)
+
+
+            class DynamicAuthorizationClients(Entity):
+                """
+                Dynamic authorization client data
+                
+                .. attribute:: dynamic_author_client
+                
+                	List of dynamic author clients
+                	**type**\: list of  		 :py:class:`DynamicAuthorClient <ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_protocol_radius_oper.Radius.Nodes.Node.DynamicAuthorizationClients.DynamicAuthorClient>`
+                
+                
+
+                """
+
+                _prefix = 'aaa-protocol-radius-oper'
+                _revision = '2017-11-13'
+
+                def __init__(self):
+                    super(Radius.Nodes.Node.DynamicAuthorizationClients, self).__init__()
+
+                    self.yang_name = "dynamic-authorization-clients"
+                    self.yang_parent_name = "node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("dynamic-author-client", ("dynamic_author_client", Radius.Nodes.Node.DynamicAuthorizationClients.DynamicAuthorClient))])
+                    self._leafs = OrderedDict()
+
+                    self.dynamic_author_client = YList(self)
+                    self._segment_path = lambda: "dynamic-authorization-clients"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Radius.Nodes.Node.DynamicAuthorizationClients, [], name, value)
+
+
+                class DynamicAuthorClient(Entity):
+                    """
+                    List of dynamic author clients
+                    
+                    .. attribute:: client_address
+                    
+                    	Client's Internet address
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: disc_reqs
+                    
+                    	Number of RADIUS Disconnect\-Requestsreceived from the client
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: disc_acks
+                    
+                    	Number of RADIUS Disconnect\-ACKs sent to the client
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: disc_naks
+                    
+                    	Number of RADIUS Disconnect\-NAKs sent to the client
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: disc_bad_auth
+                    
+                    	Number of RADIUS Disconnect\-Requests received from the client containing an invalid Authenticator
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: drop_disc_reqs
+                    
+                    	Number of RADIUS Disconnect\-Requests received from the client that were silently discarded
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: coa_reqs
+                    
+                    	Number of RADIUS CoA\-Requests received from the client
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: coa_acks
+                    
+                    	Number of RADIUS CoA\-ACKs sent to the client
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: coa_naks
+                    
+                    	Number of RADIUS CoA\-NAKs sent to the client
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: coa_bad_auth
+                    
+                    	Number of RADIUS CoA\-Requests received from the client containing an invalid Authenticator
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: drop_coa_reqs
+                    
+                    	Number of RADIUS CoA\-Requests received from the client that were silently discarded
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: unknown_types
+                    
+                    	Number of incoming packets of unknown types that were received from the client
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: internal_error
+                    
+                    	Number of packets dropped due to internal error
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: pak_decode_fail
+                    
+                    	Number of packets dropped due to failure in radius packet decoding
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vrf_parse_fail_err
+                    
+                    	Number of requests which encountered vrf parse fail error
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: unknown_vsa_error
+                    
+                    	Number of requests which encountered unknown vsa error
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: send_msg_failed
+                    
+                    	Number of response packets which failed to be send
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: radius_to_ch
+                    
+                    	Number of requests sent to command handler
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: ch_to_radius
+                    
+                    	Number of responses received from command handler
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: service_parse_fail
+                    
+                    	Number of requests which encountered service parse fail error
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: multi_subs_error
+                    
+                    	Number of requests which encountered multiple subscribers not allowed error
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: service_not_present
+                    
+                    	Number of requests which has missing service name attribute
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: send_to_ch_fail
+                    
+                    	Number of requests which failed to be sent to command handler
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: vrf_name
+                    
+                    	VRF of RADIUS dynamic authorization client
+                    	**type**\: str
+                    
+                    .. attribute:: addr_buf
+                    
+                    	Address Buffer
+                    	**type**\: str
+                    
+                    	**length:** 0..46
+                    
+                    
+
+                    """
+
+                    _prefix = 'aaa-protocol-radius-oper'
+                    _revision = '2017-11-13'
+
+                    def __init__(self):
+                        super(Radius.Nodes.Node.DynamicAuthorizationClients.DynamicAuthorClient, self).__init__()
+
+                        self.yang_name = "dynamic-author-client"
+                        self.yang_parent_name = "dynamic-authorization-clients"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('client_address', (YLeaf(YType.str, 'client-address'), ['str'])),
+                            ('disc_reqs', (YLeaf(YType.uint32, 'disc-reqs'), ['int'])),
+                            ('disc_acks', (YLeaf(YType.uint32, 'disc-acks'), ['int'])),
+                            ('disc_naks', (YLeaf(YType.uint32, 'disc-naks'), ['int'])),
+                            ('disc_bad_auth', (YLeaf(YType.uint32, 'disc-bad-auth'), ['int'])),
+                            ('drop_disc_reqs', (YLeaf(YType.uint32, 'drop-disc-reqs'), ['int'])),
+                            ('coa_reqs', (YLeaf(YType.uint32, 'coa-reqs'), ['int'])),
+                            ('coa_acks', (YLeaf(YType.uint32, 'coa-acks'), ['int'])),
+                            ('coa_naks', (YLeaf(YType.uint32, 'coa-naks'), ['int'])),
+                            ('coa_bad_auth', (YLeaf(YType.uint32, 'coa-bad-auth'), ['int'])),
+                            ('drop_coa_reqs', (YLeaf(YType.uint32, 'drop-coa-reqs'), ['int'])),
+                            ('unknown_types', (YLeaf(YType.uint32, 'unknown-types'), ['int'])),
+                            ('internal_error', (YLeaf(YType.uint32, 'internal-error'), ['int'])),
+                            ('pak_decode_fail', (YLeaf(YType.uint32, 'pak-decode-fail'), ['int'])),
+                            ('vrf_parse_fail_err', (YLeaf(YType.uint32, 'vrf-parse-fail-err'), ['int'])),
+                            ('unknown_vsa_error', (YLeaf(YType.uint32, 'unknown-vsa-error'), ['int'])),
+                            ('send_msg_failed', (YLeaf(YType.uint32, 'send-msg-failed'), ['int'])),
+                            ('radius_to_ch', (YLeaf(YType.uint32, 'radius-to-ch'), ['int'])),
+                            ('ch_to_radius', (YLeaf(YType.uint32, 'ch-to-radius'), ['int'])),
+                            ('service_parse_fail', (YLeaf(YType.uint32, 'service-parse-fail'), ['int'])),
+                            ('multi_subs_error', (YLeaf(YType.uint32, 'multi-subs-error'), ['int'])),
+                            ('service_not_present', (YLeaf(YType.uint32, 'service-not-present'), ['int'])),
+                            ('send_to_ch_fail', (YLeaf(YType.uint32, 'send-to-ch-fail'), ['int'])),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                            ('addr_buf', (YLeaf(YType.str, 'addr-buf'), ['str'])),
+                        ])
+                        self.client_address = None
+                        self.disc_reqs = None
+                        self.disc_acks = None
+                        self.disc_naks = None
+                        self.disc_bad_auth = None
+                        self.drop_disc_reqs = None
+                        self.coa_reqs = None
+                        self.coa_acks = None
+                        self.coa_naks = None
+                        self.coa_bad_auth = None
+                        self.drop_coa_reqs = None
+                        self.unknown_types = None
+                        self.internal_error = None
+                        self.pak_decode_fail = None
+                        self.vrf_parse_fail_err = None
+                        self.unknown_vsa_error = None
+                        self.send_msg_failed = None
+                        self.radius_to_ch = None
+                        self.ch_to_radius = None
+                        self.service_parse_fail = None
+                        self.multi_subs_error = None
+                        self.service_not_present = None
+                        self.send_to_ch_fail = None
+                        self.vrf_name = None
+                        self.addr_buf = None
+                        self._segment_path = lambda: "dynamic-author-client"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Radius.Nodes.Node.DynamicAuthorizationClients.DynamicAuthorClient, [u'client_address', u'disc_reqs', u'disc_acks', u'disc_naks', u'disc_bad_auth', u'drop_disc_reqs', u'coa_reqs', u'coa_acks', u'coa_naks', u'coa_bad_auth', u'drop_coa_reqs', u'unknown_types', u'internal_error', u'pak_decode_fail', u'vrf_parse_fail_err', u'unknown_vsa_error', u'send_msg_failed', u'radius_to_ch', u'ch_to_radius', u'service_parse_fail', u'multi_subs_error', u'service_not_present', u'send_to_ch_fail', u'vrf_name', u'addr_buf'], name, value)
 
 
             class ServerGroups(Entity):
@@ -1064,7 +1376,7 @@ class Radius(Entity):
                 """
 
                 _prefix = 'aaa-protocol-radius-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-11-13'
 
                 def __init__(self):
                     super(Radius.Nodes.Node.ServerGroups, self).__init__()
@@ -1079,6 +1391,7 @@ class Radius(Entity):
 
                     self.server_group = YList(self)
                     self._segment_path = lambda: "server-groups"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Radius.Nodes.Node.ServerGroups, [], name, value)
@@ -1133,7 +1446,7 @@ class Radius(Entity):
                     """
 
                     _prefix = 'aaa-protocol-radius-oper'
-                    _revision = '2017-05-01'
+                    _revision = '2017-11-13'
 
                     def __init__(self):
                         super(Radius.Nodes.Node.ServerGroups.ServerGroup, self).__init__()
@@ -1145,11 +1458,11 @@ class Radius(Entity):
                         self.ylist_key_names = ['server_group_name']
                         self._child_classes = OrderedDict([("server-group", ("server_group", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_))])
                         self._leafs = OrderedDict([
-                            ('server_group_name', YLeaf(YType.str, 'server-group-name')),
-                            ('groups', YLeaf(YType.uint32, 'groups')),
-                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                            ('dead_time', YLeaf(YType.uint32, 'dead-time')),
-                            ('servers', YLeaf(YType.uint32, 'servers')),
+                            ('server_group_name', (YLeaf(YType.str, 'server-group-name'), ['str'])),
+                            ('groups', (YLeaf(YType.uint32, 'groups'), ['int'])),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                            ('dead_time', (YLeaf(YType.uint32, 'dead-time'), ['int'])),
+                            ('servers', (YLeaf(YType.uint32, 'servers'), ['int'])),
                         ])
                         self.server_group_name = None
                         self.groups = None
@@ -1159,9 +1472,10 @@ class Radius(Entity):
 
                         self.server_group = YList(self)
                         self._segment_path = lambda: "server-group" + "[server-group-name='" + str(self.server_group_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup, ['server_group_name', 'groups', 'vrf_name', 'dead_time', 'servers'], name, value)
+                        self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup, ['server_group_name', u'groups', u'vrf_name', u'dead_time', u'servers'], name, value)
 
 
                     class ServerGroup_(Entity):
@@ -1219,12 +1533,19 @@ class Radius(Entity):
                         	IP address Family
                         	**type**\: str
                         
+                        .. attribute:: redirected_requests
+                        
+                        	Redirected Requests
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
                         
 
                         """
 
                         _prefix = 'aaa-protocol-radius-oper'
-                        _revision = '2017-05-01'
+                        _revision = '2017-11-13'
 
                         def __init__(self):
                             super(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_, self).__init__()
@@ -1236,12 +1557,13 @@ class Radius(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("accounting", ("accounting", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting)), ("authentication", ("authentication", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication)), ("authorization", ("authorization", Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization))])
                             self._leafs = OrderedDict([
-                                ('server_address', YLeaf(YType.str, 'server-address')),
-                                ('authentication_port', YLeaf(YType.uint32, 'authentication-port')),
-                                ('accounting_port', YLeaf(YType.uint32, 'accounting-port')),
-                                ('is_private', YLeaf(YType.boolean, 'is-private')),
-                                ('ip_address', YLeaf(YType.str, 'ip-address')),
-                                ('family', YLeaf(YType.str, 'family')),
+                                ('server_address', (YLeaf(YType.str, 'server-address'), ['str'])),
+                                ('authentication_port', (YLeaf(YType.uint32, 'authentication-port'), ['int'])),
+                                ('accounting_port', (YLeaf(YType.uint32, 'accounting-port'), ['int'])),
+                                ('is_private', (YLeaf(YType.boolean, 'is-private'), ['bool'])),
+                                ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                                ('family', (YLeaf(YType.str, 'family'), ['str'])),
+                                ('redirected_requests', (YLeaf(YType.uint32, 'redirected-requests'), ['int'])),
                             ])
                             self.server_address = None
                             self.authentication_port = None
@@ -1249,6 +1571,7 @@ class Radius(Entity):
                             self.is_private = None
                             self.ip_address = None
                             self.family = None
+                            self.redirected_requests = None
 
                             self.accounting = Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting()
                             self.accounting.parent = self
@@ -1262,9 +1585,10 @@ class Radius(Entity):
                             self.authorization.parent = self
                             self._children_name_map["authorization"] = "authorization"
                             self._segment_path = lambda: "server-group"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_, ['server_address', 'authentication_port', 'accounting_port', 'is_private', 'ip_address', 'family'], name, value)
+                            self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_, [u'server_address', u'authentication_port', u'accounting_port', u'is_private', u'ip_address', u'family', u'redirected_requests'], name, value)
 
 
                         class Accounting(Entity):
@@ -1390,7 +1714,7 @@ class Radius(Entity):
                             """
 
                             _prefix = 'aaa-protocol-radius-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-11-13'
 
                             def __init__(self):
                                 super(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting, self).__init__()
@@ -1402,22 +1726,22 @@ class Radius(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('requests', YLeaf(YType.uint32, 'requests')),
-                                    ('pending_requests', YLeaf(YType.uint32, 'pending-requests')),
-                                    ('retransmits', YLeaf(YType.uint32, 'retransmits')),
-                                    ('responses', YLeaf(YType.uint32, 'responses')),
-                                    ('timeouts', YLeaf(YType.uint32, 'timeouts')),
-                                    ('bad_responses', YLeaf(YType.uint32, 'bad-responses')),
-                                    ('bad_authenticators', YLeaf(YType.uint32, 'bad-authenticators')),
-                                    ('unknown_packet_types', YLeaf(YType.uint32, 'unknown-packet-types')),
-                                    ('dropped_responses', YLeaf(YType.uint32, 'dropped-responses')),
-                                    ('rtt', YLeaf(YType.uint32, 'rtt')),
-                                    ('acct_unexpected_responses', YLeaf(YType.uint32, 'acct-unexpected-responses')),
-                                    ('acct_server_error_responses', YLeaf(YType.uint32, 'acct-server-error-responses')),
-                                    ('acct_incorrect_responses', YLeaf(YType.uint32, 'acct-incorrect-responses')),
-                                    ('acct_response_time', YLeaf(YType.uint32, 'acct-response-time')),
-                                    ('acct_transaction_successess', YLeaf(YType.uint32, 'acct-transaction-successess')),
-                                    ('acct_transaction_failure', YLeaf(YType.uint32, 'acct-transaction-failure')),
+                                    ('requests', (YLeaf(YType.uint32, 'requests'), ['int'])),
+                                    ('pending_requests', (YLeaf(YType.uint32, 'pending-requests'), ['int'])),
+                                    ('retransmits', (YLeaf(YType.uint32, 'retransmits'), ['int'])),
+                                    ('responses', (YLeaf(YType.uint32, 'responses'), ['int'])),
+                                    ('timeouts', (YLeaf(YType.uint32, 'timeouts'), ['int'])),
+                                    ('bad_responses', (YLeaf(YType.uint32, 'bad-responses'), ['int'])),
+                                    ('bad_authenticators', (YLeaf(YType.uint32, 'bad-authenticators'), ['int'])),
+                                    ('unknown_packet_types', (YLeaf(YType.uint32, 'unknown-packet-types'), ['int'])),
+                                    ('dropped_responses', (YLeaf(YType.uint32, 'dropped-responses'), ['int'])),
+                                    ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
+                                    ('acct_unexpected_responses', (YLeaf(YType.uint32, 'acct-unexpected-responses'), ['int'])),
+                                    ('acct_server_error_responses', (YLeaf(YType.uint32, 'acct-server-error-responses'), ['int'])),
+                                    ('acct_incorrect_responses', (YLeaf(YType.uint32, 'acct-incorrect-responses'), ['int'])),
+                                    ('acct_response_time', (YLeaf(YType.uint32, 'acct-response-time'), ['int'])),
+                                    ('acct_transaction_successess', (YLeaf(YType.uint32, 'acct-transaction-successess'), ['int'])),
+                                    ('acct_transaction_failure', (YLeaf(YType.uint32, 'acct-transaction-failure'), ['int'])),
                                 ])
                                 self.requests = None
                                 self.pending_requests = None
@@ -1436,9 +1760,10 @@ class Radius(Entity):
                                 self.acct_transaction_successess = None
                                 self.acct_transaction_failure = None
                                 self._segment_path = lambda: "accounting"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting, ['requests', 'pending_requests', 'retransmits', 'responses', 'timeouts', 'bad_responses', 'bad_authenticators', 'unknown_packet_types', 'dropped_responses', 'rtt', 'acct_unexpected_responses', 'acct_server_error_responses', 'acct_incorrect_responses', 'acct_response_time', 'acct_transaction_successess', 'acct_transaction_failure'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Accounting, [u'requests', u'pending_requests', u'retransmits', u'responses', u'timeouts', u'bad_responses', u'bad_authenticators', u'unknown_packet_types', u'dropped_responses', u'rtt', u'acct_unexpected_responses', u'acct_server_error_responses', u'acct_incorrect_responses', u'acct_response_time', u'acct_transaction_successess', u'acct_transaction_failure'], name, value)
 
 
                         class Authentication(Entity):
@@ -1578,7 +1903,7 @@ class Radius(Entity):
                             """
 
                             _prefix = 'aaa-protocol-radius-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-11-13'
 
                             def __init__(self):
                                 super(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication, self).__init__()
@@ -1590,24 +1915,24 @@ class Radius(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('access_requests', YLeaf(YType.uint32, 'access-requests')),
-                                    ('pending_access_requests', YLeaf(YType.uint32, 'pending-access-requests')),
-                                    ('access_request_retransmits', YLeaf(YType.uint32, 'access-request-retransmits')),
-                                    ('access_accepts', YLeaf(YType.uint32, 'access-accepts')),
-                                    ('access_rejects', YLeaf(YType.uint32, 'access-rejects')),
-                                    ('access_challenges', YLeaf(YType.uint32, 'access-challenges')),
-                                    ('access_timeouts', YLeaf(YType.uint32, 'access-timeouts')),
-                                    ('bad_access_responses', YLeaf(YType.uint32, 'bad-access-responses')),
-                                    ('bad_access_authenticators', YLeaf(YType.uint32, 'bad-access-authenticators')),
-                                    ('unknown_access_types', YLeaf(YType.uint32, 'unknown-access-types')),
-                                    ('dropped_access_responses', YLeaf(YType.uint32, 'dropped-access-responses')),
-                                    ('rtt', YLeaf(YType.uint32, 'rtt')),
-                                    ('authen_response_time', YLeaf(YType.uint32, 'authen-response-time')),
-                                    ('authen_transaction_successess', YLeaf(YType.uint32, 'authen-transaction-successess')),
-                                    ('authen_transaction_failure', YLeaf(YType.uint32, 'authen-transaction-failure')),
-                                    ('authen_unexpected_responses', YLeaf(YType.uint32, 'authen-unexpected-responses')),
-                                    ('authen_server_error_responses', YLeaf(YType.uint32, 'authen-server-error-responses')),
-                                    ('authen_incorrect_responses', YLeaf(YType.uint32, 'authen-incorrect-responses')),
+                                    ('access_requests', (YLeaf(YType.uint32, 'access-requests'), ['int'])),
+                                    ('pending_access_requests', (YLeaf(YType.uint32, 'pending-access-requests'), ['int'])),
+                                    ('access_request_retransmits', (YLeaf(YType.uint32, 'access-request-retransmits'), ['int'])),
+                                    ('access_accepts', (YLeaf(YType.uint32, 'access-accepts'), ['int'])),
+                                    ('access_rejects', (YLeaf(YType.uint32, 'access-rejects'), ['int'])),
+                                    ('access_challenges', (YLeaf(YType.uint32, 'access-challenges'), ['int'])),
+                                    ('access_timeouts', (YLeaf(YType.uint32, 'access-timeouts'), ['int'])),
+                                    ('bad_access_responses', (YLeaf(YType.uint32, 'bad-access-responses'), ['int'])),
+                                    ('bad_access_authenticators', (YLeaf(YType.uint32, 'bad-access-authenticators'), ['int'])),
+                                    ('unknown_access_types', (YLeaf(YType.uint32, 'unknown-access-types'), ['int'])),
+                                    ('dropped_access_responses', (YLeaf(YType.uint32, 'dropped-access-responses'), ['int'])),
+                                    ('rtt', (YLeaf(YType.uint32, 'rtt'), ['int'])),
+                                    ('authen_response_time', (YLeaf(YType.uint32, 'authen-response-time'), ['int'])),
+                                    ('authen_transaction_successess', (YLeaf(YType.uint32, 'authen-transaction-successess'), ['int'])),
+                                    ('authen_transaction_failure', (YLeaf(YType.uint32, 'authen-transaction-failure'), ['int'])),
+                                    ('authen_unexpected_responses', (YLeaf(YType.uint32, 'authen-unexpected-responses'), ['int'])),
+                                    ('authen_server_error_responses', (YLeaf(YType.uint32, 'authen-server-error-responses'), ['int'])),
+                                    ('authen_incorrect_responses', (YLeaf(YType.uint32, 'authen-incorrect-responses'), ['int'])),
                                 ])
                                 self.access_requests = None
                                 self.pending_access_requests = None
@@ -1628,9 +1953,10 @@ class Radius(Entity):
                                 self.authen_server_error_responses = None
                                 self.authen_incorrect_responses = None
                                 self._segment_path = lambda: "authentication"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication, ['access_requests', 'pending_access_requests', 'access_request_retransmits', 'access_accepts', 'access_rejects', 'access_challenges', 'access_timeouts', 'bad_access_responses', 'bad_access_authenticators', 'unknown_access_types', 'dropped_access_responses', 'rtt', 'authen_response_time', 'authen_transaction_successess', 'authen_transaction_failure', 'authen_unexpected_responses', 'authen_server_error_responses', 'authen_incorrect_responses'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authentication, [u'access_requests', u'pending_access_requests', u'access_request_retransmits', u'access_accepts', u'access_rejects', u'access_challenges', u'access_timeouts', u'bad_access_responses', u'bad_access_authenticators', u'unknown_access_types', u'dropped_access_responses', u'rtt', u'authen_response_time', u'authen_transaction_successess', u'authen_transaction_failure', u'authen_unexpected_responses', u'authen_server_error_responses', u'authen_incorrect_responses'], name, value)
 
 
                         class Authorization(Entity):
@@ -1698,7 +2024,7 @@ class Radius(Entity):
                             """
 
                             _prefix = 'aaa-protocol-radius-oper'
-                            _revision = '2017-05-01'
+                            _revision = '2017-11-13'
 
                             def __init__(self):
                                 super(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization, self).__init__()
@@ -1710,14 +2036,14 @@ class Radius(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('author_requests', YLeaf(YType.uint32, 'author-requests')),
-                                    ('author_request_timeouts', YLeaf(YType.uint32, 'author-request-timeouts')),
-                                    ('author_unexpected_responses', YLeaf(YType.uint32, 'author-unexpected-responses')),
-                                    ('author_server_error_responses', YLeaf(YType.uint32, 'author-server-error-responses')),
-                                    ('author_incorrect_responses', YLeaf(YType.uint32, 'author-incorrect-responses')),
-                                    ('author_response_time', YLeaf(YType.uint32, 'author-response-time')),
-                                    ('author_transaction_successess', YLeaf(YType.uint32, 'author-transaction-successess')),
-                                    ('author_transaction_failure', YLeaf(YType.uint32, 'author-transaction-failure')),
+                                    ('author_requests', (YLeaf(YType.uint32, 'author-requests'), ['int'])),
+                                    ('author_request_timeouts', (YLeaf(YType.uint32, 'author-request-timeouts'), ['int'])),
+                                    ('author_unexpected_responses', (YLeaf(YType.uint32, 'author-unexpected-responses'), ['int'])),
+                                    ('author_server_error_responses', (YLeaf(YType.uint32, 'author-server-error-responses'), ['int'])),
+                                    ('author_incorrect_responses', (YLeaf(YType.uint32, 'author-incorrect-responses'), ['int'])),
+                                    ('author_response_time', (YLeaf(YType.uint32, 'author-response-time'), ['int'])),
+                                    ('author_transaction_successess', (YLeaf(YType.uint32, 'author-transaction-successess'), ['int'])),
+                                    ('author_transaction_failure', (YLeaf(YType.uint32, 'author-transaction-failure'), ['int'])),
                                 ])
                                 self.author_requests = None
                                 self.author_request_timeouts = None
@@ -1728,9 +2054,10 @@ class Radius(Entity):
                                 self.author_transaction_successess = None
                                 self.author_transaction_failure = None
                                 self._segment_path = lambda: "authorization"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization, ['author_requests', 'author_request_timeouts', 'author_unexpected_responses', 'author_server_error_responses', 'author_incorrect_responses', 'author_response_time', 'author_transaction_successess', 'author_transaction_failure'], name, value)
+                                self._perform_setattr(Radius.Nodes.Node.ServerGroups.ServerGroup.ServerGroup_.Authorization, [u'author_requests', u'author_request_timeouts', u'author_unexpected_responses', u'author_server_error_responses', u'author_incorrect_responses', u'author_response_time', u'author_transaction_successess', u'author_transaction_failure'], name, value)
 
 
             class DynamicAuthorization(Entity):
@@ -1751,12 +2078,26 @@ class Radius(Entity):
                 
                 	**range:** 0..4294967295
                 
+                .. attribute:: radius_context_not_found
+                
+                	Radius context not found
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
+                .. attribute:: client_context_not_found
+                
+                	Client context not found
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
                 
 
                 """
 
                 _prefix = 'aaa-protocol-radius-oper'
-                _revision = '2017-05-01'
+                _revision = '2017-11-13'
 
                 def __init__(self):
                     super(Radius.Nodes.Node.DynamicAuthorization, self).__init__()
@@ -1768,15 +2109,20 @@ class Radius(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('disconnected_invalid_requests', YLeaf(YType.uint32, 'disconnected-invalid-requests')),
-                        ('invalid_coa_requests', YLeaf(YType.uint32, 'invalid-coa-requests')),
+                        ('disconnected_invalid_requests', (YLeaf(YType.uint32, 'disconnected-invalid-requests'), ['int'])),
+                        ('invalid_coa_requests', (YLeaf(YType.uint32, 'invalid-coa-requests'), ['int'])),
+                        ('radius_context_not_found', (YLeaf(YType.uint32, 'radius-context-not-found'), ['int'])),
+                        ('client_context_not_found', (YLeaf(YType.uint32, 'client-context-not-found'), ['int'])),
                     ])
                     self.disconnected_invalid_requests = None
                     self.invalid_coa_requests = None
+                    self.radius_context_not_found = None
+                    self.client_context_not_found = None
                     self._segment_path = lambda: "dynamic-authorization"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Radius.Nodes.Node.DynamicAuthorization, ['disconnected_invalid_requests', 'invalid_coa_requests'], name, value)
+                    self._perform_setattr(Radius.Nodes.Node.DynamicAuthorization, [u'disconnected_invalid_requests', u'invalid_coa_requests', u'radius_context_not_found', u'client_context_not_found'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Radius()

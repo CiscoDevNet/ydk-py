@@ -27,6 +27,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOVOICEDNISMIB(Entity):
     """
     
@@ -68,6 +69,7 @@ class CISCOVOICEDNISMIB(Entity):
         self.cvdnisnodetable.parent = self
         self._children_name_map["cvdnisnodetable"] = "cvDnisNodeTable"
         self._segment_path = lambda: "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOVOICEDNISMIB, [], name, value)
@@ -105,6 +107,7 @@ class CISCOVOICEDNISMIB(Entity):
             self.cvdnismappingentry = YList(self)
             self._segment_path = lambda: "cvDnisMappingTable"
             self._absolute_path = lambda: "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOVOICEDNISMIB.CvDnisMappingTable, [], name, value)
@@ -184,11 +187,11 @@ class CISCOVOICEDNISMIB(Entity):
                 self.ylist_key_names = ['cvdnismappingname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cvdnismappingname', YLeaf(YType.str, 'cvDnisMappingName')),
-                    ('cvdnismappingurl', YLeaf(YType.str, 'cvDnisMappingUrl')),
-                    ('cvdnismappingrefresh', YLeaf(YType.enumeration, 'cvDnisMappingRefresh')),
-                    ('cvdnismappingurlaccesserror', YLeaf(YType.str, 'cvDnisMappingUrlAccessError')),
-                    ('cvdnismappingstatus', YLeaf(YType.enumeration, 'cvDnisMappingStatus')),
+                    ('cvdnismappingname', (YLeaf(YType.str, 'cvDnisMappingName'), ['str'])),
+                    ('cvdnismappingurl', (YLeaf(YType.str, 'cvDnisMappingUrl'), ['str'])),
+                    ('cvdnismappingrefresh', (YLeaf(YType.enumeration, 'cvDnisMappingRefresh'), [('ydk.models.cisco_ios_xe.CISCO_VOICE_DNIS_MIB', 'CISCOVOICEDNISMIB', 'CvDnisMappingTable.CvDnisMappingEntry.CvDnisMappingRefresh')])),
+                    ('cvdnismappingurlaccesserror', (YLeaf(YType.str, 'cvDnisMappingUrlAccessError'), ['str'])),
+                    ('cvdnismappingstatus', (YLeaf(YType.enumeration, 'cvDnisMappingStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cvdnismappingname = None
                 self.cvdnismappingurl = None
@@ -197,9 +200,10 @@ class CISCOVOICEDNISMIB(Entity):
                 self.cvdnismappingstatus = None
                 self._segment_path = lambda: "cvDnisMappingEntry" + "[cvDnisMappingName='" + str(self.cvdnismappingname) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/cvDnisMappingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDNISMIB.CvDnisMappingTable.CvDnisMappingEntry, ['cvdnismappingname', 'cvdnismappingurl', 'cvdnismappingrefresh', 'cvdnismappingurlaccesserror', 'cvdnismappingstatus'], name, value)
+                self._perform_setattr(CISCOVOICEDNISMIB.CvDnisMappingTable.CvDnisMappingEntry, [u'cvdnismappingname', u'cvdnismappingurl', u'cvdnismappingrefresh', u'cvdnismappingurlaccesserror', u'cvdnismappingstatus'], name, value)
 
             class CvDnisMappingRefresh(Enum):
                 """
@@ -276,6 +280,7 @@ class CISCOVOICEDNISMIB(Entity):
             self.cvdnisnodeentry = YList(self)
             self._segment_path = lambda: "cvDnisNodeTable"
             self._absolute_path = lambda: "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOVOICEDNISMIB.CvDnisNodeTable, [], name, value)
@@ -340,11 +345,11 @@ class CISCOVOICEDNISMIB(Entity):
                 self.ylist_key_names = ['cvdnismappingname','cvdnisnumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cvdnismappingname', YLeaf(YType.str, 'cvDnisMappingName')),
-                    ('cvdnisnumber', YLeaf(YType.str, 'cvDnisNumber')),
-                    ('cvdnisnodeurl', YLeaf(YType.str, 'cvDnisNodeUrl')),
-                    ('cvdnisnodemodifiable', YLeaf(YType.boolean, 'cvDnisNodeModifiable')),
-                    ('cvdnisnodestatus', YLeaf(YType.enumeration, 'cvDnisNodeStatus')),
+                    ('cvdnismappingname', (YLeaf(YType.str, 'cvDnisMappingName'), ['str'])),
+                    ('cvdnisnumber', (YLeaf(YType.str, 'cvDnisNumber'), ['str'])),
+                    ('cvdnisnodeurl', (YLeaf(YType.str, 'cvDnisNodeUrl'), ['str'])),
+                    ('cvdnisnodemodifiable', (YLeaf(YType.boolean, 'cvDnisNodeModifiable'), ['bool'])),
+                    ('cvdnisnodestatus', (YLeaf(YType.enumeration, 'cvDnisNodeStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cvdnismappingname = None
                 self.cvdnisnumber = None
@@ -353,9 +358,10 @@ class CISCOVOICEDNISMIB(Entity):
                 self.cvdnisnodestatus = None
                 self._segment_path = lambda: "cvDnisNodeEntry" + "[cvDnisMappingName='" + str(self.cvdnismappingname) + "']" + "[cvDnisNumber='" + str(self.cvdnisnumber) + "']"
                 self._absolute_path = lambda: "CISCO-VOICE-DNIS-MIB:CISCO-VOICE-DNIS-MIB/cvDnisNodeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOVOICEDNISMIB.CvDnisNodeTable.CvDnisNodeEntry, ['cvdnismappingname', 'cvdnisnumber', 'cvdnisnodeurl', 'cvdnisnodemodifiable', 'cvdnisnodestatus'], name, value)
+                self._perform_setattr(CISCOVOICEDNISMIB.CvDnisNodeTable.CvDnisNodeEntry, [u'cvdnismappingname', u'cvdnisnumber', u'cvdnisnodeurl', u'cvdnisnodemodifiable', u'cvdnisnodestatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CISCOVOICEDNISMIB()

@@ -1,5 +1,10 @@
 """ SNMPv2_TC 
 
+This module contains definitions
+for the Calvados model objects.
+
+Copyright (c) 2012\-2018 by Cisco Systems, Inc.
+All rights reserved.
 
 """
 from collections import OrderedDict
@@ -8,6 +13,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class RowStatus(Enum):

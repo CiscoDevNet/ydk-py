@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ether\-link\-oam\: Ethernet Link OAM operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class Action(Enum):
@@ -402,6 +403,7 @@ class EtherLinkOam(Entity):
         self.stats_interfaces.parent = self
         self._children_name_map["stats_interfaces"] = "stats-interfaces"
         self._segment_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(EtherLinkOam, [], name, value)
@@ -438,6 +440,7 @@ class EtherLinkOam(Entity):
             self.discovery_info_interface = YList(self)
             self._segment_path = lambda: "discovery-info-interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EtherLinkOam.DiscoveryInfoInterfaces, [], name, value)
@@ -453,7 +456,7 @@ class EtherLinkOam(Entity):
             	Member Interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: name
             
@@ -743,56 +746,56 @@ class EtherLinkOam(Entity):
                 self.ylist_key_names = ['member_interface']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('member_interface', YLeaf(YType.str, 'member-interface')),
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('operational_status', YLeaf(YType.enumeration, 'operational-status')),
-                    ('loopback_mode', YLeaf(YType.enumeration, 'loopback-mode')),
-                    ('local_mode', YLeaf(YType.enumeration, 'local-mode')),
-                    ('miswired', YLeaf(YType.boolean, 'miswired')),
-                    ('local_mwd_key', YLeaf(YType.uint32, 'local-mwd-key')),
-                    ('local_function_unidirectional', YLeaf(YType.boolean, 'local-function-unidirectional')),
-                    ('local_function_loopback', YLeaf(YType.boolean, 'local-function-loopback')),
-                    ('local_function_event', YLeaf(YType.boolean, 'local-function-event')),
-                    ('local_functionvariable', YLeaf(YType.boolean, 'local-functionvariable')),
-                    ('local_revision', YLeaf(YType.uint32, 'local-revision')),
-                    ('local_mtu', YLeaf(YType.uint32, 'local-mtu')),
-                    ('local_operational', YLeaf(YType.boolean, 'local-operational')),
-                    ('local_evaluating', YLeaf(YType.boolean, 'local-evaluating')),
-                    ('remote_mode', YLeaf(YType.enumeration, 'remote-mode')),
-                    ('remote_unidirectional', YLeaf(YType.boolean, 'remote-unidirectional')),
-                    ('remote_loopback', YLeaf(YType.boolean, 'remote-loopback')),
-                    ('remote_event', YLeaf(YType.boolean, 'remote-event')),
-                    ('remote_variable', YLeaf(YType.boolean, 'remote-variable')),
-                    ('remote_mtu', YLeaf(YType.uint32, 'remote-mtu')),
-                    ('remote_mac_address', YLeaf(YType.str, 'remote-mac-address')),
-                    ('remote_vendor_oui', YLeaf(YType.str, 'remote-vendor-oui')),
-                    ('remote_revision', YLeaf(YType.uint16, 'remote-revision')),
-                    ('remote_vendor_info', YLeaf(YType.uint32, 'remote-vendor-info')),
-                    ('remote_mwd_key', YLeaf(YType.uint32, 'remote-mwd-key')),
-                    ('operational_status_valid', YLeaf(YType.boolean, 'operational-status-valid')),
-                    ('loopback_mode_valid', YLeaf(YType.boolean, 'loopback-mode-valid')),
-                    ('local_mode_valid', YLeaf(YType.boolean, 'local-mode-valid')),
-                    ('miswired_valid', YLeaf(YType.boolean, 'miswired-valid')),
-                    ('local_mwd_key_valid', YLeaf(YType.boolean, 'local-mwd-key-valid')),
-                    ('local_function_unidirectional_valid', YLeaf(YType.boolean, 'local-function-unidirectional-valid')),
-                    ('local_function_loopback_valid', YLeaf(YType.boolean, 'local-function-loopback-valid')),
-                    ('local_function_event_valid', YLeaf(YType.boolean, 'local-function-event-valid')),
-                    ('local_functionvariable_valid', YLeaf(YType.boolean, 'local-functionvariable-valid')),
-                    ('local_revisionvalid', YLeaf(YType.boolean, 'local-revisionvalid')),
-                    ('local_mtu_valid', YLeaf(YType.boolean, 'local-mtu-valid')),
-                    ('remote_mode_valid', YLeaf(YType.boolean, 'remote-mode-valid')),
-                    ('remote_unidirectional_valid', YLeaf(YType.boolean, 'remote-unidirectional-valid')),
-                    ('remote_loopback_valid', YLeaf(YType.boolean, 'remote-loopback-valid')),
-                    ('remote_event_valid', YLeaf(YType.boolean, 'remote-event-valid')),
-                    ('remote_variable_valid', YLeaf(YType.boolean, 'remote-variable-valid')),
-                    ('remote_mtu_valid', YLeaf(YType.boolean, 'remote-mtu-valid')),
-                    ('remote_mac_address_valid', YLeaf(YType.boolean, 'remote-mac-address-valid')),
-                    ('remote_vendor_oui_valid', YLeaf(YType.boolean, 'remote-vendor-oui-valid')),
-                    ('remote_revisionvalid', YLeaf(YType.boolean, 'remote-revisionvalid')),
-                    ('remote_vendor_info_valid', YLeaf(YType.boolean, 'remote-vendor-info-valid')),
-                    ('remote_mwd_key_valid', YLeaf(YType.boolean, 'remote-mwd-key-valid')),
-                    ('received_at_risk_notification_timestamp', YLeaf(YType.uint64, 'received-at-risk-notification-timestamp')),
-                    ('received_at_risk_notification_time_remaining', YLeaf(YType.uint16, 'received-at-risk-notification-time-remaining')),
+                    ('member_interface', (YLeaf(YType.str, 'member-interface'), ['str'])),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('operational_status', (YLeaf(YType.enumeration, 'operational-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'OperationalState', '')])),
+                    ('loopback_mode', (YLeaf(YType.enumeration, 'loopback-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'LoopbackStatus', '')])),
+                    ('local_mode', (YLeaf(YType.enumeration, 'local-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Mode', '')])),
+                    ('miswired', (YLeaf(YType.boolean, 'miswired'), ['bool'])),
+                    ('local_mwd_key', (YLeaf(YType.uint32, 'local-mwd-key'), ['int'])),
+                    ('local_function_unidirectional', (YLeaf(YType.boolean, 'local-function-unidirectional'), ['bool'])),
+                    ('local_function_loopback', (YLeaf(YType.boolean, 'local-function-loopback'), ['bool'])),
+                    ('local_function_event', (YLeaf(YType.boolean, 'local-function-event'), ['bool'])),
+                    ('local_functionvariable', (YLeaf(YType.boolean, 'local-functionvariable'), ['bool'])),
+                    ('local_revision', (YLeaf(YType.uint32, 'local-revision'), ['int'])),
+                    ('local_mtu', (YLeaf(YType.uint32, 'local-mtu'), ['int'])),
+                    ('local_operational', (YLeaf(YType.boolean, 'local-operational'), ['bool'])),
+                    ('local_evaluating', (YLeaf(YType.boolean, 'local-evaluating'), ['bool'])),
+                    ('remote_mode', (YLeaf(YType.enumeration, 'remote-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Mode', '')])),
+                    ('remote_unidirectional', (YLeaf(YType.boolean, 'remote-unidirectional'), ['bool'])),
+                    ('remote_loopback', (YLeaf(YType.boolean, 'remote-loopback'), ['bool'])),
+                    ('remote_event', (YLeaf(YType.boolean, 'remote-event'), ['bool'])),
+                    ('remote_variable', (YLeaf(YType.boolean, 'remote-variable'), ['bool'])),
+                    ('remote_mtu', (YLeaf(YType.uint32, 'remote-mtu'), ['int'])),
+                    ('remote_mac_address', (YLeaf(YType.str, 'remote-mac-address'), ['str'])),
+                    ('remote_vendor_oui', (YLeaf(YType.str, 'remote-vendor-oui'), ['str'])),
+                    ('remote_revision', (YLeaf(YType.uint16, 'remote-revision'), ['int'])),
+                    ('remote_vendor_info', (YLeaf(YType.uint32, 'remote-vendor-info'), ['int'])),
+                    ('remote_mwd_key', (YLeaf(YType.uint32, 'remote-mwd-key'), ['int'])),
+                    ('operational_status_valid', (YLeaf(YType.boolean, 'operational-status-valid'), ['bool'])),
+                    ('loopback_mode_valid', (YLeaf(YType.boolean, 'loopback-mode-valid'), ['bool'])),
+                    ('local_mode_valid', (YLeaf(YType.boolean, 'local-mode-valid'), ['bool'])),
+                    ('miswired_valid', (YLeaf(YType.boolean, 'miswired-valid'), ['bool'])),
+                    ('local_mwd_key_valid', (YLeaf(YType.boolean, 'local-mwd-key-valid'), ['bool'])),
+                    ('local_function_unidirectional_valid', (YLeaf(YType.boolean, 'local-function-unidirectional-valid'), ['bool'])),
+                    ('local_function_loopback_valid', (YLeaf(YType.boolean, 'local-function-loopback-valid'), ['bool'])),
+                    ('local_function_event_valid', (YLeaf(YType.boolean, 'local-function-event-valid'), ['bool'])),
+                    ('local_functionvariable_valid', (YLeaf(YType.boolean, 'local-functionvariable-valid'), ['bool'])),
+                    ('local_revisionvalid', (YLeaf(YType.boolean, 'local-revisionvalid'), ['bool'])),
+                    ('local_mtu_valid', (YLeaf(YType.boolean, 'local-mtu-valid'), ['bool'])),
+                    ('remote_mode_valid', (YLeaf(YType.boolean, 'remote-mode-valid'), ['bool'])),
+                    ('remote_unidirectional_valid', (YLeaf(YType.boolean, 'remote-unidirectional-valid'), ['bool'])),
+                    ('remote_loopback_valid', (YLeaf(YType.boolean, 'remote-loopback-valid'), ['bool'])),
+                    ('remote_event_valid', (YLeaf(YType.boolean, 'remote-event-valid'), ['bool'])),
+                    ('remote_variable_valid', (YLeaf(YType.boolean, 'remote-variable-valid'), ['bool'])),
+                    ('remote_mtu_valid', (YLeaf(YType.boolean, 'remote-mtu-valid'), ['bool'])),
+                    ('remote_mac_address_valid', (YLeaf(YType.boolean, 'remote-mac-address-valid'), ['bool'])),
+                    ('remote_vendor_oui_valid', (YLeaf(YType.boolean, 'remote-vendor-oui-valid'), ['bool'])),
+                    ('remote_revisionvalid', (YLeaf(YType.boolean, 'remote-revisionvalid'), ['bool'])),
+                    ('remote_vendor_info_valid', (YLeaf(YType.boolean, 'remote-vendor-info-valid'), ['bool'])),
+                    ('remote_mwd_key_valid', (YLeaf(YType.boolean, 'remote-mwd-key-valid'), ['bool'])),
+                    ('received_at_risk_notification_timestamp', (YLeaf(YType.uint64, 'received-at-risk-notification-timestamp'), ['int'])),
+                    ('received_at_risk_notification_time_remaining', (YLeaf(YType.uint16, 'received-at-risk-notification-time-remaining'), ['int'])),
                 ])
                 self.member_interface = None
                 self.name = None
@@ -846,9 +849,10 @@ class EtherLinkOam(Entity):
                 self.received_at_risk_notification_time_remaining = None
                 self._segment_path = lambda: "discovery-info-interface" + "[member-interface='" + str(self.member_interface) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/discovery-info-interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface, ['member_interface', u'name', u'operational_status', u'loopback_mode', u'local_mode', u'miswired', u'local_mwd_key', u'local_function_unidirectional', u'local_function_loopback', u'local_function_event', u'local_functionvariable', u'local_revision', u'local_mtu', u'local_operational', u'local_evaluating', u'remote_mode', u'remote_unidirectional', u'remote_loopback', u'remote_event', u'remote_variable', u'remote_mtu', u'remote_mac_address', u'remote_vendor_oui', u'remote_revision', u'remote_vendor_info', u'remote_mwd_key', u'operational_status_valid', u'loopback_mode_valid', u'local_mode_valid', u'miswired_valid', u'local_mwd_key_valid', u'local_function_unidirectional_valid', u'local_function_loopback_valid', u'local_function_event_valid', u'local_functionvariable_valid', u'local_revisionvalid', u'local_mtu_valid', u'remote_mode_valid', u'remote_unidirectional_valid', u'remote_loopback_valid', u'remote_event_valid', u'remote_variable_valid', u'remote_mtu_valid', u'remote_mac_address_valid', u'remote_vendor_oui_valid', u'remote_revisionvalid', u'remote_vendor_info_valid', u'remote_mwd_key_valid', u'received_at_risk_notification_timestamp', u'received_at_risk_notification_time_remaining'], name, value)
+                self._perform_setattr(EtherLinkOam.DiscoveryInfoInterfaces.DiscoveryInfoInterface, ['member_interface', 'name', 'operational_status', 'loopback_mode', 'local_mode', 'miswired', 'local_mwd_key', 'local_function_unidirectional', 'local_function_loopback', 'local_function_event', 'local_functionvariable', 'local_revision', 'local_mtu', 'local_operational', 'local_evaluating', 'remote_mode', 'remote_unidirectional', 'remote_loopback', 'remote_event', 'remote_variable', 'remote_mtu', 'remote_mac_address', 'remote_vendor_oui', 'remote_revision', 'remote_vendor_info', 'remote_mwd_key', 'operational_status_valid', 'loopback_mode_valid', 'local_mode_valid', 'miswired_valid', 'local_mwd_key_valid', 'local_function_unidirectional_valid', 'local_function_loopback_valid', 'local_function_event_valid', 'local_functionvariable_valid', 'local_revisionvalid', 'local_mtu_valid', 'remote_mode_valid', 'remote_unidirectional_valid', 'remote_loopback_valid', 'remote_event_valid', 'remote_variable_valid', 'remote_mtu_valid', 'remote_mac_address_valid', 'remote_vendor_oui_valid', 'remote_revisionvalid', 'remote_vendor_info_valid', 'remote_mwd_key_valid', 'received_at_risk_notification_timestamp', 'received_at_risk_notification_time_remaining'], name, value)
 
 
     class InterfaceStateInterfaces(Entity):
@@ -882,6 +886,7 @@ class EtherLinkOam(Entity):
             self.interface_state_interface = YList(self)
             self._segment_path = lambda: "interface-state-interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces, [], name, value)
@@ -897,7 +902,7 @@ class EtherLinkOam(Entity):
             	Member Interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: errors
             
@@ -955,12 +960,12 @@ class EtherLinkOam(Entity):
                 self.ylist_key_names = ['member_interface']
                 self._child_classes = OrderedDict([("errors", ("errors", EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors)), ("efd-triggers", ("efd_triggers", EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers))])
                 self._leafs = OrderedDict([
-                    ('member_interface', YLeaf(YType.str, 'member-interface')),
-                    ('protocol_code', YLeaf(YType.enumeration, 'protocol-code')),
-                    ('rx_fault', YLeaf(YType.boolean, 'rx-fault')),
-                    ('local_mwd_key', YLeaf(YType.uint32, 'local-mwd-key')),
-                    ('remote_mwd_key_present', YLeaf(YType.boolean, 'remote-mwd-key-present')),
-                    ('remote_mwd_key', YLeaf(YType.uint32, 'remote-mwd-key')),
+                    ('member_interface', (YLeaf(YType.str, 'member-interface'), ['str'])),
+                    ('protocol_code', (YLeaf(YType.enumeration, 'protocol-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'ProtocolState', '')])),
+                    ('rx_fault', (YLeaf(YType.boolean, 'rx-fault'), ['bool'])),
+                    ('local_mwd_key', (YLeaf(YType.uint32, 'local-mwd-key'), ['int'])),
+                    ('remote_mwd_key_present', (YLeaf(YType.boolean, 'remote-mwd-key-present'), ['bool'])),
+                    ('remote_mwd_key', (YLeaf(YType.uint32, 'remote-mwd-key'), ['int'])),
                 ])
                 self.member_interface = None
                 self.protocol_code = None
@@ -978,9 +983,10 @@ class EtherLinkOam(Entity):
                 self._children_name_map["efd_triggers"] = "efd-triggers"
                 self._segment_path = lambda: "interface-state-interface" + "[member-interface='" + str(self.member_interface) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/interface-state-interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface, ['member_interface', u'protocol_code', u'rx_fault', u'local_mwd_key', u'remote_mwd_key_present', u'remote_mwd_key'], name, value)
+                self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface, ['member_interface', 'protocol_code', 'rx_fault', 'local_mwd_key', 'remote_mwd_key_present', 'remote_mwd_key'], name, value)
 
 
             class Errors(Entity):
@@ -1064,16 +1070,16 @@ class EtherLinkOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('pfi_reason', YLeaf(YType.str, 'pfi-reason')),
-                        ('pfi_error_code', YLeaf(YType.uint32, 'pfi-error-code')),
-                        ('platform_reason', YLeaf(YType.str, 'platform-reason')),
-                        ('platform_error_code', YLeaf(YType.uint32, 'platform-error-code')),
-                        ('spio_reason', YLeaf(YType.str, 'spio-reason')),
-                        ('spio_error_code', YLeaf(YType.uint32, 'spio-error-code')),
-                        ('epi_reason', YLeaf(YType.str, 'epi-reason')),
-                        ('epi_error_code', YLeaf(YType.uint32, 'epi-error-code')),
-                        ('caps_add_reason', YLeaf(YType.str, 'caps-add-reason')),
-                        ('caps_add_error_code', YLeaf(YType.uint32, 'caps-add-error-code')),
+                        ('pfi_reason', (YLeaf(YType.str, 'pfi-reason'), ['str'])),
+                        ('pfi_error_code', (YLeaf(YType.uint32, 'pfi-error-code'), ['int'])),
+                        ('platform_reason', (YLeaf(YType.str, 'platform-reason'), ['str'])),
+                        ('platform_error_code', (YLeaf(YType.uint32, 'platform-error-code'), ['int'])),
+                        ('spio_reason', (YLeaf(YType.str, 'spio-reason'), ['str'])),
+                        ('spio_error_code', (YLeaf(YType.uint32, 'spio-error-code'), ['int'])),
+                        ('epi_reason', (YLeaf(YType.str, 'epi-reason'), ['str'])),
+                        ('epi_error_code', (YLeaf(YType.uint32, 'epi-error-code'), ['int'])),
+                        ('caps_add_reason', (YLeaf(YType.str, 'caps-add-reason'), ['str'])),
+                        ('caps_add_error_code', (YLeaf(YType.uint32, 'caps-add-error-code'), ['int'])),
                     ])
                     self.pfi_reason = None
                     self.pfi_error_code = None
@@ -1086,9 +1092,10 @@ class EtherLinkOam(Entity):
                     self.caps_add_reason = None
                     self.caps_add_error_code = None
                     self._segment_path = lambda: "errors"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors, [u'pfi_reason', u'pfi_error_code', u'platform_reason', u'platform_error_code', u'spio_reason', u'spio_error_code', u'epi_reason', u'epi_error_code', u'caps_add_reason', u'caps_add_error_code'], name, value)
+                    self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.Errors, ['pfi_reason', 'pfi_error_code', 'platform_reason', 'platform_error_code', 'spio_reason', 'spio_error_code', 'epi_reason', 'epi_error_code', 'caps_add_reason', 'caps_add_error_code'], name, value)
 
 
             class EfdTriggers(Entity):
@@ -1137,11 +1144,11 @@ class EtherLinkOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('link_fault_received', YLeaf(YType.boolean, 'link-fault-received')),
-                        ('discovery_timed_out', YLeaf(YType.boolean, 'discovery-timed-out')),
-                        ('capabilities_conflict', YLeaf(YType.boolean, 'capabilities-conflict')),
-                        ('wiring_conflict', YLeaf(YType.boolean, 'wiring-conflict')),
-                        ('session_down', YLeaf(YType.boolean, 'session-down')),
+                        ('link_fault_received', (YLeaf(YType.boolean, 'link-fault-received'), ['bool'])),
+                        ('discovery_timed_out', (YLeaf(YType.boolean, 'discovery-timed-out'), ['bool'])),
+                        ('capabilities_conflict', (YLeaf(YType.boolean, 'capabilities-conflict'), ['bool'])),
+                        ('wiring_conflict', (YLeaf(YType.boolean, 'wiring-conflict'), ['bool'])),
+                        ('session_down', (YLeaf(YType.boolean, 'session-down'), ['bool'])),
                     ])
                     self.link_fault_received = None
                     self.discovery_timed_out = None
@@ -1149,9 +1156,10 @@ class EtherLinkOam(Entity):
                     self.wiring_conflict = None
                     self.session_down = None
                     self._segment_path = lambda: "efd-triggers"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers, [u'link_fault_received', u'discovery_timed_out', u'capabilities_conflict', u'wiring_conflict', u'session_down'], name, value)
+                    self._perform_setattr(EtherLinkOam.InterfaceStateInterfaces.InterfaceStateInterface.EfdTriggers, ['link_fault_received', 'discovery_timed_out', 'capabilities_conflict', 'wiring_conflict', 'session_down'], name, value)
 
 
     class RunningConfigInterfaces(Entity):
@@ -1185,6 +1193,7 @@ class EtherLinkOam(Entity):
             self.running_config_interface = YList(self)
             self._segment_path = lambda: "running-config-interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EtherLinkOam.RunningConfigInterfaces, [], name, value)
@@ -1200,7 +1209,7 @@ class EtherLinkOam(Entity):
             	Member Interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: fast_hello_interval_enabled
             
@@ -1665,85 +1674,85 @@ class EtherLinkOam(Entity):
                 self.ylist_key_names = ['member_interface']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('member_interface', YLeaf(YType.str, 'member-interface')),
-                    ('fast_hello_interval_enabled', YLeaf(YType.boolean, 'fast-hello-interval-enabled')),
-                    ('link_monitor_enabled', YLeaf(YType.boolean, 'link-monitor-enabled')),
-                    ('remote_loopback_enabled', YLeaf(YType.boolean, 'remote-loopback-enabled')),
-                    ('mib_retrieval_enabled', YLeaf(YType.boolean, 'mib-retrieval-enabled')),
-                    ('udlf_enabled', YLeaf(YType.boolean, 'udlf-enabled')),
-                    ('mode', YLeaf(YType.enumeration, 'mode')),
-                    ('connection_timeout', YLeaf(YType.uint8, 'connection-timeout')),
-                    ('symbol_period_window', YLeaf(YType.uint32, 'symbol-period-window')),
-                    ('symbol_period_window_units', YLeaf(YType.uint8, 'symbol-period-window-units')),
-                    ('symbol_period_window_multiplier', YLeaf(YType.uint8, 'symbol-period-window-multiplier')),
-                    ('symbol_period_threshold_low', YLeaf(YType.uint64, 'symbol-period-threshold-low')),
-                    ('symbol_period_threshold_high', YLeaf(YType.uint64, 'symbol-period-threshold-high')),
-                    ('symbol_period_threshold_units', YLeaf(YType.uint8, 'symbol-period-threshold-units')),
-                    ('symbol_period_threshold_low_multiplier', YLeaf(YType.uint8, 'symbol-period-threshold-low-multiplier')),
-                    ('symbol_period_threshold_high_multiplier', YLeaf(YType.uint8, 'symbol-period-threshold-high-multiplier')),
-                    ('frame_window', YLeaf(YType.uint32, 'frame-window')),
-                    ('frame_threshold_low', YLeaf(YType.uint64, 'frame-threshold-low')),
-                    ('frame_threshold_high', YLeaf(YType.uint64, 'frame-threshold-high')),
-                    ('frame_threshold_low_multiplier', YLeaf(YType.uint8, 'frame-threshold-low-multiplier')),
-                    ('frame_threshold_high_multiplier', YLeaf(YType.uint8, 'frame-threshold-high-multiplier')),
-                    ('frame_period_window', YLeaf(YType.uint32, 'frame-period-window')),
-                    ('frame_period_window_units', YLeaf(YType.uint8, 'frame-period-window-units')),
-                    ('frame_period_window_multiplier', YLeaf(YType.uint8, 'frame-period-window-multiplier')),
-                    ('frame_period_threshold_low', YLeaf(YType.uint64, 'frame-period-threshold-low')),
-                    ('frame_period_threshold_high', YLeaf(YType.uint64, 'frame-period-threshold-high')),
-                    ('frame_period_threshold_units', YLeaf(YType.uint8, 'frame-period-threshold-units')),
-                    ('frame_period_threshold_low_multiplier', YLeaf(YType.uint8, 'frame-period-threshold-low-multiplier')),
-                    ('frame_period_threshold_high_multiplier', YLeaf(YType.uint8, 'frame-period-threshold-high-multiplier')),
-                    ('frame_seconds_window', YLeaf(YType.uint32, 'frame-seconds-window')),
-                    ('frame_seconds_threshold_low', YLeaf(YType.uint64, 'frame-seconds-threshold-low')),
-                    ('frame_seconds_threshold_high', YLeaf(YType.uint64, 'frame-seconds-threshold-high')),
-                    ('high_threshold_action', YLeaf(YType.enumeration, 'high-threshold-action')),
-                    ('link_fault_action', YLeaf(YType.enumeration, 'link-fault-action')),
-                    ('dying_gasp_action', YLeaf(YType.enumeration, 'dying-gasp-action')),
-                    ('critical_event_action', YLeaf(YType.enumeration, 'critical-event-action')),
-                    ('discovery_timeout_action', YLeaf(YType.enumeration, 'discovery-timeout-action')),
-                    ('capabilities_conflict_action', YLeaf(YType.enumeration, 'capabilities-conflict-action')),
-                    ('wiring_conflict_action', YLeaf(YType.enumeration, 'wiring-conflict-action')),
-                    ('session_up_action', YLeaf(YType.enumeration, 'session-up-action')),
-                    ('session_down_action', YLeaf(YType.enumeration, 'session-down-action')),
-                    ('remote_loopback_action', YLeaf(YType.enumeration, 'remote-loopback-action')),
-                    ('require_remote_mode', YLeaf(YType.enumeration, 'require-remote-mode')),
-                    ('require_remote_mib_retrieval', YLeaf(YType.boolean, 'require-remote-mib-retrieval')),
-                    ('require_loopback', YLeaf(YType.boolean, 'require-loopback')),
-                    ('require_link_monitoring', YLeaf(YType.boolean, 'require-link-monitoring')),
-                    ('fast_hello_interval_enabled_overridden', YLeaf(YType.boolean, 'fast-hello-interval-enabled-overridden')),
-                    ('link_monitoring_enabled_overridden', YLeaf(YType.boolean, 'link-monitoring-enabled-overridden')),
-                    ('remote_loopback_enabled_overridden', YLeaf(YType.boolean, 'remote-loopback-enabled-overridden')),
-                    ('mib_retrieval_enabled_overridden', YLeaf(YType.boolean, 'mib-retrieval-enabled-overridden')),
-                    ('udlf_enabled_overridden', YLeaf(YType.boolean, 'udlf-enabled-overridden')),
-                    ('mode_overridden', YLeaf(YType.boolean, 'mode-overridden')),
-                    ('connection_timeout_overridden', YLeaf(YType.boolean, 'connection-timeout-overridden')),
-                    ('symbol_period_window_overridden', YLeaf(YType.boolean, 'symbol-period-window-overridden')),
-                    ('symbol_period_threshold_low_overridden', YLeaf(YType.boolean, 'symbol-period-threshold-low-overridden')),
-                    ('symbol_period_threshold_high_overridden', YLeaf(YType.boolean, 'symbol-period-threshold-high-overridden')),
-                    ('frame_window_overridden', YLeaf(YType.boolean, 'frame-window-overridden')),
-                    ('frame_threshold_low_overridden', YLeaf(YType.boolean, 'frame-threshold-low-overridden')),
-                    ('frame_threshold_high_overridden', YLeaf(YType.boolean, 'frame-threshold-high-overridden')),
-                    ('frame_period_window_overridden', YLeaf(YType.boolean, 'frame-period-window-overridden')),
-                    ('frame_period_threshold_low_overridden', YLeaf(YType.boolean, 'frame-period-threshold-low-overridden')),
-                    ('frame_period_threshold_high_overridden', YLeaf(YType.boolean, 'frame-period-threshold-high-overridden')),
-                    ('frame_seconds_window_overridden', YLeaf(YType.boolean, 'frame-seconds-window-overridden')),
-                    ('frame_seconds_threshold_low_overridden', YLeaf(YType.boolean, 'frame-seconds-threshold-low-overridden')),
-                    ('frame_seconds_threshold_high_overridden', YLeaf(YType.boolean, 'frame-seconds-threshold-high-overridden')),
-                    ('high_threshold_action_overridden', YLeaf(YType.boolean, 'high-threshold-action-overridden')),
-                    ('link_fault_action_overridden', YLeaf(YType.boolean, 'link-fault-action-overridden')),
-                    ('dying_gasp_action_overridden', YLeaf(YType.boolean, 'dying-gasp-action-overridden')),
-                    ('critical_event_action_overridden', YLeaf(YType.boolean, 'critical-event-action-overridden')),
-                    ('discovery_timeout_action_overridden', YLeaf(YType.boolean, 'discovery-timeout-action-overridden')),
-                    ('capabilities_conflict_action_overridden', YLeaf(YType.boolean, 'capabilities-conflict-action-overridden')),
-                    ('wiring_conflict_action_overridden', YLeaf(YType.boolean, 'wiring-conflict-action-overridden')),
-                    ('session_down_action_overridden', YLeaf(YType.boolean, 'session-down-action-overridden')),
-                    ('session_up_action_overridden', YLeaf(YType.boolean, 'session-up-action-overridden')),
-                    ('remote_loopback_action_overridden', YLeaf(YType.boolean, 'remote-loopback-action-overridden')),
-                    ('require_mode_overridden', YLeaf(YType.boolean, 'require-mode-overridden')),
-                    ('require_mib_retrieval_overridden', YLeaf(YType.boolean, 'require-mib-retrieval-overridden')),
-                    ('require_loopback_overridden', YLeaf(YType.boolean, 'require-loopback-overridden')),
-                    ('require_link_monitoring_overridden', YLeaf(YType.boolean, 'require-link-monitoring-overridden')),
+                    ('member_interface', (YLeaf(YType.str, 'member-interface'), ['str'])),
+                    ('fast_hello_interval_enabled', (YLeaf(YType.boolean, 'fast-hello-interval-enabled'), ['bool'])),
+                    ('link_monitor_enabled', (YLeaf(YType.boolean, 'link-monitor-enabled'), ['bool'])),
+                    ('remote_loopback_enabled', (YLeaf(YType.boolean, 'remote-loopback-enabled'), ['bool'])),
+                    ('mib_retrieval_enabled', (YLeaf(YType.boolean, 'mib-retrieval-enabled'), ['bool'])),
+                    ('udlf_enabled', (YLeaf(YType.boolean, 'udlf-enabled'), ['bool'])),
+                    ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Mode', '')])),
+                    ('connection_timeout', (YLeaf(YType.uint8, 'connection-timeout'), ['int'])),
+                    ('symbol_period_window', (YLeaf(YType.uint32, 'symbol-period-window'), ['int'])),
+                    ('symbol_period_window_units', (YLeaf(YType.uint8, 'symbol-period-window-units'), ['int'])),
+                    ('symbol_period_window_multiplier', (YLeaf(YType.uint8, 'symbol-period-window-multiplier'), ['int'])),
+                    ('symbol_period_threshold_low', (YLeaf(YType.uint64, 'symbol-period-threshold-low'), ['int'])),
+                    ('symbol_period_threshold_high', (YLeaf(YType.uint64, 'symbol-period-threshold-high'), ['int'])),
+                    ('symbol_period_threshold_units', (YLeaf(YType.uint8, 'symbol-period-threshold-units'), ['int'])),
+                    ('symbol_period_threshold_low_multiplier', (YLeaf(YType.uint8, 'symbol-period-threshold-low-multiplier'), ['int'])),
+                    ('symbol_period_threshold_high_multiplier', (YLeaf(YType.uint8, 'symbol-period-threshold-high-multiplier'), ['int'])),
+                    ('frame_window', (YLeaf(YType.uint32, 'frame-window'), ['int'])),
+                    ('frame_threshold_low', (YLeaf(YType.uint64, 'frame-threshold-low'), ['int'])),
+                    ('frame_threshold_high', (YLeaf(YType.uint64, 'frame-threshold-high'), ['int'])),
+                    ('frame_threshold_low_multiplier', (YLeaf(YType.uint8, 'frame-threshold-low-multiplier'), ['int'])),
+                    ('frame_threshold_high_multiplier', (YLeaf(YType.uint8, 'frame-threshold-high-multiplier'), ['int'])),
+                    ('frame_period_window', (YLeaf(YType.uint32, 'frame-period-window'), ['int'])),
+                    ('frame_period_window_units', (YLeaf(YType.uint8, 'frame-period-window-units'), ['int'])),
+                    ('frame_period_window_multiplier', (YLeaf(YType.uint8, 'frame-period-window-multiplier'), ['int'])),
+                    ('frame_period_threshold_low', (YLeaf(YType.uint64, 'frame-period-threshold-low'), ['int'])),
+                    ('frame_period_threshold_high', (YLeaf(YType.uint64, 'frame-period-threshold-high'), ['int'])),
+                    ('frame_period_threshold_units', (YLeaf(YType.uint8, 'frame-period-threshold-units'), ['int'])),
+                    ('frame_period_threshold_low_multiplier', (YLeaf(YType.uint8, 'frame-period-threshold-low-multiplier'), ['int'])),
+                    ('frame_period_threshold_high_multiplier', (YLeaf(YType.uint8, 'frame-period-threshold-high-multiplier'), ['int'])),
+                    ('frame_seconds_window', (YLeaf(YType.uint32, 'frame-seconds-window'), ['int'])),
+                    ('frame_seconds_threshold_low', (YLeaf(YType.uint64, 'frame-seconds-threshold-low'), ['int'])),
+                    ('frame_seconds_threshold_high', (YLeaf(YType.uint64, 'frame-seconds-threshold-high'), ['int'])),
+                    ('high_threshold_action', (YLeaf(YType.enumeration, 'high-threshold-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action', '')])),
+                    ('link_fault_action', (YLeaf(YType.enumeration, 'link-fault-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action', '')])),
+                    ('dying_gasp_action', (YLeaf(YType.enumeration, 'dying-gasp-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action', '')])),
+                    ('critical_event_action', (YLeaf(YType.enumeration, 'critical-event-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action', '')])),
+                    ('discovery_timeout_action', (YLeaf(YType.enumeration, 'discovery-timeout-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action', '')])),
+                    ('capabilities_conflict_action', (YLeaf(YType.enumeration, 'capabilities-conflict-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action', '')])),
+                    ('wiring_conflict_action', (YLeaf(YType.enumeration, 'wiring-conflict-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action', '')])),
+                    ('session_up_action', (YLeaf(YType.enumeration, 'session-up-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action', '')])),
+                    ('session_down_action', (YLeaf(YType.enumeration, 'session-down-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action', '')])),
+                    ('remote_loopback_action', (YLeaf(YType.enumeration, 'remote-loopback-action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action', '')])),
+                    ('require_remote_mode', (YLeaf(YType.enumeration, 'require-remote-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Mode', '')])),
+                    ('require_remote_mib_retrieval', (YLeaf(YType.boolean, 'require-remote-mib-retrieval'), ['bool'])),
+                    ('require_loopback', (YLeaf(YType.boolean, 'require-loopback'), ['bool'])),
+                    ('require_link_monitoring', (YLeaf(YType.boolean, 'require-link-monitoring'), ['bool'])),
+                    ('fast_hello_interval_enabled_overridden', (YLeaf(YType.boolean, 'fast-hello-interval-enabled-overridden'), ['bool'])),
+                    ('link_monitoring_enabled_overridden', (YLeaf(YType.boolean, 'link-monitoring-enabled-overridden'), ['bool'])),
+                    ('remote_loopback_enabled_overridden', (YLeaf(YType.boolean, 'remote-loopback-enabled-overridden'), ['bool'])),
+                    ('mib_retrieval_enabled_overridden', (YLeaf(YType.boolean, 'mib-retrieval-enabled-overridden'), ['bool'])),
+                    ('udlf_enabled_overridden', (YLeaf(YType.boolean, 'udlf-enabled-overridden'), ['bool'])),
+                    ('mode_overridden', (YLeaf(YType.boolean, 'mode-overridden'), ['bool'])),
+                    ('connection_timeout_overridden', (YLeaf(YType.boolean, 'connection-timeout-overridden'), ['bool'])),
+                    ('symbol_period_window_overridden', (YLeaf(YType.boolean, 'symbol-period-window-overridden'), ['bool'])),
+                    ('symbol_period_threshold_low_overridden', (YLeaf(YType.boolean, 'symbol-period-threshold-low-overridden'), ['bool'])),
+                    ('symbol_period_threshold_high_overridden', (YLeaf(YType.boolean, 'symbol-period-threshold-high-overridden'), ['bool'])),
+                    ('frame_window_overridden', (YLeaf(YType.boolean, 'frame-window-overridden'), ['bool'])),
+                    ('frame_threshold_low_overridden', (YLeaf(YType.boolean, 'frame-threshold-low-overridden'), ['bool'])),
+                    ('frame_threshold_high_overridden', (YLeaf(YType.boolean, 'frame-threshold-high-overridden'), ['bool'])),
+                    ('frame_period_window_overridden', (YLeaf(YType.boolean, 'frame-period-window-overridden'), ['bool'])),
+                    ('frame_period_threshold_low_overridden', (YLeaf(YType.boolean, 'frame-period-threshold-low-overridden'), ['bool'])),
+                    ('frame_period_threshold_high_overridden', (YLeaf(YType.boolean, 'frame-period-threshold-high-overridden'), ['bool'])),
+                    ('frame_seconds_window_overridden', (YLeaf(YType.boolean, 'frame-seconds-window-overridden'), ['bool'])),
+                    ('frame_seconds_threshold_low_overridden', (YLeaf(YType.boolean, 'frame-seconds-threshold-low-overridden'), ['bool'])),
+                    ('frame_seconds_threshold_high_overridden', (YLeaf(YType.boolean, 'frame-seconds-threshold-high-overridden'), ['bool'])),
+                    ('high_threshold_action_overridden', (YLeaf(YType.boolean, 'high-threshold-action-overridden'), ['bool'])),
+                    ('link_fault_action_overridden', (YLeaf(YType.boolean, 'link-fault-action-overridden'), ['bool'])),
+                    ('dying_gasp_action_overridden', (YLeaf(YType.boolean, 'dying-gasp-action-overridden'), ['bool'])),
+                    ('critical_event_action_overridden', (YLeaf(YType.boolean, 'critical-event-action-overridden'), ['bool'])),
+                    ('discovery_timeout_action_overridden', (YLeaf(YType.boolean, 'discovery-timeout-action-overridden'), ['bool'])),
+                    ('capabilities_conflict_action_overridden', (YLeaf(YType.boolean, 'capabilities-conflict-action-overridden'), ['bool'])),
+                    ('wiring_conflict_action_overridden', (YLeaf(YType.boolean, 'wiring-conflict-action-overridden'), ['bool'])),
+                    ('session_down_action_overridden', (YLeaf(YType.boolean, 'session-down-action-overridden'), ['bool'])),
+                    ('session_up_action_overridden', (YLeaf(YType.boolean, 'session-up-action-overridden'), ['bool'])),
+                    ('remote_loopback_action_overridden', (YLeaf(YType.boolean, 'remote-loopback-action-overridden'), ['bool'])),
+                    ('require_mode_overridden', (YLeaf(YType.boolean, 'require-mode-overridden'), ['bool'])),
+                    ('require_mib_retrieval_overridden', (YLeaf(YType.boolean, 'require-mib-retrieval-overridden'), ['bool'])),
+                    ('require_loopback_overridden', (YLeaf(YType.boolean, 'require-loopback-overridden'), ['bool'])),
+                    ('require_link_monitoring_overridden', (YLeaf(YType.boolean, 'require-link-monitoring-overridden'), ['bool'])),
                 ])
                 self.member_interface = None
                 self.fast_hello_interval_enabled = None
@@ -1826,9 +1835,10 @@ class EtherLinkOam(Entity):
                 self.require_link_monitoring_overridden = None
                 self._segment_path = lambda: "running-config-interface" + "[member-interface='" + str(self.member_interface) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/running-config-interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface, ['member_interface', u'fast_hello_interval_enabled', u'link_monitor_enabled', u'remote_loopback_enabled', u'mib_retrieval_enabled', u'udlf_enabled', u'mode', u'connection_timeout', u'symbol_period_window', u'symbol_period_window_units', u'symbol_period_window_multiplier', u'symbol_period_threshold_low', u'symbol_period_threshold_high', u'symbol_period_threshold_units', u'symbol_period_threshold_low_multiplier', u'symbol_period_threshold_high_multiplier', u'frame_window', u'frame_threshold_low', u'frame_threshold_high', u'frame_threshold_low_multiplier', u'frame_threshold_high_multiplier', u'frame_period_window', u'frame_period_window_units', u'frame_period_window_multiplier', u'frame_period_threshold_low', u'frame_period_threshold_high', u'frame_period_threshold_units', u'frame_period_threshold_low_multiplier', u'frame_period_threshold_high_multiplier', u'frame_seconds_window', u'frame_seconds_threshold_low', u'frame_seconds_threshold_high', u'high_threshold_action', u'link_fault_action', u'dying_gasp_action', u'critical_event_action', u'discovery_timeout_action', u'capabilities_conflict_action', u'wiring_conflict_action', u'session_up_action', u'session_down_action', u'remote_loopback_action', u'require_remote_mode', u'require_remote_mib_retrieval', u'require_loopback', u'require_link_monitoring', u'fast_hello_interval_enabled_overridden', u'link_monitoring_enabled_overridden', u'remote_loopback_enabled_overridden', u'mib_retrieval_enabled_overridden', u'udlf_enabled_overridden', u'mode_overridden', u'connection_timeout_overridden', u'symbol_period_window_overridden', u'symbol_period_threshold_low_overridden', u'symbol_period_threshold_high_overridden', u'frame_window_overridden', u'frame_threshold_low_overridden', u'frame_threshold_high_overridden', u'frame_period_window_overridden', u'frame_period_threshold_low_overridden', u'frame_period_threshold_high_overridden', u'frame_seconds_window_overridden', u'frame_seconds_threshold_low_overridden', u'frame_seconds_threshold_high_overridden', u'high_threshold_action_overridden', u'link_fault_action_overridden', u'dying_gasp_action_overridden', u'critical_event_action_overridden', u'discovery_timeout_action_overridden', u'capabilities_conflict_action_overridden', u'wiring_conflict_action_overridden', u'session_down_action_overridden', u'session_up_action_overridden', u'remote_loopback_action_overridden', u'require_mode_overridden', u'require_mib_retrieval_overridden', u'require_loopback_overridden', u'require_link_monitoring_overridden'], name, value)
+                self._perform_setattr(EtherLinkOam.RunningConfigInterfaces.RunningConfigInterface, ['member_interface', 'fast_hello_interval_enabled', 'link_monitor_enabled', 'remote_loopback_enabled', 'mib_retrieval_enabled', 'udlf_enabled', 'mode', 'connection_timeout', 'symbol_period_window', 'symbol_period_window_units', 'symbol_period_window_multiplier', 'symbol_period_threshold_low', 'symbol_period_threshold_high', 'symbol_period_threshold_units', 'symbol_period_threshold_low_multiplier', 'symbol_period_threshold_high_multiplier', 'frame_window', 'frame_threshold_low', 'frame_threshold_high', 'frame_threshold_low_multiplier', 'frame_threshold_high_multiplier', 'frame_period_window', 'frame_period_window_units', 'frame_period_window_multiplier', 'frame_period_threshold_low', 'frame_period_threshold_high', 'frame_period_threshold_units', 'frame_period_threshold_low_multiplier', 'frame_period_threshold_high_multiplier', 'frame_seconds_window', 'frame_seconds_threshold_low', 'frame_seconds_threshold_high', 'high_threshold_action', 'link_fault_action', 'dying_gasp_action', 'critical_event_action', 'discovery_timeout_action', 'capabilities_conflict_action', 'wiring_conflict_action', 'session_up_action', 'session_down_action', 'remote_loopback_action', 'require_remote_mode', 'require_remote_mib_retrieval', 'require_loopback', 'require_link_monitoring', 'fast_hello_interval_enabled_overridden', 'link_monitoring_enabled_overridden', 'remote_loopback_enabled_overridden', 'mib_retrieval_enabled_overridden', 'udlf_enabled_overridden', 'mode_overridden', 'connection_timeout_overridden', 'symbol_period_window_overridden', 'symbol_period_threshold_low_overridden', 'symbol_period_threshold_high_overridden', 'frame_window_overridden', 'frame_threshold_low_overridden', 'frame_threshold_high_overridden', 'frame_period_window_overridden', 'frame_period_threshold_low_overridden', 'frame_period_threshold_high_overridden', 'frame_seconds_window_overridden', 'frame_seconds_threshold_low_overridden', 'frame_seconds_threshold_high_overridden', 'high_threshold_action_overridden', 'link_fault_action_overridden', 'dying_gasp_action_overridden', 'critical_event_action_overridden', 'discovery_timeout_action_overridden', 'capabilities_conflict_action_overridden', 'wiring_conflict_action_overridden', 'session_down_action_overridden', 'session_up_action_overridden', 'remote_loopback_action_overridden', 'require_mode_overridden', 'require_mib_retrieval_overridden', 'require_loopback_overridden', 'require_link_monitoring_overridden'], name, value)
 
 
     class Nodes(Entity):
@@ -1861,6 +1871,7 @@ class EtherLinkOam(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EtherLinkOam.Nodes, [], name, value)
@@ -1899,7 +1910,7 @@ class EtherLinkOam(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("summary", ("summary", EtherLinkOam.Nodes.Node.Summary))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -1908,6 +1919,7 @@ class EtherLinkOam(Entity):
                 self._children_name_map["summary"] = "summary"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EtherLinkOam.Nodes.Node, ['node_name'], name, value)
@@ -2089,28 +2101,28 @@ class EtherLinkOam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interfaces', YLeaf(YType.uint32, 'interfaces')),
-                        ('port_down', YLeaf(YType.uint32, 'port-down')),
-                        ('passive_wait', YLeaf(YType.uint32, 'passive-wait')),
-                        ('active_send', YLeaf(YType.uint32, 'active-send')),
-                        ('evaluating', YLeaf(YType.uint32, 'evaluating')),
-                        ('local_accept', YLeaf(YType.uint32, 'local-accept')),
-                        ('local_reject', YLeaf(YType.uint32, 'local-reject')),
-                        ('remote_reject', YLeaf(YType.uint32, 'remote-reject')),
-                        ('operational', YLeaf(YType.uint32, 'operational')),
-                        ('loopback_mode', YLeaf(YType.uint32, 'loopback-mode')),
-                        ('miswired_connections', YLeaf(YType.uint32, 'miswired-connections')),
-                        ('events', YLeaf(YType.uint64, 'events')),
-                        ('local_events', YLeaf(YType.uint64, 'local-events')),
-                        ('local_symbol_period', YLeaf(YType.uint64, 'local-symbol-period')),
-                        ('local_frame', YLeaf(YType.uint64, 'local-frame')),
-                        ('local_frame_period', YLeaf(YType.uint64, 'local-frame-period')),
-                        ('local_frame_seconds', YLeaf(YType.uint64, 'local-frame-seconds')),
-                        ('remote_events', YLeaf(YType.uint64, 'remote-events')),
-                        ('remote_symbol_period', YLeaf(YType.uint64, 'remote-symbol-period')),
-                        ('remote_frame', YLeaf(YType.uint64, 'remote-frame')),
-                        ('remote_frame_period', YLeaf(YType.uint64, 'remote-frame-period')),
-                        ('remote_frame_seconds', YLeaf(YType.uint64, 'remote-frame-seconds')),
+                        ('interfaces', (YLeaf(YType.uint32, 'interfaces'), ['int'])),
+                        ('port_down', (YLeaf(YType.uint32, 'port-down'), ['int'])),
+                        ('passive_wait', (YLeaf(YType.uint32, 'passive-wait'), ['int'])),
+                        ('active_send', (YLeaf(YType.uint32, 'active-send'), ['int'])),
+                        ('evaluating', (YLeaf(YType.uint32, 'evaluating'), ['int'])),
+                        ('local_accept', (YLeaf(YType.uint32, 'local-accept'), ['int'])),
+                        ('local_reject', (YLeaf(YType.uint32, 'local-reject'), ['int'])),
+                        ('remote_reject', (YLeaf(YType.uint32, 'remote-reject'), ['int'])),
+                        ('operational', (YLeaf(YType.uint32, 'operational'), ['int'])),
+                        ('loopback_mode', (YLeaf(YType.uint32, 'loopback-mode'), ['int'])),
+                        ('miswired_connections', (YLeaf(YType.uint32, 'miswired-connections'), ['int'])),
+                        ('events', (YLeaf(YType.uint64, 'events'), ['int'])),
+                        ('local_events', (YLeaf(YType.uint64, 'local-events'), ['int'])),
+                        ('local_symbol_period', (YLeaf(YType.uint64, 'local-symbol-period'), ['int'])),
+                        ('local_frame', (YLeaf(YType.uint64, 'local-frame'), ['int'])),
+                        ('local_frame_period', (YLeaf(YType.uint64, 'local-frame-period'), ['int'])),
+                        ('local_frame_seconds', (YLeaf(YType.uint64, 'local-frame-seconds'), ['int'])),
+                        ('remote_events', (YLeaf(YType.uint64, 'remote-events'), ['int'])),
+                        ('remote_symbol_period', (YLeaf(YType.uint64, 'remote-symbol-period'), ['int'])),
+                        ('remote_frame', (YLeaf(YType.uint64, 'remote-frame'), ['int'])),
+                        ('remote_frame_period', (YLeaf(YType.uint64, 'remote-frame-period'), ['int'])),
+                        ('remote_frame_seconds', (YLeaf(YType.uint64, 'remote-frame-seconds'), ['int'])),
                     ])
                     self.interfaces = None
                     self.port_down = None
@@ -2135,9 +2147,10 @@ class EtherLinkOam(Entity):
                     self.remote_frame_period = None
                     self.remote_frame_seconds = None
                     self._segment_path = lambda: "summary"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EtherLinkOam.Nodes.Node.Summary, [u'interfaces', u'port_down', u'passive_wait', u'active_send', u'evaluating', u'local_accept', u'local_reject', u'remote_reject', u'operational', u'loopback_mode', u'miswired_connections', u'events', u'local_events', u'local_symbol_period', u'local_frame', u'local_frame_period', u'local_frame_seconds', u'remote_events', u'remote_symbol_period', u'remote_frame', u'remote_frame_period', u'remote_frame_seconds'], name, value)
+                    self._perform_setattr(EtherLinkOam.Nodes.Node.Summary, ['interfaces', 'port_down', 'passive_wait', 'active_send', 'evaluating', 'local_accept', 'local_reject', 'remote_reject', 'operational', 'loopback_mode', 'miswired_connections', 'events', 'local_events', 'local_symbol_period', 'local_frame', 'local_frame_period', 'local_frame_seconds', 'remote_events', 'remote_symbol_period', 'remote_frame', 'remote_frame_period', 'remote_frame_seconds'], name, value)
 
 
     class EventLogEntryInterfaces(Entity):
@@ -2171,6 +2184,7 @@ class EtherLinkOam(Entity):
             self.event_log_entry_interface = YList(self)
             self._segment_path = lambda: "event-log-entry-interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EtherLinkOam.EventLogEntryInterfaces, [], name, value)
@@ -2186,7 +2200,7 @@ class EtherLinkOam(Entity):
             	Member Interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: event_log_entry_indexes
             
@@ -2210,7 +2224,7 @@ class EtherLinkOam(Entity):
                 self.ylist_key_names = ['member_interface']
                 self._child_classes = OrderedDict([("event-log-entry-indexes", ("event_log_entry_indexes", EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes))])
                 self._leafs = OrderedDict([
-                    ('member_interface', YLeaf(YType.str, 'member-interface')),
+                    ('member_interface', (YLeaf(YType.str, 'member-interface'), ['str'])),
                 ])
                 self.member_interface = None
 
@@ -2219,6 +2233,7 @@ class EtherLinkOam(Entity):
                 self._children_name_map["event_log_entry_indexes"] = "event-log-entry-indexes"
                 self._segment_path = lambda: "event-log-entry-interface" + "[member-interface='" + str(self.member_interface) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/event-log-entry-interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface, ['member_interface'], name, value)
@@ -2254,6 +2269,7 @@ class EtherLinkOam(Entity):
 
                     self.event_log_entry_index = YList(self)
                     self._segment_path = lambda: "event-log-entry-indexes"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes, [], name, value)
@@ -2283,7 +2299,7 @@ class EtherLinkOam(Entity):
                     	Interface handle for this log entry
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: oui
                     
@@ -2415,26 +2431,26 @@ class EtherLinkOam(Entity):
                         self.ylist_key_names = ['event_log_entry_index']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('event_log_entry_index', YLeaf(YType.str, 'event-log-entry-index')),
-                            ('index', YLeaf(YType.uint32, 'index')),
-                            ('handle', YLeaf(YType.str, 'handle')),
-                            ('oui', YLeaf(YType.str, 'oui')),
-                            ('timestamp', YLeaf(YType.uint64, 'timestamp')),
-                            ('type', YLeaf(YType.enumeration, 'type')),
-                            ('location', YLeaf(YType.enumeration, 'location')),
-                            ('event_total', YLeaf(YType.uint32, 'event-total')),
-                            ('action_taken', YLeaf(YType.enumeration, 'action-taken')),
-                            ('window', YLeaf(YType.uint64, 'window')),
-                            ('threshold', YLeaf(YType.uint64, 'threshold')),
-                            ('local_high_threshold', YLeaf(YType.uint64, 'local-high-threshold')),
-                            ('value', YLeaf(YType.uint64, 'value')),
-                            ('running_total', YLeaf(YType.uint64, 'running-total')),
-                            ('window_config_units', YLeaf(YType.uint64, 'window-config-units')),
-                            ('window_units', YLeaf(YType.uint8, 'window-units')),
-                            ('threshold_config_units', YLeaf(YType.uint64, 'threshold-config-units')),
-                            ('threshold_units', YLeaf(YType.uint8, 'threshold-units')),
-                            ('local_high_threshold_config_units', YLeaf(YType.uint64, 'local-high-threshold-config-units')),
-                            ('value_config_units', YLeaf(YType.uint64, 'value-config-units')),
+                            ('event_log_entry_index', (YLeaf(YType.str, 'event-log-entry-index'), ['str'])),
+                            ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                            ('handle', (YLeaf(YType.str, 'handle'), ['str'])),
+                            ('oui', (YLeaf(YType.str, 'oui'), ['str'])),
+                            ('timestamp', (YLeaf(YType.uint64, 'timestamp'), ['int'])),
+                            ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Log', '')])),
+                            ('location', (YLeaf(YType.enumeration, 'location'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'LogLocation', '')])),
+                            ('event_total', (YLeaf(YType.uint32, 'event-total'), ['int'])),
+                            ('action_taken', (YLeaf(YType.enumeration, 'action-taken'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_link_oam_oper', 'Action', '')])),
+                            ('window', (YLeaf(YType.uint64, 'window'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint64, 'threshold'), ['int'])),
+                            ('local_high_threshold', (YLeaf(YType.uint64, 'local-high-threshold'), ['int'])),
+                            ('value', (YLeaf(YType.uint64, 'value'), ['int'])),
+                            ('running_total', (YLeaf(YType.uint64, 'running-total'), ['int'])),
+                            ('window_config_units', (YLeaf(YType.uint64, 'window-config-units'), ['int'])),
+                            ('window_units', (YLeaf(YType.uint8, 'window-units'), ['int'])),
+                            ('threshold_config_units', (YLeaf(YType.uint64, 'threshold-config-units'), ['int'])),
+                            ('threshold_units', (YLeaf(YType.uint8, 'threshold-units'), ['int'])),
+                            ('local_high_threshold_config_units', (YLeaf(YType.uint64, 'local-high-threshold-config-units'), ['int'])),
+                            ('value_config_units', (YLeaf(YType.uint64, 'value-config-units'), ['int'])),
                         ])
                         self.event_log_entry_index = None
                         self.index = None
@@ -2457,9 +2473,10 @@ class EtherLinkOam(Entity):
                         self.local_high_threshold_config_units = None
                         self.value_config_units = None
                         self._segment_path = lambda: "event-log-entry-index" + "[event-log-entry-index='" + str(self.event_log_entry_index) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes.EventLogEntryIndex, ['event_log_entry_index', u'index', u'handle', u'oui', u'timestamp', u'type', u'location', u'event_total', u'action_taken', u'window', u'threshold', u'local_high_threshold', u'value', u'running_total', u'window_config_units', u'window_units', u'threshold_config_units', u'threshold_units', u'local_high_threshold_config_units', u'value_config_units'], name, value)
+                        self._perform_setattr(EtherLinkOam.EventLogEntryInterfaces.EventLogEntryInterface.EventLogEntryIndexes.EventLogEntryIndex, ['event_log_entry_index', 'index', 'handle', 'oui', 'timestamp', 'type', 'location', 'event_total', 'action_taken', 'window', 'threshold', 'local_high_threshold', 'value', 'running_total', 'window_config_units', 'window_units', 'threshold_config_units', 'threshold_units', 'local_high_threshold_config_units', 'value_config_units'], name, value)
 
 
     class StatsInterfaces(Entity):
@@ -2493,6 +2510,7 @@ class EtherLinkOam(Entity):
             self.stats_interface = YList(self)
             self._segment_path = lambda: "stats-interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EtherLinkOam.StatsInterfaces, [], name, value)
@@ -2507,7 +2525,7 @@ class EtherLinkOam(Entity):
             	Member Interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: information_tx
             
@@ -2708,33 +2726,33 @@ class EtherLinkOam(Entity):
                 self.ylist_key_names = ['member_interface']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('member_interface', YLeaf(YType.str, 'member-interface')),
-                    ('information_tx', YLeaf(YType.uint32, 'information-tx')),
-                    ('information_rx', YLeaf(YType.uint32, 'information-rx')),
-                    ('unique_event_notification_tx', YLeaf(YType.uint32, 'unique-event-notification-tx')),
-                    ('unique_event_notification_rx', YLeaf(YType.uint32, 'unique-event-notification-rx')),
-                    ('duplicate_event_notification_tx', YLeaf(YType.uint32, 'duplicate-event-notification-tx')),
-                    ('duplicate_event_notification_rx', YLeaf(YType.uint32, 'duplicate-event-notification-rx')),
-                    ('loopback_control_tx', YLeaf(YType.uint32, 'loopback-control-tx')),
-                    ('loopback_control_rx', YLeaf(YType.uint32, 'loopback-control-rx')),
-                    ('variable_request_tx', YLeaf(YType.uint32, 'variable-request-tx')),
-                    ('variable_request_rx', YLeaf(YType.uint32, 'variable-request-rx')),
-                    ('variable_response_tx', YLeaf(YType.uint32, 'variable-response-tx')),
-                    ('variable_response_rx', YLeaf(YType.uint32, 'variable-response-rx')),
-                    ('org_specific_tx', YLeaf(YType.uint32, 'org-specific-tx')),
-                    ('org_specific_rx', YLeaf(YType.uint32, 'org-specific-rx')),
-                    ('unsupported_codes_tx', YLeaf(YType.uint32, 'unsupported-codes-tx')),
-                    ('unsupported_codes_rx', YLeaf(YType.uint32, 'unsupported-codes-rx')),
-                    ('frames_lost_due_to_oam', YLeaf(YType.uint32, 'frames-lost-due-to-oam')),
-                    ('fixed_frames_rx', YLeaf(YType.uint32, 'fixed-frames-rx')),
-                    ('local_error_symbol_period_records', YLeaf(YType.uint32, 'local-error-symbol-period-records')),
-                    ('local_error_frame_records', YLeaf(YType.uint32, 'local-error-frame-records')),
-                    ('local_error_frame_period_records', YLeaf(YType.uint32, 'local-error-frame-period-records')),
-                    ('local_error_frame_second_records', YLeaf(YType.uint32, 'local-error-frame-second-records')),
-                    ('remote_error_symbol_period_records', YLeaf(YType.uint32, 'remote-error-symbol-period-records')),
-                    ('remote_error_frame_records', YLeaf(YType.uint32, 'remote-error-frame-records')),
-                    ('remote_error_frame_period_records', YLeaf(YType.uint32, 'remote-error-frame-period-records')),
-                    ('remote_error_frame_second_records', YLeaf(YType.uint32, 'remote-error-frame-second-records')),
+                    ('member_interface', (YLeaf(YType.str, 'member-interface'), ['str'])),
+                    ('information_tx', (YLeaf(YType.uint32, 'information-tx'), ['int'])),
+                    ('information_rx', (YLeaf(YType.uint32, 'information-rx'), ['int'])),
+                    ('unique_event_notification_tx', (YLeaf(YType.uint32, 'unique-event-notification-tx'), ['int'])),
+                    ('unique_event_notification_rx', (YLeaf(YType.uint32, 'unique-event-notification-rx'), ['int'])),
+                    ('duplicate_event_notification_tx', (YLeaf(YType.uint32, 'duplicate-event-notification-tx'), ['int'])),
+                    ('duplicate_event_notification_rx', (YLeaf(YType.uint32, 'duplicate-event-notification-rx'), ['int'])),
+                    ('loopback_control_tx', (YLeaf(YType.uint32, 'loopback-control-tx'), ['int'])),
+                    ('loopback_control_rx', (YLeaf(YType.uint32, 'loopback-control-rx'), ['int'])),
+                    ('variable_request_tx', (YLeaf(YType.uint32, 'variable-request-tx'), ['int'])),
+                    ('variable_request_rx', (YLeaf(YType.uint32, 'variable-request-rx'), ['int'])),
+                    ('variable_response_tx', (YLeaf(YType.uint32, 'variable-response-tx'), ['int'])),
+                    ('variable_response_rx', (YLeaf(YType.uint32, 'variable-response-rx'), ['int'])),
+                    ('org_specific_tx', (YLeaf(YType.uint32, 'org-specific-tx'), ['int'])),
+                    ('org_specific_rx', (YLeaf(YType.uint32, 'org-specific-rx'), ['int'])),
+                    ('unsupported_codes_tx', (YLeaf(YType.uint32, 'unsupported-codes-tx'), ['int'])),
+                    ('unsupported_codes_rx', (YLeaf(YType.uint32, 'unsupported-codes-rx'), ['int'])),
+                    ('frames_lost_due_to_oam', (YLeaf(YType.uint32, 'frames-lost-due-to-oam'), ['int'])),
+                    ('fixed_frames_rx', (YLeaf(YType.uint32, 'fixed-frames-rx'), ['int'])),
+                    ('local_error_symbol_period_records', (YLeaf(YType.uint32, 'local-error-symbol-period-records'), ['int'])),
+                    ('local_error_frame_records', (YLeaf(YType.uint32, 'local-error-frame-records'), ['int'])),
+                    ('local_error_frame_period_records', (YLeaf(YType.uint32, 'local-error-frame-period-records'), ['int'])),
+                    ('local_error_frame_second_records', (YLeaf(YType.uint32, 'local-error-frame-second-records'), ['int'])),
+                    ('remote_error_symbol_period_records', (YLeaf(YType.uint32, 'remote-error-symbol-period-records'), ['int'])),
+                    ('remote_error_frame_records', (YLeaf(YType.uint32, 'remote-error-frame-records'), ['int'])),
+                    ('remote_error_frame_period_records', (YLeaf(YType.uint32, 'remote-error-frame-period-records'), ['int'])),
+                    ('remote_error_frame_second_records', (YLeaf(YType.uint32, 'remote-error-frame-second-records'), ['int'])),
                 ])
                 self.member_interface = None
                 self.information_tx = None
@@ -2765,9 +2783,10 @@ class EtherLinkOam(Entity):
                 self.remote_error_frame_second_records = None
                 self._segment_path = lambda: "stats-interface" + "[member-interface='" + str(self.member_interface) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-link-oam-oper:ether-link-oam/stats-interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(EtherLinkOam.StatsInterfaces.StatsInterface, ['member_interface', u'information_tx', u'information_rx', u'unique_event_notification_tx', u'unique_event_notification_rx', u'duplicate_event_notification_tx', u'duplicate_event_notification_rx', u'loopback_control_tx', u'loopback_control_rx', u'variable_request_tx', u'variable_request_rx', u'variable_response_tx', u'variable_response_rx', u'org_specific_tx', u'org_specific_rx', u'unsupported_codes_tx', u'unsupported_codes_rx', u'frames_lost_due_to_oam', u'fixed_frames_rx', u'local_error_symbol_period_records', u'local_error_frame_records', u'local_error_frame_period_records', u'local_error_frame_second_records', u'remote_error_symbol_period_records', u'remote_error_frame_records', u'remote_error_frame_period_records', u'remote_error_frame_second_records'], name, value)
+                self._perform_setattr(EtherLinkOam.StatsInterfaces.StatsInterface, ['member_interface', 'information_tx', 'information_rx', 'unique_event_notification_tx', 'unique_event_notification_rx', 'duplicate_event_notification_tx', 'duplicate_event_notification_rx', 'loopback_control_tx', 'loopback_control_rx', 'variable_request_tx', 'variable_request_rx', 'variable_response_tx', 'variable_response_rx', 'org_specific_tx', 'org_specific_rx', 'unsupported_codes_tx', 'unsupported_codes_rx', 'frames_lost_due_to_oam', 'fixed_frames_rx', 'local_error_symbol_period_records', 'local_error_frame_records', 'local_error_frame_period_records', 'local_error_frame_second_records', 'remote_error_symbol_period_records', 'remote_error_frame_records', 'remote_error_frame_period_records', 'remote_error_frame_second_records'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EtherLinkOam()

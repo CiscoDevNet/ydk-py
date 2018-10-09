@@ -16,10 +16,11 @@ module tailf-common-query {
     "Common groupings for the Query API.  These groupings
      are used by protocol-specific modules; currently one for
      NETCONF (tailf-netconf-query) and one for REST
-    (tailf-rest-query).
+     (tailf-rest-query).
 
      The Query API has four functions:  'start-query',
-     'fetch-query-result', 'reset-query', and 'stop-query'.
+     'fetch-query-result', 'immediate-query', 'reset-query', and
+     'stop-query'.
 
      'start-query' is used to start a new query.  It returns
      a query handle, before the system has started to evaluate
@@ -29,6 +30,9 @@ module tailf-common-query {
      'fetch-query-result' is repeatedly used to get chunks of the
      result of the query.
 
+     'immediate-query' is used to start a new query, and return
+     the entire result.
+
      'reset-query' is optionally used to restart the query, possibly
      from a new offset in the result.
 
@@ -37,6 +41,13 @@ module tailf-common-query {
      This module defines the input and output parameters to these
      functions as groupings.  The protocol-specific modules that use
      these groupings encapsulate them in protocol-specifc operations.";
+
+  revision 2017-12-15 {
+    description
+      "Released as part of ConfD-6.5.2.1 / NCS-4.5.3.
+
+       Added 'immediate-query' function.";
+  }
 
   revision 2017-04-27 {
     description
@@ -188,8 +199,8 @@ module tailf-common-query {
       }
       description
         "The maximum time (in seconds) before a query times out. Resets every
-        new request, i.e. subsequent function calls starts a new timeout
-        timer.";
+         new request, i.e. subsequent function calls starts a new timeout
+         timer.";
       default 600;
     }
   }
@@ -259,8 +270,8 @@ module tailf-common-query {
       }
       description
         "The maximum time (in seconds) before a query times out. Resets every
-        new request, i.e. subsequent function calls starts a new timeout
-        timer.";
+         new request, i.e. subsequent function calls starts a new timeout
+         timer.";
       default 600;
     }
   }

@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class FRAMERELAYDTEMIB(Entity):
     """
     
@@ -72,6 +73,7 @@ class FRAMERELAYDTEMIB(Entity):
         self.frerrtable.parent = self
         self._children_name_map["frerrtable"] = "frErrTable"
         self._segment_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(FRAMERELAYDTEMIB, [], name, value)
@@ -110,13 +112,14 @@ class FRAMERELAYDTEMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('frtrapstate', YLeaf(YType.enumeration, 'frTrapState')),
-                ('frtrapmaxrate', YLeaf(YType.int32, 'frTrapMaxRate')),
+                ('frtrapstate', (YLeaf(YType.enumeration, 'frTrapState'), [('ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB', 'FRAMERELAYDTEMIB', 'FrameRelayTrapControl.FrTrapState')])),
+                ('frtrapmaxrate', (YLeaf(YType.int32, 'frTrapMaxRate'), ['int'])),
             ])
             self.frtrapstate = None
             self.frtrapmaxrate = None
             self._segment_path = lambda: "frameRelayTrapControl"
             self._absolute_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(FRAMERELAYDTEMIB.FrameRelayTrapControl, ['frtrapstate', 'frtrapmaxrate'], name, value)
@@ -173,6 +176,7 @@ class FRAMERELAYDTEMIB(Entity):
             self.frdlcmientry = YList(self)
             self._segment_path = lambda: "frDlcmiTable"
             self._absolute_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(FRAMERELAYDTEMIB.FrDlcmiTable, [], name, value)
@@ -274,18 +278,18 @@ class FRAMERELAYDTEMIB(Entity):
                 self.ylist_key_names = ['frdlcmiifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('frdlcmiifindex', YLeaf(YType.int32, 'frDlcmiIfIndex')),
-                    ('frdlcmistate', YLeaf(YType.enumeration, 'frDlcmiState')),
-                    ('frdlcmiaddress', YLeaf(YType.enumeration, 'frDlcmiAddress')),
-                    ('frdlcmiaddresslen', YLeaf(YType.enumeration, 'frDlcmiAddressLen')),
-                    ('frdlcmipollinginterval', YLeaf(YType.int32, 'frDlcmiPollingInterval')),
-                    ('frdlcmifullenquiryinterval', YLeaf(YType.int32, 'frDlcmiFullEnquiryInterval')),
-                    ('frdlcmierrorthreshold', YLeaf(YType.int32, 'frDlcmiErrorThreshold')),
-                    ('frdlcmimonitoredevents', YLeaf(YType.int32, 'frDlcmiMonitoredEvents')),
-                    ('frdlcmimaxsupportedvcs', YLeaf(YType.int32, 'frDlcmiMaxSupportedVCs')),
-                    ('frdlcmimulticast', YLeaf(YType.enumeration, 'frDlcmiMulticast')),
-                    ('frdlcmistatus', YLeaf(YType.enumeration, 'frDlcmiStatus')),
-                    ('frdlcmirowstatus', YLeaf(YType.enumeration, 'frDlcmiRowStatus')),
+                    ('frdlcmiifindex', (YLeaf(YType.int32, 'frDlcmiIfIndex'), ['int'])),
+                    ('frdlcmistate', (YLeaf(YType.enumeration, 'frDlcmiState'), [('ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB', 'FRAMERELAYDTEMIB', 'FrDlcmiTable.FrDlcmiEntry.FrDlcmiState')])),
+                    ('frdlcmiaddress', (YLeaf(YType.enumeration, 'frDlcmiAddress'), [('ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB', 'FRAMERELAYDTEMIB', 'FrDlcmiTable.FrDlcmiEntry.FrDlcmiAddress')])),
+                    ('frdlcmiaddresslen', (YLeaf(YType.enumeration, 'frDlcmiAddressLen'), [('ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB', 'FRAMERELAYDTEMIB', 'FrDlcmiTable.FrDlcmiEntry.FrDlcmiAddressLen')])),
+                    ('frdlcmipollinginterval', (YLeaf(YType.int32, 'frDlcmiPollingInterval'), ['int'])),
+                    ('frdlcmifullenquiryinterval', (YLeaf(YType.int32, 'frDlcmiFullEnquiryInterval'), ['int'])),
+                    ('frdlcmierrorthreshold', (YLeaf(YType.int32, 'frDlcmiErrorThreshold'), ['int'])),
+                    ('frdlcmimonitoredevents', (YLeaf(YType.int32, 'frDlcmiMonitoredEvents'), ['int'])),
+                    ('frdlcmimaxsupportedvcs', (YLeaf(YType.int32, 'frDlcmiMaxSupportedVCs'), ['int'])),
+                    ('frdlcmimulticast', (YLeaf(YType.enumeration, 'frDlcmiMulticast'), [('ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB', 'FRAMERELAYDTEMIB', 'FrDlcmiTable.FrDlcmiEntry.FrDlcmiMulticast')])),
+                    ('frdlcmistatus', (YLeaf(YType.enumeration, 'frDlcmiStatus'), [('ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB', 'FRAMERELAYDTEMIB', 'FrDlcmiTable.FrDlcmiEntry.FrDlcmiStatus')])),
+                    ('frdlcmirowstatus', (YLeaf(YType.enumeration, 'frDlcmiRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.frdlcmiifindex = None
                 self.frdlcmistate = None
@@ -301,6 +305,7 @@ class FRAMERELAYDTEMIB(Entity):
                 self.frdlcmirowstatus = None
                 self._segment_path = lambda: "frDlcmiEntry" + "[frDlcmiIfIndex='" + str(self.frdlcmiifindex) + "']"
                 self._absolute_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/frDlcmiTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(FRAMERELAYDTEMIB.FrDlcmiTable.FrDlcmiEntry, ['frdlcmiifindex', 'frdlcmistate', 'frdlcmiaddress', 'frdlcmiaddresslen', 'frdlcmipollinginterval', 'frdlcmifullenquiryinterval', 'frdlcmierrorthreshold', 'frdlcmimonitoredevents', 'frdlcmimaxsupportedvcs', 'frdlcmimulticast', 'frdlcmistatus', 'frdlcmirowstatus'], name, value)
@@ -474,6 +479,7 @@ class FRAMERELAYDTEMIB(Entity):
             self.frcircuitentry = YList(self)
             self._segment_path = lambda: "frCircuitTable"
             self._absolute_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(FRAMERELAYDTEMIB.FrCircuitTable, [], name, value)
@@ -642,27 +648,27 @@ class FRAMERELAYDTEMIB(Entity):
                 self.ylist_key_names = ['frcircuitifindex','frcircuitdlci']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('frcircuitifindex', YLeaf(YType.int32, 'frCircuitIfIndex')),
-                    ('frcircuitdlci', YLeaf(YType.int32, 'frCircuitDlci')),
-                    ('frcircuitstate', YLeaf(YType.enumeration, 'frCircuitState')),
-                    ('frcircuitreceivedfecns', YLeaf(YType.uint32, 'frCircuitReceivedFECNs')),
-                    ('frcircuitreceivedbecns', YLeaf(YType.uint32, 'frCircuitReceivedBECNs')),
-                    ('frcircuitsentframes', YLeaf(YType.uint32, 'frCircuitSentFrames')),
-                    ('frcircuitsentoctets', YLeaf(YType.uint32, 'frCircuitSentOctets')),
-                    ('frcircuitreceivedframes', YLeaf(YType.uint32, 'frCircuitReceivedFrames')),
-                    ('frcircuitreceivedoctets', YLeaf(YType.uint32, 'frCircuitReceivedOctets')),
-                    ('frcircuitcreationtime', YLeaf(YType.uint32, 'frCircuitCreationTime')),
-                    ('frcircuitlasttimechange', YLeaf(YType.uint32, 'frCircuitLastTimeChange')),
-                    ('frcircuitcommittedburst', YLeaf(YType.int32, 'frCircuitCommittedBurst')),
-                    ('frcircuitexcessburst', YLeaf(YType.int32, 'frCircuitExcessBurst')),
-                    ('frcircuitthroughput', YLeaf(YType.int32, 'frCircuitThroughput')),
-                    ('frcircuitmulticast', YLeaf(YType.enumeration, 'frCircuitMulticast')),
-                    ('frcircuittype', YLeaf(YType.enumeration, 'frCircuitType')),
-                    ('frcircuitdiscards', YLeaf(YType.uint32, 'frCircuitDiscards')),
-                    ('frcircuitreceiveddes', YLeaf(YType.uint32, 'frCircuitReceivedDEs')),
-                    ('frcircuitsentdes', YLeaf(YType.uint32, 'frCircuitSentDEs')),
-                    ('frcircuitlogicalifindex', YLeaf(YType.int32, 'frCircuitLogicalIfIndex')),
-                    ('frcircuitrowstatus', YLeaf(YType.enumeration, 'frCircuitRowStatus')),
+                    ('frcircuitifindex', (YLeaf(YType.int32, 'frCircuitIfIndex'), ['int'])),
+                    ('frcircuitdlci', (YLeaf(YType.int32, 'frCircuitDlci'), ['int'])),
+                    ('frcircuitstate', (YLeaf(YType.enumeration, 'frCircuitState'), [('ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB', 'FRAMERELAYDTEMIB', 'FrCircuitTable.FrCircuitEntry.FrCircuitState')])),
+                    ('frcircuitreceivedfecns', (YLeaf(YType.uint32, 'frCircuitReceivedFECNs'), ['int'])),
+                    ('frcircuitreceivedbecns', (YLeaf(YType.uint32, 'frCircuitReceivedBECNs'), ['int'])),
+                    ('frcircuitsentframes', (YLeaf(YType.uint32, 'frCircuitSentFrames'), ['int'])),
+                    ('frcircuitsentoctets', (YLeaf(YType.uint32, 'frCircuitSentOctets'), ['int'])),
+                    ('frcircuitreceivedframes', (YLeaf(YType.uint32, 'frCircuitReceivedFrames'), ['int'])),
+                    ('frcircuitreceivedoctets', (YLeaf(YType.uint32, 'frCircuitReceivedOctets'), ['int'])),
+                    ('frcircuitcreationtime', (YLeaf(YType.uint32, 'frCircuitCreationTime'), ['int'])),
+                    ('frcircuitlasttimechange', (YLeaf(YType.uint32, 'frCircuitLastTimeChange'), ['int'])),
+                    ('frcircuitcommittedburst', (YLeaf(YType.int32, 'frCircuitCommittedBurst'), ['int'])),
+                    ('frcircuitexcessburst', (YLeaf(YType.int32, 'frCircuitExcessBurst'), ['int'])),
+                    ('frcircuitthroughput', (YLeaf(YType.int32, 'frCircuitThroughput'), ['int'])),
+                    ('frcircuitmulticast', (YLeaf(YType.enumeration, 'frCircuitMulticast'), [('ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB', 'FRAMERELAYDTEMIB', 'FrCircuitTable.FrCircuitEntry.FrCircuitMulticast')])),
+                    ('frcircuittype', (YLeaf(YType.enumeration, 'frCircuitType'), [('ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB', 'FRAMERELAYDTEMIB', 'FrCircuitTable.FrCircuitEntry.FrCircuitType')])),
+                    ('frcircuitdiscards', (YLeaf(YType.uint32, 'frCircuitDiscards'), ['int'])),
+                    ('frcircuitreceiveddes', (YLeaf(YType.uint32, 'frCircuitReceivedDEs'), ['int'])),
+                    ('frcircuitsentdes', (YLeaf(YType.uint32, 'frCircuitSentDEs'), ['int'])),
+                    ('frcircuitlogicalifindex', (YLeaf(YType.int32, 'frCircuitLogicalIfIndex'), ['int'])),
+                    ('frcircuitrowstatus', (YLeaf(YType.enumeration, 'frCircuitRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.frcircuitifindex = None
                 self.frcircuitdlci = None
@@ -687,6 +693,7 @@ class FRAMERELAYDTEMIB(Entity):
                 self.frcircuitrowstatus = None
                 self._segment_path = lambda: "frCircuitEntry" + "[frCircuitIfIndex='" + str(self.frcircuitifindex) + "']" + "[frCircuitDlci='" + str(self.frcircuitdlci) + "']"
                 self._absolute_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/frCircuitTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(FRAMERELAYDTEMIB.FrCircuitTable.FrCircuitEntry, ['frcircuitifindex', 'frcircuitdlci', 'frcircuitstate', 'frcircuitreceivedfecns', 'frcircuitreceivedbecns', 'frcircuitsentframes', 'frcircuitsentoctets', 'frcircuitreceivedframes', 'frcircuitreceivedoctets', 'frcircuitcreationtime', 'frcircuitlasttimechange', 'frcircuitcommittedburst', 'frcircuitexcessburst', 'frcircuitthroughput', 'frcircuitmulticast', 'frcircuittype', 'frcircuitdiscards', 'frcircuitreceiveddes', 'frcircuitsentdes', 'frcircuitlogicalifindex', 'frcircuitrowstatus'], name, value)
@@ -820,6 +827,7 @@ class FRAMERELAYDTEMIB(Entity):
             self.frerrentry = YList(self)
             self._segment_path = lambda: "frErrTable"
             self._absolute_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(FRAMERELAYDTEMIB.FrErrTable, [], name, value)
@@ -887,12 +895,12 @@ class FRAMERELAYDTEMIB(Entity):
                 self.ylist_key_names = ['frerrifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('frerrifindex', YLeaf(YType.int32, 'frErrIfIndex')),
-                    ('frerrtype', YLeaf(YType.enumeration, 'frErrType')),
-                    ('frerrdata', YLeaf(YType.str, 'frErrData')),
-                    ('frerrtime', YLeaf(YType.uint32, 'frErrTime')),
-                    ('frerrfaults', YLeaf(YType.uint32, 'frErrFaults')),
-                    ('frerrfaulttime', YLeaf(YType.uint32, 'frErrFaultTime')),
+                    ('frerrifindex', (YLeaf(YType.int32, 'frErrIfIndex'), ['int'])),
+                    ('frerrtype', (YLeaf(YType.enumeration, 'frErrType'), [('ydk.models.cisco_ios_xe.FRAME_RELAY_DTE_MIB', 'FRAMERELAYDTEMIB', 'FrErrTable.FrErrEntry.FrErrType')])),
+                    ('frerrdata', (YLeaf(YType.str, 'frErrData'), ['str'])),
+                    ('frerrtime', (YLeaf(YType.uint32, 'frErrTime'), ['int'])),
+                    ('frerrfaults', (YLeaf(YType.uint32, 'frErrFaults'), ['int'])),
+                    ('frerrfaulttime', (YLeaf(YType.uint32, 'frErrFaultTime'), ['int'])),
                 ])
                 self.frerrifindex = None
                 self.frerrtype = None
@@ -902,6 +910,7 @@ class FRAMERELAYDTEMIB(Entity):
                 self.frerrfaulttime = None
                 self._segment_path = lambda: "frErrEntry" + "[frErrIfIndex='" + str(self.frerrifindex) + "']"
                 self._absolute_path = lambda: "FRAME-RELAY-DTE-MIB:FRAME-RELAY-DTE-MIB/frErrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(FRAMERELAYDTEMIB.FrErrTable.FrErrEntry, ['frerrifindex', 'frerrtype', 'frerrdata', 'frerrtime', 'frerrfaults', 'frerrfaulttime'], name, value)

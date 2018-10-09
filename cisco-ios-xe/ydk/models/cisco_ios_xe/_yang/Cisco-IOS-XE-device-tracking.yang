@@ -118,13 +118,24 @@ module Cisco-IOS-XE-device-tracking {
       container tracking {
         description
           "Override default tracking behavior";
-        leaf tracking-on-off {
+        container enable {
+          presence "true";
+          container reachable-lifetime {
+            description
+              "Time entry is kept REACHABLE";
+            leaf seconds {
+              description
+                "Seconds";
+              type uint32 {
+                range "1..86400";
+              }
+            }
+          }
+        }
+        leaf disable {
           description
             "Tracking on or off";
-          type enumeration {
-            enum "enable";
-            enum "disable";
-          }
+          type empty;
         }
       }
       container limit {

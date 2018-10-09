@@ -12,7 +12,7 @@ all 'hw\-module' commands for Sysadmin.
 Copyright(c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
+Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -22,6 +22,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -75,6 +76,7 @@ class HwModule(Entity):
         self.shhwfpd.parent = self
         self._children_name_map["shhwfpd"] = "shhwfpd"
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(HwModule, [], name, value)
@@ -146,6 +148,7 @@ class HwModule(Entity):
             self.location = YList(self)
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(HwModule.Config, [], name, value)
@@ -181,6 +184,7 @@ class HwModule(Entity):
                 self.location = YList(self)
                 self._segment_path = lambda: "shutdown"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(HwModule.Config.Shutdown, [], name, value)
@@ -195,7 +199,7 @@ class HwModule(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 	**mandatory**\: True
                 
@@ -216,14 +220,15 @@ class HwModule(Entity):
                     self.ylist_key_names = ['location']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('location', YLeaf(YType.str, 'location')),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
                     ])
                     self.location = None
                     self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/shutdown/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HwModule.Config.Shutdown.Location, [u'location'], name, value)
+                    self._perform_setattr(HwModule.Config.Shutdown.Location, ['location'], name, value)
 
 
         class Reset(Entity):
@@ -258,6 +263,7 @@ class HwModule(Entity):
                 self._children_name_map["auto"] = "auto"
                 self._segment_path = lambda: "reset"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(HwModule.Config.Reset, [], name, value)
@@ -295,6 +301,7 @@ class HwModule(Entity):
                     self._children_name_map["disable"] = "disable"
                     self._segment_path = lambda: "auto"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/reset/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(HwModule.Config.Reset.Auto, [], name, value)
@@ -330,6 +337,7 @@ class HwModule(Entity):
                         self.location = YList(self)
                         self._segment_path = lambda: "disable"
                         self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/reset/auto/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(HwModule.Config.Reset.Auto.Disable, [], name, value)
@@ -344,7 +352,7 @@ class HwModule(Entity):
                         	
                         	**type**\: str
                         
-                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                        	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                         
                         	**mandatory**\: True
                         
@@ -365,14 +373,15 @@ class HwModule(Entity):
                             self.ylist_key_names = ['location']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('location', YLeaf(YType.str, 'location')),
+                                ('location', (YLeaf(YType.str, 'location'), ['str'])),
                             ])
                             self.location = None
                             self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/reset/auto/disable/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(HwModule.Config.Reset.Auto.Disable.Location, [u'location'], name, value)
+                            self._perform_setattr(HwModule.Config.Reset.Auto.Disable.Location, ['location'], name, value)
 
 
         class Offline(Entity):
@@ -405,6 +414,7 @@ class HwModule(Entity):
                 self.location = YList(self)
                 self._segment_path = lambda: "offline"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(HwModule.Config.Offline, [], name, value)
@@ -419,7 +429,7 @@ class HwModule(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 	**mandatory**\: True
                 
@@ -440,14 +450,15 @@ class HwModule(Entity):
                     self.ylist_key_names = ['location']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('location', YLeaf(YType.str, 'location')),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
                     ])
                     self.location = None
                     self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/offline/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HwModule.Config.Offline.Location, [u'location'], name, value)
+                    self._perform_setattr(HwModule.Config.Offline.Location, ['location'], name, value)
 
 
         class AttentionLed(Entity):
@@ -480,6 +491,7 @@ class HwModule(Entity):
                 self.location = YList(self)
                 self._segment_path = lambda: "attention-led"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(HwModule.Config.AttentionLed, [], name, value)
@@ -494,7 +506,7 @@ class HwModule(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ([0\-255])\|((0?[0\-9]\|1[0\-5])/(FC(0?[0\-5])))\|((0?[0\-9]\|1[0\-5])/(RP(0?[0\-1])))\|((0?[0\-9]\|1[0\-5])/(0?[0\-9]\|1[0\-5]))\|((F[0\-3])/(FC(0?[0\-9]\|1[0\-1])))\|((F[0\-3])/(SC(0?[0\-1])))\|(0?[0\-9]/(SC(0?[0\-1])))\|(0?[0\-9]/(FT(0?[0\-2])))\|(0?[0\-9]/(PM(0?[0\-9])))
+                	**pattern:** ([0\-255])\|((0?[0\-9]\|1[0\-5])/(FC(0?[0\-5])))\|((0?[0\-9]\|1[0\-5])/(RP(0?[0\-1])))\|((0?[0\-9]\|1[0\-5])/(0?[0\-9]\|1[0\-5])(/[1\-2])?)\|((F[0\-3])/(FC(0?[0\-9]\|1[0\-1])))\|((F[0\-3])/(SC(0?[0\-1])))\|(0?[0\-9]/(SC(0?[0\-1])))\|(0?[0\-9]/(FT(0?[0\-2])))\|(0?[0\-9]/(PM(0?[0\-9])))
                 
                 	**mandatory**\: True
                 
@@ -515,14 +527,15 @@ class HwModule(Entity):
                     self.ylist_key_names = ['location']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('location', YLeaf(YType.str, 'location')),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
                     ])
                     self.location = None
                     self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/attention-led/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HwModule.Config.AttentionLed.Location, [u'location'], name, value)
+                    self._perform_setattr(HwModule.Config.AttentionLed.Location, ['location'], name, value)
 
 
         class Location(Entity):
@@ -556,7 +569,7 @@ class HwModule(Entity):
                 self.ylist_key_names = ['location']
                 self._child_classes = OrderedDict([("logging", ("logging", HwModule.Config.Location.Logging))])
                 self._leafs = OrderedDict([
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.location = None
 
@@ -565,9 +578,10 @@ class HwModule(Entity):
                 self._children_name_map["logging"] = "logging"
                 self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/config/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HwModule.Config.Location, [u'location'], name, value)
+                self._perform_setattr(HwModule.Config.Location, ['location'], name, value)
 
 
             class Logging(Entity):
@@ -601,6 +615,7 @@ class HwModule(Entity):
                     self.onboard.parent = self
                     self._children_name_map["onboard"] = "onboard"
                     self._segment_path = lambda: "logging"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(HwModule.Config.Location.Logging, [], name, value)
@@ -632,13 +647,14 @@ class HwModule(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('disable', YLeaf(YType.empty, 'disable')),
+                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                         ])
                         self.disable = None
                         self._segment_path = lambda: "onboard"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(HwModule.Config.Location.Logging.Onboard, [u'disable'], name, value)
+                        self._perform_setattr(HwModule.Config.Location.Logging.Onboard, ['disable'], name, value)
 
 
     class Oper(Entity):
@@ -671,6 +687,7 @@ class HwModule(Entity):
             self.location = YList(self)
             self._segment_path = lambda: "oper"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(HwModule.Oper, [], name, value)
@@ -712,7 +729,7 @@ class HwModule(Entity):
                 self.ylist_key_names = ['location']
                 self._child_classes = OrderedDict([("actions", ("actions", HwModule.Oper.Location.Actions)), ("show", ("show", HwModule.Oper.Location.Show))])
                 self._leafs = OrderedDict([
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.location = None
 
@@ -725,6 +742,7 @@ class HwModule(Entity):
                 self._children_name_map["show"] = "show"
                 self._segment_path = lambda: "location" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/oper/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(HwModule.Oper.Location, ['location'], name, value)
@@ -761,6 +779,7 @@ class HwModule(Entity):
                     self.cbootmedia.parent = self
                     self._children_name_map["cbootmedia"] = "cbootmedia"
                     self._segment_path = lambda: "actions"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(HwModule.Oper.Location.Actions, [], name, value)
@@ -795,6 +814,7 @@ class HwModule(Entity):
 
                         self.bootmedia = YList(self)
                         self._segment_path = lambda: "cbootmedia"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(HwModule.Oper.Location.Actions.Cbootmedia, [], name, value)
@@ -826,13 +846,14 @@ class HwModule(Entity):
                             self.ylist_key_names = ['bootmedium']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('bootmedium', YLeaf(YType.str, 'bootmedium')),
+                                ('bootmedium', (YLeaf(YType.str, 'bootmedium'), ['str'])),
                             ])
                             self.bootmedium = None
                             self._segment_path = lambda: "bootmedia" + "[bootmedium='" + str(self.bootmedium) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(HwModule.Oper.Location.Actions.Cbootmedia.Bootmedia, [u'bootmedium'], name, value)
+                            self._perform_setattr(HwModule.Oper.Location.Actions.Cbootmedia.Bootmedia, ['bootmedium'], name, value)
 
 
             class Show(Entity):
@@ -857,6 +878,7 @@ class HwModule(Entity):
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict()
                     self._segment_path = lambda: "show"
+                    self._is_frozen = True
 
 
     class Shhwfpd(Entity):
@@ -895,6 +917,7 @@ class HwModule(Entity):
             self.fpd = YList(self)
             self._segment_path = lambda: "shhwfpd"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(HwModule.Shhwfpd, [], name, value)
@@ -931,16 +954,17 @@ class HwModule(Entity):
                 self.ylist_key_names = ['locs']
                 self._child_classes = OrderedDict([("fpd", ("fpd", HwModule.Shhwfpd.Alocation.Fpd))])
                 self._leafs = OrderedDict([
-                    ('locs', YLeaf(YType.str, 'locs')),
+                    ('locs', (YLeaf(YType.str, 'locs'), ['str'])),
                 ])
                 self.locs = None
 
                 self.fpd = YList(self)
                 self._segment_path = lambda: "alocation" + "[locs='" + str(self.locs) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/shhwfpd/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HwModule.Shhwfpd.Alocation, [u'locs'], name, value)
+                self._perform_setattr(HwModule.Shhwfpd.Alocation, ['locs'], name, value)
 
 
             class Fpd(Entity):
@@ -999,13 +1023,13 @@ class HwModule(Entity):
                     self.ylist_key_names = ['fpdname']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('fpdname', YLeaf(YType.str, 'fpdname')),
-                        ('state', YLeaf(YType.str, 'state')),
-                        ('hwver', YLeaf(YType.str, 'hwver')),
-                        ('fpdver', YLeaf(YType.str, 'fpdver')),
-                        ('cardname', YLeaf(YType.str, 'cardname')),
-                        ('attr', YLeaf(YType.str, 'attr')),
-                        ('fpddnld', YLeaf(YType.str, 'fpddnld')),
+                        ('fpdname', (YLeaf(YType.str, 'fpdname'), ['str'])),
+                        ('state', (YLeaf(YType.str, 'state'), ['str'])),
+                        ('hwver', (YLeaf(YType.str, 'hwver'), ['str'])),
+                        ('fpdver', (YLeaf(YType.str, 'fpdver'), ['str'])),
+                        ('cardname', (YLeaf(YType.str, 'cardname'), ['str'])),
+                        ('attr', (YLeaf(YType.str, 'attr'), ['str'])),
+                        ('fpddnld', (YLeaf(YType.str, 'fpddnld'), ['str'])),
                     ])
                     self.fpdname = None
                     self.state = None
@@ -1015,9 +1039,10 @@ class HwModule(Entity):
                     self.attr = None
                     self.fpddnld = None
                     self._segment_path = lambda: "fpd" + "[fpdname='" + str(self.fpdname) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(HwModule.Shhwfpd.Alocation.Fpd, [u'fpdname', u'state', u'hwver', u'fpdver', u'cardname', u'attr', u'fpddnld'], name, value)
+                    self._perform_setattr(HwModule.Shhwfpd.Alocation.Fpd, ['fpdname', 'state', 'hwver', 'fpdver', 'cardname', 'attr', 'fpddnld'], name, value)
 
 
         class Fpd(Entity):
@@ -1046,14 +1071,15 @@ class HwModule(Entity):
                 self.ylist_key_names = ['fpdname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('fpdname', YLeaf(YType.str, 'fpdname')),
+                    ('fpdname', (YLeaf(YType.str, 'fpdname'), ['str'])),
                 ])
                 self.fpdname = None
                 self._segment_path = lambda: "fpd" + "[fpdname='" + str(self.fpdname) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-hw-module:hw-module/shhwfpd/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(HwModule.Shhwfpd.Fpd, [u'fpdname'], name, value)
+                self._perform_setattr(HwModule.Shhwfpd.Fpd, ['fpdname'], name, value)
 
     def clone_ptr(self):
         self._top_entity = HwModule()

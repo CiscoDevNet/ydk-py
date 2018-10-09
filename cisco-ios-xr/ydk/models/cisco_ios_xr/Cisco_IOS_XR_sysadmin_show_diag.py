@@ -11,7 +11,7 @@ This module holds diag data for chassis, card, fan, power.
 Copyright(c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
+Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -110,6 +111,7 @@ class Diag(Entity):
         self.detail.parent = self
         self._children_name_map["detail"] = "detail"
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Diag, [], name, value)
@@ -145,6 +147,7 @@ class Diag(Entity):
             self.default_list = YList(self)
             self._segment_path = lambda: "default"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Diag.Default, [], name, value)
@@ -181,7 +184,7 @@ class Diag(Entity):
                 self.ylist_key_names = ['location']
                 self._child_classes = OrderedDict([("default-data", ("default_data", Diag.Default.DefaultList.DefaultData))])
                 self._leafs = OrderedDict([
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.location = None
 
@@ -190,6 +193,7 @@ class Diag(Entity):
                 self._children_name_map["default_data"] = "default-data"
                 self._segment_path = lambda: "default_list" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/default/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Diag.Default.DefaultList, ['location'], name, value)
@@ -221,10 +225,11 @@ class Diag(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('default_out_list', YLeafList(YType.str, 'default_out_list')),
+                        ('default_out_list', (YLeafList(YType.str, 'default_out_list'), ['str'])),
                     ])
                     self.default_out_list = []
                     self._segment_path = lambda: "default-data"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.Default.DefaultList.DefaultData, ['default_out_list'], name, value)
@@ -260,6 +265,7 @@ class Diag(Entity):
             self.fans_list = YList(self)
             self._segment_path = lambda: "fans"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Diag.Fans, [], name, value)
@@ -296,7 +302,7 @@ class Diag(Entity):
                 self.ylist_key_names = ['location']
                 self._child_classes = OrderedDict([("default-data", ("default_data", Diag.Fans.FansList.DefaultData))])
                 self._leafs = OrderedDict([
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.location = None
 
@@ -305,6 +311,7 @@ class Diag(Entity):
                 self._children_name_map["default_data"] = "default-data"
                 self._segment_path = lambda: "fans_list" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/fans/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Diag.Fans.FansList, ['location'], name, value)
@@ -336,10 +343,11 @@ class Diag(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('default_out_list', YLeafList(YType.str, 'default_out_list')),
+                        ('default_out_list', (YLeafList(YType.str, 'default_out_list'), ['str'])),
                     ])
                     self.default_out_list = []
                     self._segment_path = lambda: "default-data"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.Fans.FansList.DefaultData, ['default_out_list'], name, value)
@@ -375,6 +383,7 @@ class Diag(Entity):
             self.pwr_list = YList(self)
             self._segment_path = lambda: "power-supply"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Diag.PowerSupply, [], name, value)
@@ -411,7 +420,7 @@ class Diag(Entity):
                 self.ylist_key_names = ['location']
                 self._child_classes = OrderedDict([("default-data", ("default_data", Diag.PowerSupply.PwrList.DefaultData))])
                 self._leafs = OrderedDict([
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.location = None
 
@@ -420,6 +429,7 @@ class Diag(Entity):
                 self._children_name_map["default_data"] = "default-data"
                 self._segment_path = lambda: "pwr_list" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/power-supply/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Diag.PowerSupply.PwrList, ['location'], name, value)
@@ -451,10 +461,11 @@ class Diag(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('default_out_list', YLeafList(YType.str, 'default_out_list')),
+                        ('default_out_list', (YLeafList(YType.str, 'default_out_list'), ['str'])),
                     ])
                     self.default_out_list = []
                     self._segment_path = lambda: "default-data"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.PowerSupply.PwrList.DefaultData, ['default_out_list'], name, value)
@@ -501,6 +512,7 @@ class Diag(Entity):
             self._children_name_map["chassis_eeprom_cnt"] = "chassis_eeprom_cnt"
             self._segment_path = lambda: "chassis"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Diag.Chassis, [], name, value)
@@ -536,6 +548,7 @@ class Diag(Entity):
                 self.chassis_list = YList(self)
                 self._segment_path = lambda: "chassis_cnt"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/chassis/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Diag.Chassis.ChassisCnt, [], name, value)
@@ -572,7 +585,7 @@ class Diag(Entity):
                     self.ylist_key_names = ['location']
                     self._child_classes = OrderedDict([("default-data", ("default_data", Diag.Chassis.ChassisCnt.ChassisList.DefaultData))])
                     self._leafs = OrderedDict([
-                        ('location', YLeaf(YType.str, 'location')),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
                     ])
                     self.location = None
 
@@ -581,6 +594,7 @@ class Diag(Entity):
                     self._children_name_map["default_data"] = "default-data"
                     self._segment_path = lambda: "chassis_list" + "[location='" + str(self.location) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/chassis/chassis_cnt/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.Chassis.ChassisCnt.ChassisList, ['location'], name, value)
@@ -612,10 +626,11 @@ class Diag(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('default_out_list', YLeafList(YType.str, 'default_out_list')),
+                            ('default_out_list', (YLeafList(YType.str, 'default_out_list'), ['str'])),
                         ])
                         self.default_out_list = []
                         self._segment_path = lambda: "default-data"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Diag.Chassis.ChassisCnt.ChassisList.DefaultData, ['default_out_list'], name, value)
@@ -651,6 +666,7 @@ class Diag(Entity):
                 self.chassis_eeprom_list = YList(self)
                 self._segment_path = lambda: "chassis_eeprom_cnt"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/chassis/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Diag.Chassis.ChassisEepromCnt, [], name, value)
@@ -687,7 +703,7 @@ class Diag(Entity):
                     self.ylist_key_names = ['location']
                     self._child_classes = OrderedDict([("eeprom-data", ("eeprom_data", Diag.Chassis.ChassisEepromCnt.ChassisEepromList.EepromData))])
                     self._leafs = OrderedDict([
-                        ('location', YLeaf(YType.str, 'location')),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
                     ])
                     self.location = None
 
@@ -696,6 +712,7 @@ class Diag(Entity):
                     self._children_name_map["eeprom_data"] = "eeprom-data"
                     self._segment_path = lambda: "chassis_eeprom_list" + "[location='" + str(self.location) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/chassis/chassis_eeprom_cnt/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.Chassis.ChassisEepromCnt.ChassisEepromList, ['location'], name, value)
@@ -727,10 +744,11 @@ class Diag(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('raw_list', YLeafList(YType.str, 'raw_list')),
+                            ('raw_list', (YLeafList(YType.str, 'raw_list'), ['str'])),
                         ])
                         self.raw_list = []
                         self._segment_path = lambda: "eeprom-data"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Diag.Chassis.ChassisEepromCnt.ChassisEepromList.EepromData, ['raw_list'], name, value)
@@ -766,6 +784,7 @@ class Diag(Entity):
             self.summary_list = YList(self)
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Diag.Summary, [], name, value)
@@ -802,7 +821,7 @@ class Diag(Entity):
                 self.ylist_key_names = ['location']
                 self._child_classes = OrderedDict([("summary-data", ("summary_data", Diag.Summary.SummaryList.SummaryData))])
                 self._leafs = OrderedDict([
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.location = None
 
@@ -811,6 +830,7 @@ class Diag(Entity):
                 self._children_name_map["summary_data"] = "summary-data"
                 self._segment_path = lambda: "summary_list" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Diag.Summary.SummaryList, ['location'], name, value)
@@ -842,10 +862,11 @@ class Diag(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('summary_out_list', YLeafList(YType.str, 'summary_out_list')),
+                        ('summary_out_list', (YLeafList(YType.str, 'summary_out_list'), ['str'])),
                     ])
                     self.summary_out_list = []
                     self._segment_path = lambda: "summary-data"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.Summary.SummaryList.SummaryData, ['summary_out_list'], name, value)
@@ -881,6 +902,7 @@ class Diag(Entity):
             self.eeprom_list = YList(self)
             self._segment_path = lambda: "eeprom"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Diag.Eeprom, [], name, value)
@@ -917,7 +939,7 @@ class Diag(Entity):
                 self.ylist_key_names = ['location']
                 self._child_classes = OrderedDict([("eeprom-data", ("eeprom_data", Diag.Eeprom.EepromList.EepromData))])
                 self._leafs = OrderedDict([
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.location = None
 
@@ -926,6 +948,7 @@ class Diag(Entity):
                 self._children_name_map["eeprom_data"] = "eeprom-data"
                 self._segment_path = lambda: "eeprom_list" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/eeprom/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Diag.Eeprom.EepromList, ['location'], name, value)
@@ -957,10 +980,11 @@ class Diag(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('raw_list', YLeafList(YType.str, 'raw_list')),
+                        ('raw_list', (YLeafList(YType.str, 'raw_list'), ['str'])),
                     ])
                     self.raw_list = []
                     self._segment_path = lambda: "eeprom-data"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.Eeprom.EepromList.EepromData, ['raw_list'], name, value)
@@ -996,6 +1020,7 @@ class Diag(Entity):
             self.detail_list = YList(self)
             self._segment_path = lambda: "detail"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Diag.Detail, [], name, value)
@@ -1032,7 +1057,7 @@ class Diag(Entity):
                 self.ylist_key_names = ['location']
                 self._child_classes = OrderedDict([("detail-data", ("detail_data", Diag.Detail.DetailList.DetailData))])
                 self._leafs = OrderedDict([
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.location = None
 
@@ -1041,6 +1066,7 @@ class Diag(Entity):
                 self._children_name_map["detail_data"] = "detail-data"
                 self._segment_path = lambda: "detail_list" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-show-diag:diag/detail/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Diag.Detail.DetailList, ['location'], name, value)
@@ -1072,10 +1098,11 @@ class Diag(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('detail_out_list', YLeafList(YType.str, 'detail_out_list')),
+                        ('detail_out_list', (YLeafList(YType.str, 'detail_out_list'), ['str'])),
                     ])
                     self.detail_out_list = []
                     self._segment_path = lambda: "detail-data"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Diag.Detail.DetailList.DetailData, ['detail_out_list'], name, value)

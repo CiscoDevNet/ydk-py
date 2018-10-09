@@ -9,7 +9,7 @@ for the following management objects\:
     information
   subscriber\-redundancy\-agent\: subscriber redundancy agent
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -19,6 +19,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class SrgPeerStatus(Enum):
@@ -372,6 +373,7 @@ class SubscriberRedundancyManager(Entity):
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SubscriberRedundancyManager, [], name, value)
@@ -407,6 +409,7 @@ class SubscriberRedundancyManager(Entity):
             self.group = YList(self)
             self._segment_path = lambda: "groups"
             self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SubscriberRedundancyManager.Groups, [], name, value)
@@ -513,20 +516,20 @@ class SubscriberRedundancyManager(Entity):
                 self.ylist_key_names = ['group']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('group', YLeaf(YType.str, 'group')),
-                    ('group_id', YLeaf(YType.uint32, 'group-id')),
-                    ('description', YLeaf(YType.str, 'description')),
-                    ('disabled', YLeaf(YType.boolean, 'disabled')),
-                    ('role', YLeaf(YType.enumeration, 'role')),
-                    ('peer_ipv4_address', YLeaf(YType.str, 'peer-ipv4-address')),
-                    ('peer_ipv6_address', YLeaf(YType.str, 'peer-ipv6-address')),
-                    ('interface_count', YLeaf(YType.uint32, 'interface-count')),
-                    ('preferred_role', YLeaf(YType.enumeration, 'preferred-role')),
-                    ('slave_mode', YLeaf(YType.enumeration, 'slave-mode')),
-                    ('object_tracking_status', YLeaf(YType.boolean, 'object-tracking-status')),
-                    ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
-                    ('virtual_mac_address_disable', YLeaf(YType.boolean, 'virtual-mac-address-disable')),
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('group', (YLeaf(YType.str, 'group'), ['str'])),
+                    ('group_id', (YLeaf(YType.uint32, 'group-id'), ['int'])),
+                    ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                    ('disabled', (YLeaf(YType.boolean, 'disabled'), ['bool'])),
+                    ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowImRole', '')])),
+                    ('peer_ipv4_address', (YLeaf(YType.str, 'peer-ipv4-address'), ['str'])),
+                    ('peer_ipv6_address', (YLeaf(YType.str, 'peer-ipv6-address'), ['str'])),
+                    ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
+                    ('preferred_role', (YLeaf(YType.enumeration, 'preferred-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowRole', '')])),
+                    ('slave_mode', (YLeaf(YType.enumeration, 'slave-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowSlaveMode', '')])),
+                    ('object_tracking_status', (YLeaf(YType.boolean, 'object-tracking-status'), ['bool'])),
+                    ('virtual_mac_address', (YLeaf(YType.str, 'virtual-mac-address'), ['str'])),
+                    ('virtual_mac_address_disable', (YLeaf(YType.boolean, 'virtual-mac-address-disable'), ['bool'])),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.group = None
                 self.group_id = None
@@ -544,9 +547,10 @@ class SubscriberRedundancyManager(Entity):
                 self.node_name = None
                 self._segment_path = lambda: "group" + "[group='" + str(self.group) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager/groups/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SubscriberRedundancyManager.Groups.Group, ['group', u'group_id', u'description', u'disabled', u'role', u'peer_ipv4_address', u'peer_ipv6_address', u'interface_count', u'preferred_role', u'slave_mode', u'object_tracking_status', u'virtual_mac_address', u'virtual_mac_address_disable', u'node_name'], name, value)
+                self._perform_setattr(SubscriberRedundancyManager.Groups.Group, ['group', 'group_id', 'description', 'disabled', 'role', 'peer_ipv4_address', 'peer_ipv6_address', 'interface_count', 'preferred_role', 'slave_mode', 'object_tracking_status', 'virtual_mac_address', 'virtual_mac_address_disable', 'node_name'], name, value)
 
 
     class Summary(Entity):
@@ -670,22 +674,22 @@ class SubscriberRedundancyManager(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('disabled', YLeaf(YType.boolean, 'disabled')),
-                ('active_state', YLeaf(YType.boolean, 'active-state')),
-                ('preferred_role', YLeaf(YType.enumeration, 'preferred-role')),
-                ('slave_mode', YLeaf(YType.enumeration, 'slave-mode')),
-                ('hold_timer', YLeaf(YType.uint32, 'hold-timer')),
-                ('source_interface_name', YLeaf(YType.str, 'source-interface-name')),
-                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                ('source_interface_ipv4_address', YLeaf(YType.str, 'source-interface-ipv4-address')),
-                ('source_interface_ipv6_address', YLeaf(YType.str, 'source-interface-ipv6-address')),
-                ('group_count', YLeaf(YType.uint32, 'group-count')),
-                ('disabled_group_count', YLeaf(YType.uint32, 'disabled-group-count')),
-                ('master_group_count', YLeaf(YType.uint32, 'master-group-count')),
-                ('slave_group_count', YLeaf(YType.uint32, 'slave-group-count')),
-                ('interface_count', YLeaf(YType.uint32, 'interface-count')),
-                ('master_interface_count', YLeaf(YType.uint32, 'master-interface-count')),
-                ('slave_interface_count', YLeaf(YType.uint32, 'slave-interface-count')),
+                ('disabled', (YLeaf(YType.boolean, 'disabled'), ['bool'])),
+                ('active_state', (YLeaf(YType.boolean, 'active-state'), ['bool'])),
+                ('preferred_role', (YLeaf(YType.enumeration, 'preferred-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowRole', '')])),
+                ('slave_mode', (YLeaf(YType.enumeration, 'slave-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowSlaveMode', '')])),
+                ('hold_timer', (YLeaf(YType.uint32, 'hold-timer'), ['int'])),
+                ('source_interface_name', (YLeaf(YType.str, 'source-interface-name'), ['str'])),
+                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                ('source_interface_ipv4_address', (YLeaf(YType.str, 'source-interface-ipv4-address'), ['str'])),
+                ('source_interface_ipv6_address', (YLeaf(YType.str, 'source-interface-ipv6-address'), ['str'])),
+                ('group_count', (YLeaf(YType.uint32, 'group-count'), ['int'])),
+                ('disabled_group_count', (YLeaf(YType.uint32, 'disabled-group-count'), ['int'])),
+                ('master_group_count', (YLeaf(YType.uint32, 'master-group-count'), ['int'])),
+                ('slave_group_count', (YLeaf(YType.uint32, 'slave-group-count'), ['int'])),
+                ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
+                ('master_interface_count', (YLeaf(YType.uint32, 'master-interface-count'), ['int'])),
+                ('slave_interface_count', (YLeaf(YType.uint32, 'slave-interface-count'), ['int'])),
             ])
             self.disabled = None
             self.active_state = None
@@ -705,9 +709,10 @@ class SubscriberRedundancyManager(Entity):
             self.slave_interface_count = None
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SubscriberRedundancyManager.Summary, [u'disabled', u'active_state', u'preferred_role', u'slave_mode', u'hold_timer', u'source_interface_name', u'vrf_name', u'source_interface_ipv4_address', u'source_interface_ipv6_address', u'group_count', u'disabled_group_count', u'master_group_count', u'slave_group_count', u'interface_count', u'master_interface_count', u'slave_interface_count'], name, value)
+            self._perform_setattr(SubscriberRedundancyManager.Summary, ['disabled', 'active_state', 'preferred_role', 'slave_mode', 'hold_timer', 'source_interface_name', 'vrf_name', 'source_interface_ipv4_address', 'source_interface_ipv6_address', 'group_count', 'disabled_group_count', 'master_group_count', 'slave_group_count', 'interface_count', 'master_interface_count', 'slave_interface_count'], name, value)
 
 
     class Interfaces(Entity):
@@ -740,6 +745,7 @@ class SubscriberRedundancyManager(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SubscriberRedundancyManager.Interfaces, [], name, value)
@@ -802,12 +808,12 @@ class SubscriberRedundancyManager(Entity):
                 self.ylist_key_names = ['interface']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface', YLeaf(YType.str, 'interface')),
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('interface_mapping_id', YLeaf(YType.uint32, 'interface-mapping-id')),
-                    ('forward_referenced', YLeaf(YType.boolean, 'forward-referenced')),
-                    ('group_id', YLeaf(YType.uint32, 'group-id')),
-                    ('role', YLeaf(YType.enumeration, 'role')),
+                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('interface_mapping_id', (YLeaf(YType.uint32, 'interface-mapping-id'), ['int'])),
+                    ('forward_referenced', (YLeaf(YType.boolean, 'forward-referenced'), ['bool'])),
+                    ('group_id', (YLeaf(YType.uint32, 'group-id'), ['int'])),
+                    ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowImRole', '')])),
                 ])
                 self.interface = None
                 self.interface_name = None
@@ -817,9 +823,10 @@ class SubscriberRedundancyManager(Entity):
                 self.role = None
                 self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-manager/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SubscriberRedundancyManager.Interfaces.Interface, ['interface', u'interface_name', u'interface_mapping_id', u'forward_referenced', u'group_id', u'role'], name, value)
+                self._perform_setattr(SubscriberRedundancyManager.Interfaces.Interface, ['interface', 'interface_name', 'interface_mapping_id', 'forward_referenced', 'group_id', 'role'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SubscriberRedundancyManager()
@@ -857,6 +864,7 @@ class SubscriberRedundancyAgent(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SubscriberRedundancyAgent, [], name, value)
@@ -893,6 +901,7 @@ class SubscriberRedundancyAgent(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SubscriberRedundancyAgent.Nodes, [], name, value)
@@ -946,7 +955,7 @@ class SubscriberRedundancyAgent(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("group-id-xr", ("group_id_xr", SubscriberRedundancyAgent.Nodes.Node.GroupIdXr)), ("interfaces", ("interfaces", SubscriberRedundancyAgent.Nodes.Node.Interfaces)), ("group-summaries", ("group_summaries", SubscriberRedundancyAgent.Nodes.Node.GroupSummaries)), ("group-ids", ("group_ids", SubscriberRedundancyAgent.Nodes.Node.GroupIds))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -967,6 +976,7 @@ class SubscriberRedundancyAgent(Entity):
                 self._children_name_map["group_ids"] = "group-ids"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-srg-oper:subscriber-redundancy-agent/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node, ['node_name'], name, value)
@@ -1001,6 +1011,7 @@ class SubscriberRedundancyAgent(Entity):
 
                     self.group_id = YList(self)
                     self._segment_path = lambda: "group-id-xr"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr, [], name, value)
@@ -1104,17 +1115,17 @@ class SubscriberRedundancyAgent(Entity):
                         self.ylist_key_names = ['group_id']
                         self._child_classes = OrderedDict([("session-detailed-information", ("session_detailed_information", SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation)), ("session-sync-error-information", ("session_sync_error_information", SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation))])
                         self._leafs = OrderedDict([
-                            ('group_id', YLeaf(YType.str, 'group-id')),
-                            ('group_id_xr', YLeaf(YType.uint32, 'group-id-xr')),
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('outer_vlan', YLeaf(YType.uint32, 'outer-vlan')),
-                            ('inner_vlan', YLeaf(YType.uint32, 'inner-vlan')),
-                            ('session_mac_address', YLeaf(YType.str, 'session-mac-address')),
-                            ('pppoe_session_id', YLeaf(YType.uint16, 'pppoe-session-id')),
-                            ('l2tp_tunnel_id', YLeaf(YType.uint32, 'l2tp-tunnel-id')),
-                            ('role_master', YLeaf(YType.boolean, 'role-master')),
-                            ('valid_mac_address', YLeaf(YType.boolean, 'valid-mac-address')),
-                            ('negative_acknowledgement_update_all', YLeaf(YType.boolean, 'negative-acknowledgement-update-all')),
+                            ('group_id', (YLeaf(YType.str, 'group-id'), ['str'])),
+                            ('group_id_xr', (YLeaf(YType.uint32, 'group-id-xr'), ['int'])),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('outer_vlan', (YLeaf(YType.uint32, 'outer-vlan'), ['int'])),
+                            ('inner_vlan', (YLeaf(YType.uint32, 'inner-vlan'), ['int'])),
+                            ('session_mac_address', (YLeaf(YType.str, 'session-mac-address'), ['str'])),
+                            ('pppoe_session_id', (YLeaf(YType.uint16, 'pppoe-session-id'), ['int'])),
+                            ('l2tp_tunnel_id', (YLeaf(YType.uint32, 'l2tp-tunnel-id'), ['int'])),
+                            ('role_master', (YLeaf(YType.boolean, 'role-master'), ['bool'])),
+                            ('valid_mac_address', (YLeaf(YType.boolean, 'valid-mac-address'), ['bool'])),
+                            ('negative_acknowledgement_update_all', (YLeaf(YType.boolean, 'negative-acknowledgement-update-all'), ['bool'])),
                         ])
                         self.group_id = None
                         self.group_id_xr = None
@@ -1131,9 +1142,10 @@ class SubscriberRedundancyAgent(Entity):
                         self.session_detailed_information = YList(self)
                         self.session_sync_error_information = YList(self)
                         self._segment_path = lambda: "group-id" + "[group-id='" + str(self.group_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, ['group_id', u'group_id_xr', u'interface_name', u'outer_vlan', u'inner_vlan', u'session_mac_address', u'pppoe_session_id', u'l2tp_tunnel_id', u'role_master', u'valid_mac_address', u'negative_acknowledgement_update_all'], name, value)
+                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId, ['group_id', 'group_id_xr', 'interface_name', 'outer_vlan', 'inner_vlan', 'session_mac_address', 'pppoe_session_id', 'l2tp_tunnel_id', 'role_master', 'valid_mac_address', 'negative_acknowledgement_update_all'], name, value)
 
 
                     class SessionDetailedInformation(Entity):
@@ -1182,11 +1194,11 @@ class SubscriberRedundancyAgent(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('component', YLeaf(YType.enumeration, 'component')),
-                                ('operation_', YLeaf(YType.enumeration, 'operation')),
-                                ('tx_list_queue_fail', YLeaf(YType.boolean, 'tx-list-queue-fail')),
-                                ('marked_for_sweeping', YLeaf(YType.boolean, 'marked-for-sweeping')),
-                                ('marked_for_cleanup', YLeaf(YType.boolean, 'marked-for-cleanup')),
+                                ('component', (YLeaf(YType.enumeration, 'component'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowComp', '')])),
+                                ('operation_', (YLeaf(YType.enumeration, 'operation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowSessionOperation', '')])),
+                                ('tx_list_queue_fail', (YLeaf(YType.boolean, 'tx-list-queue-fail'), ['bool'])),
+                                ('marked_for_sweeping', (YLeaf(YType.boolean, 'marked-for-sweeping'), ['bool'])),
+                                ('marked_for_cleanup', (YLeaf(YType.boolean, 'marked-for-cleanup'), ['bool'])),
                             ])
                             self.component = None
                             self.operation_ = None
@@ -1194,9 +1206,10 @@ class SubscriberRedundancyAgent(Entity):
                             self.marked_for_sweeping = None
                             self.marked_for_cleanup = None
                             self._segment_path = lambda: "session-detailed-information"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, [u'component', u'operation_', u'tx_list_queue_fail', u'marked_for_sweeping', u'marked_for_cleanup'], name, value)
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionDetailedInformation, ['component', 'operation_', 'tx_list_queue_fail', 'marked_for_sweeping', 'marked_for_cleanup'], name, value)
 
 
                     class SessionSyncErrorInformation(Entity):
@@ -1239,17 +1252,18 @@ class SubscriberRedundancyAgent(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sync_error_count', YLeaf(YType.uint16, 'sync-error-count')),
-                                ('last_error_code', YLeaf(YType.uint32, 'last-error-code')),
-                                ('last_error_type', YLeaf(YType.enumeration, 'last-error-type')),
+                                ('sync_error_count', (YLeaf(YType.uint16, 'sync-error-count'), ['int'])),
+                                ('last_error_code', (YLeaf(YType.uint32, 'last-error-code'), ['int'])),
+                                ('last_error_type', (YLeaf(YType.enumeration, 'last-error-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowSessionError', '')])),
                             ])
                             self.sync_error_count = None
                             self.last_error_code = None
                             self.last_error_type = None
                             self._segment_path = lambda: "session-sync-error-information"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, [u'sync_error_count', u'last_error_code', u'last_error_type'], name, value)
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIdXr.GroupId.SessionSyncErrorInformation, ['sync_error_count', 'last_error_code', 'last_error_type'], name, value)
 
 
             class Interfaces(Entity):
@@ -1281,6 +1295,7 @@ class SubscriberRedundancyAgent(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces, [], name, value)
@@ -1295,7 +1310,7 @@ class SubscriberRedundancyAgent(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: interface_oper
                     
@@ -1400,18 +1415,18 @@ class SubscriberRedundancyAgent(Entity):
                         self.ylist_key_names = ['interface']
                         self._child_classes = OrderedDict([("interface-oper", ("interface_oper", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper)), ("interface-status", ("interface_status", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus)), ("client-status", ("client_status", SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus))])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('interface_synchronization_id', YLeaf(YType.uint32, 'interface-synchronization-id')),
-                            ('group_id', YLeaf(YType.uint32, 'group-id')),
-                            ('role', YLeaf(YType.enumeration, 'role')),
-                            ('forward_referenced', YLeaf(YType.boolean, 'forward-referenced')),
-                            ('session_count', YLeaf(YType.uint32, 'session-count')),
-                            ('interface_enable_error_count', YLeaf(YType.uint32, 'interface-enable-error-count')),
-                            ('interface_disable_error_count', YLeaf(YType.uint32, 'interface-disable-error-count')),
-                            ('interface_caps_add_error_count', YLeaf(YType.uint32, 'interface-caps-add-error-count')),
-                            ('interface_caps_remove_error_count', YLeaf(YType.uint32, 'interface-caps-remove-error-count')),
-                            ('interface_attribute_update_error_count', YLeaf(YType.uint32, 'interface-attribute-update-error-count')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('interface_synchronization_id', (YLeaf(YType.uint32, 'interface-synchronization-id'), ['int'])),
+                            ('group_id', (YLeaf(YType.uint32, 'group-id'), ['int'])),
+                            ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowImRole', '')])),
+                            ('forward_referenced', (YLeaf(YType.boolean, 'forward-referenced'), ['bool'])),
+                            ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
+                            ('interface_enable_error_count', (YLeaf(YType.uint32, 'interface-enable-error-count'), ['int'])),
+                            ('interface_disable_error_count', (YLeaf(YType.uint32, 'interface-disable-error-count'), ['int'])),
+                            ('interface_caps_add_error_count', (YLeaf(YType.uint32, 'interface-caps-add-error-count'), ['int'])),
+                            ('interface_caps_remove_error_count', (YLeaf(YType.uint32, 'interface-caps-remove-error-count'), ['int'])),
+                            ('interface_attribute_update_error_count', (YLeaf(YType.uint32, 'interface-attribute-update-error-count'), ['int'])),
                         ])
                         self.interface = None
                         self.interface_name = None
@@ -1436,9 +1451,10 @@ class SubscriberRedundancyAgent(Entity):
 
                         self.client_status = YList(self)
                         self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface, ['interface', u'interface_name', u'interface_synchronization_id', u'group_id', u'role', u'forward_referenced', u'session_count', u'interface_enable_error_count', u'interface_disable_error_count', u'interface_caps_add_error_count', u'interface_caps_remove_error_count', u'interface_attribute_update_error_count'], name, value)
+                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface, ['interface', 'interface_name', 'interface_synchronization_id', 'group_id', 'role', 'forward_referenced', 'session_count', 'interface_enable_error_count', 'interface_disable_error_count', 'interface_caps_add_error_count', 'interface_caps_remove_error_count', 'interface_attribute_update_error_count'], name, value)
 
 
                     class InterfaceOper(Entity):
@@ -1487,11 +1503,11 @@ class SubscriberRedundancyAgent(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('idb_oper_reg_enable', YLeaf(YType.boolean, 'idb-oper-reg-enable')),
-                                ('idb_oper_reg_disable', YLeaf(YType.boolean, 'idb-oper-reg-disable')),
-                                ('idb_oper_caps_add', YLeaf(YType.boolean, 'idb-oper-caps-add')),
-                                ('idb_oper_caps_remove', YLeaf(YType.boolean, 'idb-oper-caps-remove')),
-                                ('idb_oper_attr_update', YLeaf(YType.boolean, 'idb-oper-attr-update')),
+                                ('idb_oper_reg_enable', (YLeaf(YType.boolean, 'idb-oper-reg-enable'), ['bool'])),
+                                ('idb_oper_reg_disable', (YLeaf(YType.boolean, 'idb-oper-reg-disable'), ['bool'])),
+                                ('idb_oper_caps_add', (YLeaf(YType.boolean, 'idb-oper-caps-add'), ['bool'])),
+                                ('idb_oper_caps_remove', (YLeaf(YType.boolean, 'idb-oper-caps-remove'), ['bool'])),
+                                ('idb_oper_attr_update', (YLeaf(YType.boolean, 'idb-oper-attr-update'), ['bool'])),
                             ])
                             self.idb_oper_reg_enable = None
                             self.idb_oper_reg_disable = None
@@ -1499,9 +1515,10 @@ class SubscriberRedundancyAgent(Entity):
                             self.idb_oper_caps_remove = None
                             self.idb_oper_attr_update = None
                             self._segment_path = lambda: "interface-oper"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, [u'idb_oper_reg_enable', u'idb_oper_reg_disable', u'idb_oper_caps_add', u'idb_oper_caps_remove', u'idb_oper_attr_update'], name, value)
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceOper, ['idb_oper_reg_enable', 'idb_oper_reg_disable', 'idb_oper_caps_add', 'idb_oper_caps_remove', 'idb_oper_attr_update'], name, value)
 
 
                     class InterfaceStatus(Entity):
@@ -1565,14 +1582,14 @@ class SubscriberRedundancyAgent(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('idb_state_fwd_ref', YLeaf(YType.boolean, 'idb-state-fwd-ref')),
-                                ('idb_state_stale', YLeaf(YType.boolean, 'idb-state-stale')),
-                                ('idb_state_registered', YLeaf(YType.boolean, 'idb-state-registered')),
-                                ('idb_state_caps_added', YLeaf(YType.boolean, 'idb-state-caps-added')),
-                                ('idb_state_owned_re_source', YLeaf(YType.boolean, 'idb-state-owned-re-source')),
-                                ('idb_client_eoms_pending', YLeaf(YType.boolean, 'idb-client-eoms-pending')),
-                                ('idb_state_p_end_caps_rem', YLeaf(YType.boolean, 'idb-state-p-end-caps-rem')),
-                                ('idb_state_p_end_reg_disable', YLeaf(YType.boolean, 'idb-state-p-end-reg-disable')),
+                                ('idb_state_fwd_ref', (YLeaf(YType.boolean, 'idb-state-fwd-ref'), ['bool'])),
+                                ('idb_state_stale', (YLeaf(YType.boolean, 'idb-state-stale'), ['bool'])),
+                                ('idb_state_registered', (YLeaf(YType.boolean, 'idb-state-registered'), ['bool'])),
+                                ('idb_state_caps_added', (YLeaf(YType.boolean, 'idb-state-caps-added'), ['bool'])),
+                                ('idb_state_owned_re_source', (YLeaf(YType.boolean, 'idb-state-owned-re-source'), ['bool'])),
+                                ('idb_client_eoms_pending', (YLeaf(YType.boolean, 'idb-client-eoms-pending'), ['bool'])),
+                                ('idb_state_p_end_caps_rem', (YLeaf(YType.boolean, 'idb-state-p-end-caps-rem'), ['bool'])),
+                                ('idb_state_p_end_reg_disable', (YLeaf(YType.boolean, 'idb-state-p-end-reg-disable'), ['bool'])),
                             ])
                             self.idb_state_fwd_ref = None
                             self.idb_state_stale = None
@@ -1583,9 +1600,10 @@ class SubscriberRedundancyAgent(Entity):
                             self.idb_state_p_end_caps_rem = None
                             self.idb_state_p_end_reg_disable = None
                             self._segment_path = lambda: "interface-status"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, [u'idb_state_fwd_ref', u'idb_state_stale', u'idb_state_registered', u'idb_state_caps_added', u'idb_state_owned_re_source', u'idb_client_eoms_pending', u'idb_state_p_end_caps_rem', u'idb_state_p_end_reg_disable'], name, value)
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.InterfaceStatus, ['idb_state_fwd_ref', 'idb_state_stale', 'idb_state_registered', 'idb_state_caps_added', 'idb_state_owned_re_source', 'idb_client_eoms_pending', 'idb_state_p_end_caps_rem', 'idb_state_p_end_reg_disable'], name, value)
 
 
                     class ClientStatus(Entity):
@@ -1631,19 +1649,20 @@ class SubscriberRedundancyAgent(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('component', YLeaf(YType.enumeration, 'component')),
-                                ('srg_show_idb_client_eoms_pending', YLeaf(YType.boolean, 'srg-show-idb-client-eoms-pending')),
-                                ('srg_show_idb_client_sync_eod_pending', YLeaf(YType.boolean, 'srg-show-idb-client-sync-eod-pending')),
-                                ('session_count', YLeaf(YType.uint32, 'session-count')),
+                                ('component', (YLeaf(YType.enumeration, 'component'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowComp', '')])),
+                                ('srg_show_idb_client_eoms_pending', (YLeaf(YType.boolean, 'srg-show-idb-client-eoms-pending'), ['bool'])),
+                                ('srg_show_idb_client_sync_eod_pending', (YLeaf(YType.boolean, 'srg-show-idb-client-sync-eod-pending'), ['bool'])),
+                                ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
                             ])
                             self.component = None
                             self.srg_show_idb_client_eoms_pending = None
                             self.srg_show_idb_client_sync_eod_pending = None
                             self.session_count = None
                             self._segment_path = lambda: "client-status"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, [u'component', u'srg_show_idb_client_eoms_pending', u'srg_show_idb_client_sync_eod_pending', u'session_count'], name, value)
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.Interfaces.Interface.ClientStatus, ['component', 'srg_show_idb_client_eoms_pending', 'srg_show_idb_client_sync_eod_pending', 'session_count'], name, value)
 
 
             class GroupSummaries(Entity):
@@ -1675,6 +1694,7 @@ class SubscriberRedundancyAgent(Entity):
 
                     self.group_summary = YList(self)
                     self._segment_path = lambda: "group-summaries"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupSummaries, [], name, value)
@@ -1780,19 +1800,19 @@ class SubscriberRedundancyAgent(Entity):
                         self.ylist_key_names = ['group_id']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('group_id', YLeaf(YType.str, 'group-id')),
-                            ('group_id_xr', YLeaf(YType.uint32, 'group-id-xr')),
-                            ('role', YLeaf(YType.enumeration, 'role')),
-                            ('disabled', YLeaf(YType.boolean, 'disabled')),
-                            ('peer_ipv4_address', YLeaf(YType.str, 'peer-ipv4-address')),
-                            ('peer_ipv6_address', YLeaf(YType.str, 'peer-ipv6-address')),
-                            ('peer_status', YLeaf(YType.enumeration, 'peer-status')),
-                            ('preferred_role', YLeaf(YType.enumeration, 'preferred-role')),
-                            ('slave_mode', YLeaf(YType.enumeration, 'slave-mode')),
-                            ('object_tracking_status', YLeaf(YType.boolean, 'object-tracking-status')),
-                            ('interface_count', YLeaf(YType.uint32, 'interface-count')),
-                            ('session_count', YLeaf(YType.uint32, 'session-count')),
-                            ('pending_add_session_count', YLeaf(YType.uint32, 'pending-add-session-count')),
+                            ('group_id', (YLeaf(YType.str, 'group-id'), ['str'])),
+                            ('group_id_xr', (YLeaf(YType.uint32, 'group-id-xr'), ['int'])),
+                            ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowImRole', '')])),
+                            ('disabled', (YLeaf(YType.boolean, 'disabled'), ['bool'])),
+                            ('peer_ipv4_address', (YLeaf(YType.str, 'peer-ipv4-address'), ['str'])),
+                            ('peer_ipv6_address', (YLeaf(YType.str, 'peer-ipv6-address'), ['str'])),
+                            ('peer_status', (YLeaf(YType.enumeration, 'peer-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgPeerStatus', '')])),
+                            ('preferred_role', (YLeaf(YType.enumeration, 'preferred-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowRole', '')])),
+                            ('slave_mode', (YLeaf(YType.enumeration, 'slave-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowSlaveMode', '')])),
+                            ('object_tracking_status', (YLeaf(YType.boolean, 'object-tracking-status'), ['bool'])),
+                            ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
+                            ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
+                            ('pending_add_session_count', (YLeaf(YType.uint32, 'pending-add-session-count'), ['int'])),
                         ])
                         self.group_id = None
                         self.group_id_xr = None
@@ -1808,9 +1828,10 @@ class SubscriberRedundancyAgent(Entity):
                         self.session_count = None
                         self.pending_add_session_count = None
                         self._segment_path = lambda: "group-summary" + "[group-id='" + str(self.group_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, ['group_id', u'group_id_xr', u'role', u'disabled', u'peer_ipv4_address', u'peer_ipv6_address', u'peer_status', u'preferred_role', u'slave_mode', u'object_tracking_status', u'interface_count', u'session_count', u'pending_add_session_count'], name, value)
+                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupSummaries.GroupSummary, ['group_id', 'group_id_xr', 'role', 'disabled', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'preferred_role', 'slave_mode', 'object_tracking_status', 'interface_count', 'session_count', 'pending_add_session_count'], name, value)
 
 
             class GroupIds(Entity):
@@ -1842,6 +1863,7 @@ class SubscriberRedundancyAgent(Entity):
 
                     self.group_id = YList(self)
                     self._segment_path = lambda: "group-ids"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds, [], name, value)
@@ -2104,45 +2126,45 @@ class SubscriberRedundancyAgent(Entity):
                         self.ylist_key_names = ['group_id']
                         self._child_classes = OrderedDict([("interface", ("interface", SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface))])
                         self._leafs = OrderedDict([
-                            ('group_id', YLeaf(YType.str, 'group-id')),
-                            ('group_id_xr', YLeaf(YType.uint32, 'group-id-xr')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('disabled', YLeaf(YType.boolean, 'disabled')),
-                            ('init_role', YLeaf(YType.enumeration, 'init-role')),
-                            ('negotiating_role', YLeaf(YType.enumeration, 'negotiating-role')),
-                            ('current_role', YLeaf(YType.enumeration, 'current-role')),
-                            ('slave_mode', YLeaf(YType.enumeration, 'slave-mode')),
-                            ('hold_timer', YLeaf(YType.uint32, 'hold-timer')),
-                            ('virtual_mac_address', YLeaf(YType.str, 'virtual-mac-address')),
-                            ('virtual_mac_address_disable', YLeaf(YType.boolean, 'virtual-mac-address-disable')),
-                            ('l2tp_source_ip', YLeaf(YType.str, 'l2tp-source-ip')),
-                            ('core_tracking_object_name', YLeaf(YType.str, 'core-tracking-object-name')),
-                            ('core_tracking_object_status', YLeaf(YType.boolean, 'core-tracking-object-status')),
-                            ('access_tracking_object_name', YLeaf(YType.str, 'access-tracking-object-name')),
-                            ('access_tracking_object_status', YLeaf(YType.boolean, 'access-tracking-object-status')),
-                            ('object_tracking_status', YLeaf(YType.boolean, 'object-tracking-status')),
-                            ('peer_ipv4_address', YLeaf(YType.str, 'peer-ipv4-address')),
-                            ('peer_ipv6_address', YLeaf(YType.str, 'peer-ipv6-address')),
-                            ('peer_status', YLeaf(YType.enumeration, 'peer-status')),
-                            ('peer_last_negotiation_time', YLeaf(YType.str, 'peer-last-negotiation-time')),
-                            ('peer_last_up_time', YLeaf(YType.str, 'peer-last-up-time')),
-                            ('peer_last_down_time', YLeaf(YType.str, 'peer-last-down-time')),
-                            ('peer_init_role', YLeaf(YType.enumeration, 'peer-init-role')),
-                            ('peer_negotiating_role', YLeaf(YType.enumeration, 'peer-negotiating-role')),
-                            ('peer_current_role', YLeaf(YType.enumeration, 'peer-current-role')),
-                            ('peer_object_tracking_status', YLeaf(YType.boolean, 'peer-object-tracking-status')),
-                            ('last_switchover_time', YLeaf(YType.str, 'last-switchover-time')),
-                            ('switchover_count', YLeaf(YType.uint32, 'switchover-count')),
-                            ('last_switchover_reason', YLeaf(YType.enumeration, 'last-switchover-reason')),
-                            ('switchover_hold_time', YLeaf(YType.uint32, 'switchover-hold-time')),
-                            ('session_count', YLeaf(YType.uint32, 'session-count')),
-                            ('slave_update_failure_count', YLeaf(YType.uint32, 'slave-update-failure-count')),
-                            ('tunnel_count', YLeaf(YType.uint32, 'tunnel-count')),
-                            ('pending_session_update_count', YLeaf(YType.uint32, 'pending-session-update-count')),
-                            ('pending_session_delete_count', YLeaf(YType.uint32, 'pending-session-delete-count')),
-                            ('interface_count', YLeaf(YType.uint32, 'interface-count')),
-                            ('revertive_timer', YLeaf(YType.uint32, 'revertive-timer')),
-                            ('switchover_revert_time', YLeaf(YType.uint32, 'switchover-revert-time')),
+                            ('group_id', (YLeaf(YType.str, 'group-id'), ['str'])),
+                            ('group_id_xr', (YLeaf(YType.uint32, 'group-id-xr'), ['int'])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('disabled', (YLeaf(YType.boolean, 'disabled'), ['bool'])),
+                            ('init_role', (YLeaf(YType.enumeration, 'init-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowRole', '')])),
+                            ('negotiating_role', (YLeaf(YType.enumeration, 'negotiating-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowRole', '')])),
+                            ('current_role', (YLeaf(YType.enumeration, 'current-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowRole', '')])),
+                            ('slave_mode', (YLeaf(YType.enumeration, 'slave-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowSlaveMode', '')])),
+                            ('hold_timer', (YLeaf(YType.uint32, 'hold-timer'), ['int'])),
+                            ('virtual_mac_address', (YLeaf(YType.str, 'virtual-mac-address'), ['str'])),
+                            ('virtual_mac_address_disable', (YLeaf(YType.boolean, 'virtual-mac-address-disable'), ['bool'])),
+                            ('l2tp_source_ip', (YLeaf(YType.str, 'l2tp-source-ip'), ['str'])),
+                            ('core_tracking_object_name', (YLeaf(YType.str, 'core-tracking-object-name'), ['str'])),
+                            ('core_tracking_object_status', (YLeaf(YType.boolean, 'core-tracking-object-status'), ['bool'])),
+                            ('access_tracking_object_name', (YLeaf(YType.str, 'access-tracking-object-name'), ['str'])),
+                            ('access_tracking_object_status', (YLeaf(YType.boolean, 'access-tracking-object-status'), ['bool'])),
+                            ('object_tracking_status', (YLeaf(YType.boolean, 'object-tracking-status'), ['bool'])),
+                            ('peer_ipv4_address', (YLeaf(YType.str, 'peer-ipv4-address'), ['str'])),
+                            ('peer_ipv6_address', (YLeaf(YType.str, 'peer-ipv6-address'), ['str'])),
+                            ('peer_status', (YLeaf(YType.enumeration, 'peer-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgPeerStatus', '')])),
+                            ('peer_last_negotiation_time', (YLeaf(YType.str, 'peer-last-negotiation-time'), ['str'])),
+                            ('peer_last_up_time', (YLeaf(YType.str, 'peer-last-up-time'), ['str'])),
+                            ('peer_last_down_time', (YLeaf(YType.str, 'peer-last-down-time'), ['str'])),
+                            ('peer_init_role', (YLeaf(YType.enumeration, 'peer-init-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowRole', '')])),
+                            ('peer_negotiating_role', (YLeaf(YType.enumeration, 'peer-negotiating-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowRole', '')])),
+                            ('peer_current_role', (YLeaf(YType.enumeration, 'peer-current-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowRole', '')])),
+                            ('peer_object_tracking_status', (YLeaf(YType.boolean, 'peer-object-tracking-status'), ['bool'])),
+                            ('last_switchover_time', (YLeaf(YType.str, 'last-switchover-time'), ['str'])),
+                            ('switchover_count', (YLeaf(YType.uint32, 'switchover-count'), ['int'])),
+                            ('last_switchover_reason', (YLeaf(YType.enumeration, 'last-switchover-reason'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_srg_oper', 'SrgShowSoReason', '')])),
+                            ('switchover_hold_time', (YLeaf(YType.uint32, 'switchover-hold-time'), ['int'])),
+                            ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
+                            ('slave_update_failure_count', (YLeaf(YType.uint32, 'slave-update-failure-count'), ['int'])),
+                            ('tunnel_count', (YLeaf(YType.uint32, 'tunnel-count'), ['int'])),
+                            ('pending_session_update_count', (YLeaf(YType.uint32, 'pending-session-update-count'), ['int'])),
+                            ('pending_session_delete_count', (YLeaf(YType.uint32, 'pending-session-delete-count'), ['int'])),
+                            ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
+                            ('revertive_timer', (YLeaf(YType.uint32, 'revertive-timer'), ['int'])),
+                            ('switchover_revert_time', (YLeaf(YType.uint32, 'switchover-revert-time'), ['int'])),
                         ])
                         self.group_id = None
                         self.group_id_xr = None
@@ -2186,9 +2208,10 @@ class SubscriberRedundancyAgent(Entity):
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "group-id" + "[group-id='" + str(self.group_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId, ['group_id', u'group_id_xr', u'description', u'disabled', u'init_role', u'negotiating_role', u'current_role', u'slave_mode', u'hold_timer', u'virtual_mac_address', u'virtual_mac_address_disable', u'l2tp_source_ip', u'core_tracking_object_name', u'core_tracking_object_status', u'access_tracking_object_name', u'access_tracking_object_status', u'object_tracking_status', u'peer_ipv4_address', u'peer_ipv6_address', u'peer_status', u'peer_last_negotiation_time', u'peer_last_up_time', u'peer_last_down_time', u'peer_init_role', u'peer_negotiating_role', u'peer_current_role', u'peer_object_tracking_status', u'last_switchover_time', u'switchover_count', u'last_switchover_reason', u'switchover_hold_time', u'session_count', u'slave_update_failure_count', u'tunnel_count', u'pending_session_update_count', u'pending_session_delete_count', u'interface_count', u'revertive_timer', u'switchover_revert_time'], name, value)
+                        self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId, ['group_id', 'group_id_xr', 'description', 'disabled', 'init_role', 'negotiating_role', 'current_role', 'slave_mode', 'hold_timer', 'virtual_mac_address', 'virtual_mac_address_disable', 'l2tp_source_ip', 'core_tracking_object_name', 'core_tracking_object_status', 'access_tracking_object_name', 'access_tracking_object_status', 'object_tracking_status', 'peer_ipv4_address', 'peer_ipv6_address', 'peer_status', 'peer_last_negotiation_time', 'peer_last_up_time', 'peer_last_down_time', 'peer_init_role', 'peer_negotiating_role', 'peer_current_role', 'peer_object_tracking_status', 'last_switchover_time', 'switchover_count', 'last_switchover_reason', 'switchover_hold_time', 'session_count', 'slave_update_failure_count', 'tunnel_count', 'pending_session_update_count', 'pending_session_delete_count', 'interface_count', 'revertive_timer', 'switchover_revert_time'], name, value)
 
 
                     class Interface(Entity):
@@ -2236,19 +2259,20 @@ class SubscriberRedundancyAgent(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('interface_synchronization_id', YLeaf(YType.uint32, 'interface-synchronization-id')),
-                                ('forward_referenced', YLeaf(YType.boolean, 'forward-referenced')),
-                                ('session_count', YLeaf(YType.uint32, 'session-count')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('interface_synchronization_id', (YLeaf(YType.uint32, 'interface-synchronization-id'), ['int'])),
+                                ('forward_referenced', (YLeaf(YType.boolean, 'forward-referenced'), ['bool'])),
+                                ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
                             ])
                             self.interface_name = None
                             self.interface_synchronization_id = None
                             self.forward_referenced = None
                             self.session_count = None
                             self._segment_path = lambda: "interface"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, [u'interface_name', u'interface_synchronization_id', u'forward_referenced', u'session_count'], name, value)
+                            self._perform_setattr(SubscriberRedundancyAgent.Nodes.Node.GroupIds.GroupId.Interface, ['interface_name', 'interface_synchronization_id', 'forward_referenced', 'session_count'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SubscriberRedundancyAgent()

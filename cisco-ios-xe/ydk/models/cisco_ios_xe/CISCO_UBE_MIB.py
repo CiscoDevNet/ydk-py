@@ -18,6 +18,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOUBEMIB(Entity):
     """
     
@@ -50,6 +51,7 @@ class CISCOUBEMIB(Entity):
         self.ciscoubemibobjects.parent = self
         self._children_name_map["ciscoubemibobjects"] = "ciscoUbeMIBObjects"
         self._segment_path = lambda: "CISCO-UBE-MIB:CISCO-UBE-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOUBEMIB, [], name, value)
@@ -95,15 +97,16 @@ class CISCOUBEMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cubeenabled', YLeaf(YType.boolean, 'cubeEnabled')),
-                ('cubeversion', YLeaf(YType.str, 'cubeVersion')),
-                ('cubetotalsessionallowed', YLeaf(YType.uint32, 'cubeTotalSessionAllowed')),
+                ('cubeenabled', (YLeaf(YType.boolean, 'cubeEnabled'), ['bool'])),
+                ('cubeversion', (YLeaf(YType.str, 'cubeVersion'), ['str'])),
+                ('cubetotalsessionallowed', (YLeaf(YType.uint32, 'cubeTotalSessionAllowed'), ['int'])),
             ])
             self.cubeenabled = None
             self.cubeversion = None
             self.cubetotalsessionallowed = None
             self._segment_path = lambda: "ciscoUbeMIBObjects"
             self._absolute_path = lambda: "CISCO-UBE-MIB:CISCO-UBE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOUBEMIB.CiscoUbeMIBObjects, ['cubeenabled', 'cubeversion', 'cubetotalsessionallowed'], name, value)

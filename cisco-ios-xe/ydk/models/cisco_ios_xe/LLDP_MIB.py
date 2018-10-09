@@ -17,6 +17,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class LldpChassisIdSubtype(Enum):
     """
     LldpChassisIdSubtype (Enum Class)
@@ -366,6 +367,7 @@ class LLDPMIB(Entity):
         self.lldpremorgdefinfotable.parent = self
         self._children_name_map["lldpremorgdefinfotable"] = "lldpRemOrgDefInfoTable"
         self._segment_path = lambda: "LLDP-MIB:LLDP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(LLDPMIB, [], name, value)
@@ -435,11 +437,11 @@ class LLDPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('lldpmessagetxinterval', YLeaf(YType.int32, 'lldpMessageTxInterval')),
-                ('lldpmessagetxholdmultiplier', YLeaf(YType.int32, 'lldpMessageTxHoldMultiplier')),
-                ('lldpreinitdelay', YLeaf(YType.int32, 'lldpReinitDelay')),
-                ('lldptxdelay', YLeaf(YType.int32, 'lldpTxDelay')),
-                ('lldpnotificationinterval', YLeaf(YType.int32, 'lldpNotificationInterval')),
+                ('lldpmessagetxinterval', (YLeaf(YType.int32, 'lldpMessageTxInterval'), ['int'])),
+                ('lldpmessagetxholdmultiplier', (YLeaf(YType.int32, 'lldpMessageTxHoldMultiplier'), ['int'])),
+                ('lldpreinitdelay', (YLeaf(YType.int32, 'lldpReinitDelay'), ['int'])),
+                ('lldptxdelay', (YLeaf(YType.int32, 'lldpTxDelay'), ['int'])),
+                ('lldpnotificationinterval', (YLeaf(YType.int32, 'lldpNotificationInterval'), ['int'])),
             ])
             self.lldpmessagetxinterval = None
             self.lldpmessagetxholdmultiplier = None
@@ -448,6 +450,7 @@ class LLDPMIB(Entity):
             self.lldpnotificationinterval = None
             self._segment_path = lambda: "lldpConfiguration"
             self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LLDPMIB.LldpConfiguration, ['lldpmessagetxinterval', 'lldpmessagetxholdmultiplier', 'lldpreinitdelay', 'lldptxdelay', 'lldpnotificationinterval'], name, value)
@@ -515,11 +518,11 @@ class LLDPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('lldpstatsremtableslastchangetime', YLeaf(YType.uint32, 'lldpStatsRemTablesLastChangeTime')),
-                ('lldpstatsremtablesinserts', YLeaf(YType.uint32, 'lldpStatsRemTablesInserts')),
-                ('lldpstatsremtablesdeletes', YLeaf(YType.uint32, 'lldpStatsRemTablesDeletes')),
-                ('lldpstatsremtablesdrops', YLeaf(YType.uint32, 'lldpStatsRemTablesDrops')),
-                ('lldpstatsremtablesageouts', YLeaf(YType.uint32, 'lldpStatsRemTablesAgeouts')),
+                ('lldpstatsremtableslastchangetime', (YLeaf(YType.uint32, 'lldpStatsRemTablesLastChangeTime'), ['int'])),
+                ('lldpstatsremtablesinserts', (YLeaf(YType.uint32, 'lldpStatsRemTablesInserts'), ['int'])),
+                ('lldpstatsremtablesdeletes', (YLeaf(YType.uint32, 'lldpStatsRemTablesDeletes'), ['int'])),
+                ('lldpstatsremtablesdrops', (YLeaf(YType.uint32, 'lldpStatsRemTablesDrops'), ['int'])),
+                ('lldpstatsremtablesageouts', (YLeaf(YType.uint32, 'lldpStatsRemTablesAgeouts'), ['int'])),
             ])
             self.lldpstatsremtableslastchangetime = None
             self.lldpstatsremtablesinserts = None
@@ -528,6 +531,7 @@ class LLDPMIB(Entity):
             self.lldpstatsremtablesageouts = None
             self._segment_path = lambda: "lldpStatistics"
             self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LLDPMIB.LldpStatistics, ['lldpstatsremtableslastchangetime', 'lldpstatsremtablesinserts', 'lldpstatsremtablesdeletes', 'lldpstatsremtablesdrops', 'lldpstatsremtablesageouts'], name, value)
@@ -590,12 +594,12 @@ class LLDPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('lldplocchassisidsubtype', YLeaf(YType.enumeration, 'lldpLocChassisIdSubtype')),
-                ('lldplocchassisid', YLeaf(YType.str, 'lldpLocChassisId')),
-                ('lldplocsysname', YLeaf(YType.str, 'lldpLocSysName')),
-                ('lldplocsysdesc', YLeaf(YType.str, 'lldpLocSysDesc')),
-                ('lldplocsyscapsupported', YLeaf(YType.bits, 'lldpLocSysCapSupported')),
-                ('lldplocsyscapenabled', YLeaf(YType.bits, 'lldpLocSysCapEnabled')),
+                ('lldplocchassisidsubtype', (YLeaf(YType.enumeration, 'lldpLocChassisIdSubtype'), [('ydk.models.cisco_ios_xe.LLDP_MIB', 'LldpChassisIdSubtype', '')])),
+                ('lldplocchassisid', (YLeaf(YType.str, 'lldpLocChassisId'), ['str'])),
+                ('lldplocsysname', (YLeaf(YType.str, 'lldpLocSysName'), ['str'])),
+                ('lldplocsysdesc', (YLeaf(YType.str, 'lldpLocSysDesc'), ['str'])),
+                ('lldplocsyscapsupported', (YLeaf(YType.bits, 'lldpLocSysCapSupported'), ['Bits'])),
+                ('lldplocsyscapenabled', (YLeaf(YType.bits, 'lldpLocSysCapEnabled'), ['Bits'])),
             ])
             self.lldplocchassisidsubtype = None
             self.lldplocchassisid = None
@@ -605,6 +609,7 @@ class LLDPMIB(Entity):
             self.lldplocsyscapenabled = Bits()
             self._segment_path = lambda: "lldpLocalSystemData"
             self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LLDPMIB.LldpLocalSystemData, ['lldplocchassisidsubtype', 'lldplocchassisid', 'lldplocsysname', 'lldplocsysdesc', 'lldplocsyscapsupported', 'lldplocsyscapenabled'], name, value)
@@ -641,6 +646,7 @@ class LLDPMIB(Entity):
             self.lldpportconfigentry = YList(self)
             self._segment_path = lambda: "lldpPortConfigTable"
             self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LLDPMIB.LldpPortConfigTable, [], name, value)
@@ -692,10 +698,10 @@ class LLDPMIB(Entity):
                 self.ylist_key_names = ['lldpportconfigportnum']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('lldpportconfigportnum', YLeaf(YType.int32, 'lldpPortConfigPortNum')),
-                    ('lldpportconfigadminstatus', YLeaf(YType.enumeration, 'lldpPortConfigAdminStatus')),
-                    ('lldpportconfignotificationenable', YLeaf(YType.boolean, 'lldpPortConfigNotificationEnable')),
-                    ('lldpportconfigtlvstxenable', YLeaf(YType.bits, 'lldpPortConfigTLVsTxEnable')),
+                    ('lldpportconfigportnum', (YLeaf(YType.int32, 'lldpPortConfigPortNum'), ['int'])),
+                    ('lldpportconfigadminstatus', (YLeaf(YType.enumeration, 'lldpPortConfigAdminStatus'), [('ydk.models.cisco_ios_xe.LLDP_MIB', 'LLDPMIB', 'LldpPortConfigTable.LldpPortConfigEntry.LldpPortConfigAdminStatus')])),
+                    ('lldpportconfignotificationenable', (YLeaf(YType.boolean, 'lldpPortConfigNotificationEnable'), ['bool'])),
+                    ('lldpportconfigtlvstxenable', (YLeaf(YType.bits, 'lldpPortConfigTLVsTxEnable'), ['Bits'])),
                 ])
                 self.lldpportconfigportnum = None
                 self.lldpportconfigadminstatus = None
@@ -703,6 +709,7 @@ class LLDPMIB(Entity):
                 self.lldpportconfigtlvstxenable = Bits()
                 self._segment_path = lambda: "lldpPortConfigEntry" + "[lldpPortConfigPortNum='" + str(self.lldpportconfigportnum) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpPortConfigTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LLDPMIB.LldpPortConfigTable.LldpPortConfigEntry, ['lldpportconfigportnum', 'lldpportconfigadminstatus', 'lldpportconfignotificationenable', 'lldpportconfigtlvstxenable'], name, value)
@@ -798,6 +805,7 @@ class LLDPMIB(Entity):
             self.lldpstatstxportentry = YList(self)
             self._segment_path = lambda: "lldpStatsTxPortTable"
             self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LLDPMIB.LldpStatsTxPortTable, [], name, value)
@@ -850,13 +858,14 @@ class LLDPMIB(Entity):
                 self.ylist_key_names = ['lldpstatstxportnum']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('lldpstatstxportnum', YLeaf(YType.int32, 'lldpStatsTxPortNum')),
-                    ('lldpstatstxportframestotal', YLeaf(YType.uint32, 'lldpStatsTxPortFramesTotal')),
+                    ('lldpstatstxportnum', (YLeaf(YType.int32, 'lldpStatsTxPortNum'), ['int'])),
+                    ('lldpstatstxportframestotal', (YLeaf(YType.uint32, 'lldpStatsTxPortFramesTotal'), ['int'])),
                 ])
                 self.lldpstatstxportnum = None
                 self.lldpstatstxportframestotal = None
                 self._segment_path = lambda: "lldpStatsTxPortEntry" + "[lldpStatsTxPortNum='" + str(self.lldpstatstxportnum) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpStatsTxPortTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LLDPMIB.LldpStatsTxPortTable.LldpStatsTxPortEntry, ['lldpstatstxportnum', 'lldpstatstxportframestotal'], name, value)
@@ -894,6 +903,7 @@ class LLDPMIB(Entity):
             self.lldpstatsrxportentry = YList(self)
             self._segment_path = lambda: "lldpStatsRxPortTable"
             self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LLDPMIB.LldpStatsRxPortTable, [], name, value)
@@ -981,13 +991,13 @@ class LLDPMIB(Entity):
                 self.ylist_key_names = ['lldpstatsrxportnum']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('lldpstatsrxportnum', YLeaf(YType.int32, 'lldpStatsRxPortNum')),
-                    ('lldpstatsrxportframesdiscardedtotal', YLeaf(YType.uint32, 'lldpStatsRxPortFramesDiscardedTotal')),
-                    ('lldpstatsrxportframeserrors', YLeaf(YType.uint32, 'lldpStatsRxPortFramesErrors')),
-                    ('lldpstatsrxportframestotal', YLeaf(YType.uint32, 'lldpStatsRxPortFramesTotal')),
-                    ('lldpstatsrxporttlvsdiscardedtotal', YLeaf(YType.uint32, 'lldpStatsRxPortTLVsDiscardedTotal')),
-                    ('lldpstatsrxporttlvsunrecognizedtotal', YLeaf(YType.uint32, 'lldpStatsRxPortTLVsUnrecognizedTotal')),
-                    ('lldpstatsrxportageoutstotal', YLeaf(YType.uint32, 'lldpStatsRxPortAgeoutsTotal')),
+                    ('lldpstatsrxportnum', (YLeaf(YType.int32, 'lldpStatsRxPortNum'), ['int'])),
+                    ('lldpstatsrxportframesdiscardedtotal', (YLeaf(YType.uint32, 'lldpStatsRxPortFramesDiscardedTotal'), ['int'])),
+                    ('lldpstatsrxportframeserrors', (YLeaf(YType.uint32, 'lldpStatsRxPortFramesErrors'), ['int'])),
+                    ('lldpstatsrxportframestotal', (YLeaf(YType.uint32, 'lldpStatsRxPortFramesTotal'), ['int'])),
+                    ('lldpstatsrxporttlvsdiscardedtotal', (YLeaf(YType.uint32, 'lldpStatsRxPortTLVsDiscardedTotal'), ['int'])),
+                    ('lldpstatsrxporttlvsunrecognizedtotal', (YLeaf(YType.uint32, 'lldpStatsRxPortTLVsUnrecognizedTotal'), ['int'])),
+                    ('lldpstatsrxportageoutstotal', (YLeaf(YType.uint32, 'lldpStatsRxPortAgeoutsTotal'), ['int'])),
                 ])
                 self.lldpstatsrxportnum = None
                 self.lldpstatsrxportframesdiscardedtotal = None
@@ -998,6 +1008,7 @@ class LLDPMIB(Entity):
                 self.lldpstatsrxportageoutstotal = None
                 self._segment_path = lambda: "lldpStatsRxPortEntry" + "[lldpStatsRxPortNum='" + str(self.lldpstatsrxportnum) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpStatsRxPortTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LLDPMIB.LldpStatsRxPortTable.LldpStatsRxPortEntry, ['lldpstatsrxportnum', 'lldpstatsrxportframesdiscardedtotal', 'lldpstatsrxportframeserrors', 'lldpstatsrxportframestotal', 'lldpstatsrxporttlvsdiscardedtotal', 'lldpstatsrxporttlvsunrecognizedtotal', 'lldpstatsrxportageoutstotal'], name, value)
@@ -1034,6 +1045,7 @@ class LLDPMIB(Entity):
             self.lldplocportentry = YList(self)
             self._segment_path = lambda: "lldpLocPortTable"
             self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LLDPMIB.LldpLocPortTable, [], name, value)
@@ -1089,10 +1101,10 @@ class LLDPMIB(Entity):
                 self.ylist_key_names = ['lldplocportnum']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('lldplocportnum', YLeaf(YType.int32, 'lldpLocPortNum')),
-                    ('lldplocportidsubtype', YLeaf(YType.enumeration, 'lldpLocPortIdSubtype')),
-                    ('lldplocportid', YLeaf(YType.str, 'lldpLocPortId')),
-                    ('lldplocportdesc', YLeaf(YType.str, 'lldpLocPortDesc')),
+                    ('lldplocportnum', (YLeaf(YType.int32, 'lldpLocPortNum'), ['int'])),
+                    ('lldplocportidsubtype', (YLeaf(YType.enumeration, 'lldpLocPortIdSubtype'), [('ydk.models.cisco_ios_xe.LLDP_MIB', 'LldpPortIdSubtype', '')])),
+                    ('lldplocportid', (YLeaf(YType.str, 'lldpLocPortId'), ['str'])),
+                    ('lldplocportdesc', (YLeaf(YType.str, 'lldpLocPortDesc'), ['str'])),
                 ])
                 self.lldplocportnum = None
                 self.lldplocportidsubtype = None
@@ -1100,6 +1112,7 @@ class LLDPMIB(Entity):
                 self.lldplocportdesc = None
                 self._segment_path = lambda: "lldpLocPortEntry" + "[lldpLocPortNum='" + str(self.lldplocportnum) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpLocPortTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LLDPMIB.LldpLocPortTable.LldpLocPortEntry, ['lldplocportnum', 'lldplocportidsubtype', 'lldplocportid', 'lldplocportdesc'], name, value)
@@ -1136,6 +1149,7 @@ class LLDPMIB(Entity):
             self.lldplocmanaddrentry = YList(self)
             self._segment_path = lambda: "lldpLocManAddrTable"
             self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LLDPMIB.LldpLocManAddrTable, [], name, value)
@@ -1215,13 +1229,13 @@ class LLDPMIB(Entity):
                 self.ylist_key_names = ['lldplocmanaddrsubtype','lldplocmanaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('lldplocmanaddrsubtype', YLeaf(YType.enumeration, 'lldpLocManAddrSubtype')),
-                    ('lldplocmanaddr', YLeaf(YType.str, 'lldpLocManAddr')),
-                    ('lldplocmanaddrlen', YLeaf(YType.int32, 'lldpLocManAddrLen')),
-                    ('lldplocmanaddrifsubtype', YLeaf(YType.enumeration, 'lldpLocManAddrIfSubtype')),
-                    ('lldplocmanaddrifid', YLeaf(YType.int32, 'lldpLocManAddrIfId')),
-                    ('lldplocmanaddroid', YLeaf(YType.str, 'lldpLocManAddrOID')),
-                    ('lldpconfigmanaddrportstxenable', YLeaf(YType.str, 'lldpConfigManAddrPortsTxEnable')),
+                    ('lldplocmanaddrsubtype', (YLeaf(YType.enumeration, 'lldpLocManAddrSubtype'), [('ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB', 'AddressFamilyNumbers', '')])),
+                    ('lldplocmanaddr', (YLeaf(YType.str, 'lldpLocManAddr'), ['str'])),
+                    ('lldplocmanaddrlen', (YLeaf(YType.int32, 'lldpLocManAddrLen'), ['int'])),
+                    ('lldplocmanaddrifsubtype', (YLeaf(YType.enumeration, 'lldpLocManAddrIfSubtype'), [('ydk.models.cisco_ios_xe.LLDP_MIB', 'LldpManAddrIfSubtype', '')])),
+                    ('lldplocmanaddrifid', (YLeaf(YType.int32, 'lldpLocManAddrIfId'), ['int'])),
+                    ('lldplocmanaddroid', (YLeaf(YType.str, 'lldpLocManAddrOID'), ['str'])),
+                    ('lldpconfigmanaddrportstxenable', (YLeaf(YType.str, 'lldpConfigManAddrPortsTxEnable'), ['str'])),
                 ])
                 self.lldplocmanaddrsubtype = None
                 self.lldplocmanaddr = None
@@ -1232,6 +1246,7 @@ class LLDPMIB(Entity):
                 self.lldpconfigmanaddrportstxenable = None
                 self._segment_path = lambda: "lldpLocManAddrEntry" + "[lldpLocManAddrSubtype='" + str(self.lldplocmanaddrsubtype) + "']" + "[lldpLocManAddr='" + str(self.lldplocmanaddr) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpLocManAddrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LLDPMIB.LldpLocManAddrTable.LldpLocManAddrEntry, ['lldplocmanaddrsubtype', 'lldplocmanaddr', 'lldplocmanaddrlen', 'lldplocmanaddrifsubtype', 'lldplocmanaddrifid', 'lldplocmanaddroid', 'lldpconfigmanaddrportstxenable'], name, value)
@@ -1315,6 +1330,7 @@ class LLDPMIB(Entity):
             self.lldprementry = YList(self)
             self._segment_path = lambda: "lldpRemTable"
             self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LLDPMIB.LldpRemTable, [], name, value)
@@ -1419,18 +1435,18 @@ class LLDPMIB(Entity):
                 self.ylist_key_names = ['lldpremtimemark','lldpremlocalportnum','lldpremindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('lldpremtimemark', YLeaf(YType.uint32, 'lldpRemTimeMark')),
-                    ('lldpremlocalportnum', YLeaf(YType.int32, 'lldpRemLocalPortNum')),
-                    ('lldpremindex', YLeaf(YType.int32, 'lldpRemIndex')),
-                    ('lldpremchassisidsubtype', YLeaf(YType.enumeration, 'lldpRemChassisIdSubtype')),
-                    ('lldpremchassisid', YLeaf(YType.str, 'lldpRemChassisId')),
-                    ('lldpremportidsubtype', YLeaf(YType.enumeration, 'lldpRemPortIdSubtype')),
-                    ('lldpremportid', YLeaf(YType.str, 'lldpRemPortId')),
-                    ('lldpremportdesc', YLeaf(YType.str, 'lldpRemPortDesc')),
-                    ('lldpremsysname', YLeaf(YType.str, 'lldpRemSysName')),
-                    ('lldpremsysdesc', YLeaf(YType.str, 'lldpRemSysDesc')),
-                    ('lldpremsyscapsupported', YLeaf(YType.bits, 'lldpRemSysCapSupported')),
-                    ('lldpremsyscapenabled', YLeaf(YType.bits, 'lldpRemSysCapEnabled')),
+                    ('lldpremtimemark', (YLeaf(YType.uint32, 'lldpRemTimeMark'), ['int'])),
+                    ('lldpremlocalportnum', (YLeaf(YType.int32, 'lldpRemLocalPortNum'), ['int'])),
+                    ('lldpremindex', (YLeaf(YType.int32, 'lldpRemIndex'), ['int'])),
+                    ('lldpremchassisidsubtype', (YLeaf(YType.enumeration, 'lldpRemChassisIdSubtype'), [('ydk.models.cisco_ios_xe.LLDP_MIB', 'LldpChassisIdSubtype', '')])),
+                    ('lldpremchassisid', (YLeaf(YType.str, 'lldpRemChassisId'), ['str'])),
+                    ('lldpremportidsubtype', (YLeaf(YType.enumeration, 'lldpRemPortIdSubtype'), [('ydk.models.cisco_ios_xe.LLDP_MIB', 'LldpPortIdSubtype', '')])),
+                    ('lldpremportid', (YLeaf(YType.str, 'lldpRemPortId'), ['str'])),
+                    ('lldpremportdesc', (YLeaf(YType.str, 'lldpRemPortDesc'), ['str'])),
+                    ('lldpremsysname', (YLeaf(YType.str, 'lldpRemSysName'), ['str'])),
+                    ('lldpremsysdesc', (YLeaf(YType.str, 'lldpRemSysDesc'), ['str'])),
+                    ('lldpremsyscapsupported', (YLeaf(YType.bits, 'lldpRemSysCapSupported'), ['Bits'])),
+                    ('lldpremsyscapenabled', (YLeaf(YType.bits, 'lldpRemSysCapEnabled'), ['Bits'])),
                 ])
                 self.lldpremtimemark = None
                 self.lldpremlocalportnum = None
@@ -1446,6 +1462,7 @@ class LLDPMIB(Entity):
                 self.lldpremsyscapenabled = Bits()
                 self._segment_path = lambda: "lldpRemEntry" + "[lldpRemTimeMark='" + str(self.lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + str(self.lldpremlocalportnum) + "']" + "[lldpRemIndex='" + str(self.lldpremindex) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpRemTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LLDPMIB.LldpRemTable.LldpRemEntry, ['lldpremtimemark', 'lldpremlocalportnum', 'lldpremindex', 'lldpremchassisidsubtype', 'lldpremchassisid', 'lldpremportidsubtype', 'lldpremportid', 'lldpremportdesc', 'lldpremsysname', 'lldpremsysdesc', 'lldpremsyscapsupported', 'lldpremsyscapenabled'], name, value)
@@ -1483,6 +1500,7 @@ class LLDPMIB(Entity):
             self.lldpremmanaddrentry = YList(self)
             self._segment_path = lambda: "lldpRemManAddrTable"
             self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LLDPMIB.LldpRemManAddrTable, [], name, value)
@@ -1577,14 +1595,14 @@ class LLDPMIB(Entity):
                 self.ylist_key_names = ['lldpremtimemark','lldpremlocalportnum','lldpremindex','lldpremmanaddrsubtype','lldpremmanaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('lldpremtimemark', YLeaf(YType.str, 'lldpRemTimeMark')),
-                    ('lldpremlocalportnum', YLeaf(YType.str, 'lldpRemLocalPortNum')),
-                    ('lldpremindex', YLeaf(YType.str, 'lldpRemIndex')),
-                    ('lldpremmanaddrsubtype', YLeaf(YType.enumeration, 'lldpRemManAddrSubtype')),
-                    ('lldpremmanaddr', YLeaf(YType.str, 'lldpRemManAddr')),
-                    ('lldpremmanaddrifsubtype', YLeaf(YType.enumeration, 'lldpRemManAddrIfSubtype')),
-                    ('lldpremmanaddrifid', YLeaf(YType.int32, 'lldpRemManAddrIfId')),
-                    ('lldpremmanaddroid', YLeaf(YType.str, 'lldpRemManAddrOID')),
+                    ('lldpremtimemark', (YLeaf(YType.str, 'lldpRemTimeMark'), ['int'])),
+                    ('lldpremlocalportnum', (YLeaf(YType.str, 'lldpRemLocalPortNum'), ['int'])),
+                    ('lldpremindex', (YLeaf(YType.str, 'lldpRemIndex'), ['int'])),
+                    ('lldpremmanaddrsubtype', (YLeaf(YType.enumeration, 'lldpRemManAddrSubtype'), [('ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB', 'AddressFamilyNumbers', '')])),
+                    ('lldpremmanaddr', (YLeaf(YType.str, 'lldpRemManAddr'), ['str'])),
+                    ('lldpremmanaddrifsubtype', (YLeaf(YType.enumeration, 'lldpRemManAddrIfSubtype'), [('ydk.models.cisco_ios_xe.LLDP_MIB', 'LldpManAddrIfSubtype', '')])),
+                    ('lldpremmanaddrifid', (YLeaf(YType.int32, 'lldpRemManAddrIfId'), ['int'])),
+                    ('lldpremmanaddroid', (YLeaf(YType.str, 'lldpRemManAddrOID'), ['str'])),
                 ])
                 self.lldpremtimemark = None
                 self.lldpremlocalportnum = None
@@ -1596,6 +1614,7 @@ class LLDPMIB(Entity):
                 self.lldpremmanaddroid = None
                 self._segment_path = lambda: "lldpRemManAddrEntry" + "[lldpRemTimeMark='" + str(self.lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + str(self.lldpremlocalportnum) + "']" + "[lldpRemIndex='" + str(self.lldpremindex) + "']" + "[lldpRemManAddrSubtype='" + str(self.lldpremmanaddrsubtype) + "']" + "[lldpRemManAddr='" + str(self.lldpremmanaddr) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpRemManAddrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LLDPMIB.LldpRemManAddrTable.LldpRemManAddrEntry, ['lldpremtimemark', 'lldpremlocalportnum', 'lldpremindex', 'lldpremmanaddrsubtype', 'lldpremmanaddr', 'lldpremmanaddrifsubtype', 'lldpremmanaddrifid', 'lldpremmanaddroid'], name, value)
@@ -1643,6 +1662,7 @@ class LLDPMIB(Entity):
             self.lldpremunknowntlventry = YList(self)
             self._segment_path = lambda: "lldpRemUnknownTLVTable"
             self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LLDPMIB.LldpRemUnknownTLVTable, [], name, value)
@@ -1713,11 +1733,11 @@ class LLDPMIB(Entity):
                 self.ylist_key_names = ['lldpremtimemark','lldpremlocalportnum','lldpremindex','lldpremunknowntlvtype']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('lldpremtimemark', YLeaf(YType.str, 'lldpRemTimeMark')),
-                    ('lldpremlocalportnum', YLeaf(YType.str, 'lldpRemLocalPortNum')),
-                    ('lldpremindex', YLeaf(YType.str, 'lldpRemIndex')),
-                    ('lldpremunknowntlvtype', YLeaf(YType.int32, 'lldpRemUnknownTLVType')),
-                    ('lldpremunknowntlvinfo', YLeaf(YType.str, 'lldpRemUnknownTLVInfo')),
+                    ('lldpremtimemark', (YLeaf(YType.str, 'lldpRemTimeMark'), ['int'])),
+                    ('lldpremlocalportnum', (YLeaf(YType.str, 'lldpRemLocalPortNum'), ['int'])),
+                    ('lldpremindex', (YLeaf(YType.str, 'lldpRemIndex'), ['int'])),
+                    ('lldpremunknowntlvtype', (YLeaf(YType.int32, 'lldpRemUnknownTLVType'), ['int'])),
+                    ('lldpremunknowntlvinfo', (YLeaf(YType.str, 'lldpRemUnknownTLVInfo'), ['str'])),
                 ])
                 self.lldpremtimemark = None
                 self.lldpremlocalportnum = None
@@ -1726,6 +1746,7 @@ class LLDPMIB(Entity):
                 self.lldpremunknowntlvinfo = None
                 self._segment_path = lambda: "lldpRemUnknownTLVEntry" + "[lldpRemTimeMark='" + str(self.lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + str(self.lldpremlocalportnum) + "']" + "[lldpRemIndex='" + str(self.lldpremindex) + "']" + "[lldpRemUnknownTLVType='" + str(self.lldpremunknowntlvtype) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpRemUnknownTLVTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LLDPMIB.LldpRemUnknownTLVTable.LldpRemUnknownTLVEntry, ['lldpremtimemark', 'lldpremlocalportnum', 'lldpremindex', 'lldpremunknowntlvtype', 'lldpremunknowntlvinfo'], name, value)
@@ -1772,6 +1793,7 @@ class LLDPMIB(Entity):
             self.lldpremorgdefinfoentry = YList(self)
             self._segment_path = lambda: "lldpRemOrgDefInfoTable"
             self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LLDPMIB.LldpRemOrgDefInfoTable, [], name, value)
@@ -1867,13 +1889,13 @@ class LLDPMIB(Entity):
                 self.ylist_key_names = ['lldpremtimemark','lldpremlocalportnum','lldpremindex','lldpremorgdefinfooui','lldpremorgdefinfosubtype','lldpremorgdefinfoindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('lldpremtimemark', YLeaf(YType.str, 'lldpRemTimeMark')),
-                    ('lldpremlocalportnum', YLeaf(YType.str, 'lldpRemLocalPortNum')),
-                    ('lldpremindex', YLeaf(YType.str, 'lldpRemIndex')),
-                    ('lldpremorgdefinfooui', YLeaf(YType.str, 'lldpRemOrgDefInfoOUI')),
-                    ('lldpremorgdefinfosubtype', YLeaf(YType.int32, 'lldpRemOrgDefInfoSubtype')),
-                    ('lldpremorgdefinfoindex', YLeaf(YType.int32, 'lldpRemOrgDefInfoIndex')),
-                    ('lldpremorgdefinfo', YLeaf(YType.str, 'lldpRemOrgDefInfo')),
+                    ('lldpremtimemark', (YLeaf(YType.str, 'lldpRemTimeMark'), ['int'])),
+                    ('lldpremlocalportnum', (YLeaf(YType.str, 'lldpRemLocalPortNum'), ['int'])),
+                    ('lldpremindex', (YLeaf(YType.str, 'lldpRemIndex'), ['int'])),
+                    ('lldpremorgdefinfooui', (YLeaf(YType.str, 'lldpRemOrgDefInfoOUI'), ['str'])),
+                    ('lldpremorgdefinfosubtype', (YLeaf(YType.int32, 'lldpRemOrgDefInfoSubtype'), ['int'])),
+                    ('lldpremorgdefinfoindex', (YLeaf(YType.int32, 'lldpRemOrgDefInfoIndex'), ['int'])),
+                    ('lldpremorgdefinfo', (YLeaf(YType.str, 'lldpRemOrgDefInfo'), ['str'])),
                 ])
                 self.lldpremtimemark = None
                 self.lldpremlocalportnum = None
@@ -1884,6 +1906,7 @@ class LLDPMIB(Entity):
                 self.lldpremorgdefinfo = None
                 self._segment_path = lambda: "lldpRemOrgDefInfoEntry" + "[lldpRemTimeMark='" + str(self.lldpremtimemark) + "']" + "[lldpRemLocalPortNum='" + str(self.lldpremlocalportnum) + "']" + "[lldpRemIndex='" + str(self.lldpremindex) + "']" + "[lldpRemOrgDefInfoOUI='" + str(self.lldpremorgdefinfooui) + "']" + "[lldpRemOrgDefInfoSubtype='" + str(self.lldpremorgdefinfosubtype) + "']" + "[lldpRemOrgDefInfoIndex='" + str(self.lldpremorgdefinfoindex) + "']"
                 self._absolute_path = lambda: "LLDP-MIB:LLDP-MIB/lldpRemOrgDefInfoTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LLDPMIB.LldpRemOrgDefInfoTable.LldpRemOrgDefInfoEntry, ['lldpremtimemark', 'lldpremlocalportnum', 'lldpremindex', 'lldpremorgdefinfooui', 'lldpremorgdefinfosubtype', 'lldpremorgdefinfoindex', 'lldpremorgdefinfo'], name, value)

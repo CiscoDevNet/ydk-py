@@ -1,17 +1,11 @@
 """ Cisco_IOS_XR_sysadmin_ds 
 
-This module contains definitions
-for the Calvados model objects.
-
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 The Directory Services (DS).
 
 Copyright(c) 2010\-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +15,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class ProcessIssuRole(Enum):
@@ -127,6 +122,7 @@ class Services(Entity):
 
         self.all_locations = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-ds:services"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Services, [], name, value)
@@ -163,13 +159,14 @@ class Services(Entity):
             self.ylist_key_names = ['location']
             self._child_classes = OrderedDict([("services", ("services", Services.AllLocations.Services_))])
             self._leafs = OrderedDict([
-                ('location', YLeaf(YType.str, 'location')),
+                ('location', (YLeaf(YType.str, 'location'), ['str'])),
             ])
             self.location = None
 
             self.services = YList(self)
             self._segment_path = lambda: "all-locations" + "[location='" + str(self.location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-ds:services/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Services.AllLocations, ['location'], name, value)
@@ -211,13 +208,14 @@ class Services(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("endpoint", ("endpoint", Services.AllLocations.Services_.Endpoint)), ("registrations", ("registrations", Services.AllLocations.Services_.Registrations))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
 
                 self.endpoint = YList(self)
                 self.registrations = YList(self)
                 self._segment_path = lambda: "services" + "[name='" + str(self.name) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Services.AllLocations.Services_, ['name'], name, value)
@@ -278,12 +276,12 @@ class Services(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('scope', YLeaf(YType.enumeration, 'scope')),
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('port', YLeaf(YType.uint16, 'port')),
-                        ('role', YLeaf(YType.enumeration, 'role')),
-                        ('issu_role', YLeaf(YType.enumeration, 'issu_role')),
-                        ('node', YLeaf(YType.str, 'node')),
+                        ('scope', (YLeaf(YType.enumeration, 'scope'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds', 'ServiceScope', '')])),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
+                        ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds', 'ProcessRole', '')])),
+                        ('issu_role', (YLeaf(YType.enumeration, 'issu_role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_ds', 'ProcessIssuRole', '')])),
+                        ('node', (YLeaf(YType.str, 'node'), ['str'])),
                     ])
                     self.scope = None
                     self.ip = None
@@ -292,6 +290,7 @@ class Services(Entity):
                     self.issu_role = None
                     self.node = None
                     self._segment_path = lambda: "endpoint"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Services.AllLocations.Services_.Endpoint, ['scope', 'ip', 'port', 'role', 'issu_role', 'node'], name, value)
@@ -330,12 +329,13 @@ class Services(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('client', YLeaf(YType.str, 'client')),
-                        ('pid', YLeaf(YType.uint32, 'pid')),
+                        ('client', (YLeaf(YType.str, 'client'), ['str'])),
+                        ('pid', (YLeaf(YType.uint32, 'pid'), ['int'])),
                     ])
                     self.client = None
                     self.pid = None
                     self._segment_path = lambda: "registrations"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Services.AllLocations.Services_.Registrations, ['client', 'pid'], name, value)
@@ -383,6 +383,7 @@ class ServicesStats(Entity):
 
         self.all_locations = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-ds:services-stats"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ServicesStats, [], name, value)
@@ -418,6 +419,7 @@ class ServicesStats(Entity):
             self.trace = YList(self)
             self._segment_path = lambda: "ds"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-ds:services-stats/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ServicesStats.Ds, [], name, value)
@@ -454,13 +456,14 @@ class ServicesStats(Entity):
                 self.ylist_key_names = ['buffer']
                 self._child_classes = OrderedDict([("location", ("location", ServicesStats.Ds.Trace.Location))])
                 self._leafs = OrderedDict([
-                    ('buffer', YLeaf(YType.str, 'buffer')),
+                    ('buffer', (YLeaf(YType.str, 'buffer'), ['str'])),
                 ])
                 self.buffer = None
 
                 self.location = YList(self)
                 self._segment_path = lambda: "trace" + "[buffer='" + str(self.buffer) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-ds:services-stats/ds/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ServicesStats.Ds.Trace, [u'buffer'], name, value)
@@ -497,12 +500,13 @@ class ServicesStats(Entity):
                     self.ylist_key_names = ['location_name']
                     self._child_classes = OrderedDict([("all-options", ("all_options", ServicesStats.Ds.Trace.Location.AllOptions))])
                     self._leafs = OrderedDict([
-                        ('location_name', YLeaf(YType.str, 'location_name')),
+                        ('location_name', (YLeaf(YType.str, 'location_name'), ['str'])),
                     ])
                     self.location_name = None
 
                     self.all_options = YList(self)
                     self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ServicesStats.Ds.Trace.Location, [u'location_name'], name, value)
@@ -539,12 +543,13 @@ class ServicesStats(Entity):
                         self.ylist_key_names = ['option']
                         self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", ServicesStats.Ds.Trace.Location.AllOptions.TraceBlocks))])
                         self._leafs = OrderedDict([
-                            ('option', YLeaf(YType.str, 'option')),
+                            ('option', (YLeaf(YType.str, 'option'), ['str'])),
                         ])
                         self.option = None
 
                         self.trace_blocks = YList(self)
                         self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ServicesStats.Ds.Trace.Location.AllOptions, [u'option'], name, value)
@@ -576,10 +581,11 @@ class ServicesStats(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('data', YLeaf(YType.str, 'data')),
+                                ('data', (YLeaf(YType.str, 'data'), ['str'])),
                             ])
                             self.data = None
                             self._segment_path = lambda: "trace-blocks"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ServicesStats.Ds.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
@@ -616,13 +622,14 @@ class ServicesStats(Entity):
             self.ylist_key_names = ['location']
             self._child_classes = OrderedDict([("stats", ("stats", ServicesStats.AllLocations.Stats))])
             self._leafs = OrderedDict([
-                ('location', YLeaf(YType.str, 'location')),
+                ('location', (YLeaf(YType.str, 'location'), ['str'])),
             ])
             self.location = None
 
             self.stats = YList(self)
             self._segment_path = lambda: "all-locations" + "[location='" + str(self.location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-ds:services-stats/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ServicesStats.AllLocations, ['location'], name, value)
@@ -710,15 +717,15 @@ class ServicesStats(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('published', YLeaf(YType.uint32, 'published')),
-                    ('deleted', YLeaf(YType.uint32, 'deleted')),
-                    ('modified', YLeaf(YType.uint32, 'modified')),
-                    ('registered', YLeaf(YType.uint32, 'registered')),
-                    ('unregistered', YLeaf(YType.uint32, 'unregistered')),
-                    ('notifications', YLeaf(YType.uint32, 'notifications')),
-                    ('remote_sent', YLeaf(YType.uint32, 'remote_sent')),
-                    ('remote_recv', YLeaf(YType.uint32, 'remote_recv')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('published', (YLeaf(YType.uint32, 'published'), ['int'])),
+                    ('deleted', (YLeaf(YType.uint32, 'deleted'), ['int'])),
+                    ('modified', (YLeaf(YType.uint32, 'modified'), ['int'])),
+                    ('registered', (YLeaf(YType.uint32, 'registered'), ['int'])),
+                    ('unregistered', (YLeaf(YType.uint32, 'unregistered'), ['int'])),
+                    ('notifications', (YLeaf(YType.uint32, 'notifications'), ['int'])),
+                    ('remote_sent', (YLeaf(YType.uint32, 'remote_sent'), ['int'])),
+                    ('remote_recv', (YLeaf(YType.uint32, 'remote_recv'), ['int'])),
                 ])
                 self.name = None
                 self.published = None
@@ -730,6 +737,7 @@ class ServicesStats(Entity):
                 self.remote_sent = None
                 self.remote_recv = None
                 self._segment_path = lambda: "stats" + "[name='" + str(self.name) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ServicesStats.AllLocations.Stats, ['name', 'published', 'deleted', 'modified', 'registered', 'unregistered', 'notifications', 'remote_sent', 'remote_recv'], name, value)

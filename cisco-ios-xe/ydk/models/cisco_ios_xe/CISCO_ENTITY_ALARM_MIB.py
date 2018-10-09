@@ -16,6 +16,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class AlarmSeverity(Enum):
     """
     AlarmSeverity (Enum Class)
@@ -183,6 +184,7 @@ class CISCOENTITYALARMMIB(Entity):
         self.cealarmfilterprofiletable.parent = self
         self._children_name_map["cealarmfilterprofiletable"] = "ceAlarmFilterProfileTable"
         self._segment_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOENTITYALARMMIB, [], name, value)
@@ -235,10 +237,10 @@ class CISCOENTITYALARMMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cealarmcriticalcount', YLeaf(YType.uint32, 'ceAlarmCriticalCount')),
-                ('cealarmmajorcount', YLeaf(YType.uint32, 'ceAlarmMajorCount')),
-                ('cealarmminorcount', YLeaf(YType.uint32, 'ceAlarmMinorCount')),
-                ('cealarmcutoff', YLeaf(YType.boolean, 'ceAlarmCutOff')),
+                ('cealarmcriticalcount', (YLeaf(YType.uint32, 'ceAlarmCriticalCount'), ['int'])),
+                ('cealarmmajorcount', (YLeaf(YType.uint32, 'ceAlarmMajorCount'), ['int'])),
+                ('cealarmminorcount', (YLeaf(YType.uint32, 'ceAlarmMinorCount'), ['int'])),
+                ('cealarmcutoff', (YLeaf(YType.boolean, 'ceAlarmCutOff'), ['bool'])),
             ])
             self.cealarmcriticalcount = None
             self.cealarmmajorcount = None
@@ -246,6 +248,7 @@ class CISCOENTITYALARMMIB(Entity):
             self.cealarmcutoff = None
             self._segment_path = lambda: "ceAlarmMonitoring"
             self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYALARMMIB.CeAlarmMonitoring, ['cealarmcriticalcount', 'cealarmmajorcount', 'cealarmminorcount', 'cealarmcutoff'], name, value)
@@ -286,13 +289,14 @@ class CISCOENTITYALARMMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cealarmhisttablesize', YLeaf(YType.int32, 'ceAlarmHistTableSize')),
-                ('cealarmhistlastindex', YLeaf(YType.uint32, 'ceAlarmHistLastIndex')),
+                ('cealarmhisttablesize', (YLeaf(YType.int32, 'ceAlarmHistTableSize'), ['int'])),
+                ('cealarmhistlastindex', (YLeaf(YType.uint32, 'ceAlarmHistLastIndex'), ['int'])),
             ])
             self.cealarmhisttablesize = None
             self.cealarmhistlastindex = None
             self._segment_path = lambda: "ceAlarmHistory"
             self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYALARMMIB.CeAlarmHistory, ['cealarmhisttablesize', 'cealarmhistlastindex'], name, value)
@@ -340,15 +344,16 @@ class CISCOENTITYALARMMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cealarmnotifiesenable', YLeaf(YType.int32, 'ceAlarmNotifiesEnable')),
-                ('cealarmsyslogenable', YLeaf(YType.int32, 'ceAlarmSyslogEnable')),
-                ('cealarmfilterprofileindexnext', YLeaf(YType.uint32, 'ceAlarmFilterProfileIndexNext')),
+                ('cealarmnotifiesenable', (YLeaf(YType.int32, 'ceAlarmNotifiesEnable'), ['int'])),
+                ('cealarmsyslogenable', (YLeaf(YType.int32, 'ceAlarmSyslogEnable'), ['int'])),
+                ('cealarmfilterprofileindexnext', (YLeaf(YType.uint32, 'ceAlarmFilterProfileIndexNext'), ['int'])),
             ])
             self.cealarmnotifiesenable = None
             self.cealarmsyslogenable = None
             self.cealarmfilterprofileindexnext = None
             self._segment_path = lambda: "ceAlarmFiltering"
             self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYALARMMIB.CeAlarmFiltering, ['cealarmnotifiesenable', 'cealarmsyslogenable', 'cealarmfilterprofileindexnext'], name, value)
@@ -386,6 +391,7 @@ class CISCOENTITYALARMMIB(Entity):
             self.cealarmdescrmapentry = YList(self)
             self._segment_path = lambda: "ceAlarmDescrMapTable"
             self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYALARMMIB.CeAlarmDescrMapTable, [], name, value)
@@ -426,13 +432,14 @@ class CISCOENTITYALARMMIB(Entity):
                 self.ylist_key_names = ['cealarmdescrindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cealarmdescrindex', YLeaf(YType.uint32, 'ceAlarmDescrIndex')),
-                    ('cealarmdescrvendortype', YLeaf(YType.str, 'ceAlarmDescrVendorType')),
+                    ('cealarmdescrindex', (YLeaf(YType.uint32, 'ceAlarmDescrIndex'), ['int'])),
+                    ('cealarmdescrvendortype', (YLeaf(YType.str, 'ceAlarmDescrVendorType'), ['str'])),
                 ])
                 self.cealarmdescrindex = None
                 self.cealarmdescrvendortype = None
                 self._segment_path = lambda: "ceAlarmDescrMapEntry" + "[ceAlarmDescrIndex='" + str(self.cealarmdescrindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmDescrMapTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYALARMMIB.CeAlarmDescrMapTable.CeAlarmDescrMapEntry, ['cealarmdescrindex', 'cealarmdescrvendortype'], name, value)
@@ -472,6 +479,7 @@ class CISCOENTITYALARMMIB(Entity):
             self.cealarmdescrentry = YList(self)
             self._segment_path = lambda: "ceAlarmDescrTable"
             self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYALARMMIB.CeAlarmDescrTable, [], name, value)
@@ -526,10 +534,10 @@ class CISCOENTITYALARMMIB(Entity):
                 self.ylist_key_names = ['cealarmdescrindex','cealarmdescralarmtype']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cealarmdescrindex', YLeaf(YType.str, 'ceAlarmDescrIndex')),
-                    ('cealarmdescralarmtype', YLeaf(YType.int32, 'ceAlarmDescrAlarmType')),
-                    ('cealarmdescrseverity', YLeaf(YType.int32, 'ceAlarmDescrSeverity')),
-                    ('cealarmdescrtext', YLeaf(YType.str, 'ceAlarmDescrText')),
+                    ('cealarmdescrindex', (YLeaf(YType.str, 'ceAlarmDescrIndex'), ['int'])),
+                    ('cealarmdescralarmtype', (YLeaf(YType.int32, 'ceAlarmDescrAlarmType'), ['int'])),
+                    ('cealarmdescrseverity', (YLeaf(YType.int32, 'ceAlarmDescrSeverity'), ['int'])),
+                    ('cealarmdescrtext', (YLeaf(YType.str, 'ceAlarmDescrText'), ['str'])),
                 ])
                 self.cealarmdescrindex = None
                 self.cealarmdescralarmtype = None
@@ -537,6 +545,7 @@ class CISCOENTITYALARMMIB(Entity):
                 self.cealarmdescrtext = None
                 self._segment_path = lambda: "ceAlarmDescrEntry" + "[ceAlarmDescrIndex='" + str(self.cealarmdescrindex) + "']" + "[ceAlarmDescrAlarmType='" + str(self.cealarmdescralarmtype) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmDescrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYALARMMIB.CeAlarmDescrTable.CeAlarmDescrEntry, ['cealarmdescrindex', 'cealarmdescralarmtype', 'cealarmdescrseverity', 'cealarmdescrtext'], name, value)
@@ -575,6 +584,7 @@ class CISCOENTITYALARMMIB(Entity):
             self.cealarmentry = YList(self)
             self._segment_path = lambda: "ceAlarmTable"
             self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYALARMMIB.CeAlarmTable, [], name, value)
@@ -633,10 +643,10 @@ class CISCOENTITYALARMMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('cealarmfilterprofile', YLeaf(YType.uint32, 'ceAlarmFilterProfile')),
-                    ('cealarmseverity', YLeaf(YType.int32, 'ceAlarmSeverity')),
-                    ('cealarmlist', YLeaf(YType.str, 'ceAlarmList')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('cealarmfilterprofile', (YLeaf(YType.uint32, 'ceAlarmFilterProfile'), ['int'])),
+                    ('cealarmseverity', (YLeaf(YType.int32, 'ceAlarmSeverity'), ['int'])),
+                    ('cealarmlist', (YLeaf(YType.str, 'ceAlarmList'), ['str'])),
                 ])
                 self.entphysicalindex = None
                 self.cealarmfilterprofile = None
@@ -644,6 +654,7 @@ class CISCOENTITYALARMMIB(Entity):
                 self.cealarmlist = None
                 self._segment_path = lambda: "ceAlarmEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYALARMMIB.CeAlarmTable.CeAlarmEntry, ['entphysicalindex', 'cealarmfilterprofile', 'cealarmseverity', 'cealarmlist'], name, value)
@@ -680,6 +691,7 @@ class CISCOENTITYALARMMIB(Entity):
             self.cealarmhistentry = YList(self)
             self._segment_path = lambda: "ceAlarmHistTable"
             self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYALARMMIB.CeAlarmHistTable, [], name, value)
@@ -745,12 +757,12 @@ class CISCOENTITYALARMMIB(Entity):
                 self.ylist_key_names = ['cealarmhistindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cealarmhistindex', YLeaf(YType.uint32, 'ceAlarmHistIndex')),
-                    ('cealarmhisttype', YLeaf(YType.enumeration, 'ceAlarmHistType')),
-                    ('cealarmhistentphysicalindex', YLeaf(YType.int32, 'ceAlarmHistEntPhysicalIndex')),
-                    ('cealarmhistalarmtype', YLeaf(YType.int32, 'ceAlarmHistAlarmType')),
-                    ('cealarmhistseverity', YLeaf(YType.enumeration, 'ceAlarmHistSeverity')),
-                    ('cealarmhisttimestamp', YLeaf(YType.uint32, 'ceAlarmHistTimeStamp')),
+                    ('cealarmhistindex', (YLeaf(YType.uint32, 'ceAlarmHistIndex'), ['int'])),
+                    ('cealarmhisttype', (YLeaf(YType.enumeration, 'ceAlarmHistType'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_ALARM_MIB', 'CISCOENTITYALARMMIB', 'CeAlarmHistTable.CeAlarmHistEntry.CeAlarmHistType')])),
+                    ('cealarmhistentphysicalindex', (YLeaf(YType.int32, 'ceAlarmHistEntPhysicalIndex'), ['int'])),
+                    ('cealarmhistalarmtype', (YLeaf(YType.int32, 'ceAlarmHistAlarmType'), ['int'])),
+                    ('cealarmhistseverity', (YLeaf(YType.enumeration, 'ceAlarmHistSeverity'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_ALARM_MIB', 'AlarmSeverity', '')])),
+                    ('cealarmhisttimestamp', (YLeaf(YType.uint32, 'ceAlarmHistTimeStamp'), ['int'])),
                 ])
                 self.cealarmhistindex = None
                 self.cealarmhisttype = None
@@ -760,6 +772,7 @@ class CISCOENTITYALARMMIB(Entity):
                 self.cealarmhisttimestamp = None
                 self._segment_path = lambda: "ceAlarmHistEntry" + "[ceAlarmHistIndex='" + str(self.cealarmhistindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmHistTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYALARMMIB.CeAlarmHistTable.CeAlarmHistEntry, ['cealarmhistindex', 'cealarmhisttype', 'cealarmhistentphysicalindex', 'cealarmhistalarmtype', 'cealarmhistseverity', 'cealarmhisttimestamp'], name, value)
@@ -814,6 +827,7 @@ class CISCOENTITYALARMMIB(Entity):
             self.cealarmfilterprofileentry = YList(self)
             self._segment_path = lambda: "ceAlarmFilterProfileTable"
             self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYALARMMIB.CeAlarmFilterProfileTable, [], name, value)
@@ -899,12 +913,12 @@ class CISCOENTITYALARMMIB(Entity):
                 self.ylist_key_names = ['cealarmfilterindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cealarmfilterindex', YLeaf(YType.uint32, 'ceAlarmFilterIndex')),
-                    ('cealarmfilterstatus', YLeaf(YType.enumeration, 'ceAlarmFilterStatus')),
-                    ('cealarmfilteralias', YLeaf(YType.str, 'ceAlarmFilterAlias')),
-                    ('cealarmfilteralarmsenabled', YLeaf(YType.str, 'ceAlarmFilterAlarmsEnabled')),
-                    ('cealarmfilternotifiesenabled', YLeaf(YType.str, 'ceAlarmFilterNotifiesEnabled')),
-                    ('cealarmfiltersyslogenabled', YLeaf(YType.str, 'ceAlarmFilterSyslogEnabled')),
+                    ('cealarmfilterindex', (YLeaf(YType.uint32, 'ceAlarmFilterIndex'), ['int'])),
+                    ('cealarmfilterstatus', (YLeaf(YType.enumeration, 'ceAlarmFilterStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('cealarmfilteralias', (YLeaf(YType.str, 'ceAlarmFilterAlias'), ['str'])),
+                    ('cealarmfilteralarmsenabled', (YLeaf(YType.str, 'ceAlarmFilterAlarmsEnabled'), ['str'])),
+                    ('cealarmfilternotifiesenabled', (YLeaf(YType.str, 'ceAlarmFilterNotifiesEnabled'), ['str'])),
+                    ('cealarmfiltersyslogenabled', (YLeaf(YType.str, 'ceAlarmFilterSyslogEnabled'), ['str'])),
                 ])
                 self.cealarmfilterindex = None
                 self.cealarmfilterstatus = None
@@ -914,6 +928,7 @@ class CISCOENTITYALARMMIB(Entity):
                 self.cealarmfiltersyslogenabled = None
                 self._segment_path = lambda: "ceAlarmFilterProfileEntry" + "[ceAlarmFilterIndex='" + str(self.cealarmfilterindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-ALARM-MIB:CISCO-ENTITY-ALARM-MIB/ceAlarmFilterProfileTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYALARMMIB.CeAlarmFilterProfileTable.CeAlarmFilterProfileEntry, ['cealarmfilterindex', 'cealarmfilterstatus', 'cealarmfilteralias', 'cealarmfilteralarmsenabled', 'cealarmfilternotifiesenabled', 'cealarmfiltersyslogenabled'], name, value)

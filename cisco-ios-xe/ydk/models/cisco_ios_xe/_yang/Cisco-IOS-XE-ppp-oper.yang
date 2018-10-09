@@ -25,9 +25,14 @@ module Cisco-IOS-XE-ppp-oper {
   description
     "This module contains a collection of YANG definitions
      for PPP and PPPoE operational data.
-     Copyright (c) 2017 by Cisco Systems, Inc.
+     Copyright (c) 2017-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-02-19 {
+    description
+      "Addition of PPPoE statistics with padt and invalid discovery packet";
+    reference "1.1.0";
+  }
   revision 2017-11-01 {
     description
       "Initial revision";
@@ -272,6 +277,16 @@ module Cisco-IOS-XE-ppp-oper {
       type uint32;
       description
         "PPPoE active discovery session pkts";
+    }
+    leaf pppoe-padt-pkts {
+      type uint32;
+      description
+        "PPPoE active discovery terminate pkts";
+    }
+    leaf invalid-discovery-pkts {
+      type uint32;
+      description
+        "PPPoE invalid discovery pkts";
     }
   }
 

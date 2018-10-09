@@ -14,6 +14,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class CdpAdvVersion(Enum):
     """
     CdpAdvVersion (Enum Class)
@@ -154,6 +155,7 @@ class CdpNeighborDetails(Entity):
 
         self.cdp_neighbor_detail = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-cdp-oper:cdp-neighbor-details"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CdpNeighborDetails, [], name, value)
@@ -351,29 +353,29 @@ class CdpNeighborDetails(Entity):
             self.ylist_key_names = ['device_id']
             self._child_classes = OrderedDict([("hello-message", ("hello_message", CdpNeighborDetails.CdpNeighborDetail.HelloMessage)), ("power-request", ("power_request", CdpNeighborDetails.CdpNeighborDetail.PowerRequest)), ("power-available", ("power_available", CdpNeighborDetails.CdpNeighborDetail.PowerAvailable)), ("spare-pair", ("spare_pair", CdpNeighborDetails.CdpNeighborDetail.SparePair))])
             self._leafs = OrderedDict([
-                ('device_id', YLeaf(YType.uint32, 'device-id')),
-                ('device_name', YLeaf(YType.str, 'device-name')),
-                ('local_intf_name', YLeaf(YType.str, 'local-intf-name')),
-                ('port_id', YLeaf(YType.str, 'port-id')),
-                ('capability', YLeaf(YType.str, 'capability')),
-                ('platform_name', YLeaf(YType.str, 'platform-name')),
-                ('version', YLeaf(YType.str, 'version')),
-                ('duplex', YLeaf(YType.enumeration, 'duplex')),
-                ('adv_version', YLeaf(YType.enumeration, 'adv-version')),
-                ('vty_mgmt_domain', YLeaf(YType.str, 'vty-mgmt-domain')),
-                ('native_vlan', YLeaf(YType.uint16, 'native-vlan')),
-                ('vvid_tag', YLeaf(YType.uint8, 'vvid-tag')),
-                ('vvid', YLeaf(YType.uint16, 'vvid')),
-                ('power', YLeaf(YType.uint32, 'power')),
-                ('unidirectional_mode', YLeaf(YType.enumeration, 'unidirectional-mode')),
-                ('mgmt_address', YLeaf(YType.str, 'mgmt-address')),
-                ('ip_address', YLeaf(YType.str, 'ip-address')),
-                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                ('clns_address', YLeaf(YType.str, 'clns-address')),
-                ('decnet_addr', YLeaf(YType.str, 'decnet-addr')),
-                ('novell_addr', YLeaf(YType.str, 'novell-addr')),
-                ('second_port_status', YLeaf(YType.str, 'second-port-status')),
-                ('table_id', YLeaf(YType.uint16, 'table-id')),
+                ('device_id', (YLeaf(YType.uint32, 'device-id'), ['int'])),
+                ('device_name', (YLeaf(YType.str, 'device-name'), ['str'])),
+                ('local_intf_name', (YLeaf(YType.str, 'local-intf-name'), ['str'])),
+                ('port_id', (YLeaf(YType.str, 'port-id'), ['str'])),
+                ('capability', (YLeaf(YType.str, 'capability'), ['str'])),
+                ('platform_name', (YLeaf(YType.str, 'platform-name'), ['str'])),
+                ('version', (YLeaf(YType.str, 'version'), ['str'])),
+                ('duplex', (YLeaf(YType.enumeration, 'duplex'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper', 'CdpDuplex', '')])),
+                ('adv_version', (YLeaf(YType.enumeration, 'adv-version'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper', 'CdpAdvVersion', '')])),
+                ('vty_mgmt_domain', (YLeaf(YType.str, 'vty-mgmt-domain'), ['str'])),
+                ('native_vlan', (YLeaf(YType.uint16, 'native-vlan'), ['int'])),
+                ('vvid_tag', (YLeaf(YType.uint8, 'vvid-tag'), ['int'])),
+                ('vvid', (YLeaf(YType.uint16, 'vvid'), ['int'])),
+                ('power', (YLeaf(YType.uint32, 'power'), ['int'])),
+                ('unidirectional_mode', (YLeaf(YType.enumeration, 'unidirectional-mode'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper', 'CdpUnidirectionalMode', '')])),
+                ('mgmt_address', (YLeaf(YType.str, 'mgmt-address'), ['str','str'])),
+                ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str','str'])),
+                ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str','str'])),
+                ('clns_address', (YLeaf(YType.str, 'clns-address'), ['str'])),
+                ('decnet_addr', (YLeaf(YType.str, 'decnet-addr'), ['str'])),
+                ('novell_addr', (YLeaf(YType.str, 'novell-addr'), ['str'])),
+                ('second_port_status', (YLeaf(YType.str, 'second-port-status'), ['str'])),
+                ('table_id', (YLeaf(YType.uint16, 'table-id'), ['int'])),
             ])
             self.device_id = None
             self.device_name = None
@@ -416,6 +418,7 @@ class CdpNeighborDetails(Entity):
             self._children_name_map["spare_pair"] = "spare-pair"
             self._segment_path = lambda: "cdp-neighbor-detail" + "[device-id='" + str(self.device_id) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-cdp-oper:cdp-neighbor-details/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CdpNeighborDetails.CdpNeighborDetail, ['device_id', 'device_name', 'local_intf_name', 'port_id', 'capability', 'platform_name', 'version', 'duplex', 'adv_version', 'vty_mgmt_domain', 'native_vlan', 'vvid_tag', 'vvid', 'power', 'unidirectional_mode', 'mgmt_address', 'ip_address', 'ipv6_address', 'clns_address', 'decnet_addr', 'novell_addr', 'second_port_status', 'table_id'], name, value)
@@ -464,16 +467,17 @@ class CdpNeighborDetails(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('oui', YLeaf(YType.str, 'oui')),
-                    ('protocol_id', YLeaf(YType.str, 'protocol-id')),
-                    ('payload_value', YLeaf(YType.str, 'payload-value')),
-                    ('payload_len', YLeaf(YType.uint16, 'payload-len')),
+                    ('oui', (YLeaf(YType.str, 'oui'), ['str'])),
+                    ('protocol_id', (YLeaf(YType.str, 'protocol-id'), ['str'])),
+                    ('payload_value', (YLeaf(YType.str, 'payload-value'), ['str'])),
+                    ('payload_len', (YLeaf(YType.uint16, 'payload-len'), ['int'])),
                 ])
                 self.oui = None
                 self.protocol_id = None
                 self.payload_value = None
                 self.payload_len = None
                 self._segment_path = lambda: "hello-message"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CdpNeighborDetails.CdpNeighborDetail.HelloMessage, ['oui', 'protocol_id', 'payload_value', 'payload_len'], name, value)
@@ -519,14 +523,15 @@ class CdpNeighborDetails(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('power_request_id', YLeaf(YType.uint16, 'power-request-id')),
-                    ('power_man_id', YLeaf(YType.uint16, 'power-man-id')),
-                    ('power_request_level', YLeaf(YType.str, 'power-request-level')),
+                    ('power_request_id', (YLeaf(YType.uint16, 'power-request-id'), ['int'])),
+                    ('power_man_id', (YLeaf(YType.uint16, 'power-man-id'), ['int'])),
+                    ('power_request_level', (YLeaf(YType.str, 'power-request-level'), ['str'])),
                 ])
                 self.power_request_id = None
                 self.power_man_id = None
                 self.power_request_level = None
                 self._segment_path = lambda: "power-request"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CdpNeighborDetails.CdpNeighborDetail.PowerRequest, ['power_request_id', 'power_man_id', 'power_request_level'], name, value)
@@ -581,16 +586,17 @@ class CdpNeighborDetails(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('power_request_id', YLeaf(YType.uint16, 'power-request-id')),
-                    ('power_man_id', YLeaf(YType.uint16, 'power-man-id')),
-                    ('power_available', YLeaf(YType.uint32, 'power-available')),
-                    ('power_man_level', YLeaf(YType.uint32, 'power-man-level')),
+                    ('power_request_id', (YLeaf(YType.uint16, 'power-request-id'), ['int'])),
+                    ('power_man_id', (YLeaf(YType.uint16, 'power-man-id'), ['int'])),
+                    ('power_available', (YLeaf(YType.uint32, 'power-available'), ['int'])),
+                    ('power_man_level', (YLeaf(YType.uint32, 'power-man-level'), ['int'])),
                 ])
                 self.power_request_id = None
                 self.power_man_id = None
                 self.power_available = None
                 self.power_man_level = None
                 self._segment_path = lambda: "power-available"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CdpNeighborDetails.CdpNeighborDetail.PowerAvailable, ['power_request_id', 'power_man_id', 'power_available', 'power_man_level'], name, value)
@@ -645,16 +651,17 @@ class CdpNeighborDetails(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('spare_pair_poe', YLeaf(YType.enumeration, 'spare-pair-poe')),
-                    ('spare_pair_detection_required', YLeaf(YType.enumeration, 'spare-pair-detection-required')),
-                    ('spare_pair_pd_config', YLeaf(YType.enumeration, 'spare-pair-pd-config')),
-                    ('spare_pair_pse_operational', YLeaf(YType.enumeration, 'spare-pair-pse-operational')),
+                    ('spare_pair_poe', (YLeaf(YType.enumeration, 'spare-pair-poe'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper', 'CdpYesNo', '')])),
+                    ('spare_pair_detection_required', (YLeaf(YType.enumeration, 'spare-pair-detection-required'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper', 'CdpYesNo', '')])),
+                    ('spare_pair_pd_config', (YLeaf(YType.enumeration, 'spare-pair-pd-config'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper', 'CdpEnableDisable', '')])),
+                    ('spare_pair_pse_operational', (YLeaf(YType.enumeration, 'spare-pair-pse-operational'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_cdp_oper', 'CdpYesNo', '')])),
                 ])
                 self.spare_pair_poe = None
                 self.spare_pair_detection_required = None
                 self.spare_pair_pd_config = None
                 self.spare_pair_pse_operational = None
                 self._segment_path = lambda: "spare-pair"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CdpNeighborDetails.CdpNeighborDetail.SparePair, ['spare_pair_poe', 'spare_pair_detection_required', 'spare_pair_pd_config', 'spare_pair_pse_operational'], name, value)

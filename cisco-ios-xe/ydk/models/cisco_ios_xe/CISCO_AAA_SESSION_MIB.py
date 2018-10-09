@@ -19,6 +19,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOAAASESSIONMIB(Entity):
     """
     
@@ -69,6 +70,7 @@ class CISCOAAASESSIONMIB(Entity):
         self.casnactivetable.parent = self
         self._children_name_map["casnactivetable"] = "casnActiveTable"
         self._segment_path = lambda: "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOAAASESSIONMIB, [], name, value)
@@ -109,13 +111,14 @@ class CISCOAAASESSIONMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('casnactivetableentries', YLeaf(YType.uint32, 'casnActiveTableEntries')),
-                ('casnactivetablehighwatermark', YLeaf(YType.uint32, 'casnActiveTableHighWaterMark')),
+                ('casnactivetableentries', (YLeaf(YType.uint32, 'casnActiveTableEntries'), ['int'])),
+                ('casnactivetablehighwatermark', (YLeaf(YType.uint32, 'casnActiveTableHighWaterMark'), ['int'])),
             ])
             self.casnactivetableentries = None
             self.casnactivetablehighwatermark = None
             self._segment_path = lambda: "casnActive"
             self._absolute_path = lambda: "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOAAASESSIONMIB.CasnActive, ['casnactivetableentries', 'casnactivetablehighwatermark'], name, value)
@@ -156,13 +159,14 @@ class CISCOAAASESSIONMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('casntotalsessions', YLeaf(YType.uint32, 'casnTotalSessions')),
-                ('casndisconnectedsessions', YLeaf(YType.uint32, 'casnDisconnectedSessions')),
+                ('casntotalsessions', (YLeaf(YType.uint32, 'casnTotalSessions'), ['int'])),
+                ('casndisconnectedsessions', (YLeaf(YType.uint32, 'casnDisconnectedSessions'), ['int'])),
             ])
             self.casntotalsessions = None
             self.casndisconnectedsessions = None
             self._segment_path = lambda: "casnGeneral"
             self._absolute_path = lambda: "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOAAASESSIONMIB.CasnGeneral, ['casntotalsessions', 'casndisconnectedsessions'], name, value)
@@ -199,6 +203,7 @@ class CISCOAAASESSIONMIB(Entity):
             self.casnactiveentry = YList(self)
             self._segment_path = lambda: "casnActiveTable"
             self._absolute_path = lambda: "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOAAASESSIONMIB.CasnActiveTable, [], name, value)
@@ -291,14 +296,14 @@ class CISCOAAASESSIONMIB(Entity):
                 self.ylist_key_names = ['casnsessionid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('casnsessionid', YLeaf(YType.uint32, 'casnSessionId')),
-                    ('casnuserid', YLeaf(YType.str, 'casnUserId')),
-                    ('casnipaddr', YLeaf(YType.str, 'casnIpAddr')),
-                    ('casnidletime', YLeaf(YType.uint32, 'casnIdleTime')),
-                    ('casndisconnect', YLeaf(YType.boolean, 'casnDisconnect')),
-                    ('casncalltrackerid', YLeaf(YType.uint32, 'casnCallTrackerId')),
-                    ('casnnasport', YLeaf(YType.str, 'casnNasPort')),
-                    ('casnvaiifindex', YLeaf(YType.int32, 'casnVaiIfIndex')),
+                    ('casnsessionid', (YLeaf(YType.uint32, 'casnSessionId'), ['int'])),
+                    ('casnuserid', (YLeaf(YType.str, 'casnUserId'), ['str'])),
+                    ('casnipaddr', (YLeaf(YType.str, 'casnIpAddr'), ['str'])),
+                    ('casnidletime', (YLeaf(YType.uint32, 'casnIdleTime'), ['int'])),
+                    ('casndisconnect', (YLeaf(YType.boolean, 'casnDisconnect'), ['bool'])),
+                    ('casncalltrackerid', (YLeaf(YType.uint32, 'casnCallTrackerId'), ['int'])),
+                    ('casnnasport', (YLeaf(YType.str, 'casnNasPort'), ['str'])),
+                    ('casnvaiifindex', (YLeaf(YType.int32, 'casnVaiIfIndex'), ['int'])),
                 ])
                 self.casnsessionid = None
                 self.casnuserid = None
@@ -310,6 +315,7 @@ class CISCOAAASESSIONMIB(Entity):
                 self.casnvaiifindex = None
                 self._segment_path = lambda: "casnActiveEntry" + "[casnSessionId='" + str(self.casnsessionid) + "']"
                 self._absolute_path = lambda: "CISCO-AAA-SESSION-MIB:CISCO-AAA-SESSION-MIB/casnActiveTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOAAASESSIONMIB.CasnActiveTable.CasnActiveEntry, ['casnsessionid', 'casnuserid', 'casnipaddr', 'casnidletime', 'casndisconnect', 'casncalltrackerid', 'casnnasport', 'casnvaiifindex'], name, value)

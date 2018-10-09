@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-snmp\-agent\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class NtpAccess(Enum):
@@ -229,11 +230,11 @@ class Ntp(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("admin-types", ("admin_types", Ntp.AdminTypes)), ("peer-vrfs", ("peer_vrfs", Ntp.PeerVrfs)), ("dscp-ipv4", ("dscp_ipv4", Ntp.DscpIpv4)), ("dscp-ipv6", ("dscp_ipv6", Ntp.DscpIpv6)), ("sources", ("sources", Ntp.Sources)), ("drift", ("drift", Ntp.Drift)), ("authentication", ("authentication", Ntp.Authentication)), ("passive", ("passive", Ntp.Passive)), ("interface-tables", ("interface_tables", Ntp.InterfaceTables)), ("access-group-tables", ("access_group_tables", Ntp.AccessGroupTables))])
         self._leafs = OrderedDict([
-            ('max_associations', YLeaf(YType.uint32, 'max-associations')),
-            ('master', YLeaf(YType.uint32, 'master')),
-            ('broadcast_delay', YLeaf(YType.uint32, 'broadcast-delay')),
-            ('log_internal_sync', YLeaf(YType.empty, 'log-internal-sync')),
-            ('update_calendar', YLeaf(YType.empty, 'update-calendar')),
+            ('max_associations', (YLeaf(YType.uint32, 'max-associations'), ['int'])),
+            ('master', (YLeaf(YType.uint32, 'master'), ['int'])),
+            ('broadcast_delay', (YLeaf(YType.uint32, 'broadcast-delay'), ['int'])),
+            ('log_internal_sync', (YLeaf(YType.empty, 'log-internal-sync'), ['Empty'])),
+            ('update_calendar', (YLeaf(YType.empty, 'update-calendar'), ['Empty'])),
         ])
         self.max_associations = None
         self.master = None
@@ -279,6 +280,7 @@ class Ntp(Entity):
         self.access_group_tables.parent = self
         self._children_name_map["access_group_tables"] = "access-group-tables"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ntp, ['max_associations', 'master', 'broadcast_delay', 'log_internal_sync', 'update_calendar'], name, value)
@@ -314,6 +316,7 @@ class Ntp(Entity):
             self.admin_type = YList(self)
             self._segment_path = lambda: "admin-types"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.AdminTypes, [], name, value)
@@ -388,14 +391,14 @@ class Ntp(Entity):
                 self.ylist_key_names = ['peer_type']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('peer_type', YLeaf(YType.enumeration, 'peer-type')),
-                    ('ntp_version', YLeaf(YType.uint32, 'ntp-version')),
-                    ('authentication_key', YLeaf(YType.uint32, 'authentication-key')),
-                    ('min_poll', YLeaf(YType.uint32, 'min-poll')),
-                    ('max_poll', YLeaf(YType.uint32, 'max-poll')),
-                    ('preferred_peer', YLeaf(YType.empty, 'preferred-peer')),
-                    ('burst', YLeaf(YType.empty, 'burst')),
-                    ('iburst', YLeaf(YType.empty, 'iburst')),
+                    ('peer_type', (YLeaf(YType.enumeration, 'peer-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg', 'NtpPeer', '')])),
+                    ('ntp_version', (YLeaf(YType.uint32, 'ntp-version'), ['int'])),
+                    ('authentication_key', (YLeaf(YType.uint32, 'authentication-key'), ['int'])),
+                    ('min_poll', (YLeaf(YType.uint32, 'min-poll'), ['int'])),
+                    ('max_poll', (YLeaf(YType.uint32, 'max-poll'), ['int'])),
+                    ('preferred_peer', (YLeaf(YType.empty, 'preferred-peer'), ['Empty'])),
+                    ('burst', (YLeaf(YType.empty, 'burst'), ['Empty'])),
+                    ('iburst', (YLeaf(YType.empty, 'iburst'), ['Empty'])),
                 ])
                 self.peer_type = None
                 self.ntp_version = None
@@ -407,6 +410,7 @@ class Ntp(Entity):
                 self.iburst = None
                 self._segment_path = lambda: "admin-type" + "[peer-type='" + str(self.peer_type) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/admin-types/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ntp.AdminTypes.AdminType, ['peer_type', 'ntp_version', 'authentication_key', 'min_poll', 'max_poll', 'preferred_peer', 'burst', 'iburst'], name, value)
@@ -442,6 +446,7 @@ class Ntp(Entity):
             self.peer_vrf = YList(self)
             self._segment_path = lambda: "peer-vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.PeerVrfs, [], name, value)
@@ -487,7 +492,7 @@ class Ntp(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("peer-ipv4s", ("peer_ipv4s", Ntp.PeerVrfs.PeerVrf.PeerIpv4s)), ("peer-ipv6s", ("peer_ipv6s", Ntp.PeerVrfs.PeerVrf.PeerIpv6s))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ])
                 self.vrf_name = None
 
@@ -500,6 +505,7 @@ class Ntp(Entity):
                 self._children_name_map["peer_ipv6s"] = "peer-ipv6s"
                 self._segment_path = lambda: "peer-vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/peer-vrfs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ntp.PeerVrfs.PeerVrf, ['vrf_name'], name, value)
@@ -534,6 +540,7 @@ class Ntp(Entity):
 
                     self.peer_ipv4 = YList(self)
                     self._segment_path = lambda: "peer-ipv4s"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv4s, [], name, value)
@@ -572,12 +579,13 @@ class Ntp(Entity):
                         self.ylist_key_names = ['address_ipv4']
                         self._child_classes = OrderedDict([("peer-type-ipv4", ("peer_type_ipv4", Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4.PeerTypeIpv4))])
                         self._leafs = OrderedDict([
-                            ('address_ipv4', YLeaf(YType.str, 'address-ipv4')),
+                            ('address_ipv4', (YLeaf(YType.str, 'address-ipv4'), ['str'])),
                         ])
                         self.address_ipv4 = None
 
                         self.peer_type_ipv4 = YList(self)
                         self._segment_path = lambda: "peer-ipv4" + "[address-ipv4='" + str(self.address_ipv4) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4, ['address_ipv4'], name, value)
@@ -630,7 +638,7 @@ class Ntp(Entity):
                         	Source interface of this peer
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: burst
                         
@@ -659,15 +667,15 @@ class Ntp(Entity):
                             self.ylist_key_names = ['peer_type']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('peer_type', YLeaf(YType.enumeration, 'peer-type')),
-                                ('ntp_version', YLeaf(YType.uint32, 'ntp-version')),
-                                ('authentication_key', YLeaf(YType.uint32, 'authentication-key')),
-                                ('min_poll', YLeaf(YType.uint32, 'min-poll')),
-                                ('max_poll', YLeaf(YType.uint32, 'max-poll')),
-                                ('preferred_peer', YLeaf(YType.empty, 'preferred-peer')),
-                                ('source_interface', YLeaf(YType.str, 'source-interface')),
-                                ('burst', YLeaf(YType.empty, 'burst')),
-                                ('iburst', YLeaf(YType.empty, 'iburst')),
+                                ('peer_type', (YLeaf(YType.enumeration, 'peer-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg', 'NtpPeer', '')])),
+                                ('ntp_version', (YLeaf(YType.uint32, 'ntp-version'), ['int'])),
+                                ('authentication_key', (YLeaf(YType.uint32, 'authentication-key'), ['int'])),
+                                ('min_poll', (YLeaf(YType.uint32, 'min-poll'), ['int'])),
+                                ('max_poll', (YLeaf(YType.uint32, 'max-poll'), ['int'])),
+                                ('preferred_peer', (YLeaf(YType.empty, 'preferred-peer'), ['Empty'])),
+                                ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
+                                ('burst', (YLeaf(YType.empty, 'burst'), ['Empty'])),
+                                ('iburst', (YLeaf(YType.empty, 'iburst'), ['Empty'])),
                             ])
                             self.peer_type = None
                             self.ntp_version = None
@@ -679,6 +687,7 @@ class Ntp(Entity):
                             self.burst = None
                             self.iburst = None
                             self._segment_path = lambda: "peer-type-ipv4" + "[peer-type='" + str(self.peer_type) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv4s.PeerIpv4.PeerTypeIpv4, ['peer_type', 'ntp_version', 'authentication_key', 'min_poll', 'max_poll', 'preferred_peer', 'source_interface', 'burst', 'iburst'], name, value)
@@ -713,6 +722,7 @@ class Ntp(Entity):
 
                     self.peer_ipv6 = YList(self)
                     self._segment_path = lambda: "peer-ipv6s"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv6s, [], name, value)
@@ -751,12 +761,13 @@ class Ntp(Entity):
                         self.ylist_key_names = ['address_ipv6']
                         self._child_classes = OrderedDict([("peer-type-ipv6", ("peer_type_ipv6", Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6.PeerTypeIpv6))])
                         self._leafs = OrderedDict([
-                            ('address_ipv6', YLeaf(YType.str, 'address-ipv6')),
+                            ('address_ipv6', (YLeaf(YType.str, 'address-ipv6'), ['str'])),
                         ])
                         self.address_ipv6 = None
 
                         self.peer_type_ipv6 = YList(self)
                         self._segment_path = lambda: "peer-ipv6" + "[address-ipv6='" + str(self.address_ipv6) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6, ['address_ipv6'], name, value)
@@ -809,7 +820,7 @@ class Ntp(Entity):
                         	Source interface of this peer
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: burst
                         
@@ -845,16 +856,16 @@ class Ntp(Entity):
                             self.ylist_key_names = ['peer_type']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('peer_type', YLeaf(YType.enumeration, 'peer-type')),
-                                ('ntp_version', YLeaf(YType.uint32, 'ntp-version')),
-                                ('authentication_key', YLeaf(YType.uint32, 'authentication-key')),
-                                ('min_poll', YLeaf(YType.uint32, 'min-poll')),
-                                ('max_poll', YLeaf(YType.uint32, 'max-poll')),
-                                ('preferred_peer', YLeaf(YType.empty, 'preferred-peer')),
-                                ('source_interface', YLeaf(YType.str, 'source-interface')),
-                                ('burst', YLeaf(YType.empty, 'burst')),
-                                ('iburst', YLeaf(YType.empty, 'iburst')),
-                                ('address_ipv6', YLeaf(YType.str, 'address-ipv6')),
+                                ('peer_type', (YLeaf(YType.enumeration, 'peer-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg', 'NtpPeer', '')])),
+                                ('ntp_version', (YLeaf(YType.uint32, 'ntp-version'), ['int'])),
+                                ('authentication_key', (YLeaf(YType.uint32, 'authentication-key'), ['int'])),
+                                ('min_poll', (YLeaf(YType.uint32, 'min-poll'), ['int'])),
+                                ('max_poll', (YLeaf(YType.uint32, 'max-poll'), ['int'])),
+                                ('preferred_peer', (YLeaf(YType.empty, 'preferred-peer'), ['Empty'])),
+                                ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
+                                ('burst', (YLeaf(YType.empty, 'burst'), ['Empty'])),
+                                ('iburst', (YLeaf(YType.empty, 'iburst'), ['Empty'])),
+                                ('address_ipv6', (YLeaf(YType.str, 'address-ipv6'), ['str'])),
                             ])
                             self.peer_type = None
                             self.ntp_version = None
@@ -867,6 +878,7 @@ class Ntp(Entity):
                             self.iburst = None
                             self.address_ipv6 = None
                             self._segment_path = lambda: "peer-type-ipv6" + "[peer-type='" + str(self.peer_type) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ntp.PeerVrfs.PeerVrf.PeerIpv6s.PeerIpv6.PeerTypeIpv6, ['peer_type', 'ntp_version', 'authentication_key', 'min_poll', 'max_poll', 'preferred_peer', 'source_interface', 'burst', 'iburst', 'address_ipv6'], name, value)
@@ -912,13 +924,14 @@ class Ntp(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('mode', YLeaf(YType.enumeration, 'mode')),
-                ('dscp_or_precedence_value', YLeaf(YType.uint32, 'dscp-or-precedence-value')),
+                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg', 'Ntpdscp', '')])),
+                ('dscp_or_precedence_value', (YLeaf(YType.uint32, 'dscp-or-precedence-value'), ['int'])),
             ])
             self.mode = None
             self.dscp_or_precedence_value = None
             self._segment_path = lambda: "dscp-ipv4"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.DscpIpv4, ['mode', 'dscp_or_precedence_value'], name, value)
@@ -964,13 +977,14 @@ class Ntp(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('mode', YLeaf(YType.enumeration, 'mode')),
-                ('dscp_or_precedence_value', YLeaf(YType.uint32, 'dscp-or-precedence-value')),
+                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg', 'Ntpdscp', '')])),
+                ('dscp_or_precedence_value', (YLeaf(YType.uint32, 'dscp-or-precedence-value'), ['int'])),
             ])
             self.mode = None
             self.dscp_or_precedence_value = None
             self._segment_path = lambda: "dscp-ipv6"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.DscpIpv6, ['mode', 'dscp_or_precedence_value'], name, value)
@@ -1006,6 +1020,7 @@ class Ntp(Entity):
             self.source = YList(self)
             self._segment_path = lambda: "sources"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.Sources, [], name, value)
@@ -1027,7 +1042,7 @@ class Ntp(Entity):
             	Source Interface for NTP
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             	**mandatory**\: True
             
@@ -1048,13 +1063,14 @@ class Ntp(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('source_interface', YLeaf(YType.str, 'source-interface')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
                 ])
                 self.vrf_name = None
                 self.source_interface = None
                 self._segment_path = lambda: "source" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/sources/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ntp.Sources.Source, ['vrf_name', 'source_interface'], name, value)
@@ -1093,7 +1109,7 @@ class Ntp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("file", ("file", Ntp.Drift.File))])
             self._leafs = OrderedDict([
-                ('aging_time', YLeaf(YType.uint32, 'aging-time')),
+                ('aging_time', (YLeaf(YType.uint32, 'aging-time'), ['int'])),
             ])
             self.aging_time = None
 
@@ -1102,6 +1118,7 @@ class Ntp(Entity):
             self._children_name_map["file"] = "file"
             self._segment_path = lambda: "drift"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.Drift, ['aging_time'], name, value)
@@ -1140,13 +1157,14 @@ class Ntp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('filename', YLeaf(YType.str, 'filename')),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('filename', (YLeaf(YType.str, 'filename'), ['str'])),
                 ])
                 self.location = None
                 self.filename = None
                 self._segment_path = lambda: "file"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/drift/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ntp.Drift.File, ['location', 'filename'], name, value)
@@ -1156,15 +1174,15 @@ class Ntp(Entity):
         """
         Configure NTP Authentication keys
         
-        .. attribute:: keies
+        .. attribute:: keys
         
         	Authentication Key Table
-        	**type**\:  :py:class:`Keies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.Keies>`
+        	**type**\:  :py:class:`Keys <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.Keys>`
         
-        .. attribute:: trusted_keies
+        .. attribute:: trusted_keys
         
         	Key numbers for trusted time sources
-        	**type**\:  :py:class:`TrustedKeies <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.TrustedKeies>`
+        	**type**\:  :py:class:`TrustedKeys <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.TrustedKeys>`
         
         .. attribute:: enable
         
@@ -1186,34 +1204,35 @@ class Ntp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("keies", ("keies", Ntp.Authentication.Keies)), ("trusted-keies", ("trusted_keies", Ntp.Authentication.TrustedKeies))])
+            self._child_classes = OrderedDict([("keys", ("keys", Ntp.Authentication.Keys)), ("trusted-keys", ("trusted_keys", Ntp.Authentication.TrustedKeys))])
             self._leafs = OrderedDict([
-                ('enable', YLeaf(YType.empty, 'enable')),
+                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
             ])
             self.enable = None
 
-            self.keies = Ntp.Authentication.Keies()
-            self.keies.parent = self
-            self._children_name_map["keies"] = "keies"
+            self.keys = Ntp.Authentication.Keys()
+            self.keys.parent = self
+            self._children_name_map["keys"] = "keys"
 
-            self.trusted_keies = Ntp.Authentication.TrustedKeies()
-            self.trusted_keies.parent = self
-            self._children_name_map["trusted_keies"] = "trusted-keies"
+            self.trusted_keys = Ntp.Authentication.TrustedKeys()
+            self.trusted_keys.parent = self
+            self._children_name_map["trusted_keys"] = "trusted-keys"
             self._segment_path = lambda: "authentication"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.Authentication, ['enable'], name, value)
 
 
-        class Keies(Entity):
+        class Keys(Entity):
             """
             Authentication Key Table
             
             .. attribute:: key
             
             	Authentication key for trusted time sources
-            	**type**\: list of  		 :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.Keies.Key>`
+            	**type**\: list of  		 :py:class:`Key <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.Keys.Key>`
             
             
 
@@ -1223,22 +1242,23 @@ class Ntp(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Ntp.Authentication.Keies, self).__init__()
+                super(Ntp.Authentication.Keys, self).__init__()
 
-                self.yang_name = "keies"
+                self.yang_name = "keys"
                 self.yang_parent_name = "authentication"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_classes = OrderedDict([("key", ("key", Ntp.Authentication.Keies.Key))])
+                self._child_classes = OrderedDict([("key", ("key", Ntp.Authentication.Keys.Key))])
                 self._leafs = OrderedDict()
 
                 self.key = YList(self)
-                self._segment_path = lambda: "keies"
+                self._segment_path = lambda: "keys"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/authentication/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ntp.Authentication.Keies, [], name, value)
+                self._perform_setattr(Ntp.Authentication.Keys, [], name, value)
 
 
             class Key(Entity):
@@ -1267,35 +1287,36 @@ class Ntp(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Ntp.Authentication.Keies.Key, self).__init__()
+                    super(Ntp.Authentication.Keys.Key, self).__init__()
 
                     self.yang_name = "key"
-                    self.yang_parent_name = "keies"
+                    self.yang_parent_name = "keys"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['key_number']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('key_number', YLeaf(YType.uint32, 'key-number')),
-                        ('authentication_key', YLeaf(YType.str, 'authentication-key')),
+                        ('key_number', (YLeaf(YType.uint32, 'key-number'), ['int'])),
+                        ('authentication_key', (YLeaf(YType.str, 'authentication-key'), ['str'])),
                     ])
                     self.key_number = None
                     self.authentication_key = None
                     self._segment_path = lambda: "key" + "[key-number='" + str(self.key_number) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/authentication/keies/%s" % self._segment_path()
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/authentication/keys/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ntp.Authentication.Keies.Key, ['key_number', 'authentication_key'], name, value)
+                    self._perform_setattr(Ntp.Authentication.Keys.Key, ['key_number', 'authentication_key'], name, value)
 
 
-        class TrustedKeies(Entity):
+        class TrustedKeys(Entity):
             """
             Key numbers for trusted time sources
             
             .. attribute:: trusted_key
             
             	Configure NTP trusted key
-            	**type**\: list of  		 :py:class:`TrustedKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.TrustedKeies.TrustedKey>`
+            	**type**\: list of  		 :py:class:`TrustedKey <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg.Ntp.Authentication.TrustedKeys.TrustedKey>`
             
             
 
@@ -1305,22 +1326,23 @@ class Ntp(Entity):
             _revision = '2017-10-15'
 
             def __init__(self):
-                super(Ntp.Authentication.TrustedKeies, self).__init__()
+                super(Ntp.Authentication.TrustedKeys, self).__init__()
 
-                self.yang_name = "trusted-keies"
+                self.yang_name = "trusted-keys"
                 self.yang_parent_name = "authentication"
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
-                self._child_classes = OrderedDict([("trusted-key", ("trusted_key", Ntp.Authentication.TrustedKeies.TrustedKey))])
+                self._child_classes = OrderedDict([("trusted-key", ("trusted_key", Ntp.Authentication.TrustedKeys.TrustedKey))])
                 self._leafs = OrderedDict()
 
                 self.trusted_key = YList(self)
-                self._segment_path = lambda: "trusted-keies"
+                self._segment_path = lambda: "trusted-keys"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/authentication/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ntp.Authentication.TrustedKeies, [], name, value)
+                self._perform_setattr(Ntp.Authentication.TrustedKeys, [], name, value)
 
 
             class TrustedKey(Entity):
@@ -1342,23 +1364,24 @@ class Ntp(Entity):
                 _revision = '2017-10-15'
 
                 def __init__(self):
-                    super(Ntp.Authentication.TrustedKeies.TrustedKey, self).__init__()
+                    super(Ntp.Authentication.TrustedKeys.TrustedKey, self).__init__()
 
                     self.yang_name = "trusted-key"
-                    self.yang_parent_name = "trusted-keies"
+                    self.yang_parent_name = "trusted-keys"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
                     self.ylist_key_names = ['key_number']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('key_number', YLeaf(YType.uint32, 'key-number')),
+                        ('key_number', (YLeaf(YType.uint32, 'key-number'), ['int'])),
                     ])
                     self.key_number = None
                     self._segment_path = lambda: "trusted-key" + "[key-number='" + str(self.key_number) + "']"
-                    self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/authentication/trusted-keies/%s" % self._segment_path()
+                    self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/authentication/trusted-keys/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ntp.Authentication.TrustedKeies.TrustedKey, ['key_number'], name, value)
+                    self._perform_setattr(Ntp.Authentication.TrustedKeys.TrustedKey, ['key_number'], name, value)
 
 
     class Passive(Entity):
@@ -1387,11 +1410,12 @@ class Ntp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('enable', YLeaf(YType.empty, 'enable')),
+                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
             ])
             self.enable = None
             self._segment_path = lambda: "passive"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.Passive, ['enable'], name, value)
@@ -1427,6 +1451,7 @@ class Ntp(Entity):
             self.interface_table = YList(self)
             self._segment_path = lambda: "interface-tables"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.InterfaceTables, [], name, value)
@@ -1465,13 +1490,14 @@ class Ntp(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("interface", ("interface", Ntp.InterfaceTables.InterfaceTable.Interface))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ])
                 self.vrf_name = None
 
                 self.interface = YList(self)
                 self._segment_path = lambda: "interface-table" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/interface-tables/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ntp.InterfaceTables.InterfaceTable, ['vrf_name'], name, value)
@@ -1486,7 +1512,7 @@ class Ntp(Entity):
                 	interface
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: interface_multicast
                 
@@ -1520,8 +1546,8 @@ class Ntp(Entity):
                     self.ylist_key_names = ['interface']
                     self._child_classes = OrderedDict([("interface-multicast", ("interface_multicast", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast)), ("interface-broadcast", ("interface_broadcast", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast))])
                     self._leafs = OrderedDict([
-                        ('interface', YLeaf(YType.str, 'interface')),
-                        ('disable', YLeaf(YType.empty, 'disable')),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                        ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                     ])
                     self.interface = None
                     self.disable = None
@@ -1534,6 +1560,7 @@ class Ntp(Entity):
                     self.interface_broadcast.parent = self
                     self._children_name_map["interface_broadcast"] = "interface-broadcast"
                     self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface, ['interface', 'disable'], name, value)
@@ -1579,6 +1606,7 @@ class Ntp(Entity):
                         self.multicast_servers.parent = self
                         self._children_name_map["multicast_servers"] = "multicast-servers"
                         self._segment_path = lambda: "interface-multicast"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast, [], name, value)
@@ -1613,6 +1641,7 @@ class Ntp(Entity):
 
                             self.multicast_client = YList(self)
                             self._segment_path = lambda: "multicast-clients"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients, [], name, value)
@@ -1652,10 +1681,11 @@ class Ntp(Entity):
                                 self.ylist_key_names = ['ip_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('ip_address', YLeaf(YType.str, 'ip-address')),
+                                    ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str','str'])),
                                 ])
                                 self.ip_address = None
                                 self._segment_path = lambda: "multicast-client" + "[ip-address='" + str(self.ip_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastClients.MulticastClient, ['ip_address'], name, value)
@@ -1690,6 +1720,7 @@ class Ntp(Entity):
 
                             self.multicast_server = YList(self)
                             self._segment_path = lambda: "multicast-servers"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers, [], name, value)
@@ -1750,16 +1781,17 @@ class Ntp(Entity):
                                 self.ylist_key_names = ['ip_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('ip_address', YLeaf(YType.str, 'ip-address')),
-                                    ('authentication_key', YLeaf(YType.uint32, 'authentication-key')),
-                                    ('version', YLeaf(YType.uint32, 'version')),
-                                    ('ttl', YLeaf(YType.uint32, 'ttl')),
+                                    ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str','str'])),
+                                    ('authentication_key', (YLeaf(YType.uint32, 'authentication-key'), ['int'])),
+                                    ('version', (YLeaf(YType.uint32, 'version'), ['int'])),
+                                    ('ttl', (YLeaf(YType.uint32, 'ttl'), ['int'])),
                                 ])
                                 self.ip_address = None
                                 self.authentication_key = None
                                 self.version = None
                                 self.ttl = None
                                 self._segment_path = lambda: "multicast-server" + "[ip-address='" + str(self.ip_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceMulticast.MulticastServers.MulticastServer, ['ip_address', 'authentication_key', 'version', 'ttl'], name, value)
@@ -1796,7 +1828,7 @@ class Ntp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("broadcast-servers", ("broadcast_servers", Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers))])
                         self._leafs = OrderedDict([
-                            ('broadcast_client', YLeaf(YType.empty, 'broadcast-client')),
+                            ('broadcast_client', (YLeaf(YType.empty, 'broadcast-client'), ['Empty'])),
                         ])
                         self.broadcast_client = None
 
@@ -1804,6 +1836,7 @@ class Ntp(Entity):
                         self.broadcast_servers.parent = self
                         self._children_name_map["broadcast_servers"] = "broadcast-servers"
                         self._segment_path = lambda: "interface-broadcast"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast, ['broadcast_client'], name, value)
@@ -1838,6 +1871,7 @@ class Ntp(Entity):
 
                             self.broadcast_server = YList(self)
                             self._segment_path = lambda: "broadcast-servers"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers, [], name, value)
@@ -1892,16 +1926,17 @@ class Ntp(Entity):
                                 self.ylist_key_names = ['broadcast_type']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('broadcast_type', YLeaf(YType.str, 'broadcast-type')),
-                                    ('address', YLeaf(YType.str, 'address')),
-                                    ('authentication_key', YLeaf(YType.uint32, 'authentication-key')),
-                                    ('ntp_version', YLeaf(YType.uint32, 'ntp-version')),
+                                    ('broadcast_type', (YLeaf(YType.str, 'broadcast-type'), ['str'])),
+                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                    ('authentication_key', (YLeaf(YType.uint32, 'authentication-key'), ['int'])),
+                                    ('ntp_version', (YLeaf(YType.uint32, 'ntp-version'), ['int'])),
                                 ])
                                 self.broadcast_type = None
                                 self.address = None
                                 self.authentication_key = None
                                 self.ntp_version = None
                                 self._segment_path = lambda: "broadcast-server" + "[broadcast-type='" + str(self.broadcast_type) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ntp.InterfaceTables.InterfaceTable.Interface.InterfaceBroadcast.BroadcastServers.BroadcastServer, ['broadcast_type', 'address', 'authentication_key', 'ntp_version'], name, value)
@@ -1937,6 +1972,7 @@ class Ntp(Entity):
             self.access_group_table = YList(self)
             self._segment_path = lambda: "access-group-tables"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ntp.AccessGroupTables, [], name, value)
@@ -1975,13 +2011,14 @@ class Ntp(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("access-group-af-table", ("access_group_af_table", Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ])
                 self.vrf_name = None
 
                 self.access_group_af_table = YList(self)
                 self._segment_path = lambda: "access-group-table" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-ntp-cfg:ntp/access-group-tables/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ntp.AccessGroupTables.AccessGroupTable, ['vrf_name'], name, value)
@@ -2018,12 +2055,13 @@ class Ntp(Entity):
                     self.ylist_key_names = ['af']
                     self._child_classes = OrderedDict([("access-group", ("access_group", Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable.AccessGroup))])
                     self._leafs = OrderedDict([
-                        ('af', YLeaf(YType.enumeration, 'af')),
+                        ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg', 'NtpAccessAf', '')])),
                     ])
                     self.af = None
 
                     self.access_group = YList(self)
                     self._segment_path = lambda: "access-group-af-table" + "[af='" + str(self.af) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable, ['af'], name, value)
@@ -2062,12 +2100,13 @@ class Ntp(Entity):
                         self.ylist_key_names = ['access_group_type']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('access_group_type', YLeaf(YType.enumeration, 'access-group-type')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('access_group_type', (YLeaf(YType.enumeration, 'access-group-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_ntp_cfg', 'NtpAccess', '')])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                         ])
                         self.access_group_type = None
                         self.access_list_name = None
                         self._segment_path = lambda: "access-group" + "[access-group-type='" + str(self.access_group_type) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ntp.AccessGroupTables.AccessGroupTable.AccessGroupAfTable.AccessGroup, ['access_group_type', 'access_list_name'], name, value)

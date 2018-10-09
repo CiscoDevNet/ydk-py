@@ -26,6 +26,12 @@ module cisco-ia {
      Copyright (c) 2016, 2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+   revision "2018-03-28" {
+    description 
+      "Add parser response to error information for
+      bad cli";
+    reference TBD;
+  }
    revision "2018-01-22" {
     description 
       "Marked odm-log-level obsolete";
@@ -828,6 +834,11 @@ module cisco-ia {
             description 
               "Location in the command line 
               where the CLI parser detected an error";
+          }
+          leaf parser-response {
+             type string;
+             description 
+               "Parser repsonse due to rejected command";
           }
        }
     }

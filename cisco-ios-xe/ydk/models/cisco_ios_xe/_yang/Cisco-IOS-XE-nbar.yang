@@ -11,7 +11,9 @@ module Cisco-IOS-XE-nbar {
         prefix inet;
   }
 
-
+  import Cisco-IOS-XE-interface-common {
+    prefix ios-ifc;
+  }
   organization
     "Cisco Systems, Inc.";
 
@@ -34,6 +36,12 @@ module Cisco-IOS-XE-nbar {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-06-06 {
+     description 
+       "Added source-interface and application-updates fields under 'sd-services'.
+        Removed dns-as under 'avc'";
+  }
+
   revision 2017-11-27 {
      description
        "Added Change 25GE name";
@@ -348,24 +356,6 @@ module Cisco-IOS-XE-nbar {
     }
   }
   grouping config-avc-grouping {
-    container dns-as {
-      description "DNS-AS based classification";
-      container client {
-        description "DNS-AS client based classification";
-        leaf enable {
-          description "enable DNS-AS client based classification";
-          type empty;
-        }
-        container trusted-domains {
-          description "Handle DNS-AS trusted domains";
-          presence true;
-            leaf domain {
-              description "Add new trusted domain to DNS-AS";
-              type string;
-            }
-          }
-        }
-    }
     container sd-service {
       description "SD-AVC service";
       presence true;
@@ -392,6 +382,12 @@ module Cisco-IOS-XE-nbar {
            }
            container destination-ports {
              description "Ports used for communication with controller";
+               leaf application-updates {
+                 description "TCP port used for application-updates";
+                 type uint16 {
+                   range "1..65535";
+                 }
+               }
                leaf sensor-exporter {
                  description "UDP port used for sensor messages";
                  type uint16 {
@@ -404,6 +400,10 @@ module Cisco-IOS-XE-nbar {
              type uint8 {
                range "0..63";
              }
+           }
+           container source-interface {
+             description "Interface of source address used for communication with controller";
+             uses ios-ifc:interface-grouping;
            }
            leaf vrf {
              description "VRF Label";

@@ -14,6 +14,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class FlowExporterIpwriteStatsType(Enum):
     """
     FlowExporterIpwriteStatsType (Enum Class)
@@ -210,6 +211,7 @@ class FlowMonitors(Entity):
         self.flow_cache_statistics = YList(self)
         self.flow_monitor_statistics = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-flow-monitor-oper:flow-monitors"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(FlowMonitors, [], name, value)
@@ -253,8 +255,8 @@ class FlowMonitors(Entity):
             self.ylist_key_names = ['name']
             self._child_classes = OrderedDict([("flows", ("flows", FlowMonitors.FlowMonitor.Flows))])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
-                ('time_collected', YLeaf(YType.uint64, 'time-collected')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('time_collected', (YLeaf(YType.uint64, 'time-collected'), ['int'])),
             ])
             self.name = None
             self.time_collected = None
@@ -264,6 +266,7 @@ class FlowMonitors(Entity):
             self._children_name_map["flows"] = "flows"
             self._segment_path = lambda: "flow-monitor" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(FlowMonitors.FlowMonitor, ['name', 'time_collected'], name, value)
@@ -298,6 +301,7 @@ class FlowMonitors(Entity):
 
                 self.flow = YList(self)
                 self._segment_path = lambda: "flows"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(FlowMonitors.FlowMonitor.Flows, [], name, value)
@@ -396,18 +400,18 @@ class FlowMonitors(Entity):
                     self.ylist_key_names = ['source_address','destination_address','interface_input','is_multicast','vrf_id_input','source_port','destination_port','ip_tos','ip_protocol']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('source_address', YLeaf(YType.str, 'source-address')),
-                        ('destination_address', YLeaf(YType.str, 'destination-address')),
-                        ('interface_input', YLeaf(YType.str, 'interface-input')),
-                        ('is_multicast', YLeaf(YType.str, 'is-multicast')),
-                        ('vrf_id_input', YLeaf(YType.int64, 'vrf-id-input')),
-                        ('source_port', YLeaf(YType.int64, 'source-port')),
-                        ('destination_port', YLeaf(YType.int64, 'destination-port')),
-                        ('ip_tos', YLeaf(YType.str, 'ip-tos')),
-                        ('ip_protocol', YLeaf(YType.int64, 'ip-protocol')),
-                        ('interface_output', YLeaf(YType.str, 'interface-output')),
-                        ('bytes', YLeaf(YType.int64, 'bytes')),
-                        ('packets', YLeaf(YType.int64, 'packets')),
+                        ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                        ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                        ('interface_input', (YLeaf(YType.str, 'interface-input'), ['str'])),
+                        ('is_multicast', (YLeaf(YType.str, 'is-multicast'), ['str'])),
+                        ('vrf_id_input', (YLeaf(YType.int64, 'vrf-id-input'), ['int'])),
+                        ('source_port', (YLeaf(YType.int64, 'source-port'), ['int'])),
+                        ('destination_port', (YLeaf(YType.int64, 'destination-port'), ['int'])),
+                        ('ip_tos', (YLeaf(YType.str, 'ip-tos'), ['str'])),
+                        ('ip_protocol', (YLeaf(YType.int64, 'ip-protocol'), ['int'])),
+                        ('interface_output', (YLeaf(YType.str, 'interface-output'), ['str'])),
+                        ('bytes', (YLeaf(YType.int64, 'bytes'), ['int'])),
+                        ('packets', (YLeaf(YType.int64, 'packets'), ['int'])),
                     ])
                     self.source_address = None
                     self.destination_address = None
@@ -422,6 +426,7 @@ class FlowMonitors(Entity):
                     self.bytes = None
                     self.packets = None
                     self._segment_path = lambda: "flow" + "[source-address='" + str(self.source_address) + "']" + "[destination-address='" + str(self.destination_address) + "']" + "[interface-input='" + str(self.interface_input) + "']" + "[is-multicast='" + str(self.is_multicast) + "']" + "[vrf-id-input='" + str(self.vrf_id_input) + "']" + "[source-port='" + str(self.source_port) + "']" + "[destination-port='" + str(self.destination_port) + "']" + "[ip-tos='" + str(self.ip_tos) + "']" + "[ip-protocol='" + str(self.ip_protocol) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(FlowMonitors.FlowMonitor.Flows.Flow, ['source_address', 'destination_address', 'interface_input', 'is_multicast', 'vrf_id_input', 'source_port', 'destination_port', 'ip_tos', 'ip_protocol', 'interface_output', 'bytes', 'packets'], name, value)
@@ -463,7 +468,7 @@ class FlowMonitors(Entity):
             self.ylist_key_names = ['name']
             self._child_classes = OrderedDict([("transport-stats", ("transport_stats", FlowMonitors.FlowExportStatistics.TransportStats)), ("export-client", ("export_client", FlowMonitors.FlowExportStatistics.ExportClient))])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
             ])
             self.name = None
 
@@ -474,6 +479,7 @@ class FlowMonitors(Entity):
             self.export_client = YList(self)
             self._segment_path = lambda: "flow-export-statistics" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(FlowMonitors.FlowExportStatistics, ['name'], name, value)
@@ -512,12 +518,13 @@ class FlowMonitors(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("flow-exporter-stats", ("flow_exporter_stats", FlowMonitors.FlowExportStatistics.TransportStats.FlowExporterStats))])
                 self._leafs = OrderedDict([
-                    ('last_cleared', YLeaf(YType.str, 'last-cleared')),
+                    ('last_cleared', (YLeaf(YType.str, 'last-cleared'), ['str'])),
                 ])
                 self.last_cleared = None
 
                 self.flow_exporter_stats = YList(self)
                 self._segment_path = lambda: "transport-stats"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(FlowMonitors.FlowExportStatistics.TransportStats, ['last_cleared'], name, value)
@@ -563,14 +570,15 @@ class FlowMonitors(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('type', YLeaf(YType.enumeration, 'type')),
-                        ('pkt_counts', YLeaf(YType.uint64, 'pkt-counts')),
-                        ('byte_counts', YLeaf(YType.uint64, 'byte-counts')),
+                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper', 'FlowExporterIpwriteStatsType', '')])),
+                        ('pkt_counts', (YLeaf(YType.uint64, 'pkt-counts'), ['int'])),
+                        ('byte_counts', (YLeaf(YType.uint64, 'byte-counts'), ['int'])),
                     ])
                     self.type = None
                     self.pkt_counts = None
                     self.byte_counts = None
                     self._segment_path = lambda: "flow-exporter-stats"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(FlowMonitors.FlowExportStatistics.TransportStats.FlowExporterStats, ['type', 'pkt_counts', 'byte_counts'], name, value)
@@ -612,8 +620,8 @@ class FlowMonitors(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("protocol-stats", ("protocol_stats", FlowMonitors.FlowExportStatistics.ExportClient.ProtocolStats))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('group', YLeaf(YType.str, 'group')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('group', (YLeaf(YType.str, 'group'), ['str'])),
                 ])
                 self.name = None
                 self.group = None
@@ -622,6 +630,7 @@ class FlowMonitors(Entity):
                 self.protocol_stats.parent = self
                 self._children_name_map["protocol_stats"] = "protocol-stats"
                 self._segment_path = lambda: "export-client"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(FlowMonitors.FlowExportStatistics.ExportClient, ['name', 'group'], name, value)
@@ -690,12 +699,12 @@ class FlowMonitors(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('bytes_added', YLeaf(YType.uint64, 'bytes-added')),
-                        ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                        ('bytes_dropped', YLeaf(YType.uint64, 'bytes-dropped')),
-                        ('records_added', YLeaf(YType.uint64, 'records-added')),
-                        ('records_sent', YLeaf(YType.uint64, 'records-sent')),
-                        ('records_dropped', YLeaf(YType.uint64, 'records-dropped')),
+                        ('bytes_added', (YLeaf(YType.uint64, 'bytes-added'), ['int'])),
+                        ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                        ('bytes_dropped', (YLeaf(YType.uint64, 'bytes-dropped'), ['int'])),
+                        ('records_added', (YLeaf(YType.uint64, 'records-added'), ['int'])),
+                        ('records_sent', (YLeaf(YType.uint64, 'records-sent'), ['int'])),
+                        ('records_dropped', (YLeaf(YType.uint64, 'records-dropped'), ['int'])),
                     ])
                     self.bytes_added = None
                     self.bytes_sent = None
@@ -704,6 +713,7 @@ class FlowMonitors(Entity):
                     self.records_sent = None
                     self.records_dropped = None
                     self._segment_path = lambda: "protocol-stats"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(FlowMonitors.FlowExportStatistics.ExportClient.ProtocolStats, ['bytes_added', 'bytes_sent', 'bytes_dropped', 'records_added', 'records_sent', 'records_dropped'], name, value)
@@ -784,14 +794,14 @@ class FlowMonitors(Entity):
             self.ylist_key_names = ['name']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
-                ('cache_size', YLeaf(YType.uint64, 'cache-size')),
-                ('current_entries', YLeaf(YType.uint64, 'current-entries')),
-                ('high_watermark', YLeaf(YType.uint64, 'high-watermark')),
-                ('flows_added', YLeaf(YType.uint64, 'flows-added')),
-                ('flows_aged', YLeaf(YType.uint64, 'flows-aged')),
-                ('active_flows_timed_out', YLeaf(YType.uint64, 'active-flows-timed-out')),
-                ('inactive_flows_timed_out', YLeaf(YType.uint64, 'inactive-flows-timed-out')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('cache_size', (YLeaf(YType.uint64, 'cache-size'), ['int'])),
+                ('current_entries', (YLeaf(YType.uint64, 'current-entries'), ['int'])),
+                ('high_watermark', (YLeaf(YType.uint64, 'high-watermark'), ['int'])),
+                ('flows_added', (YLeaf(YType.uint64, 'flows-added'), ['int'])),
+                ('flows_aged', (YLeaf(YType.uint64, 'flows-aged'), ['int'])),
+                ('active_flows_timed_out', (YLeaf(YType.uint64, 'active-flows-timed-out'), ['int'])),
+                ('inactive_flows_timed_out', (YLeaf(YType.uint64, 'inactive-flows-timed-out'), ['int'])),
             ])
             self.name = None
             self.cache_size = None
@@ -803,6 +813,7 @@ class FlowMonitors(Entity):
             self.inactive_flows_timed_out = None
             self._segment_path = lambda: "flow-cache-statistics" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(FlowMonitors.FlowCacheStatistics, ['name', 'cache_size', 'current_entries', 'high_watermark', 'flows_added', 'flows_aged', 'active_flows_timed_out', 'inactive_flows_timed_out'], name, value)
@@ -923,21 +934,21 @@ class FlowMonitors(Entity):
             self.ylist_key_names = ['monitor_name']
             self._child_classes = OrderedDict([("cache-data", ("cache_data", FlowMonitors.FlowMonitorStatistics.CacheData))])
             self._leafs = OrderedDict([
-                ('monitor_name', YLeaf(YType.str, 'monitor-name')),
-                ('description', YLeaf(YType.str, 'description')),
-                ('record_name', YLeaf(YType.str, 'record-name')),
-                ('active_flow_exporter', YLeafList(YType.str, 'active-flow-exporter')),
-                ('inactive_flow_exporter', YLeafList(YType.str, 'inactive-flow-exporter')),
-                ('invalid_packet_counts', YLeaf(YType.uint64, 'invalid-packet-counts')),
-                ('transaction_end_ager_enabled', YLeaf(YType.boolean, 'transaction-end-ager-enabled')),
-                ('protocol_dist_configured', YLeaf(YType.str, 'protocol-dist-configured')),
-                ('size_dist_configured', YLeaf(YType.str, 'size-dist-configured')),
-                ('inactive_timer', YLeaf(YType.uint32, 'inactive-timer')),
-                ('active_timer', YLeaf(YType.uint32, 'active-timer')),
-                ('update_timeout', YLeaf(YType.uint32, 'update-timeout')),
-                ('synchronized_timeout', YLeaf(YType.uint32, 'synchronized-timeout')),
-                ('export_spread_interval', YLeaf(YType.uint32, 'export-spread-interval')),
-                ('immediate_timeout', YLeaf(YType.uint32, 'immediate-timeout')),
+                ('monitor_name', (YLeaf(YType.str, 'monitor-name'), ['str'])),
+                ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                ('record_name', (YLeaf(YType.str, 'record-name'), ['str'])),
+                ('active_flow_exporter', (YLeafList(YType.str, 'active-flow-exporter'), ['str'])),
+                ('inactive_flow_exporter', (YLeafList(YType.str, 'inactive-flow-exporter'), ['str'])),
+                ('invalid_packet_counts', (YLeaf(YType.uint64, 'invalid-packet-counts'), ['int'])),
+                ('transaction_end_ager_enabled', (YLeaf(YType.boolean, 'transaction-end-ager-enabled'), ['bool'])),
+                ('protocol_dist_configured', (YLeaf(YType.str, 'protocol-dist-configured'), ['str'])),
+                ('size_dist_configured', (YLeaf(YType.str, 'size-dist-configured'), ['str'])),
+                ('inactive_timer', (YLeaf(YType.uint32, 'inactive-timer'), ['int'])),
+                ('active_timer', (YLeaf(YType.uint32, 'active-timer'), ['int'])),
+                ('update_timeout', (YLeaf(YType.uint32, 'update-timeout'), ['int'])),
+                ('synchronized_timeout', (YLeaf(YType.uint32, 'synchronized-timeout'), ['int'])),
+                ('export_spread_interval', (YLeaf(YType.uint32, 'export-spread-interval'), ['int'])),
+                ('immediate_timeout', (YLeaf(YType.uint32, 'immediate-timeout'), ['int'])),
             ])
             self.monitor_name = None
             self.description = None
@@ -960,6 +971,7 @@ class FlowMonitors(Entity):
             self._children_name_map["cache_data"] = "cache-data"
             self._segment_path = lambda: "flow-monitor-statistics" + "[monitor-name='" + str(self.monitor_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-flow-monitor-oper:flow-monitors/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(FlowMonitors.FlowMonitorStatistics, ['monitor_name', 'description', 'record_name', 'active_flow_exporter', 'inactive_flow_exporter', 'invalid_packet_counts', 'transaction_end_ager_enabled', 'protocol_dist_configured', 'size_dist_configured', 'inactive_timer', 'active_timer', 'update_timeout', 'synchronized_timeout', 'export_spread_interval', 'immediate_timeout'], name, value)
@@ -1020,12 +1032,12 @@ class FlowMonitors(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('type', YLeaf(YType.str, 'type')),
-                    ('cache_name', YLeaf(YType.str, 'cache-name')),
-                    ('status', YLeaf(YType.str, 'status')),
-                    ('num_entries', YLeaf(YType.uint64, 'num-entries')),
-                    ('num_bytes', YLeaf(YType.uint64, 'num-bytes')),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_flow_monitor_oper', 'FlowMonitorCacheState', '')])),
+                    ('type', (YLeaf(YType.str, 'type'), ['str'])),
+                    ('cache_name', (YLeaf(YType.str, 'cache-name'), ['str'])),
+                    ('status', (YLeaf(YType.str, 'status'), ['str'])),
+                    ('num_entries', (YLeaf(YType.uint64, 'num-entries'), ['int'])),
+                    ('num_bytes', (YLeaf(YType.uint64, 'num-bytes'), ['int'])),
                 ])
                 self.state = None
                 self.type = None
@@ -1034,6 +1046,7 @@ class FlowMonitors(Entity):
                 self.num_entries = None
                 self.num_bytes = None
                 self._segment_path = lambda: "cache-data"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(FlowMonitors.FlowMonitorStatistics.CacheData, ['state', 'type', 'cache_name', 'status', 'num_entries', 'num_bytes'], name, value)

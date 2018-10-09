@@ -35,6 +35,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOIPSLAAUTOMEASUREMIB(Entity):
     """
     
@@ -94,6 +95,7 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
         self.cipslaautogroupschedtable.parent = self
         self._children_name_map["cipslaautogroupschedtable"] = "cipslaAutoGroupSchedTable"
         self._segment_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB, [], name, value)
@@ -129,6 +131,7 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             self.cipslaautogroupentry = YList(self)
             self._segment_path = lambda: "cipslaAutoGroupTable"
             self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupTable, [], name, value)
@@ -239,19 +242,19 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
                 self.ylist_key_names = ['cipslaautogroupname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cipslaautogroupname', YLeaf(YType.str, 'cipslaAutoGroupName')),
-                    ('cipslaautogroupdescription', YLeaf(YType.str, 'cipslaAutoGroupDescription')),
-                    ('cipslaautogroupdestinationname', YLeaf(YType.str, 'cipslaAutoGroupDestinationName')),
-                    ('cipslaautogroupaddestport', YLeaf(YType.uint16, 'cipslaAutoGroupADDestPort')),
-                    ('cipslaautogroupopertemplatename', YLeaf(YType.str, 'cipslaAutoGroupOperTemplateName')),
-                    ('cipslaautogroupschedulerid', YLeaf(YType.str, 'cipslaAutoGroupSchedulerId')),
-                    ('cipslaautogroupqosenable', YLeaf(YType.boolean, 'cipslaAutoGroupQoSEnable')),
-                    ('cipslaautogroupopertype', YLeaf(YType.enumeration, 'cipslaAutoGroupOperType')),
-                    ('cipslaautogroupdestipadenable', YLeaf(YType.boolean, 'cipslaAutoGroupDestIPADEnable')),
-                    ('cipslaautogroupadmeasureretry', YLeaf(YType.uint32, 'cipslaAutoGroupADMeasureRetry')),
-                    ('cipslaautogroupaddestipageout', YLeaf(YType.uint32, 'cipslaAutoGroupADDestIPAgeout')),
-                    ('cipslaautogroupstoragetype', YLeaf(YType.enumeration, 'cipslaAutoGroupStorageType')),
-                    ('cipslaautogrouprowstatus', YLeaf(YType.enumeration, 'cipslaAutoGroupRowStatus')),
+                    ('cipslaautogroupname', (YLeaf(YType.str, 'cipslaAutoGroupName'), ['str'])),
+                    ('cipslaautogroupdescription', (YLeaf(YType.str, 'cipslaAutoGroupDescription'), ['str'])),
+                    ('cipslaautogroupdestinationname', (YLeaf(YType.str, 'cipslaAutoGroupDestinationName'), ['str'])),
+                    ('cipslaautogroupaddestport', (YLeaf(YType.uint16, 'cipslaAutoGroupADDestPort'), ['int'])),
+                    ('cipslaautogroupopertemplatename', (YLeaf(YType.str, 'cipslaAutoGroupOperTemplateName'), ['str'])),
+                    ('cipslaautogroupschedulerid', (YLeaf(YType.str, 'cipslaAutoGroupSchedulerId'), ['str'])),
+                    ('cipslaautogroupqosenable', (YLeaf(YType.boolean, 'cipslaAutoGroupQoSEnable'), ['bool'])),
+                    ('cipslaautogroupopertype', (YLeaf(YType.enumeration, 'cipslaAutoGroupOperType'), [('ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB', 'IpSlaOperType', '')])),
+                    ('cipslaautogroupdestipadenable', (YLeaf(YType.boolean, 'cipslaAutoGroupDestIPADEnable'), ['bool'])),
+                    ('cipslaautogroupadmeasureretry', (YLeaf(YType.uint32, 'cipslaAutoGroupADMeasureRetry'), ['int'])),
+                    ('cipslaautogroupaddestipageout', (YLeaf(YType.uint32, 'cipslaAutoGroupADDestIPAgeout'), ['int'])),
+                    ('cipslaautogroupstoragetype', (YLeaf(YType.enumeration, 'cipslaAutoGroupStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('cipslaautogrouprowstatus', (YLeaf(YType.enumeration, 'cipslaAutoGroupRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cipslaautogroupname = None
                 self.cipslaautogroupdescription = None
@@ -268,6 +271,7 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
                 self.cipslaautogrouprowstatus = None
                 self._segment_path = lambda: "cipslaAutoGroupEntry" + "[cipslaAutoGroupName='" + str(self.cipslaautogroupname) + "']"
                 self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaAutoGroupTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupTable.CipslaAutoGroupEntry, ['cipslaautogroupname', 'cipslaautogroupdescription', 'cipslaautogroupdestinationname', 'cipslaautogroupaddestport', 'cipslaautogroupopertemplatename', 'cipslaautogroupschedulerid', 'cipslaautogroupqosenable', 'cipslaautogroupopertype', 'cipslaautogroupdestipadenable', 'cipslaautogroupadmeasureretry', 'cipslaautogroupaddestipageout', 'cipslaautogroupstoragetype', 'cipslaautogrouprowstatus'], name, value)
@@ -305,6 +309,7 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             self.cipslaautogroupdestentry = YList(self)
             self._segment_path = lambda: "cipslaAutoGroupDestTable"
             self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupDestTable, [], name, value)
@@ -369,12 +374,12 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
                 self.ylist_key_names = ['cipslaautogroupdestname','cipslaautogroupdestipaddrtype','cipslaautogroupdestipaddr','cipslaautogroupdestport']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cipslaautogroupdestname', YLeaf(YType.str, 'cipslaAutoGroupDestName')),
-                    ('cipslaautogroupdestipaddrtype', YLeaf(YType.enumeration, 'cipslaAutoGroupDestIpAddrType')),
-                    ('cipslaautogroupdestipaddr', YLeaf(YType.str, 'cipslaAutoGroupDestIpAddr')),
-                    ('cipslaautogroupdestport', YLeaf(YType.uint16, 'cipslaAutoGroupDestPort')),
-                    ('cipslaautogroupdeststoragetype', YLeaf(YType.enumeration, 'cipslaAutoGroupDestStorageType')),
-                    ('cipslaautogroupdestrowstatus', YLeaf(YType.enumeration, 'cipslaAutoGroupDestRowStatus')),
+                    ('cipslaautogroupdestname', (YLeaf(YType.str, 'cipslaAutoGroupDestName'), ['str'])),
+                    ('cipslaautogroupdestipaddrtype', (YLeaf(YType.enumeration, 'cipslaAutoGroupDestIpAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cipslaautogroupdestipaddr', (YLeaf(YType.str, 'cipslaAutoGroupDestIpAddr'), ['str'])),
+                    ('cipslaautogroupdestport', (YLeaf(YType.uint16, 'cipslaAutoGroupDestPort'), ['int'])),
+                    ('cipslaautogroupdeststoragetype', (YLeaf(YType.enumeration, 'cipslaAutoGroupDestStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('cipslaautogroupdestrowstatus', (YLeaf(YType.enumeration, 'cipslaAutoGroupDestRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cipslaautogroupdestname = None
                 self.cipslaautogroupdestipaddrtype = None
@@ -384,6 +389,7 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
                 self.cipslaautogroupdestrowstatus = None
                 self._segment_path = lambda: "cipslaAutoGroupDestEntry" + "[cipslaAutoGroupDestName='" + str(self.cipslaautogroupdestname) + "']" + "[cipslaAutoGroupDestIpAddrType='" + str(self.cipslaautogroupdestipaddrtype) + "']" + "[cipslaAutoGroupDestIpAddr='" + str(self.cipslaautogroupdestipaddr) + "']" + "[cipslaAutoGroupDestPort='" + str(self.cipslaautogroupdestport) + "']"
                 self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaAutoGroupDestTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupDestTable.CipslaAutoGroupDestEntry, ['cipslaautogroupdestname', 'cipslaautogroupdestipaddrtype', 'cipslaautogroupdestipaddr', 'cipslaautogroupdestport', 'cipslaautogroupdeststoragetype', 'cipslaautogroupdestrowstatus'], name, value)
@@ -427,6 +433,7 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             self.cipslareactentry = YList(self)
             self._segment_path = lambda: "cipslaReactTable"
             self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaReactTable, [], name, value)
@@ -528,18 +535,18 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
                 self.ylist_key_names = ['cipslaautogroupopertype','cipslareactconfigindex','cipslaautogroupopertemplatename']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cipslaautogroupopertype', YLeaf(YType.enumeration, 'cipslaAutoGroupOperType')),
-                    ('cipslareactconfigindex', YLeaf(YType.uint32, 'cipslaReactConfigIndex')),
-                    ('cipslaautogroupopertemplatename', YLeaf(YType.str, 'cipslaAutoGroupOperTemplateName')),
-                    ('cipslareactvar', YLeaf(YType.enumeration, 'cipslaReactVar')),
-                    ('cipslareactthresholdtype', YLeaf(YType.enumeration, 'cipslaReactThresholdType')),
-                    ('cipslareactactiontype', YLeaf(YType.enumeration, 'cipslaReactActionType')),
-                    ('cipslareactthresholdrising', YLeaf(YType.uint32, 'cipslaReactThresholdRising')),
-                    ('cipslareactthresholdfalling', YLeaf(YType.uint32, 'cipslaReactThresholdFalling')),
-                    ('cipslareactthresholdcountx', YLeaf(YType.uint32, 'cipslaReactThresholdCountX')),
-                    ('cipslareactthresholdcounty', YLeaf(YType.uint32, 'cipslaReactThresholdCountY')),
-                    ('cipslareactstoragetype', YLeaf(YType.enumeration, 'cipslaReactStorageType')),
-                    ('cipslareactrowstatus', YLeaf(YType.enumeration, 'cipslaReactRowStatus')),
+                    ('cipslaautogroupopertype', (YLeaf(YType.enumeration, 'cipslaAutoGroupOperType'), [('ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB', 'IpSlaOperType', '')])),
+                    ('cipslareactconfigindex', (YLeaf(YType.uint32, 'cipslaReactConfigIndex'), ['int'])),
+                    ('cipslaautogroupopertemplatename', (YLeaf(YType.str, 'cipslaAutoGroupOperTemplateName'), ['str'])),
+                    ('cipslareactvar', (YLeaf(YType.enumeration, 'cipslaReactVar'), [('ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB', 'IpSlaReactVar', '')])),
+                    ('cipslareactthresholdtype', (YLeaf(YType.enumeration, 'cipslaReactThresholdType'), [('ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB', 'CISCOIPSLAAUTOMEASUREMIB', 'CipslaReactTable.CipslaReactEntry.CipslaReactThresholdType')])),
+                    ('cipslareactactiontype', (YLeaf(YType.enumeration, 'cipslaReactActionType'), [('ydk.models.cisco_ios_xe.CISCO_IPSLA_AUTOMEASURE_MIB', 'CISCOIPSLAAUTOMEASUREMIB', 'CipslaReactTable.CipslaReactEntry.CipslaReactActionType')])),
+                    ('cipslareactthresholdrising', (YLeaf(YType.uint32, 'cipslaReactThresholdRising'), ['int'])),
+                    ('cipslareactthresholdfalling', (YLeaf(YType.uint32, 'cipslaReactThresholdFalling'), ['int'])),
+                    ('cipslareactthresholdcountx', (YLeaf(YType.uint32, 'cipslaReactThresholdCountX'), ['int'])),
+                    ('cipslareactthresholdcounty', (YLeaf(YType.uint32, 'cipslaReactThresholdCountY'), ['int'])),
+                    ('cipslareactstoragetype', (YLeaf(YType.enumeration, 'cipslaReactStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('cipslareactrowstatus', (YLeaf(YType.enumeration, 'cipslaReactRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cipslaautogroupopertype = None
                 self.cipslareactconfigindex = None
@@ -555,6 +562,7 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
                 self.cipslareactrowstatus = None
                 self._segment_path = lambda: "cipslaReactEntry" + "[cipslaAutoGroupOperType='" + str(self.cipslaautogroupopertype) + "']" + "[cipslaReactConfigIndex='" + str(self.cipslareactconfigindex) + "']" + "[cipslaAutoGroupOperTemplateName='" + str(self.cipslaautogroupopertemplatename) + "']"
                 self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaReactTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaReactTable.CipslaReactEntry, ['cipslaautogroupopertype', 'cipslareactconfigindex', 'cipslaautogroupopertemplatename', 'cipslareactvar', 'cipslareactthresholdtype', 'cipslareactactiontype', 'cipslareactthresholdrising', 'cipslareactthresholdfalling', 'cipslareactthresholdcountx', 'cipslareactthresholdcounty', 'cipslareactstoragetype', 'cipslareactrowstatus'], name, value)
@@ -740,6 +748,7 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
             self.cipslaautogroupschedentry = YList(self)
             self._segment_path = lambda: "cipslaAutoGroupSchedTable"
             self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupSchedTable, [], name, value)
@@ -847,16 +856,16 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
                 self.ylist_key_names = ['cipslaautogroupschedid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cipslaautogroupschedid', YLeaf(YType.str, 'cipslaAutoGroupSchedId')),
-                    ('cipslaautogroupschedperiod', YLeaf(YType.uint32, 'cipslaAutoGroupSchedPeriod')),
-                    ('cipslaautogroupschedinterval', YLeaf(YType.uint32, 'cipslaAutoGroupSchedInterval')),
-                    ('cipslaautogroupschedlife', YLeaf(YType.uint32, 'cipslaAutoGroupSchedLife')),
-                    ('cipslaautogroupschedageout', YLeaf(YType.uint32, 'cipslaAutoGroupSchedAgeout')),
-                    ('cipslaautogroupschedmaxinterval', YLeaf(YType.uint32, 'cipslaAutoGroupSchedMaxInterval')),
-                    ('cipslaautogroupschedmininterval', YLeaf(YType.uint32, 'cipslaAutoGroupSchedMinInterval')),
-                    ('cipslaautogroupschedstarttime', YLeaf(YType.uint32, 'cipslaAutoGroupSchedStartTime')),
-                    ('cipslaautogroupschedstoragetype', YLeaf(YType.enumeration, 'cipslaAutoGroupSchedStorageType')),
-                    ('cipslaautogroupschedrowstatus', YLeaf(YType.enumeration, 'cipslaAutoGroupSchedRowStatus')),
+                    ('cipslaautogroupschedid', (YLeaf(YType.str, 'cipslaAutoGroupSchedId'), ['str'])),
+                    ('cipslaautogroupschedperiod', (YLeaf(YType.uint32, 'cipslaAutoGroupSchedPeriod'), ['int'])),
+                    ('cipslaautogroupschedinterval', (YLeaf(YType.uint32, 'cipslaAutoGroupSchedInterval'), ['int'])),
+                    ('cipslaautogroupschedlife', (YLeaf(YType.uint32, 'cipslaAutoGroupSchedLife'), ['int'])),
+                    ('cipslaautogroupschedageout', (YLeaf(YType.uint32, 'cipslaAutoGroupSchedAgeout'), ['int'])),
+                    ('cipslaautogroupschedmaxinterval', (YLeaf(YType.uint32, 'cipslaAutoGroupSchedMaxInterval'), ['int'])),
+                    ('cipslaautogroupschedmininterval', (YLeaf(YType.uint32, 'cipslaAutoGroupSchedMinInterval'), ['int'])),
+                    ('cipslaautogroupschedstarttime', (YLeaf(YType.uint32, 'cipslaAutoGroupSchedStartTime'), ['int'])),
+                    ('cipslaautogroupschedstoragetype', (YLeaf(YType.enumeration, 'cipslaAutoGroupSchedStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('cipslaautogroupschedrowstatus', (YLeaf(YType.enumeration, 'cipslaAutoGroupSchedRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cipslaautogroupschedid = None
                 self.cipslaautogroupschedperiod = None
@@ -870,6 +879,7 @@ class CISCOIPSLAAUTOMEASUREMIB(Entity):
                 self.cipslaautogroupschedrowstatus = None
                 self._segment_path = lambda: "cipslaAutoGroupSchedEntry" + "[cipslaAutoGroupSchedId='" + str(self.cipslaautogroupschedid) + "']"
                 self._absolute_path = lambda: "CISCO-IPSLA-AUTOMEASURE-MIB:CISCO-IPSLA-AUTOMEASURE-MIB/cipslaAutoGroupSchedTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPSLAAUTOMEASUREMIB.CipslaAutoGroupSchedTable.CipslaAutoGroupSchedEntry, ['cipslaautogroupschedid', 'cipslaautogroupschedperiod', 'cipslaautogroupschedinterval', 'cipslaautogroupschedlife', 'cipslaautogroupschedageout', 'cipslaautogroupschedmaxinterval', 'cipslaautogroupschedmininterval', 'cipslaautogroupschedstarttime', 'cipslaautogroupschedstoragetype', 'cipslaautogroupschedrowstatus'], name, value)

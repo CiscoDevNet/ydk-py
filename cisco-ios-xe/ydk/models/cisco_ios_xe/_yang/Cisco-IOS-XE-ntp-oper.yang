@@ -25,9 +25,14 @@ module Cisco-IOS-XE-ntp-oper {
   description
     "This module contains a collection of YANG definitions
      for NTP operational data.
-     Copyright (c) 2017 by Cisco Systems, Inc.
+     Copyright (c) 2017-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-01-16 {
+    description
+      "Server address, NTP selection status, NTP peer events. NTP number of events, NTP authentication status.";
+    reference "1.1.0";
+  }
   revision 2017-11-01 {
     description
       "Initial revision";
@@ -241,6 +246,276 @@ module Cisco-IOS-XE-ntp-oper {
       "The type of information stored in the refid";
   }
 
+  typedef peer-select-status {
+    type enumeration {
+      enum "ntp-peer-as-backup" {
+        value 0;
+        description
+          "The peer is a survivor but not among the first 
+           six peers";
+      }
+      enum "ntp-peer-rejected" {
+        value 1;
+        description
+          "The peer was rejected due to a loop or due
+           to becoming unreachable or due to bad synchronization distance";
+      }
+      enum "ntp-peer-false-ticker" {
+        value 2;
+        description
+          "The peer or server is discarded due to false tick
+           or clock errors";
+      }
+      enum "ntp-peer-excess" {
+        value 3;
+        description
+          "The peer is discarded as it is not among the 
+           first ten peers sorted by synchronization distance";
+      }
+      enum "ntp-peer-outlier" {
+        value 4;
+        description
+          "NTP server or peer rejected as outlier";
+      }
+      enum "ntp-peer-candidate" {
+        value 5;
+        description
+          "Possible candidate for selection as time server";
+      }
+      enum "ntp-peer-sys-peer" {
+        value 6;
+        description
+          "Peer or server selected as time server";
+      }
+      enum "ntp-peer-pps-peer" {
+        value 7;
+        description
+          "Peer or server selected as time server. In this 
+           case the Pulse Per Second signal is used to synchronize the client and
+           server or peer";
+      }
+    }
+    description
+      "Selection status of peer";
+  }
+
+  typedef peer-auth-status {
+    type enumeration {
+      enum "ntp-auth-ok" {
+        value 0;
+        description
+          "The NTP client or server packet has MAC  
+           field and authentication succeded";
+      }
+      enum "ntp-auth-bad-auth" {
+        value 1;
+        description
+          "The NTP client or server packet has MAC  
+           and decryption failed with AUTH_ERROR ";
+      }
+      enum "ntp-auth-auth-not-configured" {
+        value 2;
+        description
+          "The NTP client or server is not configured with authenication
+           with server or client";
+      }
+      enum "ntp-auth-status-not-available" {
+        value 3;
+        description
+          "The NTP client or server authentication stautus is not available
+            as now";
+      }
+      enum "ntp-auth-none" {
+        value 4;
+        description
+          "The NTP client or server packet has no MAC  
+           with server or peer";
+      }
+      enum "ntp-auth-crypto" {
+        value 5;
+        description
+          "crypto-NAK. The MAC has four octets only and could not  
+           determine authentication status with peer";
+      }
+    }
+    description
+      "Status of authenticating switch with peer or server";
+  }
+
+  typedef peer-status-word {
+    type enumeration {
+      enum "crypto-flag-sig" {
+        value 0;
+        description
+          "In autokey[public key ntp authentication protocol ], this flag is 
+           set when host certificate is signed by server.This is not implemented/supported as of now ";
+      }
+      enum "crypto-flag-leap" {
+        value 1;
+        description
+          "In autokey, this flag is set when leap second values
+           are received and validated";
+      }
+      enum "crypto-flag-vrfy" {
+        value 2;
+        description
+          "In autokey,this flag is set when the trusted host identity
+           credentials are  confirmed ";
+      }
+      enum "crypto-flag-cook" {
+        value 3;
+        description
+          "In autokey, this flag is set when the cookie is received  and validated
+           when set, keylists with  nonzero cookies are generated, 
+           when reset cookie is zero";
+      }
+      enum "crypto-flag-auto" {
+        value 4;
+        description
+          "In autokey, this flag is set when autokey values are received and validated,
+           when set client can validate packets without extension field 
+           according to the autokey sequence";
+      }
+      enum "crypto-flag-cert" {
+        value 5;
+        description
+          "In autokey, this flag is set when trusted host certificate and public key are verified";
+      }
+    }
+    description
+      "Peer status word or crypto of ntp server or ntp peer";
+  }
+
+  typedef peer-event {
+    type enumeration {
+      enum "ntp-peer-event-mobilize" {
+        value 0;
+        description
+          "This event is used to allocate resources and 
+           initialize defaults or values when a NTP association is setup";
+      }
+      enum "ntp-peer-event-demobilize" {
+        value 1;
+        description
+          "This event is used to tear down the resources
+           associated with a NTP association";
+      }
+      enum "ntp-peer-event-unreachable" {
+        value 2;
+        description
+          "This event indicates that the NTP peer is 
+           unreachable";
+      }
+      enum "ntp-peer-event-reachable" {
+        value 3;
+        description
+          "This event indicates that the peer is reachable";
+      }
+      enum "ntp-peer-event-restart" {
+        value 4;
+        description
+          "Event to indicate that the NTP process restart
+           is now complete";
+      }
+      enum "ntp-peer-event-reply" {
+        value 5;
+        description
+          "NTP peer or server reply event in response to a 
+           get time request from the client";
+      }
+      enum "ntp-peer-event-rate" {
+        value 6;
+        description
+          "This event is used to synchronize the client 
+           and peer or server through a flow contol mechanism";
+      }
+      enum "ntp-peer-event-deny" {
+        value 7;
+        description
+          "Event from peer that indicates denial of access to the 
+           switch or router";
+      }
+      enum "ntp-peer-disarmed" {
+        value 8;
+        description
+          "This event clears or resets the NTP flag after the
+           leap second event so that the system is now ready to receive the next
+           leap second event";
+      }
+      enum "ntp-peer-armed" {
+        value 9;
+        description
+          "Peer event armed means that the event for delaying
+           the clock increment by one second for a leap year will be scheduled 
+           next month";
+      }
+      enum "ntp-peer-event-newpeer" {
+        value 10;
+        description
+          "New peer added to association";
+      }
+      enum "ntp-peer-event-clock" {
+        value 11;
+        description
+          "This event indicates clock tick errors";
+      }
+      enum "ntp-peer-event-auth" {
+        value 12;
+        description
+          "Event indicating status of authenticating switch
+           or router with peer";
+      }
+      enum "ntp-peer-event-popcorn" {
+        value 13;
+        description
+          "Popcorn event indicates a delayed NTP packet due
+           to congestion in the network";
+      }
+      enum "ntp-peer-event-xleave" {
+        value 14;
+        description
+          "Event for NTP peer or server leaving the 
+           association";
+      }
+      enum "ntp-peer-event-xerr" {
+        value 15;
+        description
+          "NTP event for an error message received from 
+           peer or server";
+      }
+      enum "ntp-peer-event-tai" {
+        value 16;
+        description
+          "Event for incorporating correction for 
+           International Atomic Time based on offsets from UTC";
+      }
+    }
+    description
+      "Event received by switch or router and sent by peer";
+  }
+
+  typedef server-type {
+    type enumeration {
+      enum "ntp-peer" {
+        value 0;
+        description
+          "Remote entity is a NTP peer";
+      }
+      enum "ntp-server" {
+        value 1;
+        description
+          "Remote NTP is a NTP server";
+      }
+      enum "ntp-unknown-type" {
+        value 2;
+        description
+          "Status of remote entity could not be found";
+      }
+    }
+    description
+      "Status of remote entity whether server or peer";
+  }
+
   grouping ref-clock-source-data {
     description
       "Clock source data refers to the clock sources that are possible including GPS and others. Currently Cisco supports only GPS";
@@ -298,6 +573,24 @@ module Cisco-IOS-XE-ntp-oper {
     }
   }
 
+  grouping ntp-server-address {
+    description
+      "NTP server address consists of the VRF name and IP 
+       address";
+    leaf ip-addr {
+      type inet:ip-address;
+      description
+        "IP address is the IP address of  the NTP server or
+         peer";
+    }
+    leaf vrf-name {
+      type string;
+      description
+        "VRF name is the virtual routing instance through
+         which we can find the ntp server or peer";
+    }
+  }
+
   grouping ntp-association-list {
     description
       "Contains association description between current switch and peer  or server";
@@ -334,7 +627,8 @@ module Cisco-IOS-XE-ntp-oper {
     leaf poll {
       type uint32;
       description
-        "Maximum poll time of NTP in seconds";
+        "Maximum poll time of NTP in seconds expressed as a
+         power of two as per model and RFC";
     }
     leaf delay {
       type decimal64 {
@@ -357,6 +651,42 @@ module Cisco-IOS-XE-ntp-oper {
       description
         "Jitter in ms refers to short-term variations in frequency of components greater than 10 hz";
     }
+    container ntp-address {
+      description
+        "NTP address consists of an IP address and a VRF name";
+      uses ntp-ios-xe-oper:ntp-server-address;
+    }
+    leaf num-events {
+      type uint8;
+      description
+        "Count of number of error events received from peer";
+    }
+    leaf last-peer-event {
+      type ntp-ios-xe-oper:peer-event;
+      description
+        "Last event received from peer";
+    }
+    leaf peer-selection-status {
+      type ntp-ios-xe-oper:peer-select-status;
+      description
+        "Status of peer selection based on the NTP selection 
+         algorithm";
+    }
+    leaf peer-authentication-status {
+      type ntp-ios-xe-oper:peer-auth-status;
+      description
+        "Status of authentication of switch or router by peer";
+    }
+    leaf serv-type {
+      type ntp-ios-xe-oper:server-type;
+      description
+        "Whether the remote NTP device is a server or peer";
+    }
+    leaf psw-crypto {
+      type ntp-ios-xe-oper:peer-status-word;
+      description
+        "Peer status word of ntp server or peer when authentication configured";
+    }
   }
 
   grouping ntp-container-data {
@@ -375,7 +705,8 @@ module Cisco-IOS-XE-ntp-oper {
     leaf sys-poll {
       type uint8;
       description
-        "Frequency or periodicity of NTP polling in seconds";
+        "Frequency or periodicity of NTP polling in seconds
+         expressed as a power of two as per model and rfc";
     }
     leaf stratum {
       type uint32;

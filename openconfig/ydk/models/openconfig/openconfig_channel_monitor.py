@@ -14,6 +14,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class ChannelMonitors(Entity):
     """
     Top\-level container for optical channel monitors
@@ -44,6 +45,7 @@ class ChannelMonitors(Entity):
 
         self.channel_monitor = YList(self)
         self._segment_path = lambda: "openconfig-channel-monitor:channel-monitors"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ChannelMonitors, [], name, value)
@@ -92,7 +94,7 @@ class ChannelMonitors(Entity):
             self.ylist_key_names = ['name']
             self._child_classes = OrderedDict([("config", ("config", ChannelMonitors.ChannelMonitor.Config)), ("state", ("state", ChannelMonitors.ChannelMonitor.State)), ("channels", ("channels", ChannelMonitors.ChannelMonitor.Channels))])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
             ])
             self.name = None
 
@@ -109,6 +111,7 @@ class ChannelMonitors(Entity):
             self._children_name_map["channels"] = "channels"
             self._segment_path = lambda: "channel-monitor" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "openconfig-channel-monitor:channel-monitors/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ChannelMonitors.ChannelMonitor, ['name'], name, value)
@@ -149,12 +152,13 @@ class ChannelMonitors(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('monitor_port', YLeaf(YType.str, 'monitor-port')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('monitor_port', (YLeaf(YType.str, 'monitor-port'), ['str'])),
                 ])
                 self.name = None
                 self.monitor_port = None
                 self._segment_path = lambda: "config"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ChannelMonitors.ChannelMonitor.Config, ['name', 'monitor_port'], name, value)
@@ -195,12 +199,13 @@ class ChannelMonitors(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('monitor_port', YLeaf(YType.str, 'monitor-port')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('monitor_port', (YLeaf(YType.str, 'monitor-port'), ['str'])),
                 ])
                 self.name = None
                 self.monitor_port = None
                 self._segment_path = lambda: "state"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ChannelMonitors.ChannelMonitor.State, ['name', 'monitor_port'], name, value)
@@ -236,6 +241,7 @@ class ChannelMonitors(Entity):
 
                 self.channel = YList(self)
                 self._segment_path = lambda: "channels"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ChannelMonitors.ChannelMonitor.Channels, [], name, value)
@@ -285,8 +291,8 @@ class ChannelMonitors(Entity):
                     self.ylist_key_names = ['lower_frequency','upper_frequency']
                     self._child_classes = OrderedDict([("state", ("state", ChannelMonitors.ChannelMonitor.Channels.Channel.State))])
                     self._leafs = OrderedDict([
-                        ('lower_frequency', YLeaf(YType.str, 'lower-frequency')),
-                        ('upper_frequency', YLeaf(YType.str, 'upper-frequency')),
+                        ('lower_frequency', (YLeaf(YType.str, 'lower-frequency'), ['int'])),
+                        ('upper_frequency', (YLeaf(YType.str, 'upper-frequency'), ['int'])),
                     ])
                     self.lower_frequency = None
                     self.upper_frequency = None
@@ -295,6 +301,7 @@ class ChannelMonitors(Entity):
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._segment_path = lambda: "channel" + "[lower-frequency='" + str(self.lower_frequency) + "']" + "[upper-frequency='" + str(self.upper_frequency) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ChannelMonitors.ChannelMonitor.Channels.Channel, ['lower_frequency', 'upper_frequency'], name, value)
@@ -344,14 +351,15 @@ class ChannelMonitors(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('lower_frequency', YLeaf(YType.uint64, 'lower-frequency')),
-                            ('upper_frequency', YLeaf(YType.uint64, 'upper-frequency')),
-                            ('psd', YLeaf(YType.str, 'psd')),
+                            ('lower_frequency', (YLeaf(YType.uint64, 'lower-frequency'), ['int'])),
+                            ('upper_frequency', (YLeaf(YType.uint64, 'upper-frequency'), ['int'])),
+                            ('psd', (YLeaf(YType.str, 'psd'), ['str'])),
                         ])
                         self.lower_frequency = None
                         self.upper_frequency = None
                         self.psd = None
                         self._segment_path = lambda: "state"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ChannelMonitors.ChannelMonitor.Channels.Channel.State, ['lower_frequency', 'upper_frequency', 'psd'], name, value)

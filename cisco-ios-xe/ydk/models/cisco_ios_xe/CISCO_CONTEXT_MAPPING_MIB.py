@@ -64,6 +64,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOCONTEXTMAPPINGMIB(Entity):
     """
     
@@ -123,6 +124,7 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
         self.ccontextmappinglicensegrouptable.parent = self
         self._children_name_map["ccontextmappinglicensegrouptable"] = "cContextMappingLicenseGroupTable"
         self._segment_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOCONTEXTMAPPINGMIB, [], name, value)
@@ -175,6 +177,7 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
             self.ccontextmappingentry = YList(self)
             self._segment_path = lambda: "cContextMappingTable"
             self._absolute_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCONTEXTMAPPINGMIB.CContextMappingTable, [], name, value)
@@ -242,12 +245,12 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
                 self.ylist_key_names = ['ccontextmappingvacmcontextname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ccontextmappingvacmcontextname', YLeaf(YType.str, 'cContextMappingVacmContextName')),
-                    ('ccontextmappingvrfname', YLeaf(YType.str, 'cContextMappingVrfName')),
-                    ('ccontextmappingtopologyname', YLeaf(YType.str, 'cContextMappingTopologyName')),
-                    ('ccontextmappingprotoinstname', YLeaf(YType.str, 'cContextMappingProtoInstName')),
-                    ('ccontextmappingstoragetype', YLeaf(YType.enumeration, 'cContextMappingStorageType')),
-                    ('ccontextmappingrowstatus', YLeaf(YType.enumeration, 'cContextMappingRowStatus')),
+                    ('ccontextmappingvacmcontextname', (YLeaf(YType.str, 'cContextMappingVacmContextName'), ['str'])),
+                    ('ccontextmappingvrfname', (YLeaf(YType.str, 'cContextMappingVrfName'), ['str'])),
+                    ('ccontextmappingtopologyname', (YLeaf(YType.str, 'cContextMappingTopologyName'), ['str'])),
+                    ('ccontextmappingprotoinstname', (YLeaf(YType.str, 'cContextMappingProtoInstName'), ['str'])),
+                    ('ccontextmappingstoragetype', (YLeaf(YType.enumeration, 'cContextMappingStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('ccontextmappingrowstatus', (YLeaf(YType.enumeration, 'cContextMappingRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ccontextmappingvacmcontextname = None
                 self.ccontextmappingvrfname = None
@@ -257,6 +260,7 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
                 self.ccontextmappingrowstatus = None
                 self._segment_path = lambda: "cContextMappingEntry" + "[cContextMappingVacmContextName='" + str(self.ccontextmappingvacmcontextname) + "']"
                 self._absolute_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCONTEXTMAPPINGMIB.CContextMappingTable.CContextMappingEntry, ['ccontextmappingvacmcontextname', 'ccontextmappingvrfname', 'ccontextmappingtopologyname', 'ccontextmappingprotoinstname', 'ccontextmappingstoragetype', 'ccontextmappingrowstatus'], name, value)
@@ -304,6 +308,7 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
             self.ccontextmappingbridgedomainentry = YList(self)
             self._segment_path = lambda: "cContextMappingBridgeDomainTable"
             self._absolute_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCONTEXTMAPPINGMIB.CContextMappingBridgeDomainTable, [], name, value)
@@ -365,10 +370,10 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
                 self.ylist_key_names = ['ccontextmappingvacmcontextname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ccontextmappingvacmcontextname', YLeaf(YType.str, 'cContextMappingVacmContextName')),
-                    ('ccontextmappingbridgedomainidentifier', YLeaf(YType.uint32, 'cContextMappingBridgeDomainIdentifier')),
-                    ('ccontextmappingbridgedomainstoragetype', YLeaf(YType.enumeration, 'cContextMappingBridgeDomainStorageType')),
-                    ('ccontextmappingbridgedomainrowstatus', YLeaf(YType.enumeration, 'cContextMappingBridgeDomainRowStatus')),
+                    ('ccontextmappingvacmcontextname', (YLeaf(YType.str, 'cContextMappingVacmContextName'), ['str'])),
+                    ('ccontextmappingbridgedomainidentifier', (YLeaf(YType.uint32, 'cContextMappingBridgeDomainIdentifier'), ['int'])),
+                    ('ccontextmappingbridgedomainstoragetype', (YLeaf(YType.enumeration, 'cContextMappingBridgeDomainStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('ccontextmappingbridgedomainrowstatus', (YLeaf(YType.enumeration, 'cContextMappingBridgeDomainRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ccontextmappingvacmcontextname = None
                 self.ccontextmappingbridgedomainidentifier = None
@@ -376,6 +381,7 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
                 self.ccontextmappingbridgedomainrowstatus = None
                 self._segment_path = lambda: "cContextMappingBridgeDomainEntry" + "[cContextMappingVacmContextName='" + str(self.ccontextmappingvacmcontextname) + "']"
                 self._absolute_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingBridgeDomainTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCONTEXTMAPPINGMIB.CContextMappingBridgeDomainTable.CContextMappingBridgeDomainEntry, ['ccontextmappingvacmcontextname', 'ccontextmappingbridgedomainidentifier', 'ccontextmappingbridgedomainstoragetype', 'ccontextmappingbridgedomainrowstatus'], name, value)
@@ -421,6 +427,7 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
             self.ccontextmappingbridgeinstanceentry = YList(self)
             self._segment_path = lambda: "cContextMappingBridgeInstanceTable"
             self._absolute_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCONTEXTMAPPINGMIB.CContextMappingBridgeInstanceTable, [], name, value)
@@ -480,10 +487,10 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
                 self.ylist_key_names = ['ccontextmappingvacmcontextname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ccontextmappingvacmcontextname', YLeaf(YType.str, 'cContextMappingVacmContextName')),
-                    ('ccontextmappingbridgeinstname', YLeaf(YType.str, 'cContextMappingBridgeInstName')),
-                    ('ccontextmappingbridgeinststoragetype', YLeaf(YType.enumeration, 'cContextMappingBridgeInstStorageType')),
-                    ('ccontextmappingbridgeinstrowstatus', YLeaf(YType.enumeration, 'cContextMappingBridgeInstRowStatus')),
+                    ('ccontextmappingvacmcontextname', (YLeaf(YType.str, 'cContextMappingVacmContextName'), ['str'])),
+                    ('ccontextmappingbridgeinstname', (YLeaf(YType.str, 'cContextMappingBridgeInstName'), ['str'])),
+                    ('ccontextmappingbridgeinststoragetype', (YLeaf(YType.enumeration, 'cContextMappingBridgeInstStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('ccontextmappingbridgeinstrowstatus', (YLeaf(YType.enumeration, 'cContextMappingBridgeInstRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ccontextmappingvacmcontextname = None
                 self.ccontextmappingbridgeinstname = None
@@ -491,6 +498,7 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
                 self.ccontextmappingbridgeinstrowstatus = None
                 self._segment_path = lambda: "cContextMappingBridgeInstanceEntry" + "[cContextMappingVacmContextName='" + str(self.ccontextmappingvacmcontextname) + "']"
                 self._absolute_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingBridgeInstanceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCONTEXTMAPPINGMIB.CContextMappingBridgeInstanceTable.CContextMappingBridgeInstanceEntry, ['ccontextmappingvacmcontextname', 'ccontextmappingbridgeinstname', 'ccontextmappingbridgeinststoragetype', 'ccontextmappingbridgeinstrowstatus'], name, value)
@@ -530,6 +538,7 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
             self.ccontextmappinglicensegroupentry = YList(self)
             self._segment_path = lambda: "cContextMappingLicenseGroupTable"
             self._absolute_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCONTEXTMAPPINGMIB.CContextMappingLicenseGroupTable, [], name, value)
@@ -584,10 +593,10 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
                 self.ylist_key_names = ['ccontextmappingvacmcontextname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ccontextmappingvacmcontextname', YLeaf(YType.str, 'cContextMappingVacmContextName')),
-                    ('ccontextmappinglicensegroupname', YLeaf(YType.str, 'cContextMappingLicenseGroupName')),
-                    ('ccontextmappinglicensegroupstoragetype', YLeaf(YType.enumeration, 'cContextMappingLicenseGroupStorageType')),
-                    ('ccontextmappinglicensegrouprowstatus', YLeaf(YType.enumeration, 'cContextMappingLicenseGroupRowStatus')),
+                    ('ccontextmappingvacmcontextname', (YLeaf(YType.str, 'cContextMappingVacmContextName'), ['str'])),
+                    ('ccontextmappinglicensegroupname', (YLeaf(YType.str, 'cContextMappingLicenseGroupName'), ['str'])),
+                    ('ccontextmappinglicensegroupstoragetype', (YLeaf(YType.enumeration, 'cContextMappingLicenseGroupStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('ccontextmappinglicensegrouprowstatus', (YLeaf(YType.enumeration, 'cContextMappingLicenseGroupRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ccontextmappingvacmcontextname = None
                 self.ccontextmappinglicensegroupname = None
@@ -595,6 +604,7 @@ class CISCOCONTEXTMAPPINGMIB(Entity):
                 self.ccontextmappinglicensegrouprowstatus = None
                 self._segment_path = lambda: "cContextMappingLicenseGroupEntry" + "[cContextMappingVacmContextName='" + str(self.ccontextmappingvacmcontextname) + "']"
                 self._absolute_path = lambda: "CISCO-CONTEXT-MAPPING-MIB:CISCO-CONTEXT-MAPPING-MIB/cContextMappingLicenseGroupTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCONTEXTMAPPINGMIB.CContextMappingLicenseGroupTable.CContextMappingLicenseGroupEntry, ['ccontextmappingvacmcontextname', 'ccontextmappinglicensegroupname', 'ccontextmappinglicensegroupstoragetype', 'ccontextmappinglicensegrouprowstatus'], name, value)

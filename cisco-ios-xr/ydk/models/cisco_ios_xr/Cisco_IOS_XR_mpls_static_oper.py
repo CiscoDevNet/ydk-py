@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   mpls\-static\: MPLS STATIC operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class MgmtMplsStaticLabelMode(Enum):
@@ -343,6 +344,7 @@ class MplsStatic(Entity):
         self.local_labels.parent = self
         self._children_name_map["local_labels"] = "local-labels"
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-static-oper:mpls-static"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MplsStatic, [], name, value)
@@ -378,6 +380,7 @@ class MplsStatic(Entity):
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-oper:mpls-static/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsStatic.Vrfs, [], name, value)
@@ -421,7 +424,7 @@ class MplsStatic(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("lsps", ("lsps", MplsStatic.Vrfs.Vrf.Lsps)), ("local-labels", ("local_labels", MplsStatic.Vrfs.Vrf.LocalLabels))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ])
                 self.vrf_name = None
 
@@ -434,6 +437,7 @@ class MplsStatic(Entity):
                 self._children_name_map["local_labels"] = "local-labels"
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-oper:mpls-static/vrfs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsStatic.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -468,6 +472,7 @@ class MplsStatic(Entity):
 
                     self.lsp = YList(self)
                     self._segment_path = lambda: "lsps"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps, [], name, value)
@@ -511,8 +516,8 @@ class MplsStatic(Entity):
                         self.ylist_key_names = ['lsp_name']
                         self._child_classes = OrderedDict([("label", ("label", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label))])
                         self._leafs = OrderedDict([
-                            ('lsp_name', YLeaf(YType.str, 'lsp-name')),
-                            ('lsp_name_xr', YLeaf(YType.str, 'lsp-name-xr')),
+                            ('lsp_name', (YLeaf(YType.str, 'lsp-name'), ['str'])),
+                            ('lsp_name_xr', (YLeaf(YType.str, 'lsp-name-xr'), ['str'])),
                         ])
                         self.lsp_name = None
                         self.lsp_name_xr = None
@@ -521,6 +526,7 @@ class MplsStatic(Entity):
                         self.label.parent = self
                         self._children_name_map["label"] = "label"
                         self._segment_path = lambda: "lsp" + "[lsp-name='" + str(self.lsp_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp, ['lsp_name', 'lsp_name_xr'], name, value)
@@ -609,13 +615,13 @@ class MplsStatic(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("prefix", ("prefix", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix)), ("pathset-resolve-nh", ("pathset_resolve_nh", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathsetResolveNh)), ("backup-pathset-resolve-nh", ("backup_pathset_resolve_nh", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathsetResolveNh)), ("path-info", ("path_info", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo)), ("backup-path-info", ("backup_path_info", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo))])
                             self._leafs = OrderedDict([
-                                ('label', YLeaf(YType.uint32, 'label')),
-                                ('label_mode', YLeaf(YType.enumeration, 'label-mode')),
-                                ('label_status', YLeaf(YType.enumeration, 'label-status')),
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                ('pathset_via_resolve', YLeaf(YType.boolean, 'pathset-via-resolve')),
-                                ('backup_pathset_via_resolve', YLeaf(YType.boolean, 'backup-pathset-via-resolve')),
-                                ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                                ('label', (YLeaf(YType.uint32, 'label'), ['int'])),
+                                ('label_mode', (YLeaf(YType.enumeration, 'label-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticLabelMode', '')])),
+                                ('label_status', (YLeaf(YType.enumeration, 'label-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticLabelStatus', '')])),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                ('pathset_via_resolve', (YLeaf(YType.boolean, 'pathset-via-resolve'), ['bool'])),
+                                ('backup_pathset_via_resolve', (YLeaf(YType.boolean, 'backup-pathset-via-resolve'), ['bool'])),
+                                ('address_family', (YLeaf(YType.enumeration, 'address-family'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
                             ])
                             self.label = None
                             self.label_mode = None
@@ -640,6 +646,7 @@ class MplsStatic(Entity):
                             self.path_info = YList(self)
                             self.backup_path_info = YList(self)
                             self._segment_path = lambda: "label"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label, ['label', 'label_mode', 'label_status', 'vrf_name', 'pathset_via_resolve', 'backup_pathset_via_resolve', 'address_family'], name, value)
@@ -678,7 +685,7 @@ class MplsStatic(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("prefix", ("prefix", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_))])
                                 self._leafs = OrderedDict([
-                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                    ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                                 ])
                                 self.prefix_length = None
 
@@ -686,6 +693,7 @@ class MplsStatic(Entity):
                                 self.prefix.parent = self
                                 self._children_name_map["prefix"] = "prefix"
                                 self._segment_path = lambda: "prefix"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix, ['prefix_length'], name, value)
@@ -731,14 +739,15 @@ class MplsStatic(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                        ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                                        ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
+                                        ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                                        ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                                     ])
                                     self.af_name = None
                                     self.ipv4_prefix = None
                                     self.ipv6_prefix = None
                                     self._segment_path = lambda: "prefix"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.Prefix.Prefix_, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
@@ -784,14 +793,15 @@ class MplsStatic(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                    ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                                    ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
+                                    ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                                    ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                                 ])
                                 self.af_name = None
                                 self.ipv4_prefix = None
                                 self.ipv6_prefix = None
                                 self._segment_path = lambda: "pathset-resolve-nh"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
@@ -837,14 +847,15 @@ class MplsStatic(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                    ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                                    ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
+                                    ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                                    ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                                 ])
                                 self.af_name = None
                                 self.ipv4_prefix = None
                                 self.ipv6_prefix = None
                                 self._segment_path = lambda: "backup-pathset-resolve-nh"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
@@ -912,12 +923,12 @@ class MplsStatic(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop))])
                                 self._leafs = OrderedDict([
-                                    ('path_number', YLeaf(YType.uint32, 'path-number')),
-                                    ('type', YLeaf(YType.enumeration, 'type')),
-                                    ('path_role', YLeaf(YType.enumeration, 'path-role')),
-                                    ('path_id', YLeaf(YType.uint8, 'path-id')),
-                                    ('backup_id', YLeaf(YType.uint8, 'backup-id')),
-                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                    ('path_number', (YLeaf(YType.uint32, 'path-number'), ['int'])),
+                                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticPath', '')])),
+                                    ('path_role', (YLeaf(YType.enumeration, 'path-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MplsStaticPathRole', '')])),
+                                    ('path_id', (YLeaf(YType.uint8, 'path-id'), ['int'])),
+                                    ('backup_id', (YLeaf(YType.uint8, 'backup-id'), ['int'])),
+                                    ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticPathStatus', '')])),
                                 ])
                                 self.path_number = None
                                 self.type = None
@@ -930,6 +941,7 @@ class MplsStatic(Entity):
                                 self.nexthop.parent = self
                                 self._children_name_map["nexthop"] = "nexthop"
                                 self._segment_path = lambda: "path-info"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
@@ -978,9 +990,9 @@ class MplsStatic(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("address", ("address", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop.Address))])
                                     self._leafs = OrderedDict([
-                                        ('label', YLeaf(YType.uint32, 'label')),
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('afi', YLeaf(YType.enumeration, 'afi')),
+                                        ('label', (YLeaf(YType.uint32, 'label'), ['int'])),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticLspAfi', '')])),
                                     ])
                                     self.label = None
                                     self.interface_name = None
@@ -990,6 +1002,7 @@ class MplsStatic(Entity):
                                     self.address.parent = self
                                     self._children_name_map["address"] = "address"
                                     self._segment_path = lambda: "nexthop"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
@@ -1035,14 +1048,15 @@ class MplsStatic(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                            ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                                            ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
+                                            ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                                            ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                                         ])
                                         self.af_name = None
                                         self.ipv4_prefix = None
                                         self.ipv6_prefix = None
                                         self._segment_path = lambda: "address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.PathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
@@ -1110,12 +1124,12 @@ class MplsStatic(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop))])
                                 self._leafs = OrderedDict([
-                                    ('path_number', YLeaf(YType.uint32, 'path-number')),
-                                    ('type', YLeaf(YType.enumeration, 'type')),
-                                    ('path_role', YLeaf(YType.enumeration, 'path-role')),
-                                    ('path_id', YLeaf(YType.uint8, 'path-id')),
-                                    ('backup_id', YLeaf(YType.uint8, 'backup-id')),
-                                    ('status', YLeaf(YType.enumeration, 'status')),
+                                    ('path_number', (YLeaf(YType.uint32, 'path-number'), ['int'])),
+                                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticPath', '')])),
+                                    ('path_role', (YLeaf(YType.enumeration, 'path-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MplsStaticPathRole', '')])),
+                                    ('path_id', (YLeaf(YType.uint8, 'path-id'), ['int'])),
+                                    ('backup_id', (YLeaf(YType.uint8, 'backup-id'), ['int'])),
+                                    ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticPathStatus', '')])),
                                 ])
                                 self.path_number = None
                                 self.type = None
@@ -1128,6 +1142,7 @@ class MplsStatic(Entity):
                                 self.nexthop.parent = self
                                 self._children_name_map["nexthop"] = "nexthop"
                                 self._segment_path = lambda: "backup-path-info"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
@@ -1176,9 +1191,9 @@ class MplsStatic(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("address", ("address", MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop.Address))])
                                     self._leafs = OrderedDict([
-                                        ('label', YLeaf(YType.uint32, 'label')),
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('afi', YLeaf(YType.enumeration, 'afi')),
+                                        ('label', (YLeaf(YType.uint32, 'label'), ['int'])),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticLspAfi', '')])),
                                     ])
                                     self.label = None
                                     self.interface_name = None
@@ -1188,6 +1203,7 @@ class MplsStatic(Entity):
                                     self.address.parent = self
                                     self._children_name_map["address"] = "address"
                                     self._segment_path = lambda: "nexthop"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
@@ -1233,14 +1249,15 @@ class MplsStatic(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                            ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                                            ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
+                                            ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                                            ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                                         ])
                                         self.af_name = None
                                         self.ipv4_prefix = None
                                         self.ipv6_prefix = None
                                         self._segment_path = lambda: "address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(MplsStatic.Vrfs.Vrf.Lsps.Lsp.Label.BackupPathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
@@ -1275,6 +1292,7 @@ class MplsStatic(Entity):
 
                     self.local_label = YList(self)
                     self._segment_path = lambda: "local-labels"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels, [], name, value)
@@ -1370,14 +1388,14 @@ class MplsStatic(Entity):
                         self.ylist_key_names = ['local_label_id']
                         self._child_classes = OrderedDict([("prefix", ("prefix", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix)), ("pathset-resolve-nh", ("pathset_resolve_nh", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathsetResolveNh)), ("backup-pathset-resolve-nh", ("backup_pathset_resolve_nh", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathsetResolveNh)), ("path-info", ("path_info", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo)), ("backup-path-info", ("backup_path_info", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo))])
                         self._leafs = OrderedDict([
-                            ('local_label_id', YLeaf(YType.uint32, 'local-label-id')),
-                            ('label', YLeaf(YType.uint32, 'label')),
-                            ('label_mode', YLeaf(YType.enumeration, 'label-mode')),
-                            ('label_status', YLeaf(YType.enumeration, 'label-status')),
-                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                            ('pathset_via_resolve', YLeaf(YType.boolean, 'pathset-via-resolve')),
-                            ('backup_pathset_via_resolve', YLeaf(YType.boolean, 'backup-pathset-via-resolve')),
-                            ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                            ('local_label_id', (YLeaf(YType.uint32, 'local-label-id'), ['int'])),
+                            ('label', (YLeaf(YType.uint32, 'label'), ['int'])),
+                            ('label_mode', (YLeaf(YType.enumeration, 'label-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticLabelMode', '')])),
+                            ('label_status', (YLeaf(YType.enumeration, 'label-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticLabelStatus', '')])),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                            ('pathset_via_resolve', (YLeaf(YType.boolean, 'pathset-via-resolve'), ['bool'])),
+                            ('backup_pathset_via_resolve', (YLeaf(YType.boolean, 'backup-pathset-via-resolve'), ['bool'])),
+                            ('address_family', (YLeaf(YType.enumeration, 'address-family'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
                         ])
                         self.local_label_id = None
                         self.label = None
@@ -1403,6 +1421,7 @@ class MplsStatic(Entity):
                         self.path_info = YList(self)
                         self.backup_path_info = YList(self)
                         self._segment_path = lambda: "local-label" + "[local-label-id='" + str(self.local_label_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel, ['local_label_id', 'label', 'label_mode', 'label_status', 'vrf_name', 'pathset_via_resolve', 'backup_pathset_via_resolve', 'address_family'], name, value)
@@ -1441,7 +1460,7 @@ class MplsStatic(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("prefix", ("prefix", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_))])
                             self._leafs = OrderedDict([
-                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                             ])
                             self.prefix_length = None
 
@@ -1449,6 +1468,7 @@ class MplsStatic(Entity):
                             self.prefix.parent = self
                             self._children_name_map["prefix"] = "prefix"
                             self._segment_path = lambda: "prefix"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix, ['prefix_length'], name, value)
@@ -1494,14 +1514,15 @@ class MplsStatic(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                    ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                                    ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
+                                    ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                                    ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                                 ])
                                 self.af_name = None
                                 self.ipv4_prefix = None
                                 self.ipv6_prefix = None
                                 self._segment_path = lambda: "prefix"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.Prefix.Prefix_, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
@@ -1547,14 +1568,15 @@ class MplsStatic(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
+                                ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                                ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4_prefix = None
                             self.ipv6_prefix = None
                             self._segment_path = lambda: "pathset-resolve-nh"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
@@ -1600,14 +1622,15 @@ class MplsStatic(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
+                                ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                                ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4_prefix = None
                             self.ipv6_prefix = None
                             self._segment_path = lambda: "backup-pathset-resolve-nh"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
@@ -1675,12 +1698,12 @@ class MplsStatic(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop))])
                             self._leafs = OrderedDict([
-                                ('path_number', YLeaf(YType.uint32, 'path-number')),
-                                ('type', YLeaf(YType.enumeration, 'type')),
-                                ('path_role', YLeaf(YType.enumeration, 'path-role')),
-                                ('path_id', YLeaf(YType.uint8, 'path-id')),
-                                ('backup_id', YLeaf(YType.uint8, 'backup-id')),
-                                ('status', YLeaf(YType.enumeration, 'status')),
+                                ('path_number', (YLeaf(YType.uint32, 'path-number'), ['int'])),
+                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticPath', '')])),
+                                ('path_role', (YLeaf(YType.enumeration, 'path-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MplsStaticPathRole', '')])),
+                                ('path_id', (YLeaf(YType.uint8, 'path-id'), ['int'])),
+                                ('backup_id', (YLeaf(YType.uint8, 'backup-id'), ['int'])),
+                                ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticPathStatus', '')])),
                             ])
                             self.path_number = None
                             self.type = None
@@ -1693,6 +1716,7 @@ class MplsStatic(Entity):
                             self.nexthop.parent = self
                             self._children_name_map["nexthop"] = "nexthop"
                             self._segment_path = lambda: "path-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
@@ -1741,9 +1765,9 @@ class MplsStatic(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("address", ("address", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop.Address))])
                                 self._leafs = OrderedDict([
-                                    ('label', YLeaf(YType.uint32, 'label')),
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('afi', YLeaf(YType.enumeration, 'afi')),
+                                    ('label', (YLeaf(YType.uint32, 'label'), ['int'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticLspAfi', '')])),
                                 ])
                                 self.label = None
                                 self.interface_name = None
@@ -1753,6 +1777,7 @@ class MplsStatic(Entity):
                                 self.address.parent = self
                                 self._children_name_map["address"] = "address"
                                 self._segment_path = lambda: "nexthop"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
@@ -1798,14 +1823,15 @@ class MplsStatic(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                        ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                                        ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
+                                        ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                                        ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                                     ])
                                     self.af_name = None
                                     self.ipv4_prefix = None
                                     self.ipv6_prefix = None
                                     self._segment_path = lambda: "address"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.PathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
@@ -1873,12 +1899,12 @@ class MplsStatic(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop))])
                             self._leafs = OrderedDict([
-                                ('path_number', YLeaf(YType.uint32, 'path-number')),
-                                ('type', YLeaf(YType.enumeration, 'type')),
-                                ('path_role', YLeaf(YType.enumeration, 'path-role')),
-                                ('path_id', YLeaf(YType.uint8, 'path-id')),
-                                ('backup_id', YLeaf(YType.uint8, 'backup-id')),
-                                ('status', YLeaf(YType.enumeration, 'status')),
+                                ('path_number', (YLeaf(YType.uint32, 'path-number'), ['int'])),
+                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticPath', '')])),
+                                ('path_role', (YLeaf(YType.enumeration, 'path-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MplsStaticPathRole', '')])),
+                                ('path_id', (YLeaf(YType.uint8, 'path-id'), ['int'])),
+                                ('backup_id', (YLeaf(YType.uint8, 'backup-id'), ['int'])),
+                                ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticPathStatus', '')])),
                             ])
                             self.path_number = None
                             self.type = None
@@ -1891,6 +1917,7 @@ class MplsStatic(Entity):
                             self.nexthop.parent = self
                             self._children_name_map["nexthop"] = "nexthop"
                             self._segment_path = lambda: "backup-path-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
@@ -1939,9 +1966,9 @@ class MplsStatic(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("address", ("address", MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address))])
                                 self._leafs = OrderedDict([
-                                    ('label', YLeaf(YType.uint32, 'label')),
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('afi', YLeaf(YType.enumeration, 'afi')),
+                                    ('label', (YLeaf(YType.uint32, 'label'), ['int'])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticLspAfi', '')])),
                                 ])
                                 self.label = None
                                 self.interface_name = None
@@ -1951,6 +1978,7 @@ class MplsStatic(Entity):
                                 self.address.parent = self
                                 self._children_name_map["address"] = "address"
                                 self._segment_path = lambda: "nexthop"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
@@ -1996,14 +2024,15 @@ class MplsStatic(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                        ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                                        ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
+                                        ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                                        ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                                     ])
                                     self.af_name = None
                                     self.ipv4_prefix = None
                                     self.ipv6_prefix = None
                                     self._segment_path = lambda: "address"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(MplsStatic.Vrfs.Vrf.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
@@ -2132,22 +2161,22 @@ class MplsStatic(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('lsp_count', YLeaf(YType.uint32, 'lsp-count')),
-                ('label_count', YLeaf(YType.uint32, 'label-count')),
-                ('label_error_count', YLeaf(YType.uint32, 'label-error-count')),
-                ('label_discrepancy_count', YLeaf(YType.uint32, 'label-discrepancy-count')),
-                ('vrf_count', YLeaf(YType.uint32, 'vrf-count')),
-                ('active_vrf_count', YLeaf(YType.uint32, 'active-vrf-count')),
-                ('interface_count', YLeaf(YType.uint32, 'interface-count')),
-                ('interface_foward_reference_count', YLeaf(YType.uint32, 'interface-foward-reference-count')),
-                ('mpls_enabled_interface_count', YLeaf(YType.uint32, 'mpls-enabled-interface-count')),
-                ('ipv4_res_nh_count', YLeaf(YType.uint32, 'ipv4-res-nh-count')),
-                ('ipv6_res_nh_count', YLeaf(YType.uint32, 'ipv6-res-nh-count')),
-                ('lsd_connected', YLeaf(YType.boolean, 'lsd-connected')),
-                ('im_connected', YLeaf(YType.boolean, 'im-connected')),
-                ('rsi_connected', YLeaf(YType.boolean, 'rsi-connected')),
-                ('ribv4_connected', YLeaf(YType.boolean, 'ribv4-connected')),
-                ('ribv6_connected', YLeaf(YType.boolean, 'ribv6-connected')),
+                ('lsp_count', (YLeaf(YType.uint32, 'lsp-count'), ['int'])),
+                ('label_count', (YLeaf(YType.uint32, 'label-count'), ['int'])),
+                ('label_error_count', (YLeaf(YType.uint32, 'label-error-count'), ['int'])),
+                ('label_discrepancy_count', (YLeaf(YType.uint32, 'label-discrepancy-count'), ['int'])),
+                ('vrf_count', (YLeaf(YType.uint32, 'vrf-count'), ['int'])),
+                ('active_vrf_count', (YLeaf(YType.uint32, 'active-vrf-count'), ['int'])),
+                ('interface_count', (YLeaf(YType.uint32, 'interface-count'), ['int'])),
+                ('interface_foward_reference_count', (YLeaf(YType.uint32, 'interface-foward-reference-count'), ['int'])),
+                ('mpls_enabled_interface_count', (YLeaf(YType.uint32, 'mpls-enabled-interface-count'), ['int'])),
+                ('ipv4_res_nh_count', (YLeaf(YType.uint32, 'ipv4-res-nh-count'), ['int'])),
+                ('ipv6_res_nh_count', (YLeaf(YType.uint32, 'ipv6-res-nh-count'), ['int'])),
+                ('lsd_connected', (YLeaf(YType.boolean, 'lsd-connected'), ['bool'])),
+                ('im_connected', (YLeaf(YType.boolean, 'im-connected'), ['bool'])),
+                ('rsi_connected', (YLeaf(YType.boolean, 'rsi-connected'), ['bool'])),
+                ('ribv4_connected', (YLeaf(YType.boolean, 'ribv4-connected'), ['bool'])),
+                ('ribv6_connected', (YLeaf(YType.boolean, 'ribv6-connected'), ['bool'])),
             ])
             self.lsp_count = None
             self.label_count = None
@@ -2167,6 +2196,7 @@ class MplsStatic(Entity):
             self.ribv6_connected = None
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-oper:mpls-static/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsStatic.Summary, ['lsp_count', 'label_count', 'label_error_count', 'label_discrepancy_count', 'vrf_count', 'active_vrf_count', 'interface_count', 'interface_foward_reference_count', 'mpls_enabled_interface_count', 'ipv4_res_nh_count', 'ipv6_res_nh_count', 'lsd_connected', 'im_connected', 'rsi_connected', 'ribv4_connected', 'ribv6_connected'], name, value)
@@ -2202,6 +2232,7 @@ class MplsStatic(Entity):
             self.local_label = YList(self)
             self._segment_path = lambda: "local-labels"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-oper:mpls-static/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsStatic.LocalLabels, [], name, value)
@@ -2297,14 +2328,14 @@ class MplsStatic(Entity):
                 self.ylist_key_names = ['local_label_id']
                 self._child_classes = OrderedDict([("prefix", ("prefix", MplsStatic.LocalLabels.LocalLabel.Prefix)), ("pathset-resolve-nh", ("pathset_resolve_nh", MplsStatic.LocalLabels.LocalLabel.PathsetResolveNh)), ("backup-pathset-resolve-nh", ("backup_pathset_resolve_nh", MplsStatic.LocalLabels.LocalLabel.BackupPathsetResolveNh)), ("path-info", ("path_info", MplsStatic.LocalLabels.LocalLabel.PathInfo)), ("backup-path-info", ("backup_path_info", MplsStatic.LocalLabels.LocalLabel.BackupPathInfo))])
                 self._leafs = OrderedDict([
-                    ('local_label_id', YLeaf(YType.uint32, 'local-label-id')),
-                    ('label', YLeaf(YType.uint32, 'label')),
-                    ('label_mode', YLeaf(YType.enumeration, 'label-mode')),
-                    ('label_status', YLeaf(YType.enumeration, 'label-status')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('pathset_via_resolve', YLeaf(YType.boolean, 'pathset-via-resolve')),
-                    ('backup_pathset_via_resolve', YLeaf(YType.boolean, 'backup-pathset-via-resolve')),
-                    ('address_family', YLeaf(YType.enumeration, 'address-family')),
+                    ('local_label_id', (YLeaf(YType.uint32, 'local-label-id'), ['int'])),
+                    ('label', (YLeaf(YType.uint32, 'label'), ['int'])),
+                    ('label_mode', (YLeaf(YType.enumeration, 'label-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticLabelMode', '')])),
+                    ('label_status', (YLeaf(YType.enumeration, 'label-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticLabelStatus', '')])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('pathset_via_resolve', (YLeaf(YType.boolean, 'pathset-via-resolve'), ['bool'])),
+                    ('backup_pathset_via_resolve', (YLeaf(YType.boolean, 'backup-pathset-via-resolve'), ['bool'])),
+                    ('address_family', (YLeaf(YType.enumeration, 'address-family'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
                 ])
                 self.local_label_id = None
                 self.label = None
@@ -2331,6 +2362,7 @@ class MplsStatic(Entity):
                 self.backup_path_info = YList(self)
                 self._segment_path = lambda: "local-label" + "[local-label-id='" + str(self.local_label_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-static-oper:mpls-static/local-labels/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsStatic.LocalLabels.LocalLabel, ['local_label_id', 'label', 'label_mode', 'label_status', 'vrf_name', 'pathset_via_resolve', 'backup_pathset_via_resolve', 'address_family'], name, value)
@@ -2369,7 +2401,7 @@ class MplsStatic(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("prefix", ("prefix", MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_))])
                     self._leafs = OrderedDict([
-                        ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                        ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                     ])
                     self.prefix_length = None
 
@@ -2377,6 +2409,7 @@ class MplsStatic(Entity):
                     self.prefix.parent = self
                     self._children_name_map["prefix"] = "prefix"
                     self._segment_path = lambda: "prefix"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.Prefix, ['prefix_length'], name, value)
@@ -2422,14 +2455,15 @@ class MplsStatic(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                            ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
+                            ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                            ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                         ])
                         self.af_name = None
                         self.ipv4_prefix = None
                         self.ipv6_prefix = None
                         self._segment_path = lambda: "prefix"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.Prefix.Prefix_, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
@@ -2475,14 +2509,15 @@ class MplsStatic(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                        ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
+                        ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                        ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                     ])
                     self.af_name = None
                     self.ipv4_prefix = None
                     self.ipv6_prefix = None
                     self._segment_path = lambda: "pathset-resolve-nh"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
@@ -2528,14 +2563,15 @@ class MplsStatic(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                        ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
+                        ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                        ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                     ])
                     self.af_name = None
                     self.ipv4_prefix = None
                     self.ipv6_prefix = None
                     self._segment_path = lambda: "backup-pathset-resolve-nh"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathsetResolveNh, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
@@ -2603,12 +2639,12 @@ class MplsStatic(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop))])
                     self._leafs = OrderedDict([
-                        ('path_number', YLeaf(YType.uint32, 'path-number')),
-                        ('type', YLeaf(YType.enumeration, 'type')),
-                        ('path_role', YLeaf(YType.enumeration, 'path-role')),
-                        ('path_id', YLeaf(YType.uint8, 'path-id')),
-                        ('backup_id', YLeaf(YType.uint8, 'backup-id')),
-                        ('status', YLeaf(YType.enumeration, 'status')),
+                        ('path_number', (YLeaf(YType.uint32, 'path-number'), ['int'])),
+                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticPath', '')])),
+                        ('path_role', (YLeaf(YType.enumeration, 'path-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MplsStaticPathRole', '')])),
+                        ('path_id', (YLeaf(YType.uint8, 'path-id'), ['int'])),
+                        ('backup_id', (YLeaf(YType.uint8, 'backup-id'), ['int'])),
+                        ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticPathStatus', '')])),
                     ])
                     self.path_number = None
                     self.type = None
@@ -2621,6 +2657,7 @@ class MplsStatic(Entity):
                     self.nexthop.parent = self
                     self._children_name_map["nexthop"] = "nexthop"
                     self._segment_path = lambda: "path-info"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
@@ -2669,9 +2706,9 @@ class MplsStatic(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("address", ("address", MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop.Address))])
                         self._leafs = OrderedDict([
-                            ('label', YLeaf(YType.uint32, 'label')),
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
+                            ('label', (YLeaf(YType.uint32, 'label'), ['int'])),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticLspAfi', '')])),
                         ])
                         self.label = None
                         self.interface_name = None
@@ -2681,6 +2718,7 @@ class MplsStatic(Entity):
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
                         self._segment_path = lambda: "nexthop"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
@@ -2726,14 +2764,15 @@ class MplsStatic(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
+                                ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                                ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4_prefix = None
                             self.ipv6_prefix = None
                             self._segment_path = lambda: "address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.PathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)
@@ -2801,12 +2840,12 @@ class MplsStatic(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("nexthop", ("nexthop", MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop))])
                     self._leafs = OrderedDict([
-                        ('path_number', YLeaf(YType.uint32, 'path-number')),
-                        ('type', YLeaf(YType.enumeration, 'type')),
-                        ('path_role', YLeaf(YType.enumeration, 'path-role')),
-                        ('path_id', YLeaf(YType.uint8, 'path-id')),
-                        ('backup_id', YLeaf(YType.uint8, 'backup-id')),
-                        ('status', YLeaf(YType.enumeration, 'status')),
+                        ('path_number', (YLeaf(YType.uint32, 'path-number'), ['int'])),
+                        ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticPath', '')])),
+                        ('path_role', (YLeaf(YType.enumeration, 'path-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MplsStaticPathRole', '')])),
+                        ('path_id', (YLeaf(YType.uint8, 'path-id'), ['int'])),
+                        ('backup_id', (YLeaf(YType.uint8, 'backup-id'), ['int'])),
+                        ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtMplsStaticPathStatus', '')])),
                     ])
                     self.path_number = None
                     self.type = None
@@ -2819,6 +2858,7 @@ class MplsStatic(Entity):
                     self.nexthop.parent = self
                     self._children_name_map["nexthop"] = "nexthop"
                     self._segment_path = lambda: "backup-path-info"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathInfo, ['path_number', 'type', 'path_role', 'path_id', 'backup_id', 'status'], name, value)
@@ -2867,9 +2907,9 @@ class MplsStatic(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("address", ("address", MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address))])
                         self._leafs = OrderedDict([
-                            ('label', YLeaf(YType.uint32, 'label')),
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
+                            ('label', (YLeaf(YType.uint32, 'label'), ['int'])),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticLspAfi', '')])),
                         ])
                         self.label = None
                         self.interface_name = None
@@ -2879,6 +2919,7 @@ class MplsStatic(Entity):
                         self.address.parent = self
                         self._children_name_map["address"] = "address"
                         self._segment_path = lambda: "nexthop"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop, ['label', 'interface_name', 'afi'], name, value)
@@ -2924,14 +2965,15 @@ class MplsStatic(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_static_oper', 'MgmtStaticAddr', '')])),
+                                ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                                ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4_prefix = None
                             self.ipv6_prefix = None
                             self._segment_path = lambda: "address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(MplsStatic.LocalLabels.LocalLabel.BackupPathInfo.Nexthop.Address, ['af_name', 'ipv4_prefix', 'ipv6_prefix'], name, value)

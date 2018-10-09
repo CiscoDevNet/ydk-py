@@ -1,7 +1,7 @@
 """ Cisco_IOS_XE_rpc 
 
 NED RPC YANG module for IOS
-Copyright (c) 2016 by Cisco Systems, Inc.
+Copyright (c) 2016\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -11,6 +11,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -33,7 +34,7 @@ class Switch(Entity):
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-12-06'
+    _revision = '2018-04-18'
 
     def __init__(self):
         super(Switch, self).__init__()
@@ -55,6 +56,7 @@ class Switch(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:switch"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -94,7 +96,7 @@ class Switch(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Switch.Input, self).__init__()
@@ -106,9 +108,9 @@ class Switch(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("statck", ("statck", Switch.Input.Statck))])
             self._leafs = OrderedDict([
-                ('y_switch_number', YLeaf(YType.uint8, '_switch-number')),
-                ('priority', YLeaf(YType.uint8, 'priority')),
-                ('renumber', YLeaf(YType.uint8, 'renumber')),
+                ('y_switch_number', (YLeaf(YType.uint8, '_switch-number'), ['int'])),
+                ('priority', (YLeaf(YType.uint8, 'priority'), ['int'])),
+                ('renumber', (YLeaf(YType.uint8, 'renumber'), ['int'])),
             ])
             self.y_switch_number = None
             self.priority = None
@@ -119,9 +121,10 @@ class Switch(Entity):
             self._children_name_map["statck"] = "statck"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:switch/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Switch.Input, ['y_switch_number', 'priority', 'renumber'], name, value)
+            self._perform_setattr(Switch.Input, [u'y_switch_number', u'priority', u'renumber'], name, value)
 
 
         class Statck(Entity):
@@ -140,7 +143,7 @@ class Switch(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(Switch.Input.Statck, self).__init__()
@@ -152,14 +155,15 @@ class Switch(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('port', YLeaf(YType.uint8, 'port')),
+                    ('port', (YLeaf(YType.uint8, 'port'), ['int'])),
                 ])
                 self.port = None
                 self._segment_path = lambda: "statck"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:switch/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Switch.Input.Statck, ['port'], name, value)
+                self._perform_setattr(Switch.Input.Statck, [u'port'], name, value)
 
 
     class Output(Entity):
@@ -176,7 +180,7 @@ class Switch(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Switch.Output, self).__init__()
@@ -188,14 +192,15 @@ class Switch(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:switch/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Switch.Output, ['result'], name, value)
+            self._perform_setattr(Switch.Output, [u'result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Switch()
@@ -220,7 +225,7 @@ class Default(Entity):
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-12-06'
+    _revision = '2018-04-18'
 
     def __init__(self):
         super(Default, self).__init__()
@@ -242,6 +247,7 @@ class Default(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:default"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -260,7 +266,7 @@ class Default(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Default.Input, self).__init__()
@@ -272,14 +278,15 @@ class Default(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('interface', YLeaf(YType.str, 'interface')),
+                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
             ])
             self.interface = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:default/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Default.Input, ['interface'], name, value)
+            self._perform_setattr(Default.Input, [u'interface'], name, value)
 
 
     class Output(Entity):
@@ -296,7 +303,7 @@ class Default(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Default.Output, self).__init__()
@@ -308,14 +315,15 @@ class Default(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:default/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Default.Output, ['result'], name, value)
+            self._perform_setattr(Default.Output, [u'result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Default()
@@ -340,7 +348,7 @@ class Clear(Entity):
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-12-06'
+    _revision = '2018-04-18'
 
     def __init__(self):
         super(Clear, self).__init__()
@@ -362,6 +370,7 @@ class Clear(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:clear"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -404,12 +413,22 @@ class Clear(Entity):
         	Clear AAA values
         	**type**\:  :py:class:`Aaa <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Clear.Input.Aaa>`
         
+        .. attribute:: platform
+        
+        	Clear platform information
+        	**type**\:  :py:class:`Platform <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Clear.Input.Platform>`
+        
+        .. attribute:: zone_pair
+        
+        	Clear zone\-pair
+        	**type**\:  :py:class:`ZonePair <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Clear.Input.ZonePair>`
+        
         
 
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Clear.Input, self).__init__()
@@ -419,10 +438,10 @@ class Clear(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("flow", ("flow", Clear.Input.Flow)), ("ip", ("ip", Clear.Input.Ip)), ("arp-cache", ("arp_cache", Clear.Input.ArpCache)), ("aaa", ("aaa", Clear.Input.Aaa))])
+            self._child_classes = OrderedDict([("flow", ("flow", Clear.Input.Flow)), ("ip", ("ip", Clear.Input.Ip)), ("arp-cache", ("arp_cache", Clear.Input.ArpCache)), ("aaa", ("aaa", Clear.Input.Aaa)), ("platform", ("platform", Clear.Input.Platform)), ("zone-pair", ("zone_pair", Clear.Input.ZonePair))])
             self._leafs = OrderedDict([
-                ('interface', YLeaf(YType.str, 'interface')),
-                ('count', YLeaf(YType.str, 'count')),
+                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                ('count', (YLeaf(YType.str, 'count'), ['str'])),
             ])
             self.interface = None
             self.count = None
@@ -441,11 +460,20 @@ class Clear(Entity):
             self.aaa = Clear.Input.Aaa()
             self.aaa.parent = self
             self._children_name_map["aaa"] = "aaa"
+
+            self.platform = Clear.Input.Platform()
+            self.platform.parent = self
+            self._children_name_map["platform"] = "platform"
+
+            self.zone_pair = Clear.Input.ZonePair()
+            self.zone_pair.parent = self
+            self._children_name_map["zone_pair"] = "zone-pair"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Clear.Input, ['interface', 'count'], name, value)
+            self._perform_setattr(Clear.Input, [u'interface', u'count'], name, value)
 
 
         class Flow(Entity):
@@ -467,7 +495,7 @@ class Clear(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(Clear.Input.Flow, self).__init__()
@@ -489,6 +517,7 @@ class Clear(Entity):
                 self._children_name_map["exporter"] = "exporter"
                 self._segment_path = lambda: "flow"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Clear.Input.Flow, [], name, value)
@@ -525,7 +554,7 @@ class Clear(Entity):
                 """
 
                 _prefix = 'ios-xe-rpc'
-                _revision = '2017-12-06'
+                _revision = '2018-04-18'
 
                 def __init__(self):
                     super(Clear.Input.Flow.Monitor, self).__init__()
@@ -537,9 +566,9 @@ class Clear(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("cache", ("cache", Clear.Input.Flow.Monitor.Cache))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('force_export', YLeaf(YType.empty, 'force-export')),
-                        ('statistics', YLeaf(YType.empty, 'statistics')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('force_export', (YLeaf(YType.empty, 'force-export'), ['Empty'])),
+                        ('statistics', (YLeaf(YType.empty, 'statistics'), ['Empty'])),
                     ])
                     self.name = None
                     self.force_export = None
@@ -550,9 +579,10 @@ class Clear(Entity):
                     self._children_name_map["cache"] = "cache"
                     self._segment_path = lambda: "monitor"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/flow/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Clear.Input.Flow.Monitor, ['name', 'force_export', 'statistics'], name, value)
+                    self._perform_setattr(Clear.Input.Flow.Monitor, [u'name', u'force_export', u'statistics'], name, value)
 
 
                 class Cache(Entity):
@@ -569,7 +599,7 @@ class Clear(Entity):
                     """
 
                     _prefix = 'ios-xe-rpc'
-                    _revision = '2017-12-06'
+                    _revision = '2018-04-18'
 
                     def __init__(self):
                         super(Clear.Input.Flow.Monitor.Cache, self).__init__()
@@ -581,14 +611,15 @@ class Clear(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('force_export', YLeaf(YType.empty, 'force-export')),
+                            ('force_export', (YLeaf(YType.empty, 'force-export'), ['Empty'])),
                         ])
                         self.force_export = None
                         self._segment_path = lambda: "cache"
                         self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/flow/monitor/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Clear.Input.Flow.Monitor.Cache, ['force_export'], name, value)
+                        self._perform_setattr(Clear.Input.Flow.Monitor.Cache, [u'force_export'], name, value)
 
 
             class Exporter(Entity):
@@ -610,7 +641,7 @@ class Clear(Entity):
                 """
 
                 _prefix = 'ios-xe-rpc'
-                _revision = '2017-12-06'
+                _revision = '2018-04-18'
 
                 def __init__(self):
                     super(Clear.Input.Flow.Exporter, self).__init__()
@@ -622,16 +653,17 @@ class Clear(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('statistics', YLeaf(YType.empty, 'statistics')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('statistics', (YLeaf(YType.empty, 'statistics'), ['Empty'])),
                     ])
                     self.name = None
                     self.statistics = None
                     self._segment_path = lambda: "exporter"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/flow/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Clear.Input.Flow.Exporter, ['name', 'statistics'], name, value)
+                    self._perform_setattr(Clear.Input.Flow.Exporter, [u'name', u'statistics'], name, value)
 
 
         class Ip(Entity):
@@ -658,7 +690,7 @@ class Clear(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(Clear.Input.Ip, self).__init__()
@@ -684,6 +716,7 @@ class Clear(Entity):
                 self._children_name_map["bgp"] = "bgp"
                 self._segment_path = lambda: "ip"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Clear.Input.Ip, [], name, value)
@@ -703,7 +736,7 @@ class Clear(Entity):
                 """
 
                 _prefix = 'ios-xe-rpc'
-                _revision = '2017-12-06'
+                _revision = '2018-04-18'
 
                 def __init__(self):
                     super(Clear.Input.Ip.Dhcp, self).__init__()
@@ -721,6 +754,7 @@ class Clear(Entity):
                     self._children_name_map["binding"] = "binding"
                     self._segment_path = lambda: "dhcp"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/ip/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Clear.Input.Ip.Dhcp, [], name, value)
@@ -749,7 +783,7 @@ class Clear(Entity):
                     """
 
                     _prefix = 'ios-xe-rpc'
-                    _revision = '2017-12-06'
+                    _revision = '2018-04-18'
 
                     def __init__(self):
                         super(Clear.Input.Ip.Dhcp.Binding, self).__init__()
@@ -761,16 +795,17 @@ class Clear(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('vrf', YLeaf(YType.str, 'vrf')),
-                            ('y_all', YLeaf(YType.str, '_all')),
+                            ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                            ('y_all', (YLeaf(YType.str, '_all'), ['str'])),
                         ])
                         self.vrf = None
                         self.y_all = None
                         self._segment_path = lambda: "binding"
                         self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/ip/dhcp/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Clear.Input.Ip.Dhcp.Binding, ['vrf', 'y_all'], name, value)
+                        self._perform_setattr(Clear.Input.Ip.Dhcp.Binding, [u'vrf', u'y_all'], name, value)
 
 
             class Ospf(Entity):
@@ -794,7 +829,7 @@ class Clear(Entity):
                 """
 
                 _prefix = 'ios-xe-rpc'
-                _revision = '2017-12-06'
+                _revision = '2018-04-18'
 
                 def __init__(self):
                     super(Clear.Input.Ip.Ospf, self).__init__()
@@ -806,16 +841,17 @@ class Clear(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('y_id', YLeaf(YType.uint16, '_id')),
-                        ('process', YLeaf(YType.empty, 'process')),
+                        ('y_id', (YLeaf(YType.uint16, '_id'), ['int'])),
+                        ('process', (YLeaf(YType.empty, 'process'), ['Empty'])),
                     ])
                     self.y_id = None
                     self.process = None
                     self._segment_path = lambda: "ospf"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/ip/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Clear.Input.Ip.Ospf, ['y_id', 'process'], name, value)
+                    self._perform_setattr(Clear.Input.Ip.Ospf, [u'y_id', u'process'], name, value)
 
 
             class Bgp(Entity):
@@ -845,7 +881,7 @@ class Clear(Entity):
                 """
 
                 _prefix = 'ios-xe-rpc'
-                _revision = '2017-12-06'
+                _revision = '2018-04-18'
 
                 def __init__(self):
                     super(Clear.Input.Ip.Bgp, self).__init__()
@@ -857,16 +893,17 @@ class Clear(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('y_peer_address', YLeaf(YType.str, '_peer-address')),
-                        ('vrf', YLeaf(YType.str, 'vrf')),
+                        ('y_peer_address', (YLeaf(YType.str, '_peer-address'), ['str','str'])),
+                        ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
                     ])
                     self.y_peer_address = None
                     self.vrf = None
                     self._segment_path = lambda: "bgp"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/ip/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Clear.Input.Ip.Bgp, ['y_peer_address', 'vrf'], name, value)
+                    self._perform_setattr(Clear.Input.Ip.Bgp, [u'y_peer_address', u'vrf'], name, value)
 
 
         class ArpCache(Entity):
@@ -899,7 +936,7 @@ class Clear(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(Clear.Input.ArpCache, self).__init__()
@@ -912,18 +949,19 @@ class Clear(Entity):
                 self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
-                    ('vrf', YLeaf(YType.str, 'vrf')),
-                    ('interface', YLeaf(YType.str, 'interface')),
-                    ('y_ip', YLeaf(YType.str, '_ip')),
+                    ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                    ('y_ip', (YLeaf(YType.str, '_ip'), ['str'])),
                 ])
                 self.vrf = None
                 self.interface = None
                 self.y_ip = None
                 self._segment_path = lambda: "arp-cache"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Clear.Input.ArpCache, ['vrf', 'interface', 'y_ip'], name, value)
+                self._perform_setattr(Clear.Input.ArpCache, [u'vrf', u'interface', u'y_ip'], name, value)
 
 
         class Aaa(Entity):
@@ -940,7 +978,7 @@ class Clear(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(Clear.Input.Aaa, self).__init__()
@@ -958,6 +996,7 @@ class Clear(Entity):
                 self._children_name_map["local"] = "local"
                 self._segment_path = lambda: "aaa"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Clear.Input.Aaa, [], name, value)
@@ -977,7 +1016,7 @@ class Clear(Entity):
                 """
 
                 _prefix = 'ios-xe-rpc'
-                _revision = '2017-12-06'
+                _revision = '2018-04-18'
 
                 def __init__(self):
                     super(Clear.Input.Aaa.Local, self).__init__()
@@ -995,6 +1034,7 @@ class Clear(Entity):
                     self._children_name_map["user"] = "user"
                     self._segment_path = lambda: "local"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/aaa/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Clear.Input.Aaa.Local, [], name, value)
@@ -1014,7 +1054,7 @@ class Clear(Entity):
                     """
 
                     _prefix = 'ios-xe-rpc'
-                    _revision = '2017-12-06'
+                    _revision = '2018-04-18'
 
                     def __init__(self):
                         super(Clear.Input.Aaa.Local.User, self).__init__()
@@ -1032,6 +1072,7 @@ class Clear(Entity):
                         self._children_name_map["lockout"] = "lockout"
                         self._segment_path = lambda: "user"
                         self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/aaa/local/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Clear.Input.Aaa.Local.User, [], name, value)
@@ -1051,7 +1092,7 @@ class Clear(Entity):
                         """
 
                         _prefix = 'ios-xe-rpc'
-                        _revision = '2017-12-06'
+                        _revision = '2018-04-18'
 
                         def __init__(self):
                             super(Clear.Input.Aaa.Local.User.Lockout, self).__init__()
@@ -1063,14 +1104,279 @@ class Clear(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('username', YLeaf(YType.str, 'username')),
+                                ('username', (YLeaf(YType.str, 'username'), ['str'])),
                             ])
                             self.username = None
                             self._segment_path = lambda: "lockout"
                             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/aaa/local/user/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Clear.Input.Aaa.Local.User.Lockout, ['username'], name, value)
+                            self._perform_setattr(Clear.Input.Aaa.Local.User.Lockout, [u'username'], name, value)
+
+
+        class Platform(Entity):
+            """
+            Clear platform information
+            
+            .. attribute:: hardware
+            
+            	Clear platform hardware information
+            	**type**\:  :py:class:`Hardware <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Clear.Input.Platform.Hardware>`
+            
+            
+
+            """
+
+            _prefix = 'ios-xe-rpc'
+            _revision = '2018-04-18'
+
+            def __init__(self):
+                super(Clear.Input.Platform, self).__init__()
+
+                self.yang_name = "platform"
+                self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("hardware", ("hardware", Clear.Input.Platform.Hardware))])
+                self._leafs = OrderedDict()
+
+                self.hardware = Clear.Input.Platform.Hardware()
+                self.hardware.parent = self
+                self._children_name_map["hardware"] = "hardware"
+                self._segment_path = lambda: "platform"
+                self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Clear.Input.Platform, [], name, value)
+
+
+            class Hardware(Entity):
+                """
+                Clear platform hardware information
+                
+                .. attribute:: qfp
+                
+                	Quantum Flow Processor
+                	**type**\:  :py:class:`Qfp <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Clear.Input.Platform.Hardware.Qfp>`
+                
+                
+
+                """
+
+                _prefix = 'ios-xe-rpc'
+                _revision = '2018-04-18'
+
+                def __init__(self):
+                    super(Clear.Input.Platform.Hardware, self).__init__()
+
+                    self.yang_name = "hardware"
+                    self.yang_parent_name = "platform"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("qfp", ("qfp", Clear.Input.Platform.Hardware.Qfp))])
+                    self._leafs = OrderedDict()
+
+                    self.qfp = Clear.Input.Platform.Hardware.Qfp()
+                    self.qfp.parent = self
+                    self._children_name_map["qfp"] = "qfp"
+                    self._segment_path = lambda: "hardware"
+                    self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/platform/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Clear.Input.Platform.Hardware, [], name, value)
+
+
+                class Qfp(Entity):
+                    """
+                    Quantum Flow Processor
+                    
+                    .. attribute:: active
+                    
+                    	Active instance
+                    	**type**\:  :py:class:`Active <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Clear.Input.Platform.Hardware.Qfp.Active>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ios-xe-rpc'
+                    _revision = '2018-04-18'
+
+                    def __init__(self):
+                        super(Clear.Input.Platform.Hardware.Qfp, self).__init__()
+
+                        self.yang_name = "qfp"
+                        self.yang_parent_name = "hardware"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("active", ("active", Clear.Input.Platform.Hardware.Qfp.Active))])
+                        self._leafs = OrderedDict()
+
+                        self.active = Clear.Input.Platform.Hardware.Qfp.Active()
+                        self.active.parent = self
+                        self._children_name_map["active"] = "active"
+                        self._segment_path = lambda: "qfp"
+                        self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/platform/hardware/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Clear.Input.Platform.Hardware.Qfp, [], name, value)
+
+
+                    class Active(Entity):
+                        """
+                        Active instance
+                        
+                        .. attribute:: feature
+                        
+                        	Clear features
+                        	**type**\:  :py:class:`Feature <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Clear.Input.Platform.Hardware.Qfp.Active.Feature>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ios-xe-rpc'
+                        _revision = '2018-04-18'
+
+                        def __init__(self):
+                            super(Clear.Input.Platform.Hardware.Qfp.Active, self).__init__()
+
+                            self.yang_name = "active"
+                            self.yang_parent_name = "qfp"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("feature", ("feature", Clear.Input.Platform.Hardware.Qfp.Active.Feature))])
+                            self._leafs = OrderedDict()
+
+                            self.feature = Clear.Input.Platform.Hardware.Qfp.Active.Feature()
+                            self.feature.parent = self
+                            self._children_name_map["feature"] = "feature"
+                            self._segment_path = lambda: "active"
+                            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/platform/hardware/qfp/%s" % self._segment_path()
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Clear.Input.Platform.Hardware.Qfp.Active, [], name, value)
+
+
+                        class Feature(Entity):
+                            """
+                            Clear features
+                            
+                            .. attribute:: firewall
+                            
+                            	Clear QFP Firewall
+                            	**type**\:  :py:class:`Firewall <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Clear.Input.Platform.Hardware.Qfp.Active.Feature.Firewall>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ios-xe-rpc'
+                            _revision = '2018-04-18'
+
+                            def __init__(self):
+                                super(Clear.Input.Platform.Hardware.Qfp.Active.Feature, self).__init__()
+
+                                self.yang_name = "feature"
+                                self.yang_parent_name = "active"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("firewall", ("firewall", Clear.Input.Platform.Hardware.Qfp.Active.Feature.Firewall))])
+                                self._leafs = OrderedDict()
+
+                                self.firewall = Clear.Input.Platform.Hardware.Qfp.Active.Feature.Firewall()
+                                self.firewall.parent = self
+                                self._children_name_map["firewall"] = "firewall"
+                                self._segment_path = lambda: "feature"
+                                self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/platform/hardware/qfp/active/%s" % self._segment_path()
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Clear.Input.Platform.Hardware.Qfp.Active.Feature, [], name, value)
+
+
+                            class Firewall(Entity):
+                                """
+                                Clear QFP Firewall
+                                
+                                .. attribute:: drop
+                                
+                                	Clear firewall drop counters
+                                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ios-xe-rpc'
+                                _revision = '2018-04-18'
+
+                                def __init__(self):
+                                    super(Clear.Input.Platform.Hardware.Qfp.Active.Feature.Firewall, self).__init__()
+
+                                    self.yang_name = "firewall"
+                                    self.yang_parent_name = "feature"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = False
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('drop', (YLeaf(YType.empty, 'drop'), ['Empty'])),
+                                    ])
+                                    self.drop = None
+                                    self._segment_path = lambda: "firewall"
+                                    self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/platform/hardware/qfp/active/feature/%s" % self._segment_path()
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Clear.Input.Platform.Hardware.Qfp.Active.Feature.Firewall, [u'drop'], name, value)
+
+
+        class ZonePair(Entity):
+            """
+            Clear zone\-pair
+            
+            .. attribute:: counter
+            
+            	Zone\-pair counters
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'ios-xe-rpc'
+            _revision = '2018-04-18'
+
+            def __init__(self):
+                super(Clear.Input.ZonePair, self).__init__()
+
+                self.yang_name = "zone-pair"
+                self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('counter', (YLeaf(YType.empty, 'counter'), ['Empty'])),
+                ])
+                self.counter = None
+                self._segment_path = lambda: "zone-pair"
+                self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/input/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Clear.Input.ZonePair, [u'counter'], name, value)
 
 
     class Output(Entity):
@@ -1087,7 +1393,7 @@ class Clear(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Clear.Output, self).__init__()
@@ -1099,14 +1405,15 @@ class Clear(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:clear/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Clear.Output, ['result'], name, value)
+            self._perform_setattr(Clear.Output, [u'result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Clear()
@@ -1131,7 +1438,7 @@ class Release(Entity):
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-12-06'
+    _revision = '2018-04-18'
 
     def __init__(self):
         super(Release, self).__init__()
@@ -1153,6 +1460,7 @@ class Release(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:release"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -1169,7 +1477,7 @@ class Release(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Release.Input, self).__init__()
@@ -1181,14 +1489,15 @@ class Release(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('dhcp', YLeaf(YType.str, 'dhcp')),
+                ('dhcp', (YLeaf(YType.str, 'dhcp'), ['str'])),
             ])
             self.dhcp = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:release/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Release.Input, ['dhcp'], name, value)
+            self._perform_setattr(Release.Input, [u'dhcp'], name, value)
 
 
     class Output(Entity):
@@ -1205,7 +1514,7 @@ class Release(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Release.Output, self).__init__()
@@ -1217,14 +1526,15 @@ class Release(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:release/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Release.Output, ['result'], name, value)
+            self._perform_setattr(Release.Output, [u'result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Release()
@@ -1249,7 +1559,7 @@ class Reload(Entity):
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-12-06'
+    _revision = '2018-04-18'
 
     def __init__(self):
         super(Reload, self).__init__()
@@ -1271,6 +1581,7 @@ class Reload(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:reload"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -1292,7 +1603,7 @@ class Reload(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Reload.Input, self).__init__()
@@ -1304,16 +1615,17 @@ class Reload(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('force', YLeaf(YType.boolean, 'force')),
-                ('reason', YLeaf(YType.str, 'reason')),
+                ('force', (YLeaf(YType.boolean, 'force'), ['bool'])),
+                ('reason', (YLeaf(YType.str, 'reason'), ['str'])),
             ])
             self.force = None
             self.reason = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:reload/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Reload.Input, ['force', 'reason'], name, value)
+            self._perform_setattr(Reload.Input, [u'force', u'reason'], name, value)
 
 
     class Output(Entity):
@@ -1330,7 +1642,7 @@ class Reload(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Reload.Output, self).__init__()
@@ -1342,14 +1654,15 @@ class Reload(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:reload/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Reload.Output, ['result'], name, value)
+            self._perform_setattr(Reload.Output, [u'result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Reload()
@@ -1374,7 +1687,7 @@ class Cellular(Entity):
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-12-06'
+    _revision = '2018-04-18'
 
     def __init__(self):
         super(Cellular, self).__init__()
@@ -1396,6 +1709,7 @@ class Cellular(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:cellular"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -1417,7 +1731,7 @@ class Cellular(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Cellular.Input, self).__init__()
@@ -1429,7 +1743,7 @@ class Cellular(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("lte", ("lte", Cellular.Input.Lte))])
             self._leafs = OrderedDict([
-                ('y_if_name', YLeaf(YType.str, '_if-name')),
+                ('y_if_name', (YLeaf(YType.str, '_if-name'), ['str'])),
             ])
             self.y_if_name = None
 
@@ -1438,9 +1752,10 @@ class Cellular(Entity):
             self._children_name_map["lte"] = "lte"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:cellular/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Cellular.Input, ['y_if_name'], name, value)
+            self._perform_setattr(Cellular.Input, [u'y_if_name'], name, value)
 
 
         class Lte(Entity):
@@ -1452,6 +1767,11 @@ class Cellular(Entity):
             	
             	**type**\:  :py:class:`Technology <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Cellular.Input.Lte.Technology>`
             
+            .. attribute:: modem_reset
+            
+            	
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
             .. attribute:: profile
             
             	
@@ -1462,7 +1782,7 @@ class Cellular(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(Cellular.Input.Lte, self).__init__()
@@ -1473,7 +1793,10 @@ class Cellular(Entity):
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("technology", ("technology", Cellular.Input.Lte.Technology)), ("profile", ("profile", Cellular.Input.Lte.Profile))])
-                self._leafs = OrderedDict()
+                self._leafs = OrderedDict([
+                    ('modem_reset', (YLeaf(YType.empty, 'modem-reset'), ['Empty'])),
+                ])
+                self.modem_reset = None
 
                 self.technology = Cellular.Input.Lte.Technology()
                 self.technology.parent = self
@@ -1484,9 +1807,10 @@ class Cellular(Entity):
                 self._children_name_map["profile"] = "profile"
                 self._segment_path = lambda: "lte"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:cellular/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Cellular.Input.Lte, [], name, value)
+                self._perform_setattr(Cellular.Input.Lte, [u'modem_reset'], name, value)
 
 
             class Technology(Entity):
@@ -1513,7 +1837,7 @@ class Cellular(Entity):
                 """
 
                 _prefix = 'ios-xe-rpc'
-                _revision = '2017-12-06'
+                _revision = '2018-04-18'
 
                 def __init__(self):
                     super(Cellular.Input.Lte.Technology, self).__init__()
@@ -1525,18 +1849,19 @@ class Cellular(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('lte', YLeaf(YType.empty, 'lte')),
-                        ('auto', YLeaf(YType.empty, 'auto')),
-                        ('umts', YLeaf(YType.empty, 'umts')),
+                        ('lte', (YLeaf(YType.empty, 'lte'), ['Empty'])),
+                        ('auto', (YLeaf(YType.empty, 'auto'), ['Empty'])),
+                        ('umts', (YLeaf(YType.empty, 'umts'), ['Empty'])),
                     ])
                     self.lte = None
                     self.auto = None
                     self.umts = None
                     self._segment_path = lambda: "technology"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:cellular/input/lte/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Cellular.Input.Lte.Technology, ['lte', 'auto', 'umts'], name, value)
+                    self._perform_setattr(Cellular.Input.Lte.Technology, [u'lte', u'auto', u'umts'], name, value)
 
 
             class Profile(Entity):
@@ -1558,7 +1883,7 @@ class Cellular(Entity):
                 """
 
                 _prefix = 'ios-xe-rpc'
-                _revision = '2017-12-06'
+                _revision = '2018-04-18'
 
                 def __init__(self):
                     super(Cellular.Input.Lte.Profile, self).__init__()
@@ -1580,6 +1905,7 @@ class Cellular(Entity):
                     self._children_name_map["create"] = "create"
                     self._segment_path = lambda: "profile"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:cellular/input/lte/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Cellular.Input.Lte.Profile, [], name, value)
@@ -1601,7 +1927,7 @@ class Cellular(Entity):
                     """
 
                     _prefix = 'ios-xe-rpc'
-                    _revision = '2017-12-06'
+                    _revision = '2018-04-18'
 
                     def __init__(self):
                         super(Cellular.Input.Lte.Profile.Delete, self).__init__()
@@ -1613,14 +1939,15 @@ class Cellular(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('y_profile_id', YLeaf(YType.uint8, '_profile-id')),
+                            ('y_profile_id', (YLeaf(YType.uint8, '_profile-id'), ['int'])),
                         ])
                         self.y_profile_id = None
                         self._segment_path = lambda: "delete"
                         self._absolute_path = lambda: "Cisco-IOS-XE-rpc:cellular/input/lte/profile/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cellular.Input.Lte.Profile.Delete, ['y_profile_id'], name, value)
+                        self._perform_setattr(Cellular.Input.Lte.Profile.Delete, [u'y_profile_id'], name, value)
 
 
                 class Create(Entity):
@@ -1689,7 +2016,7 @@ class Cellular(Entity):
                     """
 
                     _prefix = 'ios-xe-rpc'
-                    _revision = '2017-12-06'
+                    _revision = '2018-04-18'
 
                     def __init__(self):
                         super(Cellular.Input.Lte.Profile.Create, self).__init__()
@@ -1701,17 +2028,17 @@ class Cellular(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('y_profile_id', YLeaf(YType.uint8, '_profile-id')),
-                            ('y_prof_name', YLeaf(YType.str, '_prof_name')),
-                            ('none', YLeaf(YType.empty, 'none')),
-                            ('chap', YLeaf(YType.empty, 'chap')),
-                            ('pap', YLeaf(YType.empty, 'pap')),
-                            ('pap_chap', YLeaf(YType.empty, 'pap_chap')),
-                            ('y_user_name', YLeaf(YType.str, '_user_name')),
-                            ('y_password', YLeaf(YType.str, '_password')),
-                            ('ipv4', YLeaf(YType.empty, 'ipv4')),
-                            ('ipv6', YLeaf(YType.empty, 'ipv6')),
-                            ('ipv4v6', YLeaf(YType.empty, 'ipv4v6')),
+                            ('y_profile_id', (YLeaf(YType.uint8, '_profile-id'), ['int'])),
+                            ('y_prof_name', (YLeaf(YType.str, '_prof_name'), ['str'])),
+                            ('none', (YLeaf(YType.empty, 'none'), ['Empty'])),
+                            ('chap', (YLeaf(YType.empty, 'chap'), ['Empty'])),
+                            ('pap', (YLeaf(YType.empty, 'pap'), ['Empty'])),
+                            ('pap_chap', (YLeaf(YType.empty, 'pap_chap'), ['Empty'])),
+                            ('y_user_name', (YLeaf(YType.str, '_user_name'), ['str'])),
+                            ('y_password', (YLeaf(YType.str, '_password'), ['str'])),
+                            ('ipv4', (YLeaf(YType.empty, 'ipv4'), ['Empty'])),
+                            ('ipv6', (YLeaf(YType.empty, 'ipv6'), ['Empty'])),
+                            ('ipv4v6', (YLeaf(YType.empty, 'ipv4v6'), ['Empty'])),
                         ])
                         self.y_profile_id = None
                         self.y_prof_name = None
@@ -1726,9 +2053,10 @@ class Cellular(Entity):
                         self.ipv4v6 = None
                         self._segment_path = lambda: "create"
                         self._absolute_path = lambda: "Cisco-IOS-XE-rpc:cellular/input/lte/profile/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Cellular.Input.Lte.Profile.Create, ['y_profile_id', 'y_prof_name', 'none', 'chap', 'pap', 'pap_chap', 'y_user_name', 'y_password', 'ipv4', 'ipv6', 'ipv4v6'], name, value)
+                        self._perform_setattr(Cellular.Input.Lte.Profile.Create, [u'y_profile_id', u'y_prof_name', u'none', u'chap', u'pap', u'pap_chap', u'y_user_name', u'y_password', u'ipv4', u'ipv6', u'ipv4v6'], name, value)
 
 
     class Output(Entity):
@@ -1745,7 +2073,7 @@ class Cellular(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Cellular.Output, self).__init__()
@@ -1757,14 +2085,15 @@ class Cellular(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:cellular/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Cellular.Output, ['result'], name, value)
+            self._perform_setattr(Cellular.Output, [u'result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Cellular()
@@ -1789,7 +2118,7 @@ class License(Entity):
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-12-06'
+    _revision = '2018-04-18'
 
     def __init__(self):
         super(License, self).__init__()
@@ -1811,6 +2140,7 @@ class License(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:license"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -1827,7 +2157,7 @@ class License(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(License.Input, self).__init__()
@@ -1845,6 +2175,7 @@ class License(Entity):
             self._children_name_map["smart"] = "smart"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:license/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(License.Input, [], name, value)
@@ -1874,7 +2205,7 @@ class License(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(License.Input.Smart, self).__init__()
@@ -1886,7 +2217,7 @@ class License(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("register", ("register", License.Input.Smart.Register)), ("renew", ("renew", License.Input.Smart.Renew))])
                 self._leafs = OrderedDict([
-                    ('deregister', YLeaf(YType.empty, 'deregister')),
+                    ('deregister', (YLeaf(YType.empty, 'deregister'), ['Empty'])),
                 ])
                 self.deregister = None
 
@@ -1899,9 +2230,10 @@ class License(Entity):
                 self._children_name_map["renew"] = "renew"
                 self._segment_path = lambda: "smart"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:license/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(License.Input.Smart, ['deregister'], name, value)
+                self._perform_setattr(License.Input.Smart, [u'deregister'], name, value)
 
 
             class Register(Entity):
@@ -1925,7 +2257,7 @@ class License(Entity):
                 """
 
                 _prefix = 'ios-xe-rpc'
-                _revision = '2017-12-06'
+                _revision = '2018-04-18'
 
                 def __init__(self):
                     super(License.Input.Smart.Register, self).__init__()
@@ -1937,16 +2269,17 @@ class License(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('idtoken', YLeaf(YType.str, 'idtoken')),
-                        ('force', YLeaf(YType.empty, 'force')),
+                        ('idtoken', (YLeaf(YType.str, 'idtoken'), ['str'])),
+                        ('force', (YLeaf(YType.empty, 'force'), ['Empty'])),
                     ])
                     self.idtoken = None
                     self.force = None
                     self._segment_path = lambda: "register"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:license/input/smart/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(License.Input.Smart.Register, ['idtoken', 'force'], name, value)
+                    self._perform_setattr(License.Input.Smart.Register, [u'idtoken', u'force'], name, value)
 
 
             class Renew(Entity):
@@ -1968,7 +2301,7 @@ class License(Entity):
                 """
 
                 _prefix = 'ios-xe-rpc'
-                _revision = '2017-12-06'
+                _revision = '2018-04-18'
 
                 def __init__(self):
                     super(License.Input.Smart.Renew, self).__init__()
@@ -1980,16 +2313,17 @@ class License(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('id', YLeaf(YType.empty, 'ID')),
-                        ('auth', YLeaf(YType.empty, 'auth')),
+                        ('id', (YLeaf(YType.empty, 'ID'), ['Empty'])),
+                        ('auth', (YLeaf(YType.empty, 'auth'), ['Empty'])),
                     ])
                     self.id = None
                     self.auth = None
                     self._segment_path = lambda: "renew"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:license/input/smart/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(License.Input.Smart.Renew, ['id', 'auth'], name, value)
+                    self._perform_setattr(License.Input.Smart.Renew, [u'id', u'auth'], name, value)
 
 
     class Output(Entity):
@@ -2006,7 +2340,7 @@ class License(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(License.Output, self).__init__()
@@ -2018,14 +2352,15 @@ class License(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:license/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(License.Output, ['result'], name, value)
+            self._perform_setattr(License.Output, [u'result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = License()
@@ -2050,7 +2385,7 @@ class Service(Entity):
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-12-06'
+    _revision = '2018-04-18'
 
     def __init__(self):
         super(Service, self).__init__()
@@ -2072,6 +2407,7 @@ class Service(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:service"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -2088,7 +2424,7 @@ class Service(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Service.Input, self).__init__()
@@ -2106,6 +2442,7 @@ class Service(Entity):
             self._children_name_map["sd_avc"] = "sd-avc"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Service.Input, [], name, value)
@@ -2170,7 +2507,7 @@ class Service(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(Service.Input.SdAvc, self).__init__()
@@ -2182,13 +2519,13 @@ class Service(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("configure", ("configure", Service.Input.SdAvc.Configure)), ("install", ("install", Service.Input.SdAvc.Install)), ("upgrade", ("upgrade", Service.Input.SdAvc.Upgrade))])
                 self._leafs = OrderedDict([
-                    ('activate', YLeaf(YType.empty, 'activate')),
-                    ('connect', YLeaf(YType.empty, 'connect')),
-                    ('help', YLeaf(YType.empty, 'help')),
-                    ('deactivate', YLeaf(YType.empty, 'deactivate')),
-                    ('status', YLeaf(YType.empty, 'status')),
-                    ('unconfigure', YLeaf(YType.empty, 'unconfigure')),
-                    ('uninstall', YLeaf(YType.empty, 'uninstall')),
+                    ('activate', (YLeaf(YType.empty, 'activate'), ['Empty'])),
+                    ('connect', (YLeaf(YType.empty, 'connect'), ['Empty'])),
+                    ('help', (YLeaf(YType.empty, 'help'), ['Empty'])),
+                    ('deactivate', (YLeaf(YType.empty, 'deactivate'), ['Empty'])),
+                    ('status', (YLeaf(YType.empty, 'status'), ['Empty'])),
+                    ('unconfigure', (YLeaf(YType.empty, 'unconfigure'), ['Empty'])),
+                    ('uninstall', (YLeaf(YType.empty, 'uninstall'), ['Empty'])),
                 ])
                 self.activate = None
                 self.connect = None
@@ -2211,9 +2548,10 @@ class Service(Entity):
                 self._children_name_map["upgrade"] = "upgrade"
                 self._segment_path = lambda: "sd-avc"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Service.Input.SdAvc, ['activate', 'connect', 'help', 'deactivate', 'status', 'unconfigure', 'uninstall'], name, value)
+                self._perform_setattr(Service.Input.SdAvc, [u'activate', u'connect', u'help', u'deactivate', u'status', u'unconfigure', u'uninstall'], name, value)
 
 
             class Configure(Entity):
@@ -2230,7 +2568,7 @@ class Service(Entity):
                 """
 
                 _prefix = 'ios-xe-rpc'
-                _revision = '2017-12-06'
+                _revision = '2018-04-18'
 
                 def __init__(self):
                     super(Service.Input.SdAvc.Configure, self).__init__()
@@ -2248,6 +2586,7 @@ class Service(Entity):
                     self._children_name_map["gateway"] = "gateway"
                     self._segment_path = lambda: "configure"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/input/sd-avc/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Service.Input.SdAvc.Configure, [], name, value)
@@ -2279,7 +2618,7 @@ class Service(Entity):
                     """
 
                     _prefix = 'ios-xe-rpc'
-                    _revision = '2017-12-06'
+                    _revision = '2018-04-18'
 
                     def __init__(self):
                         super(Service.Input.SdAvc.Configure.Gateway, self).__init__()
@@ -2291,18 +2630,19 @@ class Service(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('service_ip', YLeaf(YType.str, 'service-ip')),
-                            ('activate', YLeaf(YType.empty, 'activate')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('service_ip', (YLeaf(YType.str, 'service-ip'), ['str'])),
+                            ('activate', (YLeaf(YType.empty, 'activate'), ['Empty'])),
                         ])
                         self.interface = None
                         self.service_ip = None
                         self.activate = None
                         self._segment_path = lambda: "gateway"
                         self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/input/sd-avc/configure/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Service.Input.SdAvc.Configure.Gateway, ['interface', 'service_ip', 'activate'], name, value)
+                        self._perform_setattr(Service.Input.SdAvc.Configure.Gateway, [u'interface', u'service_ip', u'activate'], name, value)
 
 
             class Install(Entity):
@@ -2319,7 +2659,7 @@ class Service(Entity):
                 """
 
                 _prefix = 'ios-xe-rpc'
-                _revision = '2017-12-06'
+                _revision = '2018-04-18'
 
                 def __init__(self):
                     super(Service.Input.SdAvc.Install, self).__init__()
@@ -2331,14 +2671,15 @@ class Service(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('package', YLeaf(YType.str, 'package')),
+                        ('package', (YLeaf(YType.str, 'package'), ['str'])),
                     ])
                     self.package = None
                     self._segment_path = lambda: "install"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/input/sd-avc/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Service.Input.SdAvc.Install, ['package'], name, value)
+                    self._perform_setattr(Service.Input.SdAvc.Install, [u'package'], name, value)
 
 
             class Upgrade(Entity):
@@ -2355,7 +2696,7 @@ class Service(Entity):
                 """
 
                 _prefix = 'ios-xe-rpc'
-                _revision = '2017-12-06'
+                _revision = '2018-04-18'
 
                 def __init__(self):
                     super(Service.Input.SdAvc.Upgrade, self).__init__()
@@ -2367,14 +2708,15 @@ class Service(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('package', YLeaf(YType.str, 'package')),
+                        ('package', (YLeaf(YType.str, 'package'), ['str'])),
                     ])
                     self.package = None
                     self._segment_path = lambda: "upgrade"
                     self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/input/sd-avc/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Service.Input.SdAvc.Upgrade, ['package'], name, value)
+                    self._perform_setattr(Service.Input.SdAvc.Upgrade, [u'package'], name, value)
 
 
     class Output(Entity):
@@ -2391,7 +2733,7 @@ class Service(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Service.Output, self).__init__()
@@ -2403,14 +2745,15 @@ class Service(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:service/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Service.Output, ['result'], name, value)
+            self._perform_setattr(Service.Output, [u'result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Service()
@@ -2435,7 +2778,7 @@ class VirtualService(Entity):
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-12-06'
+    _revision = '2018-04-18'
 
     def __init__(self):
         super(VirtualService, self).__init__()
@@ -2457,6 +2800,7 @@ class VirtualService(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:virtual-service"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -2483,7 +2827,7 @@ class VirtualService(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(VirtualService.Input, self).__init__()
@@ -2509,6 +2853,7 @@ class VirtualService(Entity):
             self._children_name_map["upgrade"] = "upgrade"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:virtual-service/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(VirtualService.Input, [], name, value)
@@ -2538,7 +2883,7 @@ class VirtualService(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(VirtualService.Input.Install, self).__init__()
@@ -2550,18 +2895,19 @@ class VirtualService(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('package', YLeaf(YType.str, 'package')),
-                    ('media', YLeaf(YType.str, 'media')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('package', (YLeaf(YType.str, 'package'), ['str'])),
+                    ('media', (YLeaf(YType.str, 'media'), ['str'])),
                 ])
                 self.name = None
                 self.package = None
                 self.media = None
                 self._segment_path = lambda: "install"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:virtual-service/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(VirtualService.Input.Install, ['name', 'package', 'media'], name, value)
+                self._perform_setattr(VirtualService.Input.Install, [u'name', u'package', u'media'], name, value)
 
 
         class Uninstall(Entity):
@@ -2578,7 +2924,7 @@ class VirtualService(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(VirtualService.Input.Uninstall, self).__init__()
@@ -2590,14 +2936,15 @@ class VirtualService(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
                 self._segment_path = lambda: "uninstall"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:virtual-service/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(VirtualService.Input.Uninstall, ['name'], name, value)
+                self._perform_setattr(VirtualService.Input.Uninstall, [u'name'], name, value)
 
 
         class Upgrade(Entity):
@@ -2619,7 +2966,7 @@ class VirtualService(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(VirtualService.Input.Upgrade, self).__init__()
@@ -2631,16 +2978,17 @@ class VirtualService(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('package', YLeaf(YType.str, 'package')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('package', (YLeaf(YType.str, 'package'), ['str'])),
                 ])
                 self.name = None
                 self.package = None
                 self._segment_path = lambda: "upgrade"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:virtual-service/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(VirtualService.Input.Upgrade, ['name', 'package'], name, value)
+                self._perform_setattr(VirtualService.Input.Upgrade, [u'name', u'package'], name, value)
 
 
     class Output(Entity):
@@ -2657,7 +3005,7 @@ class VirtualService(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(VirtualService.Output, self).__init__()
@@ -2669,14 +3017,15 @@ class VirtualService(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:virtual-service/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(VirtualService.Output, ['result'], name, value)
+            self._perform_setattr(VirtualService.Output, [u'result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = VirtualService()
@@ -2701,7 +3050,7 @@ class Copy(Entity):
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-12-06'
+    _revision = '2018-04-18'
 
     def __init__(self):
         super(Copy, self).__init__()
@@ -2723,6 +3072,7 @@ class Copy(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:copy"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -2752,7 +3102,7 @@ class Copy(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Copy.Input, self).__init__()
@@ -2764,16 +3114,17 @@ class Copy(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('y_source', YLeaf(YType.str, '_source')),
-                ('y_destination', YLeaf(YType.str, '_destination')),
+                ('y_source', (YLeaf(YType.str, '_source'), ['str'])),
+                ('y_destination', (YLeaf(YType.str, '_destination'), ['str'])),
             ])
             self.y_source = None
             self.y_destination = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:copy/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Copy.Input, ['y_source', 'y_destination'], name, value)
+            self._perform_setattr(Copy.Input, [u'y_source', u'y_destination'], name, value)
 
 
     class Output(Entity):
@@ -2790,7 +3141,7 @@ class Copy(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Copy.Output, self).__init__()
@@ -2802,14 +3153,15 @@ class Copy(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:copy/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Copy.Output, ['result'], name, value)
+            self._perform_setattr(Copy.Output, [u'result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Copy()
@@ -2834,7 +3186,7 @@ class Delete(Entity):
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-12-06'
+    _revision = '2018-04-18'
 
     def __init__(self):
         super(Delete, self).__init__()
@@ -2856,6 +3208,7 @@ class Delete(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:delete"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -2876,7 +3229,7 @@ class Delete(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Delete.Input, self).__init__()
@@ -2888,14 +3241,15 @@ class Delete(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('y_filename', YLeaf(YType.str, '_filename')),
+                ('y_filename', (YLeaf(YType.str, '_filename'), ['str'])),
             ])
             self.y_filename = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:delete/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Delete.Input, ['y_filename'], name, value)
+            self._perform_setattr(Delete.Input, [u'y_filename'], name, value)
 
 
     class Output(Entity):
@@ -2912,7 +3266,7 @@ class Delete(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Delete.Output, self).__init__()
@@ -2924,14 +3278,15 @@ class Delete(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:delete/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Delete.Output, ['result'], name, value)
+            self._perform_setattr(Delete.Output, [u'result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Delete()
@@ -2956,7 +3311,7 @@ class AppHosting(Entity):
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-12-06'
+    _revision = '2018-04-18'
 
     def __init__(self):
         super(AppHosting, self).__init__()
@@ -2978,6 +3333,7 @@ class AppHosting(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:app-hosting"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -3019,7 +3375,7 @@ class AppHosting(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(AppHosting.Input, self).__init__()
@@ -3057,6 +3413,7 @@ class AppHosting(Entity):
             self._children_name_map["stop"] = "stop"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:app-hosting/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AppHosting.Input, [], name, value)
@@ -3081,7 +3438,7 @@ class AppHosting(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(AppHosting.Input.Install, self).__init__()
@@ -3093,16 +3450,17 @@ class AppHosting(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('appid', YLeaf(YType.str, 'appid')),
-                    ('package', YLeaf(YType.str, 'package')),
+                    ('appid', (YLeaf(YType.str, 'appid'), ['str'])),
+                    ('package', (YLeaf(YType.str, 'package'), ['str'])),
                 ])
                 self.appid = None
                 self.package = None
                 self._segment_path = lambda: "install"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:app-hosting/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AppHosting.Input.Install, ['appid', 'package'], name, value)
+                self._perform_setattr(AppHosting.Input.Install, [u'appid', u'package'], name, value)
 
 
         class Uninstall(Entity):
@@ -3119,7 +3477,7 @@ class AppHosting(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(AppHosting.Input.Uninstall, self).__init__()
@@ -3131,14 +3489,15 @@ class AppHosting(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('appid', YLeaf(YType.str, 'appid')),
+                    ('appid', (YLeaf(YType.str, 'appid'), ['str'])),
                 ])
                 self.appid = None
                 self._segment_path = lambda: "uninstall"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:app-hosting/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AppHosting.Input.Uninstall, ['appid'], name, value)
+                self._perform_setattr(AppHosting.Input.Uninstall, [u'appid'], name, value)
 
 
         class Activate(Entity):
@@ -3155,7 +3514,7 @@ class AppHosting(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(AppHosting.Input.Activate, self).__init__()
@@ -3167,14 +3526,15 @@ class AppHosting(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('appid', YLeaf(YType.str, 'appid')),
+                    ('appid', (YLeaf(YType.str, 'appid'), ['str'])),
                 ])
                 self.appid = None
                 self._segment_path = lambda: "activate"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:app-hosting/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AppHosting.Input.Activate, ['appid'], name, value)
+                self._perform_setattr(AppHosting.Input.Activate, [u'appid'], name, value)
 
 
         class Deactivate(Entity):
@@ -3191,7 +3551,7 @@ class AppHosting(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(AppHosting.Input.Deactivate, self).__init__()
@@ -3203,14 +3563,15 @@ class AppHosting(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('appid', YLeaf(YType.str, 'appid')),
+                    ('appid', (YLeaf(YType.str, 'appid'), ['str'])),
                 ])
                 self.appid = None
                 self._segment_path = lambda: "deactivate"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:app-hosting/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AppHosting.Input.Deactivate, ['appid'], name, value)
+                self._perform_setattr(AppHosting.Input.Deactivate, [u'appid'], name, value)
 
 
         class Start(Entity):
@@ -3227,7 +3588,7 @@ class AppHosting(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(AppHosting.Input.Start, self).__init__()
@@ -3239,14 +3600,15 @@ class AppHosting(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('appid', YLeaf(YType.str, 'appid')),
+                    ('appid', (YLeaf(YType.str, 'appid'), ['str'])),
                 ])
                 self.appid = None
                 self._segment_path = lambda: "start"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:app-hosting/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AppHosting.Input.Start, ['appid'], name, value)
+                self._perform_setattr(AppHosting.Input.Start, [u'appid'], name, value)
 
 
         class Stop(Entity):
@@ -3263,7 +3625,7 @@ class AppHosting(Entity):
             """
 
             _prefix = 'ios-xe-rpc'
-            _revision = '2017-12-06'
+            _revision = '2018-04-18'
 
             def __init__(self):
                 super(AppHosting.Input.Stop, self).__init__()
@@ -3275,14 +3637,15 @@ class AppHosting(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('appid', YLeaf(YType.str, 'appid')),
+                    ('appid', (YLeaf(YType.str, 'appid'), ['str'])),
                 ])
                 self.appid = None
                 self._segment_path = lambda: "stop"
                 self._absolute_path = lambda: "Cisco-IOS-XE-rpc:app-hosting/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(AppHosting.Input.Stop, ['appid'], name, value)
+                self._perform_setattr(AppHosting.Input.Stop, [u'appid'], name, value)
 
 
     class Output(Entity):
@@ -3299,7 +3662,7 @@ class AppHosting(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(AppHosting.Output, self).__init__()
@@ -3311,14 +3674,15 @@ class AppHosting(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:app-hosting/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(AppHosting.Output, ['result'], name, value)
+            self._perform_setattr(AppHosting.Output, [u'result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = AppHosting()
@@ -3343,7 +3707,7 @@ class Guestshell(Entity):
     """
 
     _prefix = 'ios-xe-rpc'
-    _revision = '2017-12-06'
+    _revision = '2018-04-18'
 
     def __init__(self):
         super(Guestshell, self).__init__()
@@ -3365,6 +3729,7 @@ class Guestshell(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "Cisco-IOS-XE-rpc:guestshell"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -3391,7 +3756,7 @@ class Guestshell(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Guestshell.Input, self).__init__()
@@ -3403,18 +3768,19 @@ class Guestshell(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('destroy', YLeaf(YType.empty, 'destroy')),
-                ('disable', YLeaf(YType.empty, 'disable')),
-                ('enable', YLeaf(YType.empty, 'enable')),
+                ('destroy', (YLeaf(YType.empty, 'destroy'), ['Empty'])),
+                ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
             ])
             self.destroy = None
             self.disable = None
             self.enable = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:guestshell/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Guestshell.Input, ['destroy', 'disable', 'enable'], name, value)
+            self._perform_setattr(Guestshell.Input, [u'destroy', u'disable', u'enable'], name, value)
 
 
     class Output(Entity):
@@ -3431,7 +3797,7 @@ class Guestshell(Entity):
         """
 
         _prefix = 'ios-xe-rpc'
-        _revision = '2017-12-06'
+        _revision = '2018-04-18'
 
         def __init__(self):
             super(Guestshell.Output, self).__init__()
@@ -3443,16 +3809,819 @@ class Guestshell(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('result', YLeaf(YType.str, 'result')),
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
             ])
             self.result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "Cisco-IOS-XE-rpc:guestshell/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Guestshell.Output, ['result'], name, value)
+            self._perform_setattr(Guestshell.Output, [u'result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Guestshell()
+        return self._top_entity
+
+class Start(Entity):
+    """
+    Start system operations
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Start.Input>`
+    
+    .. attribute:: output
+    
+    	
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Start.Output>`
+    
+    
+
+    """
+
+    _prefix = 'ios-xe-rpc'
+    _revision = '2018-04-18'
+
+    def __init__(self):
+        super(Start, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "start"
+        self.yang_parent_name = "Cisco-IOS-XE-rpc"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self.ylist_key_names = []
+        self._child_classes = OrderedDict([])
+        self._leafs = OrderedDict()
+
+        self.input = Start.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+
+        self.output = Start.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._segment_path = lambda: "Cisco-IOS-XE-rpc:start"
+        self._is_frozen = True
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: maintenance
+        
+        	GIR start maintenance mode
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'ios-xe-rpc'
+        _revision = '2018-04-18'
+
+        def __init__(self):
+            super(Start.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "start"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('maintenance', (YLeaf(YType.empty, 'maintenance'), ['Empty'])),
+            ])
+            self.maintenance = None
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:start/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Start.Input, [u'maintenance'], name, value)
+
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: result
+        
+        	Output returned by the network element
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'ios-xe-rpc'
+        _revision = '2018-04-18'
+
+        def __init__(self):
+            super(Start.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "start"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
+            ])
+            self.result = None
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:start/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Start.Output, [u'result'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = Start()
+        return self._top_entity
+
+class Stop(Entity):
+    """
+    Stop system operations
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Stop.Input>`
+    
+    .. attribute:: output
+    
+    	
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Stop.Output>`
+    
+    
+
+    """
+
+    _prefix = 'ios-xe-rpc'
+    _revision = '2018-04-18'
+
+    def __init__(self):
+        super(Stop, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "stop"
+        self.yang_parent_name = "Cisco-IOS-XE-rpc"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self.ylist_key_names = []
+        self._child_classes = OrderedDict([])
+        self._leafs = OrderedDict()
+
+        self.input = Stop.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+
+        self.output = Stop.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._segment_path = lambda: "Cisco-IOS-XE-rpc:stop"
+        self._is_frozen = True
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: maintenance
+        
+        	GIR stop maintenance mode
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'ios-xe-rpc'
+        _revision = '2018-04-18'
+
+        def __init__(self):
+            super(Stop.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "stop"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('maintenance', (YLeaf(YType.empty, 'maintenance'), ['Empty'])),
+            ])
+            self.maintenance = None
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:stop/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Stop.Input, [u'maintenance'], name, value)
+
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: result
+        
+        	Output returned by the network element
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'ios-xe-rpc'
+        _revision = '2018-04-18'
+
+        def __init__(self):
+            super(Stop.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "stop"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
+            ])
+            self.result = None
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:stop/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Stop.Output, [u'result'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = Stop()
+        return self._top_entity
+
+class Utd(Entity):
+    """
+    Unified Threat Defense commands
+    
+    .. attribute:: input
+    
+    	
+    	**type**\:  :py:class:`Input <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Utd.Input>`
+    
+    .. attribute:: output
+    
+    	
+    	**type**\:  :py:class:`Output <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Utd.Output>`
+    
+    
+
+    """
+
+    _prefix = 'ios-xe-rpc'
+    _revision = '2018-04-18'
+
+    def __init__(self):
+        super(Utd, self).__init__()
+        self._top_entity = None
+
+        self.yang_name = "utd"
+        self.yang_parent_name = "Cisco-IOS-XE-rpc"
+        self.is_top_level_class = True
+        self.has_list_ancestor = False
+        self.ylist_key_names = []
+        self._child_classes = OrderedDict([])
+        self._leafs = OrderedDict()
+
+        self.input = Utd.Input()
+        self.input.parent = self
+        self._children_name_map["input"] = "input"
+
+        self.output = Utd.Output()
+        self.output.parent = self
+        self._children_name_map["output"] = "output"
+        self._segment_path = lambda: "Cisco-IOS-XE-rpc:utd"
+        self._is_frozen = True
+
+
+    class Input(Entity):
+        """
+        
+        
+        .. attribute:: threat_inspection
+        
+        	IPS/IDS related commands
+        	**type**\:  :py:class:`ThreatInspection <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Utd.Input.ThreatInspection>`
+        
+        
+
+        """
+
+        _prefix = 'ios-xe-rpc'
+        _revision = '2018-04-18'
+
+        def __init__(self):
+            super(Utd.Input, self).__init__()
+
+            self.yang_name = "input"
+            self.yang_parent_name = "utd"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("threat-inspection", ("threat_inspection", Utd.Input.ThreatInspection))])
+            self._leafs = OrderedDict()
+
+            self.threat_inspection = Utd.Input.ThreatInspection()
+            self.threat_inspection.parent = self
+            self._children_name_map["threat_inspection"] = "threat-inspection"
+            self._segment_path = lambda: "input"
+            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:utd/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Utd.Input, [], name, value)
+
+
+        class ThreatInspection(Entity):
+            """
+            IPS/IDS related commands
+            
+            .. attribute:: signature
+            
+            	Provide actions to be taken for signatures
+            	**type**\:  :py:class:`Signature <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Utd.Input.ThreatInspection.Signature>`
+            
+            
+
+            """
+
+            _prefix = 'ios-xe-rpc'
+            _revision = '2018-04-18'
+
+            def __init__(self):
+                super(Utd.Input.ThreatInspection, self).__init__()
+
+                self.yang_name = "threat-inspection"
+                self.yang_parent_name = "input"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("signature", ("signature", Utd.Input.ThreatInspection.Signature))])
+                self._leafs = OrderedDict()
+
+                self.signature = Utd.Input.ThreatInspection.Signature()
+                self.signature.parent = self
+                self._children_name_map["signature"] = "signature"
+                self._segment_path = lambda: "threat-inspection"
+                self._absolute_path = lambda: "Cisco-IOS-XE-rpc:utd/input/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Utd.Input.ThreatInspection, [], name, value)
+
+
+            class Signature(Entity):
+                """
+                Provide actions to be taken for signatures
+                
+                .. attribute:: y_saved
+                
+                	
+                	**type**\:  :py:class:`Y_Saved <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Utd.Input.ThreatInspection.Signature.Y_Saved>`
+                
+                .. attribute:: y_manual
+                
+                	
+                	**type**\:  :py:class:`Y_Manual <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Utd.Input.ThreatInspection.Signature.Y_Manual>`
+                
+                
+
+                """
+
+                _prefix = 'ios-xe-rpc'
+                _revision = '2018-04-18'
+
+                def __init__(self):
+                    super(Utd.Input.ThreatInspection.Signature, self).__init__()
+
+                    self.yang_name = "signature"
+                    self.yang_parent_name = "threat-inspection"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = False
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("_saved", ("y_saved", Utd.Input.ThreatInspection.Signature.Y_Saved)), ("_manual", ("y_manual", Utd.Input.ThreatInspection.Signature.Y_Manual))])
+                    self._leafs = OrderedDict()
+
+                    self.y_saved = Utd.Input.ThreatInspection.Signature.Y_Saved()
+                    self.y_saved.parent = self
+                    self._children_name_map["y_saved"] = "_saved"
+
+                    self.y_manual = Utd.Input.ThreatInspection.Signature.Y_Manual()
+                    self.y_manual.parent = self
+                    self._children_name_map["y_manual"] = "_manual"
+                    self._segment_path = lambda: "signature"
+                    self._absolute_path = lambda: "Cisco-IOS-XE-rpc:utd/input/threat-inspection/%s" % self._segment_path()
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Utd.Input.ThreatInspection.Signature, [], name, value)
+
+
+                class Y_Saved(Entity):
+                    """
+                    
+                    
+                    .. attribute:: update
+                    
+                    	Update the IPS/IDS signature rules
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
+                    	**mandatory**\: True
+                    
+                    
+
+                    """
+
+                    _prefix = 'ios-xe-rpc'
+                    _revision = '2018-04-18'
+
+                    def __init__(self):
+                        super(Utd.Input.ThreatInspection.Signature.Y_Saved, self).__init__()
+
+                        self.yang_name = "_saved"
+                        self.yang_parent_name = "signature"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('update', (YLeaf(YType.empty, 'update'), ['Empty'])),
+                        ])
+                        self.update = None
+                        self._segment_path = lambda: "_saved"
+                        self._absolute_path = lambda: "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Saved, [u'update'], name, value)
+
+
+                class Y_Manual(Entity):
+                    """
+                    
+                    
+                    .. attribute:: update
+                    
+                    	Update the IPS/IDS signature rules
+                    	**type**\:  :py:class:`Update <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Utd.Input.ThreatInspection.Signature.Y_Manual.Update>`
+                    
+                    
+
+                    """
+
+                    _prefix = 'ios-xe-rpc'
+                    _revision = '2018-04-18'
+
+                    def __init__(self):
+                        super(Utd.Input.ThreatInspection.Signature.Y_Manual, self).__init__()
+
+                        self.yang_name = "_manual"
+                        self.yang_parent_name = "signature"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = False
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("update", ("update", Utd.Input.ThreatInspection.Signature.Y_Manual.Update))])
+                        self._leafs = OrderedDict()
+
+                        self.update = Utd.Input.ThreatInspection.Signature.Y_Manual.Update()
+                        self.update.parent = self
+                        self._children_name_map["update"] = "update"
+                        self._segment_path = lambda: "_manual"
+                        self._absolute_path = lambda: "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/%s" % self._segment_path()
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual, [], name, value)
+
+
+                    class Update(Entity):
+                        """
+                        Update the IPS/IDS signature rules
+                        
+                        .. attribute:: server
+                        
+                        	Provide config options for the signature update server
+                        	**type**\:  :py:class:`Server <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ios-xe-rpc'
+                        _revision = '2018-04-18'
+
+                        def __init__(self):
+                            super(Utd.Input.ThreatInspection.Signature.Y_Manual.Update, self).__init__()
+
+                            self.yang_name = "update"
+                            self.yang_parent_name = "_manual"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = False
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("server", ("server", Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server))])
+                            self._leafs = OrderedDict()
+
+                            self.server = Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server()
+                            self.server.parent = self
+                            self._children_name_map["server"] = "server"
+                            self._segment_path = lambda: "update"
+                            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/_manual/%s" % self._segment_path()
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual.Update, [], name, value)
+
+
+                        class Server(Entity):
+                            """
+                            Provide config options for the signature update server
+                            
+                            .. attribute:: cisco
+                            
+                            	Use Cisco site to provide updates
+                            	**type**\:  :py:class:`Cisco <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Cisco>`
+                            
+                            .. attribute:: url
+                            
+                            	Enter the complete URL for the path to the update server
+                            	**type**\:  :py:class:`Url <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'ios-xe-rpc'
+                            _revision = '2018-04-18'
+
+                            def __init__(self):
+                                super(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server, self).__init__()
+
+                                self.yang_name = "server"
+                                self.yang_parent_name = "update"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = False
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("cisco", ("cisco", Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Cisco)), ("url", ("url", Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url))])
+                                self._leafs = OrderedDict()
+
+                                self.cisco = Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Cisco()
+                                self.cisco.parent = self
+                                self._children_name_map["cisco"] = "cisco"
+
+                                self.url = Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url()
+                                self.url.parent = self
+                                self._children_name_map["url"] = "url"
+                                self._segment_path = lambda: "server"
+                                self._absolute_path = lambda: "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/_manual/update/%s" % self._segment_path()
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server, [], name, value)
+
+
+                            class Cisco(Entity):
+                                """
+                                Use Cisco site to provide updates
+                                
+                                .. attribute:: username
+                                
+                                	Provide the username for authentication
+                                	**type**\: str
+                                
+                                	**mandatory**\: True
+                                
+                                .. attribute:: password
+                                
+                                	Provide the password for authentication
+                                	**type**\: str
+                                
+                                	**mandatory**\: True
+                                
+                                
+
+                                """
+
+                                _prefix = 'ios-xe-rpc'
+                                _revision = '2018-04-18'
+
+                                def __init__(self):
+                                    super(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Cisco, self).__init__()
+
+                                    self.yang_name = "cisco"
+                                    self.yang_parent_name = "server"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = False
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                                        ('password', (YLeaf(YType.str, 'password'), ['str'])),
+                                    ])
+                                    self.username = None
+                                    self.password = None
+                                    self._segment_path = lambda: "cisco"
+                                    self._absolute_path = lambda: "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/_manual/update/server/%s" % self._segment_path()
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Cisco, [u'username', u'password'], name, value)
+
+
+                            class Url(Entity):
+                                """
+                                Enter the complete URL for the path to the update server
+                                
+                                .. attribute:: y_credentials
+                                
+                                	
+                                	**type**\:  :py:class:`Y_Credentials <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_Credentials>`
+                                
+                                .. attribute:: y_no_credentials
+                                
+                                	
+                                	**type**\:  :py:class:`Y_NoCredentials <ydk.models.cisco_ios_xe.Cisco_IOS_XE_rpc.Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_NoCredentials>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'ios-xe-rpc'
+                                _revision = '2018-04-18'
+
+                                def __init__(self):
+                                    super(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url, self).__init__()
+
+                                    self.yang_name = "url"
+                                    self.yang_parent_name = "server"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = False
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("_credentials", ("y_credentials", Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_Credentials)), ("_no-credentials", ("y_no_credentials", Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_NoCredentials))])
+                                    self._leafs = OrderedDict()
+
+                                    self.y_credentials = Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_Credentials()
+                                    self.y_credentials.parent = self
+                                    self._children_name_map["y_credentials"] = "_credentials"
+
+                                    self.y_no_credentials = Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_NoCredentials()
+                                    self.y_no_credentials.parent = self
+                                    self._children_name_map["y_no_credentials"] = "_no-credentials"
+                                    self._segment_path = lambda: "url"
+                                    self._absolute_path = lambda: "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/_manual/update/server/%s" % self._segment_path()
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url, [], name, value)
+
+
+                                class Y_Credentials(Entity):
+                                    """
+                                    
+                                    
+                                    .. attribute:: y_url
+                                    
+                                    	
+                                    	**type**\: str
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: username
+                                    
+                                    	Provide the username for authentication
+                                    	**type**\: str
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    .. attribute:: password
+                                    
+                                    	Provide the password for authentication
+                                    	**type**\: str
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ios-xe-rpc'
+                                    _revision = '2018-04-18'
+
+                                    def __init__(self):
+                                        super(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_Credentials, self).__init__()
+
+                                        self.yang_name = "_credentials"
+                                        self.yang_parent_name = "url"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = False
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('y_url', (YLeaf(YType.str, '_url'), ['str'])),
+                                            ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                                            ('password', (YLeaf(YType.str, 'password'), ['str'])),
+                                        ])
+                                        self.y_url = None
+                                        self.username = None
+                                        self.password = None
+                                        self._segment_path = lambda: "_credentials"
+                                        self._absolute_path = lambda: "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/_manual/update/server/url/%s" % self._segment_path()
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_Credentials, [u'y_url', u'username', u'password'], name, value)
+
+
+                                class Y_NoCredentials(Entity):
+                                    """
+                                    
+                                    
+                                    .. attribute:: y_url
+                                    
+                                    	
+                                    	**type**\: str
+                                    
+                                    	**mandatory**\: True
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'ios-xe-rpc'
+                                    _revision = '2018-04-18'
+
+                                    def __init__(self):
+                                        super(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_NoCredentials, self).__init__()
+
+                                        self.yang_name = "_no-credentials"
+                                        self.yang_parent_name = "url"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = False
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('y_url', (YLeaf(YType.str, '_url'), ['str'])),
+                                        ])
+                                        self.y_url = None
+                                        self._segment_path = lambda: "_no-credentials"
+                                        self._absolute_path = lambda: "Cisco-IOS-XE-rpc:utd/input/threat-inspection/signature/_manual/update/server/url/%s" % self._segment_path()
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Utd.Input.ThreatInspection.Signature.Y_Manual.Update.Server.Url.Y_NoCredentials, [u'y_url'], name, value)
+
+
+    class Output(Entity):
+        """
+        
+        
+        .. attribute:: result
+        
+        	Output returned by the network element
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'ios-xe-rpc'
+        _revision = '2018-04-18'
+
+        def __init__(self):
+            super(Utd.Output, self).__init__()
+
+            self.yang_name = "output"
+            self.yang_parent_name = "utd"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('result', (YLeaf(YType.str, 'result'), ['str'])),
+            ])
+            self.result = None
+            self._segment_path = lambda: "output"
+            self._absolute_path = lambda: "Cisco-IOS-XE-rpc:utd/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Utd.Output, [u'result'], name, value)
+
+    def clone_ptr(self):
+        self._top_entity = Utd()
         return self._top_entity
 

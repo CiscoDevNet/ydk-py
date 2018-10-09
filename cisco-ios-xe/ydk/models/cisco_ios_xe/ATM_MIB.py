@@ -15,6 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class ATMMIB(Entity):
     """
     
@@ -128,6 +129,7 @@ class ATMMIB(Entity):
         self.aal5vcctable.parent = self
         self._children_name_map["aal5vcctable"] = "aal5VccTable"
         self._segment_path = lambda: "ATM-MIB:ATM-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ATMMIB, [], name, value)
@@ -175,15 +177,16 @@ class ATMMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('atmvpcrossconnectindexnext', YLeaf(YType.int32, 'atmVpCrossConnectIndexNext')),
-                ('atmvccrossconnectindexnext', YLeaf(YType.int32, 'atmVcCrossConnectIndexNext')),
-                ('atmtrafficdescrparamindexnext', YLeaf(YType.int32, 'atmTrafficDescrParamIndexNext')),
+                ('atmvpcrossconnectindexnext', (YLeaf(YType.int32, 'atmVpCrossConnectIndexNext'), ['int'])),
+                ('atmvccrossconnectindexnext', (YLeaf(YType.int32, 'atmVcCrossConnectIndexNext'), ['int'])),
+                ('atmtrafficdescrparamindexnext', (YLeaf(YType.int32, 'atmTrafficDescrParamIndexNext'), ['int'])),
             ])
             self.atmvpcrossconnectindexnext = None
             self.atmvccrossconnectindexnext = None
             self.atmtrafficdescrparamindexnext = None
             self._segment_path = lambda: "atmMIBObjects"
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ATMMIB.AtmMIBObjects, [u'atmvpcrossconnectindexnext', u'atmvccrossconnectindexnext', u'atmtrafficdescrparamindexnext'], name, value)
@@ -221,6 +224,7 @@ class ATMMIB(Entity):
             self.atminterfaceconfentry = YList(self)
             self._segment_path = lambda: "atmInterfaceConfTable"
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ATMMIB.AtmInterfaceConfTable, [], name, value)
@@ -341,6 +345,27 @@ class ATMMIB(Entity):
             
             	The identifier assigned by a service provider to the network side of a public network UNI. If this interface has no assigned service provider address, or for other interfaces this is an octet string of zero length
             	**type**\: str
+            
+            .. attribute:: atmintfcurrentlydowntouppvcls
+            
+            	The current number PVCLs on this interface which  changed state to 'up' since the last  atmIntPvcUpTrap was sent
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: atmintfoamfailedpvcls
+            
+            	The total number of PVCLs in this interface which  are currently in the oam loopback failed condition but  the status of each PVCL remain in the 'up' state
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: atmintfcurrentlyoamfailingpvcls
+            
+            	The current number of PVCLs on this interface for which the oam loop back has failed but the status of each PVCL remain  in the 'up' state in the last notification interval
+            	**type**\: int
+            
+            	**range:** 0..4294967295
             
             .. attribute:: atmintfpvcfailures
             
@@ -536,27 +561,6 @@ class ATMMIB(Entity):
             	Type of OAM Recovered
             	**type**\:  :py:class:`CatmOAMRecoveryType <ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB.CatmOAMRecoveryType>`
             
-            .. attribute:: atmintfcurrentlydowntouppvcls
-            
-            	The current number PVCLs on this interface which  changed state to 'up' since the last  atmIntPvcUpTrap was sent
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: atmintfoamfailedpvcls
-            
-            	The total number of PVCLs in this interface which  are currently in the oam loopback failed condition but  the status of each PVCL remain in the 'up' state
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: atmintfcurrentlyoamfailingpvcls
-            
-            	The current number of PVCLs on this interface for which the oam loop back has failed but the status of each PVCL remain  in the 'up' state in the last notification interval
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
             
 
             """
@@ -574,53 +578,53 @@ class ATMMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atminterfacemaxvpcs', YLeaf(YType.int32, 'atmInterfaceMaxVpcs')),
-                    ('atminterfacemaxvccs', YLeaf(YType.int32, 'atmInterfaceMaxVccs')),
-                    ('atminterfaceconfvpcs', YLeaf(YType.int32, 'atmInterfaceConfVpcs')),
-                    ('atminterfaceconfvccs', YLeaf(YType.int32, 'atmInterfaceConfVccs')),
-                    ('atminterfacemaxactivevpibits', YLeaf(YType.int32, 'atmInterfaceMaxActiveVpiBits')),
-                    ('atminterfacemaxactivevcibits', YLeaf(YType.int32, 'atmInterfaceMaxActiveVciBits')),
-                    ('atminterfaceilmivpi', YLeaf(YType.int32, 'atmInterfaceIlmiVpi')),
-                    ('atminterfaceilmivci', YLeaf(YType.int32, 'atmInterfaceIlmiVci')),
-                    ('atminterfaceaddresstype', YLeaf(YType.enumeration, 'atmInterfaceAddressType')),
-                    ('atminterfaceadminaddress', YLeaf(YType.str, 'atmInterfaceAdminAddress')),
-                    ('atminterfacemyneighboripaddress', YLeaf(YType.str, 'atmInterfaceMyNeighborIpAddress')),
-                    ('atminterfacemyneighborifname', YLeaf(YType.str, 'atmInterfaceMyNeighborIfName')),
-                    ('atminterfacecurrentmaxvpibits', YLeaf(YType.int32, 'atmInterfaceCurrentMaxVpiBits')),
-                    ('atminterfacecurrentmaxvcibits', YLeaf(YType.int32, 'atmInterfaceCurrentMaxVciBits')),
-                    ('atminterfacesubscraddress', YLeaf(YType.str, 'atmInterfaceSubscrAddress')),
-                    ('atmintfpvcfailures', YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB:atmIntfPvcFailures')),
-                    ('atmintfcurrentlyfailingpvcls', YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB:atmIntfCurrentlyFailingPVcls')),
-                    ('atmintfpvcfailurestrapenable', YLeaf(YType.boolean, 'CISCO-IETF-ATM2-PVCTRAP-MIB:atmIntfPvcFailuresTrapEnable')),
-                    ('atmintfpvcnotificationinterval', YLeaf(YType.int32, 'CISCO-IETF-ATM2-PVCTRAP-MIB:atmIntfPvcNotificationInterval')),
-                    ('atmpreviouslyfailedpvclinterval', YLeaf(YType.int32, 'CISCO-IETF-ATM2-PVCTRAP-MIB:atmPreviouslyFailedPVclInterval')),
-                    ('catmintfcurrentlydowntouppvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurrentlyDownToUpPVcls')),
-                    ('catmintfoamfailedpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfOAMFailedPVcls')),
-                    ('catmintfcurrentoamfailingpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurrentOAMFailingPVcls')),
-                    ('catmintfsegccoamfailedpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfSegCCOAMFailedPVcls')),
-                    ('catmintfcursegccoamfailingpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurSegCCOAMFailingPVcls')),
-                    ('catmintfendccoamfailedpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfEndCCOAMFailedPVcls')),
-                    ('catmintfcurendccoamfailingpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurEndCCOAMFailingPVcls')),
-                    ('catmintfaisrdioamfailedpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAISRDIOAMFailedPVcls')),
-                    ('catmintfcuraisrdioamfailingpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAISRDIOAMFailingPVcls')),
-                    ('catmintfanyoamfailedpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAnyOAMFailedPVcls')),
-                    ('catmintfcuranyoamfailingpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAnyOAMFailingPVcls')),
-                    ('catmintftypeofoamfailure', YLeaf(YType.enumeration, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfTypeOfOAMFailure')),
-                    ('catmintfoamrcovedpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfOAMRcovedPVcls')),
-                    ('catmintfcurrentoamrcovingpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurrentOAMRcovingPVcls')),
-                    ('catmintfsegccoamrcovedpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfSegCCOAMRcovedPVcls')),
-                    ('catmintfcursegccoamrcovingpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurSegCCOAMRcovingPVcls')),
-                    ('catmintfendccoamrcovedpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfEndCCOAMRcovedPVcls')),
-                    ('catmintfcurendccoamrcovingpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurEndCCOAMRcovingPVcls')),
-                    ('catmintfaisrdioamrcovedpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAISRDIOAMRcovedPVcls')),
-                    ('catmintfcuraisrdioamrcovingpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAISRDIOAMRcovingPVcls')),
-                    ('catmintfanyoamrcovedpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAnyOAMRcovedPVcls')),
-                    ('catmintfcuranyoamrcovingpvcls', YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAnyOAMRcovingPVcls')),
-                    ('catmintftypeofoamrecover', YLeaf(YType.enumeration, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfTypeOfOAMRecover')),
-                    ('atmintfcurrentlydowntouppvcls', YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfCurrentlyDownToUpPVcls')),
-                    ('atmintfoamfailedpvcls', YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfOAMFailedPVcls')),
-                    ('atmintfcurrentlyoamfailingpvcls', YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfCurrentlyOAMFailingPVcls')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atminterfacemaxvpcs', (YLeaf(YType.int32, 'atmInterfaceMaxVpcs'), ['int'])),
+                    ('atminterfacemaxvccs', (YLeaf(YType.int32, 'atmInterfaceMaxVccs'), ['int'])),
+                    ('atminterfaceconfvpcs', (YLeaf(YType.int32, 'atmInterfaceConfVpcs'), ['int'])),
+                    ('atminterfaceconfvccs', (YLeaf(YType.int32, 'atmInterfaceConfVccs'), ['int'])),
+                    ('atminterfacemaxactivevpibits', (YLeaf(YType.int32, 'atmInterfaceMaxActiveVpiBits'), ['int'])),
+                    ('atminterfacemaxactivevcibits', (YLeaf(YType.int32, 'atmInterfaceMaxActiveVciBits'), ['int'])),
+                    ('atminterfaceilmivpi', (YLeaf(YType.int32, 'atmInterfaceIlmiVpi'), ['int'])),
+                    ('atminterfaceilmivci', (YLeaf(YType.int32, 'atmInterfaceIlmiVci'), ['int'])),
+                    ('atminterfaceaddresstype', (YLeaf(YType.enumeration, 'atmInterfaceAddressType'), [('ydk.models.cisco_ios_xe.ATM_MIB', 'ATMMIB', 'AtmInterfaceConfTable.AtmInterfaceConfEntry.AtmInterfaceAddressType')])),
+                    ('atminterfaceadminaddress', (YLeaf(YType.str, 'atmInterfaceAdminAddress'), ['str'])),
+                    ('atminterfacemyneighboripaddress', (YLeaf(YType.str, 'atmInterfaceMyNeighborIpAddress'), ['str'])),
+                    ('atminterfacemyneighborifname', (YLeaf(YType.str, 'atmInterfaceMyNeighborIfName'), ['str'])),
+                    ('atminterfacecurrentmaxvpibits', (YLeaf(YType.int32, 'atmInterfaceCurrentMaxVpiBits'), ['int'])),
+                    ('atminterfacecurrentmaxvcibits', (YLeaf(YType.int32, 'atmInterfaceCurrentMaxVciBits'), ['int'])),
+                    ('atminterfacesubscraddress', (YLeaf(YType.str, 'atmInterfaceSubscrAddress'), ['str'])),
+                    ('atmintfcurrentlydowntouppvcls', (YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfCurrentlyDownToUpPVcls'), ['int'])),
+                    ('atmintfoamfailedpvcls', (YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfOAMFailedPVcls'), ['int'])),
+                    ('atmintfcurrentlyoamfailingpvcls', (YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:atmIntfCurrentlyOAMFailingPVcls'), ['int'])),
+                    ('atmintfpvcfailures', (YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB:atmIntfPvcFailures'), ['int'])),
+                    ('atmintfcurrentlyfailingpvcls', (YLeaf(YType.uint32, 'CISCO-IETF-ATM2-PVCTRAP-MIB:atmIntfCurrentlyFailingPVcls'), ['int'])),
+                    ('atmintfpvcfailurestrapenable', (YLeaf(YType.boolean, 'CISCO-IETF-ATM2-PVCTRAP-MIB:atmIntfPvcFailuresTrapEnable'), ['bool'])),
+                    ('atmintfpvcnotificationinterval', (YLeaf(YType.int32, 'CISCO-IETF-ATM2-PVCTRAP-MIB:atmIntfPvcNotificationInterval'), ['int'])),
+                    ('atmpreviouslyfailedpvclinterval', (YLeaf(YType.int32, 'CISCO-IETF-ATM2-PVCTRAP-MIB:atmPreviouslyFailedPVclInterval'), ['int'])),
+                    ('catmintfcurrentlydowntouppvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurrentlyDownToUpPVcls'), ['int'])),
+                    ('catmintfoamfailedpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfOAMFailedPVcls'), ['int'])),
+                    ('catmintfcurrentoamfailingpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurrentOAMFailingPVcls'), ['int'])),
+                    ('catmintfsegccoamfailedpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfSegCCOAMFailedPVcls'), ['int'])),
+                    ('catmintfcursegccoamfailingpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurSegCCOAMFailingPVcls'), ['int'])),
+                    ('catmintfendccoamfailedpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfEndCCOAMFailedPVcls'), ['int'])),
+                    ('catmintfcurendccoamfailingpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurEndCCOAMFailingPVcls'), ['int'])),
+                    ('catmintfaisrdioamfailedpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAISRDIOAMFailedPVcls'), ['int'])),
+                    ('catmintfcuraisrdioamfailingpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAISRDIOAMFailingPVcls'), ['int'])),
+                    ('catmintfanyoamfailedpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAnyOAMFailedPVcls'), ['int'])),
+                    ('catmintfcuranyoamfailingpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAnyOAMFailingPVcls'), ['int'])),
+                    ('catmintftypeofoamfailure', (YLeaf(YType.enumeration, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfTypeOfOAMFailure'), [('ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB', 'CatmOAMFailureType', '')])),
+                    ('catmintfoamrcovedpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfOAMRcovedPVcls'), ['int'])),
+                    ('catmintfcurrentoamrcovingpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurrentOAMRcovingPVcls'), ['int'])),
+                    ('catmintfsegccoamrcovedpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfSegCCOAMRcovedPVcls'), ['int'])),
+                    ('catmintfcursegccoamrcovingpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurSegCCOAMRcovingPVcls'), ['int'])),
+                    ('catmintfendccoamrcovedpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfEndCCOAMRcovedPVcls'), ['int'])),
+                    ('catmintfcurendccoamrcovingpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurEndCCOAMRcovingPVcls'), ['int'])),
+                    ('catmintfaisrdioamrcovedpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAISRDIOAMRcovedPVcls'), ['int'])),
+                    ('catmintfcuraisrdioamrcovingpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAISRDIOAMRcovingPVcls'), ['int'])),
+                    ('catmintfanyoamrcovedpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfAnyOAMRcovedPVcls'), ['int'])),
+                    ('catmintfcuranyoamrcovingpvcls', (YLeaf(YType.uint32, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfCurAnyOAMRcovingPVcls'), ['int'])),
+                    ('catmintftypeofoamrecover', (YLeaf(YType.enumeration, 'CISCO-ATM-PVCTRAP-EXTN-MIB:catmIntfTypeOfOAMRecover'), [('ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB', 'CatmOAMRecoveryType', '')])),
                 ])
                 self.ifindex = None
                 self.atminterfacemaxvpcs = None
@@ -638,6 +642,9 @@ class ATMMIB(Entity):
                 self.atminterfacecurrentmaxvpibits = None
                 self.atminterfacecurrentmaxvcibits = None
                 self.atminterfacesubscraddress = None
+                self.atmintfcurrentlydowntouppvcls = None
+                self.atmintfoamfailedpvcls = None
+                self.atmintfcurrentlyoamfailingpvcls = None
                 self.atmintfpvcfailures = None
                 self.atmintfcurrentlyfailingpvcls = None
                 self.atmintfpvcfailurestrapenable = None
@@ -666,14 +673,12 @@ class ATMMIB(Entity):
                 self.catmintfanyoamrcovedpvcls = None
                 self.catmintfcuranyoamrcovingpvcls = None
                 self.catmintftypeofoamrecover = None
-                self.atmintfcurrentlydowntouppvcls = None
-                self.atmintfoamfailedpvcls = None
-                self.atmintfcurrentlyoamfailingpvcls = None
                 self._segment_path = lambda: "atmInterfaceConfEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmInterfaceConfTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.AtmInterfaceConfTable.AtmInterfaceConfEntry, [u'ifindex', u'atminterfacemaxvpcs', u'atminterfacemaxvccs', u'atminterfaceconfvpcs', u'atminterfaceconfvccs', u'atminterfacemaxactivevpibits', u'atminterfacemaxactivevcibits', u'atminterfaceilmivpi', u'atminterfaceilmivci', u'atminterfaceaddresstype', u'atminterfaceadminaddress', u'atminterfacemyneighboripaddress', u'atminterfacemyneighborifname', u'atminterfacecurrentmaxvpibits', u'atminterfacecurrentmaxvcibits', u'atminterfacesubscraddress', u'atmintfpvcfailures', u'atmintfcurrentlyfailingpvcls', u'atmintfpvcfailurestrapenable', u'atmintfpvcnotificationinterval', u'atmpreviouslyfailedpvclinterval', 'catmintfcurrentlydowntouppvcls', 'catmintfoamfailedpvcls', 'catmintfcurrentoamfailingpvcls', 'catmintfsegccoamfailedpvcls', 'catmintfcursegccoamfailingpvcls', 'catmintfendccoamfailedpvcls', 'catmintfcurendccoamfailingpvcls', 'catmintfaisrdioamfailedpvcls', 'catmintfcuraisrdioamfailingpvcls', 'catmintfanyoamfailedpvcls', 'catmintfcuranyoamfailingpvcls', 'catmintftypeofoamfailure', 'catmintfoamrcovedpvcls', 'catmintfcurrentoamrcovingpvcls', 'catmintfsegccoamrcovedpvcls', 'catmintfcursegccoamrcovingpvcls', 'catmintfendccoamrcovedpvcls', 'catmintfcurendccoamrcovingpvcls', 'catmintfaisrdioamrcovedpvcls', 'catmintfcuraisrdioamrcovingpvcls', 'catmintfanyoamrcovedpvcls', 'catmintfcuranyoamrcovingpvcls', 'catmintftypeofoamrecover', 'atmintfcurrentlydowntouppvcls', 'atmintfoamfailedpvcls', 'atmintfcurrentlyoamfailingpvcls'], name, value)
+                self._perform_setattr(ATMMIB.AtmInterfaceConfTable.AtmInterfaceConfEntry, [u'ifindex', u'atminterfacemaxvpcs', u'atminterfacemaxvccs', u'atminterfaceconfvpcs', u'atminterfaceconfvccs', u'atminterfacemaxactivevpibits', u'atminterfacemaxactivevcibits', u'atminterfaceilmivpi', u'atminterfaceilmivci', u'atminterfaceaddresstype', u'atminterfaceadminaddress', u'atminterfacemyneighboripaddress', u'atminterfacemyneighborifname', u'atminterfacecurrentmaxvpibits', u'atminterfacecurrentmaxvcibits', u'atminterfacesubscraddress', 'atmintfcurrentlydowntouppvcls', 'atmintfoamfailedpvcls', 'atmintfcurrentlyoamfailingpvcls', u'atmintfpvcfailures', u'atmintfcurrentlyfailingpvcls', u'atmintfpvcfailurestrapenable', u'atmintfpvcnotificationinterval', u'atmpreviouslyfailedpvclinterval', 'catmintfcurrentlydowntouppvcls', 'catmintfoamfailedpvcls', 'catmintfcurrentoamfailingpvcls', 'catmintfsegccoamfailedpvcls', 'catmintfcursegccoamfailingpvcls', 'catmintfendccoamfailedpvcls', 'catmintfcurendccoamfailingpvcls', 'catmintfaisrdioamfailedpvcls', 'catmintfcuraisrdioamfailingpvcls', 'catmintfanyoamfailedpvcls', 'catmintfcuranyoamfailingpvcls', 'catmintftypeofoamfailure', 'catmintfoamrcovedpvcls', 'catmintfcurrentoamrcovingpvcls', 'catmintfsegccoamrcovedpvcls', 'catmintfcursegccoamrcovingpvcls', 'catmintfendccoamrcovedpvcls', 'catmintfcurendccoamrcovingpvcls', 'catmintfaisrdioamrcovedpvcls', 'catmintfcuraisrdioamrcovingpvcls', 'catmintfanyoamrcovedpvcls', 'catmintfcuranyoamrcovingpvcls', 'catmintftypeofoamrecover'], name, value)
 
             class AtmInterfaceAddressType(Enum):
                 """
@@ -735,6 +740,7 @@ class ATMMIB(Entity):
             self.atminterfaceds3plcpentry = YList(self)
             self._segment_path = lambda: "atmInterfaceDs3PlcpTable"
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ATMMIB.AtmInterfaceDs3PlcpTable, [], name, value)
@@ -791,10 +797,10 @@ class ATMMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atminterfaceds3plcpsefss', YLeaf(YType.uint32, 'atmInterfaceDs3PlcpSEFSs')),
-                    ('atminterfaceds3plcpalarmstate', YLeaf(YType.enumeration, 'atmInterfaceDs3PlcpAlarmState')),
-                    ('atminterfaceds3plcpuass', YLeaf(YType.uint32, 'atmInterfaceDs3PlcpUASs')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atminterfaceds3plcpsefss', (YLeaf(YType.uint32, 'atmInterfaceDs3PlcpSEFSs'), ['int'])),
+                    ('atminterfaceds3plcpalarmstate', (YLeaf(YType.enumeration, 'atmInterfaceDs3PlcpAlarmState'), [('ydk.models.cisco_ios_xe.ATM_MIB', 'ATMMIB', 'AtmInterfaceDs3PlcpTable.AtmInterfaceDs3PlcpEntry.AtmInterfaceDs3PlcpAlarmState')])),
+                    ('atminterfaceds3plcpuass', (YLeaf(YType.uint32, 'atmInterfaceDs3PlcpUASs'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atminterfaceds3plcpsefss = None
@@ -802,6 +808,7 @@ class ATMMIB(Entity):
                 self.atminterfaceds3plcpuass = None
                 self._segment_path = lambda: "atmInterfaceDs3PlcpEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmInterfaceDs3PlcpTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ATMMIB.AtmInterfaceDs3PlcpTable.AtmInterfaceDs3PlcpEntry, [u'ifindex', u'atminterfaceds3plcpsefss', u'atminterfaceds3plcpalarmstate', u'atminterfaceds3plcpuass'], name, value)
@@ -880,6 +887,7 @@ class ATMMIB(Entity):
             self.atminterfacetcentry = YList(self)
             self._segment_path = lambda: "atmInterfaceTCTable"
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ATMMIB.AtmInterfaceTCTable, [], name, value)
@@ -929,15 +937,16 @@ class ATMMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atminterfaceocdevents', YLeaf(YType.uint32, 'atmInterfaceOCDEvents')),
-                    ('atminterfacetcalarmstate', YLeaf(YType.enumeration, 'atmInterfaceTCAlarmState')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atminterfaceocdevents', (YLeaf(YType.uint32, 'atmInterfaceOCDEvents'), ['int'])),
+                    ('atminterfacetcalarmstate', (YLeaf(YType.enumeration, 'atmInterfaceTCAlarmState'), [('ydk.models.cisco_ios_xe.ATM_MIB', 'ATMMIB', 'AtmInterfaceTCTable.AtmInterfaceTCEntry.AtmInterfaceTCAlarmState')])),
                 ])
                 self.ifindex = None
                 self.atminterfaceocdevents = None
                 self.atminterfacetcalarmstate = None
                 self._segment_path = lambda: "atmInterfaceTCEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmInterfaceTCTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ATMMIB.AtmInterfaceTCTable.AtmInterfaceTCEntry, [u'ifindex', u'atminterfaceocdevents', u'atminterfacetcalarmstate'], name, value)
@@ -1005,6 +1014,7 @@ class ATMMIB(Entity):
             self.atmtrafficdescrparamentry = YList(self)
             self._segment_path = lambda: "atmTrafficDescrParamTable"
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ATMMIB.AtmTrafficDescrParamTable, [], name, value)
@@ -1105,17 +1115,17 @@ class ATMMIB(Entity):
                 self.ylist_key_names = ['atmtrafficdescrparamindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('atmtrafficdescrparamindex', YLeaf(YType.int32, 'atmTrafficDescrParamIndex')),
-                    ('atmtrafficdescrtype', YLeaf(YType.str, 'atmTrafficDescrType')),
-                    ('atmtrafficdescrparam1', YLeaf(YType.int32, 'atmTrafficDescrParam1')),
-                    ('atmtrafficdescrparam2', YLeaf(YType.int32, 'atmTrafficDescrParam2')),
-                    ('atmtrafficdescrparam3', YLeaf(YType.int32, 'atmTrafficDescrParam3')),
-                    ('atmtrafficdescrparam4', YLeaf(YType.int32, 'atmTrafficDescrParam4')),
-                    ('atmtrafficdescrparam5', YLeaf(YType.int32, 'atmTrafficDescrParam5')),
-                    ('atmtrafficqosclass', YLeaf(YType.int32, 'atmTrafficQoSClass')),
-                    ('atmtrafficdescrrowstatus', YLeaf(YType.enumeration, 'atmTrafficDescrRowStatus')),
-                    ('atmservicecategory', YLeaf(YType.enumeration, 'atmServiceCategory')),
-                    ('atmtrafficframediscard', YLeaf(YType.boolean, 'atmTrafficFrameDiscard')),
+                    ('atmtrafficdescrparamindex', (YLeaf(YType.int32, 'atmTrafficDescrParamIndex'), ['int'])),
+                    ('atmtrafficdescrtype', (YLeaf(YType.str, 'atmTrafficDescrType'), ['str'])),
+                    ('atmtrafficdescrparam1', (YLeaf(YType.int32, 'atmTrafficDescrParam1'), ['int'])),
+                    ('atmtrafficdescrparam2', (YLeaf(YType.int32, 'atmTrafficDescrParam2'), ['int'])),
+                    ('atmtrafficdescrparam3', (YLeaf(YType.int32, 'atmTrafficDescrParam3'), ['int'])),
+                    ('atmtrafficdescrparam4', (YLeaf(YType.int32, 'atmTrafficDescrParam4'), ['int'])),
+                    ('atmtrafficdescrparam5', (YLeaf(YType.int32, 'atmTrafficDescrParam5'), ['int'])),
+                    ('atmtrafficqosclass', (YLeaf(YType.int32, 'atmTrafficQoSClass'), ['int'])),
+                    ('atmtrafficdescrrowstatus', (YLeaf(YType.enumeration, 'atmTrafficDescrRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('atmservicecategory', (YLeaf(YType.enumeration, 'atmServiceCategory'), [('ydk.models.cisco_ios_xe.ATM_TC_MIB', 'AtmServiceCategory', '')])),
+                    ('atmtrafficframediscard', (YLeaf(YType.boolean, 'atmTrafficFrameDiscard'), ['bool'])),
                 ])
                 self.atmtrafficdescrparamindex = None
                 self.atmtrafficdescrtype = None
@@ -1130,6 +1140,7 @@ class ATMMIB(Entity):
                 self.atmtrafficframediscard = None
                 self._segment_path = lambda: "atmTrafficDescrParamEntry" + "[atmTrafficDescrParamIndex='" + str(self.atmtrafficdescrparamindex) + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmTrafficDescrParamTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ATMMIB.AtmTrafficDescrParamTable.AtmTrafficDescrParamEntry, [u'atmtrafficdescrparamindex', u'atmtrafficdescrtype', u'atmtrafficdescrparam1', u'atmtrafficdescrparam2', u'atmtrafficdescrparam3', u'atmtrafficdescrparam4', u'atmtrafficdescrparam5', u'atmtrafficqosclass', u'atmtrafficdescrrowstatus', u'atmservicecategory', u'atmtrafficframediscard'], name, value)
@@ -1170,6 +1181,7 @@ class ATMMIB(Entity):
             self.atmvplentry = YList(self)
             self._segment_path = lambda: "atmVplTable"
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ATMMIB.AtmVplTable, [], name, value)
@@ -1339,17 +1351,17 @@ class ATMMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvplvpi']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvplvpi', YLeaf(YType.int32, 'atmVplVpi')),
-                    ('atmvpladminstatus', YLeaf(YType.enumeration, 'atmVplAdminStatus')),
-                    ('atmvploperstatus', YLeaf(YType.enumeration, 'atmVplOperStatus')),
-                    ('atmvpllastchange', YLeaf(YType.uint32, 'atmVplLastChange')),
-                    ('atmvplreceivetrafficdescrindex', YLeaf(YType.int32, 'atmVplReceiveTrafficDescrIndex')),
-                    ('atmvpltransmittrafficdescrindex', YLeaf(YType.int32, 'atmVplTransmitTrafficDescrIndex')),
-                    ('atmvplcrossconnectidentifier', YLeaf(YType.int32, 'atmVplCrossConnectIdentifier')),
-                    ('atmvplrowstatus', YLeaf(YType.enumeration, 'atmVplRowStatus')),
-                    ('atmvplcasttype', YLeaf(YType.enumeration, 'atmVplCastType')),
-                    ('atmvplconnkind', YLeaf(YType.enumeration, 'atmVplConnKind')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvplvpi', (YLeaf(YType.int32, 'atmVplVpi'), ['int'])),
+                    ('atmvpladminstatus', (YLeaf(YType.enumeration, 'atmVplAdminStatus'), [('ydk.models.cisco_ios_xe.ATM_TC_MIB', 'AtmVorXAdminStatus', '')])),
+                    ('atmvploperstatus', (YLeaf(YType.enumeration, 'atmVplOperStatus'), [('ydk.models.cisco_ios_xe.ATM_TC_MIB', 'AtmVorXOperStatus', '')])),
+                    ('atmvpllastchange', (YLeaf(YType.uint32, 'atmVplLastChange'), ['int'])),
+                    ('atmvplreceivetrafficdescrindex', (YLeaf(YType.int32, 'atmVplReceiveTrafficDescrIndex'), ['int'])),
+                    ('atmvpltransmittrafficdescrindex', (YLeaf(YType.int32, 'atmVplTransmitTrafficDescrIndex'), ['int'])),
+                    ('atmvplcrossconnectidentifier', (YLeaf(YType.int32, 'atmVplCrossConnectIdentifier'), ['int'])),
+                    ('atmvplrowstatus', (YLeaf(YType.enumeration, 'atmVplRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('atmvplcasttype', (YLeaf(YType.enumeration, 'atmVplCastType'), [('ydk.models.cisco_ios_xe.ATM_TC_MIB', 'AtmConnCastType', '')])),
+                    ('atmvplconnkind', (YLeaf(YType.enumeration, 'atmVplConnKind'), [('ydk.models.cisco_ios_xe.ATM_TC_MIB', 'AtmConnKind', '')])),
                 ])
                 self.ifindex = None
                 self.atmvplvpi = None
@@ -1364,6 +1376,7 @@ class ATMMIB(Entity):
                 self.atmvplconnkind = None
                 self._segment_path = lambda: "atmVplEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVplVpi='" + str(self.atmvplvpi) + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmVplTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ATMMIB.AtmVplTable.AtmVplEntry, [u'ifindex', u'atmvplvpi', u'atmvpladminstatus', u'atmvploperstatus', u'atmvpllastchange', u'atmvplreceivetrafficdescrindex', u'atmvpltransmittrafficdescrindex', u'atmvplcrossconnectidentifier', u'atmvplrowstatus', u'atmvplcasttype', u'atmvplconnkind'], name, value)
@@ -1402,6 +1415,7 @@ class ATMMIB(Entity):
             self.atmvclentry = YList(self)
             self._segment_path = lambda: "atmVclTable"
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ATMMIB.AtmVclTable, [], name, value)
@@ -1780,46 +1794,46 @@ class ATMMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','atmvclvci']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.int32, 'atmVclVpi')),
-                    ('atmvclvci', YLeaf(YType.int32, 'atmVclVci')),
-                    ('atmvcladminstatus', YLeaf(YType.enumeration, 'atmVclAdminStatus')),
-                    ('atmvcloperstatus', YLeaf(YType.enumeration, 'atmVclOperStatus')),
-                    ('atmvcllastchange', YLeaf(YType.uint32, 'atmVclLastChange')),
-                    ('atmvclreceivetrafficdescrindex', YLeaf(YType.int32, 'atmVclReceiveTrafficDescrIndex')),
-                    ('atmvcltransmittrafficdescrindex', YLeaf(YType.int32, 'atmVclTransmitTrafficDescrIndex')),
-                    ('atmvccaaltype', YLeaf(YType.enumeration, 'atmVccAalType')),
-                    ('atmvccaal5cpcstransmitsdusize', YLeaf(YType.int32, 'atmVccAal5CpcsTransmitSduSize')),
-                    ('atmvccaal5cpcsreceivesdusize', YLeaf(YType.int32, 'atmVccAal5CpcsReceiveSduSize')),
-                    ('atmvccaal5encapstype', YLeaf(YType.enumeration, 'atmVccAal5EncapsType')),
-                    ('atmvclcrossconnectidentifier', YLeaf(YType.int32, 'atmVclCrossConnectIdentifier')),
-                    ('atmvclrowstatus', YLeaf(YType.enumeration, 'atmVclRowStatus')),
-                    ('atmvclcasttype', YLeaf(YType.enumeration, 'atmVclCastType')),
-                    ('atmvclconnkind', YLeaf(YType.enumeration, 'atmVclConnKind')),
-                    ('catmxvcloamloopbackfreq', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamLoopbackFreq')),
-                    ('catmxvcloamretryfreq', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamRetryFreq')),
-                    ('catmxvcloamupretrycount', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamUpRetryCount')),
-                    ('catmxvcloamdownretrycount', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamDownRetryCount')),
-                    ('catmxvcloamendccactcount', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamEndCCActCount')),
-                    ('catmxvcloamendccdeactcount', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamEndCCDeActCount')),
-                    ('catmxvcloamendccretryfreq', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamEndCCRetryFreq')),
-                    ('catmxvcloamsegccactcount', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamSegCCActCount')),
-                    ('catmxvcloamsegccdeactcount', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamSegCCDeActCount')),
-                    ('catmxvcloamsegccretryfreq', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamSegCCRetryFreq')),
-                    ('catmxvcloammanage', YLeaf(YType.boolean, 'CISCO-ATM-EXT-MIB:catmxVclOamManage')),
-                    ('catmxvcloamloopbkstatus', YLeaf(YType.enumeration, 'CISCO-ATM-EXT-MIB:catmxVclOamLoopBkStatus')),
-                    ('catmxvcloamvcstate', YLeaf(YType.enumeration, 'CISCO-ATM-EXT-MIB:catmxVclOamVcState')),
-                    ('catmxvcloamendccstatus', YLeaf(YType.enumeration, 'CISCO-ATM-EXT-MIB:catmxVclOamEndCCStatus')),
-                    ('catmxvcloamsegccstatus', YLeaf(YType.enumeration, 'CISCO-ATM-EXT-MIB:catmxVclOamSegCCStatus')),
-                    ('catmxvcloamendccvcstate', YLeaf(YType.enumeration, 'CISCO-ATM-EXT-MIB:catmxVclOamEndCCVcState')),
-                    ('catmxvcloamsegccvcstate', YLeaf(YType.enumeration, 'CISCO-ATM-EXT-MIB:catmxVclOamSegCCVcState')),
-                    ('catmxvcloamcellsreceived', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamCellsReceived')),
-                    ('catmxvcloamcellssent', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamCellsSent')),
-                    ('catmxvcloamcellsdropped', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamCellsDropped')),
-                    ('catmxvcloaminf5ais', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamInF5ais')),
-                    ('catmxvcloamoutf5ais', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamOutF5ais')),
-                    ('catmxvcloaminf5rdi', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamInF5rdi')),
-                    ('catmxvcloamoutf5rdi', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamOutF5rdi')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.int32, 'atmVclVpi'), ['int'])),
+                    ('atmvclvci', (YLeaf(YType.int32, 'atmVclVci'), ['int'])),
+                    ('atmvcladminstatus', (YLeaf(YType.enumeration, 'atmVclAdminStatus'), [('ydk.models.cisco_ios_xe.ATM_TC_MIB', 'AtmVorXAdminStatus', '')])),
+                    ('atmvcloperstatus', (YLeaf(YType.enumeration, 'atmVclOperStatus'), [('ydk.models.cisco_ios_xe.ATM_TC_MIB', 'AtmVorXOperStatus', '')])),
+                    ('atmvcllastchange', (YLeaf(YType.uint32, 'atmVclLastChange'), ['int'])),
+                    ('atmvclreceivetrafficdescrindex', (YLeaf(YType.int32, 'atmVclReceiveTrafficDescrIndex'), ['int'])),
+                    ('atmvcltransmittrafficdescrindex', (YLeaf(YType.int32, 'atmVclTransmitTrafficDescrIndex'), ['int'])),
+                    ('atmvccaaltype', (YLeaf(YType.enumeration, 'atmVccAalType'), [('ydk.models.cisco_ios_xe.ATM_MIB', 'ATMMIB', 'AtmVclTable.AtmVclEntry.AtmVccAalType')])),
+                    ('atmvccaal5cpcstransmitsdusize', (YLeaf(YType.int32, 'atmVccAal5CpcsTransmitSduSize'), ['int'])),
+                    ('atmvccaal5cpcsreceivesdusize', (YLeaf(YType.int32, 'atmVccAal5CpcsReceiveSduSize'), ['int'])),
+                    ('atmvccaal5encapstype', (YLeaf(YType.enumeration, 'atmVccAal5EncapsType'), [('ydk.models.cisco_ios_xe.ATM_MIB', 'ATMMIB', 'AtmVclTable.AtmVclEntry.AtmVccAal5EncapsType')])),
+                    ('atmvclcrossconnectidentifier', (YLeaf(YType.int32, 'atmVclCrossConnectIdentifier'), ['int'])),
+                    ('atmvclrowstatus', (YLeaf(YType.enumeration, 'atmVclRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('atmvclcasttype', (YLeaf(YType.enumeration, 'atmVclCastType'), [('ydk.models.cisco_ios_xe.ATM_TC_MIB', 'AtmConnCastType', '')])),
+                    ('atmvclconnkind', (YLeaf(YType.enumeration, 'atmVclConnKind'), [('ydk.models.cisco_ios_xe.ATM_TC_MIB', 'AtmConnKind', '')])),
+                    ('catmxvcloamloopbackfreq', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamLoopbackFreq'), ['int'])),
+                    ('catmxvcloamretryfreq', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamRetryFreq'), ['int'])),
+                    ('catmxvcloamupretrycount', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamUpRetryCount'), ['int'])),
+                    ('catmxvcloamdownretrycount', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamDownRetryCount'), ['int'])),
+                    ('catmxvcloamendccactcount', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamEndCCActCount'), ['int'])),
+                    ('catmxvcloamendccdeactcount', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamEndCCDeActCount'), ['int'])),
+                    ('catmxvcloamendccretryfreq', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamEndCCRetryFreq'), ['int'])),
+                    ('catmxvcloamsegccactcount', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamSegCCActCount'), ['int'])),
+                    ('catmxvcloamsegccdeactcount', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamSegCCDeActCount'), ['int'])),
+                    ('catmxvcloamsegccretryfreq', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamSegCCRetryFreq'), ['int'])),
+                    ('catmxvcloammanage', (YLeaf(YType.boolean, 'CISCO-ATM-EXT-MIB:catmxVclOamManage'), ['bool'])),
+                    ('catmxvcloamloopbkstatus', (YLeaf(YType.enumeration, 'CISCO-ATM-EXT-MIB:catmxVclOamLoopBkStatus'), [('ydk.models.cisco_ios_xe.ATM_MIB', 'ATMMIB', 'AtmVclTable.AtmVclEntry.CatmxVclOamLoopBkStatus')])),
+                    ('catmxvcloamvcstate', (YLeaf(YType.enumeration, 'CISCO-ATM-EXT-MIB:catmxVclOamVcState'), [('ydk.models.cisco_ios_xe.ATM_MIB', 'ATMMIB', 'AtmVclTable.AtmVclEntry.CatmxVclOamVcState')])),
+                    ('catmxvcloamendccstatus', (YLeaf(YType.enumeration, 'CISCO-ATM-EXT-MIB:catmxVclOamEndCCStatus'), [('ydk.models.cisco_ios_xe.CISCO_ATM_EXT_MIB', 'OamCCStatus', '')])),
+                    ('catmxvcloamsegccstatus', (YLeaf(YType.enumeration, 'CISCO-ATM-EXT-MIB:catmxVclOamSegCCStatus'), [('ydk.models.cisco_ios_xe.CISCO_ATM_EXT_MIB', 'OamCCStatus', '')])),
+                    ('catmxvcloamendccvcstate', (YLeaf(YType.enumeration, 'CISCO-ATM-EXT-MIB:catmxVclOamEndCCVcState'), [('ydk.models.cisco_ios_xe.CISCO_ATM_EXT_MIB', 'OamCCVcState', '')])),
+                    ('catmxvcloamsegccvcstate', (YLeaf(YType.enumeration, 'CISCO-ATM-EXT-MIB:catmxVclOamSegCCVcState'), [('ydk.models.cisco_ios_xe.CISCO_ATM_EXT_MIB', 'OamCCVcState', '')])),
+                    ('catmxvcloamcellsreceived', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamCellsReceived'), ['int'])),
+                    ('catmxvcloamcellssent', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamCellsSent'), ['int'])),
+                    ('catmxvcloamcellsdropped', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamCellsDropped'), ['int'])),
+                    ('catmxvcloaminf5ais', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamInF5ais'), ['int'])),
+                    ('catmxvcloamoutf5ais', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamOutF5ais'), ['int'])),
+                    ('catmxvcloaminf5rdi', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamInF5rdi'), ['int'])),
+                    ('catmxvcloamoutf5rdi', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:catmxVclOamOutF5rdi'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -1863,6 +1877,7 @@ class ATMMIB(Entity):
                 self.catmxvcloamoutf5rdi = None
                 self._segment_path = lambda: "atmVclEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[atmVclVci='" + str(self.atmvclvci) + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmVclTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ATMMIB.AtmVclTable.AtmVclEntry, [u'ifindex', u'atmvclvpi', u'atmvclvci', u'atmvcladminstatus', u'atmvcloperstatus', u'atmvcllastchange', u'atmvclreceivetrafficdescrindex', u'atmvcltransmittrafficdescrindex', u'atmvccaaltype', u'atmvccaal5cpcstransmitsdusize', u'atmvccaal5cpcsreceivesdusize', u'atmvccaal5encapstype', u'atmvclcrossconnectidentifier', u'atmvclrowstatus', u'atmvclcasttype', u'atmvclconnkind', 'catmxvcloamloopbackfreq', 'catmxvcloamretryfreq', 'catmxvcloamupretrycount', 'catmxvcloamdownretrycount', 'catmxvcloamendccactcount', 'catmxvcloamendccdeactcount', 'catmxvcloamendccretryfreq', 'catmxvcloamsegccactcount', 'catmxvcloamsegccdeactcount', 'catmxvcloamsegccretryfreq', 'catmxvcloammanage', 'catmxvcloamloopbkstatus', 'catmxvcloamvcstate', 'catmxvcloamendccstatus', 'catmxvcloamsegccstatus', 'catmxvcloamendccvcstate', 'catmxvcloamsegccvcstate', 'catmxvcloamcellsreceived', 'catmxvcloamcellssent', 'catmxvcloamcellsdropped', 'catmxvcloaminf5ais', 'catmxvcloamoutf5ais', 'catmxvcloaminf5rdi', 'catmxvcloamoutf5rdi'], name, value)
@@ -2108,6 +2123,7 @@ class ATMMIB(Entity):
             self.atmvpcrossconnectentry = YList(self)
             self._segment_path = lambda: "atmVpCrossConnectTable"
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ATMMIB.AtmVpCrossConnectTable, [], name, value)
@@ -2323,17 +2339,17 @@ class ATMMIB(Entity):
                 self.ylist_key_names = ['atmvpcrossconnectindex','atmvpcrossconnectlowifindex','atmvpcrossconnectlowvpi','atmvpcrossconnecthighifindex','atmvpcrossconnecthighvpi']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('atmvpcrossconnectindex', YLeaf(YType.int32, 'atmVpCrossConnectIndex')),
-                    ('atmvpcrossconnectlowifindex', YLeaf(YType.int32, 'atmVpCrossConnectLowIfIndex')),
-                    ('atmvpcrossconnectlowvpi', YLeaf(YType.int32, 'atmVpCrossConnectLowVpi')),
-                    ('atmvpcrossconnecthighifindex', YLeaf(YType.int32, 'atmVpCrossConnectHighIfIndex')),
-                    ('atmvpcrossconnecthighvpi', YLeaf(YType.int32, 'atmVpCrossConnectHighVpi')),
-                    ('atmvpcrossconnectadminstatus', YLeaf(YType.enumeration, 'atmVpCrossConnectAdminStatus')),
-                    ('atmvpcrossconnectl2hoperstatus', YLeaf(YType.enumeration, 'atmVpCrossConnectL2HOperStatus')),
-                    ('atmvpcrossconnecth2loperstatus', YLeaf(YType.enumeration, 'atmVpCrossConnectH2LOperStatus')),
-                    ('atmvpcrossconnectl2hlastchange', YLeaf(YType.uint32, 'atmVpCrossConnectL2HLastChange')),
-                    ('atmvpcrossconnecth2llastchange', YLeaf(YType.uint32, 'atmVpCrossConnectH2LLastChange')),
-                    ('atmvpcrossconnectrowstatus', YLeaf(YType.enumeration, 'atmVpCrossConnectRowStatus')),
+                    ('atmvpcrossconnectindex', (YLeaf(YType.int32, 'atmVpCrossConnectIndex'), ['int'])),
+                    ('atmvpcrossconnectlowifindex', (YLeaf(YType.int32, 'atmVpCrossConnectLowIfIndex'), ['int'])),
+                    ('atmvpcrossconnectlowvpi', (YLeaf(YType.int32, 'atmVpCrossConnectLowVpi'), ['int'])),
+                    ('atmvpcrossconnecthighifindex', (YLeaf(YType.int32, 'atmVpCrossConnectHighIfIndex'), ['int'])),
+                    ('atmvpcrossconnecthighvpi', (YLeaf(YType.int32, 'atmVpCrossConnectHighVpi'), ['int'])),
+                    ('atmvpcrossconnectadminstatus', (YLeaf(YType.enumeration, 'atmVpCrossConnectAdminStatus'), [('ydk.models.cisco_ios_xe.ATM_TC_MIB', 'AtmVorXAdminStatus', '')])),
+                    ('atmvpcrossconnectl2hoperstatus', (YLeaf(YType.enumeration, 'atmVpCrossConnectL2HOperStatus'), [('ydk.models.cisco_ios_xe.ATM_TC_MIB', 'AtmVorXOperStatus', '')])),
+                    ('atmvpcrossconnecth2loperstatus', (YLeaf(YType.enumeration, 'atmVpCrossConnectH2LOperStatus'), [('ydk.models.cisco_ios_xe.ATM_TC_MIB', 'AtmVorXOperStatus', '')])),
+                    ('atmvpcrossconnectl2hlastchange', (YLeaf(YType.uint32, 'atmVpCrossConnectL2HLastChange'), ['int'])),
+                    ('atmvpcrossconnecth2llastchange', (YLeaf(YType.uint32, 'atmVpCrossConnectH2LLastChange'), ['int'])),
+                    ('atmvpcrossconnectrowstatus', (YLeaf(YType.enumeration, 'atmVpCrossConnectRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.atmvpcrossconnectindex = None
                 self.atmvpcrossconnectlowifindex = None
@@ -2348,6 +2364,7 @@ class ATMMIB(Entity):
                 self.atmvpcrossconnectrowstatus = None
                 self._segment_path = lambda: "atmVpCrossConnectEntry" + "[atmVpCrossConnectIndex='" + str(self.atmvpcrossconnectindex) + "']" + "[atmVpCrossConnectLowIfIndex='" + str(self.atmvpcrossconnectlowifindex) + "']" + "[atmVpCrossConnectLowVpi='" + str(self.atmvpcrossconnectlowvpi) + "']" + "[atmVpCrossConnectHighIfIndex='" + str(self.atmvpcrossconnecthighifindex) + "']" + "[atmVpCrossConnectHighVpi='" + str(self.atmvpcrossconnecthighvpi) + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmVpCrossConnectTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ATMMIB.AtmVpCrossConnectTable.AtmVpCrossConnectEntry, [u'atmvpcrossconnectindex', u'atmvpcrossconnectlowifindex', u'atmvpcrossconnectlowvpi', u'atmvpcrossconnecthighifindex', u'atmvpcrossconnecthighvpi', u'atmvpcrossconnectadminstatus', u'atmvpcrossconnectl2hoperstatus', u'atmvpcrossconnecth2loperstatus', u'atmvpcrossconnectl2hlastchange', u'atmvpcrossconnecth2llastchange', u'atmvpcrossconnectrowstatus'], name, value)
@@ -2387,6 +2404,7 @@ class ATMMIB(Entity):
             self.atmvccrossconnectentry = YList(self)
             self._segment_path = lambda: "atmVcCrossConnectTable"
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ATMMIB.AtmVcCrossConnectTable, [], name, value)
@@ -2617,19 +2635,19 @@ class ATMMIB(Entity):
                 self.ylist_key_names = ['atmvccrossconnectindex','atmvccrossconnectlowifindex','atmvccrossconnectlowvpi','atmvccrossconnectlowvci','atmvccrossconnecthighifindex','atmvccrossconnecthighvpi','atmvccrossconnecthighvci']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('atmvccrossconnectindex', YLeaf(YType.int32, 'atmVcCrossConnectIndex')),
-                    ('atmvccrossconnectlowifindex', YLeaf(YType.int32, 'atmVcCrossConnectLowIfIndex')),
-                    ('atmvccrossconnectlowvpi', YLeaf(YType.int32, 'atmVcCrossConnectLowVpi')),
-                    ('atmvccrossconnectlowvci', YLeaf(YType.int32, 'atmVcCrossConnectLowVci')),
-                    ('atmvccrossconnecthighifindex', YLeaf(YType.int32, 'atmVcCrossConnectHighIfIndex')),
-                    ('atmvccrossconnecthighvpi', YLeaf(YType.int32, 'atmVcCrossConnectHighVpi')),
-                    ('atmvccrossconnecthighvci', YLeaf(YType.int32, 'atmVcCrossConnectHighVci')),
-                    ('atmvccrossconnectadminstatus', YLeaf(YType.enumeration, 'atmVcCrossConnectAdminStatus')),
-                    ('atmvccrossconnectl2hoperstatus', YLeaf(YType.enumeration, 'atmVcCrossConnectL2HOperStatus')),
-                    ('atmvccrossconnecth2loperstatus', YLeaf(YType.enumeration, 'atmVcCrossConnectH2LOperStatus')),
-                    ('atmvccrossconnectl2hlastchange', YLeaf(YType.uint32, 'atmVcCrossConnectL2HLastChange')),
-                    ('atmvccrossconnecth2llastchange', YLeaf(YType.uint32, 'atmVcCrossConnectH2LLastChange')),
-                    ('atmvccrossconnectrowstatus', YLeaf(YType.enumeration, 'atmVcCrossConnectRowStatus')),
+                    ('atmvccrossconnectindex', (YLeaf(YType.int32, 'atmVcCrossConnectIndex'), ['int'])),
+                    ('atmvccrossconnectlowifindex', (YLeaf(YType.int32, 'atmVcCrossConnectLowIfIndex'), ['int'])),
+                    ('atmvccrossconnectlowvpi', (YLeaf(YType.int32, 'atmVcCrossConnectLowVpi'), ['int'])),
+                    ('atmvccrossconnectlowvci', (YLeaf(YType.int32, 'atmVcCrossConnectLowVci'), ['int'])),
+                    ('atmvccrossconnecthighifindex', (YLeaf(YType.int32, 'atmVcCrossConnectHighIfIndex'), ['int'])),
+                    ('atmvccrossconnecthighvpi', (YLeaf(YType.int32, 'atmVcCrossConnectHighVpi'), ['int'])),
+                    ('atmvccrossconnecthighvci', (YLeaf(YType.int32, 'atmVcCrossConnectHighVci'), ['int'])),
+                    ('atmvccrossconnectadminstatus', (YLeaf(YType.enumeration, 'atmVcCrossConnectAdminStatus'), [('ydk.models.cisco_ios_xe.ATM_TC_MIB', 'AtmVorXAdminStatus', '')])),
+                    ('atmvccrossconnectl2hoperstatus', (YLeaf(YType.enumeration, 'atmVcCrossConnectL2HOperStatus'), [('ydk.models.cisco_ios_xe.ATM_TC_MIB', 'AtmVorXOperStatus', '')])),
+                    ('atmvccrossconnecth2loperstatus', (YLeaf(YType.enumeration, 'atmVcCrossConnectH2LOperStatus'), [('ydk.models.cisco_ios_xe.ATM_TC_MIB', 'AtmVorXOperStatus', '')])),
+                    ('atmvccrossconnectl2hlastchange', (YLeaf(YType.uint32, 'atmVcCrossConnectL2HLastChange'), ['int'])),
+                    ('atmvccrossconnecth2llastchange', (YLeaf(YType.uint32, 'atmVcCrossConnectH2LLastChange'), ['int'])),
+                    ('atmvccrossconnectrowstatus', (YLeaf(YType.enumeration, 'atmVcCrossConnectRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.atmvccrossconnectindex = None
                 self.atmvccrossconnectlowifindex = None
@@ -2646,6 +2664,7 @@ class ATMMIB(Entity):
                 self.atmvccrossconnectrowstatus = None
                 self._segment_path = lambda: "atmVcCrossConnectEntry" + "[atmVcCrossConnectIndex='" + str(self.atmvccrossconnectindex) + "']" + "[atmVcCrossConnectLowIfIndex='" + str(self.atmvccrossconnectlowifindex) + "']" + "[atmVcCrossConnectLowVpi='" + str(self.atmvccrossconnectlowvpi) + "']" + "[atmVcCrossConnectLowVci='" + str(self.atmvccrossconnectlowvci) + "']" + "[atmVcCrossConnectHighIfIndex='" + str(self.atmvccrossconnecthighifindex) + "']" + "[atmVcCrossConnectHighVpi='" + str(self.atmvccrossconnecthighvpi) + "']" + "[atmVcCrossConnectHighVci='" + str(self.atmvccrossconnecthighvci) + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/atmVcCrossConnectTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ATMMIB.AtmVcCrossConnectTable.AtmVcCrossConnectEntry, [u'atmvccrossconnectindex', u'atmvccrossconnectlowifindex', u'atmvccrossconnectlowvpi', u'atmvccrossconnectlowvci', u'atmvccrossconnecthighifindex', u'atmvccrossconnecthighvpi', u'atmvccrossconnecthighvci', u'atmvccrossconnectadminstatus', u'atmvccrossconnectl2hoperstatus', u'atmvccrossconnecth2loperstatus', u'atmvccrossconnectl2hlastchange', u'atmvccrossconnecth2llastchange', u'atmvccrossconnectrowstatus'], name, value)
@@ -2682,6 +2701,7 @@ class ATMMIB(Entity):
             self.aal5vccentry = YList(self)
             self._segment_path = lambda: "aal5VccTable"
             self._absolute_path = lambda: "ATM-MIB:ATM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ATMMIB.Aal5VccTable, [], name, value)
@@ -2734,30 +2754,6 @@ class ATMMIB(Entity):
             .. attribute:: aal5vccoversizedsdus
             
             	The number of AAL5 CPCS PDUs discarded on this AAL5 VCC at the interface associated with an AAL5 entity because the AAL5 SDUs were too large
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: caal5vccextcompenabled
-            
-            	Boolean, if compression enabled for VCC
-            	**type**\: bool
-            
-            .. attribute:: caal5vccextvoice
-            
-            	Boolean, TRUE if VCC is used to carry voice
-            	**type**\: bool
-            
-            .. attribute:: caal5vccextinf5oamcells
-            
-            	Number of OAM F5 end to end loopback cells  received through the VCC
-            	**type**\: int
-            
-            	**range:** 0..4294967295
-            
-            .. attribute:: caal5vccextoutf5oamcells
-            
-            	Number of OAM F5 end to end loopback cells sent  through the VCC
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -2862,6 +2858,30 @@ class ATMMIB(Entity):
             
             	**range:** 0..18446744073709551615
             
+            .. attribute:: caal5vccextcompenabled
+            
+            	Boolean, if compression enabled for VCC
+            	**type**\: bool
+            
+            .. attribute:: caal5vccextvoice
+            
+            	Boolean, TRUE if VCC is used to carry voice
+            	**type**\: bool
+            
+            .. attribute:: caal5vccextinf5oamcells
+            
+            	Number of OAM F5 end to end loopback cells  received through the VCC
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: caal5vccextoutf5oamcells
+            
+            	Number of OAM F5 end to end loopback cells sent  through the VCC
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
             
 
             """
@@ -2879,28 +2899,28 @@ class ATMMIB(Entity):
                 self.ylist_key_names = ['ifindex','aal5vccvpi','aal5vccvci']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('aal5vccvpi', YLeaf(YType.int32, 'aal5VccVpi')),
-                    ('aal5vccvci', YLeaf(YType.int32, 'aal5VccVci')),
-                    ('aal5vcccrcerrors', YLeaf(YType.uint32, 'aal5VccCrcErrors')),
-                    ('aal5vccsartimeouts', YLeaf(YType.uint32, 'aal5VccSarTimeOuts')),
-                    ('aal5vccoversizedsdus', YLeaf(YType.uint32, 'aal5VccOverSizedSDUs')),
-                    ('caal5vccextcompenabled', YLeaf(YType.boolean, 'CISCO-ATM-EXT-MIB:cAal5VccExtCompEnabled')),
-                    ('caal5vccextvoice', YLeaf(YType.boolean, 'CISCO-ATM-EXT-MIB:cAal5VccExtVoice')),
-                    ('caal5vccextinf5oamcells', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:cAal5VccExtInF5OamCells')),
-                    ('caal5vccextoutf5oamcells', YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:cAal5VccExtOutF5OamCells')),
-                    ('caal5vccinpkts', YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccInPkts')),
-                    ('caal5vccoutpkts', YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccOutPkts')),
-                    ('caal5vccinoctets', YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccInOctets')),
-                    ('caal5vccoutoctets', YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccOutOctets')),
-                    ('caal5vccindroppedpkts', YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccInDroppedPkts')),
-                    ('caal5vccoutdroppedpkts', YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccOutDroppedPkts')),
-                    ('caal5vccindroppedoctets', YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccInDroppedOctets')),
-                    ('caal5vccoutdroppedoctets', YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccOutDroppedOctets')),
-                    ('caal5vcchcinpkts', YLeaf(YType.uint64, 'CISCO-AAL5-MIB:cAal5VccHCInPkts')),
-                    ('caal5vcchcoutpkts', YLeaf(YType.uint64, 'CISCO-AAL5-MIB:cAal5VccHCOutPkts')),
-                    ('caal5vcchcinoctets', YLeaf(YType.uint64, 'CISCO-AAL5-MIB:cAal5VccHCInOctets')),
-                    ('caal5vcchcoutoctets', YLeaf(YType.uint64, 'CISCO-AAL5-MIB:cAal5VccHCOutOctets')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('aal5vccvpi', (YLeaf(YType.int32, 'aal5VccVpi'), ['int'])),
+                    ('aal5vccvci', (YLeaf(YType.int32, 'aal5VccVci'), ['int'])),
+                    ('aal5vcccrcerrors', (YLeaf(YType.uint32, 'aal5VccCrcErrors'), ['int'])),
+                    ('aal5vccsartimeouts', (YLeaf(YType.uint32, 'aal5VccSarTimeOuts'), ['int'])),
+                    ('aal5vccoversizedsdus', (YLeaf(YType.uint32, 'aal5VccOverSizedSDUs'), ['int'])),
+                    ('caal5vccinpkts', (YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccInPkts'), ['int'])),
+                    ('caal5vccoutpkts', (YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccOutPkts'), ['int'])),
+                    ('caal5vccinoctets', (YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccInOctets'), ['int'])),
+                    ('caal5vccoutoctets', (YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccOutOctets'), ['int'])),
+                    ('caal5vccindroppedpkts', (YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccInDroppedPkts'), ['int'])),
+                    ('caal5vccoutdroppedpkts', (YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccOutDroppedPkts'), ['int'])),
+                    ('caal5vccindroppedoctets', (YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccInDroppedOctets'), ['int'])),
+                    ('caal5vccoutdroppedoctets', (YLeaf(YType.uint32, 'CISCO-AAL5-MIB:cAal5VccOutDroppedOctets'), ['int'])),
+                    ('caal5vcchcinpkts', (YLeaf(YType.uint64, 'CISCO-AAL5-MIB:cAal5VccHCInPkts'), ['int'])),
+                    ('caal5vcchcoutpkts', (YLeaf(YType.uint64, 'CISCO-AAL5-MIB:cAal5VccHCOutPkts'), ['int'])),
+                    ('caal5vcchcinoctets', (YLeaf(YType.uint64, 'CISCO-AAL5-MIB:cAal5VccHCInOctets'), ['int'])),
+                    ('caal5vcchcoutoctets', (YLeaf(YType.uint64, 'CISCO-AAL5-MIB:cAal5VccHCOutOctets'), ['int'])),
+                    ('caal5vccextcompenabled', (YLeaf(YType.boolean, 'CISCO-ATM-EXT-MIB:cAal5VccExtCompEnabled'), ['bool'])),
+                    ('caal5vccextvoice', (YLeaf(YType.boolean, 'CISCO-ATM-EXT-MIB:cAal5VccExtVoice'), ['bool'])),
+                    ('caal5vccextinf5oamcells', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:cAal5VccExtInF5OamCells'), ['int'])),
+                    ('caal5vccextoutf5oamcells', (YLeaf(YType.uint32, 'CISCO-ATM-EXT-MIB:cAal5VccExtOutF5OamCells'), ['int'])),
                 ])
                 self.ifindex = None
                 self.aal5vccvpi = None
@@ -2908,10 +2928,6 @@ class ATMMIB(Entity):
                 self.aal5vcccrcerrors = None
                 self.aal5vccsartimeouts = None
                 self.aal5vccoversizedsdus = None
-                self.caal5vccextcompenabled = None
-                self.caal5vccextvoice = None
-                self.caal5vccextinf5oamcells = None
-                self.caal5vccextoutf5oamcells = None
                 self.caal5vccinpkts = None
                 self.caal5vccoutpkts = None
                 self.caal5vccinoctets = None
@@ -2924,11 +2940,16 @@ class ATMMIB(Entity):
                 self.caal5vcchcoutpkts = None
                 self.caal5vcchcinoctets = None
                 self.caal5vcchcoutoctets = None
+                self.caal5vccextcompenabled = None
+                self.caal5vccextvoice = None
+                self.caal5vccextinf5oamcells = None
+                self.caal5vccextoutf5oamcells = None
                 self._segment_path = lambda: "aal5VccEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[aal5VccVpi='" + str(self.aal5vccvpi) + "']" + "[aal5VccVci='" + str(self.aal5vccvci) + "']"
                 self._absolute_path = lambda: "ATM-MIB:ATM-MIB/aal5VccTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ATMMIB.Aal5VccTable.Aal5VccEntry, [u'ifindex', u'aal5vccvpi', u'aal5vccvci', u'aal5vcccrcerrors', u'aal5vccsartimeouts', u'aal5vccoversizedsdus', 'caal5vccextcompenabled', 'caal5vccextvoice', 'caal5vccextinf5oamcells', 'caal5vccextoutf5oamcells', 'caal5vccinpkts', 'caal5vccoutpkts', 'caal5vccinoctets', 'caal5vccoutoctets', 'caal5vccindroppedpkts', 'caal5vccoutdroppedpkts', 'caal5vccindroppedoctets', 'caal5vccoutdroppedoctets', 'caal5vcchcinpkts', 'caal5vcchcoutpkts', 'caal5vcchcinoctets', 'caal5vcchcoutoctets'], name, value)
+                self._perform_setattr(ATMMIB.Aal5VccTable.Aal5VccEntry, [u'ifindex', u'aal5vccvpi', u'aal5vccvci', u'aal5vcccrcerrors', u'aal5vccsartimeouts', u'aal5vccoversizedsdus', 'caal5vccinpkts', 'caal5vccoutpkts', 'caal5vccinoctets', 'caal5vccoutoctets', 'caal5vccindroppedpkts', 'caal5vccoutdroppedpkts', 'caal5vccindroppedoctets', 'caal5vccoutdroppedoctets', 'caal5vcchcinpkts', 'caal5vcchcoutpkts', 'caal5vcchcinoctets', 'caal5vcchcoutoctets', 'caal5vccextcompenabled', 'caal5vccextvoice', 'caal5vccextinf5oamcells', 'caal5vccextoutf5oamcells'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ATMMIB()

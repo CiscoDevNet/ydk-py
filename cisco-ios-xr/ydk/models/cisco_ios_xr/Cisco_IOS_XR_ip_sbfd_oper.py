@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   sbfd\: Seamless BFD (S\-BFD) operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class BfdAfId(Enum):
@@ -100,6 +101,7 @@ class Sbfd(Entity):
         self.target_identifier.parent = self
         self._children_name_map["target_identifier"] = "target-identifier"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-sbfd-oper:sbfd"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Sbfd, [], name, value)
@@ -146,6 +148,7 @@ class Sbfd(Entity):
             self._children_name_map["local_vrfs"] = "local-vrfs"
             self._segment_path = lambda: "target-identifier"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-oper:sbfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Sbfd.TargetIdentifier, [], name, value)
@@ -181,6 +184,7 @@ class Sbfd(Entity):
                 self.remote_vrf = YList(self)
                 self._segment_path = lambda: "remote-vrfs"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Sbfd.TargetIdentifier.RemoteVrfs, [], name, value)
@@ -219,13 +223,14 @@ class Sbfd(Entity):
                     self.ylist_key_names = ['vrf_name']
                     self._child_classes = OrderedDict([("remote-discriminator", ("remote_discriminator", Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator))])
                     self._leafs = OrderedDict([
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                     ])
                     self.vrf_name = None
 
                     self.remote_discriminator = YList(self)
                     self._segment_path = lambda: "remote-vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/remote-vrfs/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf, ['vrf_name'], name, value)
@@ -311,14 +316,14 @@ class Sbfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("ip-address", ("ip_address", Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress))])
                         self._leafs = OrderedDict([
-                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                            ('remote_discriminator', YLeaf(YType.uint32, 'remote-discriminator')),
-                            ('address', YLeaf(YType.str, 'address')),
-                            ('tid_type', YLeaf(YType.enumeration, 'tid-type')),
-                            ('discr', YLeaf(YType.uint32, 'discr')),
-                            ('vrf_name_xr', YLeaf(YType.str, 'vrf-name-xr')),
-                            ('status', YLeaf(YType.str, 'status')),
-                            ('discr_src', YLeaf(YType.str, 'discr-src')),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                            ('remote_discriminator', (YLeaf(YType.uint32, 'remote-discriminator'), ['int'])),
+                            ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                            ('tid_type', (YLeaf(YType.enumeration, 'tid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper', 'SbfdAddressFamily', '')])),
+                            ('discr', (YLeaf(YType.uint32, 'discr'), ['int'])),
+                            ('vrf_name_xr', (YLeaf(YType.str, 'vrf-name-xr'), ['str'])),
+                            ('status', (YLeaf(YType.str, 'status'), ['str'])),
+                            ('discr_src', (YLeaf(YType.str, 'discr-src'), ['str'])),
                         ])
                         self.vrf_name = None
                         self.remote_discriminator = None
@@ -333,6 +338,7 @@ class Sbfd(Entity):
                         self.ip_address.parent = self
                         self._children_name_map["ip_address"] = "ip-address"
                         self._segment_path = lambda: "remote-discriminator"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator, ['vrf_name', 'remote_discriminator', 'address', 'tid_type', 'discr', 'vrf_name_xr', 'status', 'discr_src'], name, value)
@@ -385,16 +391,17 @@ class Sbfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('afi', YLeaf(YType.enumeration, 'afi')),
-                                ('dummy', YLeaf(YType.uint8, 'dummy')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_oper', 'BfdAfId', '')])),
+                                ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.afi = None
                             self.dummy = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "ip-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sbfd.TargetIdentifier.RemoteVrfs.RemoteVrf.RemoteDiscriminator.IpAddress, ['afi', 'dummy', 'ipv4', 'ipv6'], name, value)
@@ -430,6 +437,7 @@ class Sbfd(Entity):
                 self.local_vrf = YList(self)
                 self._segment_path = lambda: "local-vrfs"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Sbfd.TargetIdentifier.LocalVrfs, [], name, value)
@@ -468,13 +476,14 @@ class Sbfd(Entity):
                     self.ylist_key_names = ['vrf_name']
                     self._child_classes = OrderedDict([("local-discriminator", ("local_discriminator", Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator))])
                     self._leafs = OrderedDict([
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                     ])
                     self.vrf_name = None
 
                     self.local_discriminator = YList(self)
                     self._segment_path = lambda: "local-vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-sbfd-oper:sbfd/target-identifier/local-vrfs/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf, ['vrf_name'], name, value)
@@ -542,13 +551,13 @@ class Sbfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                            ('discr', YLeaf(YType.uint32, 'discr')),
-                            ('vrf_name_xr', YLeaf(YType.str, 'vrf-name-xr')),
-                            ('flags', YLeaf(YType.str, 'flags')),
-                            ('status', YLeaf(YType.str, 'status')),
-                            ('discr_src', YLeaf(YType.str, 'discr-src')),
+                            ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                            ('discr', (YLeaf(YType.uint32, 'discr'), ['int'])),
+                            ('vrf_name_xr', (YLeaf(YType.str, 'vrf-name-xr'), ['str'])),
+                            ('flags', (YLeaf(YType.str, 'flags'), ['str'])),
+                            ('status', (YLeaf(YType.str, 'status'), ['str'])),
+                            ('discr_src', (YLeaf(YType.str, 'discr-src'), ['str'])),
                         ])
                         self.local_discriminator = None
                         self.vrf_name = None
@@ -558,6 +567,7 @@ class Sbfd(Entity):
                         self.status = None
                         self.discr_src = None
                         self._segment_path = lambda: "local-discriminator"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Sbfd.TargetIdentifier.LocalVrfs.LocalVrf.LocalDiscriminator, ['local_discriminator', 'vrf_name', 'discr', 'vrf_name_xr', 'flags', 'status', 'discr_src'], name, value)

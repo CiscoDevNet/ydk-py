@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   lpts\-pifib\: lpts pre\-ifib data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class LptsPifib(Enum):
@@ -121,6 +122,7 @@ class LptsPifib_(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(LptsPifib_, [], name, value)
@@ -156,6 +158,7 @@ class LptsPifib_(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LptsPifib_.Nodes, [], name, value)
@@ -204,7 +207,7 @@ class LptsPifib_(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("type-values", ("type_values", LptsPifib_.Nodes.Node.TypeValues)), ("dynamic-flows-stats", ("dynamic_flows_stats", LptsPifib_.Nodes.Node.DynamicFlowsStats)), ("Cisco-IOS-XR-platform-pifib-oper:hardware", ("hardware", LptsPifib_.Nodes.Node.Hardware))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -221,6 +224,7 @@ class LptsPifib_(Entity):
                 self._children_name_map["hardware"] = "Cisco-IOS-XR-platform-pifib-oper:hardware"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lpts-pre-ifib-oper:lpts-pifib/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LptsPifib_.Nodes.Node, ['node_name'], name, value)
@@ -255,6 +259,7 @@ class LptsPifib_(Entity):
 
                     self.type_value = YList(self)
                     self._segment_path = lambda: "type-values"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues, [], name, value)
@@ -291,12 +296,13 @@ class LptsPifib_(Entity):
                         self.ylist_key_names = ['pifib_type']
                         self._child_classes = OrderedDict([("entry", ("entry", LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry))])
                         self._leafs = OrderedDict([
-                            ('pifib_type', YLeaf(YType.enumeration, 'pifib-type')),
+                            ('pifib_type', (YLeaf(YType.enumeration, 'pifib-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_pre_ifib_oper', 'LptsPifib', '')])),
                         ])
                         self.pifib_type = None
 
                         self.entry = YList(self)
                         self._segment_path = lambda: "type-value" + "[pifib-type='" + str(self.pifib_type) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues.TypeValue, ['pifib_type'], name, value)
@@ -486,33 +492,33 @@ class LptsPifib_(Entity):
                             self.ylist_key_names = ['entry']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('entry', YLeaf(YType.str, 'entry')),
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                ('vid', YLeaf(YType.uint32, 'vid')),
-                                ('l3protocol', YLeaf(YType.uint32, 'l3protocol')),
-                                ('l4protocol', YLeaf(YType.uint32, 'l4protocol')),
-                                ('intf_name', YLeaf(YType.str, 'intf-name')),
-                                ('intf_handle', YLeaf(YType.uint32, 'intf-handle')),
-                                ('destination_addr', YLeaf(YType.str, 'destination-addr')),
-                                ('source_addr', YLeaf(YType.str, 'source-addr')),
-                                ('destination_type', YLeaf(YType.str, 'destination-type')),
-                                ('destination_value', YLeaf(YType.str, 'destination-value')),
-                                ('source_port', YLeaf(YType.str, 'source-port')),
-                                ('is_frag', YLeaf(YType.uint8, 'is-frag')),
-                                ('is_syn', YLeaf(YType.uint8, 'is-syn')),
-                                ('opcode', YLeaf(YType.str, 'opcode')),
-                                ('flow_type', YLeaf(YType.str, 'flow-type')),
-                                ('listener_tag', YLeaf(YType.str, 'listener-tag')),
-                                ('local_flag', YLeaf(YType.uint8, 'local-flag')),
-                                ('is_fgid', YLeaf(YType.uint8, 'is-fgid')),
-                                ('deliver_list_short', YLeaf(YType.str, 'deliver-list-short')),
-                                ('deliver_list_long', YLeaf(YType.str, 'deliver-list-long')),
-                                ('min_ttl', YLeaf(YType.uint8, 'min-ttl')),
-                                ('accepts', YLeaf(YType.uint64, 'accepts')),
-                                ('drops', YLeaf(YType.uint64, 'drops')),
-                                ('stale', YLeaf(YType.uint8, 'stale')),
-                                ('pifib_type', YLeaf(YType.uint8, 'pifib-type')),
-                                ('pifib_program_time', YLeaf(YType.str, 'pifib-program-time')),
+                                ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                ('vid', (YLeaf(YType.uint32, 'vid'), ['int'])),
+                                ('l3protocol', (YLeaf(YType.uint32, 'l3protocol'), ['int'])),
+                                ('l4protocol', (YLeaf(YType.uint32, 'l4protocol'), ['int'])),
+                                ('intf_name', (YLeaf(YType.str, 'intf-name'), ['str'])),
+                                ('intf_handle', (YLeaf(YType.uint32, 'intf-handle'), ['int'])),
+                                ('destination_addr', (YLeaf(YType.str, 'destination-addr'), ['str'])),
+                                ('source_addr', (YLeaf(YType.str, 'source-addr'), ['str'])),
+                                ('destination_type', (YLeaf(YType.str, 'destination-type'), ['str'])),
+                                ('destination_value', (YLeaf(YType.str, 'destination-value'), ['str'])),
+                                ('source_port', (YLeaf(YType.str, 'source-port'), ['str'])),
+                                ('is_frag', (YLeaf(YType.uint8, 'is-frag'), ['int'])),
+                                ('is_syn', (YLeaf(YType.uint8, 'is-syn'), ['int'])),
+                                ('opcode', (YLeaf(YType.str, 'opcode'), ['str'])),
+                                ('flow_type', (YLeaf(YType.str, 'flow-type'), ['str'])),
+                                ('listener_tag', (YLeaf(YType.str, 'listener-tag'), ['str'])),
+                                ('local_flag', (YLeaf(YType.uint8, 'local-flag'), ['int'])),
+                                ('is_fgid', (YLeaf(YType.uint8, 'is-fgid'), ['int'])),
+                                ('deliver_list_short', (YLeaf(YType.str, 'deliver-list-short'), ['str'])),
+                                ('deliver_list_long', (YLeaf(YType.str, 'deliver-list-long'), ['str'])),
+                                ('min_ttl', (YLeaf(YType.uint8, 'min-ttl'), ['int'])),
+                                ('accepts', (YLeaf(YType.uint64, 'accepts'), ['int'])),
+                                ('drops', (YLeaf(YType.uint64, 'drops'), ['int'])),
+                                ('stale', (YLeaf(YType.uint8, 'stale'), ['int'])),
+                                ('pifib_type', (YLeaf(YType.uint8, 'pifib-type'), ['int'])),
+                                ('pifib_program_time', (YLeaf(YType.str, 'pifib-program-time'), ['str'])),
                             ])
                             self.entry = None
                             self.vrf_name = None
@@ -542,6 +548,7 @@ class LptsPifib_(Entity):
                             self.pifib_type = None
                             self.pifib_program_time = None
                             self._segment_path = lambda: "entry" + "[entry='" + str(self.entry) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(LptsPifib_.Nodes.Node.TypeValues.TypeValue.Entry, ['entry', u'vrf_name', u'vid', u'l3protocol', u'l4protocol', u'intf_name', u'intf_handle', u'destination_addr', u'source_addr', u'destination_type', u'destination_value', u'source_port', u'is_frag', u'is_syn', u'opcode', u'flow_type', u'listener_tag', u'local_flag', u'is_fgid', u'deliver_list_short', u'deliver_list_long', u'min_ttl', u'accepts', u'drops', u'stale', u'pifib_type', u'pifib_program_time'], name, value)
@@ -613,12 +620,12 @@ class LptsPifib_(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("flow", ("flow", LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow))])
                     self._leafs = OrderedDict([
-                        ('dynamic_flows_enabled', YLeaf(YType.boolean, 'dynamic-flows-enabled')),
-                        ('platform_supported_max', YLeaf(YType.uint32, 'platform-supported-max')),
-                        ('platform_configured_max', YLeaf(YType.uint32, 'platform-configured-max')),
-                        ('platform_total_configured', YLeaf(YType.uint32, 'platform-total-configured')),
-                        ('total_hw_entries', YLeaf(YType.uint32, 'total-hw-entries')),
-                        ('total_sw_entries', YLeaf(YType.uint32, 'total-sw-entries')),
+                        ('dynamic_flows_enabled', (YLeaf(YType.boolean, 'dynamic-flows-enabled'), ['bool'])),
+                        ('platform_supported_max', (YLeaf(YType.uint32, 'platform-supported-max'), ['int'])),
+                        ('platform_configured_max', (YLeaf(YType.uint32, 'platform-configured-max'), ['int'])),
+                        ('platform_total_configured', (YLeaf(YType.uint32, 'platform-total-configured'), ['int'])),
+                        ('total_hw_entries', (YLeaf(YType.uint32, 'total-hw-entries'), ['int'])),
+                        ('total_sw_entries', (YLeaf(YType.uint32, 'total-sw-entries'), ['int'])),
                     ])
                     self.dynamic_flows_enabled = None
                     self.platform_supported_max = None
@@ -629,6 +636,7 @@ class LptsPifib_(Entity):
 
                     self.flow = YList(self)
                     self._segment_path = lambda: "dynamic-flows-stats"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LptsPifib_.Nodes.Node.DynamicFlowsStats, [u'dynamic_flows_enabled', u'platform_supported_max', u'platform_configured_max', u'platform_total_configured', u'total_hw_entries', u'total_sw_entries'], name, value)
@@ -708,15 +716,15 @@ class LptsPifib_(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('flow_name', YLeaf(YType.str, 'flow-name')),
-                            ('configurable', YLeaf(YType.boolean, 'configurable')),
-                            ('configured', YLeaf(YType.boolean, 'configured')),
-                            ('default_max', YLeaf(YType.uint32, 'default-max')),
-                            ('configured_max', YLeaf(YType.str, 'configured-max')),
-                            ('active_max', YLeaf(YType.uint32, 'active-max')),
-                            ('hardware_count', YLeaf(YType.uint32, 'hardware-count')),
-                            ('software_count', YLeaf(YType.uint32, 'software-count')),
-                            ('pending_software_entries', YLeaf(YType.boolean, 'pending-software-entries')),
+                            ('flow_name', (YLeaf(YType.str, 'flow-name'), ['str'])),
+                            ('configurable', (YLeaf(YType.boolean, 'configurable'), ['bool'])),
+                            ('configured', (YLeaf(YType.boolean, 'configured'), ['bool'])),
+                            ('default_max', (YLeaf(YType.uint32, 'default-max'), ['int'])),
+                            ('configured_max', (YLeaf(YType.str, 'configured-max'), ['str'])),
+                            ('active_max', (YLeaf(YType.uint32, 'active-max'), ['int'])),
+                            ('hardware_count', (YLeaf(YType.uint32, 'hardware-count'), ['int'])),
+                            ('software_count', (YLeaf(YType.uint32, 'software-count'), ['int'])),
+                            ('pending_software_entries', (YLeaf(YType.boolean, 'pending-software-entries'), ['bool'])),
                         ])
                         self.flow_name = None
                         self.configurable = None
@@ -728,6 +736,7 @@ class LptsPifib_(Entity):
                         self.software_count = None
                         self.pending_software_entries = None
                         self._segment_path = lambda: "flow"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LptsPifib_.Nodes.Node.DynamicFlowsStats.Flow, [u'flow_name', u'configurable', u'configured', u'default_max', u'configured_max', u'active_max', u'hardware_count', u'software_count', u'pending_software_entries'], name, value)
@@ -809,6 +818,7 @@ class LptsPifib_(Entity):
                     self.index_entries.parent = self
                     self._children_name_map["index_entries"] = "index-entries"
                     self._segment_path = lambda: "Cisco-IOS-XR-platform-pifib-oper:hardware"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LptsPifib_.Nodes.Node.Hardware, [], name, value)
@@ -843,6 +853,7 @@ class LptsPifib_(Entity):
 
                         self.usage_entry = YList(self)
                         self._segment_path = lambda: "usage-entries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.UsageEntries, [], name, value)
@@ -879,12 +890,13 @@ class LptsPifib_(Entity):
                             self.ylist_key_names = ['region_id']
                             self._child_classes = OrderedDict([("usage-info", ("usage_info", LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry.UsageInfo))])
                             self._leafs = OrderedDict([
-                                ('region_id', YLeaf(YType.enumeration, 'region-id')),
+                                ('region_id', (YLeaf(YType.enumeration, 'region-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_platform_pifib_oper', 'UsageAddressFamily', '')])),
                             ])
                             self.region_id = None
 
                             self.usage_info = YList(self)
                             self._segment_path = lambda: "usage-entry" + "[region-id='" + str(self.region_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry, ['region_id'], name, value)
@@ -946,11 +958,11 @@ class LptsPifib_(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('pipe_id', YLeaf(YType.uint8, 'pipe-id')),
-                                    ('region', YLeaf(YType.uint8, 'region')),
-                                    ('region_id', YLeaf(YType.uint8, 'region-id')),
-                                    ('size', YLeaf(YType.uint32, 'size')),
-                                    ('used', YLeaf(YType.uint32, 'used')),
+                                    ('pipe_id', (YLeaf(YType.uint8, 'pipe-id'), ['int'])),
+                                    ('region', (YLeaf(YType.uint8, 'region'), ['int'])),
+                                    ('region_id', (YLeaf(YType.uint8, 'region-id'), ['int'])),
+                                    ('size', (YLeaf(YType.uint32, 'size'), ['int'])),
+                                    ('used', (YLeaf(YType.uint32, 'used'), ['int'])),
                                 ])
                                 self.pipe_id = None
                                 self.region = None
@@ -958,6 +970,7 @@ class LptsPifib_(Entity):
                                 self.size = None
                                 self.used = None
                                 self._segment_path = lambda: "usage-info"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.UsageEntries.UsageEntry.UsageInfo, ['pipe_id', 'region', 'region_id', 'size', 'used'], name, value)
@@ -992,6 +1005,7 @@ class LptsPifib_(Entity):
 
                         self.police_info = YList(self)
                         self._segment_path = lambda: "police"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.Police, [], name, value)
@@ -1095,17 +1109,17 @@ class LptsPifib_(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('avgrate', YLeaf(YType.uint32, 'avgrate')),
-                                ('burst', YLeaf(YType.uint32, 'burst')),
-                                ('static_avgrate', YLeaf(YType.uint32, 'static-avgrate')),
-                                ('avgrate_type', YLeaf(YType.uint32, 'avgrate-type')),
-                                ('accepted_stats', YLeaf(YType.uint64, 'accepted-stats')),
-                                ('dropped_stats', YLeaf(YType.uint64, 'dropped-stats')),
-                                ('policer', YLeaf(YType.uint32, 'policer')),
-                                ('iptos_value', YLeaf(YType.uint8, 'iptos-value')),
-                                ('change_type', YLeaf(YType.uint8, 'change-type')),
-                                ('acl_config', YLeaf(YType.uint8, 'acl-config')),
-                                ('acl_str', YLeaf(YType.str, 'acl-str')),
+                                ('avgrate', (YLeaf(YType.uint32, 'avgrate'), ['int'])),
+                                ('burst', (YLeaf(YType.uint32, 'burst'), ['int'])),
+                                ('static_avgrate', (YLeaf(YType.uint32, 'static-avgrate'), ['int'])),
+                                ('avgrate_type', (YLeaf(YType.uint32, 'avgrate-type'), ['int'])),
+                                ('accepted_stats', (YLeaf(YType.uint64, 'accepted-stats'), ['int'])),
+                                ('dropped_stats', (YLeaf(YType.uint64, 'dropped-stats'), ['int'])),
+                                ('policer', (YLeaf(YType.uint32, 'policer'), ['int'])),
+                                ('iptos_value', (YLeaf(YType.uint8, 'iptos-value'), ['int'])),
+                                ('change_type', (YLeaf(YType.uint8, 'change-type'), ['int'])),
+                                ('acl_config', (YLeaf(YType.uint8, 'acl-config'), ['int'])),
+                                ('acl_str', (YLeaf(YType.str, 'acl-str'), ['str'])),
                             ])
                             self.avgrate = None
                             self.burst = None
@@ -1119,6 +1133,7 @@ class LptsPifib_(Entity):
                             self.acl_config = None
                             self.acl_str = None
                             self._segment_path = lambda: "police-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.Police.PoliceInfo, ['avgrate', 'burst', 'static_avgrate', 'avgrate_type', 'accepted_stats', 'dropped_stats', 'policer', 'iptos_value', 'change_type', 'acl_config', 'acl_str'], name, value)
@@ -1153,6 +1168,7 @@ class LptsPifib_(Entity):
 
                         self.static_info = YList(self)
                         self._segment_path = lambda: "static-police"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.StaticPolice, [], name, value)
@@ -1235,14 +1251,14 @@ class LptsPifib_(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('punt_reason', YLeaf(YType.uint32, 'punt-reason')),
-                                ('sid', YLeaf(YType.uint32, 'sid')),
-                                ('flow_rate', YLeaf(YType.uint32, 'flow-rate')),
-                                ('burst_rate', YLeaf(YType.uint32, 'burst-rate')),
-                                ('accepted', YLeaf(YType.uint64, 'accepted')),
-                                ('dropped', YLeaf(YType.uint64, 'dropped')),
-                                ('punt_reason_string', YLeaf(YType.str, 'punt-reason-string')),
-                                ('change_type', YLeaf(YType.uint8, 'change-type')),
+                                ('punt_reason', (YLeaf(YType.uint32, 'punt-reason'), ['int'])),
+                                ('sid', (YLeaf(YType.uint32, 'sid'), ['int'])),
+                                ('flow_rate', (YLeaf(YType.uint32, 'flow-rate'), ['int'])),
+                                ('burst_rate', (YLeaf(YType.uint32, 'burst-rate'), ['int'])),
+                                ('accepted', (YLeaf(YType.uint64, 'accepted'), ['int'])),
+                                ('dropped', (YLeaf(YType.uint64, 'dropped'), ['int'])),
+                                ('punt_reason_string', (YLeaf(YType.str, 'punt-reason-string'), ['str'])),
+                                ('change_type', (YLeaf(YType.uint8, 'change-type'), ['int'])),
                             ])
                             self.punt_reason = None
                             self.sid = None
@@ -1253,6 +1269,7 @@ class LptsPifib_(Entity):
                             self.punt_reason_string = None
                             self.change_type = None
                             self._segment_path = lambda: "static-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.StaticPolice.StaticInfo, ['punt_reason', 'sid', 'flow_rate', 'burst_rate', 'accepted', 'dropped', 'punt_reason_string', 'change_type'], name, value)
@@ -1287,6 +1304,7 @@ class LptsPifib_(Entity):
 
                         self.bfd_entry_info = YList(self)
                         self._segment_path = lambda: "bfd"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.Bfd, [], name, value)
@@ -1348,11 +1366,11 @@ class LptsPifib_(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('index', YLeaf(YType.uint8, 'index')),
-                                ('is_mcast', YLeaf(YType.uint8, 'is-mcast')),
-                                ('fgid_or_vqi', YLeaf(YType.uint32, 'fgid-or-vqi')),
-                                ('is_valid', YLeaf(YType.uint8, 'is-valid')),
-                                ('policer_id', YLeaf(YType.uint32, 'policer-id')),
+                                ('index', (YLeaf(YType.uint8, 'index'), ['int'])),
+                                ('is_mcast', (YLeaf(YType.uint8, 'is-mcast'), ['int'])),
+                                ('fgid_or_vqi', (YLeaf(YType.uint32, 'fgid-or-vqi'), ['int'])),
+                                ('is_valid', (YLeaf(YType.uint8, 'is-valid'), ['int'])),
+                                ('policer_id', (YLeaf(YType.uint32, 'policer-id'), ['int'])),
                             ])
                             self.index = None
                             self.is_mcast = None
@@ -1360,6 +1378,7 @@ class LptsPifib_(Entity):
                             self.is_valid = None
                             self.policer_id = None
                             self._segment_path = lambda: "bfd-entry-info"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.Bfd.BfdEntryInfo, ['index', 'is_mcast', 'fgid_or_vqi', 'is_valid', 'policer_id'], name, value)
@@ -1414,16 +1433,17 @@ class LptsPifib_(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('accepted', YLeaf(YType.uint64, 'accepted')),
-                            ('dropped', YLeaf(YType.uint64, 'dropped')),
-                            ('clear_ts', YLeaf(YType.uint64, 'clear-ts')),
-                            ('no_stats_mem_err', YLeaf(YType.uint64, 'no-stats-mem-err')),
+                            ('accepted', (YLeaf(YType.uint64, 'accepted'), ['int'])),
+                            ('dropped', (YLeaf(YType.uint64, 'dropped'), ['int'])),
+                            ('clear_ts', (YLeaf(YType.uint64, 'clear-ts'), ['int'])),
+                            ('no_stats_mem_err', (YLeaf(YType.uint64, 'no-stats-mem-err'), ['int'])),
                         ])
                         self.accepted = None
                         self.dropped = None
                         self.clear_ts = None
                         self.no_stats_mem_err = None
                         self._segment_path = lambda: "statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.Statistics, ['accepted', 'dropped', 'clear_ts', 'no_stats_mem_err'], name, value)
@@ -1458,6 +1478,7 @@ class LptsPifib_(Entity):
 
                         self.index_entry = YList(self)
                         self._segment_path = lambda: "index-entries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.IndexEntries, [], name, value)
@@ -1810,53 +1831,53 @@ class LptsPifib_(Entity):
                             self.ylist_key_names = ['index']
                             self._child_classes = OrderedDict([("hw-info", ("hw_info", LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry.HwInfo))])
                             self._leafs = OrderedDict([
-                                ('index', YLeaf(YType.uint32, 'index')),
-                                ('l3protocol', YLeaf(YType.uint32, 'l3protocol')),
-                                ('l4protocol', YLeaf(YType.uint32, 'l4protocol')),
-                                ('intf_handle', YLeaf(YType.uint32, 'intf-handle')),
-                                ('intf_name', YLeaf(YType.str, 'intf-name')),
-                                ('uidb_index', YLeaf(YType.uint32, 'uidb-index')),
-                                ('local_addr', YLeaf(YType.str, 'local-addr')),
-                                ('local_prefix_len', YLeaf(YType.uint32, 'local-prefix-len')),
-                                ('remote_addr', YLeaf(YType.str, 'remote-addr')),
-                                ('remote_prefix_len', YLeaf(YType.uint32, 'remote-prefix-len')),
-                                ('vrf_id', YLeaf(YType.uint32, 'vrf-id')),
-                                ('u_value', YLeaf(YType.uint32, 'u-value')),
-                                ('u_len', YLeaf(YType.uint32, 'u-len')),
-                                ('local_port', YLeaf(YType.uint32, 'local-port')),
-                                ('is_frag', YLeaf(YType.uint8, 'is-frag')),
-                                ('is_syn', YLeaf(YType.uint8, 'is-syn')),
-                                ('action', YLeaf(YType.uint8, 'action')),
-                                ('action_string', YLeaf(YType.str, 'action-string')),
-                                ('listener_tag', YLeaf(YType.uint8, 'listener-tag')),
-                                ('is_fgid', YLeaf(YType.uint8, 'is-fgid')),
-                                ('is_vrf', YLeaf(YType.uint8, 'is-vrf')),
-                                ('is_optimized', YLeaf(YType.uint8, 'is-optimized')),
-                                ('is_uidb_opt_bit', YLeaf(YType.uint8, 'is-uidb-opt-bit')),
-                                ('fgid_or_sfp', YLeaf(YType.uint32, 'fgid-or-sfp')),
-                                ('remote_rack', YLeaf(YType.uint8, 'remote-rack')),
-                                ('rack_id', YLeaf(YType.uint32, 'rack-id')),
-                                ('rslot', YLeaf(YType.uint32, 'rslot')),
-                                ('cir', YLeaf(YType.uint64, 'cir')),
-                                ('flow_type', YLeaf(YType.uint32, 'flow-type')),
-                                ('priority', YLeaf(YType.uint32, 'priority')),
-                                ('sid', YLeaf(YType.uint32, 'sid')),
-                                ('policer_avgrate', YLeaf(YType.uint32, 'policer-avgrate')),
-                                ('policer_burst', YLeaf(YType.uint32, 'policer-burst')),
-                                ('lookup_priority', YLeaf(YType.int32, 'lookup-priority')),
-                                ('storage_priority', YLeaf(YType.int32, 'storage-priority')),
-                                ('num_tm_entries', YLeaf(YType.int32, 'num-tm-entries')),
-                                ('entry_ptr', YLeaf(YType.uint32, 'entry-ptr')),
-                                ('entry_shadow_ptr', YLeaf(YType.uint32, 'entry-shadow-ptr')),
-                                ('list_node_ptr', YLeaf(YType.uint32, 'list-node-ptr')),
-                                ('state', YLeaf(YType.uint8, 'state')),
-                                ('retry_fail_cause', YLeaf(YType.uint8, 'retry-fail-cause')),
-                                ('num_retries', YLeaf(YType.uint8, 'num-retries')),
-                                ('min_ttl', YLeaf(YType.uint8, 'min-ttl')),
-                                ('u_type', YLeaf(YType.uint8, 'u-type')),
-                                ('remote_fgid', YLeaf(YType.uint32, 'remote-fgid')),
-                                ('acl_str', YLeaf(YType.str, 'acl-str')),
-                                ('no_stats', YLeaf(YType.uint8, 'no-stats')),
+                                ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                                ('l3protocol', (YLeaf(YType.uint32, 'l3protocol'), ['int'])),
+                                ('l4protocol', (YLeaf(YType.uint32, 'l4protocol'), ['int'])),
+                                ('intf_handle', (YLeaf(YType.uint32, 'intf-handle'), ['int'])),
+                                ('intf_name', (YLeaf(YType.str, 'intf-name'), ['str'])),
+                                ('uidb_index', (YLeaf(YType.uint32, 'uidb-index'), ['int'])),
+                                ('local_addr', (YLeaf(YType.str, 'local-addr'), ['str'])),
+                                ('local_prefix_len', (YLeaf(YType.uint32, 'local-prefix-len'), ['int'])),
+                                ('remote_addr', (YLeaf(YType.str, 'remote-addr'), ['str'])),
+                                ('remote_prefix_len', (YLeaf(YType.uint32, 'remote-prefix-len'), ['int'])),
+                                ('vrf_id', (YLeaf(YType.uint32, 'vrf-id'), ['int'])),
+                                ('u_value', (YLeaf(YType.uint32, 'u-value'), ['int'])),
+                                ('u_len', (YLeaf(YType.uint32, 'u-len'), ['int'])),
+                                ('local_port', (YLeaf(YType.uint32, 'local-port'), ['int'])),
+                                ('is_frag', (YLeaf(YType.uint8, 'is-frag'), ['int'])),
+                                ('is_syn', (YLeaf(YType.uint8, 'is-syn'), ['int'])),
+                                ('action', (YLeaf(YType.uint8, 'action'), ['int'])),
+                                ('action_string', (YLeaf(YType.str, 'action-string'), ['str'])),
+                                ('listener_tag', (YLeaf(YType.uint8, 'listener-tag'), ['int'])),
+                                ('is_fgid', (YLeaf(YType.uint8, 'is-fgid'), ['int'])),
+                                ('is_vrf', (YLeaf(YType.uint8, 'is-vrf'), ['int'])),
+                                ('is_optimized', (YLeaf(YType.uint8, 'is-optimized'), ['int'])),
+                                ('is_uidb_opt_bit', (YLeaf(YType.uint8, 'is-uidb-opt-bit'), ['int'])),
+                                ('fgid_or_sfp', (YLeaf(YType.uint32, 'fgid-or-sfp'), ['int'])),
+                                ('remote_rack', (YLeaf(YType.uint8, 'remote-rack'), ['int'])),
+                                ('rack_id', (YLeaf(YType.uint32, 'rack-id'), ['int'])),
+                                ('rslot', (YLeaf(YType.uint32, 'rslot'), ['int'])),
+                                ('cir', (YLeaf(YType.uint64, 'cir'), ['int'])),
+                                ('flow_type', (YLeaf(YType.uint32, 'flow-type'), ['int'])),
+                                ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                                ('sid', (YLeaf(YType.uint32, 'sid'), ['int'])),
+                                ('policer_avgrate', (YLeaf(YType.uint32, 'policer-avgrate'), ['int'])),
+                                ('policer_burst', (YLeaf(YType.uint32, 'policer-burst'), ['int'])),
+                                ('lookup_priority', (YLeaf(YType.int32, 'lookup-priority'), ['int'])),
+                                ('storage_priority', (YLeaf(YType.int32, 'storage-priority'), ['int'])),
+                                ('num_tm_entries', (YLeaf(YType.int32, 'num-tm-entries'), ['int'])),
+                                ('entry_ptr', (YLeaf(YType.uint32, 'entry-ptr'), ['int'])),
+                                ('entry_shadow_ptr', (YLeaf(YType.uint32, 'entry-shadow-ptr'), ['int'])),
+                                ('list_node_ptr', (YLeaf(YType.uint32, 'list-node-ptr'), ['int'])),
+                                ('state', (YLeaf(YType.uint8, 'state'), ['int'])),
+                                ('retry_fail_cause', (YLeaf(YType.uint8, 'retry-fail-cause'), ['int'])),
+                                ('num_retries', (YLeaf(YType.uint8, 'num-retries'), ['int'])),
+                                ('min_ttl', (YLeaf(YType.uint8, 'min-ttl'), ['int'])),
+                                ('u_type', (YLeaf(YType.uint8, 'u-type'), ['int'])),
+                                ('remote_fgid', (YLeaf(YType.uint32, 'remote-fgid'), ['int'])),
+                                ('acl_str', (YLeaf(YType.str, 'acl-str'), ['str'])),
+                                ('no_stats', (YLeaf(YType.uint8, 'no-stats'), ['int'])),
                             ])
                             self.index = None
                             self.l3protocol = None
@@ -1908,6 +1929,7 @@ class LptsPifib_(Entity):
 
                             self.hw_info = YList(self)
                             self._segment_path = lambda: "index-entry" + "[index='" + str(self.index) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry, ['index', 'l3protocol', 'l4protocol', 'intf_handle', 'intf_name', 'uidb_index', 'local_addr', 'local_prefix_len', 'remote_addr', 'remote_prefix_len', 'vrf_id', 'u_value', 'u_len', 'local_port', 'is_frag', 'is_syn', 'action', 'action_string', 'listener_tag', 'is_fgid', 'is_vrf', 'is_optimized', 'is_uidb_opt_bit', 'fgid_or_sfp', 'remote_rack', 'rack_id', 'rslot', 'cir', 'flow_type', 'priority', 'sid', 'policer_avgrate', 'policer_burst', 'lookup_priority', 'storage_priority', 'num_tm_entries', 'entry_ptr', 'entry_shadow_ptr', 'list_node_ptr', 'state', 'retry_fail_cause', 'num_retries', 'min_ttl', 'u_type', 'remote_fgid', 'acl_str', 'no_stats'], name, value)
@@ -1976,12 +1998,12 @@ class LptsPifib_(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('policer', YLeaf(YType.uint32, 'policer')),
-                                    ('stats_ptr', YLeaf(YType.uint32, 'stats-ptr')),
-                                    ('accepted', YLeaf(YType.uint64, 'accepted')),
-                                    ('dropped', YLeaf(YType.uint64, 'dropped')),
-                                    ('sort_start_offset', YLeaf(YType.int32, 'sort-start-offset')),
-                                    ('tm_start_offset', YLeaf(YType.int32, 'tm-start-offset')),
+                                    ('policer', (YLeaf(YType.uint32, 'policer'), ['int'])),
+                                    ('stats_ptr', (YLeaf(YType.uint32, 'stats-ptr'), ['int'])),
+                                    ('accepted', (YLeaf(YType.uint64, 'accepted'), ['int'])),
+                                    ('dropped', (YLeaf(YType.uint64, 'dropped'), ['int'])),
+                                    ('sort_start_offset', (YLeaf(YType.int32, 'sort-start-offset'), ['int'])),
+                                    ('tm_start_offset', (YLeaf(YType.int32, 'tm-start-offset'), ['int'])),
                                 ])
                                 self.policer = None
                                 self.stats_ptr = None
@@ -1990,6 +2012,7 @@ class LptsPifib_(Entity):
                                 self.sort_start_offset = None
                                 self.tm_start_offset = None
                                 self._segment_path = lambda: "hw-info"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(LptsPifib_.Nodes.Node.Hardware.IndexEntries.IndexEntry.HwInfo, ['policer', 'stats_ptr', 'accepted', 'dropped', 'sort_start_offset', 'tm_start_offset'], name, value)

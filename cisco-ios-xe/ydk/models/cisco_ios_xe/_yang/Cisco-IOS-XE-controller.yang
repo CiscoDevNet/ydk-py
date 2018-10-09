@@ -33,6 +33,22 @@ module Cisco-IOS-XE-controller {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-04-02 {
+    description
+      "Add tailf:cli-remove-before-change for channel group timeslots";
+  }
+  revision 2018-02-21 {
+    description
+      "Add options for lte modem and lte event";
+  }
+  revision 2018-02-14 {
+    description
+      "Add lte sms to controller Cellular";
+  }
+  revision 2018-02-10 {
+    description
+      "Add lte dyinggasp";
+  }
   revision 2018-02-03 {
     description
       "Remove lower case t1/e1/t3 controller name";
@@ -401,6 +417,88 @@ module Cisco-IOS-XE-controller {
     }
   }
 
+  grouping threshold-grouping {
+    leaf threshold {
+      type int16 {
+        range "-150..0";
+      }
+    }
+  }
+
+  grouping high-threshold-grouping {
+    leaf threshold {
+      type int8 {
+        range "-20..0";
+      }
+    }
+  }
+
+  grouping mib-trap-grouping {
+    leaf mib-trap {
+      description
+        "mibtrap";
+      type empty;
+    }
+  }
+
+  grouping ecio-option-grouping {
+    leaf-list mib-trap {
+      description
+        "mibtrap";
+      type enumeration {
+        enum "1xrtt";
+        enum "All-lte";
+        enum "edge";
+        enum "evdoRel0";
+        enum "evdoRelA";
+        enum "evdoRelB";
+        enum "gprs";
+        enum "umts/wcdma";
+        enum "hsdpa";
+        enum "hsupa";
+        enum "hspa";
+        enum "hspa-plus";
+        enum "lte-tdd";
+        enum "lte-fdd";
+      }
+    }
+    uses threshold-grouping;
+  }
+
+  grouping mib-trap-lte-grouping {
+    leaf-list mib-trap {
+      description
+        "mibtrap";
+      type enumeration {
+        enum "All-lte";
+        enum "lte-tdd";
+        enum "lte-fdd";
+      }
+    }
+  }
+
+  grouping threshold-mib-trap-lte-grouping {
+    container abate {
+      uses mib-trap-lte-grouping;
+      uses threshold-grouping;
+    }
+    container onset {
+      uses mib-trap-lte-grouping;
+      uses threshold-grouping;
+    }
+  }
+
+  grouping high-threshold-mib-trap-lte-grouping {
+    container abate {
+      uses mib-trap-lte-grouping;
+      uses high-threshold-grouping;
+    }
+    container onset {
+      uses mib-trap-lte-grouping;
+      uses high-threshold-grouping;
+    }
+  }
+
   grouping config-controller-grouping {
     list controller-tx-ex-list {
       key "name number";
@@ -573,6 +671,27 @@ module Cisco-IOS-XE-controller {
              }
           }
         }
+        container sms {
+          description
+            "SMS configuration";
+          container archive {
+            description
+              "SMS archive configuration";
+            leaf path {
+              description
+                "path in URL to archive SMS";
+              type enumeration {
+                enum "ftp:";
+                enum "http:";
+                enum "https:";
+                enum "pram:";
+                enum "rcp:";
+                enum "scp:";
+                enum "tftp:";
+              }
+            }
+          }
+        }
         container gps {
           description 
             "GPS configuration";
@@ -649,6 +768,103 @@ module Cisco-IOS-XE-controller {
           }
         }
         container modem {
+          container dm-log {
+            description
+              "Modem DM logging configuration";
+            container output {
+              description
+                "DM logging output files";
+              choice output-choice {
+                leaf local-uf {
+                  description
+                    "Use Module Utility flash to store DM logs";
+                  type empty;
+                }
+                leaf path {
+                  description
+                    "URL to store DM log files";
+                  type enumeration {
+                    enum "bootflash:";
+                    enum "flash:";
+                    enum "ftp:";
+                    enum "http:";
+                    enum "https:";
+                    enum "pram:";
+                    enum "rcp:";
+                    enum "scp:";
+                    enum "tftp:";
+                  }
+                }
+              }
+            }
+            leaf filter {
+              description
+                "DM log filter file. Specify DM log filter location (in .sqf format)";
+              type enumeration {
+                enum "bootflash:";
+                enum "flash:";
+                enum "webui:";
+              }
+            }
+            leaf size {
+              description
+                "Specify maximum log size. Maximum log size in MB (default is 64MB, 0 means no upper limit)";
+              type uint16 {
+                range "0..1024";
+              }
+            }
+            leaf filesize {
+              description
+                "Specify maximum log file size. Maximum file size in MB (default is 20MB)";
+              type int8 {
+                range "1..64";
+              }
+            }
+            leaf rotation {
+              description
+                "DM log rotation (only supported on flash:)";
+              type empty;
+            }
+            leaf enable {
+              description
+                "Enable DM logging";
+              type empty;
+            }
+            container autostop {
+              description
+                "Auto stop trigger event";
+              choice autostop-choice {
+                leaf link-down {
+                  description
+                    "Cellular interface link down event";
+                  type empty;
+                }
+                leaf timer {
+                  description
+                    "Timer interval in minutes";
+                  type int8 {
+                    range "12..120";
+                  }
+                }
+              }
+            }
+          }
+          container fota {
+            description
+              "Firmware upgrade over the air";
+            leaf enable {
+              description
+                "Enable FOTA";
+              type empty;
+            }
+            leaf poll-timer {
+              description
+                "Set poll timer for AVMS, Interval(in minutes) at which modem polls server for firmware.";
+              type uint32 {
+                range "15..525600";
+              }
+            }
+          }
           container link-recovery {
             container rssi {
               leaf onset-threshold {
@@ -666,6 +882,147 @@ module Cisco-IOS-XE-controller {
             }
             leaf disable {
               type empty;
+            }
+          }
+          container nas-log {
+            description
+              "Modem NAS logging configuration";
+            container output {
+              description
+                "DM logging output files";
+              leaf path {
+                description
+                  "URL to store DM log files";
+                type enumeration {
+                  enum "bootflash:";
+                  enum "flash:";
+                }
+              }
+            }
+            leaf size {
+              description
+                "Specify maximum log size. Maximum log size in MB (default is 64MB, 0 means no upper limit)";
+              type uint16 {
+                range "0..1024";
+              }
+            }
+            leaf filesize {
+              description
+                "Specify maximum log file size. Maximum file size in MB (default is 20MB)";
+              type int8 {
+                range "1..64";
+              }
+            }
+            leaf enable {
+              description
+                "Enable NAS logging";
+              type empty;
+            }
+          }
+        }
+        container event {
+          description 
+            "cellular snmp event persistence";
+          container connection-status {
+            description
+              "connection status";
+            leaf-list mib-trap {
+              description
+                "mibtrap";
+              type enumeration {
+                enum "All-lte";
+                enum "active";
+                enum "inactive";
+              }
+            }
+          }
+          container ecio {
+            description
+              "ecio";
+            container abate {
+              uses ecio-option-grouping;
+            }
+            container onset {
+              uses ecio-option-grouping;
+            }
+          }
+          container modem-state {
+            description
+              "modem state";
+            leaf-list mib-trap {
+              description
+                "mibtrap";
+              type enumeration {
+                enum "all";
+                enum "down";
+                enum "up";
+              }
+            }
+          }
+          container network {
+            description
+              "enable trap for network";
+            uses mib-trap-grouping;
+          }
+          container rsrp {
+            description
+              "Reference Signal Received Power";
+            uses threshold-mib-trap-lte-grouping;
+          }
+          container rsrq {
+            description
+              "Reference Signal Received Quality";
+            uses high-threshold-mib-trap-lte-grouping;
+          }
+          container rssi {
+            description
+              "rssi";
+            uses threshold-mib-trap-lte-grouping;
+          }
+          container service {
+            description
+              "enable trap for service";
+            uses mib-trap-grouping;
+          }
+          container temperature {
+            description
+              "modem temperature";
+            container abate {
+              uses mib-trap-grouping;
+              uses threshold-grouping;
+            }
+            container onset {
+              uses mib-trap-grouping;
+              uses threshold-grouping;
+            }
+          }
+        }
+        container dyinggasp {
+          description 
+            "Dying Gasp Configuration";
+          container detach {
+            description 
+              "Send Detach Request";
+            leaf enable {
+              description 
+                "Enable Dying Gasp Detach Request";
+              type empty;
+            }
+          }
+          container sms {
+            description 
+              "SMS Commands";
+            leaf send {
+              description 
+                "Send SMS";
+              type string;
+            }
+            leaf sms-text {
+              description 
+                "SMS text until the end of line (EOL) up to 160 characters";
+              type string {
+                length "1..160";
+              }
             }
           }
         }
@@ -704,6 +1061,129 @@ module Cisco-IOS-XE-controller {
       leaf name {
         type string;
       }
+    }
+    list vdsl{
+        description
+            "VDSL2 controller";
+       key "name";
+       leaf name {
+            type string;
+       }
+       leaf shutdown{
+            type empty;
+       }
+       leaf sra{
+            type empty;
+       }
+       leaf bitswap{
+            type empty;
+       }
+       leaf diagnostics{
+            type enumeration{
+                enum "DELT";
+            }
+       }
+       leaf description{
+            type string{
+                length "1..240";
+            }
+       }
+       container line-mode{
+           choice line-mode-choice{
+                leaf bonding{
+                    type empty;
+                }
+                container single-wire{
+                    container line{
+                        leaf zero{
+                           type empty;
+                        }
+                        container one{
+                            presence true;
+                            leaf profile{
+                                type enumeration{
+                                    enum "30a";
+                                }
+                            }
+                        }
+                    }
+                }
+           }
+       }
+       container operating{
+            container mode{
+                choice operating-mode-choice{
+                    leaf adsl1{
+                        type empty;
+                    }
+                    container adsl2{
+                        presence true;
+                        leaf annex{
+                            type enumeration{
+                                enum "A";
+                                enum "M";
+                            }
+                        }
+                    }
+                    leaf auto{
+                        type empty;
+                    }
+                    leaf vdsl2{
+                        type empty;
+                    }
+                    leaf ansi{
+                        type empty;
+                    }
+                    container adsl2plus{
+                         presence true;
+                         leaf annex{
+                             type enumeration{
+                                 enum "A";
+                                 enum "M";
+                             }
+                         }
+ 
+                     }
+
+                }
+            }
+       }
+       container training{
+            container log{
+                leaf filename{
+                    type string;
+                }
+            }
+       }
+       container sync{
+            container interval{
+                leaf seconds{
+                    type uint32;
+                }
+            }
+            container mode{
+                container itu{
+                    presence true;
+                    leaf previous{
+                        type empty;
+                    }
+                }
+                leaf none{
+                    type empty;
+                }
+                container ansi{
+                    presence true;
+                    leaf previous{
+                        type empty;
+                    }
+                }
+            }
+       }
+       leaf modem{
+            type string{
+                length "1..48";
+            }
+        }
     }
   }
 

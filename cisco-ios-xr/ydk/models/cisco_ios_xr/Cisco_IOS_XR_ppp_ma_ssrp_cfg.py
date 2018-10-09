@@ -12,7 +12,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -22,6 +22,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -57,6 +58,7 @@ class Ssrp(Entity):
         self.profiles.parent = self
         self._children_name_map["profiles"] = "profiles"
         self._segment_path = lambda: "Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ssrp, [], name, value)
@@ -92,6 +94,7 @@ class Ssrp(Entity):
             self.profile = YList(self)
             self._segment_path = lambda: "profiles"
             self._absolute_path = lambda: "Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ssrp.Profiles, [], name, value)
@@ -139,15 +142,16 @@ class Ssrp(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('max_hops', YLeaf(YType.uint32, 'max-hops')),
-                    ('peer_ipv4_address', YLeaf(YType.str, 'peer-ipv4-address')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('max_hops', (YLeaf(YType.uint32, 'max-hops'), ['int'])),
+                    ('peer_ipv4_address', (YLeaf(YType.str, 'peer-ipv4-address'), ['str'])),
                 ])
                 self.name = None
                 self.max_hops = None
                 self.peer_ipv4_address = None
                 self._segment_path = lambda: "profile" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ppp-ma-ssrp-cfg:ssrp/profiles/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ssrp.Profiles.Profile, ['name', 'max_hops', 'peer_ipv4_address'], name, value)

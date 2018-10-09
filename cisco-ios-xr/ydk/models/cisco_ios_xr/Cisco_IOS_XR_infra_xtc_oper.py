@@ -10,7 +10,7 @@ for the following management objects\:
   pce\-topology\: pce topology
   pce\: pce
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -20,6 +20,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class LspSetup(Enum):
@@ -580,6 +581,7 @@ class PceLspData(Entity):
         self.tunnel_detail_infos.parent = self
         self._children_name_map["tunnel_detail_infos"] = "tunnel-detail-infos"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-lsp-data"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(PceLspData, [], name, value)
@@ -615,6 +617,7 @@ class PceLspData(Entity):
             self.tunnel_info = YList(self)
             self._segment_path = lambda: "tunnel-infos"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-lsp-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PceLspData.TunnelInfos, [], name, value)
@@ -681,10 +684,10 @@ class PceLspData(Entity):
                 self.ylist_key_names = ['peer_address','plsp_id','tunnel_name']
                 self._child_classes = OrderedDict([("pcc-address", ("pcc_address", PceLspData.TunnelInfos.TunnelInfo.PccAddress)), ("brief-lsp-information", ("brief_lsp_information", PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation))])
                 self._leafs = OrderedDict([
-                    ('peer_address', YLeaf(YType.str, 'peer-address')),
-                    ('plsp_id', YLeaf(YType.uint32, 'plsp-id')),
-                    ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
-                    ('tunnel_name_xr', YLeaf(YType.str, 'tunnel-name-xr')),
+                    ('peer_address', (YLeaf(YType.str, 'peer-address'), ['str','str'])),
+                    ('plsp_id', (YLeaf(YType.uint32, 'plsp-id'), ['int'])),
+                    ('tunnel_name', (YLeaf(YType.str, 'tunnel-name'), ['str'])),
+                    ('tunnel_name_xr', (YLeaf(YType.str, 'tunnel-name-xr'), ['str'])),
                 ])
                 self.peer_address = None
                 self.plsp_id = None
@@ -698,6 +701,7 @@ class PceLspData(Entity):
                 self.brief_lsp_information = YList(self)
                 self._segment_path = lambda: "tunnel-info" + "[peer-address='" + str(self.peer_address) + "']" + "[plsp-id='" + str(self.plsp_id) + "']" + "[tunnel-name='" + str(self.tunnel_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-lsp-data/tunnel-infos/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo, ['peer_address', 'plsp_id', 'tunnel_name', u'tunnel_name_xr'], name, value)
@@ -743,14 +747,15 @@ class PceLspData(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('ipv4', YLeaf(YType.str, 'ipv4')),
-                        ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                        ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                        ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                     ])
                     self.af_name = None
                     self.ipv4 = None
                     self.ipv6 = None
                     self._segment_path = lambda: "pcc-address"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.PccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -806,6 +811,13 @@ class PceLspData(Entity):
                 	Admin state
                 	**type**\:  :py:class:`LspState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.LspState>`
                 
+                .. attribute:: msd
+                
+                	Maximum SID Depth
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
                 
 
                 """
@@ -823,12 +835,13 @@ class PceLspData(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("source-address", ("source_address", PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress)), ("destination-address", ("destination_address", PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress))])
                     self._leafs = OrderedDict([
-                        ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
-                        ('lspid', YLeaf(YType.uint32, 'lspid')),
-                        ('binding_sid', YLeaf(YType.uint32, 'binding-sid')),
-                        ('lsp_setup_type', YLeaf(YType.enumeration, 'lsp-setup-type')),
-                        ('operational_state', YLeaf(YType.enumeration, 'operational-state')),
-                        ('administrative_state', YLeaf(YType.enumeration, 'administrative-state')),
+                        ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
+                        ('lspid', (YLeaf(YType.uint32, 'lspid'), ['int'])),
+                        ('binding_sid', (YLeaf(YType.uint32, 'binding-sid'), ['int'])),
+                        ('lsp_setup_type', (YLeaf(YType.enumeration, 'lsp-setup-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'LspSetup', '')])),
+                        ('operational_state', (YLeaf(YType.enumeration, 'operational-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PcepLspState', '')])),
+                        ('administrative_state', (YLeaf(YType.enumeration, 'administrative-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'LspState', '')])),
+                        ('msd', (YLeaf(YType.uint32, 'msd'), ['int'])),
                     ])
                     self.tunnel_id = None
                     self.lspid = None
@@ -836,6 +849,7 @@ class PceLspData(Entity):
                     self.lsp_setup_type = None
                     self.operational_state = None
                     self.administrative_state = None
+                    self.msd = None
 
                     self.source_address = PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress()
                     self.source_address.parent = self
@@ -845,9 +859,10 @@ class PceLspData(Entity):
                     self.destination_address.parent = self
                     self._children_name_map["destination_address"] = "destination-address"
                     self._segment_path = lambda: "brief-lsp-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state'], name, value)
+                    self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd'], name, value)
 
 
                 class SourceAddress(Entity):
@@ -890,14 +905,15 @@ class PceLspData(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.af_name = None
                         self.ipv4 = None
                         self.ipv6 = None
                         self._segment_path = lambda: "source-address"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -943,14 +959,15 @@ class PceLspData(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.af_name = None
                         self.ipv4 = None
                         self.ipv6 = None
                         self._segment_path = lambda: "destination-address"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -995,6 +1012,7 @@ class PceLspData(Entity):
             self.peer_ls_ps_info = YList(self)
             self._segment_path = lambda: "lsp-summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-lsp-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PceLspData.LspSummary, [], name, value)
@@ -1056,11 +1074,11 @@ class PceLspData(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('all_ls_ps', YLeaf(YType.uint32, 'all-ls-ps')),
-                    ('up_ls_ps', YLeaf(YType.uint32, 'up-ls-ps')),
-                    ('admin_up_ls_ps', YLeaf(YType.uint32, 'admin-up-ls-ps')),
-                    ('sr_ls_ps', YLeaf(YType.uint32, 'sr-ls-ps')),
-                    ('rsvp_ls_ps', YLeaf(YType.uint32, 'rsvp-ls-ps')),
+                    ('all_ls_ps', (YLeaf(YType.uint32, 'all-ls-ps'), ['int'])),
+                    ('up_ls_ps', (YLeaf(YType.uint32, 'up-ls-ps'), ['int'])),
+                    ('admin_up_ls_ps', (YLeaf(YType.uint32, 'admin-up-ls-ps'), ['int'])),
+                    ('sr_ls_ps', (YLeaf(YType.uint32, 'sr-ls-ps'), ['int'])),
+                    ('rsvp_ls_ps', (YLeaf(YType.uint32, 'rsvp-ls-ps'), ['int'])),
                 ])
                 self.all_ls_ps = None
                 self.up_ls_ps = None
@@ -1069,6 +1087,7 @@ class PceLspData(Entity):
                 self.rsvp_ls_ps = None
                 self._segment_path = lambda: "all-ls-ps"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-lsp-data/lsp-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PceLspData.LspSummary.AllLsPs, [u'all_ls_ps', u'up_ls_ps', u'admin_up_ls_ps', u'sr_ls_ps', u'rsvp_ls_ps'], name, value)
@@ -1115,6 +1134,7 @@ class PceLspData(Entity):
                 self._children_name_map["peer_address"] = "peer-address"
                 self._segment_path = lambda: "peer-ls-ps-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-lsp-data/lsp-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PceLspData.LspSummary.PeerLsPsInfo, [], name, value)
@@ -1176,11 +1196,11 @@ class PceLspData(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('all_ls_ps', YLeaf(YType.uint32, 'all-ls-ps')),
-                        ('up_ls_ps', YLeaf(YType.uint32, 'up-ls-ps')),
-                        ('admin_up_ls_ps', YLeaf(YType.uint32, 'admin-up-ls-ps')),
-                        ('sr_ls_ps', YLeaf(YType.uint32, 'sr-ls-ps')),
-                        ('rsvp_ls_ps', YLeaf(YType.uint32, 'rsvp-ls-ps')),
+                        ('all_ls_ps', (YLeaf(YType.uint32, 'all-ls-ps'), ['int'])),
+                        ('up_ls_ps', (YLeaf(YType.uint32, 'up-ls-ps'), ['int'])),
+                        ('admin_up_ls_ps', (YLeaf(YType.uint32, 'admin-up-ls-ps'), ['int'])),
+                        ('sr_ls_ps', (YLeaf(YType.uint32, 'sr-ls-ps'), ['int'])),
+                        ('rsvp_ls_ps', (YLeaf(YType.uint32, 'rsvp-ls-ps'), ['int'])),
                     ])
                     self.all_ls_ps = None
                     self.up_ls_ps = None
@@ -1189,6 +1209,7 @@ class PceLspData(Entity):
                     self.rsvp_ls_ps = None
                     self._segment_path = lambda: "lsp-summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-lsp-data/lsp-summary/peer-ls-ps-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PceLspData.LspSummary.PeerLsPsInfo.LspSummary_, [u'all_ls_ps', u'up_ls_ps', u'admin_up_ls_ps', u'sr_ls_ps', u'rsvp_ls_ps'], name, value)
@@ -1234,15 +1255,16 @@ class PceLspData(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('ipv4', YLeaf(YType.str, 'ipv4')),
-                        ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                        ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                        ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                     ])
                     self.af_name = None
                     self.ipv4 = None
                     self.ipv6 = None
                     self._segment_path = lambda: "peer-address"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-lsp-data/lsp-summary/peer-ls-ps-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PceLspData.LspSummary.PeerLsPsInfo.PeerAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -1278,6 +1300,7 @@ class PceLspData(Entity):
             self.tunnel_detail_info = YList(self)
             self._segment_path = lambda: "tunnel-detail-infos"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-lsp-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PceLspData.TunnelDetailInfos, [], name, value)
@@ -1361,12 +1384,12 @@ class PceLspData(Entity):
                 self.ylist_key_names = ['peer_address','plsp_id','tunnel_name']
                 self._child_classes = OrderedDict([("pcc-address", ("pcc_address", PceLspData.TunnelDetailInfos.TunnelDetailInfo.PccAddress)), ("private-lsp-information", ("private_lsp_information", PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation)), ("detail-lsp-information", ("detail_lsp_information", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation))])
                 self._leafs = OrderedDict([
-                    ('peer_address', YLeaf(YType.str, 'peer-address')),
-                    ('plsp_id', YLeaf(YType.uint32, 'plsp-id')),
-                    ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
-                    ('tunnel_name_xr', YLeaf(YType.str, 'tunnel-name-xr')),
-                    ('xtc_controlled', YLeaf(YType.boolean, 'xtc-controlled')),
-                    ('color', YLeaf(YType.uint32, 'color')),
+                    ('peer_address', (YLeaf(YType.str, 'peer-address'), ['str','str'])),
+                    ('plsp_id', (YLeaf(YType.uint32, 'plsp-id'), ['int'])),
+                    ('tunnel_name', (YLeaf(YType.str, 'tunnel-name'), ['str'])),
+                    ('tunnel_name_xr', (YLeaf(YType.str, 'tunnel-name-xr'), ['str'])),
+                    ('xtc_controlled', (YLeaf(YType.boolean, 'xtc-controlled'), ['bool'])),
+                    ('color', (YLeaf(YType.uint32, 'color'), ['int'])),
                 ])
                 self.peer_address = None
                 self.plsp_id = None
@@ -1386,6 +1409,7 @@ class PceLspData(Entity):
                 self.detail_lsp_information = YList(self)
                 self._segment_path = lambda: "tunnel-detail-info" + "[peer-address='" + str(self.peer_address) + "']" + "[plsp-id='" + str(self.plsp_id) + "']" + "[tunnel-name='" + str(self.tunnel_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-lsp-data/tunnel-detail-infos/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo, ['peer_address', 'plsp_id', 'tunnel_name', u'tunnel_name_xr', u'xtc_controlled', u'color'], name, value)
@@ -1431,14 +1455,15 @@ class PceLspData(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('ipv4', YLeaf(YType.str, 'ipv4')),
-                        ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                        ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                        ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                     ])
                     self.af_name = None
                     self.ipv4 = None
                     self.ipv6 = None
                     self._segment_path = lambda: "pcc-address"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -1473,6 +1498,7 @@ class PceLspData(Entity):
 
                     self.event_buffer = YList(self)
                     self._segment_path = lambda: "private-lsp-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation, [], name, value)
@@ -1481,6 +1507,13 @@ class PceLspData(Entity):
                 class EventBuffer(Entity):
                     """
                     LSP Event buffer
+                    
+                    .. attribute:: event_id
+                    
+                    	Event ID in range 1 \- 0xFFFFFFFF. 0 is invalid
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: event_message
                     
@@ -1511,15 +1544,18 @@ class PceLspData(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('event_message', YLeaf(YType.str, 'event-message')),
-                            ('time_stamp', YLeaf(YType.uint32, 'time-stamp')),
+                            ('event_id', (YLeaf(YType.uint32, 'event-id'), ['int'])),
+                            ('event_message', (YLeaf(YType.str, 'event-message'), ['str'])),
+                            ('time_stamp', (YLeaf(YType.uint32, 'time-stamp'), ['int'])),
                         ])
+                        self.event_id = None
                         self.event_message = None
                         self.time_stamp = None
                         self._segment_path = lambda: "event-buffer"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, [u'event_message', u'time_stamp'], name, value)
+                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, [u'event_id', u'event_message', u'time_stamp'], name, value)
 
 
             class DetailLspInformation(Entity):
@@ -1633,13 +1669,13 @@ class PceLspData(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("brief-lsp-information", ("brief_lsp_information", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation)), ("er-os", ("er_os", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs)), ("lsppcep-information", ("lsppcep_information", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation)), ("lsp-association-info", ("lsp_association_info", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo)), ("lsp-attributes", ("lsp_attributes", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes)), ("sub-delegated-pce", ("sub_delegated_pce", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce)), ("state-sync-pce", ("state_sync_pce", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce)), ("reporting-pcc-address", ("reporting_pcc_address", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress)), ("rro", ("rro", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro))])
                     self._leafs = OrderedDict([
-                        ('signaled_bandwidth_specified', YLeaf(YType.boolean, 'signaled-bandwidth-specified')),
-                        ('signaled_bandwidth', YLeaf(YType.uint64, 'signaled-bandwidth')),
-                        ('actual_bandwidth_specified', YLeaf(YType.boolean, 'actual-bandwidth-specified')),
-                        ('actual_bandwidth', YLeaf(YType.uint64, 'actual-bandwidth')),
-                        ('lsp_role', YLeaf(YType.uint32, 'lsp-role')),
-                        ('computing_pce', YLeaf(YType.uint32, 'computing-pce')),
-                        ('srlg_info', YLeafList(YType.uint32, 'srlg-info')),
+                        ('signaled_bandwidth_specified', (YLeaf(YType.boolean, 'signaled-bandwidth-specified'), ['bool'])),
+                        ('signaled_bandwidth', (YLeaf(YType.uint64, 'signaled-bandwidth'), ['int'])),
+                        ('actual_bandwidth_specified', (YLeaf(YType.boolean, 'actual-bandwidth-specified'), ['bool'])),
+                        ('actual_bandwidth', (YLeaf(YType.uint64, 'actual-bandwidth'), ['int'])),
+                        ('lsp_role', (YLeaf(YType.uint32, 'lsp-role'), ['int'])),
+                        ('computing_pce', (YLeaf(YType.uint32, 'computing-pce'), ['int'])),
+                        ('srlg_info', (YLeafList(YType.uint32, 'srlg-info'), ['int'])),
                     ])
                     self.signaled_bandwidth_specified = None
                     self.signaled_bandwidth = None
@@ -1683,6 +1719,7 @@ class PceLspData(Entity):
 
                     self.rro = YList(self)
                     self._segment_path = lambda: "detail-lsp-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, [u'signaled_bandwidth_specified', u'signaled_bandwidth', u'actual_bandwidth_specified', u'actual_bandwidth', u'lsp_role', u'computing_pce', u'srlg_info'], name, value)
@@ -1738,6 +1775,13 @@ class PceLspData(Entity):
                     	Admin state
                     	**type**\:  :py:class:`LspState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.LspState>`
                     
+                    .. attribute:: msd
+                    
+                    	Maximum SID Depth
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     
 
                     """
@@ -1755,12 +1799,13 @@ class PceLspData(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("source-address", ("source_address", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress)), ("destination-address", ("destination_address", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress))])
                         self._leafs = OrderedDict([
-                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
-                            ('lspid', YLeaf(YType.uint32, 'lspid')),
-                            ('binding_sid', YLeaf(YType.uint32, 'binding-sid')),
-                            ('lsp_setup_type', YLeaf(YType.enumeration, 'lsp-setup-type')),
-                            ('operational_state', YLeaf(YType.enumeration, 'operational-state')),
-                            ('administrative_state', YLeaf(YType.enumeration, 'administrative-state')),
+                            ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
+                            ('lspid', (YLeaf(YType.uint32, 'lspid'), ['int'])),
+                            ('binding_sid', (YLeaf(YType.uint32, 'binding-sid'), ['int'])),
+                            ('lsp_setup_type', (YLeaf(YType.enumeration, 'lsp-setup-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'LspSetup', '')])),
+                            ('operational_state', (YLeaf(YType.enumeration, 'operational-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PcepLspState', '')])),
+                            ('administrative_state', (YLeaf(YType.enumeration, 'administrative-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'LspState', '')])),
+                            ('msd', (YLeaf(YType.uint32, 'msd'), ['int'])),
                         ])
                         self.tunnel_id = None
                         self.lspid = None
@@ -1768,6 +1813,7 @@ class PceLspData(Entity):
                         self.lsp_setup_type = None
                         self.operational_state = None
                         self.administrative_state = None
+                        self.msd = None
 
                         self.source_address = PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress()
                         self.source_address.parent = self
@@ -1777,9 +1823,10 @@ class PceLspData(Entity):
                         self.destination_address.parent = self
                         self._children_name_map["destination_address"] = "destination-address"
                         self._segment_path = lambda: "brief-lsp-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state'], name, value)
+                        self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd'], name, value)
 
 
                     class SourceAddress(Entity):
@@ -1822,14 +1869,15 @@ class PceLspData(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "source-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -1875,14 +1923,15 @@ class PceLspData(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "destination-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -1964,11 +2013,11 @@ class PceLspData(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("reported-rsvp-path", ("reported_rsvp_path", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath)), ("reported-sr-path", ("reported_sr_path", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath)), ("computed-rsvp-path", ("computed_rsvp_path", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath)), ("computed-sr-path", ("computed_sr_path", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath))])
                         self._leafs = OrderedDict([
-                            ('reported_metric_type', YLeaf(YType.uint32, 'reported-metric-type')),
-                            ('reported_metric_value', YLeaf(YType.uint32, 'reported-metric-value')),
-                            ('computed_metric_type', YLeaf(YType.uint32, 'computed-metric-type')),
-                            ('computed_metric_value', YLeaf(YType.uint32, 'computed-metric-value')),
-                            ('computed_hop_list_time', YLeaf(YType.uint32, 'computed-hop-list-time')),
+                            ('reported_metric_type', (YLeaf(YType.uint32, 'reported-metric-type'), ['int'])),
+                            ('reported_metric_value', (YLeaf(YType.uint32, 'reported-metric-value'), ['int'])),
+                            ('computed_metric_type', (YLeaf(YType.uint32, 'computed-metric-type'), ['int'])),
+                            ('computed_metric_value', (YLeaf(YType.uint32, 'computed-metric-value'), ['int'])),
+                            ('computed_hop_list_time', (YLeaf(YType.uint32, 'computed-hop-list-time'), ['int'])),
                         ])
                         self.reported_metric_type = None
                         self.reported_metric_value = None
@@ -1981,6 +2030,7 @@ class PceLspData(Entity):
                         self.computed_rsvp_path = YList(self)
                         self.computed_sr_path = YList(self)
                         self._segment_path = lambda: "er-os"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs, [u'reported_metric_type', u'reported_metric_value', u'computed_metric_type', u'computed_metric_value', u'computed_hop_list_time'], name, value)
@@ -2014,10 +2064,11 @@ class PceLspData(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('hop_address', YLeaf(YType.str, 'hop-address')),
+                                ('hop_address', (YLeaf(YType.str, 'hop-address'), ['str'])),
                             ])
                             self.hop_address = None
                             self._segment_path = lambda: "reported-rsvp-path"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, [u'hop_address'], name, value)
@@ -2066,8 +2117,8 @@ class PceLspData(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("local-addr", ("local_addr", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr)), ("remote-addr", ("remote_addr", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr))])
                             self._leafs = OrderedDict([
-                                ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                                ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                                ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceSrSid', '')])),
+                                ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
                             ])
                             self.sid_type = None
                             self.mpls_label = None
@@ -2080,6 +2131,7 @@ class PceLspData(Entity):
                             self.remote_addr.parent = self
                             self._children_name_map["remote_addr"] = "remote-addr"
                             self._segment_path = lambda: "reported-sr-path"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath, [u'sid_type', u'mpls_label'], name, value)
@@ -2125,14 +2177,15 @@ class PceLspData(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                                 ])
                                 self.af_name = None
                                 self.ipv4 = None
                                 self.ipv6 = None
                                 self._segment_path = lambda: "local-addr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -2178,14 +2231,15 @@ class PceLspData(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                                 ])
                                 self.af_name = None
                                 self.ipv4 = None
                                 self.ipv6 = None
                                 self._segment_path = lambda: "remote-addr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -2219,10 +2273,11 @@ class PceLspData(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('hop_address', YLeaf(YType.str, 'hop-address')),
+                                ('hop_address', (YLeaf(YType.str, 'hop-address'), ['str'])),
                             ])
                             self.hop_address = None
                             self._segment_path = lambda: "computed-rsvp-path"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, [u'hop_address'], name, value)
@@ -2271,8 +2326,8 @@ class PceLspData(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("local-addr", ("local_addr", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr)), ("remote-addr", ("remote_addr", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr))])
                             self._leafs = OrderedDict([
-                                ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                                ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                                ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceSrSid', '')])),
+                                ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
                             ])
                             self.sid_type = None
                             self.mpls_label = None
@@ -2285,6 +2340,7 @@ class PceLspData(Entity):
                             self.remote_addr.parent = self
                             self._children_name_map["remote_addr"] = "remote-addr"
                             self._segment_path = lambda: "computed-sr-path"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath, [u'sid_type', u'mpls_label'], name, value)
@@ -2330,14 +2386,15 @@ class PceLspData(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                                 ])
                                 self.af_name = None
                                 self.ipv4 = None
                                 self.ipv6 = None
                                 self._segment_path = lambda: "local-addr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -2383,14 +2440,15 @@ class PceLspData(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                                 ])
                                 self.af_name = None
                                 self.ipv4 = None
                                 self.ipv6 = None
                                 self._segment_path = lambda: "remote-addr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -2463,13 +2521,13 @@ class PceLspData(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("rsvp-error", ("rsvp_error", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError))])
                         self._leafs = OrderedDict([
-                            ('pcepid', YLeaf(YType.uint32, 'pcepid')),
-                            ('pcep_flag_d', YLeaf(YType.boolean, 'pcep-flag-d')),
-                            ('pcep_flag_s', YLeaf(YType.boolean, 'pcep-flag-s')),
-                            ('pcep_flag_r', YLeaf(YType.boolean, 'pcep-flag-r')),
-                            ('pcep_flag_a', YLeaf(YType.boolean, 'pcep-flag-a')),
-                            ('pcep_flag_o', YLeaf(YType.uint8, 'pcep-flag-o')),
-                            ('pcep_flag_c', YLeaf(YType.uint8, 'pcep-flag-c')),
+                            ('pcepid', (YLeaf(YType.uint32, 'pcepid'), ['int'])),
+                            ('pcep_flag_d', (YLeaf(YType.boolean, 'pcep-flag-d'), ['bool'])),
+                            ('pcep_flag_s', (YLeaf(YType.boolean, 'pcep-flag-s'), ['bool'])),
+                            ('pcep_flag_r', (YLeaf(YType.boolean, 'pcep-flag-r'), ['bool'])),
+                            ('pcep_flag_a', (YLeaf(YType.boolean, 'pcep-flag-a'), ['bool'])),
+                            ('pcep_flag_o', (YLeaf(YType.uint8, 'pcep-flag-o'), ['int'])),
+                            ('pcep_flag_c', (YLeaf(YType.uint8, 'pcep-flag-c'), ['int'])),
                         ])
                         self.pcepid = None
                         self.pcep_flag_d = None
@@ -2483,6 +2541,7 @@ class PceLspData(Entity):
                         self.rsvp_error.parent = self
                         self._children_name_map["rsvp_error"] = "rsvp-error"
                         self._segment_path = lambda: "lsppcep-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, [u'pcepid', u'pcep_flag_d', u'pcep_flag_s', u'pcep_flag_r', u'pcep_flag_a', u'pcep_flag_o', u'pcep_flag_c'], name, value)
@@ -2537,16 +2596,17 @@ class PceLspData(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('node_address', YLeaf(YType.str, 'node-address')),
-                                ('error_flags', YLeaf(YType.uint8, 'error-flags')),
-                                ('error_code', YLeaf(YType.uint8, 'error-code')),
-                                ('error_value', YLeaf(YType.uint16, 'error-value')),
+                                ('node_address', (YLeaf(YType.str, 'node-address'), ['str'])),
+                                ('error_flags', (YLeaf(YType.uint8, 'error-flags'), ['int'])),
+                                ('error_code', (YLeaf(YType.uint8, 'error-code'), ['int'])),
+                                ('error_value', (YLeaf(YType.uint16, 'error-value'), ['int'])),
                             ])
                             self.node_address = None
                             self.error_flags = None
                             self.error_code = None
                             self.error_value = None
                             self._segment_path = lambda: "rsvp-error"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, [u'node_address', u'error_flags', u'error_code', u'error_value'], name, value)
@@ -2592,8 +2652,8 @@ class PceLspData(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("association-source", ("association_source", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource))])
                         self._leafs = OrderedDict([
-                            ('association_type', YLeaf(YType.uint32, 'association-type')),
-                            ('association_id', YLeaf(YType.uint32, 'association-id')),
+                            ('association_type', (YLeaf(YType.uint32, 'association-type'), ['int'])),
+                            ('association_id', (YLeaf(YType.uint32, 'association-id'), ['int'])),
                         ])
                         self.association_type = None
                         self.association_id = None
@@ -2602,6 +2662,7 @@ class PceLspData(Entity):
                         self.association_source.parent = self
                         self._children_name_map["association_source"] = "association-source"
                         self._segment_path = lambda: "lsp-association-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo, [u'association_type', u'association_id'], name, value)
@@ -2647,14 +2708,15 @@ class PceLspData(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "association-source"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -2721,12 +2783,12 @@ class PceLspData(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('affinity_exclude_any', YLeaf(YType.uint32, 'affinity-exclude-any')),
-                            ('affinity_include_any', YLeaf(YType.uint32, 'affinity-include-any')),
-                            ('affinity_include_all', YLeaf(YType.uint32, 'affinity-include-all')),
-                            ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
-                            ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
-                            ('local_protection', YLeaf(YType.boolean, 'local-protection')),
+                            ('affinity_exclude_any', (YLeaf(YType.uint32, 'affinity-exclude-any'), ['int'])),
+                            ('affinity_include_any', (YLeaf(YType.uint32, 'affinity-include-any'), ['int'])),
+                            ('affinity_include_all', (YLeaf(YType.uint32, 'affinity-include-all'), ['int'])),
+                            ('setup_priority', (YLeaf(YType.uint8, 'setup-priority'), ['int'])),
+                            ('hold_priority', (YLeaf(YType.uint8, 'hold-priority'), ['int'])),
+                            ('local_protection', (YLeaf(YType.boolean, 'local-protection'), ['bool'])),
                         ])
                         self.affinity_exclude_any = None
                         self.affinity_include_any = None
@@ -2735,6 +2797,7 @@ class PceLspData(Entity):
                         self.hold_priority = None
                         self.local_protection = None
                         self._segment_path = lambda: "lsp-attributes"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, [u'affinity_exclude_any', u'affinity_include_any', u'affinity_include_all', u'setup_priority', u'hold_priority', u'local_protection'], name, value)
@@ -2780,14 +2843,15 @@ class PceLspData(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.af_name = None
                         self.ipv4 = None
                         self.ipv6 = None
                         self._segment_path = lambda: "sub-delegated-pce"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -2833,14 +2897,15 @@ class PceLspData(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.af_name = None
                         self.ipv4 = None
                         self.ipv6 = None
                         self._segment_path = lambda: "state-sync-pce"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -2886,14 +2951,15 @@ class PceLspData(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.af_name = None
                         self.ipv4 = None
                         self.ipv6 = None
                         self._segment_path = lambda: "reporting-pcc-address"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -2951,10 +3017,10 @@ class PceLspData(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("sr-rro", ("sr_rro", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro))])
                         self._leafs = OrderedDict([
-                            ('rro_type', YLeaf(YType.enumeration, 'rro-type')),
-                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                            ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
-                            ('flags', YLeaf(YType.uint8, 'flags')),
+                            ('rro_type', (YLeaf(YType.enumeration, 'rro-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceRro', '')])),
+                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                            ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
+                            ('flags', (YLeaf(YType.uint8, 'flags'), ['int'])),
                         ])
                         self.rro_type = None
                         self.ipv4_address = None
@@ -2965,6 +3031,7 @@ class PceLspData(Entity):
                         self.sr_rro.parent = self
                         self._children_name_map["sr_rro"] = "sr-rro"
                         self._segment_path = lambda: "rro"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro, [u'rro_type', u'ipv4_address', u'mpls_label', u'flags'], name, value)
@@ -3013,8 +3080,8 @@ class PceLspData(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("local-addr", ("local_addr", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr)), ("remote-addr", ("remote_addr", PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr))])
                             self._leafs = OrderedDict([
-                                ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                                ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                                ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceSrSid', '')])),
+                                ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
                             ])
                             self.sid_type = None
                             self.mpls_label = None
@@ -3027,6 +3094,7 @@ class PceLspData(Entity):
                             self.remote_addr.parent = self
                             self._children_name_map["remote_addr"] = "remote-addr"
                             self._segment_path = lambda: "sr-rro"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro, [u'sid_type', u'mpls_label'], name, value)
@@ -3072,14 +3140,15 @@ class PceLspData(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                                 ])
                                 self.af_name = None
                                 self.ipv4 = None
                                 self.ipv6 = None
                                 self._segment_path = lambda: "local-addr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -3125,14 +3194,15 @@ class PceLspData(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                                 ])
                                 self.af_name = None
                                 self.ipv4 = None
                                 self.ipv6 = None
                                 self._segment_path = lambda: "remote-addr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PceLspData.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -3182,6 +3252,7 @@ class PcePeer(Entity):
         self.peer_infos.parent = self
         self._children_name_map["peer_infos"] = "peer-infos"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-peer"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(PcePeer, [], name, value)
@@ -3217,6 +3288,7 @@ class PcePeer(Entity):
             self.peer_detail_info = YList(self)
             self._segment_path = lambda: "peer-detail-infos"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-peer/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PcePeer.PeerDetailInfos, [], name, value)
@@ -3254,6 +3326,13 @@ class PcePeer(Entity):
             	Protocol between PCE and peer
             	**type**\:  :py:class:`PceProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceProto>`
             
+            .. attribute:: max_sid_depth
+            
+            	Maximum SID Depth
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
             
 
             """
@@ -3271,11 +3350,13 @@ class PcePeer(Entity):
                 self.ylist_key_names = ['peer_address']
                 self._child_classes = OrderedDict([("peer-address-xr", ("peer_address_xr", PcePeer.PeerDetailInfos.PeerDetailInfo.PeerAddressXr)), ("detail-pcep-information", ("detail_pcep_information", PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation))])
                 self._leafs = OrderedDict([
-                    ('peer_address', YLeaf(YType.str, 'peer-address')),
-                    ('peer_protocol', YLeaf(YType.enumeration, 'peer-protocol')),
+                    ('peer_address', (YLeaf(YType.str, 'peer-address'), ['str','str'])),
+                    ('peer_protocol', (YLeaf(YType.enumeration, 'peer-protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceProto', '')])),
+                    ('max_sid_depth', (YLeaf(YType.uint32, 'max-sid-depth'), ['int'])),
                 ])
                 self.peer_address = None
                 self.peer_protocol = None
+                self.max_sid_depth = None
 
                 self.peer_address_xr = PcePeer.PeerDetailInfos.PeerDetailInfo.PeerAddressXr()
                 self.peer_address_xr.parent = self
@@ -3286,9 +3367,10 @@ class PcePeer(Entity):
                 self._children_name_map["detail_pcep_information"] = "detail-pcep-information"
                 self._segment_path = lambda: "peer-detail-info" + "[peer-address='" + str(self.peer_address) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-peer/peer-detail-infos/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo, ['peer_address', u'peer_protocol'], name, value)
+                self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo, ['peer_address', u'peer_protocol', u'max_sid_depth'], name, value)
 
 
             class PeerAddressXr(Entity):
@@ -3331,14 +3413,15 @@ class PcePeer(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('ipv4', YLeaf(YType.str, 'ipv4')),
-                        ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                        ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                        ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                     ])
                     self.af_name = None
                     self.ipv4 = None
                     self.ipv6 = None
                     self._segment_path = lambda: "peer-address-xr"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.PeerAddressXr, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -3558,6 +3641,13 @@ class PcePeer(Entity):
                 
                 	**range:** 0..255
                 
+                .. attribute:: max_sid_depth
+                
+                	Maximum number of labels the peer can impose
+                	**type**\: int
+                
+                	**range:** 0..255
+                
                 
 
                 """
@@ -3575,35 +3665,36 @@ class PcePeer(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("brief-pcep-information", ("brief_pcep_information", PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation)), ("last-error-rx", ("last_error_rx", PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx)), ("last-error-tx", ("last_error_tx", PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx))])
                     self._leafs = OrderedDict([
-                        ('error', YLeaf(YType.str, 'error')),
-                        ('speaker_id', YLeaf(YType.str, 'speaker-id')),
-                        ('pcep_up_time', YLeaf(YType.uint32, 'pcep-up-time')),
-                        ('keepalives', YLeaf(YType.uint32, 'keepalives')),
-                        ('md5_enabled', YLeaf(YType.boolean, 'md5-enabled')),
-                        ('keychain_enabled', YLeaf(YType.boolean, 'keychain-enabled')),
-                        ('negotiated_local_keepalive', YLeaf(YType.uint32, 'negotiated-local-keepalive')),
-                        ('negotiated_remote_keepalive', YLeaf(YType.uint32, 'negotiated-remote-keepalive')),
-                        ('negotiated_dead_time', YLeaf(YType.uint32, 'negotiated-dead-time')),
-                        ('pce_request_rx', YLeaf(YType.uint32, 'pce-request-rx')),
-                        ('pce_request_tx', YLeaf(YType.uint32, 'pce-request-tx')),
-                        ('pce_reply_rx', YLeaf(YType.uint32, 'pce-reply-rx')),
-                        ('pce_reply_tx', YLeaf(YType.uint32, 'pce-reply-tx')),
-                        ('pce_error_rx', YLeaf(YType.uint32, 'pce-error-rx')),
-                        ('pce_error_tx', YLeaf(YType.uint32, 'pce-error-tx')),
-                        ('pce_open_tx', YLeaf(YType.uint32, 'pce-open-tx')),
-                        ('pce_open_rx', YLeaf(YType.uint32, 'pce-open-rx')),
-                        ('pce_report_rx', YLeaf(YType.uint32, 'pce-report-rx')),
-                        ('pce_report_tx', YLeaf(YType.uint32, 'pce-report-tx')),
-                        ('pce_update_rx', YLeaf(YType.uint32, 'pce-update-rx')),
-                        ('pce_update_tx', YLeaf(YType.uint32, 'pce-update-tx')),
-                        ('pce_initiate_rx', YLeaf(YType.uint32, 'pce-initiate-rx')),
-                        ('pce_initiate_tx', YLeaf(YType.uint32, 'pce-initiate-tx')),
-                        ('pce_keepalive_tx', YLeaf(YType.uint64, 'pce-keepalive-tx')),
-                        ('pce_keepalive_rx', YLeaf(YType.uint64, 'pce-keepalive-rx')),
-                        ('local_session_id', YLeaf(YType.uint8, 'local-session-id')),
-                        ('remote_session_id', YLeaf(YType.uint8, 'remote-session-id')),
-                        ('minimum_keepalive_interval', YLeaf(YType.uint8, 'minimum-keepalive-interval')),
-                        ('maximum_dead_interval', YLeaf(YType.uint8, 'maximum-dead-interval')),
+                        ('error', (YLeaf(YType.str, 'error'), ['str'])),
+                        ('speaker_id', (YLeaf(YType.str, 'speaker-id'), ['str'])),
+                        ('pcep_up_time', (YLeaf(YType.uint32, 'pcep-up-time'), ['int'])),
+                        ('keepalives', (YLeaf(YType.uint32, 'keepalives'), ['int'])),
+                        ('md5_enabled', (YLeaf(YType.boolean, 'md5-enabled'), ['bool'])),
+                        ('keychain_enabled', (YLeaf(YType.boolean, 'keychain-enabled'), ['bool'])),
+                        ('negotiated_local_keepalive', (YLeaf(YType.uint32, 'negotiated-local-keepalive'), ['int'])),
+                        ('negotiated_remote_keepalive', (YLeaf(YType.uint32, 'negotiated-remote-keepalive'), ['int'])),
+                        ('negotiated_dead_time', (YLeaf(YType.uint32, 'negotiated-dead-time'), ['int'])),
+                        ('pce_request_rx', (YLeaf(YType.uint32, 'pce-request-rx'), ['int'])),
+                        ('pce_request_tx', (YLeaf(YType.uint32, 'pce-request-tx'), ['int'])),
+                        ('pce_reply_rx', (YLeaf(YType.uint32, 'pce-reply-rx'), ['int'])),
+                        ('pce_reply_tx', (YLeaf(YType.uint32, 'pce-reply-tx'), ['int'])),
+                        ('pce_error_rx', (YLeaf(YType.uint32, 'pce-error-rx'), ['int'])),
+                        ('pce_error_tx', (YLeaf(YType.uint32, 'pce-error-tx'), ['int'])),
+                        ('pce_open_tx', (YLeaf(YType.uint32, 'pce-open-tx'), ['int'])),
+                        ('pce_open_rx', (YLeaf(YType.uint32, 'pce-open-rx'), ['int'])),
+                        ('pce_report_rx', (YLeaf(YType.uint32, 'pce-report-rx'), ['int'])),
+                        ('pce_report_tx', (YLeaf(YType.uint32, 'pce-report-tx'), ['int'])),
+                        ('pce_update_rx', (YLeaf(YType.uint32, 'pce-update-rx'), ['int'])),
+                        ('pce_update_tx', (YLeaf(YType.uint32, 'pce-update-tx'), ['int'])),
+                        ('pce_initiate_rx', (YLeaf(YType.uint32, 'pce-initiate-rx'), ['int'])),
+                        ('pce_initiate_tx', (YLeaf(YType.uint32, 'pce-initiate-tx'), ['int'])),
+                        ('pce_keepalive_tx', (YLeaf(YType.uint64, 'pce-keepalive-tx'), ['int'])),
+                        ('pce_keepalive_rx', (YLeaf(YType.uint64, 'pce-keepalive-rx'), ['int'])),
+                        ('local_session_id', (YLeaf(YType.uint8, 'local-session-id'), ['int'])),
+                        ('remote_session_id', (YLeaf(YType.uint8, 'remote-session-id'), ['int'])),
+                        ('minimum_keepalive_interval', (YLeaf(YType.uint8, 'minimum-keepalive-interval'), ['int'])),
+                        ('maximum_dead_interval', (YLeaf(YType.uint8, 'maximum-dead-interval'), ['int'])),
+                        ('max_sid_depth', (YLeaf(YType.uint8, 'max-sid-depth'), ['int'])),
                     ])
                     self.error = None
                     self.speaker_id = None
@@ -3634,6 +3725,7 @@ class PcePeer(Entity):
                     self.remote_session_id = None
                     self.minimum_keepalive_interval = None
                     self.maximum_dead_interval = None
+                    self.max_sid_depth = None
 
                     self.brief_pcep_information = PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation()
                     self.brief_pcep_information.parent = self
@@ -3647,9 +3739,10 @@ class PcePeer(Entity):
                     self.last_error_tx.parent = self
                     self._children_name_map["last_error_tx"] = "last-error-tx"
                     self._segment_path = lambda: "detail-pcep-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, [u'error', u'speaker_id', u'pcep_up_time', u'keepalives', u'md5_enabled', u'keychain_enabled', u'negotiated_local_keepalive', u'negotiated_remote_keepalive', u'negotiated_dead_time', u'pce_request_rx', u'pce_request_tx', u'pce_reply_rx', u'pce_reply_tx', u'pce_error_rx', u'pce_error_tx', u'pce_open_tx', u'pce_open_rx', u'pce_report_rx', u'pce_report_tx', u'pce_update_rx', u'pce_update_tx', u'pce_initiate_rx', u'pce_initiate_tx', u'pce_keepalive_tx', u'pce_keepalive_rx', u'local_session_id', u'remote_session_id', u'minimum_keepalive_interval', u'maximum_dead_interval'], name, value)
+                    self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, [u'error', u'speaker_id', u'pcep_up_time', u'keepalives', u'md5_enabled', u'keychain_enabled', u'negotiated_local_keepalive', u'negotiated_remote_keepalive', u'negotiated_dead_time', u'pce_request_rx', u'pce_request_tx', u'pce_reply_rx', u'pce_reply_tx', u'pce_error_rx', u'pce_error_tx', u'pce_open_tx', u'pce_open_rx', u'pce_report_rx', u'pce_report_tx', u'pce_update_rx', u'pce_update_tx', u'pce_initiate_rx', u'pce_initiate_tx', u'pce_keepalive_tx', u'pce_keepalive_rx', u'local_session_id', u'remote_session_id', u'minimum_keepalive_interval', u'maximum_dead_interval', u'max_sid_depth'], name, value)
 
 
                 class BriefPcepInformation(Entity):
@@ -3713,14 +3806,14 @@ class PcePeer(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('pcep_state', YLeaf(YType.enumeration, 'pcep-state')),
-                            ('stateful', YLeaf(YType.boolean, 'stateful')),
-                            ('capability_update', YLeaf(YType.boolean, 'capability-update')),
-                            ('capability_instantiate', YLeaf(YType.boolean, 'capability-instantiate')),
-                            ('capability_segment_routing', YLeaf(YType.boolean, 'capability-segment-routing')),
-                            ('capability_triggered_sync', YLeaf(YType.boolean, 'capability-triggered-sync')),
-                            ('capability_db_version', YLeaf(YType.boolean, 'capability-db-version')),
-                            ('capability_delta_sync', YLeaf(YType.boolean, 'capability-delta-sync')),
+                            ('pcep_state', (YLeaf(YType.enumeration, 'pcep-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PcepState', '')])),
+                            ('stateful', (YLeaf(YType.boolean, 'stateful'), ['bool'])),
+                            ('capability_update', (YLeaf(YType.boolean, 'capability-update'), ['bool'])),
+                            ('capability_instantiate', (YLeaf(YType.boolean, 'capability-instantiate'), ['bool'])),
+                            ('capability_segment_routing', (YLeaf(YType.boolean, 'capability-segment-routing'), ['bool'])),
+                            ('capability_triggered_sync', (YLeaf(YType.boolean, 'capability-triggered-sync'), ['bool'])),
+                            ('capability_db_version', (YLeaf(YType.boolean, 'capability-db-version'), ['bool'])),
+                            ('capability_delta_sync', (YLeaf(YType.boolean, 'capability-delta-sync'), ['bool'])),
                         ])
                         self.pcep_state = None
                         self.stateful = None
@@ -3731,6 +3824,7 @@ class PcePeer(Entity):
                         self.capability_db_version = None
                         self.capability_delta_sync = None
                         self._segment_path = lambda: "brief-pcep-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, [u'pcep_state', u'stateful', u'capability_update', u'capability_instantiate', u'capability_segment_routing', u'capability_triggered_sync', u'capability_db_version', u'capability_delta_sync'], name, value)
@@ -3771,12 +3865,13 @@ class PcePeer(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('pc_error_type', YLeaf(YType.uint8, 'pc-error-type')),
-                            ('pc_error_value', YLeaf(YType.uint8, 'pc-error-value')),
+                            ('pc_error_type', (YLeaf(YType.uint8, 'pc-error-type'), ['int'])),
+                            ('pc_error_value', (YLeaf(YType.uint8, 'pc-error-value'), ['int'])),
                         ])
                         self.pc_error_type = None
                         self.pc_error_value = None
                         self._segment_path = lambda: "last-error-rx"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, [u'pc_error_type', u'pc_error_value'], name, value)
@@ -3817,12 +3912,13 @@ class PcePeer(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('pc_error_type', YLeaf(YType.uint8, 'pc-error-type')),
-                            ('pc_error_value', YLeaf(YType.uint8, 'pc-error-value')),
+                            ('pc_error_type', (YLeaf(YType.uint8, 'pc-error-type'), ['int'])),
+                            ('pc_error_value', (YLeaf(YType.uint8, 'pc-error-value'), ['int'])),
                         ])
                         self.pc_error_type = None
                         self.pc_error_value = None
                         self._segment_path = lambda: "last-error-tx"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PcePeer.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, [u'pc_error_type', u'pc_error_value'], name, value)
@@ -3858,6 +3954,7 @@ class PcePeer(Entity):
             self.peer_info = YList(self)
             self._segment_path = lambda: "peer-infos"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-peer/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PcePeer.PeerInfos, [], name, value)
@@ -3912,8 +4009,8 @@ class PcePeer(Entity):
                 self.ylist_key_names = ['peer_address']
                 self._child_classes = OrderedDict([("peer-address-xr", ("peer_address_xr", PcePeer.PeerInfos.PeerInfo.PeerAddressXr)), ("brief-pcep-information", ("brief_pcep_information", PcePeer.PeerInfos.PeerInfo.BriefPcepInformation))])
                 self._leafs = OrderedDict([
-                    ('peer_address', YLeaf(YType.str, 'peer-address')),
-                    ('peer_protocol', YLeaf(YType.enumeration, 'peer-protocol')),
+                    ('peer_address', (YLeaf(YType.str, 'peer-address'), ['str','str'])),
+                    ('peer_protocol', (YLeaf(YType.enumeration, 'peer-protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceProto', '')])),
                 ])
                 self.peer_address = None
                 self.peer_protocol = None
@@ -3927,6 +4024,7 @@ class PcePeer(Entity):
                 self._children_name_map["brief_pcep_information"] = "brief-pcep-information"
                 self._segment_path = lambda: "peer-info" + "[peer-address='" + str(self.peer_address) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-peer/peer-infos/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PcePeer.PeerInfos.PeerInfo, ['peer_address', u'peer_protocol'], name, value)
@@ -3972,14 +4070,15 @@ class PcePeer(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('ipv4', YLeaf(YType.str, 'ipv4')),
-                        ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                        ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                        ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                     ])
                     self.af_name = None
                     self.ipv4 = None
                     self.ipv6 = None
                     self._segment_path = lambda: "peer-address-xr"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PcePeer.PeerInfos.PeerInfo.PeerAddressXr, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -4046,14 +4145,14 @@ class PcePeer(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('pcep_state', YLeaf(YType.enumeration, 'pcep-state')),
-                        ('stateful', YLeaf(YType.boolean, 'stateful')),
-                        ('capability_update', YLeaf(YType.boolean, 'capability-update')),
-                        ('capability_instantiate', YLeaf(YType.boolean, 'capability-instantiate')),
-                        ('capability_segment_routing', YLeaf(YType.boolean, 'capability-segment-routing')),
-                        ('capability_triggered_sync', YLeaf(YType.boolean, 'capability-triggered-sync')),
-                        ('capability_db_version', YLeaf(YType.boolean, 'capability-db-version')),
-                        ('capability_delta_sync', YLeaf(YType.boolean, 'capability-delta-sync')),
+                        ('pcep_state', (YLeaf(YType.enumeration, 'pcep-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PcepState', '')])),
+                        ('stateful', (YLeaf(YType.boolean, 'stateful'), ['bool'])),
+                        ('capability_update', (YLeaf(YType.boolean, 'capability-update'), ['bool'])),
+                        ('capability_instantiate', (YLeaf(YType.boolean, 'capability-instantiate'), ['bool'])),
+                        ('capability_segment_routing', (YLeaf(YType.boolean, 'capability-segment-routing'), ['bool'])),
+                        ('capability_triggered_sync', (YLeaf(YType.boolean, 'capability-triggered-sync'), ['bool'])),
+                        ('capability_db_version', (YLeaf(YType.boolean, 'capability-db-version'), ['bool'])),
+                        ('capability_delta_sync', (YLeaf(YType.boolean, 'capability-delta-sync'), ['bool'])),
                     ])
                     self.pcep_state = None
                     self.stateful = None
@@ -4064,6 +4163,7 @@ class PcePeer(Entity):
                     self.capability_db_version = None
                     self.capability_delta_sync = None
                     self._segment_path = lambda: "brief-pcep-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PcePeer.PeerInfos.PeerInfo.BriefPcepInformation, [u'pcep_state', u'stateful', u'capability_update', u'capability_instantiate', u'capability_segment_routing', u'capability_triggered_sync', u'capability_db_version', u'capability_delta_sync'], name, value)
@@ -4122,6 +4222,7 @@ class PceTopology(Entity):
         self.prefix_infos.parent = self
         self._children_name_map["prefix_infos"] = "prefix-infos"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-topology"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(PceTopology, [], name, value)
@@ -4242,19 +4343,19 @@ class PceTopology(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("stats-topology-update", ("stats_topology_update", PceTopology.TopologySummary.StatsTopologyUpdate))])
             self._leafs = OrderedDict([
-                ('nodes', YLeaf(YType.uint32, 'nodes')),
-                ('lookup_nodes', YLeaf(YType.uint32, 'lookup-nodes')),
-                ('prefixes', YLeaf(YType.uint32, 'prefixes')),
-                ('prefix_sids', YLeaf(YType.uint32, 'prefix-sids')),
-                ('regular_prefix_sids', YLeaf(YType.uint32, 'regular-prefix-sids')),
-                ('strict_prefix_sids', YLeaf(YType.uint32, 'strict-prefix-sids')),
-                ('links', YLeaf(YType.uint32, 'links')),
-                ('epe_links', YLeaf(YType.uint32, 'epe-links')),
-                ('adjacency_sids', YLeaf(YType.uint32, 'adjacency-sids')),
-                ('epesids', YLeaf(YType.uint32, 'epesids')),
-                ('protected_adjacency_sids', YLeaf(YType.uint32, 'protected-adjacency-sids')),
-                ('un_protected_adjacency_sids', YLeaf(YType.uint32, 'un-protected-adjacency-sids')),
-                ('topology_consistent', YLeaf(YType.boolean, 'topology-consistent')),
+                ('nodes', (YLeaf(YType.uint32, 'nodes'), ['int'])),
+                ('lookup_nodes', (YLeaf(YType.uint32, 'lookup-nodes'), ['int'])),
+                ('prefixes', (YLeaf(YType.uint32, 'prefixes'), ['int'])),
+                ('prefix_sids', (YLeaf(YType.uint32, 'prefix-sids'), ['int'])),
+                ('regular_prefix_sids', (YLeaf(YType.uint32, 'regular-prefix-sids'), ['int'])),
+                ('strict_prefix_sids', (YLeaf(YType.uint32, 'strict-prefix-sids'), ['int'])),
+                ('links', (YLeaf(YType.uint32, 'links'), ['int'])),
+                ('epe_links', (YLeaf(YType.uint32, 'epe-links'), ['int'])),
+                ('adjacency_sids', (YLeaf(YType.uint32, 'adjacency-sids'), ['int'])),
+                ('epesids', (YLeaf(YType.uint32, 'epesids'), ['int'])),
+                ('protected_adjacency_sids', (YLeaf(YType.uint32, 'protected-adjacency-sids'), ['int'])),
+                ('un_protected_adjacency_sids', (YLeaf(YType.uint32, 'un-protected-adjacency-sids'), ['int'])),
+                ('topology_consistent', (YLeaf(YType.boolean, 'topology-consistent'), ['bool'])),
             ])
             self.nodes = None
             self.lookup_nodes = None
@@ -4275,6 +4376,7 @@ class PceTopology(Entity):
             self._children_name_map["stats_topology_update"] = "stats-topology-update"
             self._segment_path = lambda: "topology-summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-topology/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PceTopology.TopologySummary, [u'nodes', u'lookup_nodes', u'prefixes', u'prefix_sids', u'regular_prefix_sids', u'strict_prefix_sids', u'links', u'epe_links', u'adjacency_sids', u'epesids', u'protected_adjacency_sids', u'un_protected_adjacency_sids', u'topology_consistent'], name, value)
@@ -4343,12 +4445,12 @@ class PceTopology(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('num_nodes_added', YLeaf(YType.uint32, 'num-nodes-added')),
-                    ('num_nodes_deleted', YLeaf(YType.uint32, 'num-nodes-deleted')),
-                    ('num_links_added', YLeaf(YType.uint32, 'num-links-added')),
-                    ('num_links_deleted', YLeaf(YType.uint32, 'num-links-deleted')),
-                    ('num_prefixes_added', YLeaf(YType.uint32, 'num-prefixes-added')),
-                    ('num_prefixes_deleted', YLeaf(YType.uint32, 'num-prefixes-deleted')),
+                    ('num_nodes_added', (YLeaf(YType.uint32, 'num-nodes-added'), ['int'])),
+                    ('num_nodes_deleted', (YLeaf(YType.uint32, 'num-nodes-deleted'), ['int'])),
+                    ('num_links_added', (YLeaf(YType.uint32, 'num-links-added'), ['int'])),
+                    ('num_links_deleted', (YLeaf(YType.uint32, 'num-links-deleted'), ['int'])),
+                    ('num_prefixes_added', (YLeaf(YType.uint32, 'num-prefixes-added'), ['int'])),
+                    ('num_prefixes_deleted', (YLeaf(YType.uint32, 'num-prefixes-deleted'), ['int'])),
                 ])
                 self.num_nodes_added = None
                 self.num_nodes_deleted = None
@@ -4358,6 +4460,7 @@ class PceTopology(Entity):
                 self.num_prefixes_deleted = None
                 self._segment_path = lambda: "stats-topology-update"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-topology/topology-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PceTopology.TopologySummary.StatsTopologyUpdate, [u'num_nodes_added', u'num_nodes_deleted', u'num_links_added', u'num_links_deleted', u'num_prefixes_added', u'num_prefixes_deleted'], name, value)
@@ -4393,6 +4496,7 @@ class PceTopology(Entity):
             self.topology_node = YList(self)
             self._segment_path = lambda: "topology-nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-topology/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PceTopology.TopologyNodes, [], name, value)
@@ -4426,10 +4530,10 @@ class PceTopology(Entity):
             	Node Overload Bit
             	**type**\: bool
             
-            .. attribute:: prefix_sid
+            .. attribute:: prefixe
             
-            	Prefix SIDs
-            	**type**\: list of  		 :py:class:`PrefixSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.PrefixSid>`
+            	Prefixes
+            	**type**\: list of  		 :py:class:`Prefixe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe>`
             
             .. attribute:: ipv4_link
             
@@ -4456,11 +4560,11 @@ class PceTopology(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_identifier']
-                self._child_classes = OrderedDict([("node-protocol-identifier", ("node_protocol_identifier", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier)), ("prefix-sid", ("prefix_sid", PceTopology.TopologyNodes.TopologyNode.PrefixSid)), ("ipv4-link", ("ipv4_link", PceTopology.TopologyNodes.TopologyNode.Ipv4Link)), ("ipv6-link", ("ipv6_link", PceTopology.TopologyNodes.TopologyNode.Ipv6Link))])
+                self._child_classes = OrderedDict([("node-protocol-identifier", ("node_protocol_identifier", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier)), ("prefixe", ("prefixe", PceTopology.TopologyNodes.TopologyNode.Prefixe)), ("ipv4-link", ("ipv4_link", PceTopology.TopologyNodes.TopologyNode.Ipv4Link)), ("ipv6-link", ("ipv6_link", PceTopology.TopologyNodes.TopologyNode.Ipv6Link))])
                 self._leafs = OrderedDict([
-                    ('node_identifier', YLeaf(YType.uint32, 'node-identifier')),
-                    ('node_identifier_xr', YLeaf(YType.uint32, 'node-identifier-xr')),
-                    ('overload', YLeaf(YType.boolean, 'overload')),
+                    ('node_identifier', (YLeaf(YType.uint32, 'node-identifier'), ['int'])),
+                    ('node_identifier_xr', (YLeaf(YType.uint32, 'node-identifier-xr'), ['int'])),
+                    ('overload', (YLeaf(YType.boolean, 'overload'), ['bool'])),
                 ])
                 self.node_identifier = None
                 self.node_identifier_xr = None
@@ -4470,11 +4574,12 @@ class PceTopology(Entity):
                 self.node_protocol_identifier.parent = self
                 self._children_name_map["node_protocol_identifier"] = "node-protocol-identifier"
 
-                self.prefix_sid = YList(self)
+                self.prefixe = YList(self)
                 self.ipv4_link = YList(self)
                 self.ipv6_link = YList(self)
                 self._segment_path = lambda: "topology-node" + "[node-identifier='" + str(self.node_identifier) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-topology/topology-nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PceTopology.TopologyNodes.TopologyNode, ['node_identifier', u'node_identifier_xr', u'overload'], name, value)
@@ -4540,11 +4645,11 @@ class PceTopology(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("igp-information", ("igp_information", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation))])
                     self._leafs = OrderedDict([
-                        ('node_name', YLeaf(YType.str, 'node-name')),
-                        ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
-                        ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
-                        ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
-                        ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                        ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                        ('ipv4_bgp_router_id_set', (YLeaf(YType.boolean, 'ipv4-bgp-router-id-set'), ['bool'])),
+                        ('ipv4_bgp_router_id', (YLeaf(YType.str, 'ipv4-bgp-router-id'), ['str'])),
+                        ('ipv4te_router_id_set', (YLeaf(YType.boolean, 'ipv4te-router-id-set'), ['bool'])),
+                        ('ipv4te_router_id', (YLeaf(YType.str, 'ipv4te-router-id'), ['str'])),
                     ])
                     self.node_name = None
                     self.ipv4_bgp_router_id_set = None
@@ -4555,6 +4660,7 @@ class PceTopology(Entity):
                     self.igp_information = YList(self)
                     self.srgb_information = YList(self)
                     self._segment_path = lambda: "node-protocol-identifier"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
@@ -4564,10 +4670,10 @@ class PceTopology(Entity):
                     """
                     IGP information
                     
-                    .. attribute:: igp
+                    .. attribute:: node_id
                     
-                    	IGP\-specific information
-                    	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp>`
+                    	Link\-state node identifier
+                    	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId>`
                     
                     .. attribute:: domain_identifier
                     
@@ -4575,13 +4681,6 @@ class PceTopology(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: autonomous_system_number
-                    
-                    	Autonomous System Number
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
                     
                     
 
@@ -4598,46 +4697,44 @@ class PceTopology(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp))])
+                        self._child_classes = OrderedDict([("node-id", ("node_id", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId))])
                         self._leafs = OrderedDict([
-                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                            ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                         ])
                         self.domain_identifier = None
-                        self.autonomous_system_number = None
 
-                        self.igp = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp()
-                        self.igp.parent = self
-                        self._children_name_map["igp"] = "igp"
+                        self.node_id = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId()
+                        self.node_id.parent = self
+                        self._children_name_map["node_id"] = "node-id"
                         self._segment_path = lambda: "igp-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, [u'domain_identifier', u'autonomous_system_number'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
 
 
-                    class Igp(Entity):
+                    class NodeId(Entity):
                         """
-                        IGP\-specific information
+                        Link\-state node identifier
                         
-                        .. attribute:: isis
+                        .. attribute:: igp
                         
-                        	ISIS information
-                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis>`
+                        	IGP\-specific information
+                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                         
-                        .. attribute:: ospf
+                        .. attribute:: autonomous_system_number
                         
-                        	OSPF information
-                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf>`
+                        	Autonomous System Number
+                        	**type**\: int
                         
-                        .. attribute:: bgp
+                        	**range:** 0..4294967295
                         
-                        	BGP information
-                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp>`
+                        .. attribute:: ls_identifier
                         
-                        .. attribute:: igp_id
+                        	Link\-State identifier
+                        	**type**\: int
                         
-                        	IGP ID
-                        	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                        	**range:** 0..4294967295
                         
                         
 
@@ -4647,97 +4744,54 @@ class PceTopology(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
+                            super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
-                            self.yang_name = "igp"
+                            self.yang_name = "node-id"
                             self.yang_parent_name = "igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                            self._child_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp))])
                             self._leafs = OrderedDict([
-                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                             ])
-                            self.igp_id = None
+                            self.autonomous_system_number = None
+                            self.ls_identifier = None
 
-                            self.isis = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis()
-                            self.isis.parent = self
-                            self._children_name_map["isis"] = "isis"
-
-                            self.ospf = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf()
-                            self.ospf.parent = self
-                            self._children_name_map["ospf"] = "ospf"
-
-                            self.bgp = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp()
-                            self.bgp.parent = self
-                            self._children_name_map["bgp"] = "bgp"
-                            self._segment_path = lambda: "igp"
+                            self.igp = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp()
+                            self.igp.parent = self
+                            self._children_name_map["igp"] = "igp"
+                            self._segment_path = lambda: "node-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp, [u'igp_id'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                        class Isis(Entity):
+                        class Igp(Entity):
                             """
-                            ISIS information
+                            IGP\-specific information
                             
-                            .. attribute:: system_id
+                            .. attribute:: isis
                             
-                            	ISIS system ID
-                            	**type**\: str
+                            	ISIS information
+                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                             
-                            .. attribute:: level
+                            .. attribute:: ospf
                             
-                            	ISIS level
-                            	**type**\: int
+                            	OSPF information
+                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
                             
-                            	**range:** 0..4294967295
+                            .. attribute:: bgp
                             
+                            	BGP information
+                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                             
-
-                            """
-
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
-
-                            def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
-
-                                self.yang_name = "isis"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('system_id', YLeaf(YType.str, 'system-id')),
-                                    ('level', YLeaf(YType.uint32, 'level')),
-                                ])
-                                self.system_id = None
-                                self.level = None
-                                self._segment_path = lambda: "isis"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis, [u'system_id', u'level'], name, value)
-
-
-                        class Ospf(Entity):
-                            """
-                            OSPF information
+                            .. attribute:: igp_id
                             
-                            .. attribute:: router_id
-                            
-                            	OSPF router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: area
-                            
-                            	OSPF area
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	IGP ID
+                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                             
                             
 
@@ -4747,80 +4801,184 @@ class PceTopology(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
+                                super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
-                                self.yang_name = "ospf"
-                                self.yang_parent_name = "igp"
+                                self.yang_name = "igp"
+                                self.yang_parent_name = "node-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp))])
                                 self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('area', YLeaf(YType.uint32, 'area')),
+                                    ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                 ])
-                                self.router_id = None
-                                self.area = None
-                                self._segment_path = lambda: "ospf"
+                                self.igp_id = None
+
+                                self.isis = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis()
+                                self.isis.parent = self
+                                self._children_name_map["isis"] = "isis"
+
+                                self.ospf = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf()
+                                self.ospf.parent = self
+                                self._children_name_map["ospf"] = "ospf"
+
+                                self.bgp = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp()
+                                self.bgp.parent = self
+                                self._children_name_map["bgp"] = "bgp"
+                                self._segment_path = lambda: "igp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                        class Bgp(Entity):
-                            """
-                            BGP information
-                            
-                            .. attribute:: router_id
-                            
-                            	BGP router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: confed_asn
-                            
-                            	Confederation ASN
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
+                            class Isis(Entity):
+                                """
+                                ISIS information
+                                
+                                .. attribute:: system_id
+                                
+                                	ISIS system ID
+                                	**type**\: str
+                                
+                                .. attribute:: level
+                                
+                                	ISIS level
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
 
-                            """
+                                """
 
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
 
-                            def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
+                                def __init__(self):
+                                    super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
-                                self.yang_name = "bgp"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                ])
-                                self.router_id = None
-                                self.confed_asn = None
-                                self._segment_path = lambda: "bgp"
+                                    self.yang_name = "isis"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                        ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
+                                    self._segment_path = lambda: "isis"
+                                    self._is_frozen = True
 
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                            class Ospf(Entity):
+                                """
+                                OSPF information
+                                
+                                .. attribute:: router_id
+                                
+                                	OSPF router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: area
+                                
+                                	OSPF area
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                    self.yang_name = "ospf"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
+                                    self._segment_path = lambda: "ospf"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                            class Bgp(Entity):
+                                """
+                                BGP information
+                                
+                                .. attribute:: router_id
+                                
+                                	BGP router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: confed_asn
+                                
+                                	Confederation ASN
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                    self.yang_name = "bgp"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
+                                    self._segment_path = lambda: "bgp"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                 class SrgbInformation(Entity):
                     """
                     SRGB information
                     
-                    .. attribute:: igp_srgb
+                    .. attribute:: node_id
                     
-                    	IGP\-specific information
-                    	**type**\:  :py:class:`IgpSrgb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb>`
+                    	Link\-state node identifier
+                    	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId>`
                     
                     .. attribute:: start
                     
@@ -4835,6 +4993,13 @@ class PceTopology(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: domain_identifier
+                    
+                    	Domain identifier
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -4851,41 +5016,564 @@ class PceTopology(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("igp-srgb", ("igp_srgb", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                        self._child_classes = OrderedDict([("node-id", ("node_id", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId))])
                         self._leafs = OrderedDict([
-                            ('start', YLeaf(YType.uint32, 'start')),
-                            ('size', YLeaf(YType.uint32, 'size')),
+                            ('start', (YLeaf(YType.uint32, 'start'), ['int'])),
+                            ('size', (YLeaf(YType.uint32, 'size'), ['int'])),
+                            ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                         ])
                         self.start = None
                         self.size = None
+                        self.domain_identifier = None
 
-                        self.igp_srgb = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb()
-                        self.igp_srgb.parent = self
-                        self._children_name_map["igp_srgb"] = "igp-srgb"
+                        self.node_id = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId()
+                        self.node_id.parent = self
+                        self._children_name_map["node_id"] = "node-id"
                         self._segment_path = lambda: "srgb-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, [u'start', u'size'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
 
 
-                    class IgpSrgb(Entity):
+                    class NodeId(Entity):
+                        """
+                        Link\-state node identifier
+                        
+                        .. attribute:: igp
+                        
+                        	IGP\-specific information
+                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
+                        
+                        .. attribute:: autonomous_system_number
+                        
+                        	Autonomous System Number
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ls_identifier
+                        
+                        	Link\-State identifier
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-xtc-oper'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
+
+                            self.yang_name = "node-id"
+                            self.yang_parent_name = "srgb-information"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp))])
+                            self._leafs = OrderedDict([
+                                ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
+                            ])
+                            self.autonomous_system_number = None
+                            self.ls_identifier = None
+
+                            self.igp = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp()
+                            self.igp.parent = self
+                            self._children_name_map["igp"] = "igp"
+                            self._segment_path = lambda: "node-id"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+
+
+                        class Igp(Entity):
+                            """
+                            IGP\-specific information
+                            
+                            .. attribute:: isis
+                            
+                            	ISIS information
+                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
+                            
+                            .. attribute:: ospf
+                            
+                            	OSPF information
+                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
+                            
+                            .. attribute:: bgp
+                            
+                            	BGP information
+                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
+                            
+                            .. attribute:: igp_id
+                            
+                            	IGP ID
+                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-xtc-oper'
+                            _revision = '2017-09-07'
+
+                            def __init__(self):
+                                super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
+
+                                self.yang_name = "igp"
+                                self.yang_parent_name = "node-id"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp))])
+                                self._leafs = OrderedDict([
+                                    ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
+                                ])
+                                self.igp_id = None
+
+                                self.isis = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis()
+                                self.isis.parent = self
+                                self._children_name_map["isis"] = "isis"
+
+                                self.ospf = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf()
+                                self.ospf.parent = self
+                                self._children_name_map["ospf"] = "ospf"
+
+                                self.bgp = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp()
+                                self.bgp.parent = self
+                                self._children_name_map["bgp"] = "bgp"
+                                self._segment_path = lambda: "igp"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
+
+
+                            class Isis(Entity):
+                                """
+                                ISIS information
+                                
+                                .. attribute:: system_id
+                                
+                                	ISIS system ID
+                                	**type**\: str
+                                
+                                .. attribute:: level
+                                
+                                	ISIS level
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
+
+                                    self.yang_name = "isis"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                        ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
+                                    self._segment_path = lambda: "isis"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                            class Ospf(Entity):
+                                """
+                                OSPF information
+                                
+                                .. attribute:: router_id
+                                
+                                	OSPF router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: area
+                                
+                                	OSPF area
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                    self.yang_name = "ospf"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
+                                    self._segment_path = lambda: "ospf"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                            class Bgp(Entity):
+                                """
+                                BGP information
+                                
+                                .. attribute:: router_id
+                                
+                                	BGP router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: confed_asn
+                                
+                                	Confederation ASN
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                    self.yang_name = "bgp"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
+                                    self._segment_path = lambda: "bgp"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+
+
+            class Prefixe(Entity):
+                """
+                Prefixes
+                
+                .. attribute:: pfx_sid
+                
+                	Prefix SID
+                	**type**\:  :py:class:`PfxSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid>`
+                
+                .. attribute:: node_id
+                
+                	Link\-state node identifier
+                	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId>`
+                
+                .. attribute:: domain_identifier
+                
+                	Domain identifier
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                
+
+                """
+
+                _prefix = 'infra-xtc-oper'
+                _revision = '2017-09-07'
+
+                def __init__(self):
+                    super(PceTopology.TopologyNodes.TopologyNode.Prefixe, self).__init__()
+
+                    self.yang_name = "prefixe"
+                    self.yang_parent_name = "topology-node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("pfx-sid", ("pfx_sid", PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid)), ("node-id", ("node_id", PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId))])
+                    self._leafs = OrderedDict([
+                        ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
+                    ])
+                    self.domain_identifier = None
+
+                    self.pfx_sid = PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid()
+                    self.pfx_sid.parent = self
+                    self._children_name_map["pfx_sid"] = "pfx-sid"
+
+                    self.node_id = PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId()
+                    self.node_id.parent = self
+                    self._children_name_map["node_id"] = "node-id"
+                    self._segment_path = lambda: "prefixe"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe, [u'domain_identifier'], name, value)
+
+
+                class PfxSid(Entity):
+                    """
+                    Prefix SID
+                    
+                    .. attribute:: sid_prefix
+                    
+                    	Prefix
+                    	**type**\:  :py:class:`SidPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix>`
+                    
+                    .. attribute:: sid_type
+                    
+                    	SID Type
+                    	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Sid>`
+                    
+                    .. attribute:: mpls_label
+                    
+                    	MPLS Label
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: rflag
+                    
+                    	R Flag
+                    	**type**\: bool
+                    
+                    .. attribute:: nflag
+                    
+                    	N Flag
+                    	**type**\: bool
+                    
+                    .. attribute:: pflag
+                    
+                    	P Flag
+                    	**type**\: bool
+                    
+                    .. attribute:: eflag
+                    
+                    	E Flag
+                    	**type**\: bool
+                    
+                    .. attribute:: vflag
+                    
+                    	V Flag
+                    	**type**\: bool
+                    
+                    .. attribute:: lflag
+                    
+                    	L Flag
+                    	**type**\: bool
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-oper'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid, self).__init__()
+
+                        self.yang_name = "pfx-sid"
+                        self.yang_parent_name = "prefixe"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("sid-prefix", ("sid_prefix", PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix))])
+                        self._leafs = OrderedDict([
+                            ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'Sid', '')])),
+                            ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
+                            ('rflag', (YLeaf(YType.boolean, 'rflag'), ['bool'])),
+                            ('nflag', (YLeaf(YType.boolean, 'nflag'), ['bool'])),
+                            ('pflag', (YLeaf(YType.boolean, 'pflag'), ['bool'])),
+                            ('eflag', (YLeaf(YType.boolean, 'eflag'), ['bool'])),
+                            ('vflag', (YLeaf(YType.boolean, 'vflag'), ['bool'])),
+                            ('lflag', (YLeaf(YType.boolean, 'lflag'), ['bool'])),
+                        ])
+                        self.sid_type = None
+                        self.mpls_label = None
+                        self.rflag = None
+                        self.nflag = None
+                        self.pflag = None
+                        self.eflag = None
+                        self.vflag = None
+                        self.lflag = None
+
+                        self.sid_prefix = PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix()
+                        self.sid_prefix.parent = self
+                        self._children_name_map["sid_prefix"] = "sid-prefix"
+                        self._segment_path = lambda: "pfx-sid"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid, [u'sid_type', u'mpls_label', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
+
+
+                    class SidPrefix(Entity):
+                        """
+                        Prefix
+                        
+                        .. attribute:: af_name
+                        
+                        	AFName
+                        	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-xtc-oper'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, self).__init__()
+
+                            self.yang_name = "sid-prefix"
+                            self.yang_parent_name = "pfx-sid"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                            ])
+                            self.af_name = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+                            self._segment_path = lambda: "sid-prefix"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
+
+
+                class NodeId(Entity):
+                    """
+                    Link\-state node identifier
+                    
+                    .. attribute:: igp
+                    
+                    	IGP\-specific information
+                    	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp>`
+                    
+                    .. attribute:: autonomous_system_number
+                    
+                    	Autonomous System Number
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: ls_identifier
+                    
+                    	Link\-State identifier
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-oper'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId, self).__init__()
+
+                        self.yang_name = "node-id"
+                        self.yang_parent_name = "prefixe"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp))])
+                        self._leafs = OrderedDict([
+                            ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                            ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
+                        ])
+                        self.autonomous_system_number = None
+                        self.ls_identifier = None
+
+                        self.igp = PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp()
+                        self.igp.parent = self
+                        self._children_name_map["igp"] = "igp"
+                        self._segment_path = lambda: "node-id"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+
+
+                    class Igp(Entity):
                         """
                         IGP\-specific information
                         
                         .. attribute:: isis
                         
                         	ISIS information
-                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis>`
+                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis>`
                         
                         .. attribute:: ospf
                         
                         	OSPF information
-                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf>`
+                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf>`
                         
                         .. attribute:: bgp
                         
                         	BGP information
-                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp>`
+                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp>`
                         
                         .. attribute:: igp_id
                         
@@ -4900,34 +5588,35 @@ class PceTopology(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
+                            super(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp, self).__init__()
 
-                            self.yang_name = "igp-srgb"
-                            self.yang_parent_name = "srgb-information"
+                            self.yang_name = "igp"
+                            self.yang_parent_name = "node-id"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                            self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp))])
                             self._leafs = OrderedDict([
-                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                             ])
                             self.igp_id = None
 
-                            self.isis = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
+                            self.isis = PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis()
                             self.isis.parent = self
                             self._children_name_map["isis"] = "isis"
 
-                            self.ospf = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf()
+                            self.ospf = PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf()
                             self.ospf.parent = self
                             self._children_name_map["ospf"] = "ospf"
 
-                            self.bgp = PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp()
+                            self.bgp = PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp()
                             self.bgp.parent = self
                             self._children_name_map["bgp"] = "bgp"
-                            self._segment_path = lambda: "igp-srgb"
+                            self._segment_path = lambda: "igp"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb, [u'igp_id'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp, [u'igp_id'], name, value)
 
 
                         class Isis(Entity):
@@ -4954,24 +5643,25 @@ class PceTopology(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
+                                super(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, self).__init__()
 
                                 self.yang_name = "isis"
-                                self.yang_parent_name = "igp-srgb"
+                                self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('system_id', YLeaf(YType.str, 'system-id')),
-                                    ('level', YLeaf(YType.uint32, 'level')),
+                                    ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                    ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
                                 ])
                                 self.system_id = None
                                 self.level = None
                                 self._segment_path = lambda: "isis"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, [u'system_id', u'level'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
                         class Ospf(Entity):
@@ -5000,24 +5690,25 @@ class PceTopology(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
+                                super(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, self).__init__()
 
                                 self.yang_name = "ospf"
-                                self.yang_parent_name = "igp-srgb"
+                                self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('area', YLeaf(YType.uint32, 'area')),
+                                    ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                    ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
                                 ])
                                 self.router_id = None
                                 self.area = None
                                 self._segment_path = lambda: "ospf"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, [u'router_id', u'area'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
                         class Bgp(Entity):
@@ -5046,181 +5737,25 @@ class PceTopology(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
+                                super(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, self).__init__()
 
                                 self.yang_name = "bgp"
-                                self.yang_parent_name = "igp-srgb"
+                                self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                    ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                    ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
                                 ])
                                 self.router_id = None
                                 self.confed_asn = None
                                 self._segment_path = lambda: "bgp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, [u'router_id', u'confed_asn'], name, value)
-
-
-            class PrefixSid(Entity):
-                """
-                Prefix SIDs
-                
-                .. attribute:: sid_prefix
-                
-                	Prefix
-                	**type**\:  :py:class:`SidPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.PrefixSid.SidPrefix>`
-                
-                .. attribute:: sid_type
-                
-                	SID Type
-                	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Sid>`
-                
-                .. attribute:: mpls_label
-                
-                	MPLS Label
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: domain_identifier
-                
-                	Domain identifier
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rflag
-                
-                	R Flag
-                	**type**\: bool
-                
-                .. attribute:: nflag
-                
-                	N Flag
-                	**type**\: bool
-                
-                .. attribute:: pflag
-                
-                	P Flag
-                	**type**\: bool
-                
-                .. attribute:: eflag
-                
-                	E Flag
-                	**type**\: bool
-                
-                .. attribute:: vflag
-                
-                	V Flag
-                	**type**\: bool
-                
-                .. attribute:: lflag
-                
-                	L Flag
-                	**type**\: bool
-                
-                
-
-                """
-
-                _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
-
-                def __init__(self):
-                    super(PceTopology.TopologyNodes.TopologyNode.PrefixSid, self).__init__()
-
-                    self.yang_name = "prefix-sid"
-                    self.yang_parent_name = "topology-node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("sid-prefix", ("sid_prefix", PceTopology.TopologyNodes.TopologyNode.PrefixSid.SidPrefix))])
-                    self._leafs = OrderedDict([
-                        ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                        ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
-                        ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                        ('rflag', YLeaf(YType.boolean, 'rflag')),
-                        ('nflag', YLeaf(YType.boolean, 'nflag')),
-                        ('pflag', YLeaf(YType.boolean, 'pflag')),
-                        ('eflag', YLeaf(YType.boolean, 'eflag')),
-                        ('vflag', YLeaf(YType.boolean, 'vflag')),
-                        ('lflag', YLeaf(YType.boolean, 'lflag')),
-                    ])
-                    self.sid_type = None
-                    self.mpls_label = None
-                    self.domain_identifier = None
-                    self.rflag = None
-                    self.nflag = None
-                    self.pflag = None
-                    self.eflag = None
-                    self.vflag = None
-                    self.lflag = None
-
-                    self.sid_prefix = PceTopology.TopologyNodes.TopologyNode.PrefixSid.SidPrefix()
-                    self.sid_prefix.parent = self
-                    self._children_name_map["sid_prefix"] = "sid-prefix"
-                    self._segment_path = lambda: "prefix-sid"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.PrefixSid, [u'sid_type', u'mpls_label', u'domain_identifier', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
-
-
-                class SidPrefix(Entity):
-                    """
-                    Prefix
-                    
-                    .. attribute:: af_name
-                    
-                    	AFName
-                    	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
-                    
-                    .. attribute:: ipv4
-                    
-                    	IPv4 address type
-                    	**type**\: str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: ipv6
-                    
-                    	IPv6 address type
-                    	**type**\: str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(PceTopology.TopologyNodes.TopologyNode.PrefixSid.SidPrefix, self).__init__()
-
-                        self.yang_name = "sid-prefix"
-                        self.yang_parent_name = "prefix-sid"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
-                        ])
-                        self.af_name = None
-                        self.ipv4 = None
-                        self.ipv6 = None
-                        self._segment_path = lambda: "sid-prefix"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.PrefixSid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
             class Ipv4Link(Entity):
@@ -5284,6 +5819,13 @@ class PceTopology(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                .. attribute:: administrative_groups
+                
+                	Link admin\-groups
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: srlgs
                 
                 	SRLG Values
@@ -5313,13 +5855,14 @@ class PceTopology(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("local-igp-information", ("local_igp_information", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation)), ("remote-node-protocol-identifier", ("remote_node_protocol_identifier", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier)), ("performance-metrics", ("performance_metrics", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics)), ("adjacency-sid", ("adjacency_sid", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid))])
                     self._leafs = OrderedDict([
-                        ('local_ipv4_address', YLeaf(YType.str, 'local-ipv4-address')),
-                        ('remote_ipv4_address', YLeaf(YType.str, 'remote-ipv4-address')),
-                        ('igp_metric', YLeaf(YType.uint32, 'igp-metric')),
-                        ('te_metric', YLeaf(YType.uint32, 'te-metric')),
-                        ('maximum_link_bandwidth', YLeaf(YType.uint64, 'maximum-link-bandwidth')),
-                        ('max_reservable_bandwidth', YLeaf(YType.uint64, 'max-reservable-bandwidth')),
-                        ('srlgs', YLeafList(YType.uint32, 'srlgs')),
+                        ('local_ipv4_address', (YLeaf(YType.str, 'local-ipv4-address'), ['str'])),
+                        ('remote_ipv4_address', (YLeaf(YType.str, 'remote-ipv4-address'), ['str'])),
+                        ('igp_metric', (YLeaf(YType.uint32, 'igp-metric'), ['int'])),
+                        ('te_metric', (YLeaf(YType.uint32, 'te-metric'), ['int'])),
+                        ('maximum_link_bandwidth', (YLeaf(YType.uint64, 'maximum-link-bandwidth'), ['int'])),
+                        ('max_reservable_bandwidth', (YLeaf(YType.uint64, 'max-reservable-bandwidth'), ['int'])),
+                        ('administrative_groups', (YLeaf(YType.uint32, 'administrative-groups'), ['int'])),
+                        ('srlgs', (YLeafList(YType.uint32, 'srlgs'), ['int'])),
                     ])
                     self.local_ipv4_address = None
                     self.remote_ipv4_address = None
@@ -5327,6 +5870,7 @@ class PceTopology(Entity):
                     self.te_metric = None
                     self.maximum_link_bandwidth = None
                     self.max_reservable_bandwidth = None
+                    self.administrative_groups = None
                     self.srlgs = []
 
                     self.local_igp_information = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation()
@@ -5343,19 +5887,20 @@ class PceTopology(Entity):
 
                     self.adjacency_sid = YList(self)
                     self._segment_path = lambda: "ipv4-link"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link, [u'local_ipv4_address', u'remote_ipv4_address', u'igp_metric', u'te_metric', u'maximum_link_bandwidth', u'max_reservable_bandwidth', u'srlgs'], name, value)
+                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link, [u'local_ipv4_address', u'remote_ipv4_address', u'igp_metric', u'te_metric', u'maximum_link_bandwidth', u'max_reservable_bandwidth', u'administrative_groups', u'srlgs'], name, value)
 
 
                 class LocalIgpInformation(Entity):
                     """
                     Local node IGP information
                     
-                    .. attribute:: igp
+                    .. attribute:: node_id
                     
-                    	IGP\-specific information
-                    	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp>`
+                    	Link\-state node identifier
+                    	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId>`
                     
                     .. attribute:: domain_identifier
                     
@@ -5363,13 +5908,6 @@ class PceTopology(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: autonomous_system_number
-                    
-                    	Autonomous System Number
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
                     
                     
 
@@ -5386,46 +5924,44 @@ class PceTopology(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp))])
+                        self._child_classes = OrderedDict([("node-id", ("node_id", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId))])
                         self._leafs = OrderedDict([
-                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                            ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                         ])
                         self.domain_identifier = None
-                        self.autonomous_system_number = None
 
-                        self.igp = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp()
-                        self.igp.parent = self
-                        self._children_name_map["igp"] = "igp"
+                        self.node_id = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId()
+                        self.node_id.parent = self
+                        self._children_name_map["node_id"] = "node-id"
                         self._segment_path = lambda: "local-igp-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, [u'domain_identifier', u'autonomous_system_number'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, [u'domain_identifier'], name, value)
 
 
-                    class Igp(Entity):
+                    class NodeId(Entity):
                         """
-                        IGP\-specific information
+                        Link\-state node identifier
                         
-                        .. attribute:: isis
+                        .. attribute:: igp
                         
-                        	ISIS information
-                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis>`
+                        	IGP\-specific information
+                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp>`
                         
-                        .. attribute:: ospf
+                        .. attribute:: autonomous_system_number
                         
-                        	OSPF information
-                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf>`
+                        	Autonomous System Number
+                        	**type**\: int
                         
-                        .. attribute:: bgp
+                        	**range:** 0..4294967295
                         
-                        	BGP information
-                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp>`
+                        .. attribute:: ls_identifier
                         
-                        .. attribute:: igp_id
+                        	Link\-State identifier
+                        	**type**\: int
                         
-                        	IGP ID
-                        	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                        	**range:** 0..4294967295
                         
                         
 
@@ -5435,97 +5971,54 @@ class PceTopology(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp, self).__init__()
+                            super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId, self).__init__()
 
-                            self.yang_name = "igp"
+                            self.yang_name = "node-id"
                             self.yang_parent_name = "local-igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp))])
+                            self._child_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp))])
                             self._leafs = OrderedDict([
-                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                             ])
-                            self.igp_id = None
+                            self.autonomous_system_number = None
+                            self.ls_identifier = None
 
-                            self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis()
-                            self.isis.parent = self
-                            self._children_name_map["isis"] = "isis"
-
-                            self.ospf = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf()
-                            self.ospf.parent = self
-                            self._children_name_map["ospf"] = "ospf"
-
-                            self.bgp = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp()
-                            self.bgp.parent = self
-                            self._children_name_map["bgp"] = "bgp"
-                            self._segment_path = lambda: "igp"
+                            self.igp = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp()
+                            self.igp.parent = self
+                            self._children_name_map["igp"] = "igp"
+                            self._segment_path = lambda: "node-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp, [u'igp_id'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                        class Isis(Entity):
+                        class Igp(Entity):
                             """
-                            ISIS information
+                            IGP\-specific information
                             
-                            .. attribute:: system_id
+                            .. attribute:: isis
                             
-                            	ISIS system ID
-                            	**type**\: str
+                            	ISIS information
+                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis>`
                             
-                            .. attribute:: level
+                            .. attribute:: ospf
                             
-                            	ISIS level
-                            	**type**\: int
+                            	OSPF information
+                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf>`
                             
-                            	**range:** 0..4294967295
+                            .. attribute:: bgp
                             
+                            	BGP information
+                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp>`
                             
-
-                            """
-
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
-
-                            def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis, self).__init__()
-
-                                self.yang_name = "isis"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('system_id', YLeaf(YType.str, 'system-id')),
-                                    ('level', YLeaf(YType.uint32, 'level')),
-                                ])
-                                self.system_id = None
-                                self.level = None
-                                self._segment_path = lambda: "isis"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis, [u'system_id', u'level'], name, value)
-
-
-                        class Ospf(Entity):
-                            """
-                            OSPF information
+                            .. attribute:: igp_id
                             
-                            .. attribute:: router_id
-                            
-                            	OSPF router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: area
-                            
-                            	OSPF area
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	IGP ID
+                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                             
                             
 
@@ -5535,70 +6028,174 @@ class PceTopology(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf, self).__init__()
+                                super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp, self).__init__()
 
-                                self.yang_name = "ospf"
-                                self.yang_parent_name = "igp"
+                                self.yang_name = "igp"
+                                self.yang_parent_name = "node-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp))])
                                 self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('area', YLeaf(YType.uint32, 'area')),
+                                    ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                 ])
-                                self.router_id = None
-                                self.area = None
-                                self._segment_path = lambda: "ospf"
+                                self.igp_id = None
+
+                                self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis()
+                                self.isis.parent = self
+                                self._children_name_map["isis"] = "isis"
+
+                                self.ospf = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf()
+                                self.ospf.parent = self
+                                self._children_name_map["ospf"] = "ospf"
+
+                                self.bgp = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp()
+                                self.bgp.parent = self
+                                self._children_name_map["bgp"] = "bgp"
+                                self._segment_path = lambda: "igp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                        class Bgp(Entity):
-                            """
-                            BGP information
-                            
-                            .. attribute:: router_id
-                            
-                            	BGP router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: confed_asn
-                            
-                            	Confederation ASN
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
+                            class Isis(Entity):
+                                """
+                                ISIS information
+                                
+                                .. attribute:: system_id
+                                
+                                	ISIS system ID
+                                	**type**\: str
+                                
+                                .. attribute:: level
+                                
+                                	ISIS level
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
 
-                            """
+                                """
 
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
 
-                            def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp, self).__init__()
+                                def __init__(self):
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, self).__init__()
 
-                                self.yang_name = "bgp"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                ])
-                                self.router_id = None
-                                self.confed_asn = None
-                                self._segment_path = lambda: "bgp"
+                                    self.yang_name = "isis"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                        ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
+                                    self._segment_path = lambda: "isis"
+                                    self._is_frozen = True
 
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                            class Ospf(Entity):
+                                """
+                                OSPF information
+                                
+                                .. attribute:: router_id
+                                
+                                	OSPF router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: area
+                                
+                                	OSPF area
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                    self.yang_name = "ospf"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
+                                    self._segment_path = lambda: "ospf"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                            class Bgp(Entity):
+                                """
+                                BGP information
+                                
+                                .. attribute:: router_id
+                                
+                                	BGP router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: confed_asn
+                                
+                                	Confederation ASN
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                    self.yang_name = "bgp"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
+                                    self._segment_path = lambda: "bgp"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                 class RemoteNodeProtocolIdentifier(Entity):
@@ -5661,11 +6258,11 @@ class PceTopology(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("igp-information", ("igp_information", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation))])
                         self._leafs = OrderedDict([
-                            ('node_name', YLeaf(YType.str, 'node-name')),
-                            ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
-                            ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
-                            ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
-                            ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                            ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                            ('ipv4_bgp_router_id_set', (YLeaf(YType.boolean, 'ipv4-bgp-router-id-set'), ['bool'])),
+                            ('ipv4_bgp_router_id', (YLeaf(YType.str, 'ipv4-bgp-router-id'), ['str'])),
+                            ('ipv4te_router_id_set', (YLeaf(YType.boolean, 'ipv4te-router-id-set'), ['bool'])),
+                            ('ipv4te_router_id', (YLeaf(YType.str, 'ipv4te-router-id'), ['str'])),
                         ])
                         self.node_name = None
                         self.ipv4_bgp_router_id_set = None
@@ -5676,6 +6273,7 @@ class PceTopology(Entity):
                         self.igp_information = YList(self)
                         self.srgb_information = YList(self)
                         self._segment_path = lambda: "remote-node-protocol-identifier"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
@@ -5685,10 +6283,10 @@ class PceTopology(Entity):
                         """
                         IGP information
                         
-                        .. attribute:: igp
+                        .. attribute:: node_id
                         
-                        	IGP\-specific information
-                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp>`
+                        	Link\-state node identifier
+                        	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId>`
                         
                         .. attribute:: domain_identifier
                         
@@ -5696,13 +6294,6 @@ class PceTopology(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: autonomous_system_number
-                        
-                        	Autonomous System Number
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
                         
                         
 
@@ -5719,46 +6310,44 @@ class PceTopology(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp))])
+                            self._child_classes = OrderedDict([("node-id", ("node_id", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId))])
                             self._leafs = OrderedDict([
-                                ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                                ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                                ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                             ])
                             self.domain_identifier = None
-                            self.autonomous_system_number = None
 
-                            self.igp = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp()
-                            self.igp.parent = self
-                            self._children_name_map["igp"] = "igp"
+                            self.node_id = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId()
+                            self.node_id.parent = self
+                            self._children_name_map["node_id"] = "node-id"
                             self._segment_path = lambda: "igp-information"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, [u'domain_identifier', u'autonomous_system_number'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class NodeId(Entity):
                             """
-                            IGP\-specific information
+                            Link\-state node identifier
                             
-                            .. attribute:: isis
+                            .. attribute:: igp
                             
-                            	ISIS information
-                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis>`
+                            	IGP\-specific information
+                            	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                             
-                            .. attribute:: ospf
+                            .. attribute:: autonomous_system_number
                             
-                            	OSPF information
-                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf>`
+                            	Autonomous System Number
+                            	**type**\: int
                             
-                            .. attribute:: bgp
+                            	**range:** 0..4294967295
                             
-                            	BGP information
-                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp>`
+                            .. attribute:: ls_identifier
                             
-                            .. attribute:: igp_id
+                            	Link\-State identifier
+                            	**type**\: int
                             
-                            	IGP ID
-                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            	**range:** 0..4294967295
                             
                             
 
@@ -5768,97 +6357,54 @@ class PceTopology(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
+                                super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
-                                self.yang_name = "igp"
+                                self.yang_name = "node-id"
                                 self.yang_parent_name = "igp-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                                self._child_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp))])
                                 self._leafs = OrderedDict([
-                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                    ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                    ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                                 ])
-                                self.igp_id = None
+                                self.autonomous_system_number = None
+                                self.ls_identifier = None
 
-                                self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis()
-                                self.isis.parent = self
-                                self._children_name_map["isis"] = "isis"
-
-                                self.ospf = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf()
-                                self.ospf.parent = self
-                                self._children_name_map["ospf"] = "ospf"
-
-                                self.bgp = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp()
-                                self.bgp.parent = self
-                                self._children_name_map["bgp"] = "bgp"
-                                self._segment_path = lambda: "igp"
+                                self.igp = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp()
+                                self.igp.parent = self
+                                self._children_name_map["igp"] = "igp"
+                                self._segment_path = lambda: "node-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                            class Isis(Entity):
+                            class Igp(Entity):
                                 """
-                                ISIS information
+                                IGP\-specific information
                                 
-                                .. attribute:: system_id
+                                .. attribute:: isis
                                 
-                                	ISIS system ID
-                                	**type**\: str
+                                	ISIS information
+                                	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                                 
-                                .. attribute:: level
+                                .. attribute:: ospf
                                 
-                                	ISIS level
-                                	**type**\: int
+                                	OSPF information
+                                	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
                                 
-                                	**range:** 0..4294967295
+                                .. attribute:: bgp
                                 
+                                	BGP information
+                                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                                 
-
-                                """
-
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
-
-                                def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
-
-                                    self.yang_name = "isis"
-                                    self.yang_parent_name = "igp"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('system_id', YLeaf(YType.str, 'system-id')),
-                                        ('level', YLeaf(YType.uint32, 'level')),
-                                    ])
-                                    self.system_id = None
-                                    self.level = None
-                                    self._segment_path = lambda: "isis"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, [u'system_id', u'level'], name, value)
-
-
-                            class Ospf(Entity):
-                                """
-                                OSPF information
+                                .. attribute:: igp_id
                                 
-                                .. attribute:: router_id
-                                
-                                	OSPF router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: area
-                                
-                                	OSPF area
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
+                                	IGP ID
+                                	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                                 
                                 
 
@@ -5868,80 +6414,184 @@ class PceTopology(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
-                                    self.yang_name = "ospf"
-                                    self.yang_parent_name = "igp"
+                                    self.yang_name = "igp"
+                                    self.yang_parent_name = "node-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp))])
                                     self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('area', YLeaf(YType.uint32, 'area')),
+                                        ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                     ])
-                                    self.router_id = None
-                                    self.area = None
-                                    self._segment_path = lambda: "ospf"
+                                    self.igp_id = None
+
+                                    self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis()
+                                    self.isis.parent = self
+                                    self._children_name_map["isis"] = "isis"
+
+                                    self.ospf = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf()
+                                    self.ospf.parent = self
+                                    self._children_name_map["ospf"] = "ospf"
+
+                                    self.bgp = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp()
+                                    self.bgp.parent = self
+                                    self._children_name_map["bgp"] = "bgp"
+                                    self._segment_path = lambda: "igp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                            class Bgp(Entity):
-                                """
-                                BGP information
-                                
-                                .. attribute:: router_id
-                                
-                                	BGP router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: confed_asn
-                                
-                                	Confederation ASN
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
+                                class Isis(Entity):
+                                    """
+                                    ISIS information
+                                    
+                                    .. attribute:: system_id
+                                    
+                                    	ISIS system ID
+                                    	**type**\: str
+                                    
+                                    .. attribute:: level
+                                    
+                                    	ISIS level
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
 
-                                """
+                                    """
 
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
 
-                                def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
+                                    def __init__(self):
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
-                                    self.yang_name = "bgp"
-                                    self.yang_parent_name = "igp"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                    ])
-                                    self.router_id = None
-                                    self.confed_asn = None
-                                    self._segment_path = lambda: "bgp"
+                                        self.yang_name = "isis"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                            ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                        ])
+                                        self.system_id = None
+                                        self.level = None
+                                        self._segment_path = lambda: "isis"
+                                        self._is_frozen = True
 
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                                class Ospf(Entity):
+                                    """
+                                    OSPF information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	OSPF router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: area
+                                    
+                                    	OSPF area
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                        self.yang_name = "ospf"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.area = None
+                                        self._segment_path = lambda: "ospf"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                                class Bgp(Entity):
+                                    """
+                                    BGP information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	BGP router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: confed_asn
+                                    
+                                    	Confederation ASN
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                        self.yang_name = "bgp"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.confed_asn = None
+                                        self._segment_path = lambda: "bgp"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                     class SrgbInformation(Entity):
                         """
                         SRGB information
                         
-                        .. attribute:: igp_srgb
+                        .. attribute:: node_id
                         
-                        	IGP\-specific information
-                        	**type**\:  :py:class:`IgpSrgb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb>`
+                        	Link\-state node identifier
+                        	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId>`
                         
                         .. attribute:: start
                         
@@ -5956,6 +6606,13 @@ class PceTopology(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: domain_identifier
+                        
+                        	Domain identifier
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -5972,46 +6629,48 @@ class PceTopology(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("igp-srgb", ("igp_srgb", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                            self._child_classes = OrderedDict([("node-id", ("node_id", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId))])
                             self._leafs = OrderedDict([
-                                ('start', YLeaf(YType.uint32, 'start')),
-                                ('size', YLeaf(YType.uint32, 'size')),
+                                ('start', (YLeaf(YType.uint32, 'start'), ['int'])),
+                                ('size', (YLeaf(YType.uint32, 'size'), ['int'])),
+                                ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                             ])
                             self.start = None
                             self.size = None
+                            self.domain_identifier = None
 
-                            self.igp_srgb = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb()
-                            self.igp_srgb.parent = self
-                            self._children_name_map["igp_srgb"] = "igp-srgb"
+                            self.node_id = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId()
+                            self.node_id.parent = self
+                            self._children_name_map["node_id"] = "node-id"
                             self._segment_path = lambda: "srgb-information"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, [u'start', u'size'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
 
 
-                        class IgpSrgb(Entity):
+                        class NodeId(Entity):
                             """
-                            IGP\-specific information
+                            Link\-state node identifier
                             
-                            .. attribute:: isis
+                            .. attribute:: igp
                             
-                            	ISIS information
-                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis>`
+                            	IGP\-specific information
+                            	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
                             
-                            .. attribute:: ospf
+                            .. attribute:: autonomous_system_number
                             
-                            	OSPF information
-                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf>`
+                            	Autonomous System Number
+                            	**type**\: int
                             
-                            .. attribute:: bgp
+                            	**range:** 0..4294967295
                             
-                            	BGP information
-                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp>`
+                            .. attribute:: ls_identifier
                             
-                            .. attribute:: igp_id
+                            	Link\-State identifier
+                            	**type**\: int
                             
-                            	IGP ID
-                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            	**range:** 0..4294967295
                             
                             
 
@@ -6021,97 +6680,54 @@ class PceTopology(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
+                                super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
 
-                                self.yang_name = "igp-srgb"
+                                self.yang_name = "node-id"
                                 self.yang_parent_name = "srgb-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                                self._child_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp))])
                                 self._leafs = OrderedDict([
-                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                    ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                    ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                                 ])
-                                self.igp_id = None
+                                self.autonomous_system_number = None
+                                self.ls_identifier = None
 
-                                self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
-                                self.isis.parent = self
-                                self._children_name_map["isis"] = "isis"
-
-                                self.ospf = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf()
-                                self.ospf.parent = self
-                                self._children_name_map["ospf"] = "ospf"
-
-                                self.bgp = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp()
-                                self.bgp.parent = self
-                                self._children_name_map["bgp"] = "bgp"
-                                self._segment_path = lambda: "igp-srgb"
+                                self.igp = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp()
+                                self.igp.parent = self
+                                self._children_name_map["igp"] = "igp"
+                                self._segment_path = lambda: "node-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb, [u'igp_id'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                            class Isis(Entity):
+                            class Igp(Entity):
                                 """
-                                ISIS information
+                                IGP\-specific information
                                 
-                                .. attribute:: system_id
+                                .. attribute:: isis
                                 
-                                	ISIS system ID
-                                	**type**\: str
+                                	ISIS information
+                                	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
                                 
-                                .. attribute:: level
+                                .. attribute:: ospf
                                 
-                                	ISIS level
-                                	**type**\: int
+                                	OSPF information
+                                	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
                                 
-                                	**range:** 0..4294967295
+                                .. attribute:: bgp
                                 
+                                	BGP information
+                                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
                                 
-
-                                """
-
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
-
-                                def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
-
-                                    self.yang_name = "isis"
-                                    self.yang_parent_name = "igp-srgb"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('system_id', YLeaf(YType.str, 'system-id')),
-                                        ('level', YLeaf(YType.uint32, 'level')),
-                                    ])
-                                    self.system_id = None
-                                    self.level = None
-                                    self._segment_path = lambda: "isis"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, [u'system_id', u'level'], name, value)
-
-
-                            class Ospf(Entity):
-                                """
-                                OSPF information
+                                .. attribute:: igp_id
                                 
-                                .. attribute:: router_id
-                                
-                                	OSPF router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: area
-                                
-                                	OSPF area
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
+                                	IGP ID
+                                	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                                 
                                 
 
@@ -6121,70 +6737,174 @@ class PceTopology(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
 
-                                    self.yang_name = "ospf"
-                                    self.yang_parent_name = "igp-srgb"
+                                    self.yang_name = "igp"
+                                    self.yang_parent_name = "node-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp))])
                                     self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('area', YLeaf(YType.uint32, 'area')),
+                                        ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                     ])
-                                    self.router_id = None
-                                    self.area = None
-                                    self._segment_path = lambda: "ospf"
+                                    self.igp_id = None
+
+                                    self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis()
+                                    self.isis.parent = self
+                                    self._children_name_map["isis"] = "isis"
+
+                                    self.ospf = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf()
+                                    self.ospf.parent = self
+                                    self._children_name_map["ospf"] = "ospf"
+
+                                    self.bgp = PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp()
+                                    self.bgp.parent = self
+                                    self._children_name_map["bgp"] = "bgp"
+                                    self._segment_path = lambda: "igp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                            class Bgp(Entity):
-                                """
-                                BGP information
-                                
-                                .. attribute:: router_id
-                                
-                                	BGP router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: confed_asn
-                                
-                                	Confederation ASN
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
+                                class Isis(Entity):
+                                    """
+                                    ISIS information
+                                    
+                                    .. attribute:: system_id
+                                    
+                                    	ISIS system ID
+                                    	**type**\: str
+                                    
+                                    .. attribute:: level
+                                    
+                                    	ISIS level
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
 
-                                """
+                                    """
 
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
 
-                                def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
+                                    def __init__(self):
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
 
-                                    self.yang_name = "bgp"
-                                    self.yang_parent_name = "igp-srgb"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                    ])
-                                    self.router_id = None
-                                    self.confed_asn = None
-                                    self._segment_path = lambda: "bgp"
+                                        self.yang_name = "isis"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                            ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                        ])
+                                        self.system_id = None
+                                        self.level = None
+                                        self._segment_path = lambda: "isis"
+                                        self._is_frozen = True
 
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                                class Ospf(Entity):
+                                    """
+                                    OSPF information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	OSPF router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: area
+                                    
+                                    	OSPF area
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                        self.yang_name = "ospf"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.area = None
+                                        self._segment_path = lambda: "ospf"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                                class Bgp(Entity):
+                                    """
+                                    BGP information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	BGP router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: confed_asn
+                                    
+                                    	Confederation ASN
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                        self.yang_name = "bgp"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.confed_asn = None
+                                        self._segment_path = lambda: "bgp"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                 class PerformanceMetrics(Entity):
@@ -6215,10 +6935,11 @@ class PceTopology(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('unidirectional_min_delay', YLeaf(YType.uint32, 'unidirectional-min-delay')),
+                            ('unidirectional_min_delay', (YLeaf(YType.uint32, 'unidirectional-min-delay'), ['int'])),
                         ])
                         self.unidirectional_min_delay = None
                         self._segment_path = lambda: "performance-metrics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, [u'unidirectional_min_delay'], name, value)
@@ -6244,13 +6965,6 @@ class PceTopology(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
-                    
-                    .. attribute:: domain_identifier
-                    
-                    	Domain identifier
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: rflag
                     
@@ -6299,19 +7013,17 @@ class PceTopology(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("sid-prefix", ("sid_prefix", PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix))])
                         self._leafs = OrderedDict([
-                            ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                            ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
-                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                            ('rflag', YLeaf(YType.boolean, 'rflag')),
-                            ('nflag', YLeaf(YType.boolean, 'nflag')),
-                            ('pflag', YLeaf(YType.boolean, 'pflag')),
-                            ('eflag', YLeaf(YType.boolean, 'eflag')),
-                            ('vflag', YLeaf(YType.boolean, 'vflag')),
-                            ('lflag', YLeaf(YType.boolean, 'lflag')),
+                            ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'Sid', '')])),
+                            ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
+                            ('rflag', (YLeaf(YType.boolean, 'rflag'), ['bool'])),
+                            ('nflag', (YLeaf(YType.boolean, 'nflag'), ['bool'])),
+                            ('pflag', (YLeaf(YType.boolean, 'pflag'), ['bool'])),
+                            ('eflag', (YLeaf(YType.boolean, 'eflag'), ['bool'])),
+                            ('vflag', (YLeaf(YType.boolean, 'vflag'), ['bool'])),
+                            ('lflag', (YLeaf(YType.boolean, 'lflag'), ['bool'])),
                         ])
                         self.sid_type = None
                         self.mpls_label = None
-                        self.domain_identifier = None
                         self.rflag = None
                         self.nflag = None
                         self.pflag = None
@@ -6323,9 +7035,10 @@ class PceTopology(Entity):
                         self.sid_prefix.parent = self
                         self._children_name_map["sid_prefix"] = "sid-prefix"
                         self._segment_path = lambda: "adjacency-sid"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, [u'sid_type', u'mpls_label', u'domain_identifier', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, [u'sid_type', u'mpls_label', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
 
 
                     class SidPrefix(Entity):
@@ -6368,14 +7081,15 @@ class PceTopology(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "sid-prefix"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -6459,12 +7173,12 @@ class PceTopology(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("local-igp-information", ("local_igp_information", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation)), ("remote-node-protocol-identifier", ("remote_node_protocol_identifier", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier)), ("adjacency-sid", ("adjacency_sid", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid))])
                     self._leafs = OrderedDict([
-                        ('local_ipv6_address', YLeaf(YType.str, 'local-ipv6-address')),
-                        ('remote_ipv6_address', YLeaf(YType.str, 'remote-ipv6-address')),
-                        ('igp_metric', YLeaf(YType.uint32, 'igp-metric')),
-                        ('te_metric', YLeaf(YType.uint32, 'te-metric')),
-                        ('maximum_link_bandwidth', YLeaf(YType.uint64, 'maximum-link-bandwidth')),
-                        ('max_reservable_bandwidth', YLeaf(YType.uint64, 'max-reservable-bandwidth')),
+                        ('local_ipv6_address', (YLeaf(YType.str, 'local-ipv6-address'), ['str'])),
+                        ('remote_ipv6_address', (YLeaf(YType.str, 'remote-ipv6-address'), ['str'])),
+                        ('igp_metric', (YLeaf(YType.uint32, 'igp-metric'), ['int'])),
+                        ('te_metric', (YLeaf(YType.uint32, 'te-metric'), ['int'])),
+                        ('maximum_link_bandwidth', (YLeaf(YType.uint64, 'maximum-link-bandwidth'), ['int'])),
+                        ('max_reservable_bandwidth', (YLeaf(YType.uint64, 'max-reservable-bandwidth'), ['int'])),
                     ])
                     self.local_ipv6_address = None
                     self.remote_ipv6_address = None
@@ -6483,6 +7197,7 @@ class PceTopology(Entity):
 
                     self.adjacency_sid = YList(self)
                     self._segment_path = lambda: "ipv6-link"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link, [u'local_ipv6_address', u'remote_ipv6_address', u'igp_metric', u'te_metric', u'maximum_link_bandwidth', u'max_reservable_bandwidth'], name, value)
@@ -6492,10 +7207,10 @@ class PceTopology(Entity):
                     """
                     Local node IGP information
                     
-                    .. attribute:: igp
+                    .. attribute:: node_id
                     
-                    	IGP\-specific information
-                    	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp>`
+                    	Link\-state node identifier
+                    	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId>`
                     
                     .. attribute:: domain_identifier
                     
@@ -6503,13 +7218,6 @@ class PceTopology(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: autonomous_system_number
-                    
-                    	Autonomous System Number
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
                     
                     
 
@@ -6526,46 +7234,44 @@ class PceTopology(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp))])
+                        self._child_classes = OrderedDict([("node-id", ("node_id", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId))])
                         self._leafs = OrderedDict([
-                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                            ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                         ])
                         self.domain_identifier = None
-                        self.autonomous_system_number = None
 
-                        self.igp = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp()
-                        self.igp.parent = self
-                        self._children_name_map["igp"] = "igp"
+                        self.node_id = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId()
+                        self.node_id.parent = self
+                        self._children_name_map["node_id"] = "node-id"
                         self._segment_path = lambda: "local-igp-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, [u'domain_identifier', u'autonomous_system_number'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, [u'domain_identifier'], name, value)
 
 
-                    class Igp(Entity):
+                    class NodeId(Entity):
                         """
-                        IGP\-specific information
+                        Link\-state node identifier
                         
-                        .. attribute:: isis
+                        .. attribute:: igp
                         
-                        	ISIS information
-                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis>`
+                        	IGP\-specific information
+                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp>`
                         
-                        .. attribute:: ospf
+                        .. attribute:: autonomous_system_number
                         
-                        	OSPF information
-                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf>`
+                        	Autonomous System Number
+                        	**type**\: int
                         
-                        .. attribute:: bgp
+                        	**range:** 0..4294967295
                         
-                        	BGP information
-                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp>`
+                        .. attribute:: ls_identifier
                         
-                        .. attribute:: igp_id
+                        	Link\-State identifier
+                        	**type**\: int
                         
-                        	IGP ID
-                        	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                        	**range:** 0..4294967295
                         
                         
 
@@ -6575,97 +7281,54 @@ class PceTopology(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp, self).__init__()
+                            super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId, self).__init__()
 
-                            self.yang_name = "igp"
+                            self.yang_name = "node-id"
                             self.yang_parent_name = "local-igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp))])
+                            self._child_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp))])
                             self._leafs = OrderedDict([
-                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                             ])
-                            self.igp_id = None
+                            self.autonomous_system_number = None
+                            self.ls_identifier = None
 
-                            self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis()
-                            self.isis.parent = self
-                            self._children_name_map["isis"] = "isis"
-
-                            self.ospf = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf()
-                            self.ospf.parent = self
-                            self._children_name_map["ospf"] = "ospf"
-
-                            self.bgp = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp()
-                            self.bgp.parent = self
-                            self._children_name_map["bgp"] = "bgp"
-                            self._segment_path = lambda: "igp"
+                            self.igp = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp()
+                            self.igp.parent = self
+                            self._children_name_map["igp"] = "igp"
+                            self._segment_path = lambda: "node-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp, [u'igp_id'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                        class Isis(Entity):
+                        class Igp(Entity):
                             """
-                            ISIS information
+                            IGP\-specific information
                             
-                            .. attribute:: system_id
+                            .. attribute:: isis
                             
-                            	ISIS system ID
-                            	**type**\: str
+                            	ISIS information
+                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis>`
                             
-                            .. attribute:: level
+                            .. attribute:: ospf
                             
-                            	ISIS level
-                            	**type**\: int
+                            	OSPF information
+                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf>`
                             
-                            	**range:** 0..4294967295
+                            .. attribute:: bgp
                             
+                            	BGP information
+                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp>`
                             
-
-                            """
-
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
-
-                            def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis, self).__init__()
-
-                                self.yang_name = "isis"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('system_id', YLeaf(YType.str, 'system-id')),
-                                    ('level', YLeaf(YType.uint32, 'level')),
-                                ])
-                                self.system_id = None
-                                self.level = None
-                                self._segment_path = lambda: "isis"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis, [u'system_id', u'level'], name, value)
-
-
-                        class Ospf(Entity):
-                            """
-                            OSPF information
+                            .. attribute:: igp_id
                             
-                            .. attribute:: router_id
-                            
-                            	OSPF router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: area
-                            
-                            	OSPF area
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	IGP ID
+                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                             
                             
 
@@ -6675,70 +7338,174 @@ class PceTopology(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf, self).__init__()
+                                super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp, self).__init__()
 
-                                self.yang_name = "ospf"
-                                self.yang_parent_name = "igp"
+                                self.yang_name = "igp"
+                                self.yang_parent_name = "node-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp))])
                                 self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('area', YLeaf(YType.uint32, 'area')),
+                                    ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                 ])
-                                self.router_id = None
-                                self.area = None
-                                self._segment_path = lambda: "ospf"
+                                self.igp_id = None
+
+                                self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis()
+                                self.isis.parent = self
+                                self._children_name_map["isis"] = "isis"
+
+                                self.ospf = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf()
+                                self.ospf.parent = self
+                                self._children_name_map["ospf"] = "ospf"
+
+                                self.bgp = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp()
+                                self.bgp.parent = self
+                                self._children_name_map["bgp"] = "bgp"
+                                self._segment_path = lambda: "igp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                        class Bgp(Entity):
-                            """
-                            BGP information
-                            
-                            .. attribute:: router_id
-                            
-                            	BGP router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: confed_asn
-                            
-                            	Confederation ASN
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
+                            class Isis(Entity):
+                                """
+                                ISIS information
+                                
+                                .. attribute:: system_id
+                                
+                                	ISIS system ID
+                                	**type**\: str
+                                
+                                .. attribute:: level
+                                
+                                	ISIS level
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
 
-                            """
+                                """
 
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
 
-                            def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp, self).__init__()
+                                def __init__(self):
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, self).__init__()
 
-                                self.yang_name = "bgp"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                ])
-                                self.router_id = None
-                                self.confed_asn = None
-                                self._segment_path = lambda: "bgp"
+                                    self.yang_name = "isis"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                        ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
+                                    self._segment_path = lambda: "isis"
+                                    self._is_frozen = True
 
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                            class Ospf(Entity):
+                                """
+                                OSPF information
+                                
+                                .. attribute:: router_id
+                                
+                                	OSPF router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: area
+                                
+                                	OSPF area
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                    self.yang_name = "ospf"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
+                                    self._segment_path = lambda: "ospf"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                            class Bgp(Entity):
+                                """
+                                BGP information
+                                
+                                .. attribute:: router_id
+                                
+                                	BGP router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: confed_asn
+                                
+                                	Confederation ASN
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                    self.yang_name = "bgp"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
+                                    self._segment_path = lambda: "bgp"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                 class RemoteNodeProtocolIdentifier(Entity):
@@ -6801,11 +7568,11 @@ class PceTopology(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("igp-information", ("igp_information", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation))])
                         self._leafs = OrderedDict([
-                            ('node_name', YLeaf(YType.str, 'node-name')),
-                            ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
-                            ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
-                            ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
-                            ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                            ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                            ('ipv4_bgp_router_id_set', (YLeaf(YType.boolean, 'ipv4-bgp-router-id-set'), ['bool'])),
+                            ('ipv4_bgp_router_id', (YLeaf(YType.str, 'ipv4-bgp-router-id'), ['str'])),
+                            ('ipv4te_router_id_set', (YLeaf(YType.boolean, 'ipv4te-router-id-set'), ['bool'])),
+                            ('ipv4te_router_id', (YLeaf(YType.str, 'ipv4te-router-id'), ['str'])),
                         ])
                         self.node_name = None
                         self.ipv4_bgp_router_id_set = None
@@ -6816,6 +7583,7 @@ class PceTopology(Entity):
                         self.igp_information = YList(self)
                         self.srgb_information = YList(self)
                         self._segment_path = lambda: "remote-node-protocol-identifier"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
@@ -6825,10 +7593,10 @@ class PceTopology(Entity):
                         """
                         IGP information
                         
-                        .. attribute:: igp
+                        .. attribute:: node_id
                         
-                        	IGP\-specific information
-                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp>`
+                        	Link\-state node identifier
+                        	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId>`
                         
                         .. attribute:: domain_identifier
                         
@@ -6836,13 +7604,6 @@ class PceTopology(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: autonomous_system_number
-                        
-                        	Autonomous System Number
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
                         
                         
 
@@ -6859,46 +7620,44 @@ class PceTopology(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp))])
+                            self._child_classes = OrderedDict([("node-id", ("node_id", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId))])
                             self._leafs = OrderedDict([
-                                ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                                ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                                ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                             ])
                             self.domain_identifier = None
-                            self.autonomous_system_number = None
 
-                            self.igp = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp()
-                            self.igp.parent = self
-                            self._children_name_map["igp"] = "igp"
+                            self.node_id = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId()
+                            self.node_id.parent = self
+                            self._children_name_map["node_id"] = "node-id"
                             self._segment_path = lambda: "igp-information"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, [u'domain_identifier', u'autonomous_system_number'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class NodeId(Entity):
                             """
-                            IGP\-specific information
+                            Link\-state node identifier
                             
-                            .. attribute:: isis
+                            .. attribute:: igp
                             
-                            	ISIS information
-                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis>`
+                            	IGP\-specific information
+                            	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                             
-                            .. attribute:: ospf
+                            .. attribute:: autonomous_system_number
                             
-                            	OSPF information
-                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf>`
+                            	Autonomous System Number
+                            	**type**\: int
                             
-                            .. attribute:: bgp
+                            	**range:** 0..4294967295
                             
-                            	BGP information
-                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp>`
+                            .. attribute:: ls_identifier
                             
-                            .. attribute:: igp_id
+                            	Link\-State identifier
+                            	**type**\: int
                             
-                            	IGP ID
-                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            	**range:** 0..4294967295
                             
                             
 
@@ -6908,97 +7667,54 @@ class PceTopology(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
+                                super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
-                                self.yang_name = "igp"
+                                self.yang_name = "node-id"
                                 self.yang_parent_name = "igp-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                                self._child_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp))])
                                 self._leafs = OrderedDict([
-                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                    ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                    ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                                 ])
-                                self.igp_id = None
+                                self.autonomous_system_number = None
+                                self.ls_identifier = None
 
-                                self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis()
-                                self.isis.parent = self
-                                self._children_name_map["isis"] = "isis"
-
-                                self.ospf = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf()
-                                self.ospf.parent = self
-                                self._children_name_map["ospf"] = "ospf"
-
-                                self.bgp = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp()
-                                self.bgp.parent = self
-                                self._children_name_map["bgp"] = "bgp"
-                                self._segment_path = lambda: "igp"
+                                self.igp = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp()
+                                self.igp.parent = self
+                                self._children_name_map["igp"] = "igp"
+                                self._segment_path = lambda: "node-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                            class Isis(Entity):
+                            class Igp(Entity):
                                 """
-                                ISIS information
+                                IGP\-specific information
                                 
-                                .. attribute:: system_id
+                                .. attribute:: isis
                                 
-                                	ISIS system ID
-                                	**type**\: str
+                                	ISIS information
+                                	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                                 
-                                .. attribute:: level
+                                .. attribute:: ospf
                                 
-                                	ISIS level
-                                	**type**\: int
+                                	OSPF information
+                                	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
                                 
-                                	**range:** 0..4294967295
+                                .. attribute:: bgp
                                 
+                                	BGP information
+                                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                                 
-
-                                """
-
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
-
-                                def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
-
-                                    self.yang_name = "isis"
-                                    self.yang_parent_name = "igp"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('system_id', YLeaf(YType.str, 'system-id')),
-                                        ('level', YLeaf(YType.uint32, 'level')),
-                                    ])
-                                    self.system_id = None
-                                    self.level = None
-                                    self._segment_path = lambda: "isis"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, [u'system_id', u'level'], name, value)
-
-
-                            class Ospf(Entity):
-                                """
-                                OSPF information
+                                .. attribute:: igp_id
                                 
-                                .. attribute:: router_id
-                                
-                                	OSPF router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: area
-                                
-                                	OSPF area
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
+                                	IGP ID
+                                	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                                 
                                 
 
@@ -7008,80 +7724,184 @@ class PceTopology(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
-                                    self.yang_name = "ospf"
-                                    self.yang_parent_name = "igp"
+                                    self.yang_name = "igp"
+                                    self.yang_parent_name = "node-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp))])
                                     self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('area', YLeaf(YType.uint32, 'area')),
+                                        ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                     ])
-                                    self.router_id = None
-                                    self.area = None
-                                    self._segment_path = lambda: "ospf"
+                                    self.igp_id = None
+
+                                    self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis()
+                                    self.isis.parent = self
+                                    self._children_name_map["isis"] = "isis"
+
+                                    self.ospf = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf()
+                                    self.ospf.parent = self
+                                    self._children_name_map["ospf"] = "ospf"
+
+                                    self.bgp = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp()
+                                    self.bgp.parent = self
+                                    self._children_name_map["bgp"] = "bgp"
+                                    self._segment_path = lambda: "igp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                            class Bgp(Entity):
-                                """
-                                BGP information
-                                
-                                .. attribute:: router_id
-                                
-                                	BGP router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: confed_asn
-                                
-                                	Confederation ASN
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
+                                class Isis(Entity):
+                                    """
+                                    ISIS information
+                                    
+                                    .. attribute:: system_id
+                                    
+                                    	ISIS system ID
+                                    	**type**\: str
+                                    
+                                    .. attribute:: level
+                                    
+                                    	ISIS level
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
 
-                                """
+                                    """
 
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
 
-                                def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
+                                    def __init__(self):
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
-                                    self.yang_name = "bgp"
-                                    self.yang_parent_name = "igp"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                    ])
-                                    self.router_id = None
-                                    self.confed_asn = None
-                                    self._segment_path = lambda: "bgp"
+                                        self.yang_name = "isis"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                            ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                        ])
+                                        self.system_id = None
+                                        self.level = None
+                                        self._segment_path = lambda: "isis"
+                                        self._is_frozen = True
 
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                                class Ospf(Entity):
+                                    """
+                                    OSPF information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	OSPF router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: area
+                                    
+                                    	OSPF area
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                        self.yang_name = "ospf"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.area = None
+                                        self._segment_path = lambda: "ospf"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                                class Bgp(Entity):
+                                    """
+                                    BGP information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	BGP router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: confed_asn
+                                    
+                                    	Confederation ASN
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                        self.yang_name = "bgp"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.confed_asn = None
+                                        self._segment_path = lambda: "bgp"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                     class SrgbInformation(Entity):
                         """
                         SRGB information
                         
-                        .. attribute:: igp_srgb
+                        .. attribute:: node_id
                         
-                        	IGP\-specific information
-                        	**type**\:  :py:class:`IgpSrgb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb>`
+                        	Link\-state node identifier
+                        	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId>`
                         
                         .. attribute:: start
                         
@@ -7096,6 +7916,13 @@ class PceTopology(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: domain_identifier
+                        
+                        	Domain identifier
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -7112,46 +7939,48 @@ class PceTopology(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("igp-srgb", ("igp_srgb", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                            self._child_classes = OrderedDict([("node-id", ("node_id", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId))])
                             self._leafs = OrderedDict([
-                                ('start', YLeaf(YType.uint32, 'start')),
-                                ('size', YLeaf(YType.uint32, 'size')),
+                                ('start', (YLeaf(YType.uint32, 'start'), ['int'])),
+                                ('size', (YLeaf(YType.uint32, 'size'), ['int'])),
+                                ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                             ])
                             self.start = None
                             self.size = None
+                            self.domain_identifier = None
 
-                            self.igp_srgb = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb()
-                            self.igp_srgb.parent = self
-                            self._children_name_map["igp_srgb"] = "igp-srgb"
+                            self.node_id = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId()
+                            self.node_id.parent = self
+                            self._children_name_map["node_id"] = "node-id"
                             self._segment_path = lambda: "srgb-information"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, [u'start', u'size'], name, value)
+                            self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
 
 
-                        class IgpSrgb(Entity):
+                        class NodeId(Entity):
                             """
-                            IGP\-specific information
+                            Link\-state node identifier
                             
-                            .. attribute:: isis
+                            .. attribute:: igp
                             
-                            	ISIS information
-                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis>`
+                            	IGP\-specific information
+                            	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
                             
-                            .. attribute:: ospf
+                            .. attribute:: autonomous_system_number
                             
-                            	OSPF information
-                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf>`
+                            	Autonomous System Number
+                            	**type**\: int
                             
-                            .. attribute:: bgp
+                            	**range:** 0..4294967295
                             
-                            	BGP information
-                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp>`
+                            .. attribute:: ls_identifier
                             
-                            .. attribute:: igp_id
+                            	Link\-State identifier
+                            	**type**\: int
                             
-                            	IGP ID
-                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            	**range:** 0..4294967295
                             
                             
 
@@ -7161,97 +7990,54 @@ class PceTopology(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
+                                super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
 
-                                self.yang_name = "igp-srgb"
+                                self.yang_name = "node-id"
                                 self.yang_parent_name = "srgb-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                                self._child_classes = OrderedDict([("igp", ("igp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp))])
                                 self._leafs = OrderedDict([
-                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                    ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                    ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                                 ])
-                                self.igp_id = None
+                                self.autonomous_system_number = None
+                                self.ls_identifier = None
 
-                                self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
-                                self.isis.parent = self
-                                self._children_name_map["isis"] = "isis"
-
-                                self.ospf = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf()
-                                self.ospf.parent = self
-                                self._children_name_map["ospf"] = "ospf"
-
-                                self.bgp = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp()
-                                self.bgp.parent = self
-                                self._children_name_map["bgp"] = "bgp"
-                                self._segment_path = lambda: "igp-srgb"
+                                self.igp = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp()
+                                self.igp.parent = self
+                                self._children_name_map["igp"] = "igp"
+                                self._segment_path = lambda: "node-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb, [u'igp_id'], name, value)
+                                self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                            class Isis(Entity):
+                            class Igp(Entity):
                                 """
-                                ISIS information
+                                IGP\-specific information
                                 
-                                .. attribute:: system_id
+                                .. attribute:: isis
                                 
-                                	ISIS system ID
-                                	**type**\: str
+                                	ISIS information
+                                	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
                                 
-                                .. attribute:: level
+                                .. attribute:: ospf
                                 
-                                	ISIS level
-                                	**type**\: int
+                                	OSPF information
+                                	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
                                 
-                                	**range:** 0..4294967295
+                                .. attribute:: bgp
                                 
+                                	BGP information
+                                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
                                 
-
-                                """
-
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
-
-                                def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
-
-                                    self.yang_name = "isis"
-                                    self.yang_parent_name = "igp-srgb"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('system_id', YLeaf(YType.str, 'system-id')),
-                                        ('level', YLeaf(YType.uint32, 'level')),
-                                    ])
-                                    self.system_id = None
-                                    self.level = None
-                                    self._segment_path = lambda: "isis"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, [u'system_id', u'level'], name, value)
-
-
-                            class Ospf(Entity):
-                                """
-                                OSPF information
+                                .. attribute:: igp_id
                                 
-                                .. attribute:: router_id
-                                
-                                	OSPF router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: area
-                                
-                                	OSPF area
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
+                                	IGP ID
+                                	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                                 
                                 
 
@@ -7261,70 +8047,174 @@ class PceTopology(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
+                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
 
-                                    self.yang_name = "ospf"
-                                    self.yang_parent_name = "igp-srgb"
+                                    self.yang_name = "igp"
+                                    self.yang_parent_name = "node-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("isis", ("isis", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp))])
                                     self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('area', YLeaf(YType.uint32, 'area')),
+                                        ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                     ])
-                                    self.router_id = None
-                                    self.area = None
-                                    self._segment_path = lambda: "ospf"
+                                    self.igp_id = None
+
+                                    self.isis = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis()
+                                    self.isis.parent = self
+                                    self._children_name_map["isis"] = "isis"
+
+                                    self.ospf = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf()
+                                    self.ospf.parent = self
+                                    self._children_name_map["ospf"] = "ospf"
+
+                                    self.bgp = PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp()
+                                    self.bgp.parent = self
+                                    self._children_name_map["bgp"] = "bgp"
+                                    self._segment_path = lambda: "igp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                            class Bgp(Entity):
-                                """
-                                BGP information
-                                
-                                .. attribute:: router_id
-                                
-                                	BGP router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: confed_asn
-                                
-                                	Confederation ASN
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
+                                class Isis(Entity):
+                                    """
+                                    ISIS information
+                                    
+                                    .. attribute:: system_id
+                                    
+                                    	ISIS system ID
+                                    	**type**\: str
+                                    
+                                    .. attribute:: level
+                                    
+                                    	ISIS level
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
 
-                                """
+                                    """
 
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
 
-                                def __init__(self):
-                                    super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
+                                    def __init__(self):
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
 
-                                    self.yang_name = "bgp"
-                                    self.yang_parent_name = "igp-srgb"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                    ])
-                                    self.router_id = None
-                                    self.confed_asn = None
-                                    self._segment_path = lambda: "bgp"
+                                        self.yang_name = "isis"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                            ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                        ])
+                                        self.system_id = None
+                                        self.level = None
+                                        self._segment_path = lambda: "isis"
+                                        self._is_frozen = True
 
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                                class Ospf(Entity):
+                                    """
+                                    OSPF information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	OSPF router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: area
+                                    
+                                    	OSPF area
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                        self.yang_name = "ospf"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.area = None
+                                        self._segment_path = lambda: "ospf"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                                class Bgp(Entity):
+                                    """
+                                    BGP information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	BGP router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: confed_asn
+                                    
+                                    	Confederation ASN
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                        self.yang_name = "bgp"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.confed_asn = None
+                                        self._segment_path = lambda: "bgp"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                 class AdjacencySid(Entity):
@@ -7347,13 +8237,6 @@ class PceTopology(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
-                    
-                    .. attribute:: domain_identifier
-                    
-                    	Domain identifier
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: rflag
                     
@@ -7402,19 +8285,17 @@ class PceTopology(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("sid-prefix", ("sid_prefix", PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix))])
                         self._leafs = OrderedDict([
-                            ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                            ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
-                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                            ('rflag', YLeaf(YType.boolean, 'rflag')),
-                            ('nflag', YLeaf(YType.boolean, 'nflag')),
-                            ('pflag', YLeaf(YType.boolean, 'pflag')),
-                            ('eflag', YLeaf(YType.boolean, 'eflag')),
-                            ('vflag', YLeaf(YType.boolean, 'vflag')),
-                            ('lflag', YLeaf(YType.boolean, 'lflag')),
+                            ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'Sid', '')])),
+                            ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
+                            ('rflag', (YLeaf(YType.boolean, 'rflag'), ['bool'])),
+                            ('nflag', (YLeaf(YType.boolean, 'nflag'), ['bool'])),
+                            ('pflag', (YLeaf(YType.boolean, 'pflag'), ['bool'])),
+                            ('eflag', (YLeaf(YType.boolean, 'eflag'), ['bool'])),
+                            ('vflag', (YLeaf(YType.boolean, 'vflag'), ['bool'])),
+                            ('lflag', (YLeaf(YType.boolean, 'lflag'), ['bool'])),
                         ])
                         self.sid_type = None
                         self.mpls_label = None
-                        self.domain_identifier = None
                         self.rflag = None
                         self.nflag = None
                         self.pflag = None
@@ -7426,9 +8307,10 @@ class PceTopology(Entity):
                         self.sid_prefix.parent = self
                         self._children_name_map["sid_prefix"] = "sid-prefix"
                         self._segment_path = lambda: "adjacency-sid"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, [u'sid_type', u'mpls_label', u'domain_identifier', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
+                        self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, [u'sid_type', u'mpls_label', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
 
 
                     class SidPrefix(Entity):
@@ -7471,14 +8353,15 @@ class PceTopology(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "sid-prefix"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PceTopology.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -7514,6 +8397,7 @@ class PceTopology(Entity):
             self.prefix_info = YList(self)
             self._segment_path = lambda: "prefix-infos"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-topology/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PceTopology.PrefixInfos, [], name, value)
@@ -7564,8 +8448,8 @@ class PceTopology(Entity):
                 self.ylist_key_names = ['node_identifier']
                 self._child_classes = OrderedDict([("node-protocol-identifier", ("node_protocol_identifier", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier)), ("address", ("address", PceTopology.PrefixInfos.PrefixInfo.Address))])
                 self._leafs = OrderedDict([
-                    ('node_identifier', YLeaf(YType.uint32, 'node-identifier')),
-                    ('node_identifier_xr', YLeaf(YType.uint32, 'node-identifier-xr')),
+                    ('node_identifier', (YLeaf(YType.uint32, 'node-identifier'), ['int'])),
+                    ('node_identifier_xr', (YLeaf(YType.uint32, 'node-identifier-xr'), ['int'])),
                 ])
                 self.node_identifier = None
                 self.node_identifier_xr = None
@@ -7577,6 +8461,7 @@ class PceTopology(Entity):
                 self.address = YList(self)
                 self._segment_path = lambda: "prefix-info" + "[node-identifier='" + str(self.node_identifier) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce-topology/prefix-infos/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo, ['node_identifier', u'node_identifier_xr'], name, value)
@@ -7642,11 +8527,11 @@ class PceTopology(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("igp-information", ("igp_information", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation))])
                     self._leafs = OrderedDict([
-                        ('node_name', YLeaf(YType.str, 'node-name')),
-                        ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
-                        ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
-                        ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
-                        ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                        ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                        ('ipv4_bgp_router_id_set', (YLeaf(YType.boolean, 'ipv4-bgp-router-id-set'), ['bool'])),
+                        ('ipv4_bgp_router_id', (YLeaf(YType.str, 'ipv4-bgp-router-id'), ['str'])),
+                        ('ipv4te_router_id_set', (YLeaf(YType.boolean, 'ipv4te-router-id-set'), ['bool'])),
+                        ('ipv4te_router_id', (YLeaf(YType.str, 'ipv4te-router-id'), ['str'])),
                     ])
                     self.node_name = None
                     self.ipv4_bgp_router_id_set = None
@@ -7657,6 +8542,7 @@ class PceTopology(Entity):
                     self.igp_information = YList(self)
                     self.srgb_information = YList(self)
                     self._segment_path = lambda: "node-protocol-identifier"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
@@ -7666,10 +8552,10 @@ class PceTopology(Entity):
                     """
                     IGP information
                     
-                    .. attribute:: igp
+                    .. attribute:: node_id
                     
-                    	IGP\-specific information
-                    	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp>`
+                    	Link\-state node identifier
+                    	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId>`
                     
                     .. attribute:: domain_identifier
                     
@@ -7677,13 +8563,6 @@ class PceTopology(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: autonomous_system_number
-                    
-                    	Autonomous System Number
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
                     
                     
 
@@ -7700,46 +8579,44 @@ class PceTopology(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("igp", ("igp", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp))])
+                        self._child_classes = OrderedDict([("node-id", ("node_id", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId))])
                         self._leafs = OrderedDict([
-                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                            ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                         ])
                         self.domain_identifier = None
-                        self.autonomous_system_number = None
 
-                        self.igp = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp()
-                        self.igp.parent = self
-                        self._children_name_map["igp"] = "igp"
+                        self.node_id = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId()
+                        self.node_id.parent = self
+                        self._children_name_map["node_id"] = "node-id"
                         self._segment_path = lambda: "igp-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, [u'domain_identifier', u'autonomous_system_number'], name, value)
+                        self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
 
 
-                    class Igp(Entity):
+                    class NodeId(Entity):
                         """
-                        IGP\-specific information
+                        Link\-state node identifier
                         
-                        .. attribute:: isis
+                        .. attribute:: igp
                         
-                        	ISIS information
-                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis>`
+                        	IGP\-specific information
+                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                         
-                        .. attribute:: ospf
+                        .. attribute:: autonomous_system_number
                         
-                        	OSPF information
-                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf>`
+                        	Autonomous System Number
+                        	**type**\: int
                         
-                        .. attribute:: bgp
+                        	**range:** 0..4294967295
                         
-                        	BGP information
-                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp>`
+                        .. attribute:: ls_identifier
                         
-                        .. attribute:: igp_id
+                        	Link\-State identifier
+                        	**type**\: int
                         
-                        	IGP ID
-                        	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                        	**range:** 0..4294967295
                         
                         
 
@@ -7749,97 +8626,54 @@ class PceTopology(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
+                            super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
-                            self.yang_name = "igp"
+                            self.yang_name = "node-id"
                             self.yang_parent_name = "igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("isis", ("isis", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                            self._child_classes = OrderedDict([("igp", ("igp", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp))])
                             self._leafs = OrderedDict([
-                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                             ])
-                            self.igp_id = None
+                            self.autonomous_system_number = None
+                            self.ls_identifier = None
 
-                            self.isis = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis()
-                            self.isis.parent = self
-                            self._children_name_map["isis"] = "isis"
-
-                            self.ospf = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf()
-                            self.ospf.parent = self
-                            self._children_name_map["ospf"] = "ospf"
-
-                            self.bgp = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp()
-                            self.bgp.parent = self
-                            self._children_name_map["bgp"] = "bgp"
-                            self._segment_path = lambda: "igp"
+                            self.igp = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp()
+                            self.igp.parent = self
+                            self._children_name_map["igp"] = "igp"
+                            self._segment_path = lambda: "node-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp, [u'igp_id'], name, value)
+                            self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                        class Isis(Entity):
+                        class Igp(Entity):
                             """
-                            ISIS information
+                            IGP\-specific information
                             
-                            .. attribute:: system_id
+                            .. attribute:: isis
                             
-                            	ISIS system ID
-                            	**type**\: str
+                            	ISIS information
+                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                             
-                            .. attribute:: level
+                            .. attribute:: ospf
                             
-                            	ISIS level
-                            	**type**\: int
+                            	OSPF information
+                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
                             
-                            	**range:** 0..4294967295
+                            .. attribute:: bgp
                             
+                            	BGP information
+                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                             
-
-                            """
-
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
-
-                            def __init__(self):
-                                super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
-
-                                self.yang_name = "isis"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('system_id', YLeaf(YType.str, 'system-id')),
-                                    ('level', YLeaf(YType.uint32, 'level')),
-                                ])
-                                self.system_id = None
-                                self.level = None
-                                self._segment_path = lambda: "isis"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis, [u'system_id', u'level'], name, value)
-
-
-                        class Ospf(Entity):
-                            """
-                            OSPF information
+                            .. attribute:: igp_id
                             
-                            .. attribute:: router_id
-                            
-                            	OSPF router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: area
-                            
-                            	OSPF area
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	IGP ID
+                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                             
                             
 
@@ -7849,80 +8683,184 @@ class PceTopology(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
+                                super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
-                                self.yang_name = "ospf"
-                                self.yang_parent_name = "igp"
+                                self.yang_name = "igp"
+                                self.yang_parent_name = "node-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("isis", ("isis", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp))])
                                 self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('area', YLeaf(YType.uint32, 'area')),
+                                    ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                 ])
-                                self.router_id = None
-                                self.area = None
-                                self._segment_path = lambda: "ospf"
+                                self.igp_id = None
+
+                                self.isis = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis()
+                                self.isis.parent = self
+                                self._children_name_map["isis"] = "isis"
+
+                                self.ospf = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf()
+                                self.ospf.parent = self
+                                self._children_name_map["ospf"] = "ospf"
+
+                                self.bgp = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp()
+                                self.bgp.parent = self
+                                self._children_name_map["bgp"] = "bgp"
+                                self._segment_path = lambda: "igp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                        class Bgp(Entity):
-                            """
-                            BGP information
-                            
-                            .. attribute:: router_id
-                            
-                            	BGP router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: confed_asn
-                            
-                            	Confederation ASN
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
+                            class Isis(Entity):
+                                """
+                                ISIS information
+                                
+                                .. attribute:: system_id
+                                
+                                	ISIS system ID
+                                	**type**\: str
+                                
+                                .. attribute:: level
+                                
+                                	ISIS level
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
 
-                            """
+                                """
 
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
 
-                            def __init__(self):
-                                super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
+                                def __init__(self):
+                                    super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
-                                self.yang_name = "bgp"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                ])
-                                self.router_id = None
-                                self.confed_asn = None
-                                self._segment_path = lambda: "bgp"
+                                    self.yang_name = "isis"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                        ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
+                                    self._segment_path = lambda: "isis"
+                                    self._is_frozen = True
 
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                            class Ospf(Entity):
+                                """
+                                OSPF information
+                                
+                                .. attribute:: router_id
+                                
+                                	OSPF router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: area
+                                
+                                	OSPF area
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                    self.yang_name = "ospf"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
+                                    self._segment_path = lambda: "ospf"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                            class Bgp(Entity):
+                                """
+                                BGP information
+                                
+                                .. attribute:: router_id
+                                
+                                	BGP router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: confed_asn
+                                
+                                	Confederation ASN
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                    self.yang_name = "bgp"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
+                                    self._segment_path = lambda: "bgp"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                 class SrgbInformation(Entity):
                     """
                     SRGB information
                     
-                    .. attribute:: igp_srgb
+                    .. attribute:: node_id
                     
-                    	IGP\-specific information
-                    	**type**\:  :py:class:`IgpSrgb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb>`
+                    	Link\-state node identifier
+                    	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId>`
                     
                     .. attribute:: start
                     
@@ -7937,6 +8875,13 @@ class PceTopology(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: domain_identifier
+                    
+                    	Domain identifier
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -7953,46 +8898,48 @@ class PceTopology(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("igp-srgb", ("igp_srgb", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                        self._child_classes = OrderedDict([("node-id", ("node_id", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId))])
                         self._leafs = OrderedDict([
-                            ('start', YLeaf(YType.uint32, 'start')),
-                            ('size', YLeaf(YType.uint32, 'size')),
+                            ('start', (YLeaf(YType.uint32, 'start'), ['int'])),
+                            ('size', (YLeaf(YType.uint32, 'size'), ['int'])),
+                            ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                         ])
                         self.start = None
                         self.size = None
+                        self.domain_identifier = None
 
-                        self.igp_srgb = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb()
-                        self.igp_srgb.parent = self
-                        self._children_name_map["igp_srgb"] = "igp-srgb"
+                        self.node_id = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId()
+                        self.node_id.parent = self
+                        self._children_name_map["node_id"] = "node-id"
                         self._segment_path = lambda: "srgb-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, [u'start', u'size'], name, value)
+                        self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
 
 
-                    class IgpSrgb(Entity):
+                    class NodeId(Entity):
                         """
-                        IGP\-specific information
+                        Link\-state node identifier
                         
-                        .. attribute:: isis
+                        .. attribute:: igp
                         
-                        	ISIS information
-                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis>`
+                        	IGP\-specific information
+                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
                         
-                        .. attribute:: ospf
+                        .. attribute:: autonomous_system_number
                         
-                        	OSPF information
-                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf>`
+                        	Autonomous System Number
+                        	**type**\: int
                         
-                        .. attribute:: bgp
+                        	**range:** 0..4294967295
                         
-                        	BGP information
-                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp>`
+                        .. attribute:: ls_identifier
                         
-                        .. attribute:: igp_id
+                        	Link\-State identifier
+                        	**type**\: int
                         
-                        	IGP ID
-                        	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                        	**range:** 0..4294967295
                         
                         
 
@@ -8002,97 +8949,54 @@ class PceTopology(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
+                            super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
 
-                            self.yang_name = "igp-srgb"
+                            self.yang_name = "node-id"
                             self.yang_parent_name = "srgb-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("isis", ("isis", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                            self._child_classes = OrderedDict([("igp", ("igp", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp))])
                             self._leafs = OrderedDict([
-                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                             ])
-                            self.igp_id = None
+                            self.autonomous_system_number = None
+                            self.ls_identifier = None
 
-                            self.isis = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
-                            self.isis.parent = self
-                            self._children_name_map["isis"] = "isis"
-
-                            self.ospf = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf()
-                            self.ospf.parent = self
-                            self._children_name_map["ospf"] = "ospf"
-
-                            self.bgp = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp()
-                            self.bgp.parent = self
-                            self._children_name_map["bgp"] = "bgp"
-                            self._segment_path = lambda: "igp-srgb"
+                            self.igp = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp()
+                            self.igp.parent = self
+                            self._children_name_map["igp"] = "igp"
+                            self._segment_path = lambda: "node-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb, [u'igp_id'], name, value)
+                            self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                        class Isis(Entity):
+                        class Igp(Entity):
                             """
-                            ISIS information
+                            IGP\-specific information
                             
-                            .. attribute:: system_id
+                            .. attribute:: isis
                             
-                            	ISIS system ID
-                            	**type**\: str
+                            	ISIS information
+                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
                             
-                            .. attribute:: level
+                            .. attribute:: ospf
                             
-                            	ISIS level
-                            	**type**\: int
+                            	OSPF information
+                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
                             
-                            	**range:** 0..4294967295
+                            .. attribute:: bgp
                             
+                            	BGP information
+                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
                             
-
-                            """
-
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
-
-                            def __init__(self):
-                                super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
-
-                                self.yang_name = "isis"
-                                self.yang_parent_name = "igp-srgb"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('system_id', YLeaf(YType.str, 'system-id')),
-                                    ('level', YLeaf(YType.uint32, 'level')),
-                                ])
-                                self.system_id = None
-                                self.level = None
-                                self._segment_path = lambda: "isis"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, [u'system_id', u'level'], name, value)
-
-
-                        class Ospf(Entity):
-                            """
-                            OSPF information
+                            .. attribute:: igp_id
                             
-                            .. attribute:: router_id
-                            
-                            	OSPF router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: area
-                            
-                            	OSPF area
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	IGP ID
+                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                             
                             
 
@@ -8102,94 +9006,184 @@ class PceTopology(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
+                                super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
 
-                                self.yang_name = "ospf"
-                                self.yang_parent_name = "igp-srgb"
+                                self.yang_name = "igp"
+                                self.yang_parent_name = "node-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("isis", ("isis", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp))])
                                 self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('area', YLeaf(YType.uint32, 'area')),
+                                    ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                 ])
-                                self.router_id = None
-                                self.area = None
-                                self._segment_path = lambda: "ospf"
+                                self.igp_id = None
+
+                                self.isis = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis()
+                                self.isis.parent = self
+                                self._children_name_map["isis"] = "isis"
+
+                                self.ospf = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf()
+                                self.ospf.parent = self
+                                self._children_name_map["ospf"] = "ospf"
+
+                                self.bgp = PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp()
+                                self.bgp.parent = self
+                                self._children_name_map["bgp"] = "bgp"
+                                self._segment_path = lambda: "igp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, [u'router_id', u'area'], name, value)
+                                self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                        class Bgp(Entity):
-                            """
-                            BGP information
-                            
-                            .. attribute:: router_id
-                            
-                            	BGP router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: confed_asn
-                            
-                            	Confederation ASN
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
+                            class Isis(Entity):
+                                """
+                                ISIS information
+                                
+                                .. attribute:: system_id
+                                
+                                	ISIS system ID
+                                	**type**\: str
+                                
+                                .. attribute:: level
+                                
+                                	ISIS level
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
 
-                            """
+                                """
 
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
 
-                            def __init__(self):
-                                super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
+                                def __init__(self):
+                                    super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
 
-                                self.yang_name = "bgp"
-                                self.yang_parent_name = "igp-srgb"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                ])
-                                self.router_id = None
-                                self.confed_asn = None
-                                self._segment_path = lambda: "bgp"
+                                    self.yang_name = "isis"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                        ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
+                                    self._segment_path = lambda: "isis"
+                                    self._is_frozen = True
 
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                            class Ospf(Entity):
+                                """
+                                OSPF information
+                                
+                                .. attribute:: router_id
+                                
+                                	OSPF router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: area
+                                
+                                	OSPF area
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                    self.yang_name = "ospf"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
+                                    self._segment_path = lambda: "ospf"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                            class Bgp(Entity):
+                                """
+                                BGP information
+                                
+                                .. attribute:: router_id
+                                
+                                	BGP router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: confed_asn
+                                
+                                	Confederation ASN
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                    self.yang_name = "bgp"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
+                                    self._segment_path = lambda: "bgp"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
             class Address(Entity):
                 """
                 Prefix address
                 
-                .. attribute:: af_name
+                .. attribute:: ip
                 
-                	AFName
-                	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
-                
-                .. attribute:: ipv4
-                
-                	IPv4 address type
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: ipv6
-                
-                	IPv6 address type
-                	**type**\: str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                	Prefix IP address
+                	**type**\:  :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceTopology.PrefixInfos.PrefixInfo.Address.Ip>`
                 
                 
 
@@ -8206,19 +9200,71 @@ class PceTopology(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('ipv4', YLeaf(YType.str, 'ipv4')),
-                        ('ipv6', YLeaf(YType.str, 'ipv6')),
-                    ])
-                    self.af_name = None
-                    self.ipv4 = None
-                    self.ipv6 = None
+                    self._child_classes = OrderedDict([("ip", ("ip", PceTopology.PrefixInfos.PrefixInfo.Address.Ip))])
+                    self._leafs = OrderedDict()
+
+                    self.ip = PceTopology.PrefixInfos.PrefixInfo.Address.Ip()
+                    self.ip.parent = self
+                    self._children_name_map["ip"] = "ip"
                     self._segment_path = lambda: "address"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.Address, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                    self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.Address, [], name, value)
+
+
+                class Ip(Entity):
+                    """
+                    Prefix IP address
+                    
+                    .. attribute:: af_name
+                    
+                    	AFName
+                    	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
+                    
+                    .. attribute:: ipv4
+                    
+                    	IPv4 address type
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: ipv6
+                    
+                    	IPv6 address type
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-oper'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(PceTopology.PrefixInfos.PrefixInfo.Address.Ip, self).__init__()
+
+                        self.yang_name = "ip"
+                        self.yang_parent_name = "address"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                        ])
+                        self.af_name = None
+                        self.ipv4 = None
+                        self.ipv6 = None
+                        self._segment_path = lambda: "ip"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(PceTopology.PrefixInfos.PrefixInfo.Address.Ip, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PceTopology()
@@ -8227,6 +9273,11 @@ class PceTopology(Entity):
 class Pce(Entity):
     """
     pce
+    
+    .. attribute:: verification_events
+    
+    	PCE Verification events in XTC
+    	**type**\:  :py:class:`VerificationEvents <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.VerificationEvents>`
     
     .. attribute:: association_infos
     
@@ -8294,8 +9345,12 @@ class Pce(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("association-infos", ("association_infos", Pce.AssociationInfos)), ("cspf", ("cspf", Pce.Cspf)), ("topology-summary", ("topology_summary", Pce.TopologySummary)), ("tunnel-infos", ("tunnel_infos", Pce.TunnelInfos)), ("peer-detail-infos", ("peer_detail_infos", Pce.PeerDetailInfos)), ("topology-nodes", ("topology_nodes", Pce.TopologyNodes)), ("prefix-infos", ("prefix_infos", Pce.PrefixInfos)), ("lsp-summary", ("lsp_summary", Pce.LspSummary)), ("peer-infos", ("peer_infos", Pce.PeerInfos)), ("tunnel-detail-infos", ("tunnel_detail_infos", Pce.TunnelDetailInfos))])
+        self._child_classes = OrderedDict([("verification-events", ("verification_events", Pce.VerificationEvents)), ("association-infos", ("association_infos", Pce.AssociationInfos)), ("cspf", ("cspf", Pce.Cspf)), ("topology-summary", ("topology_summary", Pce.TopologySummary)), ("tunnel-infos", ("tunnel_infos", Pce.TunnelInfos)), ("peer-detail-infos", ("peer_detail_infos", Pce.PeerDetailInfos)), ("topology-nodes", ("topology_nodes", Pce.TopologyNodes)), ("prefix-infos", ("prefix_infos", Pce.PrefixInfos)), ("lsp-summary", ("lsp_summary", Pce.LspSummary)), ("peer-infos", ("peer_infos", Pce.PeerInfos)), ("tunnel-detail-infos", ("tunnel_detail_infos", Pce.TunnelDetailInfos))])
         self._leafs = OrderedDict()
+
+        self.verification_events = Pce.VerificationEvents()
+        self.verification_events.parent = self
+        self._children_name_map["verification_events"] = "verification-events"
 
         self.association_infos = Pce.AssociationInfos()
         self.association_infos.parent = self
@@ -8337,9 +9392,110 @@ class Pce(Entity):
         self.tunnel_detail_infos.parent = self
         self._children_name_map["tunnel_detail_infos"] = "tunnel-detail-infos"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Pce, [], name, value)
+
+
+    class VerificationEvents(Entity):
+        """
+        PCE Verification events in XTC
+        
+        .. attribute:: verification_event
+        
+        	PCE single verification event
+        	**type**\: list of  		 :py:class:`VerificationEvent <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.VerificationEvents.VerificationEvent>`
+        
+        
+
+        """
+
+        _prefix = 'infra-xtc-oper'
+        _revision = '2017-09-07'
+
+        def __init__(self):
+            super(Pce.VerificationEvents, self).__init__()
+
+            self.yang_name = "verification-events"
+            self.yang_parent_name = "pce"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("verification-event", ("verification_event", Pce.VerificationEvents.VerificationEvent))])
+            self._leafs = OrderedDict()
+
+            self.verification_event = YList(self)
+            self._segment_path = lambda: "verification-events"
+            self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Pce.VerificationEvents, [], name, value)
+
+
+        class VerificationEvent(Entity):
+            """
+            PCE single verification event
+            
+            .. attribute:: event_idx  (key)
+            
+            	Index of an event
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: event_id
+            
+            	Event ID in range 1 \- 0xFFFFFFFF. 0 is invalid
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: event_message
+            
+            	Event message
+            	**type**\: str
+            
+            .. attribute:: time_stamp
+            
+            	Event time, relative to Jan 1, 1970
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'infra-xtc-oper'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                super(Pce.VerificationEvents.VerificationEvent, self).__init__()
+
+                self.yang_name = "verification-event"
+                self.yang_parent_name = "verification-events"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = ['event_idx']
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('event_idx', (YLeaf(YType.uint32, 'event-idx'), ['int'])),
+                    ('event_id', (YLeaf(YType.uint32, 'event-id'), ['int'])),
+                    ('event_message', (YLeaf(YType.str, 'event-message'), ['str'])),
+                    ('time_stamp', (YLeaf(YType.uint32, 'time-stamp'), ['int'])),
+                ])
+                self.event_idx = None
+                self.event_id = None
+                self.event_message = None
+                self.time_stamp = None
+                self._segment_path = lambda: "verification-event" + "[event-idx='" + str(self.event_idx) + "']"
+                self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/verification-events/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Pce.VerificationEvents.VerificationEvent, ['event_idx', u'event_id', u'event_message', u'time_stamp'], name, value)
 
 
     class AssociationInfos(Entity):
@@ -8372,6 +9528,7 @@ class Pce(Entity):
             self.association_info = YList(self)
             self._segment_path = lambda: "association-infos"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pce.AssociationInfos, [], name, value)
@@ -8466,14 +9623,14 @@ class Pce(Entity):
                 self.ylist_key_names = ['group_id']
                 self._child_classes = OrderedDict([("association-source", ("association_source", Pce.AssociationInfos.AssociationInfo.AssociationSource)), ("association-lsp", ("association_lsp", Pce.AssociationInfos.AssociationInfo.AssociationLsp))])
                 self._leafs = OrderedDict([
-                    ('group_id', YLeaf(YType.uint32, 'group-id')),
-                    ('type', YLeaf(YType.enumeration, 'type')),
-                    ('sub_id', YLeaf(YType.str, 'sub-id')),
-                    ('association_type', YLeaf(YType.uint32, 'association-type')),
-                    ('association_id', YLeaf(YType.uint32, 'association-id')),
-                    ('strict', YLeaf(YType.boolean, 'strict')),
-                    ('status', YLeaf(YType.uint32, 'status')),
-                    ('headends_swapped', YLeaf(YType.uint32, 'headends-swapped')),
+                    ('group_id', (YLeaf(YType.uint32, 'group-id'), ['int'])),
+                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAsso', '')])),
+                    ('sub_id', (YLeaf(YType.str, 'sub-id'), ['str','str'])),
+                    ('association_type', (YLeaf(YType.uint32, 'association-type'), ['int'])),
+                    ('association_id', (YLeaf(YType.uint32, 'association-id'), ['int'])),
+                    ('strict', (YLeaf(YType.boolean, 'strict'), ['bool'])),
+                    ('status', (YLeaf(YType.uint32, 'status'), ['int'])),
+                    ('headends_swapped', (YLeaf(YType.uint32, 'headends-swapped'), ['int'])),
                 ])
                 self.group_id = None
                 self.type = None
@@ -8491,6 +9648,7 @@ class Pce(Entity):
                 self.association_lsp = YList(self)
                 self._segment_path = lambda: "association-info" + "[group-id='" + str(self.group_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/association-infos/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.AssociationInfos.AssociationInfo, ['group_id', 'type', 'sub_id', u'association_type', u'association_id', u'strict', u'status', u'headends_swapped'], name, value)
@@ -8536,14 +9694,15 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('ipv4', YLeaf(YType.str, 'ipv4')),
-                        ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                        ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                        ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                     ])
                     self.af_name = None
                     self.ipv4 = None
                     self.ipv6 = None
                     self._segment_path = lambda: "association-source"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.AssociationInfos.AssociationInfo.AssociationSource, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -8606,11 +9765,11 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("pcc-address", ("pcc_address", Pce.AssociationInfos.AssociationInfo.AssociationLsp.PccAddress))])
                     self._leafs = OrderedDict([
-                        ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
-                        ('lspid', YLeaf(YType.uint32, 'lspid')),
-                        ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
-                        ('pce_based', YLeaf(YType.boolean, 'pce-based')),
-                        ('plsp_id', YLeaf(YType.uint32, 'plsp-id')),
+                        ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
+                        ('lspid', (YLeaf(YType.uint32, 'lspid'), ['int'])),
+                        ('tunnel_name', (YLeaf(YType.str, 'tunnel-name'), ['str'])),
+                        ('pce_based', (YLeaf(YType.boolean, 'pce-based'), ['bool'])),
+                        ('plsp_id', (YLeaf(YType.uint32, 'plsp-id'), ['int'])),
                     ])
                     self.tunnel_id = None
                     self.lspid = None
@@ -8622,6 +9781,7 @@ class Pce(Entity):
                     self.pcc_address.parent = self
                     self._children_name_map["pcc_address"] = "pcc-address"
                     self._segment_path = lambda: "association-lsp"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.AssociationInfos.AssociationInfo.AssociationLsp, [u'tunnel_id', u'lspid', u'tunnel_name', u'pce_based', u'plsp_id'], name, value)
@@ -8667,14 +9827,15 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.af_name = None
                         self.ipv4 = None
                         self.ipv6 = None
                         self._segment_path = lambda: "pcc-address"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.AssociationInfos.AssociationInfo.AssociationLsp.PccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -8712,6 +9873,7 @@ class Pce(Entity):
             self._children_name_map["cspf_paths"] = "cspf-paths"
             self._segment_path = lambda: "cspf"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pce.Cspf, [], name, value)
@@ -8749,6 +9911,7 @@ class Pce(Entity):
                 self.cspf_path = YList(self)
                 self._segment_path = lambda: "cspf-paths"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/cspf/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.Cspf.CspfPaths, [], name, value)
@@ -8885,18 +10048,18 @@ class Pce(Entity):
                     self.ylist_key_names = ['af','source1','destination1','metric_type','source2','destination2','disjoint_level','disjoint_strict','shortest_path']
                     self._child_classes = OrderedDict([("output-path", ("output_path", Pce.Cspf.CspfPaths.CspfPath.OutputPath))])
                     self._leafs = OrderedDict([
-                        ('af', YLeaf(YType.uint32, 'af')),
-                        ('source1', YLeaf(YType.str, 'source1')),
-                        ('destination1', YLeaf(YType.str, 'destination1')),
-                        ('metric_type', YLeaf(YType.uint32, 'metric-type')),
-                        ('source2', YLeaf(YType.str, 'source2')),
-                        ('destination2', YLeaf(YType.str, 'destination2')),
-                        ('disjoint_level', YLeaf(YType.uint32, 'disjoint-level')),
-                        ('disjoint_strict', YLeaf(YType.uint32, 'disjoint-strict')),
-                        ('shortest_path', YLeaf(YType.uint32, 'shortest-path')),
-                        ('headends_swapped', YLeaf(YType.enumeration, 'headends-swapped')),
-                        ('cspf_result', YLeaf(YType.enumeration, 'cspf-result')),
-                        ('iterations_done', YLeaf(YType.uint32, 'iterations-done')),
+                        ('af', (YLeaf(YType.uint32, 'af'), ['int'])),
+                        ('source1', (YLeaf(YType.str, 'source1'), ['str','str'])),
+                        ('destination1', (YLeaf(YType.str, 'destination1'), ['str','str'])),
+                        ('metric_type', (YLeaf(YType.uint32, 'metric-type'), ['int'])),
+                        ('source2', (YLeaf(YType.str, 'source2'), ['str','str'])),
+                        ('destination2', (YLeaf(YType.str, 'destination2'), ['str','str'])),
+                        ('disjoint_level', (YLeaf(YType.uint32, 'disjoint-level'), ['int'])),
+                        ('disjoint_strict', (YLeaf(YType.uint32, 'disjoint-strict'), ['int'])),
+                        ('shortest_path', (YLeaf(YType.uint32, 'shortest-path'), ['int'])),
+                        ('headends_swapped', (YLeaf(YType.enumeration, 'headends-swapped'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceHeadendSwap', '')])),
+                        ('cspf_result', (YLeaf(YType.enumeration, 'cspf-result'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceCspfRc', '')])),
+                        ('iterations_done', (YLeaf(YType.uint32, 'iterations-done'), ['int'])),
                     ])
                     self.af = None
                     self.source1 = None
@@ -8914,6 +10077,7 @@ class Pce(Entity):
                     self.output_path = YList(self)
                     self._segment_path = lambda: "cspf-path" + "[af='" + str(self.af) + "']" + "[source1='" + str(self.source1) + "']" + "[destination1='" + str(self.destination1) + "']" + "[metric-type='" + str(self.metric_type) + "']" + "[source2='" + str(self.source2) + "']" + "[destination2='" + str(self.destination2) + "']" + "[disjoint-level='" + str(self.disjoint_level) + "']" + "[disjoint-strict='" + str(self.disjoint_strict) + "']" + "[shortest-path='" + str(self.shortest_path) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/cspf/cspf-paths/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath, ['af', 'source1', 'destination1', 'metric_type', 'source2', 'destination2', 'disjoint_level', 'disjoint_strict', 'shortest_path', u'headends_swapped', u'cspf_result', u'iterations_done'], name, value)
@@ -8962,7 +10126,7 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("source", ("source", Pce.Cspf.CspfPaths.CspfPath.OutputPath.Source)), ("destination", ("destination", Pce.Cspf.CspfPaths.CspfPath.OutputPath.Destination)), ("hops", ("hops", Pce.Cspf.CspfPaths.CspfPath.OutputPath.Hops))])
                         self._leafs = OrderedDict([
-                            ('cost', YLeaf(YType.uint64, 'cost')),
+                            ('cost', (YLeaf(YType.uint64, 'cost'), ['int'])),
                         ])
                         self.cost = None
 
@@ -8976,6 +10140,7 @@ class Pce(Entity):
 
                         self.hops = YList(self)
                         self._segment_path = lambda: "output-path"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath, [u'cost'], name, value)
@@ -9021,14 +10186,15 @@ class Pce(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "source"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Source, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -9074,14 +10240,15 @@ class Pce(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "destination"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Destination, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -9129,14 +10296,15 @@ class Pce(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('address_family', YLeaf(YType.uint8, 'address-family')),
-                                ('ipv4_prefix', YLeaf(YType.str, 'ipv4-prefix')),
-                                ('ipv6_prefix', YLeaf(YType.str, 'ipv6-prefix')),
+                                ('address_family', (YLeaf(YType.uint8, 'address-family'), ['int'])),
+                                ('ipv4_prefix', (YLeaf(YType.str, 'ipv4-prefix'), ['str'])),
+                                ('ipv6_prefix', (YLeaf(YType.str, 'ipv6-prefix'), ['str'])),
                             ])
                             self.address_family = None
                             self.ipv4_prefix = None
                             self.ipv6_prefix = None
                             self._segment_path = lambda: "hops"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.Cspf.CspfPaths.CspfPath.OutputPath.Hops, [u'address_family', u'ipv4_prefix', u'ipv6_prefix'], name, value)
@@ -9257,19 +10425,19 @@ class Pce(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("stats-topology-update", ("stats_topology_update", Pce.TopologySummary.StatsTopologyUpdate))])
             self._leafs = OrderedDict([
-                ('nodes', YLeaf(YType.uint32, 'nodes')),
-                ('lookup_nodes', YLeaf(YType.uint32, 'lookup-nodes')),
-                ('prefixes', YLeaf(YType.uint32, 'prefixes')),
-                ('prefix_sids', YLeaf(YType.uint32, 'prefix-sids')),
-                ('regular_prefix_sids', YLeaf(YType.uint32, 'regular-prefix-sids')),
-                ('strict_prefix_sids', YLeaf(YType.uint32, 'strict-prefix-sids')),
-                ('links', YLeaf(YType.uint32, 'links')),
-                ('epe_links', YLeaf(YType.uint32, 'epe-links')),
-                ('adjacency_sids', YLeaf(YType.uint32, 'adjacency-sids')),
-                ('epesids', YLeaf(YType.uint32, 'epesids')),
-                ('protected_adjacency_sids', YLeaf(YType.uint32, 'protected-adjacency-sids')),
-                ('un_protected_adjacency_sids', YLeaf(YType.uint32, 'un-protected-adjacency-sids')),
-                ('topology_consistent', YLeaf(YType.boolean, 'topology-consistent')),
+                ('nodes', (YLeaf(YType.uint32, 'nodes'), ['int'])),
+                ('lookup_nodes', (YLeaf(YType.uint32, 'lookup-nodes'), ['int'])),
+                ('prefixes', (YLeaf(YType.uint32, 'prefixes'), ['int'])),
+                ('prefix_sids', (YLeaf(YType.uint32, 'prefix-sids'), ['int'])),
+                ('regular_prefix_sids', (YLeaf(YType.uint32, 'regular-prefix-sids'), ['int'])),
+                ('strict_prefix_sids', (YLeaf(YType.uint32, 'strict-prefix-sids'), ['int'])),
+                ('links', (YLeaf(YType.uint32, 'links'), ['int'])),
+                ('epe_links', (YLeaf(YType.uint32, 'epe-links'), ['int'])),
+                ('adjacency_sids', (YLeaf(YType.uint32, 'adjacency-sids'), ['int'])),
+                ('epesids', (YLeaf(YType.uint32, 'epesids'), ['int'])),
+                ('protected_adjacency_sids', (YLeaf(YType.uint32, 'protected-adjacency-sids'), ['int'])),
+                ('un_protected_adjacency_sids', (YLeaf(YType.uint32, 'un-protected-adjacency-sids'), ['int'])),
+                ('topology_consistent', (YLeaf(YType.boolean, 'topology-consistent'), ['bool'])),
             ])
             self.nodes = None
             self.lookup_nodes = None
@@ -9290,6 +10458,7 @@ class Pce(Entity):
             self._children_name_map["stats_topology_update"] = "stats-topology-update"
             self._segment_path = lambda: "topology-summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pce.TopologySummary, [u'nodes', u'lookup_nodes', u'prefixes', u'prefix_sids', u'regular_prefix_sids', u'strict_prefix_sids', u'links', u'epe_links', u'adjacency_sids', u'epesids', u'protected_adjacency_sids', u'un_protected_adjacency_sids', u'topology_consistent'], name, value)
@@ -9358,12 +10527,12 @@ class Pce(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('num_nodes_added', YLeaf(YType.uint32, 'num-nodes-added')),
-                    ('num_nodes_deleted', YLeaf(YType.uint32, 'num-nodes-deleted')),
-                    ('num_links_added', YLeaf(YType.uint32, 'num-links-added')),
-                    ('num_links_deleted', YLeaf(YType.uint32, 'num-links-deleted')),
-                    ('num_prefixes_added', YLeaf(YType.uint32, 'num-prefixes-added')),
-                    ('num_prefixes_deleted', YLeaf(YType.uint32, 'num-prefixes-deleted')),
+                    ('num_nodes_added', (YLeaf(YType.uint32, 'num-nodes-added'), ['int'])),
+                    ('num_nodes_deleted', (YLeaf(YType.uint32, 'num-nodes-deleted'), ['int'])),
+                    ('num_links_added', (YLeaf(YType.uint32, 'num-links-added'), ['int'])),
+                    ('num_links_deleted', (YLeaf(YType.uint32, 'num-links-deleted'), ['int'])),
+                    ('num_prefixes_added', (YLeaf(YType.uint32, 'num-prefixes-added'), ['int'])),
+                    ('num_prefixes_deleted', (YLeaf(YType.uint32, 'num-prefixes-deleted'), ['int'])),
                 ])
                 self.num_nodes_added = None
                 self.num_nodes_deleted = None
@@ -9373,6 +10542,7 @@ class Pce(Entity):
                 self.num_prefixes_deleted = None
                 self._segment_path = lambda: "stats-topology-update"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/topology-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.TopologySummary.StatsTopologyUpdate, [u'num_nodes_added', u'num_nodes_deleted', u'num_links_added', u'num_links_deleted', u'num_prefixes_added', u'num_prefixes_deleted'], name, value)
@@ -9408,6 +10578,7 @@ class Pce(Entity):
             self.tunnel_info = YList(self)
             self._segment_path = lambda: "tunnel-infos"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pce.TunnelInfos, [], name, value)
@@ -9474,10 +10645,10 @@ class Pce(Entity):
                 self.ylist_key_names = ['peer_address','plsp_id','tunnel_name']
                 self._child_classes = OrderedDict([("pcc-address", ("pcc_address", Pce.TunnelInfos.TunnelInfo.PccAddress)), ("brief-lsp-information", ("brief_lsp_information", Pce.TunnelInfos.TunnelInfo.BriefLspInformation))])
                 self._leafs = OrderedDict([
-                    ('peer_address', YLeaf(YType.str, 'peer-address')),
-                    ('plsp_id', YLeaf(YType.uint32, 'plsp-id')),
-                    ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
-                    ('tunnel_name_xr', YLeaf(YType.str, 'tunnel-name-xr')),
+                    ('peer_address', (YLeaf(YType.str, 'peer-address'), ['str','str'])),
+                    ('plsp_id', (YLeaf(YType.uint32, 'plsp-id'), ['int'])),
+                    ('tunnel_name', (YLeaf(YType.str, 'tunnel-name'), ['str'])),
+                    ('tunnel_name_xr', (YLeaf(YType.str, 'tunnel-name-xr'), ['str'])),
                 ])
                 self.peer_address = None
                 self.plsp_id = None
@@ -9491,6 +10662,7 @@ class Pce(Entity):
                 self.brief_lsp_information = YList(self)
                 self._segment_path = lambda: "tunnel-info" + "[peer-address='" + str(self.peer_address) + "']" + "[plsp-id='" + str(self.plsp_id) + "']" + "[tunnel-name='" + str(self.tunnel_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/tunnel-infos/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.TunnelInfos.TunnelInfo, ['peer_address', 'plsp_id', 'tunnel_name', u'tunnel_name_xr'], name, value)
@@ -9536,14 +10708,15 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('ipv4', YLeaf(YType.str, 'ipv4')),
-                        ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                        ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                        ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                     ])
                     self.af_name = None
                     self.ipv4 = None
                     self.ipv6 = None
                     self._segment_path = lambda: "pcc-address"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.TunnelInfos.TunnelInfo.PccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -9599,6 +10772,13 @@ class Pce(Entity):
                 	Admin state
                 	**type**\:  :py:class:`LspState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.LspState>`
                 
+                .. attribute:: msd
+                
+                	Maximum SID Depth
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
                 
 
                 """
@@ -9616,12 +10796,13 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("source-address", ("source_address", Pce.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress)), ("destination-address", ("destination_address", Pce.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress))])
                     self._leafs = OrderedDict([
-                        ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
-                        ('lspid', YLeaf(YType.uint32, 'lspid')),
-                        ('binding_sid', YLeaf(YType.uint32, 'binding-sid')),
-                        ('lsp_setup_type', YLeaf(YType.enumeration, 'lsp-setup-type')),
-                        ('operational_state', YLeaf(YType.enumeration, 'operational-state')),
-                        ('administrative_state', YLeaf(YType.enumeration, 'administrative-state')),
+                        ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
+                        ('lspid', (YLeaf(YType.uint32, 'lspid'), ['int'])),
+                        ('binding_sid', (YLeaf(YType.uint32, 'binding-sid'), ['int'])),
+                        ('lsp_setup_type', (YLeaf(YType.enumeration, 'lsp-setup-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'LspSetup', '')])),
+                        ('operational_state', (YLeaf(YType.enumeration, 'operational-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PcepLspState', '')])),
+                        ('administrative_state', (YLeaf(YType.enumeration, 'administrative-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'LspState', '')])),
+                        ('msd', (YLeaf(YType.uint32, 'msd'), ['int'])),
                     ])
                     self.tunnel_id = None
                     self.lspid = None
@@ -9629,6 +10810,7 @@ class Pce(Entity):
                     self.lsp_setup_type = None
                     self.operational_state = None
                     self.administrative_state = None
+                    self.msd = None
 
                     self.source_address = Pce.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress()
                     self.source_address.parent = self
@@ -9638,9 +10820,10 @@ class Pce(Entity):
                     self.destination_address.parent = self
                     self._children_name_map["destination_address"] = "destination-address"
                     self._segment_path = lambda: "brief-lsp-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state'], name, value)
+                    self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd'], name, value)
 
 
                 class SourceAddress(Entity):
@@ -9683,14 +10866,15 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.af_name = None
                         self.ipv4 = None
                         self.ipv6 = None
                         self._segment_path = lambda: "source-address"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation.SourceAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -9736,14 +10920,15 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.af_name = None
                         self.ipv4 = None
                         self.ipv6 = None
                         self._segment_path = lambda: "destination-address"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelInfos.TunnelInfo.BriefLspInformation.DestinationAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -9779,6 +10964,7 @@ class Pce(Entity):
             self.peer_detail_info = YList(self)
             self._segment_path = lambda: "peer-detail-infos"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pce.PeerDetailInfos, [], name, value)
@@ -9816,6 +11002,13 @@ class Pce(Entity):
             	Protocol between PCE and peer
             	**type**\:  :py:class:`PceProto <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceProto>`
             
+            .. attribute:: max_sid_depth
+            
+            	Maximum SID Depth
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
             
 
             """
@@ -9833,11 +11026,13 @@ class Pce(Entity):
                 self.ylist_key_names = ['peer_address']
                 self._child_classes = OrderedDict([("peer-address-xr", ("peer_address_xr", Pce.PeerDetailInfos.PeerDetailInfo.PeerAddressXr)), ("detail-pcep-information", ("detail_pcep_information", Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation))])
                 self._leafs = OrderedDict([
-                    ('peer_address', YLeaf(YType.str, 'peer-address')),
-                    ('peer_protocol', YLeaf(YType.enumeration, 'peer-protocol')),
+                    ('peer_address', (YLeaf(YType.str, 'peer-address'), ['str','str'])),
+                    ('peer_protocol', (YLeaf(YType.enumeration, 'peer-protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceProto', '')])),
+                    ('max_sid_depth', (YLeaf(YType.uint32, 'max-sid-depth'), ['int'])),
                 ])
                 self.peer_address = None
                 self.peer_protocol = None
+                self.max_sid_depth = None
 
                 self.peer_address_xr = Pce.PeerDetailInfos.PeerDetailInfo.PeerAddressXr()
                 self.peer_address_xr.parent = self
@@ -9848,9 +11043,10 @@ class Pce(Entity):
                 self._children_name_map["detail_pcep_information"] = "detail-pcep-information"
                 self._segment_path = lambda: "peer-detail-info" + "[peer-address='" + str(self.peer_address) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/peer-detail-infos/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo, ['peer_address', u'peer_protocol'], name, value)
+                self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo, ['peer_address', u'peer_protocol', u'max_sid_depth'], name, value)
 
 
             class PeerAddressXr(Entity):
@@ -9893,14 +11089,15 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('ipv4', YLeaf(YType.str, 'ipv4')),
-                        ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                        ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                        ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                     ])
                     self.af_name = None
                     self.ipv4 = None
                     self.ipv6 = None
                     self._segment_path = lambda: "peer-address-xr"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.PeerAddressXr, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -10120,6 +11317,13 @@ class Pce(Entity):
                 
                 	**range:** 0..255
                 
+                .. attribute:: max_sid_depth
+                
+                	Maximum number of labels the peer can impose
+                	**type**\: int
+                
+                	**range:** 0..255
+                
                 
 
                 """
@@ -10137,35 +11341,36 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("brief-pcep-information", ("brief_pcep_information", Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation)), ("last-error-rx", ("last_error_rx", Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx)), ("last-error-tx", ("last_error_tx", Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx))])
                     self._leafs = OrderedDict([
-                        ('error', YLeaf(YType.str, 'error')),
-                        ('speaker_id', YLeaf(YType.str, 'speaker-id')),
-                        ('pcep_up_time', YLeaf(YType.uint32, 'pcep-up-time')),
-                        ('keepalives', YLeaf(YType.uint32, 'keepalives')),
-                        ('md5_enabled', YLeaf(YType.boolean, 'md5-enabled')),
-                        ('keychain_enabled', YLeaf(YType.boolean, 'keychain-enabled')),
-                        ('negotiated_local_keepalive', YLeaf(YType.uint32, 'negotiated-local-keepalive')),
-                        ('negotiated_remote_keepalive', YLeaf(YType.uint32, 'negotiated-remote-keepalive')),
-                        ('negotiated_dead_time', YLeaf(YType.uint32, 'negotiated-dead-time')),
-                        ('pce_request_rx', YLeaf(YType.uint32, 'pce-request-rx')),
-                        ('pce_request_tx', YLeaf(YType.uint32, 'pce-request-tx')),
-                        ('pce_reply_rx', YLeaf(YType.uint32, 'pce-reply-rx')),
-                        ('pce_reply_tx', YLeaf(YType.uint32, 'pce-reply-tx')),
-                        ('pce_error_rx', YLeaf(YType.uint32, 'pce-error-rx')),
-                        ('pce_error_tx', YLeaf(YType.uint32, 'pce-error-tx')),
-                        ('pce_open_tx', YLeaf(YType.uint32, 'pce-open-tx')),
-                        ('pce_open_rx', YLeaf(YType.uint32, 'pce-open-rx')),
-                        ('pce_report_rx', YLeaf(YType.uint32, 'pce-report-rx')),
-                        ('pce_report_tx', YLeaf(YType.uint32, 'pce-report-tx')),
-                        ('pce_update_rx', YLeaf(YType.uint32, 'pce-update-rx')),
-                        ('pce_update_tx', YLeaf(YType.uint32, 'pce-update-tx')),
-                        ('pce_initiate_rx', YLeaf(YType.uint32, 'pce-initiate-rx')),
-                        ('pce_initiate_tx', YLeaf(YType.uint32, 'pce-initiate-tx')),
-                        ('pce_keepalive_tx', YLeaf(YType.uint64, 'pce-keepalive-tx')),
-                        ('pce_keepalive_rx', YLeaf(YType.uint64, 'pce-keepalive-rx')),
-                        ('local_session_id', YLeaf(YType.uint8, 'local-session-id')),
-                        ('remote_session_id', YLeaf(YType.uint8, 'remote-session-id')),
-                        ('minimum_keepalive_interval', YLeaf(YType.uint8, 'minimum-keepalive-interval')),
-                        ('maximum_dead_interval', YLeaf(YType.uint8, 'maximum-dead-interval')),
+                        ('error', (YLeaf(YType.str, 'error'), ['str'])),
+                        ('speaker_id', (YLeaf(YType.str, 'speaker-id'), ['str'])),
+                        ('pcep_up_time', (YLeaf(YType.uint32, 'pcep-up-time'), ['int'])),
+                        ('keepalives', (YLeaf(YType.uint32, 'keepalives'), ['int'])),
+                        ('md5_enabled', (YLeaf(YType.boolean, 'md5-enabled'), ['bool'])),
+                        ('keychain_enabled', (YLeaf(YType.boolean, 'keychain-enabled'), ['bool'])),
+                        ('negotiated_local_keepalive', (YLeaf(YType.uint32, 'negotiated-local-keepalive'), ['int'])),
+                        ('negotiated_remote_keepalive', (YLeaf(YType.uint32, 'negotiated-remote-keepalive'), ['int'])),
+                        ('negotiated_dead_time', (YLeaf(YType.uint32, 'negotiated-dead-time'), ['int'])),
+                        ('pce_request_rx', (YLeaf(YType.uint32, 'pce-request-rx'), ['int'])),
+                        ('pce_request_tx', (YLeaf(YType.uint32, 'pce-request-tx'), ['int'])),
+                        ('pce_reply_rx', (YLeaf(YType.uint32, 'pce-reply-rx'), ['int'])),
+                        ('pce_reply_tx', (YLeaf(YType.uint32, 'pce-reply-tx'), ['int'])),
+                        ('pce_error_rx', (YLeaf(YType.uint32, 'pce-error-rx'), ['int'])),
+                        ('pce_error_tx', (YLeaf(YType.uint32, 'pce-error-tx'), ['int'])),
+                        ('pce_open_tx', (YLeaf(YType.uint32, 'pce-open-tx'), ['int'])),
+                        ('pce_open_rx', (YLeaf(YType.uint32, 'pce-open-rx'), ['int'])),
+                        ('pce_report_rx', (YLeaf(YType.uint32, 'pce-report-rx'), ['int'])),
+                        ('pce_report_tx', (YLeaf(YType.uint32, 'pce-report-tx'), ['int'])),
+                        ('pce_update_rx', (YLeaf(YType.uint32, 'pce-update-rx'), ['int'])),
+                        ('pce_update_tx', (YLeaf(YType.uint32, 'pce-update-tx'), ['int'])),
+                        ('pce_initiate_rx', (YLeaf(YType.uint32, 'pce-initiate-rx'), ['int'])),
+                        ('pce_initiate_tx', (YLeaf(YType.uint32, 'pce-initiate-tx'), ['int'])),
+                        ('pce_keepalive_tx', (YLeaf(YType.uint64, 'pce-keepalive-tx'), ['int'])),
+                        ('pce_keepalive_rx', (YLeaf(YType.uint64, 'pce-keepalive-rx'), ['int'])),
+                        ('local_session_id', (YLeaf(YType.uint8, 'local-session-id'), ['int'])),
+                        ('remote_session_id', (YLeaf(YType.uint8, 'remote-session-id'), ['int'])),
+                        ('minimum_keepalive_interval', (YLeaf(YType.uint8, 'minimum-keepalive-interval'), ['int'])),
+                        ('maximum_dead_interval', (YLeaf(YType.uint8, 'maximum-dead-interval'), ['int'])),
+                        ('max_sid_depth', (YLeaf(YType.uint8, 'max-sid-depth'), ['int'])),
                     ])
                     self.error = None
                     self.speaker_id = None
@@ -10196,6 +11401,7 @@ class Pce(Entity):
                     self.remote_session_id = None
                     self.minimum_keepalive_interval = None
                     self.maximum_dead_interval = None
+                    self.max_sid_depth = None
 
                     self.brief_pcep_information = Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation()
                     self.brief_pcep_information.parent = self
@@ -10209,9 +11415,10 @@ class Pce(Entity):
                     self.last_error_tx.parent = self
                     self._children_name_map["last_error_tx"] = "last-error-tx"
                     self._segment_path = lambda: "detail-pcep-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, [u'error', u'speaker_id', u'pcep_up_time', u'keepalives', u'md5_enabled', u'keychain_enabled', u'negotiated_local_keepalive', u'negotiated_remote_keepalive', u'negotiated_dead_time', u'pce_request_rx', u'pce_request_tx', u'pce_reply_rx', u'pce_reply_tx', u'pce_error_rx', u'pce_error_tx', u'pce_open_tx', u'pce_open_rx', u'pce_report_rx', u'pce_report_tx', u'pce_update_rx', u'pce_update_tx', u'pce_initiate_rx', u'pce_initiate_tx', u'pce_keepalive_tx', u'pce_keepalive_rx', u'local_session_id', u'remote_session_id', u'minimum_keepalive_interval', u'maximum_dead_interval'], name, value)
+                    self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation, [u'error', u'speaker_id', u'pcep_up_time', u'keepalives', u'md5_enabled', u'keychain_enabled', u'negotiated_local_keepalive', u'negotiated_remote_keepalive', u'negotiated_dead_time', u'pce_request_rx', u'pce_request_tx', u'pce_reply_rx', u'pce_reply_tx', u'pce_error_rx', u'pce_error_tx', u'pce_open_tx', u'pce_open_rx', u'pce_report_rx', u'pce_report_tx', u'pce_update_rx', u'pce_update_tx', u'pce_initiate_rx', u'pce_initiate_tx', u'pce_keepalive_tx', u'pce_keepalive_rx', u'local_session_id', u'remote_session_id', u'minimum_keepalive_interval', u'maximum_dead_interval', u'max_sid_depth'], name, value)
 
 
                 class BriefPcepInformation(Entity):
@@ -10275,14 +11482,14 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('pcep_state', YLeaf(YType.enumeration, 'pcep-state')),
-                            ('stateful', YLeaf(YType.boolean, 'stateful')),
-                            ('capability_update', YLeaf(YType.boolean, 'capability-update')),
-                            ('capability_instantiate', YLeaf(YType.boolean, 'capability-instantiate')),
-                            ('capability_segment_routing', YLeaf(YType.boolean, 'capability-segment-routing')),
-                            ('capability_triggered_sync', YLeaf(YType.boolean, 'capability-triggered-sync')),
-                            ('capability_db_version', YLeaf(YType.boolean, 'capability-db-version')),
-                            ('capability_delta_sync', YLeaf(YType.boolean, 'capability-delta-sync')),
+                            ('pcep_state', (YLeaf(YType.enumeration, 'pcep-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PcepState', '')])),
+                            ('stateful', (YLeaf(YType.boolean, 'stateful'), ['bool'])),
+                            ('capability_update', (YLeaf(YType.boolean, 'capability-update'), ['bool'])),
+                            ('capability_instantiate', (YLeaf(YType.boolean, 'capability-instantiate'), ['bool'])),
+                            ('capability_segment_routing', (YLeaf(YType.boolean, 'capability-segment-routing'), ['bool'])),
+                            ('capability_triggered_sync', (YLeaf(YType.boolean, 'capability-triggered-sync'), ['bool'])),
+                            ('capability_db_version', (YLeaf(YType.boolean, 'capability-db-version'), ['bool'])),
+                            ('capability_delta_sync', (YLeaf(YType.boolean, 'capability-delta-sync'), ['bool'])),
                         ])
                         self.pcep_state = None
                         self.stateful = None
@@ -10293,6 +11500,7 @@ class Pce(Entity):
                         self.capability_db_version = None
                         self.capability_delta_sync = None
                         self._segment_path = lambda: "brief-pcep-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.BriefPcepInformation, [u'pcep_state', u'stateful', u'capability_update', u'capability_instantiate', u'capability_segment_routing', u'capability_triggered_sync', u'capability_db_version', u'capability_delta_sync'], name, value)
@@ -10333,12 +11541,13 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('pc_error_type', YLeaf(YType.uint8, 'pc-error-type')),
-                            ('pc_error_value', YLeaf(YType.uint8, 'pc-error-value')),
+                            ('pc_error_type', (YLeaf(YType.uint8, 'pc-error-type'), ['int'])),
+                            ('pc_error_value', (YLeaf(YType.uint8, 'pc-error-value'), ['int'])),
                         ])
                         self.pc_error_type = None
                         self.pc_error_value = None
                         self._segment_path = lambda: "last-error-rx"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorRx, [u'pc_error_type', u'pc_error_value'], name, value)
@@ -10379,12 +11588,13 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('pc_error_type', YLeaf(YType.uint8, 'pc-error-type')),
-                            ('pc_error_value', YLeaf(YType.uint8, 'pc-error-value')),
+                            ('pc_error_type', (YLeaf(YType.uint8, 'pc-error-type'), ['int'])),
+                            ('pc_error_value', (YLeaf(YType.uint8, 'pc-error-value'), ['int'])),
                         ])
                         self.pc_error_type = None
                         self.pc_error_value = None
                         self._segment_path = lambda: "last-error-tx"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.PeerDetailInfos.PeerDetailInfo.DetailPcepInformation.LastErrorTx, [u'pc_error_type', u'pc_error_value'], name, value)
@@ -10420,6 +11630,7 @@ class Pce(Entity):
             self.topology_node = YList(self)
             self._segment_path = lambda: "topology-nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pce.TopologyNodes, [], name, value)
@@ -10453,10 +11664,10 @@ class Pce(Entity):
             	Node Overload Bit
             	**type**\: bool
             
-            .. attribute:: prefix_sid
+            .. attribute:: prefixe
             
-            	Prefix SIDs
-            	**type**\: list of  		 :py:class:`PrefixSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.PrefixSid>`
+            	Prefixes
+            	**type**\: list of  		 :py:class:`Prefixe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe>`
             
             .. attribute:: ipv4_link
             
@@ -10483,11 +11694,11 @@ class Pce(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['node_identifier']
-                self._child_classes = OrderedDict([("node-protocol-identifier", ("node_protocol_identifier", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier)), ("prefix-sid", ("prefix_sid", Pce.TopologyNodes.TopologyNode.PrefixSid)), ("ipv4-link", ("ipv4_link", Pce.TopologyNodes.TopologyNode.Ipv4Link)), ("ipv6-link", ("ipv6_link", Pce.TopologyNodes.TopologyNode.Ipv6Link))])
+                self._child_classes = OrderedDict([("node-protocol-identifier", ("node_protocol_identifier", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier)), ("prefixe", ("prefixe", Pce.TopologyNodes.TopologyNode.Prefixe)), ("ipv4-link", ("ipv4_link", Pce.TopologyNodes.TopologyNode.Ipv4Link)), ("ipv6-link", ("ipv6_link", Pce.TopologyNodes.TopologyNode.Ipv6Link))])
                 self._leafs = OrderedDict([
-                    ('node_identifier', YLeaf(YType.uint32, 'node-identifier')),
-                    ('node_identifier_xr', YLeaf(YType.uint32, 'node-identifier-xr')),
-                    ('overload', YLeaf(YType.boolean, 'overload')),
+                    ('node_identifier', (YLeaf(YType.uint32, 'node-identifier'), ['int'])),
+                    ('node_identifier_xr', (YLeaf(YType.uint32, 'node-identifier-xr'), ['int'])),
+                    ('overload', (YLeaf(YType.boolean, 'overload'), ['bool'])),
                 ])
                 self.node_identifier = None
                 self.node_identifier_xr = None
@@ -10497,11 +11708,12 @@ class Pce(Entity):
                 self.node_protocol_identifier.parent = self
                 self._children_name_map["node_protocol_identifier"] = "node-protocol-identifier"
 
-                self.prefix_sid = YList(self)
+                self.prefixe = YList(self)
                 self.ipv4_link = YList(self)
                 self.ipv6_link = YList(self)
                 self._segment_path = lambda: "topology-node" + "[node-identifier='" + str(self.node_identifier) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/topology-nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.TopologyNodes.TopologyNode, ['node_identifier', u'node_identifier_xr', u'overload'], name, value)
@@ -10567,11 +11779,11 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("igp-information", ("igp_information", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation))])
                     self._leafs = OrderedDict([
-                        ('node_name', YLeaf(YType.str, 'node-name')),
-                        ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
-                        ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
-                        ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
-                        ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                        ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                        ('ipv4_bgp_router_id_set', (YLeaf(YType.boolean, 'ipv4-bgp-router-id-set'), ['bool'])),
+                        ('ipv4_bgp_router_id', (YLeaf(YType.str, 'ipv4-bgp-router-id'), ['str'])),
+                        ('ipv4te_router_id_set', (YLeaf(YType.boolean, 'ipv4te-router-id-set'), ['bool'])),
+                        ('ipv4te_router_id', (YLeaf(YType.str, 'ipv4te-router-id'), ['str'])),
                     ])
                     self.node_name = None
                     self.ipv4_bgp_router_id_set = None
@@ -10582,6 +11794,7 @@ class Pce(Entity):
                     self.igp_information = YList(self)
                     self.srgb_information = YList(self)
                     self._segment_path = lambda: "node-protocol-identifier"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
@@ -10591,10 +11804,10 @@ class Pce(Entity):
                     """
                     IGP information
                     
-                    .. attribute:: igp
+                    .. attribute:: node_id
                     
-                    	IGP\-specific information
-                    	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp>`
+                    	Link\-state node identifier
+                    	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId>`
                     
                     .. attribute:: domain_identifier
                     
@@ -10602,13 +11815,6 @@ class Pce(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: autonomous_system_number
-                    
-                    	Autonomous System Number
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
                     
                     
 
@@ -10625,46 +11831,44 @@ class Pce(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp))])
+                        self._child_classes = OrderedDict([("node-id", ("node_id", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId))])
                         self._leafs = OrderedDict([
-                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                            ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                         ])
                         self.domain_identifier = None
-                        self.autonomous_system_number = None
 
-                        self.igp = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp()
-                        self.igp.parent = self
-                        self._children_name_map["igp"] = "igp"
+                        self.node_id = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId()
+                        self.node_id.parent = self
+                        self._children_name_map["node_id"] = "node-id"
                         self._segment_path = lambda: "igp-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, [u'domain_identifier', u'autonomous_system_number'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
 
 
-                    class Igp(Entity):
+                    class NodeId(Entity):
                         """
-                        IGP\-specific information
+                        Link\-state node identifier
                         
-                        .. attribute:: isis
+                        .. attribute:: igp
                         
-                        	ISIS information
-                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis>`
+                        	IGP\-specific information
+                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                         
-                        .. attribute:: ospf
+                        .. attribute:: autonomous_system_number
                         
-                        	OSPF information
-                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf>`
+                        	Autonomous System Number
+                        	**type**\: int
                         
-                        .. attribute:: bgp
+                        	**range:** 0..4294967295
                         
-                        	BGP information
-                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp>`
+                        .. attribute:: ls_identifier
                         
-                        .. attribute:: igp_id
+                        	Link\-State identifier
+                        	**type**\: int
                         
-                        	IGP ID
-                        	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                        	**range:** 0..4294967295
                         
                         
 
@@ -10674,97 +11878,54 @@ class Pce(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
+                            super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
-                            self.yang_name = "igp"
+                            self.yang_name = "node-id"
                             self.yang_parent_name = "igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                            self._child_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp))])
                             self._leafs = OrderedDict([
-                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                             ])
-                            self.igp_id = None
+                            self.autonomous_system_number = None
+                            self.ls_identifier = None
 
-                            self.isis = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis()
-                            self.isis.parent = self
-                            self._children_name_map["isis"] = "isis"
-
-                            self.ospf = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf()
-                            self.ospf.parent = self
-                            self._children_name_map["ospf"] = "ospf"
-
-                            self.bgp = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp()
-                            self.bgp.parent = self
-                            self._children_name_map["bgp"] = "bgp"
-                            self._segment_path = lambda: "igp"
+                            self.igp = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp()
+                            self.igp.parent = self
+                            self._children_name_map["igp"] = "igp"
+                            self._segment_path = lambda: "node-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp, [u'igp_id'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                        class Isis(Entity):
+                        class Igp(Entity):
                             """
-                            ISIS information
+                            IGP\-specific information
                             
-                            .. attribute:: system_id
+                            .. attribute:: isis
                             
-                            	ISIS system ID
-                            	**type**\: str
+                            	ISIS information
+                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                             
-                            .. attribute:: level
+                            .. attribute:: ospf
                             
-                            	ISIS level
-                            	**type**\: int
+                            	OSPF information
+                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
                             
-                            	**range:** 0..4294967295
+                            .. attribute:: bgp
                             
+                            	BGP information
+                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                             
-
-                            """
-
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
-
-                            def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
-
-                                self.yang_name = "isis"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('system_id', YLeaf(YType.str, 'system-id')),
-                                    ('level', YLeaf(YType.uint32, 'level')),
-                                ])
-                                self.system_id = None
-                                self.level = None
-                                self._segment_path = lambda: "isis"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Isis, [u'system_id', u'level'], name, value)
-
-
-                        class Ospf(Entity):
-                            """
-                            OSPF information
+                            .. attribute:: igp_id
                             
-                            .. attribute:: router_id
-                            
-                            	OSPF router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: area
-                            
-                            	OSPF area
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	IGP ID
+                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                             
                             
 
@@ -10774,80 +11935,184 @@ class Pce(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
+                                super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
-                                self.yang_name = "ospf"
-                                self.yang_parent_name = "igp"
+                                self.yang_name = "igp"
+                                self.yang_parent_name = "node-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp))])
                                 self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('area', YLeaf(YType.uint32, 'area')),
+                                    ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                 ])
-                                self.router_id = None
-                                self.area = None
-                                self._segment_path = lambda: "ospf"
+                                self.igp_id = None
+
+                                self.isis = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis()
+                                self.isis.parent = self
+                                self._children_name_map["isis"] = "isis"
+
+                                self.ospf = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf()
+                                self.ospf.parent = self
+                                self._children_name_map["ospf"] = "ospf"
+
+                                self.bgp = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp()
+                                self.bgp.parent = self
+                                self._children_name_map["bgp"] = "bgp"
+                                self._segment_path = lambda: "igp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                        class Bgp(Entity):
-                            """
-                            BGP information
-                            
-                            .. attribute:: router_id
-                            
-                            	BGP router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: confed_asn
-                            
-                            	Confederation ASN
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
+                            class Isis(Entity):
+                                """
+                                ISIS information
+                                
+                                .. attribute:: system_id
+                                
+                                	ISIS system ID
+                                	**type**\: str
+                                
+                                .. attribute:: level
+                                
+                                	ISIS level
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
 
-                            """
+                                """
 
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
 
-                            def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
+                                def __init__(self):
+                                    super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
-                                self.yang_name = "bgp"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                ])
-                                self.router_id = None
-                                self.confed_asn = None
-                                self._segment_path = lambda: "bgp"
+                                    self.yang_name = "isis"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                        ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
+                                    self._segment_path = lambda: "isis"
+                                    self._is_frozen = True
 
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                            class Ospf(Entity):
+                                """
+                                OSPF information
+                                
+                                .. attribute:: router_id
+                                
+                                	OSPF router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: area
+                                
+                                	OSPF area
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                    self.yang_name = "ospf"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
+                                    self._segment_path = lambda: "ospf"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                            class Bgp(Entity):
+                                """
+                                BGP information
+                                
+                                .. attribute:: router_id
+                                
+                                	BGP router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: confed_asn
+                                
+                                	Confederation ASN
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                    self.yang_name = "bgp"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
+                                    self._segment_path = lambda: "bgp"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                 class SrgbInformation(Entity):
                     """
                     SRGB information
                     
-                    .. attribute:: igp_srgb
+                    .. attribute:: node_id
                     
-                    	IGP\-specific information
-                    	**type**\:  :py:class:`IgpSrgb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb>`
+                    	Link\-state node identifier
+                    	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId>`
                     
                     .. attribute:: start
                     
@@ -10862,6 +12127,13 @@ class Pce(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: domain_identifier
+                    
+                    	Domain identifier
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -10878,41 +12150,564 @@ class Pce(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("igp-srgb", ("igp_srgb", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                        self._child_classes = OrderedDict([("node-id", ("node_id", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId))])
                         self._leafs = OrderedDict([
-                            ('start', YLeaf(YType.uint32, 'start')),
-                            ('size', YLeaf(YType.uint32, 'size')),
+                            ('start', (YLeaf(YType.uint32, 'start'), ['int'])),
+                            ('size', (YLeaf(YType.uint32, 'size'), ['int'])),
+                            ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                         ])
                         self.start = None
                         self.size = None
+                        self.domain_identifier = None
 
-                        self.igp_srgb = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb()
-                        self.igp_srgb.parent = self
-                        self._children_name_map["igp_srgb"] = "igp-srgb"
+                        self.node_id = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId()
+                        self.node_id.parent = self
+                        self._children_name_map["node_id"] = "node-id"
                         self._segment_path = lambda: "srgb-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, [u'start', u'size'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
 
 
-                    class IgpSrgb(Entity):
+                    class NodeId(Entity):
+                        """
+                        Link\-state node identifier
+                        
+                        .. attribute:: igp
+                        
+                        	IGP\-specific information
+                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
+                        
+                        .. attribute:: autonomous_system_number
+                        
+                        	Autonomous System Number
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        .. attribute:: ls_identifier
+                        
+                        	Link\-State identifier
+                        	**type**\: int
+                        
+                        	**range:** 0..4294967295
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-xtc-oper'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
+
+                            self.yang_name = "node-id"
+                            self.yang_parent_name = "srgb-information"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp))])
+                            self._leafs = OrderedDict([
+                                ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
+                            ])
+                            self.autonomous_system_number = None
+                            self.ls_identifier = None
+
+                            self.igp = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp()
+                            self.igp.parent = self
+                            self._children_name_map["igp"] = "igp"
+                            self._segment_path = lambda: "node-id"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+
+
+                        class Igp(Entity):
+                            """
+                            IGP\-specific information
+                            
+                            .. attribute:: isis
+                            
+                            	ISIS information
+                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
+                            
+                            .. attribute:: ospf
+                            
+                            	OSPF information
+                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
+                            
+                            .. attribute:: bgp
+                            
+                            	BGP information
+                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
+                            
+                            .. attribute:: igp_id
+                            
+                            	IGP ID
+                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'infra-xtc-oper'
+                            _revision = '2017-09-07'
+
+                            def __init__(self):
+                                super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
+
+                                self.yang_name = "igp"
+                                self.yang_parent_name = "node-id"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp))])
+                                self._leafs = OrderedDict([
+                                    ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
+                                ])
+                                self.igp_id = None
+
+                                self.isis = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis()
+                                self.isis.parent = self
+                                self._children_name_map["isis"] = "isis"
+
+                                self.ospf = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf()
+                                self.ospf.parent = self
+                                self._children_name_map["ospf"] = "ospf"
+
+                                self.bgp = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp()
+                                self.bgp.parent = self
+                                self._children_name_map["bgp"] = "bgp"
+                                self._segment_path = lambda: "igp"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
+
+
+                            class Isis(Entity):
+                                """
+                                ISIS information
+                                
+                                .. attribute:: system_id
+                                
+                                	ISIS system ID
+                                	**type**\: str
+                                
+                                .. attribute:: level
+                                
+                                	ISIS level
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
+
+                                    self.yang_name = "isis"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                        ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
+                                    self._segment_path = lambda: "isis"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                            class Ospf(Entity):
+                                """
+                                OSPF information
+                                
+                                .. attribute:: router_id
+                                
+                                	OSPF router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: area
+                                
+                                	OSPF area
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                    self.yang_name = "ospf"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
+                                    self._segment_path = lambda: "ospf"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                            class Bgp(Entity):
+                                """
+                                BGP information
+                                
+                                .. attribute:: router_id
+                                
+                                	BGP router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: confed_asn
+                                
+                                	Confederation ASN
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                    self.yang_name = "bgp"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
+                                    self._segment_path = lambda: "bgp"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+
+
+            class Prefixe(Entity):
+                """
+                Prefixes
+                
+                .. attribute:: pfx_sid
+                
+                	Prefix SID
+                	**type**\:  :py:class:`PfxSid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid>`
+                
+                .. attribute:: node_id
+                
+                	Link\-state node identifier
+                	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe.NodeId>`
+                
+                .. attribute:: domain_identifier
+                
+                	Domain identifier
+                	**type**\: int
+                
+                	**range:** 0..18446744073709551615
+                
+                
+
+                """
+
+                _prefix = 'infra-xtc-oper'
+                _revision = '2017-09-07'
+
+                def __init__(self):
+                    super(Pce.TopologyNodes.TopologyNode.Prefixe, self).__init__()
+
+                    self.yang_name = "prefixe"
+                    self.yang_parent_name = "topology-node"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("pfx-sid", ("pfx_sid", Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid)), ("node-id", ("node_id", Pce.TopologyNodes.TopologyNode.Prefixe.NodeId))])
+                    self._leafs = OrderedDict([
+                        ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
+                    ])
+                    self.domain_identifier = None
+
+                    self.pfx_sid = Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid()
+                    self.pfx_sid.parent = self
+                    self._children_name_map["pfx_sid"] = "pfx-sid"
+
+                    self.node_id = Pce.TopologyNodes.TopologyNode.Prefixe.NodeId()
+                    self.node_id.parent = self
+                    self._children_name_map["node_id"] = "node-id"
+                    self._segment_path = lambda: "prefixe"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe, [u'domain_identifier'], name, value)
+
+
+                class PfxSid(Entity):
+                    """
+                    Prefix SID
+                    
+                    .. attribute:: sid_prefix
+                    
+                    	Prefix
+                    	**type**\:  :py:class:`SidPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix>`
+                    
+                    .. attribute:: sid_type
+                    
+                    	SID Type
+                    	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Sid>`
+                    
+                    .. attribute:: mpls_label
+                    
+                    	MPLS Label
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: rflag
+                    
+                    	R Flag
+                    	**type**\: bool
+                    
+                    .. attribute:: nflag
+                    
+                    	N Flag
+                    	**type**\: bool
+                    
+                    .. attribute:: pflag
+                    
+                    	P Flag
+                    	**type**\: bool
+                    
+                    .. attribute:: eflag
+                    
+                    	E Flag
+                    	**type**\: bool
+                    
+                    .. attribute:: vflag
+                    
+                    	V Flag
+                    	**type**\: bool
+                    
+                    .. attribute:: lflag
+                    
+                    	L Flag
+                    	**type**\: bool
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-oper'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid, self).__init__()
+
+                        self.yang_name = "pfx-sid"
+                        self.yang_parent_name = "prefixe"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("sid-prefix", ("sid_prefix", Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix))])
+                        self._leafs = OrderedDict([
+                            ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'Sid', '')])),
+                            ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
+                            ('rflag', (YLeaf(YType.boolean, 'rflag'), ['bool'])),
+                            ('nflag', (YLeaf(YType.boolean, 'nflag'), ['bool'])),
+                            ('pflag', (YLeaf(YType.boolean, 'pflag'), ['bool'])),
+                            ('eflag', (YLeaf(YType.boolean, 'eflag'), ['bool'])),
+                            ('vflag', (YLeaf(YType.boolean, 'vflag'), ['bool'])),
+                            ('lflag', (YLeaf(YType.boolean, 'lflag'), ['bool'])),
+                        ])
+                        self.sid_type = None
+                        self.mpls_label = None
+                        self.rflag = None
+                        self.nflag = None
+                        self.pflag = None
+                        self.eflag = None
+                        self.vflag = None
+                        self.lflag = None
+
+                        self.sid_prefix = Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix()
+                        self.sid_prefix.parent = self
+                        self._children_name_map["sid_prefix"] = "sid-prefix"
+                        self._segment_path = lambda: "pfx-sid"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid, [u'sid_type', u'mpls_label', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
+
+
+                    class SidPrefix(Entity):
+                        """
+                        Prefix
+                        
+                        .. attribute:: af_name
+                        
+                        	AFName
+                        	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
+                        
+                        .. attribute:: ipv4
+                        
+                        	IPv4 address type
+                        	**type**\: str
+                        
+                        	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                        
+                        .. attribute:: ipv6
+                        
+                        	IPv6 address type
+                        	**type**\: str
+                        
+                        	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                        
+                        
+
+                        """
+
+                        _prefix = 'infra-xtc-oper'
+                        _revision = '2017-09-07'
+
+                        def __init__(self):
+                            super(Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, self).__init__()
+
+                            self.yang_name = "sid-prefix"
+                            self.yang_parent_name = "pfx-sid"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([])
+                            self._leafs = OrderedDict([
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                            ])
+                            self.af_name = None
+                            self.ipv4 = None
+                            self.ipv6 = None
+                            self._segment_path = lambda: "sid-prefix"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.PfxSid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
+
+
+                class NodeId(Entity):
+                    """
+                    Link\-state node identifier
+                    
+                    .. attribute:: igp
+                    
+                    	IGP\-specific information
+                    	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp>`
+                    
+                    .. attribute:: autonomous_system_number
+                    
+                    	Autonomous System Number
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    .. attribute:: ls_identifier
+                    
+                    	Link\-State identifier
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-oper'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId, self).__init__()
+
+                        self.yang_name = "node-id"
+                        self.yang_parent_name = "prefixe"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp))])
+                        self._leafs = OrderedDict([
+                            ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                            ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
+                        ])
+                        self.autonomous_system_number = None
+                        self.ls_identifier = None
+
+                        self.igp = Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp()
+                        self.igp.parent = self
+                        self._children_name_map["igp"] = "igp"
+                        self._segment_path = lambda: "node-id"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
+
+
+                    class Igp(Entity):
                         """
                         IGP\-specific information
                         
                         .. attribute:: isis
                         
                         	ISIS information
-                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis>`
+                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis>`
                         
                         .. attribute:: ospf
                         
                         	OSPF information
-                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf>`
+                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf>`
                         
                         .. attribute:: bgp
                         
                         	BGP information
-                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp>`
+                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp>`
                         
                         .. attribute:: igp_id
                         
@@ -10927,34 +12722,35 @@ class Pce(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
+                            super(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp, self).__init__()
 
-                            self.yang_name = "igp-srgb"
-                            self.yang_parent_name = "srgb-information"
+                            self.yang_name = "igp"
+                            self.yang_parent_name = "node-id"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                            self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp))])
                             self._leafs = OrderedDict([
-                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                             ])
                             self.igp_id = None
 
-                            self.isis = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
+                            self.isis = Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis()
                             self.isis.parent = self
                             self._children_name_map["isis"] = "isis"
 
-                            self.ospf = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf()
+                            self.ospf = Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf()
                             self.ospf.parent = self
                             self._children_name_map["ospf"] = "ospf"
 
-                            self.bgp = Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp()
+                            self.bgp = Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp()
                             self.bgp.parent = self
                             self._children_name_map["bgp"] = "bgp"
-                            self._segment_path = lambda: "igp-srgb"
+                            self._segment_path = lambda: "igp"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb, [u'igp_id'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp, [u'igp_id'], name, value)
 
 
                         class Isis(Entity):
@@ -10981,24 +12777,25 @@ class Pce(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
+                                super(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, self).__init__()
 
                                 self.yang_name = "isis"
-                                self.yang_parent_name = "igp-srgb"
+                                self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('system_id', YLeaf(YType.str, 'system-id')),
-                                    ('level', YLeaf(YType.uint32, 'level')),
+                                    ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                    ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
                                 ])
                                 self.system_id = None
                                 self.level = None
                                 self._segment_path = lambda: "isis"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, [u'system_id', u'level'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
 
 
                         class Ospf(Entity):
@@ -11027,24 +12824,25 @@ class Pce(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
+                                super(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, self).__init__()
 
                                 self.yang_name = "ospf"
-                                self.yang_parent_name = "igp-srgb"
+                                self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('area', YLeaf(YType.uint32, 'area')),
+                                    ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                    ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
                                 ])
                                 self.router_id = None
                                 self.area = None
                                 self._segment_path = lambda: "ospf"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, [u'router_id', u'area'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
 
 
                         class Bgp(Entity):
@@ -11073,181 +12871,25 @@ class Pce(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
+                                super(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, self).__init__()
 
                                 self.yang_name = "bgp"
-                                self.yang_parent_name = "igp-srgb"
+                                self.yang_parent_name = "igp"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
+                                    ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                    ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
                                 ])
                                 self.router_id = None
                                 self.confed_asn = None
                                 self._segment_path = lambda: "bgp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, [u'router_id', u'confed_asn'], name, value)
-
-
-            class PrefixSid(Entity):
-                """
-                Prefix SIDs
-                
-                .. attribute:: sid_prefix
-                
-                	Prefix
-                	**type**\:  :py:class:`SidPrefix <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.PrefixSid.SidPrefix>`
-                
-                .. attribute:: sid_type
-                
-                	SID Type
-                	**type**\:  :py:class:`Sid <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Sid>`
-                
-                .. attribute:: mpls_label
-                
-                	MPLS Label
-                	**type**\: int
-                
-                	**range:** 0..4294967295
-                
-                .. attribute:: domain_identifier
-                
-                	Domain identifier
-                	**type**\: int
-                
-                	**range:** 0..18446744073709551615
-                
-                .. attribute:: rflag
-                
-                	R Flag
-                	**type**\: bool
-                
-                .. attribute:: nflag
-                
-                	N Flag
-                	**type**\: bool
-                
-                .. attribute:: pflag
-                
-                	P Flag
-                	**type**\: bool
-                
-                .. attribute:: eflag
-                
-                	E Flag
-                	**type**\: bool
-                
-                .. attribute:: vflag
-                
-                	V Flag
-                	**type**\: bool
-                
-                .. attribute:: lflag
-                
-                	L Flag
-                	**type**\: bool
-                
-                
-
-                """
-
-                _prefix = 'infra-xtc-oper'
-                _revision = '2017-09-07'
-
-                def __init__(self):
-                    super(Pce.TopologyNodes.TopologyNode.PrefixSid, self).__init__()
-
-                    self.yang_name = "prefix-sid"
-                    self.yang_parent_name = "topology-node"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("sid-prefix", ("sid_prefix", Pce.TopologyNodes.TopologyNode.PrefixSid.SidPrefix))])
-                    self._leafs = OrderedDict([
-                        ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                        ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
-                        ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                        ('rflag', YLeaf(YType.boolean, 'rflag')),
-                        ('nflag', YLeaf(YType.boolean, 'nflag')),
-                        ('pflag', YLeaf(YType.boolean, 'pflag')),
-                        ('eflag', YLeaf(YType.boolean, 'eflag')),
-                        ('vflag', YLeaf(YType.boolean, 'vflag')),
-                        ('lflag', YLeaf(YType.boolean, 'lflag')),
-                    ])
-                    self.sid_type = None
-                    self.mpls_label = None
-                    self.domain_identifier = None
-                    self.rflag = None
-                    self.nflag = None
-                    self.pflag = None
-                    self.eflag = None
-                    self.vflag = None
-                    self.lflag = None
-
-                    self.sid_prefix = Pce.TopologyNodes.TopologyNode.PrefixSid.SidPrefix()
-                    self.sid_prefix.parent = self
-                    self._children_name_map["sid_prefix"] = "sid-prefix"
-                    self._segment_path = lambda: "prefix-sid"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.PrefixSid, [u'sid_type', u'mpls_label', u'domain_identifier', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
-
-
-                class SidPrefix(Entity):
-                    """
-                    Prefix
-                    
-                    .. attribute:: af_name
-                    
-                    	AFName
-                    	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
-                    
-                    .. attribute:: ipv4
-                    
-                    	IPv4 address type
-                    	**type**\: str
-                    
-                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                    
-                    .. attribute:: ipv6
-                    
-                    	IPv6 address type
-                    	**type**\: str
-                    
-                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
-                    
-                    
-
-                    """
-
-                    _prefix = 'infra-xtc-oper'
-                    _revision = '2017-09-07'
-
-                    def __init__(self):
-                        super(Pce.TopologyNodes.TopologyNode.PrefixSid.SidPrefix, self).__init__()
-
-                        self.yang_name = "sid-prefix"
-                        self.yang_parent_name = "prefix-sid"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
-                        ])
-                        self.af_name = None
-                        self.ipv4 = None
-                        self.ipv6 = None
-                        self._segment_path = lambda: "sid-prefix"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.PrefixSid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Prefixe.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
             class Ipv4Link(Entity):
@@ -11311,6 +12953,13 @@ class Pce(Entity):
                 
                 	**range:** 0..18446744073709551615
                 
+                .. attribute:: administrative_groups
+                
+                	Link admin\-groups
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: srlgs
                 
                 	SRLG Values
@@ -11340,13 +12989,14 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("local-igp-information", ("local_igp_information", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation)), ("remote-node-protocol-identifier", ("remote_node_protocol_identifier", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier)), ("performance-metrics", ("performance_metrics", Pce.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics)), ("adjacency-sid", ("adjacency_sid", Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid))])
                     self._leafs = OrderedDict([
-                        ('local_ipv4_address', YLeaf(YType.str, 'local-ipv4-address')),
-                        ('remote_ipv4_address', YLeaf(YType.str, 'remote-ipv4-address')),
-                        ('igp_metric', YLeaf(YType.uint32, 'igp-metric')),
-                        ('te_metric', YLeaf(YType.uint32, 'te-metric')),
-                        ('maximum_link_bandwidth', YLeaf(YType.uint64, 'maximum-link-bandwidth')),
-                        ('max_reservable_bandwidth', YLeaf(YType.uint64, 'max-reservable-bandwidth')),
-                        ('srlgs', YLeafList(YType.uint32, 'srlgs')),
+                        ('local_ipv4_address', (YLeaf(YType.str, 'local-ipv4-address'), ['str'])),
+                        ('remote_ipv4_address', (YLeaf(YType.str, 'remote-ipv4-address'), ['str'])),
+                        ('igp_metric', (YLeaf(YType.uint32, 'igp-metric'), ['int'])),
+                        ('te_metric', (YLeaf(YType.uint32, 'te-metric'), ['int'])),
+                        ('maximum_link_bandwidth', (YLeaf(YType.uint64, 'maximum-link-bandwidth'), ['int'])),
+                        ('max_reservable_bandwidth', (YLeaf(YType.uint64, 'max-reservable-bandwidth'), ['int'])),
+                        ('administrative_groups', (YLeaf(YType.uint32, 'administrative-groups'), ['int'])),
+                        ('srlgs', (YLeafList(YType.uint32, 'srlgs'), ['int'])),
                     ])
                     self.local_ipv4_address = None
                     self.remote_ipv4_address = None
@@ -11354,6 +13004,7 @@ class Pce(Entity):
                     self.te_metric = None
                     self.maximum_link_bandwidth = None
                     self.max_reservable_bandwidth = None
+                    self.administrative_groups = None
                     self.srlgs = []
 
                     self.local_igp_information = Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation()
@@ -11370,19 +13021,20 @@ class Pce(Entity):
 
                     self.adjacency_sid = YList(self)
                     self._segment_path = lambda: "ipv4-link"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link, [u'local_ipv4_address', u'remote_ipv4_address', u'igp_metric', u'te_metric', u'maximum_link_bandwidth', u'max_reservable_bandwidth', u'srlgs'], name, value)
+                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link, [u'local_ipv4_address', u'remote_ipv4_address', u'igp_metric', u'te_metric', u'maximum_link_bandwidth', u'max_reservable_bandwidth', u'administrative_groups', u'srlgs'], name, value)
 
 
                 class LocalIgpInformation(Entity):
                     """
                     Local node IGP information
                     
-                    .. attribute:: igp
+                    .. attribute:: node_id
                     
-                    	IGP\-specific information
-                    	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp>`
+                    	Link\-state node identifier
+                    	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId>`
                     
                     .. attribute:: domain_identifier
                     
@@ -11390,13 +13042,6 @@ class Pce(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: autonomous_system_number
-                    
-                    	Autonomous System Number
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
                     
                     
 
@@ -11413,46 +13058,44 @@ class Pce(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp))])
+                        self._child_classes = OrderedDict([("node-id", ("node_id", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId))])
                         self._leafs = OrderedDict([
-                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                            ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                         ])
                         self.domain_identifier = None
-                        self.autonomous_system_number = None
 
-                        self.igp = Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp()
-                        self.igp.parent = self
-                        self._children_name_map["igp"] = "igp"
+                        self.node_id = Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId()
+                        self.node_id.parent = self
+                        self._children_name_map["node_id"] = "node-id"
                         self._segment_path = lambda: "local-igp-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, [u'domain_identifier', u'autonomous_system_number'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation, [u'domain_identifier'], name, value)
 
 
-                    class Igp(Entity):
+                    class NodeId(Entity):
                         """
-                        IGP\-specific information
+                        Link\-state node identifier
                         
-                        .. attribute:: isis
+                        .. attribute:: igp
                         
-                        	ISIS information
-                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis>`
+                        	IGP\-specific information
+                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp>`
                         
-                        .. attribute:: ospf
+                        .. attribute:: autonomous_system_number
                         
-                        	OSPF information
-                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf>`
+                        	Autonomous System Number
+                        	**type**\: int
                         
-                        .. attribute:: bgp
+                        	**range:** 0..4294967295
                         
-                        	BGP information
-                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp>`
+                        .. attribute:: ls_identifier
                         
-                        .. attribute:: igp_id
+                        	Link\-State identifier
+                        	**type**\: int
                         
-                        	IGP ID
-                        	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                        	**range:** 0..4294967295
                         
                         
 
@@ -11462,97 +13105,54 @@ class Pce(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp, self).__init__()
+                            super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId, self).__init__()
 
-                            self.yang_name = "igp"
+                            self.yang_name = "node-id"
                             self.yang_parent_name = "local-igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp))])
+                            self._child_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp))])
                             self._leafs = OrderedDict([
-                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                             ])
-                            self.igp_id = None
+                            self.autonomous_system_number = None
+                            self.ls_identifier = None
 
-                            self.isis = Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis()
-                            self.isis.parent = self
-                            self._children_name_map["isis"] = "isis"
-
-                            self.ospf = Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf()
-                            self.ospf.parent = self
-                            self._children_name_map["ospf"] = "ospf"
-
-                            self.bgp = Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp()
-                            self.bgp.parent = self
-                            self._children_name_map["bgp"] = "bgp"
-                            self._segment_path = lambda: "igp"
+                            self.igp = Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp()
+                            self.igp.parent = self
+                            self._children_name_map["igp"] = "igp"
+                            self._segment_path = lambda: "node-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp, [u'igp_id'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                        class Isis(Entity):
+                        class Igp(Entity):
                             """
-                            ISIS information
+                            IGP\-specific information
                             
-                            .. attribute:: system_id
+                            .. attribute:: isis
                             
-                            	ISIS system ID
-                            	**type**\: str
+                            	ISIS information
+                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis>`
                             
-                            .. attribute:: level
+                            .. attribute:: ospf
                             
-                            	ISIS level
-                            	**type**\: int
+                            	OSPF information
+                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf>`
                             
-                            	**range:** 0..4294967295
+                            .. attribute:: bgp
                             
+                            	BGP information
+                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp>`
                             
-
-                            """
-
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
-
-                            def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis, self).__init__()
-
-                                self.yang_name = "isis"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('system_id', YLeaf(YType.str, 'system-id')),
-                                    ('level', YLeaf(YType.uint32, 'level')),
-                                ])
-                                self.system_id = None
-                                self.level = None
-                                self._segment_path = lambda: "isis"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Isis, [u'system_id', u'level'], name, value)
-
-
-                        class Ospf(Entity):
-                            """
-                            OSPF information
+                            .. attribute:: igp_id
                             
-                            .. attribute:: router_id
-                            
-                            	OSPF router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: area
-                            
-                            	OSPF area
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	IGP ID
+                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                             
                             
 
@@ -11562,70 +13162,174 @@ class Pce(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf, self).__init__()
+                                super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp, self).__init__()
 
-                                self.yang_name = "ospf"
-                                self.yang_parent_name = "igp"
+                                self.yang_name = "igp"
+                                self.yang_parent_name = "node-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp))])
                                 self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('area', YLeaf(YType.uint32, 'area')),
+                                    ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                 ])
-                                self.router_id = None
-                                self.area = None
-                                self._segment_path = lambda: "ospf"
+                                self.igp_id = None
+
+                                self.isis = Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis()
+                                self.isis.parent = self
+                                self._children_name_map["isis"] = "isis"
+
+                                self.ospf = Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf()
+                                self.ospf.parent = self
+                                self._children_name_map["ospf"] = "ospf"
+
+                                self.bgp = Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp()
+                                self.bgp.parent = self
+                                self._children_name_map["bgp"] = "bgp"
+                                self._segment_path = lambda: "igp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                        class Bgp(Entity):
-                            """
-                            BGP information
-                            
-                            .. attribute:: router_id
-                            
-                            	BGP router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: confed_asn
-                            
-                            	Confederation ASN
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
+                            class Isis(Entity):
+                                """
+                                ISIS information
+                                
+                                .. attribute:: system_id
+                                
+                                	ISIS system ID
+                                	**type**\: str
+                                
+                                .. attribute:: level
+                                
+                                	ISIS level
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
 
-                            """
+                                """
 
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
 
-                            def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp, self).__init__()
+                                def __init__(self):
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, self).__init__()
 
-                                self.yang_name = "bgp"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                ])
-                                self.router_id = None
-                                self.confed_asn = None
-                                self._segment_path = lambda: "bgp"
+                                    self.yang_name = "isis"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                        ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
+                                    self._segment_path = lambda: "isis"
+                                    self._is_frozen = True
 
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                            class Ospf(Entity):
+                                """
+                                OSPF information
+                                
+                                .. attribute:: router_id
+                                
+                                	OSPF router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: area
+                                
+                                	OSPF area
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                    self.yang_name = "ospf"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
+                                    self._segment_path = lambda: "ospf"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                            class Bgp(Entity):
+                                """
+                                BGP information
+                                
+                                .. attribute:: router_id
+                                
+                                	BGP router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: confed_asn
+                                
+                                	Confederation ASN
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                    self.yang_name = "bgp"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
+                                    self._segment_path = lambda: "bgp"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.LocalIgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                 class RemoteNodeProtocolIdentifier(Entity):
@@ -11688,11 +13392,11 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("igp-information", ("igp_information", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation))])
                         self._leafs = OrderedDict([
-                            ('node_name', YLeaf(YType.str, 'node-name')),
-                            ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
-                            ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
-                            ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
-                            ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                            ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                            ('ipv4_bgp_router_id_set', (YLeaf(YType.boolean, 'ipv4-bgp-router-id-set'), ['bool'])),
+                            ('ipv4_bgp_router_id', (YLeaf(YType.str, 'ipv4-bgp-router-id'), ['str'])),
+                            ('ipv4te_router_id_set', (YLeaf(YType.boolean, 'ipv4te-router-id-set'), ['bool'])),
+                            ('ipv4te_router_id', (YLeaf(YType.str, 'ipv4te-router-id'), ['str'])),
                         ])
                         self.node_name = None
                         self.ipv4_bgp_router_id_set = None
@@ -11703,6 +13407,7 @@ class Pce(Entity):
                         self.igp_information = YList(self)
                         self.srgb_information = YList(self)
                         self._segment_path = lambda: "remote-node-protocol-identifier"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
@@ -11712,10 +13417,10 @@ class Pce(Entity):
                         """
                         IGP information
                         
-                        .. attribute:: igp
+                        .. attribute:: node_id
                         
-                        	IGP\-specific information
-                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp>`
+                        	Link\-state node identifier
+                        	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId>`
                         
                         .. attribute:: domain_identifier
                         
@@ -11723,13 +13428,6 @@ class Pce(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: autonomous_system_number
-                        
-                        	Autonomous System Number
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
                         
                         
 
@@ -11746,46 +13444,44 @@ class Pce(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp))])
+                            self._child_classes = OrderedDict([("node-id", ("node_id", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId))])
                             self._leafs = OrderedDict([
-                                ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                                ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                                ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                             ])
                             self.domain_identifier = None
-                            self.autonomous_system_number = None
 
-                            self.igp = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp()
-                            self.igp.parent = self
-                            self._children_name_map["igp"] = "igp"
+                            self.node_id = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId()
+                            self.node_id.parent = self
+                            self._children_name_map["node_id"] = "node-id"
                             self._segment_path = lambda: "igp-information"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, [u'domain_identifier', u'autonomous_system_number'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class NodeId(Entity):
                             """
-                            IGP\-specific information
+                            Link\-state node identifier
                             
-                            .. attribute:: isis
+                            .. attribute:: igp
                             
-                            	ISIS information
-                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis>`
+                            	IGP\-specific information
+                            	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                             
-                            .. attribute:: ospf
+                            .. attribute:: autonomous_system_number
                             
-                            	OSPF information
-                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf>`
+                            	Autonomous System Number
+                            	**type**\: int
                             
-                            .. attribute:: bgp
+                            	**range:** 0..4294967295
                             
-                            	BGP information
-                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp>`
+                            .. attribute:: ls_identifier
                             
-                            .. attribute:: igp_id
+                            	Link\-State identifier
+                            	**type**\: int
                             
-                            	IGP ID
-                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            	**range:** 0..4294967295
                             
                             
 
@@ -11795,97 +13491,54 @@ class Pce(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
+                                super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
-                                self.yang_name = "igp"
+                                self.yang_name = "node-id"
                                 self.yang_parent_name = "igp-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                                self._child_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp))])
                                 self._leafs = OrderedDict([
-                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                    ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                    ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                                 ])
-                                self.igp_id = None
+                                self.autonomous_system_number = None
+                                self.ls_identifier = None
 
-                                self.isis = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis()
-                                self.isis.parent = self
-                                self._children_name_map["isis"] = "isis"
-
-                                self.ospf = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf()
-                                self.ospf.parent = self
-                                self._children_name_map["ospf"] = "ospf"
-
-                                self.bgp = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp()
-                                self.bgp.parent = self
-                                self._children_name_map["bgp"] = "bgp"
-                                self._segment_path = lambda: "igp"
+                                self.igp = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp()
+                                self.igp.parent = self
+                                self._children_name_map["igp"] = "igp"
+                                self._segment_path = lambda: "node-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                            class Isis(Entity):
+                            class Igp(Entity):
                                 """
-                                ISIS information
+                                IGP\-specific information
                                 
-                                .. attribute:: system_id
+                                .. attribute:: isis
                                 
-                                	ISIS system ID
-                                	**type**\: str
+                                	ISIS information
+                                	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                                 
-                                .. attribute:: level
+                                .. attribute:: ospf
                                 
-                                	ISIS level
-                                	**type**\: int
+                                	OSPF information
+                                	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
                                 
-                                	**range:** 0..4294967295
+                                .. attribute:: bgp
                                 
+                                	BGP information
+                                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                                 
-
-                                """
-
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
-
-                                def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
-
-                                    self.yang_name = "isis"
-                                    self.yang_parent_name = "igp"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('system_id', YLeaf(YType.str, 'system-id')),
-                                        ('level', YLeaf(YType.uint32, 'level')),
-                                    ])
-                                    self.system_id = None
-                                    self.level = None
-                                    self._segment_path = lambda: "isis"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, [u'system_id', u'level'], name, value)
-
-
-                            class Ospf(Entity):
-                                """
-                                OSPF information
+                                .. attribute:: igp_id
                                 
-                                .. attribute:: router_id
-                                
-                                	OSPF router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: area
-                                
-                                	OSPF area
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
+                                	IGP ID
+                                	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                                 
                                 
 
@@ -11895,80 +13548,184 @@ class Pce(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
-                                    self.yang_name = "ospf"
-                                    self.yang_parent_name = "igp"
+                                    self.yang_name = "igp"
+                                    self.yang_parent_name = "node-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp))])
                                     self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('area', YLeaf(YType.uint32, 'area')),
+                                        ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                     ])
-                                    self.router_id = None
-                                    self.area = None
-                                    self._segment_path = lambda: "ospf"
+                                    self.igp_id = None
+
+                                    self.isis = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis()
+                                    self.isis.parent = self
+                                    self._children_name_map["isis"] = "isis"
+
+                                    self.ospf = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf()
+                                    self.ospf.parent = self
+                                    self._children_name_map["ospf"] = "ospf"
+
+                                    self.bgp = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp()
+                                    self.bgp.parent = self
+                                    self._children_name_map["bgp"] = "bgp"
+                                    self._segment_path = lambda: "igp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                            class Bgp(Entity):
-                                """
-                                BGP information
-                                
-                                .. attribute:: router_id
-                                
-                                	BGP router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: confed_asn
-                                
-                                	Confederation ASN
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
+                                class Isis(Entity):
+                                    """
+                                    ISIS information
+                                    
+                                    .. attribute:: system_id
+                                    
+                                    	ISIS system ID
+                                    	**type**\: str
+                                    
+                                    .. attribute:: level
+                                    
+                                    	ISIS level
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
 
-                                """
+                                    """
 
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
 
-                                def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
+                                    def __init__(self):
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
-                                    self.yang_name = "bgp"
-                                    self.yang_parent_name = "igp"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                    ])
-                                    self.router_id = None
-                                    self.confed_asn = None
-                                    self._segment_path = lambda: "bgp"
+                                        self.yang_name = "isis"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                            ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                        ])
+                                        self.system_id = None
+                                        self.level = None
+                                        self._segment_path = lambda: "isis"
+                                        self._is_frozen = True
 
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                                class Ospf(Entity):
+                                    """
+                                    OSPF information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	OSPF router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: area
+                                    
+                                    	OSPF area
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                        self.yang_name = "ospf"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.area = None
+                                        self._segment_path = lambda: "ospf"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                                class Bgp(Entity):
+                                    """
+                                    BGP information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	BGP router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: confed_asn
+                                    
+                                    	Confederation ASN
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                        self.yang_name = "bgp"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.confed_asn = None
+                                        self._segment_path = lambda: "bgp"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                     class SrgbInformation(Entity):
                         """
                         SRGB information
                         
-                        .. attribute:: igp_srgb
+                        .. attribute:: node_id
                         
-                        	IGP\-specific information
-                        	**type**\:  :py:class:`IgpSrgb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb>`
+                        	Link\-state node identifier
+                        	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId>`
                         
                         .. attribute:: start
                         
@@ -11983,6 +13740,13 @@ class Pce(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: domain_identifier
+                        
+                        	Domain identifier
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -11999,46 +13763,48 @@ class Pce(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("igp-srgb", ("igp_srgb", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                            self._child_classes = OrderedDict([("node-id", ("node_id", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId))])
                             self._leafs = OrderedDict([
-                                ('start', YLeaf(YType.uint32, 'start')),
-                                ('size', YLeaf(YType.uint32, 'size')),
+                                ('start', (YLeaf(YType.uint32, 'start'), ['int'])),
+                                ('size', (YLeaf(YType.uint32, 'size'), ['int'])),
+                                ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                             ])
                             self.start = None
                             self.size = None
+                            self.domain_identifier = None
 
-                            self.igp_srgb = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb()
-                            self.igp_srgb.parent = self
-                            self._children_name_map["igp_srgb"] = "igp-srgb"
+                            self.node_id = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId()
+                            self.node_id.parent = self
+                            self._children_name_map["node_id"] = "node-id"
                             self._segment_path = lambda: "srgb-information"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, [u'start', u'size'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
 
 
-                        class IgpSrgb(Entity):
+                        class NodeId(Entity):
                             """
-                            IGP\-specific information
+                            Link\-state node identifier
                             
-                            .. attribute:: isis
+                            .. attribute:: igp
                             
-                            	ISIS information
-                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis>`
+                            	IGP\-specific information
+                            	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
                             
-                            .. attribute:: ospf
+                            .. attribute:: autonomous_system_number
                             
-                            	OSPF information
-                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf>`
+                            	Autonomous System Number
+                            	**type**\: int
                             
-                            .. attribute:: bgp
+                            	**range:** 0..4294967295
                             
-                            	BGP information
-                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp>`
+                            .. attribute:: ls_identifier
                             
-                            .. attribute:: igp_id
+                            	Link\-State identifier
+                            	**type**\: int
                             
-                            	IGP ID
-                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            	**range:** 0..4294967295
                             
                             
 
@@ -12048,97 +13814,54 @@ class Pce(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
+                                super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
 
-                                self.yang_name = "igp-srgb"
+                                self.yang_name = "node-id"
                                 self.yang_parent_name = "srgb-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                                self._child_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp))])
                                 self._leafs = OrderedDict([
-                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                    ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                    ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                                 ])
-                                self.igp_id = None
+                                self.autonomous_system_number = None
+                                self.ls_identifier = None
 
-                                self.isis = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
-                                self.isis.parent = self
-                                self._children_name_map["isis"] = "isis"
-
-                                self.ospf = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf()
-                                self.ospf.parent = self
-                                self._children_name_map["ospf"] = "ospf"
-
-                                self.bgp = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp()
-                                self.bgp.parent = self
-                                self._children_name_map["bgp"] = "bgp"
-                                self._segment_path = lambda: "igp-srgb"
+                                self.igp = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp()
+                                self.igp.parent = self
+                                self._children_name_map["igp"] = "igp"
+                                self._segment_path = lambda: "node-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb, [u'igp_id'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                            class Isis(Entity):
+                            class Igp(Entity):
                                 """
-                                ISIS information
+                                IGP\-specific information
                                 
-                                .. attribute:: system_id
+                                .. attribute:: isis
                                 
-                                	ISIS system ID
-                                	**type**\: str
+                                	ISIS information
+                                	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
                                 
-                                .. attribute:: level
+                                .. attribute:: ospf
                                 
-                                	ISIS level
-                                	**type**\: int
+                                	OSPF information
+                                	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
                                 
-                                	**range:** 0..4294967295
+                                .. attribute:: bgp
                                 
+                                	BGP information
+                                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
                                 
-
-                                """
-
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
-
-                                def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
-
-                                    self.yang_name = "isis"
-                                    self.yang_parent_name = "igp-srgb"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('system_id', YLeaf(YType.str, 'system-id')),
-                                        ('level', YLeaf(YType.uint32, 'level')),
-                                    ])
-                                    self.system_id = None
-                                    self.level = None
-                                    self._segment_path = lambda: "isis"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, [u'system_id', u'level'], name, value)
-
-
-                            class Ospf(Entity):
-                                """
-                                OSPF information
+                                .. attribute:: igp_id
                                 
-                                .. attribute:: router_id
-                                
-                                	OSPF router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: area
-                                
-                                	OSPF area
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
+                                	IGP ID
+                                	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                                 
                                 
 
@@ -12148,70 +13871,174 @@ class Pce(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
 
-                                    self.yang_name = "ospf"
-                                    self.yang_parent_name = "igp-srgb"
+                                    self.yang_name = "igp"
+                                    self.yang_parent_name = "node-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp))])
                                     self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('area', YLeaf(YType.uint32, 'area')),
+                                        ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                     ])
-                                    self.router_id = None
-                                    self.area = None
-                                    self._segment_path = lambda: "ospf"
+                                    self.igp_id = None
+
+                                    self.isis = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis()
+                                    self.isis.parent = self
+                                    self._children_name_map["isis"] = "isis"
+
+                                    self.ospf = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf()
+                                    self.ospf.parent = self
+                                    self._children_name_map["ospf"] = "ospf"
+
+                                    self.bgp = Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp()
+                                    self.bgp.parent = self
+                                    self._children_name_map["bgp"] = "bgp"
+                                    self._segment_path = lambda: "igp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                            class Bgp(Entity):
-                                """
-                                BGP information
-                                
-                                .. attribute:: router_id
-                                
-                                	BGP router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: confed_asn
-                                
-                                	Confederation ASN
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
+                                class Isis(Entity):
+                                    """
+                                    ISIS information
+                                    
+                                    .. attribute:: system_id
+                                    
+                                    	ISIS system ID
+                                    	**type**\: str
+                                    
+                                    .. attribute:: level
+                                    
+                                    	ISIS level
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
 
-                                """
+                                    """
 
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
 
-                                def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
+                                    def __init__(self):
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
 
-                                    self.yang_name = "bgp"
-                                    self.yang_parent_name = "igp-srgb"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                    ])
-                                    self.router_id = None
-                                    self.confed_asn = None
-                                    self._segment_path = lambda: "bgp"
+                                        self.yang_name = "isis"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                            ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                        ])
+                                        self.system_id = None
+                                        self.level = None
+                                        self._segment_path = lambda: "isis"
+                                        self._is_frozen = True
 
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                                class Ospf(Entity):
+                                    """
+                                    OSPF information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	OSPF router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: area
+                                    
+                                    	OSPF area
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                        self.yang_name = "ospf"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.area = None
+                                        self._segment_path = lambda: "ospf"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                                class Bgp(Entity):
+                                    """
+                                    BGP information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	BGP router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: confed_asn
+                                    
+                                    	Confederation ASN
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                        self.yang_name = "bgp"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.confed_asn = None
+                                        self._segment_path = lambda: "bgp"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                 class PerformanceMetrics(Entity):
@@ -12242,10 +14069,11 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('unidirectional_min_delay', YLeaf(YType.uint32, 'unidirectional-min-delay')),
+                            ('unidirectional_min_delay', (YLeaf(YType.uint32, 'unidirectional-min-delay'), ['int'])),
                         ])
                         self.unidirectional_min_delay = None
                         self._segment_path = lambda: "performance-metrics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.PerformanceMetrics, [u'unidirectional_min_delay'], name, value)
@@ -12271,13 +14099,6 @@ class Pce(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
-                    
-                    .. attribute:: domain_identifier
-                    
-                    	Domain identifier
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: rflag
                     
@@ -12326,19 +14147,17 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("sid-prefix", ("sid_prefix", Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix))])
                         self._leafs = OrderedDict([
-                            ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                            ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
-                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                            ('rflag', YLeaf(YType.boolean, 'rflag')),
-                            ('nflag', YLeaf(YType.boolean, 'nflag')),
-                            ('pflag', YLeaf(YType.boolean, 'pflag')),
-                            ('eflag', YLeaf(YType.boolean, 'eflag')),
-                            ('vflag', YLeaf(YType.boolean, 'vflag')),
-                            ('lflag', YLeaf(YType.boolean, 'lflag')),
+                            ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'Sid', '')])),
+                            ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
+                            ('rflag', (YLeaf(YType.boolean, 'rflag'), ['bool'])),
+                            ('nflag', (YLeaf(YType.boolean, 'nflag'), ['bool'])),
+                            ('pflag', (YLeaf(YType.boolean, 'pflag'), ['bool'])),
+                            ('eflag', (YLeaf(YType.boolean, 'eflag'), ['bool'])),
+                            ('vflag', (YLeaf(YType.boolean, 'vflag'), ['bool'])),
+                            ('lflag', (YLeaf(YType.boolean, 'lflag'), ['bool'])),
                         ])
                         self.sid_type = None
                         self.mpls_label = None
-                        self.domain_identifier = None
                         self.rflag = None
                         self.nflag = None
                         self.pflag = None
@@ -12350,9 +14169,10 @@ class Pce(Entity):
                         self.sid_prefix.parent = self
                         self._children_name_map["sid_prefix"] = "sid-prefix"
                         self._segment_path = lambda: "adjacency-sid"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, [u'sid_type', u'mpls_label', u'domain_identifier', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid, [u'sid_type', u'mpls_label', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
 
 
                     class SidPrefix(Entity):
@@ -12395,14 +14215,15 @@ class Pce(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "sid-prefix"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv4Link.AdjacencySid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -12486,12 +14307,12 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("local-igp-information", ("local_igp_information", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation)), ("remote-node-protocol-identifier", ("remote_node_protocol_identifier", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier)), ("adjacency-sid", ("adjacency_sid", Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid))])
                     self._leafs = OrderedDict([
-                        ('local_ipv6_address', YLeaf(YType.str, 'local-ipv6-address')),
-                        ('remote_ipv6_address', YLeaf(YType.str, 'remote-ipv6-address')),
-                        ('igp_metric', YLeaf(YType.uint32, 'igp-metric')),
-                        ('te_metric', YLeaf(YType.uint32, 'te-metric')),
-                        ('maximum_link_bandwidth', YLeaf(YType.uint64, 'maximum-link-bandwidth')),
-                        ('max_reservable_bandwidth', YLeaf(YType.uint64, 'max-reservable-bandwidth')),
+                        ('local_ipv6_address', (YLeaf(YType.str, 'local-ipv6-address'), ['str'])),
+                        ('remote_ipv6_address', (YLeaf(YType.str, 'remote-ipv6-address'), ['str'])),
+                        ('igp_metric', (YLeaf(YType.uint32, 'igp-metric'), ['int'])),
+                        ('te_metric', (YLeaf(YType.uint32, 'te-metric'), ['int'])),
+                        ('maximum_link_bandwidth', (YLeaf(YType.uint64, 'maximum-link-bandwidth'), ['int'])),
+                        ('max_reservable_bandwidth', (YLeaf(YType.uint64, 'max-reservable-bandwidth'), ['int'])),
                     ])
                     self.local_ipv6_address = None
                     self.remote_ipv6_address = None
@@ -12510,6 +14331,7 @@ class Pce(Entity):
 
                     self.adjacency_sid = YList(self)
                     self._segment_path = lambda: "ipv6-link"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link, [u'local_ipv6_address', u'remote_ipv6_address', u'igp_metric', u'te_metric', u'maximum_link_bandwidth', u'max_reservable_bandwidth'], name, value)
@@ -12519,10 +14341,10 @@ class Pce(Entity):
                     """
                     Local node IGP information
                     
-                    .. attribute:: igp
+                    .. attribute:: node_id
                     
-                    	IGP\-specific information
-                    	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp>`
+                    	Link\-state node identifier
+                    	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId>`
                     
                     .. attribute:: domain_identifier
                     
@@ -12530,13 +14352,6 @@ class Pce(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: autonomous_system_number
-                    
-                    	Autonomous System Number
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
                     
                     
 
@@ -12553,46 +14368,44 @@ class Pce(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp))])
+                        self._child_classes = OrderedDict([("node-id", ("node_id", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId))])
                         self._leafs = OrderedDict([
-                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                            ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                         ])
                         self.domain_identifier = None
-                        self.autonomous_system_number = None
 
-                        self.igp = Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp()
-                        self.igp.parent = self
-                        self._children_name_map["igp"] = "igp"
+                        self.node_id = Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId()
+                        self.node_id.parent = self
+                        self._children_name_map["node_id"] = "node-id"
                         self._segment_path = lambda: "local-igp-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, [u'domain_identifier', u'autonomous_system_number'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation, [u'domain_identifier'], name, value)
 
 
-                    class Igp(Entity):
+                    class NodeId(Entity):
                         """
-                        IGP\-specific information
+                        Link\-state node identifier
                         
-                        .. attribute:: isis
+                        .. attribute:: igp
                         
-                        	ISIS information
-                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis>`
+                        	IGP\-specific information
+                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp>`
                         
-                        .. attribute:: ospf
+                        .. attribute:: autonomous_system_number
                         
-                        	OSPF information
-                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf>`
+                        	Autonomous System Number
+                        	**type**\: int
                         
-                        .. attribute:: bgp
+                        	**range:** 0..4294967295
                         
-                        	BGP information
-                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp>`
+                        .. attribute:: ls_identifier
                         
-                        .. attribute:: igp_id
+                        	Link\-State identifier
+                        	**type**\: int
                         
-                        	IGP ID
-                        	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                        	**range:** 0..4294967295
                         
                         
 
@@ -12602,97 +14415,54 @@ class Pce(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp, self).__init__()
+                            super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId, self).__init__()
 
-                            self.yang_name = "igp"
+                            self.yang_name = "node-id"
                             self.yang_parent_name = "local-igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp))])
+                            self._child_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp))])
                             self._leafs = OrderedDict([
-                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                             ])
-                            self.igp_id = None
+                            self.autonomous_system_number = None
+                            self.ls_identifier = None
 
-                            self.isis = Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis()
-                            self.isis.parent = self
-                            self._children_name_map["isis"] = "isis"
-
-                            self.ospf = Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf()
-                            self.ospf.parent = self
-                            self._children_name_map["ospf"] = "ospf"
-
-                            self.bgp = Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp()
-                            self.bgp.parent = self
-                            self._children_name_map["bgp"] = "bgp"
-                            self._segment_path = lambda: "igp"
+                            self.igp = Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp()
+                            self.igp.parent = self
+                            self._children_name_map["igp"] = "igp"
+                            self._segment_path = lambda: "node-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp, [u'igp_id'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                        class Isis(Entity):
+                        class Igp(Entity):
                             """
-                            ISIS information
+                            IGP\-specific information
                             
-                            .. attribute:: system_id
+                            .. attribute:: isis
                             
-                            	ISIS system ID
-                            	**type**\: str
+                            	ISIS information
+                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis>`
                             
-                            .. attribute:: level
+                            .. attribute:: ospf
                             
-                            	ISIS level
-                            	**type**\: int
+                            	OSPF information
+                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf>`
                             
-                            	**range:** 0..4294967295
+                            .. attribute:: bgp
                             
+                            	BGP information
+                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp>`
                             
-
-                            """
-
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
-
-                            def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis, self).__init__()
-
-                                self.yang_name = "isis"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('system_id', YLeaf(YType.str, 'system-id')),
-                                    ('level', YLeaf(YType.uint32, 'level')),
-                                ])
-                                self.system_id = None
-                                self.level = None
-                                self._segment_path = lambda: "isis"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Isis, [u'system_id', u'level'], name, value)
-
-
-                        class Ospf(Entity):
-                            """
-                            OSPF information
+                            .. attribute:: igp_id
                             
-                            .. attribute:: router_id
-                            
-                            	OSPF router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: area
-                            
-                            	OSPF area
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	IGP ID
+                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                             
                             
 
@@ -12702,70 +14472,174 @@ class Pce(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf, self).__init__()
+                                super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp, self).__init__()
 
-                                self.yang_name = "ospf"
-                                self.yang_parent_name = "igp"
+                                self.yang_name = "igp"
+                                self.yang_parent_name = "node-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp))])
                                 self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('area', YLeaf(YType.uint32, 'area')),
+                                    ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                 ])
-                                self.router_id = None
-                                self.area = None
-                                self._segment_path = lambda: "ospf"
+                                self.igp_id = None
+
+                                self.isis = Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis()
+                                self.isis.parent = self
+                                self._children_name_map["isis"] = "isis"
+
+                                self.ospf = Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf()
+                                self.ospf.parent = self
+                                self._children_name_map["ospf"] = "ospf"
+
+                                self.bgp = Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp()
+                                self.bgp.parent = self
+                                self._children_name_map["bgp"] = "bgp"
+                                self._segment_path = lambda: "igp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                        class Bgp(Entity):
-                            """
-                            BGP information
-                            
-                            .. attribute:: router_id
-                            
-                            	BGP router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: confed_asn
-                            
-                            	Confederation ASN
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
+                            class Isis(Entity):
+                                """
+                                ISIS information
+                                
+                                .. attribute:: system_id
+                                
+                                	ISIS system ID
+                                	**type**\: str
+                                
+                                .. attribute:: level
+                                
+                                	ISIS level
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
 
-                            """
+                                """
 
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
 
-                            def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp, self).__init__()
+                                def __init__(self):
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, self).__init__()
 
-                                self.yang_name = "bgp"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                ])
-                                self.router_id = None
-                                self.confed_asn = None
-                                self._segment_path = lambda: "bgp"
+                                    self.yang_name = "isis"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                        ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
+                                    self._segment_path = lambda: "isis"
+                                    self._is_frozen = True
 
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                            class Ospf(Entity):
+                                """
+                                OSPF information
+                                
+                                .. attribute:: router_id
+                                
+                                	OSPF router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: area
+                                
+                                	OSPF area
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                    self.yang_name = "ospf"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
+                                    self._segment_path = lambda: "ospf"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                            class Bgp(Entity):
+                                """
+                                BGP information
+                                
+                                .. attribute:: router_id
+                                
+                                	BGP router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: confed_asn
+                                
+                                	Confederation ASN
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                    self.yang_name = "bgp"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
+                                    self._segment_path = lambda: "bgp"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.LocalIgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                 class RemoteNodeProtocolIdentifier(Entity):
@@ -12828,11 +14702,11 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("igp-information", ("igp_information", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation))])
                         self._leafs = OrderedDict([
-                            ('node_name', YLeaf(YType.str, 'node-name')),
-                            ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
-                            ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
-                            ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
-                            ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                            ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                            ('ipv4_bgp_router_id_set', (YLeaf(YType.boolean, 'ipv4-bgp-router-id-set'), ['bool'])),
+                            ('ipv4_bgp_router_id', (YLeaf(YType.str, 'ipv4-bgp-router-id'), ['str'])),
+                            ('ipv4te_router_id_set', (YLeaf(YType.boolean, 'ipv4te-router-id-set'), ['bool'])),
+                            ('ipv4te_router_id', (YLeaf(YType.str, 'ipv4te-router-id'), ['str'])),
                         ])
                         self.node_name = None
                         self.ipv4_bgp_router_id_set = None
@@ -12843,6 +14717,7 @@ class Pce(Entity):
                         self.igp_information = YList(self)
                         self.srgb_information = YList(self)
                         self._segment_path = lambda: "remote-node-protocol-identifier"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
@@ -12852,10 +14727,10 @@ class Pce(Entity):
                         """
                         IGP information
                         
-                        .. attribute:: igp
+                        .. attribute:: node_id
                         
-                        	IGP\-specific information
-                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp>`
+                        	Link\-state node identifier
+                        	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId>`
                         
                         .. attribute:: domain_identifier
                         
@@ -12863,13 +14738,6 @@ class Pce(Entity):
                         	**type**\: int
                         
                         	**range:** 0..18446744073709551615
-                        
-                        .. attribute:: autonomous_system_number
-                        
-                        	Autonomous System Number
-                        	**type**\: int
-                        
-                        	**range:** 0..4294967295
                         
                         
 
@@ -12886,46 +14754,44 @@ class Pce(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp))])
+                            self._child_classes = OrderedDict([("node-id", ("node_id", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId))])
                             self._leafs = OrderedDict([
-                                ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                                ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                                ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                             ])
                             self.domain_identifier = None
-                            self.autonomous_system_number = None
 
-                            self.igp = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp()
-                            self.igp.parent = self
-                            self._children_name_map["igp"] = "igp"
+                            self.node_id = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId()
+                            self.node_id.parent = self
+                            self._children_name_map["node_id"] = "node-id"
                             self._segment_path = lambda: "igp-information"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, [u'domain_identifier', u'autonomous_system_number'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
 
 
-                        class Igp(Entity):
+                        class NodeId(Entity):
                             """
-                            IGP\-specific information
+                            Link\-state node identifier
                             
-                            .. attribute:: isis
+                            .. attribute:: igp
                             
-                            	ISIS information
-                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis>`
+                            	IGP\-specific information
+                            	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                             
-                            .. attribute:: ospf
+                            .. attribute:: autonomous_system_number
                             
-                            	OSPF information
-                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf>`
+                            	Autonomous System Number
+                            	**type**\: int
                             
-                            .. attribute:: bgp
+                            	**range:** 0..4294967295
                             
-                            	BGP information
-                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp>`
+                            .. attribute:: ls_identifier
                             
-                            .. attribute:: igp_id
+                            	Link\-State identifier
+                            	**type**\: int
                             
-                            	IGP ID
-                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            	**range:** 0..4294967295
                             
                             
 
@@ -12935,97 +14801,54 @@ class Pce(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
+                                super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
-                                self.yang_name = "igp"
+                                self.yang_name = "node-id"
                                 self.yang_parent_name = "igp-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                                self._child_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp))])
                                 self._leafs = OrderedDict([
-                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                    ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                    ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                                 ])
-                                self.igp_id = None
+                                self.autonomous_system_number = None
+                                self.ls_identifier = None
 
-                                self.isis = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis()
-                                self.isis.parent = self
-                                self._children_name_map["isis"] = "isis"
-
-                                self.ospf = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf()
-                                self.ospf.parent = self
-                                self._children_name_map["ospf"] = "ospf"
-
-                                self.bgp = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp()
-                                self.bgp.parent = self
-                                self._children_name_map["bgp"] = "bgp"
-                                self._segment_path = lambda: "igp"
+                                self.igp = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp()
+                                self.igp.parent = self
+                                self._children_name_map["igp"] = "igp"
+                                self._segment_path = lambda: "node-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp, [u'igp_id'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                            class Isis(Entity):
+                            class Igp(Entity):
                                 """
-                                ISIS information
+                                IGP\-specific information
                                 
-                                .. attribute:: system_id
+                                .. attribute:: isis
                                 
-                                	ISIS system ID
-                                	**type**\: str
+                                	ISIS information
+                                	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                                 
-                                .. attribute:: level
+                                .. attribute:: ospf
                                 
-                                	ISIS level
-                                	**type**\: int
+                                	OSPF information
+                                	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
                                 
-                                	**range:** 0..4294967295
+                                .. attribute:: bgp
                                 
+                                	BGP information
+                                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                                 
-
-                                """
-
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
-
-                                def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
-
-                                    self.yang_name = "isis"
-                                    self.yang_parent_name = "igp"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('system_id', YLeaf(YType.str, 'system-id')),
-                                        ('level', YLeaf(YType.uint32, 'level')),
-                                    ])
-                                    self.system_id = None
-                                    self.level = None
-                                    self._segment_path = lambda: "isis"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Isis, [u'system_id', u'level'], name, value)
-
-
-                            class Ospf(Entity):
-                                """
-                                OSPF information
+                                .. attribute:: igp_id
                                 
-                                .. attribute:: router_id
-                                
-                                	OSPF router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: area
-                                
-                                	OSPF area
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
+                                	IGP ID
+                                	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                                 
                                 
 
@@ -13035,80 +14858,184 @@ class Pce(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
-                                    self.yang_name = "ospf"
-                                    self.yang_parent_name = "igp"
+                                    self.yang_name = "igp"
+                                    self.yang_parent_name = "node-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp))])
                                     self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('area', YLeaf(YType.uint32, 'area')),
+                                        ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                     ])
-                                    self.router_id = None
-                                    self.area = None
-                                    self._segment_path = lambda: "ospf"
+                                    self.igp_id = None
+
+                                    self.isis = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis()
+                                    self.isis.parent = self
+                                    self._children_name_map["isis"] = "isis"
+
+                                    self.ospf = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf()
+                                    self.ospf.parent = self
+                                    self._children_name_map["ospf"] = "ospf"
+
+                                    self.bgp = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp()
+                                    self.bgp.parent = self
+                                    self._children_name_map["bgp"] = "bgp"
+                                    self._segment_path = lambda: "igp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                            class Bgp(Entity):
-                                """
-                                BGP information
-                                
-                                .. attribute:: router_id
-                                
-                                	BGP router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: confed_asn
-                                
-                                	Confederation ASN
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
+                                class Isis(Entity):
+                                    """
+                                    ISIS information
+                                    
+                                    .. attribute:: system_id
+                                    
+                                    	ISIS system ID
+                                    	**type**\: str
+                                    
+                                    .. attribute:: level
+                                    
+                                    	ISIS level
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
 
-                                """
+                                    """
 
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
 
-                                def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
+                                    def __init__(self):
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
-                                    self.yang_name = "bgp"
-                                    self.yang_parent_name = "igp"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                    ])
-                                    self.router_id = None
-                                    self.confed_asn = None
-                                    self._segment_path = lambda: "bgp"
+                                        self.yang_name = "isis"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                            ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                        ])
+                                        self.system_id = None
+                                        self.level = None
+                                        self._segment_path = lambda: "isis"
+                                        self._is_frozen = True
 
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                                class Ospf(Entity):
+                                    """
+                                    OSPF information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	OSPF router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: area
+                                    
+                                    	OSPF area
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                        self.yang_name = "ospf"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.area = None
+                                        self._segment_path = lambda: "ospf"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                                class Bgp(Entity):
+                                    """
+                                    BGP information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	BGP router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: confed_asn
+                                    
+                                    	Confederation ASN
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                        self.yang_name = "bgp"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.confed_asn = None
+                                        self._segment_path = lambda: "bgp"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                     class SrgbInformation(Entity):
                         """
                         SRGB information
                         
-                        .. attribute:: igp_srgb
+                        .. attribute:: node_id
                         
-                        	IGP\-specific information
-                        	**type**\:  :py:class:`IgpSrgb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb>`
+                        	Link\-state node identifier
+                        	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId>`
                         
                         .. attribute:: start
                         
@@ -13123,6 +15050,13 @@ class Pce(Entity):
                         	**type**\: int
                         
                         	**range:** 0..4294967295
+                        
+                        .. attribute:: domain_identifier
+                        
+                        	Domain identifier
+                        	**type**\: int
+                        
+                        	**range:** 0..18446744073709551615
                         
                         
 
@@ -13139,46 +15073,48 @@ class Pce(Entity):
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("igp-srgb", ("igp_srgb", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                            self._child_classes = OrderedDict([("node-id", ("node_id", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId))])
                             self._leafs = OrderedDict([
-                                ('start', YLeaf(YType.uint32, 'start')),
-                                ('size', YLeaf(YType.uint32, 'size')),
+                                ('start', (YLeaf(YType.uint32, 'start'), ['int'])),
+                                ('size', (YLeaf(YType.uint32, 'size'), ['int'])),
+                                ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                             ])
                             self.start = None
                             self.size = None
+                            self.domain_identifier = None
 
-                            self.igp_srgb = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb()
-                            self.igp_srgb.parent = self
-                            self._children_name_map["igp_srgb"] = "igp-srgb"
+                            self.node_id = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId()
+                            self.node_id.parent = self
+                            self._children_name_map["node_id"] = "node-id"
                             self._segment_path = lambda: "srgb-information"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, [u'start', u'size'], name, value)
+                            self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
 
 
-                        class IgpSrgb(Entity):
+                        class NodeId(Entity):
                             """
-                            IGP\-specific information
+                            Link\-state node identifier
                             
-                            .. attribute:: isis
+                            .. attribute:: igp
                             
-                            	ISIS information
-                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis>`
+                            	IGP\-specific information
+                            	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
                             
-                            .. attribute:: ospf
+                            .. attribute:: autonomous_system_number
                             
-                            	OSPF information
-                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf>`
+                            	Autonomous System Number
+                            	**type**\: int
                             
-                            .. attribute:: bgp
+                            	**range:** 0..4294967295
                             
-                            	BGP information
-                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp>`
+                            .. attribute:: ls_identifier
                             
-                            .. attribute:: igp_id
+                            	Link\-State identifier
+                            	**type**\: int
                             
-                            	IGP ID
-                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                            	**range:** 0..4294967295
                             
                             
 
@@ -13188,97 +15124,54 @@ class Pce(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
+                                super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
 
-                                self.yang_name = "igp-srgb"
+                                self.yang_name = "node-id"
                                 self.yang_parent_name = "srgb-information"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                                self._child_classes = OrderedDict([("igp", ("igp", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp))])
                                 self._leafs = OrderedDict([
-                                    ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                    ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                    ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                                 ])
-                                self.igp_id = None
+                                self.autonomous_system_number = None
+                                self.ls_identifier = None
 
-                                self.isis = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
-                                self.isis.parent = self
-                                self._children_name_map["isis"] = "isis"
-
-                                self.ospf = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf()
-                                self.ospf.parent = self
-                                self._children_name_map["ospf"] = "ospf"
-
-                                self.bgp = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp()
-                                self.bgp.parent = self
-                                self._children_name_map["bgp"] = "bgp"
-                                self._segment_path = lambda: "igp-srgb"
+                                self.igp = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp()
+                                self.igp.parent = self
+                                self._children_name_map["igp"] = "igp"
+                                self._segment_path = lambda: "node-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb, [u'igp_id'], name, value)
+                                self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                            class Isis(Entity):
+                            class Igp(Entity):
                                 """
-                                ISIS information
+                                IGP\-specific information
                                 
-                                .. attribute:: system_id
+                                .. attribute:: isis
                                 
-                                	ISIS system ID
-                                	**type**\: str
+                                	ISIS information
+                                	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
                                 
-                                .. attribute:: level
+                                .. attribute:: ospf
                                 
-                                	ISIS level
-                                	**type**\: int
+                                	OSPF information
+                                	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
                                 
-                                	**range:** 0..4294967295
+                                .. attribute:: bgp
                                 
+                                	BGP information
+                                	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
                                 
-
-                                """
-
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
-
-                                def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
-
-                                    self.yang_name = "isis"
-                                    self.yang_parent_name = "igp-srgb"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('system_id', YLeaf(YType.str, 'system-id')),
-                                        ('level', YLeaf(YType.uint32, 'level')),
-                                    ])
-                                    self.system_id = None
-                                    self.level = None
-                                    self._segment_path = lambda: "isis"
-
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, [u'system_id', u'level'], name, value)
-
-
-                            class Ospf(Entity):
-                                """
-                                OSPF information
+                                .. attribute:: igp_id
                                 
-                                .. attribute:: router_id
-                                
-                                	OSPF router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: area
-                                
-                                	OSPF area
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
+                                	IGP ID
+                                	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                                 
                                 
 
@@ -13288,70 +15181,174 @@ class Pce(Entity):
                                 _revision = '2017-09-07'
 
                                 def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
+                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
 
-                                    self.yang_name = "ospf"
-                                    self.yang_parent_name = "igp-srgb"
+                                    self.yang_name = "igp"
+                                    self.yang_parent_name = "node-id"
                                     self.is_top_level_class = False
                                     self.has_list_ancestor = True
                                     self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
+                                    self._child_classes = OrderedDict([("isis", ("isis", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp))])
                                     self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('area', YLeaf(YType.uint32, 'area')),
+                                        ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                     ])
-                                    self.router_id = None
-                                    self.area = None
-                                    self._segment_path = lambda: "ospf"
+                                    self.igp_id = None
+
+                                    self.isis = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis()
+                                    self.isis.parent = self
+                                    self._children_name_map["isis"] = "isis"
+
+                                    self.ospf = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf()
+                                    self.ospf.parent = self
+                                    self._children_name_map["ospf"] = "ospf"
+
+                                    self.bgp = Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp()
+                                    self.bgp.parent = self
+                                    self._children_name_map["bgp"] = "bgp"
+                                    self._segment_path = lambda: "igp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, [u'router_id', u'area'], name, value)
+                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                            class Bgp(Entity):
-                                """
-                                BGP information
-                                
-                                .. attribute:: router_id
-                                
-                                	BGP router ID
-                                	**type**\: str
-                                
-                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                                
-                                .. attribute:: confed_asn
-                                
-                                	Confederation ASN
-                                	**type**\: int
-                                
-                                	**range:** 0..4294967295
-                                
-                                
+                                class Isis(Entity):
+                                    """
+                                    ISIS information
+                                    
+                                    .. attribute:: system_id
+                                    
+                                    	ISIS system ID
+                                    	**type**\: str
+                                    
+                                    .. attribute:: level
+                                    
+                                    	ISIS level
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
 
-                                """
+                                    """
 
-                                _prefix = 'infra-xtc-oper'
-                                _revision = '2017-09-07'
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
 
-                                def __init__(self):
-                                    super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
+                                    def __init__(self):
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
 
-                                    self.yang_name = "bgp"
-                                    self.yang_parent_name = "igp-srgb"
-                                    self.is_top_level_class = False
-                                    self.has_list_ancestor = True
-                                    self.ylist_key_names = []
-                                    self._child_classes = OrderedDict([])
-                                    self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                    ])
-                                    self.router_id = None
-                                    self.confed_asn = None
-                                    self._segment_path = lambda: "bgp"
+                                        self.yang_name = "isis"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                            ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                        ])
+                                        self.system_id = None
+                                        self.level = None
+                                        self._segment_path = lambda: "isis"
+                                        self._is_frozen = True
 
-                                def __setattr__(self, name, value):
-                                    self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                                class Ospf(Entity):
+                                    """
+                                    OSPF information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	OSPF router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: area
+                                    
+                                    	OSPF area
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                        self.yang_name = "ospf"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.area = None
+                                        self._segment_path = lambda: "ospf"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                                class Bgp(Entity):
+                                    """
+                                    BGP information
+                                    
+                                    .. attribute:: router_id
+                                    
+                                    	BGP router ID
+                                    	**type**\: str
+                                    
+                                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                    
+                                    .. attribute:: confed_asn
+                                    
+                                    	Confederation ASN
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..4294967295
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'infra-xtc-oper'
+                                    _revision = '2017-09-07'
+
+                                    def __init__(self):
+                                        super(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                        self.yang_name = "bgp"
+                                        self.yang_parent_name = "igp"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                            ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                        ])
+                                        self.router_id = None
+                                        self.confed_asn = None
+                                        self._segment_path = lambda: "bgp"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.RemoteNodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                 class AdjacencySid(Entity):
@@ -13374,13 +15371,6 @@ class Pce(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
-                    
-                    .. attribute:: domain_identifier
-                    
-                    	Domain identifier
-                    	**type**\: int
-                    
-                    	**range:** 0..18446744073709551615
                     
                     .. attribute:: rflag
                     
@@ -13429,19 +15419,17 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("sid-prefix", ("sid_prefix", Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix))])
                         self._leafs = OrderedDict([
-                            ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                            ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
-                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                            ('rflag', YLeaf(YType.boolean, 'rflag')),
-                            ('nflag', YLeaf(YType.boolean, 'nflag')),
-                            ('pflag', YLeaf(YType.boolean, 'pflag')),
-                            ('eflag', YLeaf(YType.boolean, 'eflag')),
-                            ('vflag', YLeaf(YType.boolean, 'vflag')),
-                            ('lflag', YLeaf(YType.boolean, 'lflag')),
+                            ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'Sid', '')])),
+                            ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
+                            ('rflag', (YLeaf(YType.boolean, 'rflag'), ['bool'])),
+                            ('nflag', (YLeaf(YType.boolean, 'nflag'), ['bool'])),
+                            ('pflag', (YLeaf(YType.boolean, 'pflag'), ['bool'])),
+                            ('eflag', (YLeaf(YType.boolean, 'eflag'), ['bool'])),
+                            ('vflag', (YLeaf(YType.boolean, 'vflag'), ['bool'])),
+                            ('lflag', (YLeaf(YType.boolean, 'lflag'), ['bool'])),
                         ])
                         self.sid_type = None
                         self.mpls_label = None
-                        self.domain_identifier = None
                         self.rflag = None
                         self.nflag = None
                         self.pflag = None
@@ -13453,9 +15441,10 @@ class Pce(Entity):
                         self.sid_prefix.parent = self
                         self._children_name_map["sid_prefix"] = "sid-prefix"
                         self._segment_path = lambda: "adjacency-sid"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, [u'sid_type', u'mpls_label', u'domain_identifier', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
+                        self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid, [u'sid_type', u'mpls_label', u'rflag', u'nflag', u'pflag', u'eflag', u'vflag', u'lflag'], name, value)
 
 
                     class SidPrefix(Entity):
@@ -13498,14 +15487,15 @@ class Pce(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "sid-prefix"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TopologyNodes.TopologyNode.Ipv6Link.AdjacencySid.SidPrefix, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -13541,6 +15531,7 @@ class Pce(Entity):
             self.prefix_info = YList(self)
             self._segment_path = lambda: "prefix-infos"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pce.PrefixInfos, [], name, value)
@@ -13591,8 +15582,8 @@ class Pce(Entity):
                 self.ylist_key_names = ['node_identifier']
                 self._child_classes = OrderedDict([("node-protocol-identifier", ("node_protocol_identifier", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier)), ("address", ("address", Pce.PrefixInfos.PrefixInfo.Address))])
                 self._leafs = OrderedDict([
-                    ('node_identifier', YLeaf(YType.uint32, 'node-identifier')),
-                    ('node_identifier_xr', YLeaf(YType.uint32, 'node-identifier-xr')),
+                    ('node_identifier', (YLeaf(YType.uint32, 'node-identifier'), ['int'])),
+                    ('node_identifier_xr', (YLeaf(YType.uint32, 'node-identifier-xr'), ['int'])),
                 ])
                 self.node_identifier = None
                 self.node_identifier_xr = None
@@ -13604,6 +15595,7 @@ class Pce(Entity):
                 self.address = YList(self)
                 self._segment_path = lambda: "prefix-info" + "[node-identifier='" + str(self.node_identifier) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/prefix-infos/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.PrefixInfos.PrefixInfo, ['node_identifier', u'node_identifier_xr'], name, value)
@@ -13669,11 +15661,11 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("igp-information", ("igp_information", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation)), ("srgb-information", ("srgb_information", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation))])
                     self._leafs = OrderedDict([
-                        ('node_name', YLeaf(YType.str, 'node-name')),
-                        ('ipv4_bgp_router_id_set', YLeaf(YType.boolean, 'ipv4-bgp-router-id-set')),
-                        ('ipv4_bgp_router_id', YLeaf(YType.str, 'ipv4-bgp-router-id')),
-                        ('ipv4te_router_id_set', YLeaf(YType.boolean, 'ipv4te-router-id-set')),
-                        ('ipv4te_router_id', YLeaf(YType.str, 'ipv4te-router-id')),
+                        ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                        ('ipv4_bgp_router_id_set', (YLeaf(YType.boolean, 'ipv4-bgp-router-id-set'), ['bool'])),
+                        ('ipv4_bgp_router_id', (YLeaf(YType.str, 'ipv4-bgp-router-id'), ['str'])),
+                        ('ipv4te_router_id_set', (YLeaf(YType.boolean, 'ipv4te-router-id-set'), ['bool'])),
+                        ('ipv4te_router_id', (YLeaf(YType.str, 'ipv4te-router-id'), ['str'])),
                     ])
                     self.node_name = None
                     self.ipv4_bgp_router_id_set = None
@@ -13684,6 +15676,7 @@ class Pce(Entity):
                     self.igp_information = YList(self)
                     self.srgb_information = YList(self)
                     self._segment_path = lambda: "node-protocol-identifier"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier, [u'node_name', u'ipv4_bgp_router_id_set', u'ipv4_bgp_router_id', u'ipv4te_router_id_set', u'ipv4te_router_id'], name, value)
@@ -13693,10 +15686,10 @@ class Pce(Entity):
                     """
                     IGP information
                     
-                    .. attribute:: igp
+                    .. attribute:: node_id
                     
-                    	IGP\-specific information
-                    	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp>`
+                    	Link\-state node identifier
+                    	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId>`
                     
                     .. attribute:: domain_identifier
                     
@@ -13704,13 +15697,6 @@ class Pce(Entity):
                     	**type**\: int
                     
                     	**range:** 0..18446744073709551615
-                    
-                    .. attribute:: autonomous_system_number
-                    
-                    	Autonomous System Number
-                    	**type**\: int
-                    
-                    	**range:** 0..4294967295
                     
                     
 
@@ -13727,46 +15713,44 @@ class Pce(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("igp", ("igp", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp))])
+                        self._child_classes = OrderedDict([("node-id", ("node_id", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId))])
                         self._leafs = OrderedDict([
-                            ('domain_identifier', YLeaf(YType.uint64, 'domain-identifier')),
-                            ('autonomous_system_number', YLeaf(YType.uint32, 'autonomous-system-number')),
+                            ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                         ])
                         self.domain_identifier = None
-                        self.autonomous_system_number = None
 
-                        self.igp = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp()
-                        self.igp.parent = self
-                        self._children_name_map["igp"] = "igp"
+                        self.node_id = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId()
+                        self.node_id.parent = self
+                        self._children_name_map["node_id"] = "node-id"
                         self._segment_path = lambda: "igp-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, [u'domain_identifier', u'autonomous_system_number'], name, value)
+                        self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation, [u'domain_identifier'], name, value)
 
 
-                    class Igp(Entity):
+                    class NodeId(Entity):
                         """
-                        IGP\-specific information
+                        Link\-state node identifier
                         
-                        .. attribute:: isis
+                        .. attribute:: igp
                         
-                        	ISIS information
-                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis>`
+                        	IGP\-specific information
+                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp>`
                         
-                        .. attribute:: ospf
+                        .. attribute:: autonomous_system_number
                         
-                        	OSPF information
-                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf>`
+                        	Autonomous System Number
+                        	**type**\: int
                         
-                        .. attribute:: bgp
+                        	**range:** 0..4294967295
                         
-                        	BGP information
-                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp>`
+                        .. attribute:: ls_identifier
                         
-                        .. attribute:: igp_id
+                        	Link\-State identifier
+                        	**type**\: int
                         
-                        	IGP ID
-                        	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                        	**range:** 0..4294967295
                         
                         
 
@@ -13776,97 +15760,54 @@ class Pce(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp, self).__init__()
+                            super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId, self).__init__()
 
-                            self.yang_name = "igp"
+                            self.yang_name = "node-id"
                             self.yang_parent_name = "igp-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("isis", ("isis", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis)), ("ospf", ("ospf", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf)), ("bgp", ("bgp", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp))])
+                            self._child_classes = OrderedDict([("igp", ("igp", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp))])
                             self._leafs = OrderedDict([
-                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                             ])
-                            self.igp_id = None
+                            self.autonomous_system_number = None
+                            self.ls_identifier = None
 
-                            self.isis = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis()
-                            self.isis.parent = self
-                            self._children_name_map["isis"] = "isis"
-
-                            self.ospf = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf()
-                            self.ospf.parent = self
-                            self._children_name_map["ospf"] = "ospf"
-
-                            self.bgp = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp()
-                            self.bgp.parent = self
-                            self._children_name_map["bgp"] = "bgp"
-                            self._segment_path = lambda: "igp"
+                            self.igp = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp()
+                            self.igp.parent = self
+                            self._children_name_map["igp"] = "igp"
+                            self._segment_path = lambda: "node-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp, [u'igp_id'], name, value)
+                            self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                        class Isis(Entity):
+                        class Igp(Entity):
                             """
-                            ISIS information
+                            IGP\-specific information
                             
-                            .. attribute:: system_id
+                            .. attribute:: isis
                             
-                            	ISIS system ID
-                            	**type**\: str
+                            	ISIS information
+                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis>`
                             
-                            .. attribute:: level
+                            .. attribute:: ospf
                             
-                            	ISIS level
-                            	**type**\: int
+                            	OSPF information
+                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf>`
                             
-                            	**range:** 0..4294967295
+                            .. attribute:: bgp
                             
+                            	BGP information
+                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp>`
                             
-
-                            """
-
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
-
-                            def __init__(self):
-                                super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis, self).__init__()
-
-                                self.yang_name = "isis"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('system_id', YLeaf(YType.str, 'system-id')),
-                                    ('level', YLeaf(YType.uint32, 'level')),
-                                ])
-                                self.system_id = None
-                                self.level = None
-                                self._segment_path = lambda: "isis"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Isis, [u'system_id', u'level'], name, value)
-
-
-                        class Ospf(Entity):
-                            """
-                            OSPF information
+                            .. attribute:: igp_id
                             
-                            .. attribute:: router_id
-                            
-                            	OSPF router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: area
-                            
-                            	OSPF area
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	IGP ID
+                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                             
                             
 
@@ -13876,80 +15817,184 @@ class Pce(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, self).__init__()
+                                super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, self).__init__()
 
-                                self.yang_name = "ospf"
-                                self.yang_parent_name = "igp"
+                                self.yang_name = "igp"
+                                self.yang_parent_name = "node-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("isis", ("isis", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp))])
                                 self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('area', YLeaf(YType.uint32, 'area')),
+                                    ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                 ])
-                                self.router_id = None
-                                self.area = None
-                                self._segment_path = lambda: "ospf"
+                                self.igp_id = None
+
+                                self.isis = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis()
+                                self.isis.parent = self
+                                self._children_name_map["isis"] = "isis"
+
+                                self.ospf = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf()
+                                self.ospf.parent = self
+                                self._children_name_map["ospf"] = "ospf"
+
+                                self.bgp = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp()
+                                self.bgp.parent = self
+                                self._children_name_map["bgp"] = "bgp"
+                                self._segment_path = lambda: "igp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Ospf, [u'router_id', u'area'], name, value)
+                                self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                        class Bgp(Entity):
-                            """
-                            BGP information
-                            
-                            .. attribute:: router_id
-                            
-                            	BGP router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: confed_asn
-                            
-                            	Confederation ASN
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
+                            class Isis(Entity):
+                                """
+                                ISIS information
+                                
+                                .. attribute:: system_id
+                                
+                                	ISIS system ID
+                                	**type**\: str
+                                
+                                .. attribute:: level
+                                
+                                	ISIS level
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
 
-                            """
+                                """
 
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
 
-                            def __init__(self):
-                                super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, self).__init__()
+                                def __init__(self):
+                                    super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, self).__init__()
 
-                                self.yang_name = "bgp"
-                                self.yang_parent_name = "igp"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                ])
-                                self.router_id = None
-                                self.confed_asn = None
-                                self._segment_path = lambda: "bgp"
+                                    self.yang_name = "isis"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                        ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
+                                    self._segment_path = lambda: "isis"
+                                    self._is_frozen = True
 
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                            class Ospf(Entity):
+                                """
+                                OSPF information
+                                
+                                .. attribute:: router_id
+                                
+                                	OSPF router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: area
+                                
+                                	OSPF area
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                    self.yang_name = "ospf"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
+                                    self._segment_path = lambda: "ospf"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                            class Bgp(Entity):
+                                """
+                                BGP information
+                                
+                                .. attribute:: router_id
+                                
+                                	BGP router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: confed_asn
+                                
+                                	Confederation ASN
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                    self.yang_name = "bgp"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
+                                    self._segment_path = lambda: "bgp"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.IgpInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
                 class SrgbInformation(Entity):
                     """
                     SRGB information
                     
-                    .. attribute:: igp_srgb
+                    .. attribute:: node_id
                     
-                    	IGP\-specific information
-                    	**type**\:  :py:class:`IgpSrgb <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb>`
+                    	Link\-state node identifier
+                    	**type**\:  :py:class:`NodeId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId>`
                     
                     .. attribute:: start
                     
@@ -13964,6 +16009,13 @@ class Pce(Entity):
                     	**type**\: int
                     
                     	**range:** 0..4294967295
+                    
+                    .. attribute:: domain_identifier
+                    
+                    	Domain identifier
+                    	**type**\: int
+                    
+                    	**range:** 0..18446744073709551615
                     
                     
 
@@ -13980,46 +16032,48 @@ class Pce(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = []
-                        self._child_classes = OrderedDict([("igp-srgb", ("igp_srgb", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb))])
+                        self._child_classes = OrderedDict([("node-id", ("node_id", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId))])
                         self._leafs = OrderedDict([
-                            ('start', YLeaf(YType.uint32, 'start')),
-                            ('size', YLeaf(YType.uint32, 'size')),
+                            ('start', (YLeaf(YType.uint32, 'start'), ['int'])),
+                            ('size', (YLeaf(YType.uint32, 'size'), ['int'])),
+                            ('domain_identifier', (YLeaf(YType.uint64, 'domain-identifier'), ['int'])),
                         ])
                         self.start = None
                         self.size = None
+                        self.domain_identifier = None
 
-                        self.igp_srgb = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb()
-                        self.igp_srgb.parent = self
-                        self._children_name_map["igp_srgb"] = "igp-srgb"
+                        self.node_id = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId()
+                        self.node_id.parent = self
+                        self._children_name_map["node_id"] = "node-id"
                         self._segment_path = lambda: "srgb-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, [u'start', u'size'], name, value)
+                        self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation, [u'start', u'size', u'domain_identifier'], name, value)
 
 
-                    class IgpSrgb(Entity):
+                    class NodeId(Entity):
                         """
-                        IGP\-specific information
+                        Link\-state node identifier
                         
-                        .. attribute:: isis
+                        .. attribute:: igp
                         
-                        	ISIS information
-                        	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis>`
+                        	IGP\-specific information
+                        	**type**\:  :py:class:`Igp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp>`
                         
-                        .. attribute:: ospf
+                        .. attribute:: autonomous_system_number
                         
-                        	OSPF information
-                        	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf>`
+                        	Autonomous System Number
+                        	**type**\: int
                         
-                        .. attribute:: bgp
+                        	**range:** 0..4294967295
                         
-                        	BGP information
-                        	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp>`
+                        .. attribute:: ls_identifier
                         
-                        .. attribute:: igp_id
+                        	Link\-State identifier
+                        	**type**\: int
                         
-                        	IGP ID
-                        	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
+                        	**range:** 0..4294967295
                         
                         
 
@@ -14029,97 +16083,54 @@ class Pce(Entity):
                         _revision = '2017-09-07'
 
                         def __init__(self):
-                            super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb, self).__init__()
+                            super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId, self).__init__()
 
-                            self.yang_name = "igp-srgb"
+                            self.yang_name = "node-id"
                             self.yang_parent_name = "srgb-information"
                             self.is_top_level_class = False
                             self.has_list_ancestor = True
                             self.ylist_key_names = []
-                            self._child_classes = OrderedDict([("isis", ("isis", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis)), ("ospf", ("ospf", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf)), ("bgp", ("bgp", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp))])
+                            self._child_classes = OrderedDict([("igp", ("igp", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp))])
                             self._leafs = OrderedDict([
-                                ('igp_id', YLeaf(YType.enumeration, 'igp-id')),
+                                ('autonomous_system_number', (YLeaf(YType.uint32, 'autonomous-system-number'), ['int'])),
+                                ('ls_identifier', (YLeaf(YType.uint32, 'ls-identifier'), ['int'])),
                             ])
-                            self.igp_id = None
+                            self.autonomous_system_number = None
+                            self.ls_identifier = None
 
-                            self.isis = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis()
-                            self.isis.parent = self
-                            self._children_name_map["isis"] = "isis"
-
-                            self.ospf = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf()
-                            self.ospf.parent = self
-                            self._children_name_map["ospf"] = "ospf"
-
-                            self.bgp = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp()
-                            self.bgp.parent = self
-                            self._children_name_map["bgp"] = "bgp"
-                            self._segment_path = lambda: "igp-srgb"
+                            self.igp = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp()
+                            self.igp.parent = self
+                            self._children_name_map["igp"] = "igp"
+                            self._segment_path = lambda: "node-id"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb, [u'igp_id'], name, value)
+                            self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId, [u'autonomous_system_number', u'ls_identifier'], name, value)
 
 
-                        class Isis(Entity):
+                        class Igp(Entity):
                             """
-                            ISIS information
+                            IGP\-specific information
                             
-                            .. attribute:: system_id
+                            .. attribute:: isis
                             
-                            	ISIS system ID
-                            	**type**\: str
+                            	ISIS information
+                            	**type**\:  :py:class:`Isis <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis>`
                             
-                            .. attribute:: level
+                            .. attribute:: ospf
                             
-                            	ISIS level
-                            	**type**\: int
+                            	OSPF information
+                            	**type**\:  :py:class:`Ospf <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf>`
                             
-                            	**range:** 0..4294967295
+                            .. attribute:: bgp
                             
+                            	BGP information
+                            	**type**\:  :py:class:`Bgp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp>`
                             
-
-                            """
-
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
-
-                            def __init__(self):
-                                super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, self).__init__()
-
-                                self.yang_name = "isis"
-                                self.yang_parent_name = "igp-srgb"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('system_id', YLeaf(YType.str, 'system-id')),
-                                    ('level', YLeaf(YType.uint32, 'level')),
-                                ])
-                                self.system_id = None
-                                self.level = None
-                                self._segment_path = lambda: "isis"
-
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Isis, [u'system_id', u'level'], name, value)
-
-
-                        class Ospf(Entity):
-                            """
-                            OSPF information
+                            .. attribute:: igp_id
                             
-                            .. attribute:: router_id
-                            
-                            	OSPF router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: area
-                            
-                            	OSPF area
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
+                            	IGP ID
+                            	**type**\:  :py:class:`PceIgpInfoId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceIgpInfoId>`
                             
                             
 
@@ -14129,94 +16140,184 @@ class Pce(Entity):
                             _revision = '2017-09-07'
 
                             def __init__(self):
-                                super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, self).__init__()
+                                super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, self).__init__()
 
-                                self.yang_name = "ospf"
-                                self.yang_parent_name = "igp-srgb"
+                                self.yang_name = "igp"
+                                self.yang_parent_name = "node-id"
                                 self.is_top_level_class = False
                                 self.has_list_ancestor = True
                                 self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
+                                self._child_classes = OrderedDict([("isis", ("isis", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis)), ("ospf", ("ospf", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf)), ("bgp", ("bgp", Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp))])
                                 self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('area', YLeaf(YType.uint32, 'area')),
+                                    ('igp_id', (YLeaf(YType.enumeration, 'igp-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceIgpInfoId', '')])),
                                 ])
-                                self.router_id = None
-                                self.area = None
-                                self._segment_path = lambda: "ospf"
+                                self.igp_id = None
+
+                                self.isis = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis()
+                                self.isis.parent = self
+                                self._children_name_map["isis"] = "isis"
+
+                                self.ospf = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf()
+                                self.ospf.parent = self
+                                self._children_name_map["ospf"] = "ospf"
+
+                                self.bgp = Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp()
+                                self.bgp.parent = self
+                                self._children_name_map["bgp"] = "bgp"
+                                self._segment_path = lambda: "igp"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Ospf, [u'router_id', u'area'], name, value)
+                                self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp, [u'igp_id'], name, value)
 
 
-                        class Bgp(Entity):
-                            """
-                            BGP information
-                            
-                            .. attribute:: router_id
-                            
-                            	BGP router ID
-                            	**type**\: str
-                            
-                            	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                            
-                            .. attribute:: confed_asn
-                            
-                            	Confederation ASN
-                            	**type**\: int
-                            
-                            	**range:** 0..4294967295
-                            
-                            
+                            class Isis(Entity):
+                                """
+                                ISIS information
+                                
+                                .. attribute:: system_id
+                                
+                                	ISIS system ID
+                                	**type**\: str
+                                
+                                .. attribute:: level
+                                
+                                	ISIS level
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
 
-                            """
+                                """
 
-                            _prefix = 'infra-xtc-oper'
-                            _revision = '2017-09-07'
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
 
-                            def __init__(self):
-                                super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, self).__init__()
+                                def __init__(self):
+                                    super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, self).__init__()
 
-                                self.yang_name = "bgp"
-                                self.yang_parent_name = "igp-srgb"
-                                self.is_top_level_class = False
-                                self.has_list_ancestor = True
-                                self.ylist_key_names = []
-                                self._child_classes = OrderedDict([])
-                                self._leafs = OrderedDict([
-                                    ('router_id', YLeaf(YType.str, 'router-id')),
-                                    ('confed_asn', YLeaf(YType.uint32, 'confed-asn')),
-                                ])
-                                self.router_id = None
-                                self.confed_asn = None
-                                self._segment_path = lambda: "bgp"
+                                    self.yang_name = "isis"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('system_id', (YLeaf(YType.str, 'system-id'), ['str'])),
+                                        ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                                    ])
+                                    self.system_id = None
+                                    self.level = None
+                                    self._segment_path = lambda: "isis"
+                                    self._is_frozen = True
 
-                            def __setattr__(self, name, value):
-                                self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.IgpSrgb.Bgp, [u'router_id', u'confed_asn'], name, value)
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Isis, [u'system_id', u'level'], name, value)
+
+
+                            class Ospf(Entity):
+                                """
+                                OSPF information
+                                
+                                .. attribute:: router_id
+                                
+                                	OSPF router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: area
+                                
+                                	OSPF area
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, self).__init__()
+
+                                    self.yang_name = "ospf"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('area', (YLeaf(YType.uint32, 'area'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.area = None
+                                    self._segment_path = lambda: "ospf"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Ospf, [u'router_id', u'area'], name, value)
+
+
+                            class Bgp(Entity):
+                                """
+                                BGP information
+                                
+                                .. attribute:: router_id
+                                
+                                	BGP router ID
+                                	**type**\: str
+                                
+                                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                                
+                                .. attribute:: confed_asn
+                                
+                                	Confederation ASN
+                                	**type**\: int
+                                
+                                	**range:** 0..4294967295
+                                
+                                
+
+                                """
+
+                                _prefix = 'infra-xtc-oper'
+                                _revision = '2017-09-07'
+
+                                def __init__(self):
+                                    super(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, self).__init__()
+
+                                    self.yang_name = "bgp"
+                                    self.yang_parent_name = "igp"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('confed_asn', (YLeaf(YType.uint32, 'confed-asn'), ['int'])),
+                                    ])
+                                    self.router_id = None
+                                    self.confed_asn = None
+                                    self._segment_path = lambda: "bgp"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.NodeProtocolIdentifier.SrgbInformation.NodeId.Igp.Bgp, [u'router_id', u'confed_asn'], name, value)
 
 
             class Address(Entity):
                 """
                 Prefix address
                 
-                .. attribute:: af_name
+                .. attribute:: ip
                 
-                	AFName
-                	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
-                
-                .. attribute:: ipv4
-                
-                	IPv4 address type
-                	**type**\: str
-                
-                	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
-                
-                .. attribute:: ipv6
-                
-                	IPv6 address type
-                	**type**\: str
-                
-                	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                	Prefix IP address
+                	**type**\:  :py:class:`Ip <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.Pce.PrefixInfos.PrefixInfo.Address.Ip>`
                 
                 
 
@@ -14233,19 +16334,71 @@ class Pce(Entity):
                     self.is_top_level_class = False
                     self.has_list_ancestor = True
                     self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('ipv4', YLeaf(YType.str, 'ipv4')),
-                        ('ipv6', YLeaf(YType.str, 'ipv6')),
-                    ])
-                    self.af_name = None
-                    self.ipv4 = None
-                    self.ipv6 = None
+                    self._child_classes = OrderedDict([("ip", ("ip", Pce.PrefixInfos.PrefixInfo.Address.Ip))])
+                    self._leafs = OrderedDict()
+
+                    self.ip = Pce.PrefixInfos.PrefixInfo.Address.Ip()
+                    self.ip.parent = self
+                    self._children_name_map["ip"] = "ip"
                     self._segment_path = lambda: "address"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.Address, [u'af_name', u'ipv4', u'ipv6'], name, value)
+                    self._perform_setattr(Pce.PrefixInfos.PrefixInfo.Address, [], name, value)
+
+
+                class Ip(Entity):
+                    """
+                    Prefix IP address
+                    
+                    .. attribute:: af_name
+                    
+                    	AFName
+                    	**type**\:  :py:class:`PceAfId <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.PceAfId>`
+                    
+                    .. attribute:: ipv4
+                    
+                    	IPv4 address type
+                    	**type**\: str
+                    
+                    	**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])(%[\\p{N}\\p{L}]+)?
+                    
+                    .. attribute:: ipv6
+                    
+                    	IPv6 address type
+                    	**type**\: str
+                    
+                    	**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(%[\\p{N}\\p{L}]+)?
+                    
+                    
+
+                    """
+
+                    _prefix = 'infra-xtc-oper'
+                    _revision = '2017-09-07'
+
+                    def __init__(self):
+                        super(Pce.PrefixInfos.PrefixInfo.Address.Ip, self).__init__()
+
+                        self.yang_name = "ip"
+                        self.yang_parent_name = "address"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
+                        ])
+                        self.af_name = None
+                        self.ipv4 = None
+                        self.ipv6 = None
+                        self._segment_path = lambda: "ip"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Pce.PrefixInfos.PrefixInfo.Address.Ip, [u'af_name', u'ipv4', u'ipv6'], name, value)
 
 
     class LspSummary(Entity):
@@ -14287,6 +16440,7 @@ class Pce(Entity):
             self.peer_ls_ps_info = YList(self)
             self._segment_path = lambda: "lsp-summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pce.LspSummary, [], name, value)
@@ -14348,11 +16502,11 @@ class Pce(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('all_ls_ps', YLeaf(YType.uint32, 'all-ls-ps')),
-                    ('up_ls_ps', YLeaf(YType.uint32, 'up-ls-ps')),
-                    ('admin_up_ls_ps', YLeaf(YType.uint32, 'admin-up-ls-ps')),
-                    ('sr_ls_ps', YLeaf(YType.uint32, 'sr-ls-ps')),
-                    ('rsvp_ls_ps', YLeaf(YType.uint32, 'rsvp-ls-ps')),
+                    ('all_ls_ps', (YLeaf(YType.uint32, 'all-ls-ps'), ['int'])),
+                    ('up_ls_ps', (YLeaf(YType.uint32, 'up-ls-ps'), ['int'])),
+                    ('admin_up_ls_ps', (YLeaf(YType.uint32, 'admin-up-ls-ps'), ['int'])),
+                    ('sr_ls_ps', (YLeaf(YType.uint32, 'sr-ls-ps'), ['int'])),
+                    ('rsvp_ls_ps', (YLeaf(YType.uint32, 'rsvp-ls-ps'), ['int'])),
                 ])
                 self.all_ls_ps = None
                 self.up_ls_ps = None
@@ -14361,6 +16515,7 @@ class Pce(Entity):
                 self.rsvp_ls_ps = None
                 self._segment_path = lambda: "all-ls-ps"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/lsp-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.LspSummary.AllLsPs, [u'all_ls_ps', u'up_ls_ps', u'admin_up_ls_ps', u'sr_ls_ps', u'rsvp_ls_ps'], name, value)
@@ -14407,6 +16562,7 @@ class Pce(Entity):
                 self._children_name_map["peer_address"] = "peer-address"
                 self._segment_path = lambda: "peer-ls-ps-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/lsp-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.LspSummary.PeerLsPsInfo, [], name, value)
@@ -14468,11 +16624,11 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('all_ls_ps', YLeaf(YType.uint32, 'all-ls-ps')),
-                        ('up_ls_ps', YLeaf(YType.uint32, 'up-ls-ps')),
-                        ('admin_up_ls_ps', YLeaf(YType.uint32, 'admin-up-ls-ps')),
-                        ('sr_ls_ps', YLeaf(YType.uint32, 'sr-ls-ps')),
-                        ('rsvp_ls_ps', YLeaf(YType.uint32, 'rsvp-ls-ps')),
+                        ('all_ls_ps', (YLeaf(YType.uint32, 'all-ls-ps'), ['int'])),
+                        ('up_ls_ps', (YLeaf(YType.uint32, 'up-ls-ps'), ['int'])),
+                        ('admin_up_ls_ps', (YLeaf(YType.uint32, 'admin-up-ls-ps'), ['int'])),
+                        ('sr_ls_ps', (YLeaf(YType.uint32, 'sr-ls-ps'), ['int'])),
+                        ('rsvp_ls_ps', (YLeaf(YType.uint32, 'rsvp-ls-ps'), ['int'])),
                     ])
                     self.all_ls_ps = None
                     self.up_ls_ps = None
@@ -14481,6 +16637,7 @@ class Pce(Entity):
                     self.rsvp_ls_ps = None
                     self._segment_path = lambda: "lsp-summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/lsp-summary/peer-ls-ps-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.LspSummary.PeerLsPsInfo.LspSummary_, [u'all_ls_ps', u'up_ls_ps', u'admin_up_ls_ps', u'sr_ls_ps', u'rsvp_ls_ps'], name, value)
@@ -14526,15 +16683,16 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('ipv4', YLeaf(YType.str, 'ipv4')),
-                        ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                        ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                        ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                     ])
                     self.af_name = None
                     self.ipv4 = None
                     self.ipv6 = None
                     self._segment_path = lambda: "peer-address"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/lsp-summary/peer-ls-ps-info/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.LspSummary.PeerLsPsInfo.PeerAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -14570,6 +16728,7 @@ class Pce(Entity):
             self.peer_info = YList(self)
             self._segment_path = lambda: "peer-infos"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pce.PeerInfos, [], name, value)
@@ -14624,8 +16783,8 @@ class Pce(Entity):
                 self.ylist_key_names = ['peer_address']
                 self._child_classes = OrderedDict([("peer-address-xr", ("peer_address_xr", Pce.PeerInfos.PeerInfo.PeerAddressXr)), ("brief-pcep-information", ("brief_pcep_information", Pce.PeerInfos.PeerInfo.BriefPcepInformation))])
                 self._leafs = OrderedDict([
-                    ('peer_address', YLeaf(YType.str, 'peer-address')),
-                    ('peer_protocol', YLeaf(YType.enumeration, 'peer-protocol')),
+                    ('peer_address', (YLeaf(YType.str, 'peer-address'), ['str','str'])),
+                    ('peer_protocol', (YLeaf(YType.enumeration, 'peer-protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceProto', '')])),
                 ])
                 self.peer_address = None
                 self.peer_protocol = None
@@ -14639,6 +16798,7 @@ class Pce(Entity):
                 self._children_name_map["brief_pcep_information"] = "brief-pcep-information"
                 self._segment_path = lambda: "peer-info" + "[peer-address='" + str(self.peer_address) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/peer-infos/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.PeerInfos.PeerInfo, ['peer_address', u'peer_protocol'], name, value)
@@ -14684,14 +16844,15 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('ipv4', YLeaf(YType.str, 'ipv4')),
-                        ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                        ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                        ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                     ])
                     self.af_name = None
                     self.ipv4 = None
                     self.ipv6 = None
                     self._segment_path = lambda: "peer-address-xr"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.PeerInfos.PeerInfo.PeerAddressXr, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -14758,14 +16919,14 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('pcep_state', YLeaf(YType.enumeration, 'pcep-state')),
-                        ('stateful', YLeaf(YType.boolean, 'stateful')),
-                        ('capability_update', YLeaf(YType.boolean, 'capability-update')),
-                        ('capability_instantiate', YLeaf(YType.boolean, 'capability-instantiate')),
-                        ('capability_segment_routing', YLeaf(YType.boolean, 'capability-segment-routing')),
-                        ('capability_triggered_sync', YLeaf(YType.boolean, 'capability-triggered-sync')),
-                        ('capability_db_version', YLeaf(YType.boolean, 'capability-db-version')),
-                        ('capability_delta_sync', YLeaf(YType.boolean, 'capability-delta-sync')),
+                        ('pcep_state', (YLeaf(YType.enumeration, 'pcep-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PcepState', '')])),
+                        ('stateful', (YLeaf(YType.boolean, 'stateful'), ['bool'])),
+                        ('capability_update', (YLeaf(YType.boolean, 'capability-update'), ['bool'])),
+                        ('capability_instantiate', (YLeaf(YType.boolean, 'capability-instantiate'), ['bool'])),
+                        ('capability_segment_routing', (YLeaf(YType.boolean, 'capability-segment-routing'), ['bool'])),
+                        ('capability_triggered_sync', (YLeaf(YType.boolean, 'capability-triggered-sync'), ['bool'])),
+                        ('capability_db_version', (YLeaf(YType.boolean, 'capability-db-version'), ['bool'])),
+                        ('capability_delta_sync', (YLeaf(YType.boolean, 'capability-delta-sync'), ['bool'])),
                     ])
                     self.pcep_state = None
                     self.stateful = None
@@ -14776,6 +16937,7 @@ class Pce(Entity):
                     self.capability_db_version = None
                     self.capability_delta_sync = None
                     self._segment_path = lambda: "brief-pcep-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.PeerInfos.PeerInfo.BriefPcepInformation, [u'pcep_state', u'stateful', u'capability_update', u'capability_instantiate', u'capability_segment_routing', u'capability_triggered_sync', u'capability_db_version', u'capability_delta_sync'], name, value)
@@ -14811,6 +16973,7 @@ class Pce(Entity):
             self.tunnel_detail_info = YList(self)
             self._segment_path = lambda: "tunnel-detail-infos"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pce.TunnelDetailInfos, [], name, value)
@@ -14894,12 +17057,12 @@ class Pce(Entity):
                 self.ylist_key_names = ['peer_address','plsp_id','tunnel_name']
                 self._child_classes = OrderedDict([("pcc-address", ("pcc_address", Pce.TunnelDetailInfos.TunnelDetailInfo.PccAddress)), ("private-lsp-information", ("private_lsp_information", Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation)), ("detail-lsp-information", ("detail_lsp_information", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation))])
                 self._leafs = OrderedDict([
-                    ('peer_address', YLeaf(YType.str, 'peer-address')),
-                    ('plsp_id', YLeaf(YType.uint32, 'plsp-id')),
-                    ('tunnel_name', YLeaf(YType.str, 'tunnel-name')),
-                    ('tunnel_name_xr', YLeaf(YType.str, 'tunnel-name-xr')),
-                    ('xtc_controlled', YLeaf(YType.boolean, 'xtc-controlled')),
-                    ('color', YLeaf(YType.uint32, 'color')),
+                    ('peer_address', (YLeaf(YType.str, 'peer-address'), ['str','str'])),
+                    ('plsp_id', (YLeaf(YType.uint32, 'plsp-id'), ['int'])),
+                    ('tunnel_name', (YLeaf(YType.str, 'tunnel-name'), ['str'])),
+                    ('tunnel_name_xr', (YLeaf(YType.str, 'tunnel-name-xr'), ['str'])),
+                    ('xtc_controlled', (YLeaf(YType.boolean, 'xtc-controlled'), ['bool'])),
+                    ('color', (YLeaf(YType.uint32, 'color'), ['int'])),
                 ])
                 self.peer_address = None
                 self.plsp_id = None
@@ -14919,6 +17082,7 @@ class Pce(Entity):
                 self.detail_lsp_information = YList(self)
                 self._segment_path = lambda: "tunnel-detail-info" + "[peer-address='" + str(self.peer_address) + "']" + "[plsp-id='" + str(self.plsp_id) + "']" + "[tunnel-name='" + str(self.tunnel_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-xtc-oper:pce/tunnel-detail-infos/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo, ['peer_address', 'plsp_id', 'tunnel_name', u'tunnel_name_xr', u'xtc_controlled', u'color'], name, value)
@@ -14964,14 +17128,15 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('ipv4', YLeaf(YType.str, 'ipv4')),
-                        ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                        ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                        ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                     ])
                     self.af_name = None
                     self.ipv4 = None
                     self.ipv6 = None
                     self._segment_path = lambda: "pcc-address"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.PccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -15006,6 +17171,7 @@ class Pce(Entity):
 
                     self.event_buffer = YList(self)
                     self._segment_path = lambda: "private-lsp-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation, [], name, value)
@@ -15014,6 +17180,13 @@ class Pce(Entity):
                 class EventBuffer(Entity):
                     """
                     LSP Event buffer
+                    
+                    .. attribute:: event_id
+                    
+                    	Event ID in range 1 \- 0xFFFFFFFF. 0 is invalid
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
                     
                     .. attribute:: event_message
                     
@@ -15044,15 +17217,18 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('event_message', YLeaf(YType.str, 'event-message')),
-                            ('time_stamp', YLeaf(YType.uint32, 'time-stamp')),
+                            ('event_id', (YLeaf(YType.uint32, 'event-id'), ['int'])),
+                            ('event_message', (YLeaf(YType.str, 'event-message'), ['str'])),
+                            ('time_stamp', (YLeaf(YType.uint32, 'time-stamp'), ['int'])),
                         ])
+                        self.event_id = None
                         self.event_message = None
                         self.time_stamp = None
                         self._segment_path = lambda: "event-buffer"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, [u'event_message', u'time_stamp'], name, value)
+                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.PrivateLspInformation.EventBuffer, [u'event_id', u'event_message', u'time_stamp'], name, value)
 
 
             class DetailLspInformation(Entity):
@@ -15166,13 +17342,13 @@ class Pce(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("brief-lsp-information", ("brief_lsp_information", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation)), ("er-os", ("er_os", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs)), ("lsppcep-information", ("lsppcep_information", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation)), ("lsp-association-info", ("lsp_association_info", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo)), ("lsp-attributes", ("lsp_attributes", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes)), ("sub-delegated-pce", ("sub_delegated_pce", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce)), ("state-sync-pce", ("state_sync_pce", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce)), ("reporting-pcc-address", ("reporting_pcc_address", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress)), ("rro", ("rro", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro))])
                     self._leafs = OrderedDict([
-                        ('signaled_bandwidth_specified', YLeaf(YType.boolean, 'signaled-bandwidth-specified')),
-                        ('signaled_bandwidth', YLeaf(YType.uint64, 'signaled-bandwidth')),
-                        ('actual_bandwidth_specified', YLeaf(YType.boolean, 'actual-bandwidth-specified')),
-                        ('actual_bandwidth', YLeaf(YType.uint64, 'actual-bandwidth')),
-                        ('lsp_role', YLeaf(YType.uint32, 'lsp-role')),
-                        ('computing_pce', YLeaf(YType.uint32, 'computing-pce')),
-                        ('srlg_info', YLeafList(YType.uint32, 'srlg-info')),
+                        ('signaled_bandwidth_specified', (YLeaf(YType.boolean, 'signaled-bandwidth-specified'), ['bool'])),
+                        ('signaled_bandwidth', (YLeaf(YType.uint64, 'signaled-bandwidth'), ['int'])),
+                        ('actual_bandwidth_specified', (YLeaf(YType.boolean, 'actual-bandwidth-specified'), ['bool'])),
+                        ('actual_bandwidth', (YLeaf(YType.uint64, 'actual-bandwidth'), ['int'])),
+                        ('lsp_role', (YLeaf(YType.uint32, 'lsp-role'), ['int'])),
+                        ('computing_pce', (YLeaf(YType.uint32, 'computing-pce'), ['int'])),
+                        ('srlg_info', (YLeafList(YType.uint32, 'srlg-info'), ['int'])),
                     ])
                     self.signaled_bandwidth_specified = None
                     self.signaled_bandwidth = None
@@ -15216,6 +17392,7 @@ class Pce(Entity):
 
                     self.rro = YList(self)
                     self._segment_path = lambda: "detail-lsp-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation, [u'signaled_bandwidth_specified', u'signaled_bandwidth', u'actual_bandwidth_specified', u'actual_bandwidth', u'lsp_role', u'computing_pce', u'srlg_info'], name, value)
@@ -15271,6 +17448,13 @@ class Pce(Entity):
                     	Admin state
                     	**type**\:  :py:class:`LspState <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper.LspState>`
                     
+                    .. attribute:: msd
+                    
+                    	Maximum SID Depth
+                    	**type**\: int
+                    
+                    	**range:** 0..4294967295
+                    
                     
 
                     """
@@ -15288,12 +17472,13 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("source-address", ("source_address", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress)), ("destination-address", ("destination_address", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress))])
                         self._leafs = OrderedDict([
-                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
-                            ('lspid', YLeaf(YType.uint32, 'lspid')),
-                            ('binding_sid', YLeaf(YType.uint32, 'binding-sid')),
-                            ('lsp_setup_type', YLeaf(YType.enumeration, 'lsp-setup-type')),
-                            ('operational_state', YLeaf(YType.enumeration, 'operational-state')),
-                            ('administrative_state', YLeaf(YType.enumeration, 'administrative-state')),
+                            ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
+                            ('lspid', (YLeaf(YType.uint32, 'lspid'), ['int'])),
+                            ('binding_sid', (YLeaf(YType.uint32, 'binding-sid'), ['int'])),
+                            ('lsp_setup_type', (YLeaf(YType.enumeration, 'lsp-setup-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'LspSetup', '')])),
+                            ('operational_state', (YLeaf(YType.enumeration, 'operational-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PcepLspState', '')])),
+                            ('administrative_state', (YLeaf(YType.enumeration, 'administrative-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'LspState', '')])),
+                            ('msd', (YLeaf(YType.uint32, 'msd'), ['int'])),
                         ])
                         self.tunnel_id = None
                         self.lspid = None
@@ -15301,6 +17486,7 @@ class Pce(Entity):
                         self.lsp_setup_type = None
                         self.operational_state = None
                         self.administrative_state = None
+                        self.msd = None
 
                         self.source_address = Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress()
                         self.source_address.parent = self
@@ -15310,9 +17496,10 @@ class Pce(Entity):
                         self.destination_address.parent = self
                         self._children_name_map["destination_address"] = "destination-address"
                         self._segment_path = lambda: "brief-lsp-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state'], name, value)
+                        self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation, [u'tunnel_id', u'lspid', u'binding_sid', u'lsp_setup_type', u'operational_state', u'administrative_state', u'msd'], name, value)
 
 
                     class SourceAddress(Entity):
@@ -15355,14 +17542,15 @@ class Pce(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "source-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.SourceAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -15408,14 +17596,15 @@ class Pce(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "destination-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.BriefLspInformation.DestinationAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -15497,11 +17686,11 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("reported-rsvp-path", ("reported_rsvp_path", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath)), ("reported-sr-path", ("reported_sr_path", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath)), ("computed-rsvp-path", ("computed_rsvp_path", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath)), ("computed-sr-path", ("computed_sr_path", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath))])
                         self._leafs = OrderedDict([
-                            ('reported_metric_type', YLeaf(YType.uint32, 'reported-metric-type')),
-                            ('reported_metric_value', YLeaf(YType.uint32, 'reported-metric-value')),
-                            ('computed_metric_type', YLeaf(YType.uint32, 'computed-metric-type')),
-                            ('computed_metric_value', YLeaf(YType.uint32, 'computed-metric-value')),
-                            ('computed_hop_list_time', YLeaf(YType.uint32, 'computed-hop-list-time')),
+                            ('reported_metric_type', (YLeaf(YType.uint32, 'reported-metric-type'), ['int'])),
+                            ('reported_metric_value', (YLeaf(YType.uint32, 'reported-metric-value'), ['int'])),
+                            ('computed_metric_type', (YLeaf(YType.uint32, 'computed-metric-type'), ['int'])),
+                            ('computed_metric_value', (YLeaf(YType.uint32, 'computed-metric-value'), ['int'])),
+                            ('computed_hop_list_time', (YLeaf(YType.uint32, 'computed-hop-list-time'), ['int'])),
                         ])
                         self.reported_metric_type = None
                         self.reported_metric_value = None
@@ -15514,6 +17703,7 @@ class Pce(Entity):
                         self.computed_rsvp_path = YList(self)
                         self.computed_sr_path = YList(self)
                         self._segment_path = lambda: "er-os"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs, [u'reported_metric_type', u'reported_metric_value', u'computed_metric_type', u'computed_metric_value', u'computed_hop_list_time'], name, value)
@@ -15547,10 +17737,11 @@ class Pce(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('hop_address', YLeaf(YType.str, 'hop-address')),
+                                ('hop_address', (YLeaf(YType.str, 'hop-address'), ['str'])),
                             ])
                             self.hop_address = None
                             self._segment_path = lambda: "reported-rsvp-path"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedRsvpPath, [u'hop_address'], name, value)
@@ -15599,8 +17790,8 @@ class Pce(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("local-addr", ("local_addr", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr)), ("remote-addr", ("remote_addr", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr))])
                             self._leafs = OrderedDict([
-                                ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                                ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                                ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceSrSid', '')])),
+                                ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
                             ])
                             self.sid_type = None
                             self.mpls_label = None
@@ -15613,6 +17804,7 @@ class Pce(Entity):
                             self.remote_addr.parent = self
                             self._children_name_map["remote_addr"] = "remote-addr"
                             self._segment_path = lambda: "reported-sr-path"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath, [u'sid_type', u'mpls_label'], name, value)
@@ -15658,14 +17850,15 @@ class Pce(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                                 ])
                                 self.af_name = None
                                 self.ipv4 = None
                                 self.ipv6 = None
                                 self._segment_path = lambda: "local-addr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -15711,14 +17904,15 @@ class Pce(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                                 ])
                                 self.af_name = None
                                 self.ipv4 = None
                                 self.ipv6 = None
                                 self._segment_path = lambda: "remote-addr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ReportedSrPath.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -15752,10 +17946,11 @@ class Pce(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('hop_address', YLeaf(YType.str, 'hop-address')),
+                                ('hop_address', (YLeaf(YType.str, 'hop-address'), ['str'])),
                             ])
                             self.hop_address = None
                             self._segment_path = lambda: "computed-rsvp-path"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedRsvpPath, [u'hop_address'], name, value)
@@ -15804,8 +17999,8 @@ class Pce(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("local-addr", ("local_addr", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr)), ("remote-addr", ("remote_addr", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr))])
                             self._leafs = OrderedDict([
-                                ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                                ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                                ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceSrSid', '')])),
+                                ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
                             ])
                             self.sid_type = None
                             self.mpls_label = None
@@ -15818,6 +18013,7 @@ class Pce(Entity):
                             self.remote_addr.parent = self
                             self._children_name_map["remote_addr"] = "remote-addr"
                             self._segment_path = lambda: "computed-sr-path"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath, [u'sid_type', u'mpls_label'], name, value)
@@ -15863,14 +18059,15 @@ class Pce(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                                 ])
                                 self.af_name = None
                                 self.ipv4 = None
                                 self.ipv6 = None
                                 self._segment_path = lambda: "local-addr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -15916,14 +18113,15 @@ class Pce(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                                 ])
                                 self.af_name = None
                                 self.ipv4 = None
                                 self.ipv6 = None
                                 self._segment_path = lambda: "remote-addr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ErOs.ComputedSrPath.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -15996,13 +18194,13 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("rsvp-error", ("rsvp_error", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError))])
                         self._leafs = OrderedDict([
-                            ('pcepid', YLeaf(YType.uint32, 'pcepid')),
-                            ('pcep_flag_d', YLeaf(YType.boolean, 'pcep-flag-d')),
-                            ('pcep_flag_s', YLeaf(YType.boolean, 'pcep-flag-s')),
-                            ('pcep_flag_r', YLeaf(YType.boolean, 'pcep-flag-r')),
-                            ('pcep_flag_a', YLeaf(YType.boolean, 'pcep-flag-a')),
-                            ('pcep_flag_o', YLeaf(YType.uint8, 'pcep-flag-o')),
-                            ('pcep_flag_c', YLeaf(YType.uint8, 'pcep-flag-c')),
+                            ('pcepid', (YLeaf(YType.uint32, 'pcepid'), ['int'])),
+                            ('pcep_flag_d', (YLeaf(YType.boolean, 'pcep-flag-d'), ['bool'])),
+                            ('pcep_flag_s', (YLeaf(YType.boolean, 'pcep-flag-s'), ['bool'])),
+                            ('pcep_flag_r', (YLeaf(YType.boolean, 'pcep-flag-r'), ['bool'])),
+                            ('pcep_flag_a', (YLeaf(YType.boolean, 'pcep-flag-a'), ['bool'])),
+                            ('pcep_flag_o', (YLeaf(YType.uint8, 'pcep-flag-o'), ['int'])),
+                            ('pcep_flag_c', (YLeaf(YType.uint8, 'pcep-flag-c'), ['int'])),
                         ])
                         self.pcepid = None
                         self.pcep_flag_d = None
@@ -16016,6 +18214,7 @@ class Pce(Entity):
                         self.rsvp_error.parent = self
                         self._children_name_map["rsvp_error"] = "rsvp-error"
                         self._segment_path = lambda: "lsppcep-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation, [u'pcepid', u'pcep_flag_d', u'pcep_flag_s', u'pcep_flag_r', u'pcep_flag_a', u'pcep_flag_o', u'pcep_flag_c'], name, value)
@@ -16070,16 +18269,17 @@ class Pce(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('node_address', YLeaf(YType.str, 'node-address')),
-                                ('error_flags', YLeaf(YType.uint8, 'error-flags')),
-                                ('error_code', YLeaf(YType.uint8, 'error-code')),
-                                ('error_value', YLeaf(YType.uint16, 'error-value')),
+                                ('node_address', (YLeaf(YType.str, 'node-address'), ['str'])),
+                                ('error_flags', (YLeaf(YType.uint8, 'error-flags'), ['int'])),
+                                ('error_code', (YLeaf(YType.uint8, 'error-code'), ['int'])),
+                                ('error_value', (YLeaf(YType.uint16, 'error-value'), ['int'])),
                             ])
                             self.node_address = None
                             self.error_flags = None
                             self.error_code = None
                             self.error_value = None
                             self._segment_path = lambda: "rsvp-error"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LsppcepInformation.RsvpError, [u'node_address', u'error_flags', u'error_code', u'error_value'], name, value)
@@ -16125,8 +18325,8 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("association-source", ("association_source", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource))])
                         self._leafs = OrderedDict([
-                            ('association_type', YLeaf(YType.uint32, 'association-type')),
-                            ('association_id', YLeaf(YType.uint32, 'association-id')),
+                            ('association_type', (YLeaf(YType.uint32, 'association-type'), ['int'])),
+                            ('association_id', (YLeaf(YType.uint32, 'association-id'), ['int'])),
                         ])
                         self.association_type = None
                         self.association_id = None
@@ -16135,6 +18335,7 @@ class Pce(Entity):
                         self.association_source.parent = self
                         self._children_name_map["association_source"] = "association-source"
                         self._segment_path = lambda: "lsp-association-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo, [u'association_type', u'association_id'], name, value)
@@ -16180,14 +18381,15 @@ class Pce(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4 = None
                             self.ipv6 = None
                             self._segment_path = lambda: "association-source"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAssociationInfo.AssociationSource, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -16254,12 +18456,12 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('affinity_exclude_any', YLeaf(YType.uint32, 'affinity-exclude-any')),
-                            ('affinity_include_any', YLeaf(YType.uint32, 'affinity-include-any')),
-                            ('affinity_include_all', YLeaf(YType.uint32, 'affinity-include-all')),
-                            ('setup_priority', YLeaf(YType.uint8, 'setup-priority')),
-                            ('hold_priority', YLeaf(YType.uint8, 'hold-priority')),
-                            ('local_protection', YLeaf(YType.boolean, 'local-protection')),
+                            ('affinity_exclude_any', (YLeaf(YType.uint32, 'affinity-exclude-any'), ['int'])),
+                            ('affinity_include_any', (YLeaf(YType.uint32, 'affinity-include-any'), ['int'])),
+                            ('affinity_include_all', (YLeaf(YType.uint32, 'affinity-include-all'), ['int'])),
+                            ('setup_priority', (YLeaf(YType.uint8, 'setup-priority'), ['int'])),
+                            ('hold_priority', (YLeaf(YType.uint8, 'hold-priority'), ['int'])),
+                            ('local_protection', (YLeaf(YType.boolean, 'local-protection'), ['bool'])),
                         ])
                         self.affinity_exclude_any = None
                         self.affinity_include_any = None
@@ -16268,6 +18470,7 @@ class Pce(Entity):
                         self.hold_priority = None
                         self.local_protection = None
                         self._segment_path = lambda: "lsp-attributes"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.LspAttributes, [u'affinity_exclude_any', u'affinity_include_any', u'affinity_include_all', u'setup_priority', u'hold_priority', u'local_protection'], name, value)
@@ -16313,14 +18516,15 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.af_name = None
                         self.ipv4 = None
                         self.ipv6 = None
                         self._segment_path = lambda: "sub-delegated-pce"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.SubDelegatedPce, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -16366,14 +18570,15 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.af_name = None
                         self.ipv4 = None
                         self.ipv6 = None
                         self._segment_path = lambda: "state-sync-pce"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.StateSyncPce, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -16419,14 +18624,15 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.af_name = None
                         self.ipv4 = None
                         self.ipv6 = None
                         self._segment_path = lambda: "reporting-pcc-address"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.ReportingPccAddress, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -16484,10 +18690,10 @@ class Pce(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("sr-rro", ("sr_rro", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro))])
                         self._leafs = OrderedDict([
-                            ('rro_type', YLeaf(YType.enumeration, 'rro-type')),
-                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                            ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
-                            ('flags', YLeaf(YType.uint8, 'flags')),
+                            ('rro_type', (YLeaf(YType.enumeration, 'rro-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceRro', '')])),
+                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                            ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
+                            ('flags', (YLeaf(YType.uint8, 'flags'), ['int'])),
                         ])
                         self.rro_type = None
                         self.ipv4_address = None
@@ -16498,6 +18704,7 @@ class Pce(Entity):
                         self.sr_rro.parent = self
                         self._children_name_map["sr_rro"] = "sr-rro"
                         self._segment_path = lambda: "rro"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro, [u'rro_type', u'ipv4_address', u'mpls_label', u'flags'], name, value)
@@ -16546,8 +18753,8 @@ class Pce(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("local-addr", ("local_addr", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr)), ("remote-addr", ("remote_addr", Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr))])
                             self._leafs = OrderedDict([
-                                ('sid_type', YLeaf(YType.enumeration, 'sid-type')),
-                                ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                                ('sid_type', (YLeaf(YType.enumeration, 'sid-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceSrSid', '')])),
+                                ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
                             ])
                             self.sid_type = None
                             self.mpls_label = None
@@ -16560,6 +18767,7 @@ class Pce(Entity):
                             self.remote_addr.parent = self
                             self._children_name_map["remote_addr"] = "remote-addr"
                             self._segment_path = lambda: "sr-rro"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro, [u'sid_type', u'mpls_label'], name, value)
@@ -16605,14 +18813,15 @@ class Pce(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                                 ])
                                 self.af_name = None
                                 self.ipv4 = None
                                 self.ipv6 = None
                                 self._segment_path = lambda: "local-addr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.LocalAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)
@@ -16658,14 +18867,15 @@ class Pce(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                                    ('ipv4', YLeaf(YType.str, 'ipv4')),
-                                    ('ipv6', YLeaf(YType.str, 'ipv6')),
+                                    ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_oper', 'PceAfId', '')])),
+                                    ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                                    ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                                 ])
                                 self.af_name = None
                                 self.ipv4 = None
                                 self.ipv6 = None
                                 self._segment_path = lambda: "remote-addr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pce.TunnelDetailInfos.TunnelDetailInfo.DetailLspInformation.Rro.SrRro.RemoteAddr, [u'af_name', u'ipv4', u'ipv6'], name, value)

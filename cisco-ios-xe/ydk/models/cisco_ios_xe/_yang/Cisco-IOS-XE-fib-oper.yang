@@ -23,6 +23,11 @@ module Cisco-IOS-XE-fib-oper {
     "This module contains a collection of YANG definitions
      for IOS-XE FIB operational data.";
 
+  revision 2018-03-07 {
+    description
+      "Adding support for resolved nexthop field";
+    reference "1.1.0";
+  }
   revision 2017-07-04 {
     description
       "Initial revision";
@@ -141,7 +146,7 @@ module Cisco-IOS-XE-fib-oper {
     leaf nh-addr {
       type inet:ip-prefix;
       description
-        "IP Address";
+        "Nexthop IP Address";
     }
     leaf index {
       type uint32;
@@ -182,6 +187,11 @@ module Cisco-IOS-XE-fib-oper {
       type fib-ios-xe-oper:encapsulation-header-type;
       description
         "Decap Header Type";
+    }
+    leaf resolved-nh-addr {
+      type inet:ip-prefix;
+      description
+        "Resolved Nexthop IP Address";
     }
   }
 
@@ -267,7 +277,7 @@ module Cisco-IOS-XE-fib-oper {
     description
       "This module contains a collection of YANG definitions for
        monitoring the operation of IOS-XE CEF.
-       Copyright (c) 2016-2017 by Cisco Systems, Inc.
+       Copyright (c) 2016-2018 by Cisco Systems, Inc.
        All rights reserved.";
     list fib-ni-entry {
       key "instance-name";

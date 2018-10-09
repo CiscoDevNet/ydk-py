@@ -12,7 +12,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-config\-mda\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -22,6 +22,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -81,10 +82,10 @@ class Watchdog(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("threshold-memory", ("threshold_memory", Watchdog.ThresholdMemory)), ("disk-limit", ("disk_limit", Watchdog.DiskLimit))])
         self._leafs = OrderedDict([
-            ('overload_notification', YLeaf(YType.empty, 'overload-notification')),
-            ('restart_deadlock_disable', YLeaf(YType.empty, 'restart-deadlock-disable')),
-            ('restart_memoryhog_disable', YLeaf(YType.empty, 'restart-memoryhog-disable')),
-            ('overload_throttle_timeout', YLeaf(YType.uint32, 'overload-throttle-timeout')),
+            ('overload_notification', (YLeaf(YType.empty, 'overload-notification'), ['Empty'])),
+            ('restart_deadlock_disable', (YLeaf(YType.empty, 'restart-deadlock-disable'), ['Empty'])),
+            ('restart_memoryhog_disable', (YLeaf(YType.empty, 'restart-memoryhog-disable'), ['Empty'])),
+            ('overload_throttle_timeout', (YLeaf(YType.uint32, 'overload-throttle-timeout'), ['int'])),
         ])
         self.overload_notification = None
         self.restart_deadlock_disable = None
@@ -99,6 +100,7 @@ class Watchdog(Entity):
         self.disk_limit.parent = self
         self._children_name_map["disk_limit"] = "disk-limit"
         self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Watchdog, ['overload_notification', 'restart_deadlock_disable', 'restart_memoryhog_disable', 'overload_throttle_timeout'], name, value)
@@ -146,15 +148,16 @@ class Watchdog(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('minor', YLeaf(YType.uint32, 'minor')),
-                ('severe', YLeaf(YType.uint32, 'severe')),
-                ('critical', YLeaf(YType.uint32, 'critical')),
+                ('minor', (YLeaf(YType.uint32, 'minor'), ['int'])),
+                ('severe', (YLeaf(YType.uint32, 'severe'), ['int'])),
+                ('critical', (YLeaf(YType.uint32, 'critical'), ['int'])),
             ])
             self.minor = None
             self.severe = None
             self.critical = None
             self._segment_path = lambda: "threshold-memory"
             self._absolute_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Watchdog.ThresholdMemory, ['minor', 'severe', 'critical'], name, value)
@@ -202,15 +205,16 @@ class Watchdog(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('minor', YLeaf(YType.uint32, 'minor')),
-                ('severe', YLeaf(YType.uint32, 'severe')),
-                ('critical', YLeaf(YType.uint32, 'critical')),
+                ('minor', (YLeaf(YType.uint32, 'minor'), ['int'])),
+                ('severe', (YLeaf(YType.uint32, 'severe'), ['int'])),
+                ('critical', (YLeaf(YType.uint32, 'critical'), ['int'])),
             ])
             self.minor = None
             self.severe = None
             self.critical = None
             self._segment_path = lambda: "disk-limit"
             self._absolute_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchdog/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Watchdog.DiskLimit, ['minor', 'severe', 'critical'], name, value)
@@ -250,10 +254,11 @@ class Watchd(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
-            ('timeout', YLeaf(YType.uint32, 'timeout')),
+            ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
         ])
         self.timeout = None
         self._segment_path = lambda: "Cisco-IOS-XR-watchd-cfg:watchd"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Watchd, ['timeout'], name, value)

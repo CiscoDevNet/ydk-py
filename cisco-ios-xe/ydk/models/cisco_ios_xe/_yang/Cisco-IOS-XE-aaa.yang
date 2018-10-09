@@ -35,12 +35,16 @@ module Cisco-IOS-XE-aaa {
 
   description
     "Cisco XE Native Authentication, Authorization and Accouting (AAA) Yang Model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-01-15 {
+    description
+      "Add Support for suppress node under aaa accounting";
+  }
 
   revision 2018-01-11 {
     description
@@ -2464,6 +2468,16 @@ module Cisco-IOS-XE-aaa {
           }
         }
       }
+      container suppress {
+        description
+          "Do not generate accounting records for a specific type of user";
+        leaf null-username {
+          description
+            "Do not generate accounting records for users with a null-username";
+          type empty;
+        }
+      }
+
       container system {
         description
           "For system events.";

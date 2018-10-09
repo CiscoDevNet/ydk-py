@@ -8,7 +8,7 @@ for the following management objects\:
   dhcp\-client\: DHCP client operational data
   ipv4\-dhcpd\: ipv4 dhcpd
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class BagDhcpdIntfSrgRole(Enum):
@@ -476,6 +477,7 @@ class DhcpClient(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:dhcp-client"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(DhcpClient, [], name, value)
@@ -511,6 +513,7 @@ class DhcpClient(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:dhcp-client/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DhcpClient.Nodes, [], name, value)
@@ -554,7 +557,7 @@ class DhcpClient(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("client-stats", ("client_stats", DhcpClient.Nodes.Node.ClientStats)), ("clients", ("clients", DhcpClient.Nodes.Node.Clients))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -567,6 +570,7 @@ class DhcpClient(Entity):
                 self._children_name_map["clients"] = "clients"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:dhcp-client/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DhcpClient.Nodes.Node, ['node_name'], name, value)
@@ -601,6 +605,7 @@ class DhcpClient(Entity):
 
                     self.client_stat = YList(self)
                     self._segment_path = lambda: "client-stats"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(DhcpClient.Nodes.Node.ClientStats, [], name, value)
@@ -984,57 +989,57 @@ class DhcpClient(Entity):
                         self.ylist_key_names = ['client_ifhandle']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('client_ifhandle', YLeaf(YType.str, 'client-ifhandle')),
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('num_events_received', YLeaf(YType.uint32, 'num-events-received')),
-                            ('num_create_event_received', YLeaf(YType.uint32, 'num-create-event-received')),
-                            ('num_delete_event_received', YLeaf(YType.uint32, 'num-delete-event-received')),
-                            ('num_reboot_event_received', YLeaf(YType.uint32, 'num-reboot-event-received')),
-                            ('num_reinit_event_received', YLeaf(YType.uint32, 'num-reinit-event-received')),
-                            ('num_packet_event_received', YLeaf(YType.uint32, 'num-packet-event-received')),
-                            ('num_init_timer_eventi', YLeaf(YType.uint32, 'num-init-timer-eventi')),
-                            ('num_t1_timer_event', YLeaf(YType.uint32, 'num-t1-timer-event')),
-                            ('num_t2_timer_event', YLeaf(YType.uint32, 'num-t2-timer-event')),
-                            ('num_lease_timer_event', YLeaf(YType.uint32, 'num-lease-timer-event')),
-                            ('num_vbind_timer_event', YLeaf(YType.uint32, 'num-vbind-timer-event')),
-                            ('num_discovers_sent_successfully', YLeaf(YType.uint32, 'num-discovers-sent-successfully')),
-                            ('num_requests_sent_successfully', YLeaf(YType.uint32, 'num-requests-sent-successfully')),
-                            ('num_releases_sent_successfully', YLeaf(YType.uint32, 'num-releases-sent-successfully')),
-                            ('num_renews_sent_successfully', YLeaf(YType.uint32, 'num-renews-sent-successfully')),
-                            ('num_rebinds_sent_successfully', YLeaf(YType.uint32, 'num-rebinds-sent-successfully')),
-                            ('num_declines_sent_successfully', YLeaf(YType.uint32, 'num-declines-sent-successfully')),
-                            ('num_request_after_reboot_sent', YLeaf(YType.uint32, 'num-request-after-reboot-sent')),
-                            ('num_valid_offers_received', YLeaf(YType.uint32, 'num-valid-offers-received')),
-                            ('num_valid_acks_received', YLeaf(YType.uint32, 'num-valid-acks-received')),
-                            ('num_valid_nacks_received', YLeaf(YType.uint32, 'num-valid-nacks-received')),
-                            ('num_unicast_packet_sent_successfully', YLeaf(YType.uint32, 'num-unicast-packet-sent-successfully')),
-                            ('num_broadcast_packet_sent_success', YLeaf(YType.uint32, 'num-broadcast-packet-sent-success')),
-                            ('num_init_timer_start', YLeaf(YType.uint32, 'num-init-timer-start')),
-                            ('num_init_timer_stop', YLeaf(YType.uint32, 'num-init-timer-stop')),
-                            ('num_t1_timer_start', YLeaf(YType.uint32, 'num-t1-timer-start')),
-                            ('num_t1_timer_stop', YLeaf(YType.uint32, 'num-t1-timer-stop')),
-                            ('num_t2_timer_start', YLeaf(YType.uint32, 'num-t2-timer-start')),
-                            ('num_t2_timer_stop', YLeaf(YType.uint32, 'num-t2-timer-stop')),
-                            ('num_lease_timer_start', YLeaf(YType.uint32, 'num-lease-timer-start')),
-                            ('num_lease_timer_stop', YLeaf(YType.uint32, 'num-lease-timer-stop')),
-                            ('num_vbind_timer_start', YLeaf(YType.uint32, 'num-vbind-timer-start')),
-                            ('num_vbind_timer_stop', YLeaf(YType.uint32, 'num-vbind-timer-stop')),
-                            ('num_invalid_events', YLeaf(YType.uint32, 'num-invalid-events')),
-                            ('num_discovers_failed', YLeaf(YType.uint32, 'num-discovers-failed')),
-                            ('num_requests_failed', YLeaf(YType.uint32, 'num-requests-failed')),
-                            ('num_releases_failed', YLeaf(YType.uint32, 'num-releases-failed')),
-                            ('num_renews_failed', YLeaf(YType.uint32, 'num-renews-failed')),
-                            ('num_rebinds_failed', YLeaf(YType.uint32, 'num-rebinds-failed')),
-                            ('num_declines_failed', YLeaf(YType.uint32, 'num-declines-failed')),
-                            ('num_request_after_reboot_failed', YLeaf(YType.uint32, 'num-request-after-reboot-failed')),
-                            ('num_invalid_offers', YLeaf(YType.uint32, 'num-invalid-offers')),
-                            ('num_invalid_acks', YLeaf(YType.uint32, 'num-invalid-acks')),
-                            ('num_invalid_nacks', YLeaf(YType.uint32, 'num-invalid-nacks')),
-                            ('num_invalid_packets', YLeaf(YType.uint32, 'num-invalid-packets')),
-                            ('num_unicast_failed', YLeaf(YType.uint32, 'num-unicast-failed')),
-                            ('num_broadcast_failed', YLeaf(YType.uint32, 'num-broadcast-failed')),
-                            ('num_xid_mismatch', YLeaf(YType.uint32, 'num-xid-mismatch')),
-                            ('num_vbind_failed', YLeaf(YType.uint32, 'num-vbind-failed')),
+                            ('client_ifhandle', (YLeaf(YType.str, 'client-ifhandle'), ['str'])),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('num_events_received', (YLeaf(YType.uint32, 'num-events-received'), ['int'])),
+                            ('num_create_event_received', (YLeaf(YType.uint32, 'num-create-event-received'), ['int'])),
+                            ('num_delete_event_received', (YLeaf(YType.uint32, 'num-delete-event-received'), ['int'])),
+                            ('num_reboot_event_received', (YLeaf(YType.uint32, 'num-reboot-event-received'), ['int'])),
+                            ('num_reinit_event_received', (YLeaf(YType.uint32, 'num-reinit-event-received'), ['int'])),
+                            ('num_packet_event_received', (YLeaf(YType.uint32, 'num-packet-event-received'), ['int'])),
+                            ('num_init_timer_eventi', (YLeaf(YType.uint32, 'num-init-timer-eventi'), ['int'])),
+                            ('num_t1_timer_event', (YLeaf(YType.uint32, 'num-t1-timer-event'), ['int'])),
+                            ('num_t2_timer_event', (YLeaf(YType.uint32, 'num-t2-timer-event'), ['int'])),
+                            ('num_lease_timer_event', (YLeaf(YType.uint32, 'num-lease-timer-event'), ['int'])),
+                            ('num_vbind_timer_event', (YLeaf(YType.uint32, 'num-vbind-timer-event'), ['int'])),
+                            ('num_discovers_sent_successfully', (YLeaf(YType.uint32, 'num-discovers-sent-successfully'), ['int'])),
+                            ('num_requests_sent_successfully', (YLeaf(YType.uint32, 'num-requests-sent-successfully'), ['int'])),
+                            ('num_releases_sent_successfully', (YLeaf(YType.uint32, 'num-releases-sent-successfully'), ['int'])),
+                            ('num_renews_sent_successfully', (YLeaf(YType.uint32, 'num-renews-sent-successfully'), ['int'])),
+                            ('num_rebinds_sent_successfully', (YLeaf(YType.uint32, 'num-rebinds-sent-successfully'), ['int'])),
+                            ('num_declines_sent_successfully', (YLeaf(YType.uint32, 'num-declines-sent-successfully'), ['int'])),
+                            ('num_request_after_reboot_sent', (YLeaf(YType.uint32, 'num-request-after-reboot-sent'), ['int'])),
+                            ('num_valid_offers_received', (YLeaf(YType.uint32, 'num-valid-offers-received'), ['int'])),
+                            ('num_valid_acks_received', (YLeaf(YType.uint32, 'num-valid-acks-received'), ['int'])),
+                            ('num_valid_nacks_received', (YLeaf(YType.uint32, 'num-valid-nacks-received'), ['int'])),
+                            ('num_unicast_packet_sent_successfully', (YLeaf(YType.uint32, 'num-unicast-packet-sent-successfully'), ['int'])),
+                            ('num_broadcast_packet_sent_success', (YLeaf(YType.uint32, 'num-broadcast-packet-sent-success'), ['int'])),
+                            ('num_init_timer_start', (YLeaf(YType.uint32, 'num-init-timer-start'), ['int'])),
+                            ('num_init_timer_stop', (YLeaf(YType.uint32, 'num-init-timer-stop'), ['int'])),
+                            ('num_t1_timer_start', (YLeaf(YType.uint32, 'num-t1-timer-start'), ['int'])),
+                            ('num_t1_timer_stop', (YLeaf(YType.uint32, 'num-t1-timer-stop'), ['int'])),
+                            ('num_t2_timer_start', (YLeaf(YType.uint32, 'num-t2-timer-start'), ['int'])),
+                            ('num_t2_timer_stop', (YLeaf(YType.uint32, 'num-t2-timer-stop'), ['int'])),
+                            ('num_lease_timer_start', (YLeaf(YType.uint32, 'num-lease-timer-start'), ['int'])),
+                            ('num_lease_timer_stop', (YLeaf(YType.uint32, 'num-lease-timer-stop'), ['int'])),
+                            ('num_vbind_timer_start', (YLeaf(YType.uint32, 'num-vbind-timer-start'), ['int'])),
+                            ('num_vbind_timer_stop', (YLeaf(YType.uint32, 'num-vbind-timer-stop'), ['int'])),
+                            ('num_invalid_events', (YLeaf(YType.uint32, 'num-invalid-events'), ['int'])),
+                            ('num_discovers_failed', (YLeaf(YType.uint32, 'num-discovers-failed'), ['int'])),
+                            ('num_requests_failed', (YLeaf(YType.uint32, 'num-requests-failed'), ['int'])),
+                            ('num_releases_failed', (YLeaf(YType.uint32, 'num-releases-failed'), ['int'])),
+                            ('num_renews_failed', (YLeaf(YType.uint32, 'num-renews-failed'), ['int'])),
+                            ('num_rebinds_failed', (YLeaf(YType.uint32, 'num-rebinds-failed'), ['int'])),
+                            ('num_declines_failed', (YLeaf(YType.uint32, 'num-declines-failed'), ['int'])),
+                            ('num_request_after_reboot_failed', (YLeaf(YType.uint32, 'num-request-after-reboot-failed'), ['int'])),
+                            ('num_invalid_offers', (YLeaf(YType.uint32, 'num-invalid-offers'), ['int'])),
+                            ('num_invalid_acks', (YLeaf(YType.uint32, 'num-invalid-acks'), ['int'])),
+                            ('num_invalid_nacks', (YLeaf(YType.uint32, 'num-invalid-nacks'), ['int'])),
+                            ('num_invalid_packets', (YLeaf(YType.uint32, 'num-invalid-packets'), ['int'])),
+                            ('num_unicast_failed', (YLeaf(YType.uint32, 'num-unicast-failed'), ['int'])),
+                            ('num_broadcast_failed', (YLeaf(YType.uint32, 'num-broadcast-failed'), ['int'])),
+                            ('num_xid_mismatch', (YLeaf(YType.uint32, 'num-xid-mismatch'), ['int'])),
+                            ('num_vbind_failed', (YLeaf(YType.uint32, 'num-vbind-failed'), ['int'])),
                         ])
                         self.client_ifhandle = None
                         self.interface_name = None
@@ -1088,6 +1093,7 @@ class DhcpClient(Entity):
                         self.num_xid_mismatch = None
                         self.num_vbind_failed = None
                         self._segment_path = lambda: "client-stat" + "[client-ifhandle='" + str(self.client_ifhandle) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(DhcpClient.Nodes.Node.ClientStats.ClientStat, ['client_ifhandle', u'interface_name', u'num_events_received', u'num_create_event_received', u'num_delete_event_received', u'num_reboot_event_received', u'num_reinit_event_received', u'num_packet_event_received', u'num_init_timer_eventi', u'num_t1_timer_event', u'num_t2_timer_event', u'num_lease_timer_event', u'num_vbind_timer_event', u'num_discovers_sent_successfully', u'num_requests_sent_successfully', u'num_releases_sent_successfully', u'num_renews_sent_successfully', u'num_rebinds_sent_successfully', u'num_declines_sent_successfully', u'num_request_after_reboot_sent', u'num_valid_offers_received', u'num_valid_acks_received', u'num_valid_nacks_received', u'num_unicast_packet_sent_successfully', u'num_broadcast_packet_sent_success', u'num_init_timer_start', u'num_init_timer_stop', u'num_t1_timer_start', u'num_t1_timer_stop', u'num_t2_timer_start', u'num_t2_timer_stop', u'num_lease_timer_start', u'num_lease_timer_stop', u'num_vbind_timer_start', u'num_vbind_timer_stop', u'num_invalid_events', u'num_discovers_failed', u'num_requests_failed', u'num_releases_failed', u'num_renews_failed', u'num_rebinds_failed', u'num_declines_failed', u'num_request_after_reboot_failed', u'num_invalid_offers', u'num_invalid_acks', u'num_invalid_nacks', u'num_invalid_packets', u'num_unicast_failed', u'num_broadcast_failed', u'num_xid_mismatch', u'num_vbind_failed'], name, value)
@@ -1122,6 +1128,7 @@ class DhcpClient(Entity):
 
                     self.client = YList(self)
                     self._segment_path = lambda: "clients"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(DhcpClient.Nodes.Node.Clients, [], name, value)
@@ -1235,19 +1242,19 @@ class DhcpClient(Entity):
                         self.ylist_key_names = ['client_ifhandle']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('client_ifhandle', YLeaf(YType.str, 'client-ifhandle')),
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('client_mac_address', YLeaf(YType.str, 'client-mac-address')),
-                            ('client_id', YLeaf(YType.str, 'client-id')),
-                            ('ipv4_client_state', YLeaf(YType.enumeration, 'ipv4-client-state')),
-                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                            ('ipv4_subnet_mask', YLeaf(YType.str, 'ipv4-subnet-mask')),
-                            ('ipv4_server_address', YLeaf(YType.str, 'ipv4-server-address')),
-                            ('next_hop_ipv4_address', YLeaf(YType.str, 'next-hop-ipv4-address')),
-                            ('ipv4_lease_time', YLeaf(YType.uint32, 'ipv4-lease-time')),
-                            ('ipv4_renew_time', YLeaf(YType.uint32, 'ipv4-renew-time')),
-                            ('ipv4_rebind_time', YLeaf(YType.uint32, 'ipv4-rebind-time')),
-                            ('ipv4_address_configured', YLeaf(YType.boolean, 'ipv4-address-configured')),
+                            ('client_ifhandle', (YLeaf(YType.str, 'client-ifhandle'), ['str'])),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('client_mac_address', (YLeaf(YType.str, 'client-mac-address'), ['str'])),
+                            ('client_id', (YLeaf(YType.str, 'client-id'), ['str'])),
+                            ('ipv4_client_state', (YLeaf(YType.enumeration, 'ipv4-client-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper', 'DhcpcIpv4State', '')])),
+                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                            ('ipv4_subnet_mask', (YLeaf(YType.str, 'ipv4-subnet-mask'), ['str'])),
+                            ('ipv4_server_address', (YLeaf(YType.str, 'ipv4-server-address'), ['str'])),
+                            ('next_hop_ipv4_address', (YLeaf(YType.str, 'next-hop-ipv4-address'), ['str'])),
+                            ('ipv4_lease_time', (YLeaf(YType.uint32, 'ipv4-lease-time'), ['int'])),
+                            ('ipv4_renew_time', (YLeaf(YType.uint32, 'ipv4-renew-time'), ['int'])),
+                            ('ipv4_rebind_time', (YLeaf(YType.uint32, 'ipv4-rebind-time'), ['int'])),
+                            ('ipv4_address_configured', (YLeaf(YType.boolean, 'ipv4-address-configured'), ['bool'])),
                         ])
                         self.client_ifhandle = None
                         self.interface_name = None
@@ -1263,6 +1270,7 @@ class DhcpClient(Entity):
                         self.ipv4_rebind_time = None
                         self.ipv4_address_configured = None
                         self._segment_path = lambda: "client" + "[client-ifhandle='" + str(self.client_ifhandle) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(DhcpClient.Nodes.Node.Clients.Client, ['client_ifhandle', u'interface_name', u'client_mac_address', u'client_id', u'ipv4_client_state', u'ipv4_address', u'ipv4_subnet_mask', u'ipv4_server_address', u'next_hop_ipv4_address', u'ipv4_lease_time', u'ipv4_renew_time', u'ipv4_rebind_time', u'ipv4_address_configured'], name, value)
@@ -1312,6 +1320,7 @@ class Ipv4Dhcpd(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ipv4Dhcpd, [], name, value)
@@ -1385,6 +1394,7 @@ class Ipv4Dhcpd(Entity):
             self._children_name_map["statistics"] = "statistics"
             self._segment_path = lambda: "snoop"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4Dhcpd.Snoop, [], name, value)
@@ -1420,6 +1430,7 @@ class Ipv4Dhcpd(Entity):
                 self.binding = YList(self)
                 self._segment_path = lambda: "bindings"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4Dhcpd.Snoop.Bindings, [], name, value)
@@ -1530,18 +1541,18 @@ class Ipv4Dhcpd(Entity):
                     self.ylist_key_names = ['client_uid']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('client_uid', YLeaf(YType.str, 'client-uid')),
-                        ('snoop_binding_ch_addr', YLeaf(YType.str, 'snoop-binding-ch-addr')),
-                        ('snoop_binding_ch_addr_len', YLeaf(YType.uint8, 'snoop-binding-ch-addr-len')),
-                        ('snoop_binding_i_addr', YLeaf(YType.str, 'snoop-binding-i-addr')),
-                        ('snoop_binding_client_id', YLeaf(YType.str, 'snoop-binding-client-id')),
-                        ('snoop_binding_client_id_len', YLeaf(YType.uint8, 'snoop-binding-client-id-len')),
-                        ('snoop_binding_state', YLeaf(YType.uint8, 'snoop-binding-state')),
-                        ('snoop_binding_lease', YLeaf(YType.uint32, 'snoop-binding-lease')),
-                        ('snoop_binding_lease_start_time', YLeaf(YType.uint32, 'snoop-binding-lease-start-time')),
-                        ('snoop_binding_profile_name', YLeaf(YType.str, 'snoop-binding-profile-name')),
-                        ('snoop_bindng_interface_name', YLeaf(YType.str, 'snoop-bindng-interface-name')),
-                        ('snoop_binding_bridge_name', YLeaf(YType.str, 'snoop-binding-bridge-name')),
+                        ('client_uid', (YLeaf(YType.str, 'client-uid'), ['str'])),
+                        ('snoop_binding_ch_addr', (YLeaf(YType.str, 'snoop-binding-ch-addr'), ['str'])),
+                        ('snoop_binding_ch_addr_len', (YLeaf(YType.uint8, 'snoop-binding-ch-addr-len'), ['int'])),
+                        ('snoop_binding_i_addr', (YLeaf(YType.str, 'snoop-binding-i-addr'), ['str'])),
+                        ('snoop_binding_client_id', (YLeaf(YType.str, 'snoop-binding-client-id'), ['str'])),
+                        ('snoop_binding_client_id_len', (YLeaf(YType.uint8, 'snoop-binding-client-id-len'), ['int'])),
+                        ('snoop_binding_state', (YLeaf(YType.uint8, 'snoop-binding-state'), ['int'])),
+                        ('snoop_binding_lease', (YLeaf(YType.uint32, 'snoop-binding-lease'), ['int'])),
+                        ('snoop_binding_lease_start_time', (YLeaf(YType.uint32, 'snoop-binding-lease-start-time'), ['int'])),
+                        ('snoop_binding_profile_name', (YLeaf(YType.str, 'snoop-binding-profile-name'), ['str'])),
+                        ('snoop_bindng_interface_name', (YLeaf(YType.str, 'snoop-bindng-interface-name'), ['str'])),
+                        ('snoop_binding_bridge_name', (YLeaf(YType.str, 'snoop-binding-bridge-name'), ['str'])),
                     ])
                     self.client_uid = None
                     self.snoop_binding_ch_addr = None
@@ -1557,9 +1568,10 @@ class Ipv4Dhcpd(Entity):
                     self.snoop_binding_bridge_name = None
                     self._segment_path = lambda: "binding" + "[client-uid='" + str(self.client_uid) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/bindings/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv4Dhcpd.Snoop.Bindings.Binding, ['client_uid', 'snoop_binding_ch_addr', 'snoop_binding_ch_addr_len', 'snoop_binding_i_addr', 'snoop_binding_client_id', 'snoop_binding_client_id_len', 'snoop_binding_state', 'snoop_binding_lease', 'snoop_binding_lease_start_time', 'snoop_binding_profile_name', 'snoop_bindng_interface_name', 'snoop_binding_bridge_name'], name, value)
+                    self._perform_setattr(Ipv4Dhcpd.Snoop.Bindings.Binding, ['client_uid', u'snoop_binding_ch_addr', u'snoop_binding_ch_addr_len', u'snoop_binding_i_addr', u'snoop_binding_client_id', u'snoop_binding_client_id_len', u'snoop_binding_state', u'snoop_binding_lease', u'snoop_binding_lease_start_time', u'snoop_binding_profile_name', u'snoop_bindng_interface_name', u'snoop_binding_bridge_name'], name, value)
 
 
         class BindingStatistics(Entity):
@@ -1597,16 +1609,17 @@ class Ipv4Dhcpd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('snoop_binding_total', YLeaf(YType.uint32, 'snoop-binding-total')),
-                    ('snoop_binding_timestamp', YLeaf(YType.uint32, 'snoop-binding-timestamp')),
+                    ('snoop_binding_total', (YLeaf(YType.uint32, 'snoop-binding-total'), ['int'])),
+                    ('snoop_binding_timestamp', (YLeaf(YType.uint32, 'snoop-binding-timestamp'), ['int'])),
                 ])
                 self.snoop_binding_total = None
                 self.snoop_binding_timestamp = None
                 self._segment_path = lambda: "binding-statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4Dhcpd.Snoop.BindingStatistics, ['snoop_binding_total', 'snoop_binding_timestamp'], name, value)
+                self._perform_setattr(Ipv4Dhcpd.Snoop.BindingStatistics, [u'snoop_binding_total', u'snoop_binding_timestamp'], name, value)
 
 
         class StatisticsInfo(Entity):
@@ -1637,14 +1650,15 @@ class Ipv4Dhcpd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('snoop_stats_timestamp', YLeaf(YType.uint32, 'snoop-stats-timestamp')),
+                    ('snoop_stats_timestamp', (YLeaf(YType.uint32, 'snoop-stats-timestamp'), ['int'])),
                 ])
                 self.snoop_stats_timestamp = None
                 self._segment_path = lambda: "statistics-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ipv4Dhcpd.Snoop.StatisticsInfo, ['snoop_stats_timestamp'], name, value)
+                self._perform_setattr(Ipv4Dhcpd.Snoop.StatisticsInfo, [u'snoop_stats_timestamp'], name, value)
 
 
         class Profiles(Entity):
@@ -1677,6 +1691,7 @@ class Ipv4Dhcpd(Entity):
                 self.profile = YList(self)
                 self._segment_path = lambda: "profiles"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4Dhcpd.Snoop.Profiles, [], name, value)
@@ -1752,13 +1767,13 @@ class Ipv4Dhcpd(Entity):
                     self.ylist_key_names = ['profile_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('profile_name', YLeaf(YType.str, 'profile-name')),
-                        ('snoop_profile_name', YLeaf(YType.str, 'snoop-profile-name')),
-                        ('snoop_profile_uid', YLeaf(YType.uint32, 'snoop-profile-uid')),
-                        ('snoop_profile_relay_info_option', YLeaf(YType.uint8, 'snoop-profile-relay-info-option')),
-                        ('snoop_profile_relay_info_allow_untrusted', YLeaf(YType.uint8, 'snoop-profile-relay-info-allow-untrusted')),
-                        ('snoop_profile_relay_info_policy', YLeaf(YType.uint8, 'snoop-profile-relay-info-policy')),
-                        ('snoop_profile_trusted', YLeaf(YType.uint8, 'snoop-profile-trusted')),
+                        ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                        ('snoop_profile_name', (YLeaf(YType.str, 'snoop-profile-name'), ['str'])),
+                        ('snoop_profile_uid', (YLeaf(YType.uint32, 'snoop-profile-uid'), ['int'])),
+                        ('snoop_profile_relay_info_option', (YLeaf(YType.uint8, 'snoop-profile-relay-info-option'), ['int'])),
+                        ('snoop_profile_relay_info_allow_untrusted', (YLeaf(YType.uint8, 'snoop-profile-relay-info-allow-untrusted'), ['int'])),
+                        ('snoop_profile_relay_info_policy', (YLeaf(YType.uint8, 'snoop-profile-relay-info-policy'), ['int'])),
+                        ('snoop_profile_trusted', (YLeaf(YType.uint8, 'snoop-profile-trusted'), ['int'])),
                     ])
                     self.profile_name = None
                     self.snoop_profile_name = None
@@ -1769,9 +1784,10 @@ class Ipv4Dhcpd(Entity):
                     self.snoop_profile_trusted = None
                     self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/profiles/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv4Dhcpd.Snoop.Profiles.Profile, ['profile_name', 'snoop_profile_name', 'snoop_profile_uid', 'snoop_profile_relay_info_option', 'snoop_profile_relay_info_allow_untrusted', 'snoop_profile_relay_info_policy', 'snoop_profile_trusted'], name, value)
+                    self._perform_setattr(Ipv4Dhcpd.Snoop.Profiles.Profile, ['profile_name', u'snoop_profile_name', u'snoop_profile_uid', u'snoop_profile_relay_info_option', u'snoop_profile_relay_info_allow_untrusted', u'snoop_profile_relay_info_policy', u'snoop_profile_trusted'], name, value)
 
 
         class Statistics(Entity):
@@ -1804,6 +1820,7 @@ class Ipv4Dhcpd(Entity):
                 self.statistic = YList(self)
                 self._segment_path = lambda: "statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4Dhcpd.Snoop.Statistics, [], name, value)
@@ -1851,18 +1868,19 @@ class Ipv4Dhcpd(Entity):
                     self.ylist_key_names = ['bridge_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('bridge_name', YLeaf(YType.str, 'bridge-name')),
-                        ('snoop_statistics_bridge_name', YLeaf(YType.str, 'snoop-statistics-bridge-name')),
-                        ('snoop_statistic', YLeafList(YType.uint64, 'snoop-statistic')),
+                        ('bridge_name', (YLeaf(YType.str, 'bridge-name'), ['str'])),
+                        ('snoop_statistics_bridge_name', (YLeaf(YType.str, 'snoop-statistics-bridge-name'), ['str'])),
+                        ('snoop_statistic', (YLeafList(YType.uint64, 'snoop-statistic'), ['int'])),
                     ])
                     self.bridge_name = None
                     self.snoop_statistics_bridge_name = None
                     self.snoop_statistic = []
                     self._segment_path = lambda: "statistic" + "[bridge-name='" + str(self.bridge_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/snoop/statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ipv4Dhcpd.Snoop.Statistics.Statistic, ['bridge_name', 'snoop_statistics_bridge_name', 'snoop_statistic'], name, value)
+                    self._perform_setattr(Ipv4Dhcpd.Snoop.Statistics.Statistic, ['bridge_name', u'snoop_statistics_bridge_name', u'snoop_statistic'], name, value)
 
 
     class Nodes(Entity):
@@ -1896,6 +1914,7 @@ class Ipv4Dhcpd(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4Dhcpd.Nodes, [], name, value)
@@ -1954,7 +1973,7 @@ class Ipv4Dhcpd(Entity):
                 self.ylist_key_names = ['nodeid']
                 self._child_classes = OrderedDict([("proxy", ("proxy", Ipv4Dhcpd.Nodes.Node.Proxy)), ("interfaces", ("interfaces", Ipv4Dhcpd.Nodes.Node.Interfaces)), ("base", ("base", Ipv4Dhcpd.Nodes.Node.Base)), ("server", ("server", Ipv4Dhcpd.Nodes.Node.Server)), ("relay", ("relay", Ipv4Dhcpd.Nodes.Node.Relay))])
                 self._leafs = OrderedDict([
-                    ('nodeid', YLeaf(YType.str, 'nodeid')),
+                    ('nodeid', (YLeaf(YType.str, 'nodeid'), ['str'])),
                 ])
                 self.nodeid = None
 
@@ -1979,6 +1998,7 @@ class Ipv4Dhcpd(Entity):
                 self._children_name_map["relay"] = "relay"
                 self._segment_path = lambda: "node" + "[nodeid='" + str(self.nodeid) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-dhcpd-oper:ipv4-dhcpd/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node, ['nodeid'], name, value)
@@ -2051,6 +2071,7 @@ class Ipv4Dhcpd(Entity):
                     self.binding.parent = self
                     self._children_name_map["binding"] = "binding"
                     self._segment_path = lambda: "proxy"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy, [], name, value)
@@ -2084,13 +2105,14 @@ class Ipv4Dhcpd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('proxy_stats_timestamp', YLeaf(YType.uint32, 'proxy-stats-timestamp')),
+                            ('proxy_stats_timestamp', (YLeaf(YType.uint32, 'proxy-stats-timestamp'), ['int'])),
                         ])
                         self.proxy_stats_timestamp = None
                         self._segment_path = lambda: "statistics-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo, ['proxy_stats_timestamp'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.StatisticsInfo, [u'proxy_stats_timestamp'], name, value)
 
 
                 class Vrfs(Entity):
@@ -2122,6 +2144,7 @@ class Ipv4Dhcpd(Entity):
 
                         self.vrf = YList(self)
                         self._segment_path = lambda: "vrfs"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs, [], name, value)
@@ -2160,7 +2183,7 @@ class Ipv4Dhcpd(Entity):
                             self.ylist_key_names = ['vrf_name']
                             self._child_classes = OrderedDict([("statistics", ("statistics", Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -2168,6 +2191,7 @@ class Ipv4Dhcpd(Entity):
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -2321,6 +2345,7 @@ class Ipv4Dhcpd(Entity):
                                 self.bootp_reply.parent = self
                                 self._children_name_map["bootp_reply"] = "bootp-reply"
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics, [], name, value)
@@ -2368,17 +2393,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "discover"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Discover, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Offer(Entity):
@@ -2423,17 +2449,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "offer"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Offer, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Request(Entity):
@@ -2478,17 +2505,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "request"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Request, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Decline(Entity):
@@ -2533,17 +2561,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "decline"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Decline, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Ack(Entity):
@@ -2588,17 +2617,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "ack"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Ack, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Nak(Entity):
@@ -2643,17 +2673,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "nak"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Nak, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Release(Entity):
@@ -2698,17 +2729,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "release"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Release, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Inform(Entity):
@@ -2753,17 +2785,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "inform"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.Inform, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseQuery(Entity):
@@ -2808,17 +2841,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseQuery, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseNotAssigned(Entity):
@@ -2863,17 +2897,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-not-assigned"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseNotAssigned, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseUnknown(Entity):
@@ -2918,17 +2953,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-unknown"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseUnknown, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseActive(Entity):
@@ -2973,17 +3009,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-active"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.LeaseActive, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class BootpRequest(Entity):
@@ -3028,17 +3065,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "bootp-request"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpRequest, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class BootpReply(Entity):
@@ -3083,17 +3121,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "bootp-reply"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Vrfs.Vrf.Statistics.BootpReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                 class Profiles(Entity):
@@ -3125,6 +3164,7 @@ class Ipv4Dhcpd(Entity):
 
                         self.profile = YList(self)
                         self._segment_path = lambda: "profiles"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles, [], name, value)
@@ -3255,22 +3295,22 @@ class Ipv4Dhcpd(Entity):
                             self.ylist_key_names = ['profile_name']
                             self._child_classes = OrderedDict([("vrf-references", ("vrf_references", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences)), ("interface-references", ("interface_references", Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences))])
                             self._leafs = OrderedDict([
-                                ('profile_name', YLeaf(YType.str, 'profile-name')),
-                                ('is_relay_option_enabled', YLeaf(YType.boolean, 'is-relay-option-enabled')),
-                                ('relay_policy', YLeaf(YType.enumeration, 'relay-policy')),
-                                ('relay_authenticate', YLeaf(YType.enumeration, 'relay-authenticate')),
-                                ('is_relay_allow_untrusted_enabled', YLeaf(YType.boolean, 'is-relay-allow-untrusted-enabled')),
-                                ('is_relay_optionvpn_enabled', YLeaf(YType.boolean, 'is-relay-optionvpn-enabled')),
-                                ('relay_optionvpn_enabled_mode', YLeaf(YType.enumeration, 'relay-optionvpn-enabled-mode')),
-                                ('is_relay_check', YLeaf(YType.boolean, 'is-relay-check')),
-                                ('is_move_allowed', YLeaf(YType.boolean, 'is-move-allowed')),
-                                ('proxy_broadcast_flag_policy', YLeaf(YType.enumeration, 'proxy-broadcast-flag-policy')),
-                                ('proxy_profile_client_lease_time', YLeaf(YType.uint32, 'proxy-profile-client-lease-time')),
-                                ('proxy_lease_limit_type', YLeaf(YType.enumeration, 'proxy-lease-limit-type')),
-                                ('proxy_lease_limit_count', YLeaf(YType.uint32, 'proxy-lease-limit-count')),
-                                ('profile_helper_address', YLeafList(YType.str, 'profile-helper-address')),
-                                ('vrf_name', YLeafList(YType.str, 'vrf-name')),
-                                ('gi_addr', YLeafList(YType.str, 'gi-addr')),
+                                ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                ('is_relay_option_enabled', (YLeaf(YType.boolean, 'is-relay-option-enabled'), ['bool'])),
+                                ('relay_policy', (YLeaf(YType.enumeration, 'relay-policy'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper', 'RelayInfoPolicy', '')])),
+                                ('relay_authenticate', (YLeaf(YType.enumeration, 'relay-authenticate'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper', 'RelayInfoAuthenticate', '')])),
+                                ('is_relay_allow_untrusted_enabled', (YLeaf(YType.boolean, 'is-relay-allow-untrusted-enabled'), ['bool'])),
+                                ('is_relay_optionvpn_enabled', (YLeaf(YType.boolean, 'is-relay-optionvpn-enabled'), ['bool'])),
+                                ('relay_optionvpn_enabled_mode', (YLeaf(YType.enumeration, 'relay-optionvpn-enabled-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper', 'RelayInfoVpnMode', '')])),
+                                ('is_relay_check', (YLeaf(YType.boolean, 'is-relay-check'), ['bool'])),
+                                ('is_move_allowed', (YLeaf(YType.boolean, 'is-move-allowed'), ['bool'])),
+                                ('proxy_broadcast_flag_policy', (YLeaf(YType.enumeration, 'proxy-broadcast-flag-policy'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper', 'BroadcastFlag', '')])),
+                                ('proxy_profile_client_lease_time', (YLeaf(YType.uint32, 'proxy-profile-client-lease-time'), ['int'])),
+                                ('proxy_lease_limit_type', (YLeaf(YType.enumeration, 'proxy-lease-limit-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper', 'ProxyLeaseLimit', '')])),
+                                ('proxy_lease_limit_count', (YLeaf(YType.uint32, 'proxy-lease-limit-count'), ['int'])),
+                                ('profile_helper_address', (YLeafList(YType.str, 'profile-helper-address'), ['str'])),
+                                ('vrf_name', (YLeafList(YType.str, 'vrf-name'), ['str'])),
+                                ('gi_addr', (YLeafList(YType.str, 'gi-addr'), ['str'])),
                             ])
                             self.profile_name = None
                             self.is_relay_option_enabled = None
@@ -3297,9 +3337,10 @@ class Ipv4Dhcpd(Entity):
                             self.interface_references.parent = self
                             self._children_name_map["interface_references"] = "interface-references"
                             self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile, ['profile_name', 'is_relay_option_enabled', 'relay_policy', 'relay_authenticate', 'is_relay_allow_untrusted_enabled', 'is_relay_optionvpn_enabled', 'relay_optionvpn_enabled_mode', 'is_relay_check', 'is_move_allowed', 'proxy_broadcast_flag_policy', 'proxy_profile_client_lease_time', 'proxy_lease_limit_type', 'proxy_lease_limit_count', 'profile_helper_address', 'vrf_name', 'gi_addr'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile, ['profile_name', u'is_relay_option_enabled', u'relay_policy', u'relay_authenticate', u'is_relay_allow_untrusted_enabled', u'is_relay_optionvpn_enabled', u'relay_optionvpn_enabled_mode', u'is_relay_check', u'is_move_allowed', u'proxy_broadcast_flag_policy', u'proxy_profile_client_lease_time', u'proxy_lease_limit_type', u'proxy_lease_limit_count', u'profile_helper_address', u'vrf_name', u'gi_addr'], name, value)
 
 
                         class VrfReferences(Entity):
@@ -3331,6 +3372,7 @@ class Ipv4Dhcpd(Entity):
 
                                 self.ipv4_dhcpd_proxy_vrf_reference = YList(self)
                                 self._segment_path = lambda: "vrf-references"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences, [], name, value)
@@ -3364,13 +3406,14 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('proxy_reference_vrf_name', YLeaf(YType.str, 'proxy-reference-vrf-name')),
+                                        ('proxy_reference_vrf_name', (YLeaf(YType.str, 'proxy-reference-vrf-name'), ['str'])),
                                     ])
                                     self.proxy_reference_vrf_name = None
                                     self._segment_path = lambda: "ipv4-dhcpd-proxy-vrf-reference"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference, ['proxy_reference_vrf_name'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.VrfReferences.Ipv4DhcpdProxyVrfReference, [u'proxy_reference_vrf_name'], name, value)
 
 
                         class InterfaceReferences(Entity):
@@ -3402,6 +3445,7 @@ class Ipv4Dhcpd(Entity):
 
                                 self.ipv4_dhcpd_proxy_interface_reference = YList(self)
                                 self._segment_path = lambda: "interface-references"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences, [], name, value)
@@ -3435,13 +3479,14 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('proxy_reference_interface_name', YLeaf(YType.str, 'proxy-reference-interface-name')),
+                                        ('proxy_reference_interface_name', (YLeaf(YType.str, 'proxy-reference-interface-name'), ['str'])),
                                     ])
                                     self.proxy_reference_interface_name = None
                                     self._segment_path = lambda: "ipv4-dhcpd-proxy-interface-reference"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference, ['proxy_reference_interface_name'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Profiles.Profile.InterfaceReferences.Ipv4DhcpdProxyInterfaceReference, [u'proxy_reference_interface_name'], name, value)
 
 
                 class Statistics(Entity):
@@ -3473,6 +3518,7 @@ class Ipv4Dhcpd(Entity):
 
                         self.ipv4_dhcpd_proxy_stat = YList(self)
                         self._segment_path = lambda: "statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics, [], name, value)
@@ -3511,7 +3557,7 @@ class Ipv4Dhcpd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("statistics", ("statistics", Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics_))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -3519,9 +3565,10 @@ class Ipv4Dhcpd(Entity):
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._segment_path = lambda: "ipv4-dhcpd-proxy-stat"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat, ['vrf_name'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat, [u'vrf_name'], name, value)
 
 
                         class Statistics_(Entity):
@@ -3566,17 +3613,18 @@ class Ipv4Dhcpd(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                    ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                    ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                    ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                    ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                 ])
                                 self.received_packets = None
                                 self.transmitted_packets = None
                                 self.dropped_packets = None
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Statistics.Ipv4DhcpdProxyStat.Statistics_, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                 class Binding(Entity):
@@ -3619,6 +3667,7 @@ class Ipv4Dhcpd(Entity):
                         self.summary.parent = self
                         self._children_name_map["summary"] = "summary"
                         self._segment_path = lambda: "binding"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding, [], name, value)
@@ -3653,6 +3702,7 @@ class Ipv4Dhcpd(Entity):
 
                             self.client = YList(self)
                             self._segment_path = lambda: "clients"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients, [], name, value)
@@ -3758,7 +3808,7 @@ class Ipv4Dhcpd(Entity):
                             	DHCP access interface to client
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: access_vrf_name
                             
@@ -3812,7 +3862,7 @@ class Ipv4Dhcpd(Entity):
                             	DHCP subscriber interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: rx_circuit_id
                             
@@ -3918,41 +3968,41 @@ class Ipv4Dhcpd(Entity):
                                 self.ylist_key_names = ['client_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('client_id', YLeaf(YType.str, 'client-id')),
-                                    ('client_id_xr', YLeaf(YType.str, 'client-id-xr')),
-                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                    ('server_vrf_name', YLeaf(YType.str, 'server-vrf-name')),
-                                    ('ip_address', YLeaf(YType.str, 'ip-address')),
-                                    ('client_gi_addr', YLeaf(YType.str, 'client-gi-addr')),
-                                    ('to_server_gi_addr', YLeaf(YType.str, 'to-server-gi-addr')),
-                                    ('server_ip_address', YLeaf(YType.str, 'server-ip-address')),
-                                    ('reply_server_ip_address', YLeaf(YType.str, 'reply-server-ip-address')),
-                                    ('lease_time', YLeaf(YType.uint32, 'lease-time')),
-                                    ('remaining_lease_time', YLeaf(YType.uint32, 'remaining-lease-time')),
-                                    ('state', YLeaf(YType.enumeration, 'state')),
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('access_vrf_name', YLeaf(YType.str, 'access-vrf-name')),
-                                    ('proxy_binding_outer_tag', YLeaf(YType.uint32, 'proxy-binding-outer-tag')),
-                                    ('proxy_binding_inner_tag', YLeaf(YType.uint32, 'proxy-binding-inner-tag')),
-                                    ('profile_name', YLeaf(YType.str, 'profile-name')),
-                                    ('is_nak_next_renew', YLeaf(YType.boolean, 'is-nak-next-renew')),
-                                    ('subscriber_label', YLeaf(YType.uint32, 'subscriber-label')),
-                                    ('old_subscriber_label', YLeaf(YType.uint32, 'old-subscriber-label')),
-                                    ('subscriber_interface_name', YLeaf(YType.str, 'subscriber-interface-name')),
-                                    ('rx_circuit_id', YLeaf(YType.str, 'rx-circuit-id')),
-                                    ('tx_circuit_id', YLeaf(YType.str, 'tx-circuit-id')),
-                                    ('rx_remote_id', YLeaf(YType.str, 'rx-remote-id')),
-                                    ('tx_remote_id', YLeaf(YType.str, 'tx-remote-id')),
-                                    ('rx_vsiso', YLeaf(YType.str, 'rx-vsiso')),
-                                    ('tx_vsiso', YLeaf(YType.str, 'tx-vsiso')),
-                                    ('is_auth_received', YLeaf(YType.boolean, 'is-auth-received')),
-                                    ('is_mbl_subscriber', YLeaf(YType.boolean, 'is-mbl-subscriber')),
-                                    ('param_request', YLeaf(YType.str, 'param-request')),
-                                    ('param_response', YLeaf(YType.str, 'param-response')),
-                                    ('session_start_time', YLeaf(YType.uint64, 'session-start-time')),
-                                    ('srg_state', YLeaf(YType.uint32, 'srg-state')),
-                                    ('event_history', YLeafList(YType.uint32, 'event-history')),
+                                    ('client_id', (YLeaf(YType.str, 'client-id'), ['str'])),
+                                    ('client_id_xr', (YLeaf(YType.str, 'client-id-xr'), ['str'])),
+                                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                    ('server_vrf_name', (YLeaf(YType.str, 'server-vrf-name'), ['str'])),
+                                    ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                                    ('client_gi_addr', (YLeaf(YType.str, 'client-gi-addr'), ['str'])),
+                                    ('to_server_gi_addr', (YLeaf(YType.str, 'to-server-gi-addr'), ['str'])),
+                                    ('server_ip_address', (YLeaf(YType.str, 'server-ip-address'), ['str'])),
+                                    ('reply_server_ip_address', (YLeaf(YType.str, 'reply-server-ip-address'), ['str'])),
+                                    ('lease_time', (YLeaf(YType.uint32, 'lease-time'), ['int'])),
+                                    ('remaining_lease_time', (YLeaf(YType.uint32, 'remaining-lease-time'), ['int'])),
+                                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper', 'BagDhcpdProxyState', '')])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('access_vrf_name', (YLeaf(YType.str, 'access-vrf-name'), ['str'])),
+                                    ('proxy_binding_outer_tag', (YLeaf(YType.uint32, 'proxy-binding-outer-tag'), ['int'])),
+                                    ('proxy_binding_inner_tag', (YLeaf(YType.uint32, 'proxy-binding-inner-tag'), ['int'])),
+                                    ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                    ('is_nak_next_renew', (YLeaf(YType.boolean, 'is-nak-next-renew'), ['bool'])),
+                                    ('subscriber_label', (YLeaf(YType.uint32, 'subscriber-label'), ['int'])),
+                                    ('old_subscriber_label', (YLeaf(YType.uint32, 'old-subscriber-label'), ['int'])),
+                                    ('subscriber_interface_name', (YLeaf(YType.str, 'subscriber-interface-name'), ['str'])),
+                                    ('rx_circuit_id', (YLeaf(YType.str, 'rx-circuit-id'), ['str'])),
+                                    ('tx_circuit_id', (YLeaf(YType.str, 'tx-circuit-id'), ['str'])),
+                                    ('rx_remote_id', (YLeaf(YType.str, 'rx-remote-id'), ['str'])),
+                                    ('tx_remote_id', (YLeaf(YType.str, 'tx-remote-id'), ['str'])),
+                                    ('rx_vsiso', (YLeaf(YType.str, 'rx-vsiso'), ['str'])),
+                                    ('tx_vsiso', (YLeaf(YType.str, 'tx-vsiso'), ['str'])),
+                                    ('is_auth_received', (YLeaf(YType.boolean, 'is-auth-received'), ['bool'])),
+                                    ('is_mbl_subscriber', (YLeaf(YType.boolean, 'is-mbl-subscriber'), ['bool'])),
+                                    ('param_request', (YLeaf(YType.str, 'param-request'), ['str'])),
+                                    ('param_response', (YLeaf(YType.str, 'param-response'), ['str'])),
+                                    ('session_start_time', (YLeaf(YType.uint64, 'session-start-time'), ['int'])),
+                                    ('srg_state', (YLeaf(YType.uint32, 'srg-state'), ['int'])),
+                                    ('event_history', (YLeafList(YType.uint32, 'event-history'), ['int'])),
                                 ])
                                 self.client_id = None
                                 self.client_id_xr = None
@@ -3990,9 +4040,10 @@ class Ipv4Dhcpd(Entity):
                                 self.srg_state = None
                                 self.event_history = []
                                 self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', 'client_id_xr', 'mac_address', 'vrf_name', 'server_vrf_name', 'ip_address', 'client_gi_addr', 'to_server_gi_addr', 'server_ip_address', 'reply_server_ip_address', 'lease_time', 'remaining_lease_time', 'state', 'interface_name', 'access_vrf_name', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'profile_name', 'is_nak_next_renew', 'subscriber_label', 'old_subscriber_label', 'subscriber_interface_name', 'rx_circuit_id', 'tx_circuit_id', 'rx_remote_id', 'tx_remote_id', 'rx_vsiso', 'tx_vsiso', 'is_auth_received', 'is_mbl_subscriber', 'param_request', 'param_response', 'session_start_time', 'srg_state', 'event_history'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Clients.Client, ['client_id', u'client_id_xr', u'mac_address', u'vrf_name', u'server_vrf_name', u'ip_address', u'client_gi_addr', u'to_server_gi_addr', u'server_ip_address', u'reply_server_ip_address', u'lease_time', u'remaining_lease_time', u'state', u'interface_name', u'access_vrf_name', u'proxy_binding_outer_tag', u'proxy_binding_inner_tag', u'profile_name', u'is_nak_next_renew', u'subscriber_label', u'old_subscriber_label', u'subscriber_interface_name', u'rx_circuit_id', u'tx_circuit_id', u'rx_remote_id', u'tx_remote_id', u'rx_vsiso', u'tx_vsiso', u'is_auth_received', u'is_mbl_subscriber', u'param_request', u'param_response', u'session_start_time', u'srg_state', u'event_history'], name, value)
 
 
                     class Summary(Entity):
@@ -4149,25 +4200,25 @@ class Ipv4Dhcpd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('clients', YLeaf(YType.uint32, 'clients')),
-                                ('initializing_clients', YLeaf(YType.uint32, 'initializing-clients')),
-                                ('waiting_for_dpm_init', YLeaf(YType.uint32, 'waiting-for-dpm-init')),
-                                ('waiting_for_dpm_request', YLeaf(YType.uint32, 'waiting-for-dpm-request')),
-                                ('waiting_for_daps_init', YLeaf(YType.uint32, 'waiting-for-daps-init')),
-                                ('selecting_clients', YLeaf(YType.uint32, 'selecting-clients')),
-                                ('offer_sent_for_client', YLeaf(YType.uint32, 'offer-sent-for-client')),
-                                ('requesting_clients', YLeaf(YType.uint32, 'requesting-clients')),
-                                ('request_waiting_for_dpm', YLeaf(YType.uint32, 'request-waiting-for-dpm')),
-                                ('ack_waiting_for_dpm', YLeaf(YType.uint32, 'ack-waiting-for-dpm')),
-                                ('bound_clients', YLeaf(YType.uint32, 'bound-clients')),
-                                ('renewing_clients', YLeaf(YType.uint32, 'renewing-clients')),
-                                ('informing_clients', YLeaf(YType.uint32, 'informing-clients')),
-                                ('reauthorizing_clients', YLeaf(YType.uint32, 'reauthorizing-clients')),
-                                ('waiting_for_dpm_disconnect', YLeaf(YType.uint32, 'waiting-for-dpm-disconnect')),
-                                ('waiting_for_dpm_addr_change', YLeaf(YType.uint32, 'waiting-for-dpm-addr-change')),
-                                ('deleting_clients_d', YLeaf(YType.uint32, 'deleting-clients-d')),
-                                ('disconnected_clients', YLeaf(YType.uint32, 'disconnected-clients')),
-                                ('restarting_clients', YLeaf(YType.uint32, 'restarting-clients')),
+                                ('clients', (YLeaf(YType.uint32, 'clients'), ['int'])),
+                                ('initializing_clients', (YLeaf(YType.uint32, 'initializing-clients'), ['int'])),
+                                ('waiting_for_dpm_init', (YLeaf(YType.uint32, 'waiting-for-dpm-init'), ['int'])),
+                                ('waiting_for_dpm_request', (YLeaf(YType.uint32, 'waiting-for-dpm-request'), ['int'])),
+                                ('waiting_for_daps_init', (YLeaf(YType.uint32, 'waiting-for-daps-init'), ['int'])),
+                                ('selecting_clients', (YLeaf(YType.uint32, 'selecting-clients'), ['int'])),
+                                ('offer_sent_for_client', (YLeaf(YType.uint32, 'offer-sent-for-client'), ['int'])),
+                                ('requesting_clients', (YLeaf(YType.uint32, 'requesting-clients'), ['int'])),
+                                ('request_waiting_for_dpm', (YLeaf(YType.uint32, 'request-waiting-for-dpm'), ['int'])),
+                                ('ack_waiting_for_dpm', (YLeaf(YType.uint32, 'ack-waiting-for-dpm'), ['int'])),
+                                ('bound_clients', (YLeaf(YType.uint32, 'bound-clients'), ['int'])),
+                                ('renewing_clients', (YLeaf(YType.uint32, 'renewing-clients'), ['int'])),
+                                ('informing_clients', (YLeaf(YType.uint32, 'informing-clients'), ['int'])),
+                                ('reauthorizing_clients', (YLeaf(YType.uint32, 'reauthorizing-clients'), ['int'])),
+                                ('waiting_for_dpm_disconnect', (YLeaf(YType.uint32, 'waiting-for-dpm-disconnect'), ['int'])),
+                                ('waiting_for_dpm_addr_change', (YLeaf(YType.uint32, 'waiting-for-dpm-addr-change'), ['int'])),
+                                ('deleting_clients_d', (YLeaf(YType.uint32, 'deleting-clients-d'), ['int'])),
+                                ('disconnected_clients', (YLeaf(YType.uint32, 'disconnected-clients'), ['int'])),
+                                ('restarting_clients', (YLeaf(YType.uint32, 'restarting-clients'), ['int'])),
                             ])
                             self.clients = None
                             self.initializing_clients = None
@@ -4189,9 +4240,10 @@ class Ipv4Dhcpd(Entity):
                             self.disconnected_clients = None
                             self.restarting_clients = None
                             self._segment_path = lambda: "summary"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Summary, ['clients', 'initializing_clients', 'waiting_for_dpm_init', 'waiting_for_dpm_request', 'waiting_for_daps_init', 'selecting_clients', 'offer_sent_for_client', 'requesting_clients', 'request_waiting_for_dpm', 'ack_waiting_for_dpm', 'bound_clients', 'renewing_clients', 'informing_clients', 'reauthorizing_clients', 'waiting_for_dpm_disconnect', 'waiting_for_dpm_addr_change', 'deleting_clients_d', 'disconnected_clients', 'restarting_clients'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Proxy.Binding.Summary, [u'clients', u'initializing_clients', u'waiting_for_dpm_init', u'waiting_for_dpm_request', u'waiting_for_daps_init', u'selecting_clients', u'offer_sent_for_client', u'requesting_clients', u'request_waiting_for_dpm', u'ack_waiting_for_dpm', u'bound_clients', u'renewing_clients', u'informing_clients', u'reauthorizing_clients', u'waiting_for_dpm_disconnect', u'waiting_for_dpm_addr_change', u'deleting_clients_d', u'disconnected_clients', u'restarting_clients'], name, value)
 
 
             class Interfaces(Entity):
@@ -4223,6 +4275,7 @@ class Ipv4Dhcpd(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Interfaces, [], name, value)
@@ -4315,16 +4368,16 @@ class Ipv4Dhcpd(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('intf_ifhandle', YLeaf(YType.uint32, 'intf-ifhandle')),
-                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                            ('intf_mode', YLeaf(YType.uint32, 'intf-mode')),
-                            ('intf_is_ambiguous', YLeaf(YType.uint32, 'intf-is-ambiguous')),
-                            ('intf_profile_name', YLeaf(YType.str, 'intf-profile-name')),
-                            ('intf_lease_limit_type', YLeaf(YType.uint32, 'intf-lease-limit-type')),
-                            ('intf_lease_limit_count', YLeaf(YType.uint32, 'intf-lease-limit-count')),
-                            ('srg_role', YLeaf(YType.enumeration, 'srg-role')),
-                            ('mac_throttle', YLeaf(YType.boolean, 'mac-throttle')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('intf_ifhandle', (YLeaf(YType.uint32, 'intf-ifhandle'), ['int'])),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                            ('intf_mode', (YLeaf(YType.uint32, 'intf-mode'), ['int'])),
+                            ('intf_is_ambiguous', (YLeaf(YType.uint32, 'intf-is-ambiguous'), ['int'])),
+                            ('intf_profile_name', (YLeaf(YType.str, 'intf-profile-name'), ['str'])),
+                            ('intf_lease_limit_type', (YLeaf(YType.uint32, 'intf-lease-limit-type'), ['int'])),
+                            ('intf_lease_limit_count', (YLeaf(YType.uint32, 'intf-lease-limit-count'), ['int'])),
+                            ('srg_role', (YLeaf(YType.enumeration, 'srg-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper', 'BagDhcpdIntfSrgRole', '')])),
+                            ('mac_throttle', (YLeaf(YType.boolean, 'mac-throttle'), ['bool'])),
                         ])
                         self.interface_name = None
                         self.intf_ifhandle = None
@@ -4337,9 +4390,10 @@ class Ipv4Dhcpd(Entity):
                         self.srg_role = None
                         self.mac_throttle = None
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Interfaces.Interface, ['interface_name', 'intf_ifhandle', 'vrf_name', 'intf_mode', 'intf_is_ambiguous', 'intf_profile_name', 'intf_lease_limit_type', 'intf_lease_limit_count', 'srg_role', 'mac_throttle'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Interfaces.Interface, ['interface_name', u'intf_ifhandle', u'vrf_name', u'intf_mode', u'intf_is_ambiguous', u'intf_profile_name', u'intf_lease_limit_type', u'intf_lease_limit_count', u'srg_role', u'mac_throttle'], name, value)
 
 
             class Base(Entity):
@@ -4409,6 +4463,7 @@ class Ipv4Dhcpd(Entity):
                     self.database.parent = self
                     self._children_name_map["database"] = "database"
                     self._segment_path = lambda: "base"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base, [], name, value)
@@ -4443,6 +4498,7 @@ class Ipv4Dhcpd(Entity):
 
                         self.ipv4_dhcpd_proxy_stat = YList(self)
                         self._segment_path = lambda: "statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics, [], name, value)
@@ -4481,7 +4537,7 @@ class Ipv4Dhcpd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("statistics", ("statistics", Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics_))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -4489,9 +4545,10 @@ class Ipv4Dhcpd(Entity):
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._segment_path = lambda: "ipv4-dhcpd-proxy-stat"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat, ['vrf_name'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat, [u'vrf_name'], name, value)
 
 
                         class Statistics_(Entity):
@@ -4536,17 +4593,18 @@ class Ipv4Dhcpd(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                    ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                    ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                    ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                    ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                 ])
                                 self.received_packets = None
                                 self.transmitted_packets = None
                                 self.dropped_packets = None
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Statistics.Ipv4DhcpdProxyStat.Statistics_, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                 class IssuStatus(Entity):
@@ -4640,16 +4698,16 @@ class Ipv4Dhcpd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('issu_sync_complete_time', YLeaf(YType.uint64, 'issu-sync-complete-time')),
-                            ('issu_sync_start_time', YLeaf(YType.uint64, 'issu-sync-start-time')),
-                            ('issu_ready_time', YLeaf(YType.uint64, 'issu-ready-time')),
-                            ('big_bang_time', YLeaf(YType.uint64, 'big-bang-time')),
-                            ('primary_role_time', YLeaf(YType.uint64, 'primary-role-time')),
-                            ('role', YLeaf(YType.enumeration, 'role')),
-                            ('phase', YLeaf(YType.enumeration, 'phase')),
-                            ('version', YLeaf(YType.enumeration, 'version')),
-                            ('issu_ready_issu_mgr_connection', YLeaf(YType.boolean, 'issu-ready-issu-mgr-connection')),
-                            ('issu_ready_entries_replicate', YLeaf(YType.boolean, 'issu-ready-entries-replicate')),
+                            ('issu_sync_complete_time', (YLeaf(YType.uint64, 'issu-sync-complete-time'), ['int'])),
+                            ('issu_sync_start_time', (YLeaf(YType.uint64, 'issu-sync-start-time'), ['int'])),
+                            ('issu_ready_time', (YLeaf(YType.uint64, 'issu-ready-time'), ['int'])),
+                            ('big_bang_time', (YLeaf(YType.uint64, 'big-bang-time'), ['int'])),
+                            ('primary_role_time', (YLeaf(YType.uint64, 'primary-role-time'), ['int'])),
+                            ('role', (YLeaf(YType.enumeration, 'role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper', 'DhcpIssuRole', '')])),
+                            ('phase', (YLeaf(YType.enumeration, 'phase'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper', 'DhcpIssuPhase', '')])),
+                            ('version', (YLeaf(YType.enumeration, 'version'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper', 'DhcpIssuVersion', '')])),
+                            ('issu_ready_issu_mgr_connection', (YLeaf(YType.boolean, 'issu-ready-issu-mgr-connection'), ['bool'])),
+                            ('issu_ready_entries_replicate', (YLeaf(YType.boolean, 'issu-ready-entries-replicate'), ['bool'])),
                         ])
                         self.issu_sync_complete_time = None
                         self.issu_sync_start_time = None
@@ -4662,9 +4720,10 @@ class Ipv4Dhcpd(Entity):
                         self.issu_ready_issu_mgr_connection = None
                         self.issu_ready_entries_replicate = None
                         self._segment_path = lambda: "issu-status"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.IssuStatus, ['issu_sync_complete_time', 'issu_sync_start_time', 'issu_ready_time', 'big_bang_time', 'primary_role_time', 'role', 'phase', 'version', 'issu_ready_issu_mgr_connection', 'issu_ready_entries_replicate'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.IssuStatus, [u'issu_sync_complete_time', u'issu_sync_start_time', u'issu_ready_time', u'big_bang_time', u'primary_role_time', u'role', u'phase', u'version', u'issu_ready_issu_mgr_connection', u'issu_ready_entries_replicate'], name, value)
 
 
                 class Vrfs(Entity):
@@ -4696,6 +4755,7 @@ class Ipv4Dhcpd(Entity):
 
                         self.vrf = YList(self)
                         self._segment_path = lambda: "vrfs"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs, [], name, value)
@@ -4734,7 +4794,7 @@ class Ipv4Dhcpd(Entity):
                             self.ylist_key_names = ['vrf_name']
                             self._child_classes = OrderedDict([("statistics", ("statistics", Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -4742,6 +4802,7 @@ class Ipv4Dhcpd(Entity):
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -4895,6 +4956,7 @@ class Ipv4Dhcpd(Entity):
                                 self.bootp_reply.parent = self
                                 self._children_name_map["bootp_reply"] = "bootp-reply"
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics, [], name, value)
@@ -4942,17 +5004,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "discover"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Discover, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Offer(Entity):
@@ -4997,17 +5060,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "offer"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Offer, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Request(Entity):
@@ -5052,17 +5116,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "request"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Request, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Decline(Entity):
@@ -5107,17 +5172,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "decline"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Decline, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Ack(Entity):
@@ -5162,17 +5228,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "ack"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Ack, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Nak(Entity):
@@ -5217,17 +5284,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "nak"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Nak, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Release(Entity):
@@ -5272,17 +5340,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "release"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Release, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Inform(Entity):
@@ -5327,17 +5396,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "inform"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.Inform, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseQuery(Entity):
@@ -5382,17 +5452,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseQuery, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseNotAssigned(Entity):
@@ -5437,17 +5508,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-not-assigned"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseNotAssigned, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseUnknown(Entity):
@@ -5492,17 +5564,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-unknown"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseUnknown, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseActive(Entity):
@@ -5547,17 +5620,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-active"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.LeaseActive, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class BootpRequest(Entity):
@@ -5602,17 +5676,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "bootp-request"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpRequest, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class BootpReply(Entity):
@@ -5657,17 +5732,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "bootp-reply"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Vrfs.Vrf.Statistics.BootpReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                 class Profiles(Entity):
@@ -5699,6 +5775,7 @@ class Ipv4Dhcpd(Entity):
 
                         self.profile = YList(self)
                         self._segment_path = lambda: "profiles"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles, [], name, value)
@@ -5782,13 +5859,13 @@ class Ipv4Dhcpd(Entity):
                             self.ylist_key_names = ['profile_name']
                             self._child_classes = OrderedDict([("interface-references", ("interface_references", Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences)), ("child-profile-info", ("child_profile_info", Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo))])
                             self._leafs = OrderedDict([
-                                ('profile_name', YLeaf(YType.str, 'profile-name')),
-                                ('base_default_profile_name', YLeaf(YType.str, 'base-default-profile-name')),
-                                ('default_profile_mode', YLeaf(YType.uint8, 'default-profile-mode')),
-                                ('relay_authenticate', YLeaf(YType.enumeration, 'relay-authenticate')),
-                                ('remote_id', YLeaf(YType.str, 'remote-id')),
-                                ('child_profile_count', YLeaf(YType.uint8, 'child-profile-count')),
-                                ('intf_ref_count', YLeaf(YType.uint8, 'intf-ref-count')),
+                                ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                ('base_default_profile_name', (YLeaf(YType.str, 'base-default-profile-name'), ['str'])),
+                                ('default_profile_mode', (YLeaf(YType.uint8, 'default-profile-mode'), ['int'])),
+                                ('relay_authenticate', (YLeaf(YType.enumeration, 'relay-authenticate'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper', 'RelayInfoAuthenticate', '')])),
+                                ('remote_id', (YLeaf(YType.str, 'remote-id'), ['str'])),
+                                ('child_profile_count', (YLeaf(YType.uint8, 'child-profile-count'), ['int'])),
+                                ('intf_ref_count', (YLeaf(YType.uint8, 'intf-ref-count'), ['int'])),
                             ])
                             self.profile_name = None
                             self.base_default_profile_name = None
@@ -5806,9 +5883,10 @@ class Ipv4Dhcpd(Entity):
                             self.child_profile_info.parent = self
                             self._children_name_map["child_profile_info"] = "child-profile-info"
                             self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile, ['profile_name', 'base_default_profile_name', 'default_profile_mode', 'relay_authenticate', 'remote_id', 'child_profile_count', 'intf_ref_count'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile, ['profile_name', u'base_default_profile_name', u'default_profile_mode', u'relay_authenticate', u'remote_id', u'child_profile_count', u'intf_ref_count'], name, value)
 
 
                         class InterfaceReferences(Entity):
@@ -5840,6 +5918,7 @@ class Ipv4Dhcpd(Entity):
 
                                 self.ipv4_dhcpd_base_interface_reference = YList(self)
                                 self._segment_path = lambda: "interface-references"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences, [], name, value)
@@ -5873,13 +5952,14 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('base_reference_interface_name', YLeaf(YType.str, 'base-reference-interface-name')),
+                                        ('base_reference_interface_name', (YLeaf(YType.str, 'base-reference-interface-name'), ['str'])),
                                     ])
                                     self.base_reference_interface_name = None
                                     self._segment_path = lambda: "ipv4-dhcpd-base-interface-reference"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference, ['base_reference_interface_name'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.InterfaceReferences.Ipv4DhcpdBaseInterfaceReference, [u'base_reference_interface_name'], name, value)
 
 
                         class ChildProfileInfo(Entity):
@@ -5911,6 +5991,7 @@ class Ipv4Dhcpd(Entity):
 
                                 self.ipv4_dhcpd_base_child_profile_info = YList(self)
                                 self._segment_path = lambda: "child-profile-info"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo, [], name, value)
@@ -5972,11 +6053,11 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('base_child_profile_name', YLeaf(YType.str, 'base-child-profile-name')),
-                                        ('mode', YLeaf(YType.uint8, 'mode')),
-                                        ('matched_option_code', YLeaf(YType.uint8, 'matched-option-code')),
-                                        ('matched_option_len', YLeaf(YType.uint8, 'matched-option-len')),
-                                        ('option_data', YLeaf(YType.str, 'option-data')),
+                                        ('base_child_profile_name', (YLeaf(YType.str, 'base-child-profile-name'), ['str'])),
+                                        ('mode', (YLeaf(YType.uint8, 'mode'), ['int'])),
+                                        ('matched_option_code', (YLeaf(YType.uint8, 'matched-option-code'), ['int'])),
+                                        ('matched_option_len', (YLeaf(YType.uint8, 'matched-option-len'), ['int'])),
+                                        ('option_data', (YLeaf(YType.str, 'option-data'), ['str'])),
                                     ])
                                     self.base_child_profile_name = None
                                     self.mode = None
@@ -5984,9 +6065,10 @@ class Ipv4Dhcpd(Entity):
                                     self.matched_option_len = None
                                     self.option_data = None
                                     self._segment_path = lambda: "ipv4-dhcpd-base-child-profile-info"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo, ['base_child_profile_name', 'mode', 'matched_option_code', 'matched_option_len', 'option_data'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Profiles.Profile.ChildProfileInfo.Ipv4DhcpdBaseChildProfileInfo, [u'base_child_profile_name', u'mode', u'matched_option_code', u'matched_option_len', u'option_data'], name, value)
 
 
                 class Database(Entity):
@@ -6124,22 +6206,22 @@ class Ipv4Dhcpd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('configured', YLeaf(YType.boolean, 'configured')),
-                            ('version', YLeaf(YType.uint32, 'version')),
-                            ('full_file_write_interval', YLeaf(YType.uint32, 'full-file-write-interval')),
-                            ('last_full_write_file_name', YLeaf(YType.str, 'last-full-write-file-name')),
-                            ('last_full_write_time', YLeaf(YType.uint32, 'last-full-write-time')),
-                            ('full_file_write_count', YLeaf(YType.uint32, 'full-file-write-count')),
-                            ('failed_full_file_write_count', YLeaf(YType.uint32, 'failed-full-file-write-count')),
-                            ('full_file_record_count', YLeaf(YType.uint32, 'full-file-record-count')),
-                            ('last_full_file_write_error_timestamp', YLeaf(YType.uint32, 'last-full-file-write-error-timestamp')),
-                            ('incremental_file_write_interval', YLeaf(YType.uint32, 'incremental-file-write-interval')),
-                            ('last_incremental_write_file_name', YLeaf(YType.str, 'last-incremental-write-file-name')),
-                            ('last_incremental_write_time', YLeaf(YType.uint32, 'last-incremental-write-time')),
-                            ('incremental_file_write_count', YLeaf(YType.uint32, 'incremental-file-write-count')),
-                            ('failed_incremental_file_write_count', YLeaf(YType.uint32, 'failed-incremental-file-write-count')),
-                            ('incremental_file_record_count', YLeaf(YType.uint32, 'incremental-file-record-count')),
-                            ('last_incremental_file_write_error_timestamp', YLeaf(YType.uint32, 'last-incremental-file-write-error-timestamp')),
+                            ('configured', (YLeaf(YType.boolean, 'configured'), ['bool'])),
+                            ('version', (YLeaf(YType.uint32, 'version'), ['int'])),
+                            ('full_file_write_interval', (YLeaf(YType.uint32, 'full-file-write-interval'), ['int'])),
+                            ('last_full_write_file_name', (YLeaf(YType.str, 'last-full-write-file-name'), ['str'])),
+                            ('last_full_write_time', (YLeaf(YType.uint32, 'last-full-write-time'), ['int'])),
+                            ('full_file_write_count', (YLeaf(YType.uint32, 'full-file-write-count'), ['int'])),
+                            ('failed_full_file_write_count', (YLeaf(YType.uint32, 'failed-full-file-write-count'), ['int'])),
+                            ('full_file_record_count', (YLeaf(YType.uint32, 'full-file-record-count'), ['int'])),
+                            ('last_full_file_write_error_timestamp', (YLeaf(YType.uint32, 'last-full-file-write-error-timestamp'), ['int'])),
+                            ('incremental_file_write_interval', (YLeaf(YType.uint32, 'incremental-file-write-interval'), ['int'])),
+                            ('last_incremental_write_file_name', (YLeaf(YType.str, 'last-incremental-write-file-name'), ['str'])),
+                            ('last_incremental_write_time', (YLeaf(YType.uint32, 'last-incremental-write-time'), ['int'])),
+                            ('incremental_file_write_count', (YLeaf(YType.uint32, 'incremental-file-write-count'), ['int'])),
+                            ('failed_incremental_file_write_count', (YLeaf(YType.uint32, 'failed-incremental-file-write-count'), ['int'])),
+                            ('incremental_file_record_count', (YLeaf(YType.uint32, 'incremental-file-record-count'), ['int'])),
+                            ('last_incremental_file_write_error_timestamp', (YLeaf(YType.uint32, 'last-incremental-file-write-error-timestamp'), ['int'])),
                         ])
                         self.configured = None
                         self.version = None
@@ -6158,9 +6240,10 @@ class Ipv4Dhcpd(Entity):
                         self.incremental_file_record_count = None
                         self.last_incremental_file_write_error_timestamp = None
                         self._segment_path = lambda: "database"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Database, ['configured', 'version', 'full_file_write_interval', 'last_full_write_file_name', 'last_full_write_time', 'full_file_write_count', 'failed_full_file_write_count', 'full_file_record_count', 'last_full_file_write_error_timestamp', 'incremental_file_write_interval', 'last_incremental_write_file_name', 'last_incremental_write_time', 'incremental_file_write_count', 'failed_incremental_file_write_count', 'incremental_file_record_count', 'last_incremental_file_write_error_timestamp'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Base.Database, [u'configured', u'version', u'full_file_write_interval', u'last_full_write_file_name', u'last_full_write_time', u'full_file_write_count', u'failed_full_file_write_count', u'full_file_record_count', u'last_full_file_write_error_timestamp', u'incremental_file_write_interval', u'last_incremental_write_file_name', u'last_incremental_write_time', u'incremental_file_write_count', u'failed_incremental_file_write_count', u'incremental_file_record_count', u'last_incremental_file_write_error_timestamp'], name, value)
 
 
             class Server(Entity):
@@ -6230,6 +6313,7 @@ class Ipv4Dhcpd(Entity):
                     self.vrfs.parent = self
                     self._children_name_map["vrfs"] = "vrfs"
                     self._segment_path = lambda: "server"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server, [], name, value)
@@ -6264,6 +6348,7 @@ class Ipv4Dhcpd(Entity):
 
                         self.profile = YList(self)
                         self._segment_path = lambda: "profiles"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Profiles, [], name, value)
@@ -6467,33 +6552,33 @@ class Ipv4Dhcpd(Entity):
                             self.ylist_key_names = ['server_profile_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('server_profile_name', YLeaf(YType.str, 'server-profile-name')),
-                                ('server_profile_name_xr', YLeaf(YType.str, 'server-profile-name-xr')),
-                                ('secure_arp', YLeaf(YType.boolean, 'secure-arp')),
-                                ('requested_address_check', YLeaf(YType.boolean, 'requested-address-check')),
-                                ('server_id_check', YLeaf(YType.boolean, 'server-id-check')),
-                                ('duplicate_mac_address_check', YLeaf(YType.boolean, 'duplicate-mac-address-check')),
-                                ('duplicate_ip_address_check', YLeaf(YType.boolean, 'duplicate-ip-address-check')),
-                                ('is_move_allowed', YLeaf(YType.boolean, 'is-move-allowed')),
-                                ('bcast_policy', YLeaf(YType.uint8, 'bcast-policy')),
-                                ('giaddr_policy', YLeaf(YType.uint8, 'giaddr-policy')),
-                                ('subnet_mask', YLeaf(YType.str, 'subnet-mask')),
-                                ('server_pool_name', YLeaf(YType.str, 'server-pool-name')),
-                                ('server_profile_lease', YLeaf(YType.uint32, 'server-profile-lease')),
-                                ('server_profile_netbios_node_type', YLeaf(YType.uint8, 'server-profile-netbios-node-type')),
-                                ('server_bootfile_name', YLeaf(YType.str, 'server-bootfile-name')),
-                                ('server_domain_name', YLeaf(YType.str, 'server-domain-name')),
-                                ('server_profileiedge_check', YLeaf(YType.uint8, 'server-profileiedge-check')),
-                                ('server_profile_server_dns_count', YLeaf(YType.uint8, 'server-profile-server-dns-count')),
-                                ('server_profiledefault_router_count', YLeaf(YType.uint8, 'server-profiledefault-router-count')),
-                                ('server_profile_netbios_name_svr_count', YLeaf(YType.uint8, 'server-profile-netbios-name-svr-count')),
-                                ('server_profile_time_svr_count', YLeaf(YType.uint8, 'server-profile-time-svr-count')),
-                                ('lease_limit_type', YLeaf(YType.uint8, 'lease-limit-type')),
-                                ('lease_limit_count', YLeaf(YType.uint32, 'lease-limit-count')),
-                                ('server_profile_dns', YLeafList(YType.str, 'server-profile-dns')),
-                                ('server_profile_default_router', YLeafList(YType.str, 'server-profile-default-router')),
-                                ('server_profile_netbious_name_server', YLeafList(YType.str, 'server-profile-netbious-name-server')),
-                                ('server_profile_time_server', YLeafList(YType.str, 'server-profile-time-server')),
+                                ('server_profile_name', (YLeaf(YType.str, 'server-profile-name'), ['str'])),
+                                ('server_profile_name_xr', (YLeaf(YType.str, 'server-profile-name-xr'), ['str'])),
+                                ('secure_arp', (YLeaf(YType.boolean, 'secure-arp'), ['bool'])),
+                                ('requested_address_check', (YLeaf(YType.boolean, 'requested-address-check'), ['bool'])),
+                                ('server_id_check', (YLeaf(YType.boolean, 'server-id-check'), ['bool'])),
+                                ('duplicate_mac_address_check', (YLeaf(YType.boolean, 'duplicate-mac-address-check'), ['bool'])),
+                                ('duplicate_ip_address_check', (YLeaf(YType.boolean, 'duplicate-ip-address-check'), ['bool'])),
+                                ('is_move_allowed', (YLeaf(YType.boolean, 'is-move-allowed'), ['bool'])),
+                                ('bcast_policy', (YLeaf(YType.uint8, 'bcast-policy'), ['int'])),
+                                ('giaddr_policy', (YLeaf(YType.uint8, 'giaddr-policy'), ['int'])),
+                                ('subnet_mask', (YLeaf(YType.str, 'subnet-mask'), ['str'])),
+                                ('server_pool_name', (YLeaf(YType.str, 'server-pool-name'), ['str'])),
+                                ('server_profile_lease', (YLeaf(YType.uint32, 'server-profile-lease'), ['int'])),
+                                ('server_profile_netbios_node_type', (YLeaf(YType.uint8, 'server-profile-netbios-node-type'), ['int'])),
+                                ('server_bootfile_name', (YLeaf(YType.str, 'server-bootfile-name'), ['str'])),
+                                ('server_domain_name', (YLeaf(YType.str, 'server-domain-name'), ['str'])),
+                                ('server_profileiedge_check', (YLeaf(YType.uint8, 'server-profileiedge-check'), ['int'])),
+                                ('server_profile_server_dns_count', (YLeaf(YType.uint8, 'server-profile-server-dns-count'), ['int'])),
+                                ('server_profiledefault_router_count', (YLeaf(YType.uint8, 'server-profiledefault-router-count'), ['int'])),
+                                ('server_profile_netbios_name_svr_count', (YLeaf(YType.uint8, 'server-profile-netbios-name-svr-count'), ['int'])),
+                                ('server_profile_time_svr_count', (YLeaf(YType.uint8, 'server-profile-time-svr-count'), ['int'])),
+                                ('lease_limit_type', (YLeaf(YType.uint8, 'lease-limit-type'), ['int'])),
+                                ('lease_limit_count', (YLeaf(YType.uint32, 'lease-limit-count'), ['int'])),
+                                ('server_profile_dns', (YLeafList(YType.str, 'server-profile-dns'), ['str'])),
+                                ('server_profile_default_router', (YLeafList(YType.str, 'server-profile-default-router'), ['str'])),
+                                ('server_profile_netbious_name_server', (YLeafList(YType.str, 'server-profile-netbious-name-server'), ['str'])),
+                                ('server_profile_time_server', (YLeafList(YType.str, 'server-profile-time-server'), ['str'])),
                             ])
                             self.server_profile_name = None
                             self.server_profile_name_xr = None
@@ -6523,9 +6608,10 @@ class Ipv4Dhcpd(Entity):
                             self.server_profile_netbious_name_server = []
                             self.server_profile_time_server = []
                             self._segment_path = lambda: "profile" + "[server-profile-name='" + str(self.server_profile_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Profiles.Profile, ['server_profile_name', 'server_profile_name_xr', 'secure_arp', 'requested_address_check', 'server_id_check', 'duplicate_mac_address_check', 'duplicate_ip_address_check', 'is_move_allowed', 'bcast_policy', 'giaddr_policy', 'subnet_mask', 'server_pool_name', 'server_profile_lease', 'server_profile_netbios_node_type', 'server_bootfile_name', 'server_domain_name', 'server_profileiedge_check', 'server_profile_server_dns_count', 'server_profiledefault_router_count', 'server_profile_netbios_name_svr_count', 'server_profile_time_svr_count', 'lease_limit_type', 'lease_limit_count', 'server_profile_dns', 'server_profile_default_router', 'server_profile_netbious_name_server', 'server_profile_time_server'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Profiles.Profile, ['server_profile_name', u'server_profile_name_xr', u'secure_arp', u'requested_address_check', u'server_id_check', u'duplicate_mac_address_check', u'duplicate_ip_address_check', u'is_move_allowed', u'bcast_policy', u'giaddr_policy', u'subnet_mask', u'server_pool_name', u'server_profile_lease', u'server_profile_netbios_node_type', u'server_bootfile_name', u'server_domain_name', u'server_profileiedge_check', u'server_profile_server_dns_count', u'server_profiledefault_router_count', u'server_profile_netbios_name_svr_count', u'server_profile_time_svr_count', u'lease_limit_type', u'lease_limit_count', u'server_profile_dns', u'server_profile_default_router', u'server_profile_netbious_name_server', u'server_profile_time_server'], name, value)
 
 
                 class Statistics(Entity):
@@ -6557,6 +6643,7 @@ class Ipv4Dhcpd(Entity):
 
                         self.ipv4_dhcpd_proxy_stat = YList(self)
                         self._segment_path = lambda: "statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Statistics, [], name, value)
@@ -6595,7 +6682,7 @@ class Ipv4Dhcpd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("statistics", ("statistics", Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics_))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -6603,9 +6690,10 @@ class Ipv4Dhcpd(Entity):
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._segment_path = lambda: "ipv4-dhcpd-proxy-stat"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat, ['vrf_name'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat, [u'vrf_name'], name, value)
 
 
                         class Statistics_(Entity):
@@ -6650,17 +6738,18 @@ class Ipv4Dhcpd(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                    ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                    ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                    ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                    ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                 ])
                                 self.received_packets = None
                                 self.transmitted_packets = None
                                 self.dropped_packets = None
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Statistics.Ipv4DhcpdProxyStat.Statistics_, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                 class Binding(Entity):
@@ -6703,6 +6792,7 @@ class Ipv4Dhcpd(Entity):
                         self.clients.parent = self
                         self._children_name_map["clients"] = "clients"
                         self._segment_path = lambda: "binding"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding, [], name, value)
@@ -6862,25 +6952,25 @@ class Ipv4Dhcpd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('clients', YLeaf(YType.uint32, 'clients')),
-                                ('initializing_clients', YLeaf(YType.uint32, 'initializing-clients')),
-                                ('waiting_for_dpm_init', YLeaf(YType.uint32, 'waiting-for-dpm-init')),
-                                ('waiting_for_dpm_request', YLeaf(YType.uint32, 'waiting-for-dpm-request')),
-                                ('waiting_for_daps_init', YLeaf(YType.uint32, 'waiting-for-daps-init')),
-                                ('selecting_clients', YLeaf(YType.uint32, 'selecting-clients')),
-                                ('offer_sent_for_client', YLeaf(YType.uint32, 'offer-sent-for-client')),
-                                ('requesting_clients', YLeaf(YType.uint32, 'requesting-clients')),
-                                ('request_waiting_for_dpm', YLeaf(YType.uint32, 'request-waiting-for-dpm')),
-                                ('ack_waiting_for_dpm', YLeaf(YType.uint32, 'ack-waiting-for-dpm')),
-                                ('bound_clients', YLeaf(YType.uint32, 'bound-clients')),
-                                ('renewing_clients', YLeaf(YType.uint32, 'renewing-clients')),
-                                ('informing_clients', YLeaf(YType.uint32, 'informing-clients')),
-                                ('reauthorizing_clients', YLeaf(YType.uint32, 'reauthorizing-clients')),
-                                ('waiting_for_dpm_disconnect', YLeaf(YType.uint32, 'waiting-for-dpm-disconnect')),
-                                ('waiting_for_dpm_addr_change', YLeaf(YType.uint32, 'waiting-for-dpm-addr-change')),
-                                ('deleting_clients_d', YLeaf(YType.uint32, 'deleting-clients-d')),
-                                ('disconnected_clients', YLeaf(YType.uint32, 'disconnected-clients')),
-                                ('restarting_clients', YLeaf(YType.uint32, 'restarting-clients')),
+                                ('clients', (YLeaf(YType.uint32, 'clients'), ['int'])),
+                                ('initializing_clients', (YLeaf(YType.uint32, 'initializing-clients'), ['int'])),
+                                ('waiting_for_dpm_init', (YLeaf(YType.uint32, 'waiting-for-dpm-init'), ['int'])),
+                                ('waiting_for_dpm_request', (YLeaf(YType.uint32, 'waiting-for-dpm-request'), ['int'])),
+                                ('waiting_for_daps_init', (YLeaf(YType.uint32, 'waiting-for-daps-init'), ['int'])),
+                                ('selecting_clients', (YLeaf(YType.uint32, 'selecting-clients'), ['int'])),
+                                ('offer_sent_for_client', (YLeaf(YType.uint32, 'offer-sent-for-client'), ['int'])),
+                                ('requesting_clients', (YLeaf(YType.uint32, 'requesting-clients'), ['int'])),
+                                ('request_waiting_for_dpm', (YLeaf(YType.uint32, 'request-waiting-for-dpm'), ['int'])),
+                                ('ack_waiting_for_dpm', (YLeaf(YType.uint32, 'ack-waiting-for-dpm'), ['int'])),
+                                ('bound_clients', (YLeaf(YType.uint32, 'bound-clients'), ['int'])),
+                                ('renewing_clients', (YLeaf(YType.uint32, 'renewing-clients'), ['int'])),
+                                ('informing_clients', (YLeaf(YType.uint32, 'informing-clients'), ['int'])),
+                                ('reauthorizing_clients', (YLeaf(YType.uint32, 'reauthorizing-clients'), ['int'])),
+                                ('waiting_for_dpm_disconnect', (YLeaf(YType.uint32, 'waiting-for-dpm-disconnect'), ['int'])),
+                                ('waiting_for_dpm_addr_change', (YLeaf(YType.uint32, 'waiting-for-dpm-addr-change'), ['int'])),
+                                ('deleting_clients_d', (YLeaf(YType.uint32, 'deleting-clients-d'), ['int'])),
+                                ('disconnected_clients', (YLeaf(YType.uint32, 'disconnected-clients'), ['int'])),
+                                ('restarting_clients', (YLeaf(YType.uint32, 'restarting-clients'), ['int'])),
                             ])
                             self.clients = None
                             self.initializing_clients = None
@@ -6902,9 +6992,10 @@ class Ipv4Dhcpd(Entity):
                             self.disconnected_clients = None
                             self.restarting_clients = None
                             self._segment_path = lambda: "summary"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary, ['clients', 'initializing_clients', 'waiting_for_dpm_init', 'waiting_for_dpm_request', 'waiting_for_daps_init', 'selecting_clients', 'offer_sent_for_client', 'requesting_clients', 'request_waiting_for_dpm', 'ack_waiting_for_dpm', 'bound_clients', 'renewing_clients', 'informing_clients', 'reauthorizing_clients', 'waiting_for_dpm_disconnect', 'waiting_for_dpm_addr_change', 'deleting_clients_d', 'disconnected_clients', 'restarting_clients'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Summary, [u'clients', u'initializing_clients', u'waiting_for_dpm_init', u'waiting_for_dpm_request', u'waiting_for_daps_init', u'selecting_clients', u'offer_sent_for_client', u'requesting_clients', u'request_waiting_for_dpm', u'ack_waiting_for_dpm', u'bound_clients', u'renewing_clients', u'informing_clients', u'reauthorizing_clients', u'waiting_for_dpm_disconnect', u'waiting_for_dpm_addr_change', u'deleting_clients_d', u'disconnected_clients', u'restarting_clients'], name, value)
 
 
                     class Clients(Entity):
@@ -6936,6 +7027,7 @@ class Ipv4Dhcpd(Entity):
 
                             self.client = YList(self)
                             self._segment_path = lambda: "clients"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients, [], name, value)
@@ -7041,7 +7133,7 @@ class Ipv4Dhcpd(Entity):
                             	DHCP access interface to client
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: access_vrf_name
                             
@@ -7095,7 +7187,7 @@ class Ipv4Dhcpd(Entity):
                             	DHCP subscriber interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: rx_circuit_id
                             
@@ -7201,41 +7293,41 @@ class Ipv4Dhcpd(Entity):
                                 self.ylist_key_names = ['client_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('client_id', YLeaf(YType.str, 'client-id')),
-                                    ('client_id_xr', YLeaf(YType.str, 'client-id-xr')),
-                                    ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                    ('server_vrf_name', YLeaf(YType.str, 'server-vrf-name')),
-                                    ('ip_address', YLeaf(YType.str, 'ip-address')),
-                                    ('client_gi_addr', YLeaf(YType.str, 'client-gi-addr')),
-                                    ('to_server_gi_addr', YLeaf(YType.str, 'to-server-gi-addr')),
-                                    ('server_ip_address', YLeaf(YType.str, 'server-ip-address')),
-                                    ('reply_server_ip_address', YLeaf(YType.str, 'reply-server-ip-address')),
-                                    ('lease_time', YLeaf(YType.uint32, 'lease-time')),
-                                    ('remaining_lease_time', YLeaf(YType.uint32, 'remaining-lease-time')),
-                                    ('state', YLeaf(YType.enumeration, 'state')),
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('access_vrf_name', YLeaf(YType.str, 'access-vrf-name')),
-                                    ('proxy_binding_outer_tag', YLeaf(YType.uint32, 'proxy-binding-outer-tag')),
-                                    ('proxy_binding_inner_tag', YLeaf(YType.uint32, 'proxy-binding-inner-tag')),
-                                    ('profile_name', YLeaf(YType.str, 'profile-name')),
-                                    ('is_nak_next_renew', YLeaf(YType.boolean, 'is-nak-next-renew')),
-                                    ('subscriber_label', YLeaf(YType.uint32, 'subscriber-label')),
-                                    ('old_subscriber_label', YLeaf(YType.uint32, 'old-subscriber-label')),
-                                    ('subscriber_interface_name', YLeaf(YType.str, 'subscriber-interface-name')),
-                                    ('rx_circuit_id', YLeaf(YType.str, 'rx-circuit-id')),
-                                    ('tx_circuit_id', YLeaf(YType.str, 'tx-circuit-id')),
-                                    ('rx_remote_id', YLeaf(YType.str, 'rx-remote-id')),
-                                    ('tx_remote_id', YLeaf(YType.str, 'tx-remote-id')),
-                                    ('rx_vsiso', YLeaf(YType.str, 'rx-vsiso')),
-                                    ('tx_vsiso', YLeaf(YType.str, 'tx-vsiso')),
-                                    ('is_auth_received', YLeaf(YType.boolean, 'is-auth-received')),
-                                    ('is_mbl_subscriber', YLeaf(YType.boolean, 'is-mbl-subscriber')),
-                                    ('param_request', YLeaf(YType.str, 'param-request')),
-                                    ('param_response', YLeaf(YType.str, 'param-response')),
-                                    ('session_start_time', YLeaf(YType.uint64, 'session-start-time')),
-                                    ('srg_state', YLeaf(YType.uint32, 'srg-state')),
-                                    ('event_history', YLeafList(YType.uint32, 'event-history')),
+                                    ('client_id', (YLeaf(YType.str, 'client-id'), ['str'])),
+                                    ('client_id_xr', (YLeaf(YType.str, 'client-id-xr'), ['str'])),
+                                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                    ('server_vrf_name', (YLeaf(YType.str, 'server-vrf-name'), ['str'])),
+                                    ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                                    ('client_gi_addr', (YLeaf(YType.str, 'client-gi-addr'), ['str'])),
+                                    ('to_server_gi_addr', (YLeaf(YType.str, 'to-server-gi-addr'), ['str'])),
+                                    ('server_ip_address', (YLeaf(YType.str, 'server-ip-address'), ['str'])),
+                                    ('reply_server_ip_address', (YLeaf(YType.str, 'reply-server-ip-address'), ['str'])),
+                                    ('lease_time', (YLeaf(YType.uint32, 'lease-time'), ['int'])),
+                                    ('remaining_lease_time', (YLeaf(YType.uint32, 'remaining-lease-time'), ['int'])),
+                                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper', 'BagDhcpdProxyState', '')])),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('access_vrf_name', (YLeaf(YType.str, 'access-vrf-name'), ['str'])),
+                                    ('proxy_binding_outer_tag', (YLeaf(YType.uint32, 'proxy-binding-outer-tag'), ['int'])),
+                                    ('proxy_binding_inner_tag', (YLeaf(YType.uint32, 'proxy-binding-inner-tag'), ['int'])),
+                                    ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                    ('is_nak_next_renew', (YLeaf(YType.boolean, 'is-nak-next-renew'), ['bool'])),
+                                    ('subscriber_label', (YLeaf(YType.uint32, 'subscriber-label'), ['int'])),
+                                    ('old_subscriber_label', (YLeaf(YType.uint32, 'old-subscriber-label'), ['int'])),
+                                    ('subscriber_interface_name', (YLeaf(YType.str, 'subscriber-interface-name'), ['str'])),
+                                    ('rx_circuit_id', (YLeaf(YType.str, 'rx-circuit-id'), ['str'])),
+                                    ('tx_circuit_id', (YLeaf(YType.str, 'tx-circuit-id'), ['str'])),
+                                    ('rx_remote_id', (YLeaf(YType.str, 'rx-remote-id'), ['str'])),
+                                    ('tx_remote_id', (YLeaf(YType.str, 'tx-remote-id'), ['str'])),
+                                    ('rx_vsiso', (YLeaf(YType.str, 'rx-vsiso'), ['str'])),
+                                    ('tx_vsiso', (YLeaf(YType.str, 'tx-vsiso'), ['str'])),
+                                    ('is_auth_received', (YLeaf(YType.boolean, 'is-auth-received'), ['bool'])),
+                                    ('is_mbl_subscriber', (YLeaf(YType.boolean, 'is-mbl-subscriber'), ['bool'])),
+                                    ('param_request', (YLeaf(YType.str, 'param-request'), ['str'])),
+                                    ('param_response', (YLeaf(YType.str, 'param-response'), ['str'])),
+                                    ('session_start_time', (YLeaf(YType.uint64, 'session-start-time'), ['int'])),
+                                    ('srg_state', (YLeaf(YType.uint32, 'srg-state'), ['int'])),
+                                    ('event_history', (YLeafList(YType.uint32, 'event-history'), ['int'])),
                                 ])
                                 self.client_id = None
                                 self.client_id_xr = None
@@ -7273,9 +7365,10 @@ class Ipv4Dhcpd(Entity):
                                 self.srg_state = None
                                 self.event_history = []
                                 self._segment_path = lambda: "client" + "[client-id='" + str(self.client_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, ['client_id', 'client_id_xr', 'mac_address', 'vrf_name', 'server_vrf_name', 'ip_address', 'client_gi_addr', 'to_server_gi_addr', 'server_ip_address', 'reply_server_ip_address', 'lease_time', 'remaining_lease_time', 'state', 'interface_name', 'access_vrf_name', 'proxy_binding_outer_tag', 'proxy_binding_inner_tag', 'profile_name', 'is_nak_next_renew', 'subscriber_label', 'old_subscriber_label', 'subscriber_interface_name', 'rx_circuit_id', 'tx_circuit_id', 'rx_remote_id', 'tx_remote_id', 'rx_vsiso', 'tx_vsiso', 'is_auth_received', 'is_mbl_subscriber', 'param_request', 'param_response', 'session_start_time', 'srg_state', 'event_history'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Binding.Clients.Client, ['client_id', u'client_id_xr', u'mac_address', u'vrf_name', u'server_vrf_name', u'ip_address', u'client_gi_addr', u'to_server_gi_addr', u'server_ip_address', u'reply_server_ip_address', u'lease_time', u'remaining_lease_time', u'state', u'interface_name', u'access_vrf_name', u'proxy_binding_outer_tag', u'proxy_binding_inner_tag', u'profile_name', u'is_nak_next_renew', u'subscriber_label', u'old_subscriber_label', u'subscriber_interface_name', u'rx_circuit_id', u'tx_circuit_id', u'rx_remote_id', u'tx_remote_id', u'rx_vsiso', u'tx_vsiso', u'is_auth_received', u'is_mbl_subscriber', u'param_request', u'param_response', u'session_start_time', u'srg_state', u'event_history'], name, value)
 
 
                 class StatisticsInfo(Entity):
@@ -7306,13 +7399,14 @@ class Ipv4Dhcpd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('proxy_stats_timestamp', YLeaf(YType.uint32, 'proxy-stats-timestamp')),
+                            ('proxy_stats_timestamp', (YLeaf(YType.uint32, 'proxy-stats-timestamp'), ['int'])),
                         ])
                         self.proxy_stats_timestamp = None
                         self._segment_path = lambda: "statistics-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo, ['proxy_stats_timestamp'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.StatisticsInfo, [u'proxy_stats_timestamp'], name, value)
 
 
                 class Vrfs(Entity):
@@ -7344,6 +7438,7 @@ class Ipv4Dhcpd(Entity):
 
                         self.vrf = YList(self)
                         self._segment_path = lambda: "vrfs"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs, [], name, value)
@@ -7382,7 +7477,7 @@ class Ipv4Dhcpd(Entity):
                             self.ylist_key_names = ['vrf_name']
                             self._child_classes = OrderedDict([("statistics", ("statistics", Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -7390,6 +7485,7 @@ class Ipv4Dhcpd(Entity):
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -7543,6 +7639,7 @@ class Ipv4Dhcpd(Entity):
                                 self.bootp_reply.parent = self
                                 self._children_name_map["bootp_reply"] = "bootp-reply"
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics, [], name, value)
@@ -7590,17 +7687,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "discover"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Discover, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Offer(Entity):
@@ -7645,17 +7743,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "offer"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Offer, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Request(Entity):
@@ -7700,17 +7799,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "request"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Request, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Decline(Entity):
@@ -7755,17 +7855,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "decline"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Decline, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Ack(Entity):
@@ -7810,17 +7911,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "ack"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Ack, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Nak(Entity):
@@ -7865,17 +7967,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "nak"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Nak, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Release(Entity):
@@ -7920,17 +8023,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "release"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Release, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Inform(Entity):
@@ -7975,17 +8079,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "inform"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.Inform, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseQuery(Entity):
@@ -8030,17 +8135,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseQuery, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseNotAssigned(Entity):
@@ -8085,17 +8191,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-not-assigned"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseNotAssigned, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseUnknown(Entity):
@@ -8140,17 +8247,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-unknown"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseUnknown, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseActive(Entity):
@@ -8195,17 +8303,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-active"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.LeaseActive, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class BootpRequest(Entity):
@@ -8250,17 +8359,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "bootp-request"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpRequest, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class BootpReply(Entity):
@@ -8305,17 +8415,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "bootp-reply"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Server.Vrfs.Vrf.Statistics.BootpReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
             class Relay(Entity):
@@ -8376,6 +8487,7 @@ class Ipv4Dhcpd(Entity):
                     self.vrfs.parent = self
                     self._children_name_map["vrfs"] = "vrfs"
                     self._segment_path = lambda: "relay"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay, [], name, value)
@@ -8410,6 +8522,7 @@ class Ipv4Dhcpd(Entity):
 
                         self.profile = YList(self)
                         self._segment_path = lambda: "profiles"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Profiles, [], name, value)
@@ -8546,22 +8659,22 @@ class Ipv4Dhcpd(Entity):
                             self.ylist_key_names = ['profile_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('profile_name', YLeaf(YType.str, 'profile-name')),
-                                ('relay_profile_name', YLeaf(YType.str, 'relay-profile-name')),
-                                ('relay_profile_uid', YLeaf(YType.uint32, 'relay-profile-uid')),
-                                ('relay_profile_helper_count', YLeaf(YType.uint8, 'relay-profile-helper-count')),
-                                ('relay_profile_relay_info_option', YLeaf(YType.uint8, 'relay-profile-relay-info-option')),
-                                ('relay_profile_relay_info_policy', YLeaf(YType.uint8, 'relay-profile-relay-info-policy')),
-                                ('relay_profile_relay_info_allow_untrusted', YLeaf(YType.uint8, 'relay-profile-relay-info-allow-untrusted')),
-                                ('relay_profile_relay_info_optionvpn', YLeaf(YType.uint8, 'relay-profile-relay-info-optionvpn')),
-                                ('relay_profile_relay_info_optionvpn_mode', YLeaf(YType.enumeration, 'relay-profile-relay-info-optionvpn-mode')),
-                                ('relay_profile_relay_info_check', YLeaf(YType.uint8, 'relay-profile-relay-info-check')),
-                                ('relay_profile_gi_addr_policy', YLeaf(YType.uint8, 'relay-profile-gi-addr-policy')),
-                                ('relay_profile_broadcast_flag_policy', YLeaf(YType.uint8, 'relay-profile-broadcast-flag-policy')),
-                                ('relay_profile_mac_mismatch_action', YLeaf(YType.uint8, 'relay-profile-mac-mismatch-action')),
-                                ('relay_profile_helper_address', YLeafList(YType.str, 'relay-profile-helper-address')),
-                                ('relay_profile_helper_vrf', YLeafList(YType.str, 'relay-profile-helper-vrf')),
-                                ('relay_profile_gi_addr', YLeafList(YType.str, 'relay-profile-gi-addr')),
+                                ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                                ('relay_profile_name', (YLeaf(YType.str, 'relay-profile-name'), ['str'])),
+                                ('relay_profile_uid', (YLeaf(YType.uint32, 'relay-profile-uid'), ['int'])),
+                                ('relay_profile_helper_count', (YLeaf(YType.uint8, 'relay-profile-helper-count'), ['int'])),
+                                ('relay_profile_relay_info_option', (YLeaf(YType.uint8, 'relay-profile-relay-info-option'), ['int'])),
+                                ('relay_profile_relay_info_policy', (YLeaf(YType.uint8, 'relay-profile-relay-info-policy'), ['int'])),
+                                ('relay_profile_relay_info_allow_untrusted', (YLeaf(YType.uint8, 'relay-profile-relay-info-allow-untrusted'), ['int'])),
+                                ('relay_profile_relay_info_optionvpn', (YLeaf(YType.uint8, 'relay-profile-relay-info-optionvpn'), ['int'])),
+                                ('relay_profile_relay_info_optionvpn_mode', (YLeaf(YType.enumeration, 'relay-profile-relay-info-optionvpn-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_oper', 'RelayInfoVpnMode', '')])),
+                                ('relay_profile_relay_info_check', (YLeaf(YType.uint8, 'relay-profile-relay-info-check'), ['int'])),
+                                ('relay_profile_gi_addr_policy', (YLeaf(YType.uint8, 'relay-profile-gi-addr-policy'), ['int'])),
+                                ('relay_profile_broadcast_flag_policy', (YLeaf(YType.uint8, 'relay-profile-broadcast-flag-policy'), ['int'])),
+                                ('relay_profile_mac_mismatch_action', (YLeaf(YType.uint8, 'relay-profile-mac-mismatch-action'), ['int'])),
+                                ('relay_profile_helper_address', (YLeafList(YType.str, 'relay-profile-helper-address'), ['str'])),
+                                ('relay_profile_helper_vrf', (YLeafList(YType.str, 'relay-profile-helper-vrf'), ['str'])),
+                                ('relay_profile_gi_addr', (YLeafList(YType.str, 'relay-profile-gi-addr'), ['str'])),
                             ])
                             self.profile_name = None
                             self.relay_profile_name = None
@@ -8580,9 +8693,10 @@ class Ipv4Dhcpd(Entity):
                             self.relay_profile_helper_vrf = []
                             self.relay_profile_gi_addr = []
                             self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile, ['profile_name', 'relay_profile_name', 'relay_profile_uid', 'relay_profile_helper_count', 'relay_profile_relay_info_option', 'relay_profile_relay_info_policy', 'relay_profile_relay_info_allow_untrusted', 'relay_profile_relay_info_optionvpn', 'relay_profile_relay_info_optionvpn_mode', 'relay_profile_relay_info_check', 'relay_profile_gi_addr_policy', 'relay_profile_broadcast_flag_policy', 'relay_profile_mac_mismatch_action', 'relay_profile_helper_address', 'relay_profile_helper_vrf', 'relay_profile_gi_addr'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Profiles.Profile, ['profile_name', u'relay_profile_name', u'relay_profile_uid', u'relay_profile_helper_count', u'relay_profile_relay_info_option', u'relay_profile_relay_info_policy', u'relay_profile_relay_info_allow_untrusted', u'relay_profile_relay_info_optionvpn', u'relay_profile_relay_info_optionvpn_mode', u'relay_profile_relay_info_check', u'relay_profile_gi_addr_policy', u'relay_profile_broadcast_flag_policy', u'relay_profile_mac_mismatch_action', u'relay_profile_helper_address', u'relay_profile_helper_vrf', u'relay_profile_gi_addr'], name, value)
 
 
                 class StatisticsInfo(Entity):
@@ -8613,13 +8727,14 @@ class Ipv4Dhcpd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('relay_stats_timestamp', YLeaf(YType.uint32, 'relay-stats-timestamp')),
+                            ('relay_stats_timestamp', (YLeaf(YType.uint32, 'relay-stats-timestamp'), ['int'])),
                         ])
                         self.relay_stats_timestamp = None
                         self._segment_path = lambda: "statistics-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo, ['relay_stats_timestamp'], name, value)
+                        self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.StatisticsInfo, [u'relay_stats_timestamp'], name, value)
 
 
                 class Statistics(Entity):
@@ -8651,6 +8766,7 @@ class Ipv4Dhcpd(Entity):
 
                         self.ipv4_dhcpd_relay_stat = YList(self)
                         self._segment_path = lambda: "statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics, [], name, value)
@@ -8689,7 +8805,7 @@ class Ipv4Dhcpd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("statistics", ("statistics", Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics_))])
                             self._leafs = OrderedDict([
-                                ('relay_statistics_vrf_name', YLeaf(YType.str, 'relay-statistics-vrf-name')),
+                                ('relay_statistics_vrf_name', (YLeaf(YType.str, 'relay-statistics-vrf-name'), ['str'])),
                             ])
                             self.relay_statistics_vrf_name = None
 
@@ -8697,9 +8813,10 @@ class Ipv4Dhcpd(Entity):
                             self.statistics.parent = self
                             self._children_name_map["statistics"] = "statistics"
                             self._segment_path = lambda: "ipv4-dhcpd-relay-stat"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat, ['relay_statistics_vrf_name'], name, value)
+                            self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat, [u'relay_statistics_vrf_name'], name, value)
 
 
                         class Statistics_(Entity):
@@ -8744,17 +8861,18 @@ class Ipv4Dhcpd(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                    ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                    ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                    ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                    ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                    ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                 ])
                                 self.received_packets = None
                                 self.transmitted_packets = None
                                 self.dropped_packets = None
                                 self._segment_path = lambda: "statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics_, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Statistics.Ipv4DhcpdRelayStat.Statistics_, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                 class Vrfs(Entity):
@@ -8786,6 +8904,7 @@ class Ipv4Dhcpd(Entity):
 
                         self.vrf = YList(self)
                         self._segment_path = lambda: "vrfs"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs, [], name, value)
@@ -8824,7 +8943,7 @@ class Ipv4Dhcpd(Entity):
                             self.ylist_key_names = ['vrf_name']
                             self._child_classes = OrderedDict([("vrf-statistics", ("vrf_statistics", Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -8832,6 +8951,7 @@ class Ipv4Dhcpd(Entity):
                             self.vrf_statistics.parent = self
                             self._children_name_map["vrf_statistics"] = "vrf-statistics"
                             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -8985,6 +9105,7 @@ class Ipv4Dhcpd(Entity):
                                 self.bootp_reply.parent = self
                                 self._children_name_map["bootp_reply"] = "bootp-reply"
                                 self._segment_path = lambda: "vrf-statistics"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics, [], name, value)
@@ -9032,17 +9153,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "discover"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Discover, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Offer(Entity):
@@ -9087,17 +9209,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "offer"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Offer, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Request(Entity):
@@ -9142,17 +9265,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "request"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Request, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Decline(Entity):
@@ -9197,17 +9321,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "decline"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Decline, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Ack(Entity):
@@ -9252,17 +9377,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "ack"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Ack, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Nak(Entity):
@@ -9307,17 +9433,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "nak"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Nak, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Release(Entity):
@@ -9362,17 +9489,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "release"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Release, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class Inform(Entity):
@@ -9417,17 +9545,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "inform"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.Inform, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseQuery(Entity):
@@ -9472,17 +9601,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-query"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseQuery, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseNotAssigned(Entity):
@@ -9527,17 +9657,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-not-assigned"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseNotAssigned, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseUnknown(Entity):
@@ -9582,17 +9713,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-unknown"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseUnknown, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class LeaseActive(Entity):
@@ -9637,17 +9769,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "lease-active"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.LeaseActive, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class BootpRequest(Entity):
@@ -9692,17 +9825,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "bootp-request"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpRequest, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
 
                             class BootpReply(Entity):
@@ -9747,17 +9881,18 @@ class Ipv4Dhcpd(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('received_packets', YLeaf(YType.uint64, 'received-packets')),
-                                        ('transmitted_packets', YLeaf(YType.uint64, 'transmitted-packets')),
-                                        ('dropped_packets', YLeaf(YType.uint64, 'dropped-packets')),
+                                        ('received_packets', (YLeaf(YType.uint64, 'received-packets'), ['int'])),
+                                        ('transmitted_packets', (YLeaf(YType.uint64, 'transmitted-packets'), ['int'])),
+                                        ('dropped_packets', (YLeaf(YType.uint64, 'dropped-packets'), ['int'])),
                                     ])
                                     self.received_packets = None
                                     self.transmitted_packets = None
                                     self.dropped_packets = None
                                     self._segment_path = lambda: "bootp-reply"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply, ['received_packets', 'transmitted_packets', 'dropped_packets'], name, value)
+                                    self._perform_setattr(Ipv4Dhcpd.Nodes.Node.Relay.Vrfs.Vrf.VrfStatistics.BootpReply, [u'received_packets', u'transmitted_packets', u'dropped_packets'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipv4Dhcpd()

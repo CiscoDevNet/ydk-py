@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
     """
     
@@ -54,6 +55,7 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
         self.atmstatuschangepvclrangetable.parent = self
         self._children_name_map["atmstatuschangepvclrangetable"] = "atmStatusChangePVclRangeTable"
         self._segment_path = lambda: "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIETFATM2PVCTRAPMIBEXTN, [], name, value)
@@ -92,6 +94,7 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
             self.atmcurrentstatuschangepvclentry = YList(self)
             self._segment_path = lambda: "atmCurrentStatusChangePVclTable"
             self._absolute_path = lambda: "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFATM2PVCTRAPMIBEXTN.AtmCurrentStatusChangePVclTable, [], name, value)
@@ -169,12 +172,12 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','atmvclvci']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('atmvclvci', YLeaf(YType.str, 'atmVclVci')),
-                    ('atmpvclstatustransition', YLeaf(YType.uint32, 'atmPVclStatusTransition')),
-                    ('atmpvclstatuschangestart', YLeaf(YType.uint32, 'atmPVclStatusChangeStart')),
-                    ('atmpvclstatuschangeend', YLeaf(YType.uint32, 'atmPVclStatusChangeEnd')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('atmvclvci', (YLeaf(YType.str, 'atmVclVci'), ['int'])),
+                    ('atmpvclstatustransition', (YLeaf(YType.uint32, 'atmPVclStatusTransition'), ['int'])),
+                    ('atmpvclstatuschangestart', (YLeaf(YType.uint32, 'atmPVclStatusChangeStart'), ['int'])),
+                    ('atmpvclstatuschangeend', (YLeaf(YType.uint32, 'atmPVclStatusChangeEnd'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -184,6 +187,7 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
                 self.atmpvclstatuschangeend = None
                 self._segment_path = lambda: "atmCurrentStatusChangePVclEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[atmVclVci='" + str(self.atmvclvci) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN/atmCurrentStatusChangePVclTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFATM2PVCTRAPMIBEXTN.AtmCurrentStatusChangePVclTable.AtmCurrentStatusChangePVclEntry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'atmpvclstatustransition', 'atmpvclstatuschangestart', 'atmpvclstatuschangeend'], name, value)
@@ -223,6 +227,7 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
             self.atmstatuschangepvclrangeentry = YList(self)
             self._segment_path = lambda: "atmStatusChangePVclRangeTable"
             self._absolute_path = lambda: "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFATM2PVCTRAPMIBEXTN.AtmStatusChangePVclRangeTable, [], name, value)
@@ -306,13 +311,13 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','rangeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('rangeindex', YLeaf(YType.uint32, 'rangeIndex')),
-                    ('atmpvcllowerrangevalue', YLeaf(YType.int32, 'atmPVclLowerRangeValue')),
-                    ('atmpvclhigherrangevalue', YLeaf(YType.int32, 'atmPVclHigherRangeValue')),
-                    ('atmpvclrangestatuschangestart', YLeaf(YType.uint32, 'atmPVclRangeStatusChangeStart')),
-                    ('atmpvclrangestatuschangeend', YLeaf(YType.uint32, 'atmPVclRangeStatusChangeEnd')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('rangeindex', (YLeaf(YType.uint32, 'rangeIndex'), ['int'])),
+                    ('atmpvcllowerrangevalue', (YLeaf(YType.int32, 'atmPVclLowerRangeValue'), ['int'])),
+                    ('atmpvclhigherrangevalue', (YLeaf(YType.int32, 'atmPVclHigherRangeValue'), ['int'])),
+                    ('atmpvclrangestatuschangestart', (YLeaf(YType.uint32, 'atmPVclRangeStatusChangeStart'), ['int'])),
+                    ('atmpvclrangestatuschangeend', (YLeaf(YType.uint32, 'atmPVclRangeStatusChangeEnd'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -323,6 +328,7 @@ class CISCOIETFATM2PVCTRAPMIBEXTN(Entity):
                 self.atmpvclrangestatuschangeend = None
                 self._segment_path = lambda: "atmStatusChangePVclRangeEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[rangeIndex='" + str(self.rangeindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN:CISCO-IETF-ATM2-PVCTRAP-MIB-EXTN/atmStatusChangePVclRangeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFATM2PVCTRAPMIBEXTN.AtmStatusChangePVclRangeTable.AtmStatusChangePVclRangeEntry, ['ifindex', 'atmvclvpi', 'rangeindex', 'atmpvcllowerrangevalue', 'atmpvclhigherrangevalue', 'atmpvclrangestatuschangestart', 'atmpvclrangestatuschangeend'], name, value)

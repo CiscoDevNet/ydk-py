@@ -27,7 +27,7 @@ module Cisco-IOS-XE-http {
 
   description
     "Cisco XE Native Hypertext Transfer Protocol (HTTP) Yang Model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016, 2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================

@@ -28,6 +28,66 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
+class CpeExtLldpPwrClassOrZero(Enum):
+    """
+    CpeExtLldpPwrClassOrZero (Enum Class)
+
+    The power class of the PD or PSE port that implements
+
+    the LLDP based Data Link Layer power classification
+
+    'unknown' \- power classification of the powered devices is
+
+                unknown.
+
+    'class0'  \- power classification of the powered devices is
+
+                class 0 in IEEE specifications.
+
+    'class1'  \- power classification of the powered devices is
+
+                class 1 in IEEE specifications.
+
+    'class2'  \- power classification of the powered devices is
+
+                class 2 in IEEE specifications.
+
+    'class3'  \- power classification of the powered devices is
+
+                class 3 in IEEE specifications.
+
+    'class4'  \- power classification of the powered devices is
+
+                class 4 in IEEE specifications.
+
+    .. data:: unknown = 0
+
+    .. data:: class0 = 1
+
+    .. data:: class1 = 2
+
+    .. data:: class2 = 3
+
+    .. data:: class3 = 4
+
+    .. data:: class4 = 5
+
+    """
+
+    unknown = Enum.YLeaf(0, "unknown")
+
+    class0 = Enum.YLeaf(1, "class0")
+
+    class1 = Enum.YLeaf(2, "class1")
+
+    class2 = Enum.YLeaf(3, "class2")
+
+    class3 = Enum.YLeaf(4, "class3")
+
+    class4 = Enum.YLeaf(5, "class4")
+
+
 class CpeExtLldpPwrSrc(Enum):
     """
     CpeExtLldpPwrSrc (Enum Class)
@@ -204,7 +264,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
     """
 
     _prefix = 'CISCO-POWER-ETHERNET-EXT-MIB'
-    _revision = '2009-12-11'
+    _revision = '2018-01-19'
 
     def __init__(self):
         super(CISCOPOWERETHERNETEXTMIB, self).__init__()
@@ -238,6 +298,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         self.cpeextpseportlldptable.parent = self
         self._children_name_map["cpeextpseportlldptable"] = "cpeExtPsePortLldpTable"
         self._segment_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOPOWERETHERNETEXTMIB, [], name, value)
@@ -271,7 +332,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         """
 
         _prefix = 'CISCO-POWER-ETHERNET-EXT-MIB'
-        _revision = '2009-12-11'
+        _revision = '2018-01-19'
 
         def __init__(self):
             super(CISCOPOWERETHERNETEXTMIB.CpeExtMIBObjects, self).__init__()
@@ -283,15 +344,16 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cpeextdefaultallocation', YLeaf(YType.uint32, 'cpeExtDefaultAllocation')),
-                ('cpeextpolicingnotifenable', YLeaf(YType.boolean, 'cpeExtPolicingNotifEnable')),
-                ('cpeextpowerpriorityenable', YLeaf(YType.boolean, 'cpeExtPowerPriorityEnable')),
+                ('cpeextdefaultallocation', (YLeaf(YType.uint32, 'cpeExtDefaultAllocation'), ['int'])),
+                ('cpeextpolicingnotifenable', (YLeaf(YType.boolean, 'cpeExtPolicingNotifEnable'), ['bool'])),
+                ('cpeextpowerpriorityenable', (YLeaf(YType.boolean, 'cpeExtPowerPriorityEnable'), ['bool'])),
             ])
             self.cpeextdefaultallocation = None
             self.cpeextpolicingnotifenable = None
             self.cpeextpowerpriorityenable = None
             self._segment_path = lambda: "cpeExtMIBObjects"
             self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtMIBObjects, ['cpeextdefaultallocation', 'cpeextpolicingnotifenable', 'cpeextpowerpriorityenable'], name, value)
@@ -313,7 +375,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         """
 
         _prefix = 'CISCO-POWER-ETHERNET-EXT-MIB'
-        _revision = '2009-12-11'
+        _revision = '2018-01-19'
 
         def __init__(self):
             super(CISCOPOWERETHERNETEXTMIB.CpeExtPdStatistics, self).__init__()
@@ -325,11 +387,12 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cpeextpdstatstotaldevices', YLeaf(YType.uint32, 'cpeExtPdStatsTotalDevices')),
+                ('cpeextpdstatstotaldevices', (YLeaf(YType.uint32, 'cpeExtPdStatsTotalDevices'), ['int'])),
             ])
             self.cpeextpdstatstotaldevices = None
             self._segment_path = lambda: "cpeExtPdStatistics"
             self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtPdStatistics, ['cpeextpdstatstotaldevices'], name, value)
@@ -350,7 +413,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         """
 
         _prefix = 'CISCO-POWER-ETHERNET-EXT-MIB'
-        _revision = '2009-12-11'
+        _revision = '2018-01-19'
 
         def __init__(self):
             super(CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable, self).__init__()
@@ -366,6 +429,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             self.cpeextmainpseentry = YList(self)
             self._segment_path = lambda: "cpeExtMainPseTable"
             self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable, [], name, value)
@@ -408,7 +472,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             
             .. attribute:: cpeextmainpseusedpower
             
-            	Used power expressed in miliwatts
+            	This object indicates used power expressed in miliwatts
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -417,7 +481,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             
             .. attribute:: cpeextmainpseremainingpower
             
-            	Remaining power expressed in miliwatts, this parameter is calculated as pethMainPsePower minus cpeExtMainPseUsedPower
+            	This object indicates remaining power expressed in miliwatts, this parameter is calculated as pethMainPsePower minus cpeExtMainPseUsedPower
             	**type**\: int
             
             	**range:** 0..4294967295
@@ -429,7 +493,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             """
 
             _prefix = 'CISCO-POWER-ETHERNET-EXT-MIB'
-            _revision = '2009-12-11'
+            _revision = '2018-01-19'
 
             def __init__(self):
                 super(CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable.CpeExtMainPseEntry, self).__init__()
@@ -441,12 +505,12 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
                 self.ylist_key_names = ['pethmainpsegroupindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('pethmainpsegroupindex', YLeaf(YType.str, 'pethMainPseGroupIndex')),
-                    ('cpeextmainpseentphyindex', YLeaf(YType.int32, 'cpeExtMainPseEntPhyIndex')),
-                    ('cpeextmainpsedescr', YLeaf(YType.str, 'cpeExtMainPseDescr')),
-                    ('cpeextmainpsepwrmonitorcapable', YLeaf(YType.boolean, 'cpeExtMainPsePwrMonitorCapable')),
-                    ('cpeextmainpseusedpower', YLeaf(YType.uint32, 'cpeExtMainPseUsedPower')),
-                    ('cpeextmainpseremainingpower', YLeaf(YType.uint32, 'cpeExtMainPseRemainingPower')),
+                    ('pethmainpsegroupindex', (YLeaf(YType.str, 'pethMainPseGroupIndex'), ['int'])),
+                    ('cpeextmainpseentphyindex', (YLeaf(YType.int32, 'cpeExtMainPseEntPhyIndex'), ['int'])),
+                    ('cpeextmainpsedescr', (YLeaf(YType.str, 'cpeExtMainPseDescr'), ['str'])),
+                    ('cpeextmainpsepwrmonitorcapable', (YLeaf(YType.boolean, 'cpeExtMainPsePwrMonitorCapable'), ['bool'])),
+                    ('cpeextmainpseusedpower', (YLeaf(YType.uint32, 'cpeExtMainPseUsedPower'), ['int'])),
+                    ('cpeextmainpseremainingpower', (YLeaf(YType.uint32, 'cpeExtMainPseRemainingPower'), ['int'])),
                 ])
                 self.pethmainpsegroupindex = None
                 self.cpeextmainpseentphyindex = None
@@ -456,6 +520,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
                 self.cpeextmainpseremainingpower = None
                 self._segment_path = lambda: "cpeExtMainPseEntry" + "[pethMainPseGroupIndex='" + str(self.pethmainpsegroupindex) + "']"
                 self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/cpeExtMainPseTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtMainPseTable.CpeExtMainPseEntry, ['pethmainpsegroupindex', 'cpeextmainpseentphyindex', 'cpeextmainpsedescr', 'cpeextmainpsepwrmonitorcapable', 'cpeextmainpseusedpower', 'cpeextmainpseremainingpower'], name, value)
@@ -477,7 +542,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         """
 
         _prefix = 'CISCO-POWER-ETHERNET-EXT-MIB'
-        _revision = '2009-12-11'
+        _revision = '2018-01-19'
 
         def __init__(self):
             super(CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable, self).__init__()
@@ -493,6 +558,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             self.cpeextpdstatsentry = YList(self)
             self._segment_path = lambda: "cpeExtPdStatsTable"
             self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable, [], name, value)
@@ -521,7 +587,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             """
 
             _prefix = 'CISCO-POWER-ETHERNET-EXT-MIB'
-            _revision = '2009-12-11'
+            _revision = '2018-01-19'
 
             def __init__(self):
                 super(CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable.CpeExtPdStatsEntry, self).__init__()
@@ -533,13 +599,14 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
                 self.ylist_key_names = ['cpeextpdstatsclass']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpeextpdstatsclass', YLeaf(YType.enumeration, 'cpeExtPdStatsClass')),
-                    ('cpeextpdstatsdevicecount', YLeaf(YType.uint32, 'cpeExtPdStatsDeviceCount')),
+                    ('cpeextpdstatsclass', (YLeaf(YType.enumeration, 'cpeExtPdStatsClass'), [('ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB', 'CISCOPOWERETHERNETEXTMIB', 'CpeExtPdStatsTable.CpeExtPdStatsEntry.CpeExtPdStatsClass')])),
+                    ('cpeextpdstatsdevicecount', (YLeaf(YType.uint32, 'cpeExtPdStatsDeviceCount'), ['int'])),
                 ])
                 self.cpeextpdstatsclass = None
                 self.cpeextpdstatsdevicecount = None
                 self._segment_path = lambda: "cpeExtPdStatsEntry" + "[cpeExtPdStatsClass='" + str(self.cpeextpdstatsclass) + "']"
                 self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/cpeExtPdStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtPdStatsTable.CpeExtPdStatsEntry, ['cpeextpdstatsclass', 'cpeextpdstatsdevicecount'], name, value)
@@ -626,7 +693,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         
         .. attribute:: cpeextpseportlldpentry
         
-        	A cpeExtPseDllPowerEntry entry contains the LLDP based DLL power classification characteristics for a particular PSE and the PD attached to it.   A PSE has its entry here when all of the following conditions are satisfied\: \- The LLDP power classification is globally enabled. \- It has a PD attached. \- LLDP is the operational power negotiation protocol between   the PSE and the PD attached
+        	A cpeExtPsePortLldpEntry entry contains the LLDP based 802.3at DLL power classification characteristics for a particular PSE and the PD attached to it.   A PSE has its entry here when all of the following conditions are satisfied\: \- The LLDP power classification is globally enabled. \- It has a PD attached. \- LLDP is the operational power negotiation protocol between   the PSE and the PD attached
         	**type**\: list of  		 :py:class:`CpeExtPsePortLldpEntry <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable.CpeExtPsePortLldpEntry>`
         
         
@@ -634,7 +701,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
         """
 
         _prefix = 'CISCO-POWER-ETHERNET-EXT-MIB'
-        _revision = '2009-12-11'
+        _revision = '2018-01-19'
 
         def __init__(self):
             super(CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable, self).__init__()
@@ -650,6 +717,7 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             self.cpeextpseportlldpentry = YList(self)
             self._segment_path = lambda: "cpeExtPsePortLldpTable"
             self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable, [], name, value)
@@ -657,9 +725,9 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
 
         class CpeExtPsePortLldpEntry(Entity):
             """
-            A cpeExtPseDllPowerEntry entry contains the LLDP
-            based DLL power classification characteristics for a particular
-            PSE and the PD attached to it. 
+            A cpeExtPsePortLldpEntry entry contains the LLDP
+            based 802.3at DLL power classification characteristics for
+            a particular PSE and the PD attached to it. 
             
             A PSE has its entry here when all of the following conditions
             are satisfied\:
@@ -752,12 +820,32 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
             
             	**units**\: milliwatts
             
+            .. attribute:: cpeextpseportlldppwrclass
+            
+            	The PSE power classification sent to the remote PD via MDI TLV in LLDP Protocol
+            	**type**\:  :py:class:`CpeExtLldpPwrClassOrZero <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CpeExtLldpPwrClassOrZero>`
+            
+            .. attribute:: cpeextpseportlldppdpwrclass
+            
+            	This power classification received from the remote system (PD)
+            	**type**\:  :py:class:`CpeExtLldpPwrClassOrZero <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CpeExtLldpPwrClassOrZero>`
+            
+            .. attribute:: cpeextpseportlldppdpwrsupport
+            
+            	This object indicates the power support mode received from the remote PD via MDI TLV in LLDP protocol.  'portClass'          \- This bit is set if the port is                        operating as PSE.  Otherwise, it is                        operating as PD.  'pseMdiPwrSupport'   \- This bit is set if power is supported in                        MDI TLV.  'pseMdiPwrState'     \- This bit is set if power is enabled.  'psePairCtrlAbility' \- This bit is set if pair selection can                        be controlled
+            	**type**\:  :py:class:`CpeExtPsePortLldpPdPwrSupport <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable.CpeExtPsePortLldpEntry.CpeExtPsePortLldpPdPwrSupport>`
+            
+            .. attribute:: cpeextpseportlldppdpwrpairsorzero
+            
+            	This object indicates the pinout pairs in use received from the remote PD via MDI TLV in LLDP Protocol.  'unknown' \- information is not available  'signal'  \- the signal pairs are in use.  'spare'   \- the spare pairs are in use
+            	**type**\:  :py:class:`CpeExtPsePortLldpPdPwrPairsOrZero <ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB.CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable.CpeExtPsePortLldpEntry.CpeExtPsePortLldpPdPwrPairsOrZero>`
+            
             
 
             """
 
             _prefix = 'CISCO-POWER-ETHERNET-EXT-MIB'
-            _revision = '2009-12-11'
+            _revision = '2018-01-19'
 
             def __init__(self):
                 super(CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable.CpeExtPsePortLldpEntry, self).__init__()
@@ -769,18 +857,22 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
                 self.ylist_key_names = ['pethpseportgroupindex','pethpseportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('pethpseportgroupindex', YLeaf(YType.str, 'pethPsePortGroupIndex')),
-                    ('pethpseportindex', YLeaf(YType.str, 'pethPsePortIndex')),
-                    ('cpeextpseportlldppwrtype', YLeaf(YType.enumeration, 'cpeExtPsePortLldpPwrType')),
-                    ('cpeextpseportlldppdpwrtype', YLeaf(YType.enumeration, 'cpeExtPsePortLldpPdPwrType')),
-                    ('cpeextpseportlldppwrsrc', YLeaf(YType.enumeration, 'cpeExtPsePortLldpPwrSrc')),
-                    ('cpeextpseportlldppdpwrsrc', YLeaf(YType.enumeration, 'cpeExtPsePortLldpPdPwrSrc')),
-                    ('cpeextpseportlldppwrpriority', YLeaf(YType.enumeration, 'cpeExtPsePortLldpPwrPriority')),
-                    ('cpeextpseportlldppdpwrpriority', YLeaf(YType.enumeration, 'cpeExtPsePortLldpPdPwrPriority')),
-                    ('cpeextpseportlldppwrreq', YLeaf(YType.uint32, 'cpeExtPsePortLldpPwrReq')),
-                    ('cpeextpseportlldppdpwrreq', YLeaf(YType.uint32, 'cpeExtPsePortLldpPdPwrReq')),
-                    ('cpeextpseportlldppwralloc', YLeaf(YType.uint32, 'cpeExtPsePortLldpPwrAlloc')),
-                    ('cpeextpseportlldppdpwralloc', YLeaf(YType.uint32, 'cpeExtPsePortLldpPdPwrAlloc')),
+                    ('pethpseportgroupindex', (YLeaf(YType.str, 'pethPsePortGroupIndex'), ['int'])),
+                    ('pethpseportindex', (YLeaf(YType.str, 'pethPsePortIndex'), ['int'])),
+                    ('cpeextpseportlldppwrtype', (YLeaf(YType.enumeration, 'cpeExtPsePortLldpPwrType'), [('ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB', 'CpeExtLldpPwrType', '')])),
+                    ('cpeextpseportlldppdpwrtype', (YLeaf(YType.enumeration, 'cpeExtPsePortLldpPdPwrType'), [('ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB', 'CpeExtLldpPwrType', '')])),
+                    ('cpeextpseportlldppwrsrc', (YLeaf(YType.enumeration, 'cpeExtPsePortLldpPwrSrc'), [('ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB', 'CpeExtLldpPwrSrc', '')])),
+                    ('cpeextpseportlldppdpwrsrc', (YLeaf(YType.enumeration, 'cpeExtPsePortLldpPdPwrSrc'), [('ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB', 'CpeExtLldpPwrSrc', '')])),
+                    ('cpeextpseportlldppwrpriority', (YLeaf(YType.enumeration, 'cpeExtPsePortLldpPwrPriority'), [('ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB', 'CpeExtPwrPriority', '')])),
+                    ('cpeextpseportlldppdpwrpriority', (YLeaf(YType.enumeration, 'cpeExtPsePortLldpPdPwrPriority'), [('ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB', 'CpeExtPwrPriority', '')])),
+                    ('cpeextpseportlldppwrreq', (YLeaf(YType.uint32, 'cpeExtPsePortLldpPwrReq'), ['int'])),
+                    ('cpeextpseportlldppdpwrreq', (YLeaf(YType.uint32, 'cpeExtPsePortLldpPdPwrReq'), ['int'])),
+                    ('cpeextpseportlldppwralloc', (YLeaf(YType.uint32, 'cpeExtPsePortLldpPwrAlloc'), ['int'])),
+                    ('cpeextpseportlldppdpwralloc', (YLeaf(YType.uint32, 'cpeExtPsePortLldpPdPwrAlloc'), ['int'])),
+                    ('cpeextpseportlldppwrclass', (YLeaf(YType.enumeration, 'cpeExtPsePortLldpPwrClass'), [('ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB', 'CpeExtLldpPwrClassOrZero', '')])),
+                    ('cpeextpseportlldppdpwrclass', (YLeaf(YType.enumeration, 'cpeExtPsePortLldpPdPwrClass'), [('ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB', 'CpeExtLldpPwrClassOrZero', '')])),
+                    ('cpeextpseportlldppdpwrsupport', (YLeaf(YType.bits, 'cpeExtPsePortLldpPdPwrSupport'), ['Bits'])),
+                    ('cpeextpseportlldppdpwrpairsorzero', (YLeaf(YType.enumeration, 'cpeExtPsePortLldpPdPwrPairsOrZero'), [('ydk.models.cisco_ios_xe.CISCO_POWER_ETHERNET_EXT_MIB', 'CISCOPOWERETHERNETEXTMIB', 'CpeExtPsePortLldpTable.CpeExtPsePortLldpEntry.CpeExtPsePortLldpPdPwrPairsOrZero')])),
                 ])
                 self.pethpseportgroupindex = None
                 self.pethpseportindex = None
@@ -794,11 +886,45 @@ class CISCOPOWERETHERNETEXTMIB(Entity):
                 self.cpeextpseportlldppdpwrreq = None
                 self.cpeextpseportlldppwralloc = None
                 self.cpeextpseportlldppdpwralloc = None
+                self.cpeextpseportlldppwrclass = None
+                self.cpeextpseportlldppdpwrclass = None
+                self.cpeextpseportlldppdpwrsupport = Bits()
+                self.cpeextpseportlldppdpwrpairsorzero = None
                 self._segment_path = lambda: "cpeExtPsePortLldpEntry" + "[pethPsePortGroupIndex='" + str(self.pethpseportgroupindex) + "']" + "[pethPsePortIndex='" + str(self.pethpseportindex) + "']"
                 self._absolute_path = lambda: "CISCO-POWER-ETHERNET-EXT-MIB:CISCO-POWER-ETHERNET-EXT-MIB/cpeExtPsePortLldpTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable.CpeExtPsePortLldpEntry, ['pethpseportgroupindex', 'pethpseportindex', 'cpeextpseportlldppwrtype', 'cpeextpseportlldppdpwrtype', 'cpeextpseportlldppwrsrc', 'cpeextpseportlldppdpwrsrc', 'cpeextpseportlldppwrpriority', 'cpeextpseportlldppdpwrpriority', 'cpeextpseportlldppwrreq', 'cpeextpseportlldppdpwrreq', 'cpeextpseportlldppwralloc', 'cpeextpseportlldppdpwralloc'], name, value)
+                self._perform_setattr(CISCOPOWERETHERNETEXTMIB.CpeExtPsePortLldpTable.CpeExtPsePortLldpEntry, ['pethpseportgroupindex', 'pethpseportindex', 'cpeextpseportlldppwrtype', 'cpeextpseportlldppdpwrtype', 'cpeextpseportlldppwrsrc', 'cpeextpseportlldppdpwrsrc', 'cpeextpseportlldppwrpriority', 'cpeextpseportlldppdpwrpriority', 'cpeextpseportlldppwrreq', 'cpeextpseportlldppdpwrreq', 'cpeextpseportlldppwralloc', 'cpeextpseportlldppdpwralloc', 'cpeextpseportlldppwrclass', 'cpeextpseportlldppdpwrclass', 'cpeextpseportlldppdpwrsupport', 'cpeextpseportlldppdpwrpairsorzero'], name, value)
+
+            class CpeExtPsePortLldpPdPwrPairsOrZero(Enum):
+                """
+                CpeExtPsePortLldpPdPwrPairsOrZero (Enum Class)
+
+                This object indicates the pinout pairs in use received
+
+                from the remote PD via MDI TLV in LLDP Protocol.
+
+                'unknown' \- information is not available
+
+                'signal'  \- the signal pairs are in use.
+
+                'spare'   \- the spare pairs are in use.
+
+                .. data:: unknown = 0
+
+                .. data:: signal = 1
+
+                .. data:: spare = 2
+
+                """
+
+                unknown = Enum.YLeaf(0, "unknown")
+
+                signal = Enum.YLeaf(1, "signal")
+
+                spare = Enum.YLeaf(2, "spare")
+
 
     def clone_ptr(self):
         self._top_entity = CISCOPOWERETHERNETEXTMIB()

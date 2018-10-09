@@ -12,6 +12,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class PushSource(Enum):
     """
     PushSource (Enum Class)
@@ -52,8 +53,8 @@ class Stream(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(Stream, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:stream")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:stream"):
+        super(Stream, self).__init__(ns, pref, tag)
 
 
 class Encodings(Identity):
@@ -67,8 +68,8 @@ class Encodings(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(Encodings, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:encodings")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:encodings"):
+        super(Encodings, self).__init__(ns, pref, tag)
 
 
 class Transport(Identity):
@@ -83,8 +84,8 @@ class Transport(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(Transport, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:transport")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:transport"):
+        super(Transport, self).__init__(ns, pref, tag)
 
 
 class SubscriptionResult(Identity):
@@ -100,8 +101,8 @@ class SubscriptionResult(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(SubscriptionResult, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:subscription-result")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:subscription-result"):
+        super(SubscriptionResult, self).__init__(ns, pref, tag)
 
 
 class SubscriptionStreamStatus(Identity):
@@ -116,8 +117,8 @@ class SubscriptionStreamStatus(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(SubscriptionStreamStatus, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:subscription-stream-status")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:subscription-stream-status"):
+        super(SubscriptionStreamStatus, self).__init__(ns, pref, tag)
 
 
 class SubscriptionErrors(Identity):
@@ -133,8 +134,8 @@ class SubscriptionErrors(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(SubscriptionErrors, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:subscription-errors")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:subscription-errors"):
+        super(SubscriptionErrors, self).__init__(ns, pref, tag)
 
 
 class EstablishSubscription(Entity):
@@ -189,6 +190,7 @@ class EstablishSubscription(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "ietf-event-notifications:establish-subscription"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -318,22 +320,22 @@ class EstablishSubscription(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('stream', YLeaf(YType.identityref, 'stream')),
-                ('encoding', YLeaf(YType.identityref, 'encoding')),
-                ('filter', YLeaf(YType.str, 'filter')),
-                ('filter_ref', YLeaf(YType.str, 'filter-ref')),
-                ('subtree_filter', YLeaf(YType.str, 'ietf-yang-push:subtree-filter')),
-                ('xpath_filter', YLeaf(YType.str, 'ietf-yang-push:xpath-filter')),
-                ('starttime', YLeaf(YType.str, 'startTime')),
-                ('stoptime', YLeaf(YType.str, 'stopTime')),
-                ('period', YLeaf(YType.uint32, 'ietf-yang-push:period')),
-                ('anchor_time', YLeaf(YType.str, 'ietf-yang-push:anchor-time')),
-                ('no_synch_on_start', YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start')),
-                ('dampening_period', YLeaf(YType.uint32, 'ietf-yang-push:dampening-period')),
-                ('excluded_change', YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change')),
-                ('dscp', YLeaf(YType.uint8, 'ietf-yang-push:dscp')),
-                ('subscription_priority', YLeaf(YType.uint8, 'ietf-yang-push:subscription-priority')),
-                ('subscription_dependency', YLeaf(YType.str, 'ietf-yang-push:subscription-dependency')),
+                ('stream', (YLeaf(YType.identityref, 'stream'), [('ydk.models.ietf.ietf_event_notifications', 'Stream')])),
+                ('encoding', (YLeaf(YType.identityref, 'encoding'), [('ydk.models.ietf.ietf_event_notifications', 'Encodings')])),
+                ('filter', (YLeaf(YType.str, 'filter'), ['str'])),
+                ('filter_ref', (YLeaf(YType.str, 'filter-ref'), ['int'])),
+                ('subtree_filter', (YLeaf(YType.str, 'ietf-yang-push:subtree-filter'), ['str'])),
+                ('xpath_filter', (YLeaf(YType.str, 'ietf-yang-push:xpath-filter'), ['str'])),
+                ('starttime', (YLeaf(YType.str, 'startTime'), ['str'])),
+                ('stoptime', (YLeaf(YType.str, 'stopTime'), ['str'])),
+                ('period', (YLeaf(YType.uint32, 'ietf-yang-push:period'), ['int'])),
+                ('anchor_time', (YLeaf(YType.str, 'ietf-yang-push:anchor-time'), ['str'])),
+                ('no_synch_on_start', (YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start'), ['Empty'])),
+                ('dampening_period', (YLeaf(YType.uint32, 'ietf-yang-push:dampening-period'), ['int'])),
+                ('excluded_change', (YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change'), [('ydk.models.ietf.ietf_yang_push', 'ChangeType', '')])),
+                ('dscp', (YLeaf(YType.uint8, 'ietf-yang-push:dscp'), ['int'])),
+                ('subscription_priority', (YLeaf(YType.uint8, 'ietf-yang-push:subscription-priority'), ['int'])),
+                ('subscription_dependency', (YLeaf(YType.str, 'ietf-yang-push:subscription-dependency'), ['str'])),
             ])
             self.stream = None
             self.encoding = None
@@ -353,9 +355,10 @@ class EstablishSubscription(Entity):
             self.subscription_dependency = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-event-notifications:establish-subscription/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EstablishSubscription.Input, [u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(EstablishSubscription.Input, ['stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
 
     class Output(Entity):
@@ -501,24 +504,24 @@ class EstablishSubscription(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('subscription_result', YLeaf(YType.identityref, 'subscription-result')),
-                ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
-                ('stream', YLeaf(YType.identityref, 'stream')),
-                ('encoding', YLeaf(YType.identityref, 'encoding')),
-                ('filter', YLeaf(YType.str, 'filter')),
-                ('filter_ref', YLeaf(YType.str, 'filter-ref')),
-                ('subtree_filter', YLeaf(YType.str, 'ietf-yang-push:subtree-filter')),
-                ('xpath_filter', YLeaf(YType.str, 'ietf-yang-push:xpath-filter')),
-                ('starttime', YLeaf(YType.str, 'startTime')),
-                ('stoptime', YLeaf(YType.str, 'stopTime')),
-                ('period', YLeaf(YType.uint32, 'ietf-yang-push:period')),
-                ('anchor_time', YLeaf(YType.str, 'ietf-yang-push:anchor-time')),
-                ('no_synch_on_start', YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start')),
-                ('dampening_period', YLeaf(YType.uint32, 'ietf-yang-push:dampening-period')),
-                ('excluded_change', YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change')),
-                ('dscp', YLeaf(YType.uint8, 'ietf-yang-push:dscp')),
-                ('subscription_priority', YLeaf(YType.uint8, 'ietf-yang-push:subscription-priority')),
-                ('subscription_dependency', YLeaf(YType.str, 'ietf-yang-push:subscription-dependency')),
+                ('subscription_result', (YLeaf(YType.identityref, 'subscription-result'), [('ydk.models.ietf.ietf_event_notifications', 'SubscriptionResult')])),
+                ('subscription_id', (YLeaf(YType.uint32, 'subscription-id'), ['int'])),
+                ('stream', (YLeaf(YType.identityref, 'stream'), [('ydk.models.ietf.ietf_event_notifications', 'Stream')])),
+                ('encoding', (YLeaf(YType.identityref, 'encoding'), [('ydk.models.ietf.ietf_event_notifications', 'Encodings')])),
+                ('filter', (YLeaf(YType.str, 'filter'), ['str'])),
+                ('filter_ref', (YLeaf(YType.str, 'filter-ref'), ['int'])),
+                ('subtree_filter', (YLeaf(YType.str, 'ietf-yang-push:subtree-filter'), ['str'])),
+                ('xpath_filter', (YLeaf(YType.str, 'ietf-yang-push:xpath-filter'), ['str'])),
+                ('starttime', (YLeaf(YType.str, 'startTime'), ['str'])),
+                ('stoptime', (YLeaf(YType.str, 'stopTime'), ['str'])),
+                ('period', (YLeaf(YType.uint32, 'ietf-yang-push:period'), ['int'])),
+                ('anchor_time', (YLeaf(YType.str, 'ietf-yang-push:anchor-time'), ['str'])),
+                ('no_synch_on_start', (YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start'), ['Empty'])),
+                ('dampening_period', (YLeaf(YType.uint32, 'ietf-yang-push:dampening-period'), ['int'])),
+                ('excluded_change', (YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change'), [('ydk.models.ietf.ietf_yang_push', 'ChangeType', '')])),
+                ('dscp', (YLeaf(YType.uint8, 'ietf-yang-push:dscp'), ['int'])),
+                ('subscription_priority', (YLeaf(YType.uint8, 'ietf-yang-push:subscription-priority'), ['int'])),
+                ('subscription_dependency', (YLeaf(YType.str, 'ietf-yang-push:subscription-dependency'), ['str'])),
             ])
             self.subscription_result = None
             self.subscription_id = None
@@ -540,9 +543,10 @@ class EstablishSubscription(Entity):
             self.subscription_dependency = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "ietf-event-notifications:establish-subscription/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(EstablishSubscription.Output, [u'subscription_result', u'subscription_id', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(EstablishSubscription.Output, ['subscription_result', 'subscription_id', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
     def clone_ptr(self):
         self._top_entity = EstablishSubscription()
@@ -586,6 +590,7 @@ class CreateSubscription(Entity):
         self.input.parent = self
         self._children_name_map["input"] = "input"
         self._segment_path = lambda: "ietf-event-notifications:create-subscription"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -642,11 +647,11 @@ class CreateSubscription(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('stream', YLeaf(YType.identityref, 'stream')),
-                ('encoding', YLeaf(YType.identityref, 'encoding')),
-                ('filter', YLeaf(YType.str, 'filter')),
-                ('starttime', YLeaf(YType.str, 'startTime')),
-                ('stoptime', YLeaf(YType.str, 'stopTime')),
+                ('stream', (YLeaf(YType.identityref, 'stream'), [('ydk.models.ietf.ietf_event_notifications', 'Stream')])),
+                ('encoding', (YLeaf(YType.identityref, 'encoding'), [('ydk.models.ietf.ietf_event_notifications', 'Encodings')])),
+                ('filter', (YLeaf(YType.str, 'filter'), ['str'])),
+                ('starttime', (YLeaf(YType.str, 'startTime'), ['str'])),
+                ('stoptime', (YLeaf(YType.str, 'stopTime'), ['str'])),
             ])
             self.stream = None
             self.encoding = None
@@ -655,9 +660,10 @@ class CreateSubscription(Entity):
             self.stoptime = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-event-notifications:create-subscription/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CreateSubscription.Input, [u'stream', u'encoding', u'filter', u'starttime', u'stoptime'], name, value)
+            self._perform_setattr(CreateSubscription.Input, ['stream', 'encoding', 'filter', 'starttime', 'stoptime'], name, value)
 
     def clone_ptr(self):
         self._top_entity = CreateSubscription()
@@ -716,6 +722,7 @@ class ModifySubscription(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "ietf-event-notifications:modify-subscription"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -819,18 +826,18 @@ class ModifySubscription(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
-                ('filter', YLeaf(YType.str, 'filter')),
-                ('filter_ref', YLeaf(YType.str, 'filter-ref')),
-                ('subtree_filter', YLeaf(YType.str, 'ietf-yang-push:subtree-filter')),
-                ('xpath_filter', YLeaf(YType.str, 'ietf-yang-push:xpath-filter')),
-                ('starttime', YLeaf(YType.str, 'startTime')),
-                ('stoptime', YLeaf(YType.str, 'stopTime')),
-                ('period', YLeaf(YType.uint32, 'ietf-yang-push:period')),
-                ('anchor_time', YLeaf(YType.str, 'ietf-yang-push:anchor-time')),
-                ('no_synch_on_start', YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start')),
-                ('dampening_period', YLeaf(YType.uint32, 'ietf-yang-push:dampening-period')),
-                ('excluded_change', YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change')),
+                ('subscription_id', (YLeaf(YType.uint32, 'subscription-id'), ['int'])),
+                ('filter', (YLeaf(YType.str, 'filter'), ['str'])),
+                ('filter_ref', (YLeaf(YType.str, 'filter-ref'), ['int'])),
+                ('subtree_filter', (YLeaf(YType.str, 'ietf-yang-push:subtree-filter'), ['str'])),
+                ('xpath_filter', (YLeaf(YType.str, 'ietf-yang-push:xpath-filter'), ['str'])),
+                ('starttime', (YLeaf(YType.str, 'startTime'), ['str'])),
+                ('stoptime', (YLeaf(YType.str, 'stopTime'), ['str'])),
+                ('period', (YLeaf(YType.uint32, 'ietf-yang-push:period'), ['int'])),
+                ('anchor_time', (YLeaf(YType.str, 'ietf-yang-push:anchor-time'), ['str'])),
+                ('no_synch_on_start', (YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start'), ['Empty'])),
+                ('dampening_period', (YLeaf(YType.uint32, 'ietf-yang-push:dampening-period'), ['int'])),
+                ('excluded_change', (YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change'), [('ydk.models.ietf.ietf_yang_push', 'ChangeType', '')])),
             ])
             self.subscription_id = None
             self.filter = None
@@ -846,9 +853,10 @@ class ModifySubscription(Entity):
             self.excluded_change = []
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-event-notifications:modify-subscription/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ModifySubscription.Input, [u'subscription_id', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change'], name, value)
+            self._perform_setattr(ModifySubscription.Input, ['subscription_id', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change'], name, value)
 
 
     class Output(Entity):
@@ -994,24 +1002,24 @@ class ModifySubscription(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('subscription_result', YLeaf(YType.identityref, 'subscription-result')),
-                ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
-                ('stream', YLeaf(YType.identityref, 'stream')),
-                ('encoding', YLeaf(YType.identityref, 'encoding')),
-                ('filter', YLeaf(YType.str, 'filter')),
-                ('filter_ref', YLeaf(YType.str, 'filter-ref')),
-                ('subtree_filter', YLeaf(YType.str, 'ietf-yang-push:subtree-filter')),
-                ('xpath_filter', YLeaf(YType.str, 'ietf-yang-push:xpath-filter')),
-                ('starttime', YLeaf(YType.str, 'startTime')),
-                ('stoptime', YLeaf(YType.str, 'stopTime')),
-                ('period', YLeaf(YType.uint32, 'ietf-yang-push:period')),
-                ('anchor_time', YLeaf(YType.str, 'ietf-yang-push:anchor-time')),
-                ('no_synch_on_start', YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start')),
-                ('dampening_period', YLeaf(YType.uint32, 'ietf-yang-push:dampening-period')),
-                ('excluded_change', YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change')),
-                ('dscp', YLeaf(YType.uint8, 'ietf-yang-push:dscp')),
-                ('subscription_priority', YLeaf(YType.uint8, 'ietf-yang-push:subscription-priority')),
-                ('subscription_dependency', YLeaf(YType.str, 'ietf-yang-push:subscription-dependency')),
+                ('subscription_result', (YLeaf(YType.identityref, 'subscription-result'), [('ydk.models.ietf.ietf_event_notifications', 'SubscriptionResult')])),
+                ('subscription_id', (YLeaf(YType.uint32, 'subscription-id'), ['int'])),
+                ('stream', (YLeaf(YType.identityref, 'stream'), [('ydk.models.ietf.ietf_event_notifications', 'Stream')])),
+                ('encoding', (YLeaf(YType.identityref, 'encoding'), [('ydk.models.ietf.ietf_event_notifications', 'Encodings')])),
+                ('filter', (YLeaf(YType.str, 'filter'), ['str'])),
+                ('filter_ref', (YLeaf(YType.str, 'filter-ref'), ['int'])),
+                ('subtree_filter', (YLeaf(YType.str, 'ietf-yang-push:subtree-filter'), ['str'])),
+                ('xpath_filter', (YLeaf(YType.str, 'ietf-yang-push:xpath-filter'), ['str'])),
+                ('starttime', (YLeaf(YType.str, 'startTime'), ['str'])),
+                ('stoptime', (YLeaf(YType.str, 'stopTime'), ['str'])),
+                ('period', (YLeaf(YType.uint32, 'ietf-yang-push:period'), ['int'])),
+                ('anchor_time', (YLeaf(YType.str, 'ietf-yang-push:anchor-time'), ['str'])),
+                ('no_synch_on_start', (YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start'), ['Empty'])),
+                ('dampening_period', (YLeaf(YType.uint32, 'ietf-yang-push:dampening-period'), ['int'])),
+                ('excluded_change', (YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change'), [('ydk.models.ietf.ietf_yang_push', 'ChangeType', '')])),
+                ('dscp', (YLeaf(YType.uint8, 'ietf-yang-push:dscp'), ['int'])),
+                ('subscription_priority', (YLeaf(YType.uint8, 'ietf-yang-push:subscription-priority'), ['int'])),
+                ('subscription_dependency', (YLeaf(YType.str, 'ietf-yang-push:subscription-dependency'), ['str'])),
             ])
             self.subscription_result = None
             self.subscription_id = None
@@ -1033,9 +1041,10 @@ class ModifySubscription(Entity):
             self.subscription_dependency = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "ietf-event-notifications:modify-subscription/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(ModifySubscription.Output, [u'subscription_result', u'subscription_id', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(ModifySubscription.Output, ['subscription_result', 'subscription_id', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ModifySubscription()
@@ -1083,6 +1092,7 @@ class DeleteSubscription(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "ietf-event-notifications:delete-subscription"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -1115,14 +1125,15 @@ class DeleteSubscription(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
+                ('subscription_id', (YLeaf(YType.uint32, 'subscription-id'), ['int'])),
             ])
             self.subscription_id = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-event-notifications:delete-subscription/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DeleteSubscription.Input, [u'subscription_id'], name, value)
+            self._perform_setattr(DeleteSubscription.Input, ['subscription_id'], name, value)
 
 
     class Output(Entity):
@@ -1153,14 +1164,15 @@ class DeleteSubscription(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('subscription_result', YLeaf(YType.identityref, 'subscription-result')),
+                ('subscription_result', (YLeaf(YType.identityref, 'subscription-result'), [('ydk.models.ietf.ietf_event_notifications', 'SubscriptionResult')])),
             ])
             self.subscription_result = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "ietf-event-notifications:delete-subscription/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(DeleteSubscription.Output, [u'subscription_result'], name, value)
+            self._perform_setattr(DeleteSubscription.Output, ['subscription_result'], name, value)
 
     def clone_ptr(self):
         self._top_entity = DeleteSubscription()
@@ -1194,13 +1206,14 @@ class Streams(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
-            ('stream', YLeafList(YType.identityref, 'stream')),
+            ('stream', (YLeafList(YType.identityref, 'stream'), [('ydk.models.ietf.ietf_event_notifications', 'Stream')])),
         ])
         self.stream = []
         self._segment_path = lambda: "ietf-event-notifications:streams"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Streams, [u'stream'], name, value)
+        self._perform_setattr(Streams, ['stream'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Streams()
@@ -1238,6 +1251,7 @@ class Filters(Entity):
 
         self.filter = YList(self)
         self._segment_path = lambda: "ietf-event-notifications:filters"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Filters, [], name, value)
@@ -1287,10 +1301,10 @@ class Filters(Entity):
             self.ylist_key_names = ['filter_id']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('filter_id', YLeaf(YType.uint32, 'filter-id')),
-                ('filter', YLeaf(YType.str, 'filter')),
-                ('subtree_filter', YLeaf(YType.str, 'ietf-yang-push:subtree-filter')),
-                ('xpath_filter', YLeaf(YType.str, 'ietf-yang-push:xpath-filter')),
+                ('filter_id', (YLeaf(YType.uint32, 'filter-id'), ['int'])),
+                ('filter', (YLeaf(YType.str, 'filter'), ['str'])),
+                ('subtree_filter', (YLeaf(YType.str, 'ietf-yang-push:subtree-filter'), ['str'])),
+                ('xpath_filter', (YLeaf(YType.str, 'ietf-yang-push:xpath-filter'), ['str'])),
             ])
             self.filter_id = None
             self.filter = None
@@ -1298,9 +1312,10 @@ class Filters(Entity):
             self.xpath_filter = None
             self._segment_path = lambda: "filter" + "[filter-id='" + str(self.filter_id) + "']"
             self._absolute_path = lambda: "ietf-event-notifications:filters/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Filters.Filter, [u'filter_id', u'filter', 'subtree_filter', 'xpath_filter'], name, value)
+            self._perform_setattr(Filters.Filter, ['filter_id', 'filter', 'subtree_filter', 'xpath_filter'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Filters()
@@ -1337,6 +1352,7 @@ class SubscriptionConfig(Entity):
 
         self.subscription = YList(self)
         self._segment_path = lambda: "ietf-event-notifications:subscription-config"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SubscriptionConfig, [], name, value)
@@ -1510,26 +1526,26 @@ class SubscriptionConfig(Entity):
             self.ylist_key_names = ['subscription_id']
             self._child_classes = OrderedDict([("receivers", ("receivers", SubscriptionConfig.Subscription.Receivers))])
             self._leafs = OrderedDict([
-                ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
-                ('stream', YLeaf(YType.identityref, 'stream')),
-                ('encoding', YLeaf(YType.identityref, 'encoding')),
-                ('filter', YLeaf(YType.str, 'filter')),
-                ('filter_ref', YLeaf(YType.str, 'filter-ref')),
-                ('subtree_filter', YLeaf(YType.str, 'ietf-yang-push:subtree-filter')),
-                ('xpath_filter', YLeaf(YType.str, 'ietf-yang-push:xpath-filter')),
-                ('starttime', YLeaf(YType.str, 'startTime')),
-                ('stoptime', YLeaf(YType.str, 'stopTime')),
-                ('source_interface', YLeaf(YType.str, 'source-interface')),
-                ('source_vrf', YLeaf(YType.uint32, 'source-vrf')),
-                ('source_address', YLeaf(YType.str, 'source-address')),
-                ('period', YLeaf(YType.uint32, 'ietf-yang-push:period')),
-                ('anchor_time', YLeaf(YType.str, 'ietf-yang-push:anchor-time')),
-                ('no_synch_on_start', YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start')),
-                ('dampening_period', YLeaf(YType.uint32, 'ietf-yang-push:dampening-period')),
-                ('excluded_change', YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change')),
-                ('dscp', YLeaf(YType.uint8, 'ietf-yang-push:dscp')),
-                ('subscription_priority', YLeaf(YType.uint8, 'ietf-yang-push:subscription-priority')),
-                ('subscription_dependency', YLeaf(YType.str, 'ietf-yang-push:subscription-dependency')),
+                ('subscription_id', (YLeaf(YType.uint32, 'subscription-id'), ['int'])),
+                ('stream', (YLeaf(YType.identityref, 'stream'), [('ydk.models.ietf.ietf_event_notifications', 'Stream')])),
+                ('encoding', (YLeaf(YType.identityref, 'encoding'), [('ydk.models.ietf.ietf_event_notifications', 'Encodings')])),
+                ('filter', (YLeaf(YType.str, 'filter'), ['str'])),
+                ('filter_ref', (YLeaf(YType.str, 'filter-ref'), ['int'])),
+                ('subtree_filter', (YLeaf(YType.str, 'ietf-yang-push:subtree-filter'), ['str'])),
+                ('xpath_filter', (YLeaf(YType.str, 'ietf-yang-push:xpath-filter'), ['str'])),
+                ('starttime', (YLeaf(YType.str, 'startTime'), ['str'])),
+                ('stoptime', (YLeaf(YType.str, 'stopTime'), ['str'])),
+                ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
+                ('source_vrf', (YLeaf(YType.uint32, 'source-vrf'), ['int'])),
+                ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                ('period', (YLeaf(YType.uint32, 'ietf-yang-push:period'), ['int'])),
+                ('anchor_time', (YLeaf(YType.str, 'ietf-yang-push:anchor-time'), ['str'])),
+                ('no_synch_on_start', (YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start'), ['Empty'])),
+                ('dampening_period', (YLeaf(YType.uint32, 'ietf-yang-push:dampening-period'), ['int'])),
+                ('excluded_change', (YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change'), [('ydk.models.ietf.ietf_yang_push', 'ChangeType', '')])),
+                ('dscp', (YLeaf(YType.uint8, 'ietf-yang-push:dscp'), ['int'])),
+                ('subscription_priority', (YLeaf(YType.uint8, 'ietf-yang-push:subscription-priority'), ['int'])),
+                ('subscription_dependency', (YLeaf(YType.str, 'ietf-yang-push:subscription-dependency'), ['str'])),
             ])
             self.subscription_id = None
             self.stream = None
@@ -1557,9 +1573,10 @@ class SubscriptionConfig(Entity):
             self._children_name_map["receivers"] = "receivers"
             self._segment_path = lambda: "subscription" + "[subscription-id='" + str(self.subscription_id) + "']"
             self._absolute_path = lambda: "ietf-event-notifications:subscription-config/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SubscriptionConfig.Subscription, [u'subscription_id', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', u'source_interface', u'source_vrf', u'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(SubscriptionConfig.Subscription, ['subscription_id', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'source_interface', 'source_vrf', 'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
 
         class Receivers(Entity):
@@ -1591,6 +1608,7 @@ class SubscriptionConfig(Entity):
 
                 self.receiver = YList(self)
                 self._segment_path = lambda: "receivers"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SubscriptionConfig.Subscription.Receivers, [], name, value)
@@ -1653,17 +1671,18 @@ class SubscriptionConfig(Entity):
                     self.ylist_key_names = ['address']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('address', YLeaf(YType.str, 'address')),
-                        ('port', YLeaf(YType.uint16, 'port')),
-                        ('protocol', YLeaf(YType.identityref, 'protocol')),
+                        ('address', (YLeaf(YType.str, 'address'), ['str','str','str'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
+                        ('protocol', (YLeaf(YType.identityref, 'protocol'), [('ydk.models.ietf.ietf_event_notifications', 'Transport')])),
                     ])
                     self.address = None
                     self.port = None
                     self.protocol = None
                     self._segment_path = lambda: "receiver" + "[address='" + str(self.address) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SubscriptionConfig.Subscription.Receivers.Receiver, [u'address', u'port', u'protocol'], name, value)
+                    self._perform_setattr(SubscriptionConfig.Subscription.Receivers.Receiver, ['address', 'port', 'protocol'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SubscriptionConfig()
@@ -1706,6 +1725,7 @@ class Subscriptions(Entity):
 
         self.subscription = YList(self)
         self._segment_path = lambda: "ietf-event-notifications:subscriptions"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Subscriptions, [], name, value)
@@ -1891,28 +1911,28 @@ class Subscriptions(Entity):
             self.ylist_key_names = ['subscription_id']
             self._child_classes = OrderedDict([("receivers", ("receivers", Subscriptions.Subscription.Receivers))])
             self._leafs = OrderedDict([
-                ('subscription_id', YLeaf(YType.uint32, 'subscription-id')),
-                ('configured_subscription', YLeaf(YType.empty, 'configured-subscription')),
-                ('subscription_status', YLeaf(YType.identityref, 'subscription-status')),
-                ('stream', YLeaf(YType.identityref, 'stream')),
-                ('encoding', YLeaf(YType.identityref, 'encoding')),
-                ('filter', YLeaf(YType.str, 'filter')),
-                ('filter_ref', YLeaf(YType.str, 'filter-ref')),
-                ('subtree_filter', YLeaf(YType.str, 'ietf-yang-push:subtree-filter')),
-                ('xpath_filter', YLeaf(YType.str, 'ietf-yang-push:xpath-filter')),
-                ('starttime', YLeaf(YType.str, 'startTime')),
-                ('stoptime', YLeaf(YType.str, 'stopTime')),
-                ('source_interface', YLeaf(YType.str, 'source-interface')),
-                ('source_vrf', YLeaf(YType.uint32, 'source-vrf')),
-                ('source_address', YLeaf(YType.str, 'source-address')),
-                ('period', YLeaf(YType.uint32, 'ietf-yang-push:period')),
-                ('anchor_time', YLeaf(YType.str, 'ietf-yang-push:anchor-time')),
-                ('no_synch_on_start', YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start')),
-                ('dampening_period', YLeaf(YType.uint32, 'ietf-yang-push:dampening-period')),
-                ('excluded_change', YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change')),
-                ('dscp', YLeaf(YType.uint8, 'ietf-yang-push:dscp')),
-                ('subscription_priority', YLeaf(YType.uint8, 'ietf-yang-push:subscription-priority')),
-                ('subscription_dependency', YLeaf(YType.str, 'ietf-yang-push:subscription-dependency')),
+                ('subscription_id', (YLeaf(YType.uint32, 'subscription-id'), ['int'])),
+                ('configured_subscription', (YLeaf(YType.empty, 'configured-subscription'), ['Empty'])),
+                ('subscription_status', (YLeaf(YType.identityref, 'subscription-status'), [('ydk.models.ietf.ietf_event_notifications', 'SubscriptionStreamStatus')])),
+                ('stream', (YLeaf(YType.identityref, 'stream'), [('ydk.models.ietf.ietf_event_notifications', 'Stream')])),
+                ('encoding', (YLeaf(YType.identityref, 'encoding'), [('ydk.models.ietf.ietf_event_notifications', 'Encodings')])),
+                ('filter', (YLeaf(YType.str, 'filter'), ['str'])),
+                ('filter_ref', (YLeaf(YType.str, 'filter-ref'), ['int'])),
+                ('subtree_filter', (YLeaf(YType.str, 'ietf-yang-push:subtree-filter'), ['str'])),
+                ('xpath_filter', (YLeaf(YType.str, 'ietf-yang-push:xpath-filter'), ['str'])),
+                ('starttime', (YLeaf(YType.str, 'startTime'), ['str'])),
+                ('stoptime', (YLeaf(YType.str, 'stopTime'), ['str'])),
+                ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
+                ('source_vrf', (YLeaf(YType.uint32, 'source-vrf'), ['int'])),
+                ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                ('period', (YLeaf(YType.uint32, 'ietf-yang-push:period'), ['int'])),
+                ('anchor_time', (YLeaf(YType.str, 'ietf-yang-push:anchor-time'), ['str'])),
+                ('no_synch_on_start', (YLeaf(YType.empty, 'ietf-yang-push:no-synch-on-start'), ['Empty'])),
+                ('dampening_period', (YLeaf(YType.uint32, 'ietf-yang-push:dampening-period'), ['int'])),
+                ('excluded_change', (YLeafList(YType.enumeration, 'ietf-yang-push:excluded-change'), [('ydk.models.ietf.ietf_yang_push', 'ChangeType', '')])),
+                ('dscp', (YLeaf(YType.uint8, 'ietf-yang-push:dscp'), ['int'])),
+                ('subscription_priority', (YLeaf(YType.uint8, 'ietf-yang-push:subscription-priority'), ['int'])),
+                ('subscription_dependency', (YLeaf(YType.str, 'ietf-yang-push:subscription-dependency'), ['str'])),
             ])
             self.subscription_id = None
             self.configured_subscription = None
@@ -1942,9 +1962,10 @@ class Subscriptions(Entity):
             self._children_name_map["receivers"] = "receivers"
             self._segment_path = lambda: "subscription" + "[subscription-id='" + str(self.subscription_id) + "']"
             self._absolute_path = lambda: "ietf-event-notifications:subscriptions/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Subscriptions.Subscription, [u'subscription_id', u'configured_subscription', u'subscription_status', u'stream', u'encoding', u'filter', u'filter_ref', 'subtree_filter', 'xpath_filter', u'starttime', u'stoptime', u'source_interface', u'source_vrf', u'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
+            self._perform_setattr(Subscriptions.Subscription, ['subscription_id', 'configured_subscription', 'subscription_status', 'stream', 'encoding', 'filter', 'filter_ref', 'subtree_filter', 'xpath_filter', 'starttime', 'stoptime', 'source_interface', 'source_vrf', 'source_address', 'period', 'anchor_time', 'no_synch_on_start', 'dampening_period', 'excluded_change', 'dscp', 'subscription_priority', 'subscription_dependency'], name, value)
 
 
         class Receivers(Entity):
@@ -1976,6 +1997,7 @@ class Subscriptions(Entity):
 
                 self.receiver = YList(self)
                 self._segment_path = lambda: "receivers"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Subscriptions.Subscription.Receivers, [], name, value)
@@ -2038,23 +2060,24 @@ class Subscriptions(Entity):
                     self.ylist_key_names = ['address']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('address', YLeaf(YType.str, 'address')),
-                        ('port', YLeaf(YType.uint16, 'port')),
-                        ('protocol', YLeaf(YType.identityref, 'protocol')),
+                        ('address', (YLeaf(YType.str, 'address'), ['str','str','str'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
+                        ('protocol', (YLeaf(YType.identityref, 'protocol'), [('ydk.models.ietf.ietf_event_notifications', 'Transport')])),
                     ])
                     self.address = None
                     self.port = None
                     self.protocol = None
                     self._segment_path = lambda: "receiver" + "[address='" + str(self.address) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Subscriptions.Subscription.Receivers.Receiver, [u'address', u'port', u'protocol'], name, value)
+                    self._perform_setattr(Subscriptions.Subscription.Receivers.Receiver, ['address', 'port', 'protocol'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Subscriptions()
         return self._top_entity
 
-class NoResources(Identity):
+class NoResources(SubscriptionErrors):
     """
     Lack of resources, e.g. CPU, memory, bandwidth
     
@@ -2065,11 +2088,11 @@ class NoResources(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(NoResources, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:no-resources")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:no-resources"):
+        super(NoResources, self).__init__(ns, pref, tag)
 
 
-class Inactive(Identity):
+class Inactive(SubscriptionStreamStatus):
     """
     Status is inactive, for example outside the
     interval between start time and stop time.
@@ -2081,11 +2104,11 @@ class Inactive(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(Inactive, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:inactive")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:inactive"):
+        super(Inactive, self).__init__(ns, pref, tag)
 
 
-class Suspended(Identity):
+class Suspended(SubscriptionStreamStatus):
     """
     The status is suspended, meaning that the publisher
     is currently unable to provide the negotiated updates
@@ -2098,11 +2121,11 @@ class Suspended(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(Suspended, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:suspended")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:suspended"):
+        super(Suspended, self).__init__(ns, pref, tag)
 
 
-class EncodeJson(Identity):
+class EncodeJson(Encodings):
     """
     Encode data using JSON
     
@@ -2113,11 +2136,11 @@ class EncodeJson(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(EncodeJson, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:encode-json")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:encode-json"):
+        super(EncodeJson, self).__init__(ns, pref, tag)
 
 
-class InternalError(Identity):
+class InternalError(SubscriptionErrors):
     """
     Subscription failures caused by server internal error.
     
@@ -2128,11 +2151,11 @@ class InternalError(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(InternalError, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:internal-error")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:internal-error"):
+        super(InternalError, self).__init__(ns, pref, tag)
 
 
-class Other(Identity):
+class Other(SubscriptionErrors):
     """
     Fallback reason \- any other reason
     
@@ -2143,11 +2166,11 @@ class Other(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(Other, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:other")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:other"):
+        super(Other, self).__init__(ns, pref, tag)
 
 
-class InError(Identity):
+class InError(SubscriptionStreamStatus):
     """
     The status is in error or degraded, meaning that
     stream and/or subscription is currently unable to provide
@@ -2160,11 +2183,11 @@ class InError(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(InError, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:in-error")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:in-error"):
+        super(InError, self).__init__(ns, pref, tag)
 
 
-class Netconf(Identity):
+class Netconf(Transport):
     """
     Netconf notifications as a transport.
     
@@ -2175,11 +2198,11 @@ class Netconf(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(Netconf, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:netconf")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:netconf"):
+        super(Netconf, self).__init__(ns, pref, tag)
 
 
-class Error(Identity):
+class Error(SubscriptionResult):
     """
     RPC was not successful.
     Base identity for error return codes.
@@ -2191,11 +2214,11 @@ class Error(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(Error, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error"):
+        super(Error, self).__init__(ns, pref, tag)
 
 
-class Active(Identity):
+class Active(SubscriptionStreamStatus):
     """
     Status is active and healthy.
     
@@ -2206,11 +2229,11 @@ class Active(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(Active, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:active")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:active"):
+        super(Active, self).__init__(ns, pref, tag)
 
 
-class NETCONF(Identity):
+class NETCONF(Stream):
     """
     Default NETCONF event stream, containing events based on
     notifications defined as YANG modules that are supported
@@ -2223,11 +2246,11 @@ class NETCONF(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(NETCONF, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:NETCONF")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:NETCONF"):
+        super(NETCONF, self).__init__(ns, pref, tag)
 
 
-class Ok(Identity):
+class Ok(SubscriptionResult):
     """
     OK \- RPC was successful and was performed as requested.
     
@@ -2238,11 +2261,11 @@ class Ok(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(Ok, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:ok")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:ok"):
+        super(Ok, self).__init__(ns, pref, tag)
 
 
-class EncodeXml(Identity):
+class EncodeXml(Encodings):
     """
     Encode data using XML
     
@@ -2253,11 +2276,11 @@ class EncodeXml(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(EncodeXml, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:encode-xml")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:encode-xml"):
+        super(EncodeXml, self).__init__(ns, pref, tag)
 
 
-class SubscriptionDeleted(Identity):
+class SubscriptionDeleted(SubscriptionErrors):
     """
     The subscription was terminated because the subscription
     was deleted.
@@ -2269,11 +2292,11 @@ class SubscriptionDeleted(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(SubscriptionDeleted, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:subscription-deleted")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:subscription-deleted"):
+        super(SubscriptionDeleted, self).__init__(ns, pref, tag)
 
 
-class ErrorNoSuchOption(Identity):
+class ErrorNoSuchOption(Error):
     """
     A requested parameter setting is not supported.
     
@@ -2284,11 +2307,11 @@ class ErrorNoSuchOption(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(ErrorNoSuchOption, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error-no-such-option")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-no-such-option"):
+        super(ErrorNoSuchOption, self).__init__(ns, pref, tag)
 
 
-class ErrorNoSuchSubscription(Identity):
+class ErrorNoSuchSubscription(Error):
     """
     A subscription with the requested subscription ID
     does not exist.
@@ -2300,11 +2323,11 @@ class ErrorNoSuchSubscription(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(ErrorNoSuchSubscription, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error-no-such-subscription")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-no-such-subscription"):
+        super(ErrorNoSuchSubscription, self).__init__(ns, pref, tag)
 
 
-class ErrorOther(Identity):
+class ErrorOther(Error):
     """
     An unspecified error has occurred (catch all).
     
@@ -2315,11 +2338,11 @@ class ErrorOther(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(ErrorOther, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error-other")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-other"):
+        super(ErrorOther, self).__init__(ns, pref, tag)
 
 
-class ErrorInsufficientResources(Identity):
+class ErrorInsufficientResources(Error):
     """
     The publisher has insufficient resources to support the
     subscription as requested.
@@ -2331,11 +2354,11 @@ class ErrorInsufficientResources(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(ErrorInsufficientResources, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error-insufficient-resources")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-insufficient-resources"):
+        super(ErrorInsufficientResources, self).__init__(ns, pref, tag)
 
 
-class ErrorConfiguredSubscription(Identity):
+class ErrorConfiguredSubscription(Error):
     """
     Cannot apply RPC to a configured subscription, i.e.
     to a subscription that was not established via RPC.
@@ -2347,7 +2370,7 @@ class ErrorConfiguredSubscription(Identity):
     _prefix = 'notif-bis'
     _revision = '2016-10-27'
 
-    def __init__(self):
-        super(ErrorConfiguredSubscription, self).__init__("urn:ietf:params:xml:ns:yang:ietf-event-notifications", "ietf-event-notifications", "ietf-event-notifications:error-configured-subscription")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-event-notifications", pref="ietf-event-notifications", tag="ietf-event-notifications:error-configured-subscription"):
+        super(ErrorConfiguredSubscription, self).__init__(ns, pref, tag)
 
 

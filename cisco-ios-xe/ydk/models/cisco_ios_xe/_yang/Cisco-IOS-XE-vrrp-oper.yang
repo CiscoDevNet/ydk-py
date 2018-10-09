@@ -31,6 +31,11 @@ module Cisco-IOS-XE-vrrp-oper {
      Copyright (c) 2017-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-05-10 {
+    description
+      "New leaf for secondary addresses";
+    reference "2.0.0";
+  }
   revision 2017-12-01 {
     description
       "Initial revision";
@@ -287,6 +292,12 @@ module Cisco-IOS-XE-vrrp-oper {
       type vrrp-ios-xe-oper:omp-state-updown;
       description
         "Indicates the state of the Overlay Management protocol tracking";
+    }
+    leaf-list secondary-vip-addresses {
+      type inet:ip-address;
+      ordered-by user;
+      description
+        "Contains the list of secondary address configured on the group";
     }
   }
 

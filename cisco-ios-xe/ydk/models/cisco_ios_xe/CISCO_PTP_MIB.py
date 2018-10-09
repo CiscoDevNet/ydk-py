@@ -408,6 +408,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class ClockMechanismType(Enum):
     """
     ClockMechanismType (Enum Class)
@@ -1080,6 +1081,7 @@ class CISCOPTPMIB(Entity):
         self.cptpclockportassociatetable.parent = self
         self._children_name_map["cptpclockportassociatetable"] = "cPtpClockPortAssociateTable"
         self._segment_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOPTPMIB, [], name, value)
@@ -1111,11 +1113,12 @@ class CISCOPTPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cptpsystemprofile', YLeaf(YType.enumeration, 'cPtpSystemProfile')),
+                ('cptpsystemprofile', (YLeaf(YType.enumeration, 'cPtpSystemProfile'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockProfileType', '')])),
             ])
             self.cptpsystemprofile = None
             self._segment_path = lambda: "ciscoPtpMIBSystemInfo"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPTPMIB.CiscoPtpMIBSystemInfo, ['cptpsystemprofile'], name, value)
@@ -1152,6 +1155,7 @@ class CISCOPTPMIB(Entity):
             self.cptpsystementry = YList(self)
             self._segment_path = lambda: "cPtpSystemTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPTPMIB.CPtpSystemTable, [], name, value)
@@ -1213,10 +1217,10 @@ class CISCOPTPMIB(Entity):
                 self.ylist_key_names = ['cptpdomainindex','cptpinstanceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cptpdomainindex', YLeaf(YType.uint32, 'cPtpDomainIndex')),
-                    ('cptpinstanceindex', YLeaf(YType.uint32, 'cPtpInstanceIndex')),
-                    ('cptpdomainclockportstotal', YLeaf(YType.uint32, 'cPtpDomainClockPortsTotal')),
-                    ('cptpdomainclockportphysicalinterfacestotal', YLeaf(YType.uint32, 'cPtpDomainClockPortPhysicalInterfacesTotal')),
+                    ('cptpdomainindex', (YLeaf(YType.uint32, 'cPtpDomainIndex'), ['int'])),
+                    ('cptpinstanceindex', (YLeaf(YType.uint32, 'cPtpInstanceIndex'), ['int'])),
+                    ('cptpdomainclockportstotal', (YLeaf(YType.uint32, 'cPtpDomainClockPortsTotal'), ['int'])),
+                    ('cptpdomainclockportphysicalinterfacestotal', (YLeaf(YType.uint32, 'cPtpDomainClockPortPhysicalInterfacesTotal'), ['int'])),
                 ])
                 self.cptpdomainindex = None
                 self.cptpinstanceindex = None
@@ -1224,6 +1228,7 @@ class CISCOPTPMIB(Entity):
                 self.cptpdomainclockportphysicalinterfacestotal = None
                 self._segment_path = lambda: "cPtpSystemEntry" + "[cPtpDomainIndex='" + str(self.cptpdomainindex) + "']" + "[cPtpInstanceIndex='" + str(self.cptpinstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpSystemTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPTPMIB.CPtpSystemTable.CPtpSystemEntry, ['cptpdomainindex', 'cptpinstanceindex', 'cptpdomainclockportstotal', 'cptpdomainclockportphysicalinterfacestotal'], name, value)
@@ -1260,6 +1265,7 @@ class CISCOPTPMIB(Entity):
             self.cptpsystemdomainentry = YList(self)
             self._segment_path = lambda: "cPtpSystemDomainTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPTPMIB.CPtpSystemDomainTable, [], name, value)
@@ -1302,13 +1308,14 @@ class CISCOPTPMIB(Entity):
                 self.ylist_key_names = ['cptpsystemdomainclocktypeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cptpsystemdomainclocktypeindex', YLeaf(YType.enumeration, 'cPtpSystemDomainClockTypeIndex')),
-                    ('cptpsystemdomaintotals', YLeaf(YType.uint32, 'cPtpSystemDomainTotals')),
+                    ('cptpsystemdomainclocktypeindex', (YLeaf(YType.enumeration, 'cPtpSystemDomainClockTypeIndex'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockType', '')])),
+                    ('cptpsystemdomaintotals', (YLeaf(YType.uint32, 'cPtpSystemDomainTotals'), ['int'])),
                 ])
                 self.cptpsystemdomainclocktypeindex = None
                 self.cptpsystemdomaintotals = None
                 self._segment_path = lambda: "cPtpSystemDomainEntry" + "[cPtpSystemDomainClockTypeIndex='" + str(self.cptpsystemdomainclocktypeindex) + "']"
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpSystemDomainTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPTPMIB.CPtpSystemDomainTable.CPtpSystemDomainEntry, ['cptpsystemdomainclocktypeindex', 'cptpsystemdomaintotals'], name, value)
@@ -1344,6 +1351,7 @@ class CISCOPTPMIB(Entity):
             self.cptpclocknodeentry = YList(self)
             self._segment_path = lambda: "cPtpClockNodeTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPTPMIB.CPtpClockNodeTable, [], name, value)
@@ -1443,19 +1451,19 @@ class CISCOPTPMIB(Entity):
                 self.ylist_key_names = ['cptpclockdomainindex','cptpclocktypeindex','cptpclockinstanceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cptpclockdomainindex', YLeaf(YType.uint32, 'cPtpClockDomainIndex')),
-                    ('cptpclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockTypeIndex')),
-                    ('cptpclockinstanceindex', YLeaf(YType.uint32, 'cPtpClockInstanceIndex')),
-                    ('cptpclockinput1ppsenabled', YLeaf(YType.boolean, 'cPtpClockInput1ppsEnabled')),
-                    ('cptpclockinputfrequencyenabled', YLeaf(YType.boolean, 'cPtpClockInputFrequencyEnabled')),
-                    ('cptpclocktodenabled', YLeaf(YType.boolean, 'cPtpClockTODEnabled')),
-                    ('cptpclockoutput1ppsenabled', YLeaf(YType.boolean, 'cPtpClockOutput1ppsEnabled')),
-                    ('cptpclockoutput1ppsoffsetenabled', YLeaf(YType.boolean, 'cPtpClockOutput1ppsOffsetEnabled')),
-                    ('cptpclockoutput1ppsoffsetvalue', YLeaf(YType.uint32, 'cPtpClockOutput1ppsOffsetValue')),
-                    ('cptpclockoutput1ppsoffsetnegative', YLeaf(YType.boolean, 'cPtpClockOutput1ppsOffsetNegative')),
-                    ('cptpclockinput1ppsinterface', YLeaf(YType.str, 'cPtpClockInput1ppsInterface')),
-                    ('cptpclockoutput1ppsinterface', YLeaf(YType.str, 'cPtpClockOutput1ppsInterface')),
-                    ('cptpclocktodinterface', YLeaf(YType.str, 'cPtpClockTODInterface')),
+                    ('cptpclockdomainindex', (YLeaf(YType.uint32, 'cPtpClockDomainIndex'), ['int'])),
+                    ('cptpclocktypeindex', (YLeaf(YType.enumeration, 'cPtpClockTypeIndex'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockType', '')])),
+                    ('cptpclockinstanceindex', (YLeaf(YType.uint32, 'cPtpClockInstanceIndex'), ['int'])),
+                    ('cptpclockinput1ppsenabled', (YLeaf(YType.boolean, 'cPtpClockInput1ppsEnabled'), ['bool'])),
+                    ('cptpclockinputfrequencyenabled', (YLeaf(YType.boolean, 'cPtpClockInputFrequencyEnabled'), ['bool'])),
+                    ('cptpclocktodenabled', (YLeaf(YType.boolean, 'cPtpClockTODEnabled'), ['bool'])),
+                    ('cptpclockoutput1ppsenabled', (YLeaf(YType.boolean, 'cPtpClockOutput1ppsEnabled'), ['bool'])),
+                    ('cptpclockoutput1ppsoffsetenabled', (YLeaf(YType.boolean, 'cPtpClockOutput1ppsOffsetEnabled'), ['bool'])),
+                    ('cptpclockoutput1ppsoffsetvalue', (YLeaf(YType.uint32, 'cPtpClockOutput1ppsOffsetValue'), ['int'])),
+                    ('cptpclockoutput1ppsoffsetnegative', (YLeaf(YType.boolean, 'cPtpClockOutput1ppsOffsetNegative'), ['bool'])),
+                    ('cptpclockinput1ppsinterface', (YLeaf(YType.str, 'cPtpClockInput1ppsInterface'), ['str'])),
+                    ('cptpclockoutput1ppsinterface', (YLeaf(YType.str, 'cPtpClockOutput1ppsInterface'), ['str'])),
+                    ('cptpclocktodinterface', (YLeaf(YType.str, 'cPtpClockTODInterface'), ['str'])),
                 ])
                 self.cptpclockdomainindex = None
                 self.cptpclocktypeindex = None
@@ -1472,6 +1480,7 @@ class CISCOPTPMIB(Entity):
                 self.cptpclocktodinterface = None
                 self._segment_path = lambda: "cPtpClockNodeEntry" + "[cPtpClockDomainIndex='" + str(self.cptpclockdomainindex) + "']" + "[cPtpClockTypeIndex='" + str(self.cptpclocktypeindex) + "']" + "[cPtpClockInstanceIndex='" + str(self.cptpclockinstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockNodeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockNodeTable.CPtpClockNodeEntry, ['cptpclockdomainindex', 'cptpclocktypeindex', 'cptpclockinstanceindex', 'cptpclockinput1ppsenabled', 'cptpclockinputfrequencyenabled', 'cptpclocktodenabled', 'cptpclockoutput1ppsenabled', 'cptpclockoutput1ppsoffsetenabled', 'cptpclockoutput1ppsoffsetvalue', 'cptpclockoutput1ppsoffsetnegative', 'cptpclockinput1ppsinterface', 'cptpclockoutput1ppsinterface', 'cptpclocktodinterface'], name, value)
@@ -1508,6 +1517,7 @@ class CISCOPTPMIB(Entity):
             self.cptpclockcurrentdsentry = YList(self)
             self._segment_path = lambda: "cPtpClockCurrentDSTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPTPMIB.CPtpClockCurrentDSTable, [], name, value)
@@ -1579,12 +1589,12 @@ class CISCOPTPMIB(Entity):
                 self.ylist_key_names = ['cptpclockcurrentdsdomainindex','cptpclockcurrentdsclocktypeindex','cptpclockcurrentdsinstanceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cptpclockcurrentdsdomainindex', YLeaf(YType.uint32, 'cPtpClockCurrentDSDomainIndex')),
-                    ('cptpclockcurrentdsclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockCurrentDSClockTypeIndex')),
-                    ('cptpclockcurrentdsinstanceindex', YLeaf(YType.uint32, 'cPtpClockCurrentDSInstanceIndex')),
-                    ('cptpclockcurrentdsstepsremoved', YLeaf(YType.uint32, 'cPtpClockCurrentDSStepsRemoved')),
-                    ('cptpclockcurrentdsoffsetfrommaster', YLeaf(YType.str, 'cPtpClockCurrentDSOffsetFromMaster')),
-                    ('cptpclockcurrentdsmeanpathdelay', YLeaf(YType.str, 'cPtpClockCurrentDSMeanPathDelay')),
+                    ('cptpclockcurrentdsdomainindex', (YLeaf(YType.uint32, 'cPtpClockCurrentDSDomainIndex'), ['int'])),
+                    ('cptpclockcurrentdsclocktypeindex', (YLeaf(YType.enumeration, 'cPtpClockCurrentDSClockTypeIndex'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockType', '')])),
+                    ('cptpclockcurrentdsinstanceindex', (YLeaf(YType.uint32, 'cPtpClockCurrentDSInstanceIndex'), ['int'])),
+                    ('cptpclockcurrentdsstepsremoved', (YLeaf(YType.uint32, 'cPtpClockCurrentDSStepsRemoved'), ['int'])),
+                    ('cptpclockcurrentdsoffsetfrommaster', (YLeaf(YType.str, 'cPtpClockCurrentDSOffsetFromMaster'), ['str'])),
+                    ('cptpclockcurrentdsmeanpathdelay', (YLeaf(YType.str, 'cPtpClockCurrentDSMeanPathDelay'), ['str'])),
                 ])
                 self.cptpclockcurrentdsdomainindex = None
                 self.cptpclockcurrentdsclocktypeindex = None
@@ -1594,6 +1604,7 @@ class CISCOPTPMIB(Entity):
                 self.cptpclockcurrentdsmeanpathdelay = None
                 self._segment_path = lambda: "cPtpClockCurrentDSEntry" + "[cPtpClockCurrentDSDomainIndex='" + str(self.cptpclockcurrentdsdomainindex) + "']" + "[cPtpClockCurrentDSClockTypeIndex='" + str(self.cptpclockcurrentdsclocktypeindex) + "']" + "[cPtpClockCurrentDSInstanceIndex='" + str(self.cptpclockcurrentdsinstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockCurrentDSTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockCurrentDSTable.CPtpClockCurrentDSEntry, ['cptpclockcurrentdsdomainindex', 'cptpclockcurrentdsclocktypeindex', 'cptpclockcurrentdsinstanceindex', 'cptpclockcurrentdsstepsremoved', 'cptpclockcurrentdsoffsetfrommaster', 'cptpclockcurrentdsmeanpathdelay'], name, value)
@@ -1630,6 +1641,7 @@ class CISCOPTPMIB(Entity):
             self.cptpclockparentdsentry = YList(self)
             self._segment_path = lambda: "cPtpClockParentDSTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPTPMIB.CPtpClockParentDSTable, [], name, value)
@@ -1740,19 +1752,19 @@ class CISCOPTPMIB(Entity):
                 self.ylist_key_names = ['cptpclockparentdsdomainindex','cptpclockparentdsclocktypeindex','cptpclockparentdsinstanceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cptpclockparentdsdomainindex', YLeaf(YType.uint32, 'cPtpClockParentDSDomainIndex')),
-                    ('cptpclockparentdsclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockParentDSClockTypeIndex')),
-                    ('cptpclockparentdsinstanceindex', YLeaf(YType.uint32, 'cPtpClockParentDSInstanceIndex')),
-                    ('cptpclockparentdsparentportidentity', YLeaf(YType.str, 'cPtpClockParentDSParentPortIdentity')),
-                    ('cptpclockparentdsparentstats', YLeaf(YType.boolean, 'cPtpClockParentDSParentStats')),
-                    ('cptpclockparentdsoffset', YLeaf(YType.int32, 'cPtpClockParentDSOffset')),
-                    ('cptpclockparentdsclockphchrate', YLeaf(YType.int32, 'cPtpClockParentDSClockPhChRate')),
-                    ('cptpclockparentdsgmclockidentity', YLeaf(YType.str, 'cPtpClockParentDSGMClockIdentity')),
-                    ('cptpclockparentdsgmclockpriority1', YLeaf(YType.int32, 'cPtpClockParentDSGMClockPriority1')),
-                    ('cptpclockparentdsgmclockpriority2', YLeaf(YType.int32, 'cPtpClockParentDSGMClockPriority2')),
-                    ('cptpclockparentdsgmclockqualityclass', YLeaf(YType.uint32, 'cPtpClockParentDSGMClockQualityClass')),
-                    ('cptpclockparentdsgmclockqualityaccuracy', YLeaf(YType.enumeration, 'cPtpClockParentDSGMClockQualityAccuracy')),
-                    ('cptpclockparentdsgmclockqualityoffset', YLeaf(YType.uint32, 'cPtpClockParentDSGMClockQualityOffset')),
+                    ('cptpclockparentdsdomainindex', (YLeaf(YType.uint32, 'cPtpClockParentDSDomainIndex'), ['int'])),
+                    ('cptpclockparentdsclocktypeindex', (YLeaf(YType.enumeration, 'cPtpClockParentDSClockTypeIndex'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockType', '')])),
+                    ('cptpclockparentdsinstanceindex', (YLeaf(YType.uint32, 'cPtpClockParentDSInstanceIndex'), ['int'])),
+                    ('cptpclockparentdsparentportidentity', (YLeaf(YType.str, 'cPtpClockParentDSParentPortIdentity'), ['str'])),
+                    ('cptpclockparentdsparentstats', (YLeaf(YType.boolean, 'cPtpClockParentDSParentStats'), ['bool'])),
+                    ('cptpclockparentdsoffset', (YLeaf(YType.int32, 'cPtpClockParentDSOffset'), ['int'])),
+                    ('cptpclockparentdsclockphchrate', (YLeaf(YType.int32, 'cPtpClockParentDSClockPhChRate'), ['int'])),
+                    ('cptpclockparentdsgmclockidentity', (YLeaf(YType.str, 'cPtpClockParentDSGMClockIdentity'), ['str'])),
+                    ('cptpclockparentdsgmclockpriority1', (YLeaf(YType.int32, 'cPtpClockParentDSGMClockPriority1'), ['int'])),
+                    ('cptpclockparentdsgmclockpriority2', (YLeaf(YType.int32, 'cPtpClockParentDSGMClockPriority2'), ['int'])),
+                    ('cptpclockparentdsgmclockqualityclass', (YLeaf(YType.uint32, 'cPtpClockParentDSGMClockQualityClass'), ['int'])),
+                    ('cptpclockparentdsgmclockqualityaccuracy', (YLeaf(YType.enumeration, 'cPtpClockParentDSGMClockQualityAccuracy'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockQualityAccuracyType', '')])),
+                    ('cptpclockparentdsgmclockqualityoffset', (YLeaf(YType.uint32, 'cPtpClockParentDSGMClockQualityOffset'), ['int'])),
                 ])
                 self.cptpclockparentdsdomainindex = None
                 self.cptpclockparentdsclocktypeindex = None
@@ -1769,6 +1781,7 @@ class CISCOPTPMIB(Entity):
                 self.cptpclockparentdsgmclockqualityoffset = None
                 self._segment_path = lambda: "cPtpClockParentDSEntry" + "[cPtpClockParentDSDomainIndex='" + str(self.cptpclockparentdsdomainindex) + "']" + "[cPtpClockParentDSClockTypeIndex='" + str(self.cptpclockparentdsclocktypeindex) + "']" + "[cPtpClockParentDSInstanceIndex='" + str(self.cptpclockparentdsinstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockParentDSTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockParentDSTable.CPtpClockParentDSEntry, ['cptpclockparentdsdomainindex', 'cptpclockparentdsclocktypeindex', 'cptpclockparentdsinstanceindex', 'cptpclockparentdsparentportidentity', 'cptpclockparentdsparentstats', 'cptpclockparentdsoffset', 'cptpclockparentdsclockphchrate', 'cptpclockparentdsgmclockidentity', 'cptpclockparentdsgmclockpriority1', 'cptpclockparentdsgmclockpriority2', 'cptpclockparentdsgmclockqualityclass', 'cptpclockparentdsgmclockqualityaccuracy', 'cptpclockparentdsgmclockqualityoffset'], name, value)
@@ -1805,6 +1818,7 @@ class CISCOPTPMIB(Entity):
             self.cptpclockdefaultdsentry = YList(self)
             self._segment_path = lambda: "cPtpClockDefaultDSTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPTPMIB.CPtpClockDefaultDSTable, [], name, value)
@@ -1901,17 +1915,17 @@ class CISCOPTPMIB(Entity):
                 self.ylist_key_names = ['cptpclockdefaultdsdomainindex','cptpclockdefaultdsclocktypeindex','cptpclockdefaultdsinstanceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cptpclockdefaultdsdomainindex', YLeaf(YType.uint32, 'cPtpClockDefaultDSDomainIndex')),
-                    ('cptpclockdefaultdsclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockDefaultDSClockTypeIndex')),
-                    ('cptpclockdefaultdsinstanceindex', YLeaf(YType.uint32, 'cPtpClockDefaultDSInstanceIndex')),
-                    ('cptpclockdefaultdstwostepflag', YLeaf(YType.boolean, 'cPtpClockDefaultDSTwoStepFlag')),
-                    ('cptpclockdefaultdsclockidentity', YLeaf(YType.str, 'cPtpClockDefaultDSClockIdentity')),
-                    ('cptpclockdefaultdspriority1', YLeaf(YType.int32, 'cPtpClockDefaultDSPriority1')),
-                    ('cptpclockdefaultdspriority2', YLeaf(YType.int32, 'cPtpClockDefaultDSPriority2')),
-                    ('cptpclockdefaultdsslaveonly', YLeaf(YType.boolean, 'cPtpClockDefaultDSSlaveOnly')),
-                    ('cptpclockdefaultdsqualityclass', YLeaf(YType.uint32, 'cPtpClockDefaultDSQualityClass')),
-                    ('cptpclockdefaultdsqualityaccuracy', YLeaf(YType.enumeration, 'cPtpClockDefaultDSQualityAccuracy')),
-                    ('cptpclockdefaultdsqualityoffset', YLeaf(YType.int32, 'cPtpClockDefaultDSQualityOffset')),
+                    ('cptpclockdefaultdsdomainindex', (YLeaf(YType.uint32, 'cPtpClockDefaultDSDomainIndex'), ['int'])),
+                    ('cptpclockdefaultdsclocktypeindex', (YLeaf(YType.enumeration, 'cPtpClockDefaultDSClockTypeIndex'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockType', '')])),
+                    ('cptpclockdefaultdsinstanceindex', (YLeaf(YType.uint32, 'cPtpClockDefaultDSInstanceIndex'), ['int'])),
+                    ('cptpclockdefaultdstwostepflag', (YLeaf(YType.boolean, 'cPtpClockDefaultDSTwoStepFlag'), ['bool'])),
+                    ('cptpclockdefaultdsclockidentity', (YLeaf(YType.str, 'cPtpClockDefaultDSClockIdentity'), ['str'])),
+                    ('cptpclockdefaultdspriority1', (YLeaf(YType.int32, 'cPtpClockDefaultDSPriority1'), ['int'])),
+                    ('cptpclockdefaultdspriority2', (YLeaf(YType.int32, 'cPtpClockDefaultDSPriority2'), ['int'])),
+                    ('cptpclockdefaultdsslaveonly', (YLeaf(YType.boolean, 'cPtpClockDefaultDSSlaveOnly'), ['bool'])),
+                    ('cptpclockdefaultdsqualityclass', (YLeaf(YType.uint32, 'cPtpClockDefaultDSQualityClass'), ['int'])),
+                    ('cptpclockdefaultdsqualityaccuracy', (YLeaf(YType.enumeration, 'cPtpClockDefaultDSQualityAccuracy'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockQualityAccuracyType', '')])),
+                    ('cptpclockdefaultdsqualityoffset', (YLeaf(YType.int32, 'cPtpClockDefaultDSQualityOffset'), ['int'])),
                 ])
                 self.cptpclockdefaultdsdomainindex = None
                 self.cptpclockdefaultdsclocktypeindex = None
@@ -1926,6 +1940,7 @@ class CISCOPTPMIB(Entity):
                 self.cptpclockdefaultdsqualityoffset = None
                 self._segment_path = lambda: "cPtpClockDefaultDSEntry" + "[cPtpClockDefaultDSDomainIndex='" + str(self.cptpclockdefaultdsdomainindex) + "']" + "[cPtpClockDefaultDSClockTypeIndex='" + str(self.cptpclockdefaultdsclocktypeindex) + "']" + "[cPtpClockDefaultDSInstanceIndex='" + str(self.cptpclockdefaultdsinstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockDefaultDSTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockDefaultDSTable.CPtpClockDefaultDSEntry, ['cptpclockdefaultdsdomainindex', 'cptpclockdefaultdsclocktypeindex', 'cptpclockdefaultdsinstanceindex', 'cptpclockdefaultdstwostepflag', 'cptpclockdefaultdsclockidentity', 'cptpclockdefaultdspriority1', 'cptpclockdefaultdspriority2', 'cptpclockdefaultdsslaveonly', 'cptpclockdefaultdsqualityclass', 'cptpclockdefaultdsqualityaccuracy', 'cptpclockdefaultdsqualityoffset'], name, value)
@@ -1962,6 +1977,7 @@ class CISCOPTPMIB(Entity):
             self.cptpclockrunningentry = YList(self)
             self._segment_path = lambda: "cPtpClockRunningTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPTPMIB.CPtpClockRunningTable, [], name, value)
@@ -2027,12 +2043,12 @@ class CISCOPTPMIB(Entity):
                 self.ylist_key_names = ['cptpclockrunningdomainindex','cptpclockrunningclocktypeindex','cptpclockrunninginstanceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cptpclockrunningdomainindex', YLeaf(YType.uint32, 'cPtpClockRunningDomainIndex')),
-                    ('cptpclockrunningclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockRunningClockTypeIndex')),
-                    ('cptpclockrunninginstanceindex', YLeaf(YType.uint32, 'cPtpClockRunningInstanceIndex')),
-                    ('cptpclockrunningstate', YLeaf(YType.enumeration, 'cPtpClockRunningState')),
-                    ('cptpclockrunningpacketssent', YLeaf(YType.uint64, 'cPtpClockRunningPacketsSent')),
-                    ('cptpclockrunningpacketsreceived', YLeaf(YType.uint64, 'cPtpClockRunningPacketsReceived')),
+                    ('cptpclockrunningdomainindex', (YLeaf(YType.uint32, 'cPtpClockRunningDomainIndex'), ['int'])),
+                    ('cptpclockrunningclocktypeindex', (YLeaf(YType.enumeration, 'cPtpClockRunningClockTypeIndex'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockType', '')])),
+                    ('cptpclockrunninginstanceindex', (YLeaf(YType.uint32, 'cPtpClockRunningInstanceIndex'), ['int'])),
+                    ('cptpclockrunningstate', (YLeaf(YType.enumeration, 'cPtpClockRunningState'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockStateType', '')])),
+                    ('cptpclockrunningpacketssent', (YLeaf(YType.uint64, 'cPtpClockRunningPacketsSent'), ['int'])),
+                    ('cptpclockrunningpacketsreceived', (YLeaf(YType.uint64, 'cPtpClockRunningPacketsReceived'), ['int'])),
                 ])
                 self.cptpclockrunningdomainindex = None
                 self.cptpclockrunningclocktypeindex = None
@@ -2042,6 +2058,7 @@ class CISCOPTPMIB(Entity):
                 self.cptpclockrunningpacketsreceived = None
                 self._segment_path = lambda: "cPtpClockRunningEntry" + "[cPtpClockRunningDomainIndex='" + str(self.cptpclockrunningdomainindex) + "']" + "[cPtpClockRunningClockTypeIndex='" + str(self.cptpclockrunningclocktypeindex) + "']" + "[cPtpClockRunningInstanceIndex='" + str(self.cptpclockrunninginstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockRunningTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockRunningTable.CPtpClockRunningEntry, ['cptpclockrunningdomainindex', 'cptpclockrunningclocktypeindex', 'cptpclockrunninginstanceindex', 'cptpclockrunningstate', 'cptpclockrunningpacketssent', 'cptpclockrunningpacketsreceived'], name, value)
@@ -2078,6 +2095,7 @@ class CISCOPTPMIB(Entity):
             self.cptpclocktimepropertiesdsentry = YList(self)
             self._segment_path = lambda: "cPtpClockTimePropertiesDSTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPTPMIB.CPtpClockTimePropertiesDSTable, [], name, value)
@@ -2166,17 +2184,17 @@ class CISCOPTPMIB(Entity):
                 self.ylist_key_names = ['cptpclocktimepropertiesdsdomainindex','cptpclocktimepropertiesdsclocktypeindex','cptpclocktimepropertiesdsinstanceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cptpclocktimepropertiesdsdomainindex', YLeaf(YType.uint32, 'cPtpClockTimePropertiesDSDomainIndex')),
-                    ('cptpclocktimepropertiesdsclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockTimePropertiesDSClockTypeIndex')),
-                    ('cptpclocktimepropertiesdsinstanceindex', YLeaf(YType.uint32, 'cPtpClockTimePropertiesDSInstanceIndex')),
-                    ('cptpclocktimepropertiesdscurrentutcoffsetvalid', YLeaf(YType.boolean, 'cPtpClockTimePropertiesDSCurrentUTCOffsetValid')),
-                    ('cptpclocktimepropertiesdscurrentutcoffset', YLeaf(YType.int32, 'cPtpClockTimePropertiesDSCurrentUTCOffset')),
-                    ('cptpclocktimepropertiesdsleap59', YLeaf(YType.boolean, 'cPtpClockTimePropertiesDSLeap59')),
-                    ('cptpclocktimepropertiesdsleap61', YLeaf(YType.boolean, 'cPtpClockTimePropertiesDSLeap61')),
-                    ('cptpclocktimepropertiesdstimetraceable', YLeaf(YType.boolean, 'cPtpClockTimePropertiesDSTimeTraceable')),
-                    ('cptpclocktimepropertiesdsfreqtraceable', YLeaf(YType.boolean, 'cPtpClockTimePropertiesDSFreqTraceable')),
-                    ('cptpclocktimepropertiesdsptptimescale', YLeaf(YType.boolean, 'cPtpClockTimePropertiesDSPTPTimescale')),
-                    ('cptpclocktimepropertiesdssource', YLeaf(YType.enumeration, 'cPtpClockTimePropertiesDSSource')),
+                    ('cptpclocktimepropertiesdsdomainindex', (YLeaf(YType.uint32, 'cPtpClockTimePropertiesDSDomainIndex'), ['int'])),
+                    ('cptpclocktimepropertiesdsclocktypeindex', (YLeaf(YType.enumeration, 'cPtpClockTimePropertiesDSClockTypeIndex'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockType', '')])),
+                    ('cptpclocktimepropertiesdsinstanceindex', (YLeaf(YType.uint32, 'cPtpClockTimePropertiesDSInstanceIndex'), ['int'])),
+                    ('cptpclocktimepropertiesdscurrentutcoffsetvalid', (YLeaf(YType.boolean, 'cPtpClockTimePropertiesDSCurrentUTCOffsetValid'), ['bool'])),
+                    ('cptpclocktimepropertiesdscurrentutcoffset', (YLeaf(YType.int32, 'cPtpClockTimePropertiesDSCurrentUTCOffset'), ['int'])),
+                    ('cptpclocktimepropertiesdsleap59', (YLeaf(YType.boolean, 'cPtpClockTimePropertiesDSLeap59'), ['bool'])),
+                    ('cptpclocktimepropertiesdsleap61', (YLeaf(YType.boolean, 'cPtpClockTimePropertiesDSLeap61'), ['bool'])),
+                    ('cptpclocktimepropertiesdstimetraceable', (YLeaf(YType.boolean, 'cPtpClockTimePropertiesDSTimeTraceable'), ['bool'])),
+                    ('cptpclocktimepropertiesdsfreqtraceable', (YLeaf(YType.boolean, 'cPtpClockTimePropertiesDSFreqTraceable'), ['bool'])),
+                    ('cptpclocktimepropertiesdsptptimescale', (YLeaf(YType.boolean, 'cPtpClockTimePropertiesDSPTPTimescale'), ['bool'])),
+                    ('cptpclocktimepropertiesdssource', (YLeaf(YType.enumeration, 'cPtpClockTimePropertiesDSSource'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockTimeSourceType', '')])),
                 ])
                 self.cptpclocktimepropertiesdsdomainindex = None
                 self.cptpclocktimepropertiesdsclocktypeindex = None
@@ -2191,6 +2209,7 @@ class CISCOPTPMIB(Entity):
                 self.cptpclocktimepropertiesdssource = None
                 self._segment_path = lambda: "cPtpClockTimePropertiesDSEntry" + "[cPtpClockTimePropertiesDSDomainIndex='" + str(self.cptpclocktimepropertiesdsdomainindex) + "']" + "[cPtpClockTimePropertiesDSClockTypeIndex='" + str(self.cptpclocktimepropertiesdsclocktypeindex) + "']" + "[cPtpClockTimePropertiesDSInstanceIndex='" + str(self.cptpclocktimepropertiesdsinstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockTimePropertiesDSTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockTimePropertiesDSTable.CPtpClockTimePropertiesDSEntry, ['cptpclocktimepropertiesdsdomainindex', 'cptpclocktimepropertiesdsclocktypeindex', 'cptpclocktimepropertiesdsinstanceindex', 'cptpclocktimepropertiesdscurrentutcoffsetvalid', 'cptpclocktimepropertiesdscurrentutcoffset', 'cptpclocktimepropertiesdsleap59', 'cptpclocktimepropertiesdsleap61', 'cptpclocktimepropertiesdstimetraceable', 'cptpclocktimepropertiesdsfreqtraceable', 'cptpclocktimepropertiesdsptptimescale', 'cptpclocktimepropertiesdssource'], name, value)
@@ -2227,6 +2246,7 @@ class CISCOPTPMIB(Entity):
             self.cptpclocktransdefaultdsentry = YList(self)
             self._segment_path = lambda: "cPtpClockTransDefaultDSTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPTPMIB.CPtpClockTransDefaultDSTable, [], name, value)
@@ -2294,12 +2314,12 @@ class CISCOPTPMIB(Entity):
                 self.ylist_key_names = ['cptpclocktransdefaultdsdomainindex','cptpclocktransdefaultdsinstanceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cptpclocktransdefaultdsdomainindex', YLeaf(YType.uint32, 'cPtpClockTransDefaultDSDomainIndex')),
-                    ('cptpclocktransdefaultdsinstanceindex', YLeaf(YType.uint32, 'cPtpClockTransDefaultDSInstanceIndex')),
-                    ('cptpclocktransdefaultdsclockidentity', YLeaf(YType.str, 'cPtpClockTransDefaultDSClockIdentity')),
-                    ('cptpclocktransdefaultdsnumofports', YLeaf(YType.uint32, 'cPtpClockTransDefaultDSNumOfPorts')),
-                    ('cptpclocktransdefaultdsdelay', YLeaf(YType.enumeration, 'cPtpClockTransDefaultDSDelay')),
-                    ('cptpclocktransdefaultdsprimarydomain', YLeaf(YType.int32, 'cPtpClockTransDefaultDSPrimaryDomain')),
+                    ('cptpclocktransdefaultdsdomainindex', (YLeaf(YType.uint32, 'cPtpClockTransDefaultDSDomainIndex'), ['int'])),
+                    ('cptpclocktransdefaultdsinstanceindex', (YLeaf(YType.uint32, 'cPtpClockTransDefaultDSInstanceIndex'), ['int'])),
+                    ('cptpclocktransdefaultdsclockidentity', (YLeaf(YType.str, 'cPtpClockTransDefaultDSClockIdentity'), ['str'])),
+                    ('cptpclocktransdefaultdsnumofports', (YLeaf(YType.uint32, 'cPtpClockTransDefaultDSNumOfPorts'), ['int'])),
+                    ('cptpclocktransdefaultdsdelay', (YLeaf(YType.enumeration, 'cPtpClockTransDefaultDSDelay'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockMechanismType', '')])),
+                    ('cptpclocktransdefaultdsprimarydomain', (YLeaf(YType.int32, 'cPtpClockTransDefaultDSPrimaryDomain'), ['int'])),
                 ])
                 self.cptpclocktransdefaultdsdomainindex = None
                 self.cptpclocktransdefaultdsinstanceindex = None
@@ -2309,6 +2329,7 @@ class CISCOPTPMIB(Entity):
                 self.cptpclocktransdefaultdsprimarydomain = None
                 self._segment_path = lambda: "cPtpClockTransDefaultDSEntry" + "[cPtpClockTransDefaultDSDomainIndex='" + str(self.cptpclocktransdefaultdsdomainindex) + "']" + "[cPtpClockTransDefaultDSInstanceIndex='" + str(self.cptpclocktransdefaultdsinstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockTransDefaultDSTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockTransDefaultDSTable.CPtpClockTransDefaultDSEntry, ['cptpclocktransdefaultdsdomainindex', 'cptpclocktransdefaultdsinstanceindex', 'cptpclocktransdefaultdsclockidentity', 'cptpclocktransdefaultdsnumofports', 'cptpclocktransdefaultdsdelay', 'cptpclocktransdefaultdsprimarydomain'], name, value)
@@ -2345,6 +2366,7 @@ class CISCOPTPMIB(Entity):
             self.cptpclockportentry = YList(self)
             self._segment_path = lambda: "cPtpClockPortTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPTPMIB.CPtpClockPortTable, [], name, value)
@@ -2434,16 +2456,16 @@ class CISCOPTPMIB(Entity):
                 self.ylist_key_names = ['cptpclockportdomainindex','cptpclockportclocktypeindex','cptpclockportclockinstanceindex','cptpclockporttableportnumberindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cptpclockportdomainindex', YLeaf(YType.uint32, 'cPtpClockPortDomainIndex')),
-                    ('cptpclockportclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockPortClockTypeIndex')),
-                    ('cptpclockportclockinstanceindex', YLeaf(YType.uint32, 'cPtpClockPortClockInstanceIndex')),
-                    ('cptpclockporttableportnumberindex', YLeaf(YType.uint32, 'cPtpClockPortTablePortNumberIndex')),
-                    ('cptpclockportname', YLeaf(YType.str, 'cPtpClockPortName')),
-                    ('cptpclockportrole', YLeaf(YType.enumeration, 'cPtpClockPortRole')),
-                    ('cptpclockportsynconestep', YLeaf(YType.boolean, 'cPtpClockPortSyncOneStep')),
-                    ('cptpclockportcurrentpeeraddresstype', YLeaf(YType.enumeration, 'cPtpClockPortCurrentPeerAddressType')),
-                    ('cptpclockportcurrentpeeraddress', YLeaf(YType.str, 'cPtpClockPortCurrentPeerAddress')),
-                    ('cptpclockportnumofassociatedports', YLeaf(YType.uint32, 'cPtpClockPortNumOfAssociatedPorts')),
+                    ('cptpclockportdomainindex', (YLeaf(YType.uint32, 'cPtpClockPortDomainIndex'), ['int'])),
+                    ('cptpclockportclocktypeindex', (YLeaf(YType.enumeration, 'cPtpClockPortClockTypeIndex'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockType', '')])),
+                    ('cptpclockportclockinstanceindex', (YLeaf(YType.uint32, 'cPtpClockPortClockInstanceIndex'), ['int'])),
+                    ('cptpclockporttableportnumberindex', (YLeaf(YType.uint32, 'cPtpClockPortTablePortNumberIndex'), ['int'])),
+                    ('cptpclockportname', (YLeaf(YType.str, 'cPtpClockPortName'), ['str'])),
+                    ('cptpclockportrole', (YLeaf(YType.enumeration, 'cPtpClockPortRole'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockRoleType', '')])),
+                    ('cptpclockportsynconestep', (YLeaf(YType.boolean, 'cPtpClockPortSyncOneStep'), ['bool'])),
+                    ('cptpclockportcurrentpeeraddresstype', (YLeaf(YType.enumeration, 'cPtpClockPortCurrentPeerAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cptpclockportcurrentpeeraddress', (YLeaf(YType.str, 'cPtpClockPortCurrentPeerAddress'), ['str'])),
+                    ('cptpclockportnumofassociatedports', (YLeaf(YType.uint32, 'cPtpClockPortNumOfAssociatedPorts'), ['int'])),
                 ])
                 self.cptpclockportdomainindex = None
                 self.cptpclockportclocktypeindex = None
@@ -2457,6 +2479,7 @@ class CISCOPTPMIB(Entity):
                 self.cptpclockportnumofassociatedports = None
                 self._segment_path = lambda: "cPtpClockPortEntry" + "[cPtpClockPortDomainIndex='" + str(self.cptpclockportdomainindex) + "']" + "[cPtpClockPortClockTypeIndex='" + str(self.cptpclockportclocktypeindex) + "']" + "[cPtpClockPortClockInstanceIndex='" + str(self.cptpclockportclockinstanceindex) + "']" + "[cPtpClockPortTablePortNumberIndex='" + str(self.cptpclockporttableportnumberindex) + "']"
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockPortTable.CPtpClockPortEntry, ['cptpclockportdomainindex', 'cptpclockportclocktypeindex', 'cptpclockportclockinstanceindex', 'cptpclockporttableportnumberindex', 'cptpclockportname', 'cptpclockportrole', 'cptpclockportsynconestep', 'cptpclockportcurrentpeeraddresstype', 'cptpclockportcurrentpeeraddress', 'cptpclockportnumofassociatedports'], name, value)
@@ -2493,6 +2516,7 @@ class CISCOPTPMIB(Entity):
             self.cptpclockportdsentry = YList(self)
             self._segment_path = lambda: "cPtpClockPortDSTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPTPMIB.CPtpClockPortDSTable, [], name, value)
@@ -2619,21 +2643,21 @@ class CISCOPTPMIB(Entity):
                 self.ylist_key_names = ['cptpclockportdsdomainindex','cptpclockportdsclocktypeindex','cptpclockportdsclockinstanceindex','cptpclockportdsportnumberindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cptpclockportdsdomainindex', YLeaf(YType.uint32, 'cPtpClockPortDSDomainIndex')),
-                    ('cptpclockportdsclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockPortDSClockTypeIndex')),
-                    ('cptpclockportdsclockinstanceindex', YLeaf(YType.uint32, 'cPtpClockPortDSClockInstanceIndex')),
-                    ('cptpclockportdsportnumberindex', YLeaf(YType.uint32, 'cPtpClockPortDSPortNumberIndex')),
-                    ('cptpclockportdsname', YLeaf(YType.str, 'cPtpClockPortDSName')),
-                    ('cptpclockportdsportidentity', YLeaf(YType.str, 'cPtpClockPortDSPortIdentity')),
-                    ('cptpclockportdsannouncementinterval', YLeaf(YType.int32, 'cPtpClockPortDSAnnouncementInterval')),
-                    ('cptpclockportdsannouncercttimeout', YLeaf(YType.int32, 'cPtpClockPortDSAnnounceRctTimeout')),
-                    ('cptpclockportdssyncinterval', YLeaf(YType.int32, 'cPtpClockPortDSSyncInterval')),
-                    ('cptpclockportdsmindelayreqinterval', YLeaf(YType.int32, 'cPtpClockPortDSMinDelayReqInterval')),
-                    ('cptpclockportdspeerdelayreqinterval', YLeaf(YType.int32, 'cPtpClockPortDSPeerDelayReqInterval')),
-                    ('cptpclockportdsdelaymech', YLeaf(YType.enumeration, 'cPtpClockPortDSDelayMech')),
-                    ('cptpclockportdspeermeanpathdelay', YLeaf(YType.str, 'cPtpClockPortDSPeerMeanPathDelay')),
-                    ('cptpclockportdsgrantduration', YLeaf(YType.uint32, 'cPtpClockPortDSGrantDuration')),
-                    ('cptpclockportdsptpversion', YLeaf(YType.int32, 'cPtpClockPortDSPTPVersion')),
+                    ('cptpclockportdsdomainindex', (YLeaf(YType.uint32, 'cPtpClockPortDSDomainIndex'), ['int'])),
+                    ('cptpclockportdsclocktypeindex', (YLeaf(YType.enumeration, 'cPtpClockPortDSClockTypeIndex'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockType', '')])),
+                    ('cptpclockportdsclockinstanceindex', (YLeaf(YType.uint32, 'cPtpClockPortDSClockInstanceIndex'), ['int'])),
+                    ('cptpclockportdsportnumberindex', (YLeaf(YType.uint32, 'cPtpClockPortDSPortNumberIndex'), ['int'])),
+                    ('cptpclockportdsname', (YLeaf(YType.str, 'cPtpClockPortDSName'), ['str'])),
+                    ('cptpclockportdsportidentity', (YLeaf(YType.str, 'cPtpClockPortDSPortIdentity'), ['str'])),
+                    ('cptpclockportdsannouncementinterval', (YLeaf(YType.int32, 'cPtpClockPortDSAnnouncementInterval'), ['int'])),
+                    ('cptpclockportdsannouncercttimeout', (YLeaf(YType.int32, 'cPtpClockPortDSAnnounceRctTimeout'), ['int'])),
+                    ('cptpclockportdssyncinterval', (YLeaf(YType.int32, 'cPtpClockPortDSSyncInterval'), ['int'])),
+                    ('cptpclockportdsmindelayreqinterval', (YLeaf(YType.int32, 'cPtpClockPortDSMinDelayReqInterval'), ['int'])),
+                    ('cptpclockportdspeerdelayreqinterval', (YLeaf(YType.int32, 'cPtpClockPortDSPeerDelayReqInterval'), ['int'])),
+                    ('cptpclockportdsdelaymech', (YLeaf(YType.enumeration, 'cPtpClockPortDSDelayMech'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockMechanismType', '')])),
+                    ('cptpclockportdspeermeanpathdelay', (YLeaf(YType.str, 'cPtpClockPortDSPeerMeanPathDelay'), ['str'])),
+                    ('cptpclockportdsgrantduration', (YLeaf(YType.uint32, 'cPtpClockPortDSGrantDuration'), ['int'])),
+                    ('cptpclockportdsptpversion', (YLeaf(YType.int32, 'cPtpClockPortDSPTPVersion'), ['int'])),
                 ])
                 self.cptpclockportdsdomainindex = None
                 self.cptpclockportdsclocktypeindex = None
@@ -2652,6 +2676,7 @@ class CISCOPTPMIB(Entity):
                 self.cptpclockportdsptpversion = None
                 self._segment_path = lambda: "cPtpClockPortDSEntry" + "[cPtpClockPortDSDomainIndex='" + str(self.cptpclockportdsdomainindex) + "']" + "[cPtpClockPortDSClockTypeIndex='" + str(self.cptpclockportdsclocktypeindex) + "']" + "[cPtpClockPortDSClockInstanceIndex='" + str(self.cptpclockportdsclockinstanceindex) + "']" + "[cPtpClockPortDSPortNumberIndex='" + str(self.cptpclockportdsportnumberindex) + "']"
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortDSTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockPortDSTable.CPtpClockPortDSEntry, ['cptpclockportdsdomainindex', 'cptpclockportdsclocktypeindex', 'cptpclockportdsclockinstanceindex', 'cptpclockportdsportnumberindex', 'cptpclockportdsname', 'cptpclockportdsportidentity', 'cptpclockportdsannouncementinterval', 'cptpclockportdsannouncercttimeout', 'cptpclockportdssyncinterval', 'cptpclockportdsmindelayreqinterval', 'cptpclockportdspeerdelayreqinterval', 'cptpclockportdsdelaymech', 'cptpclockportdspeermeanpathdelay', 'cptpclockportdsgrantduration', 'cptpclockportdsptpversion'], name, value)
@@ -2688,6 +2713,7 @@ class CISCOPTPMIB(Entity):
             self.cptpclockportrunningentry = YList(self)
             self._segment_path = lambda: "cPtpClockPortRunningTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPTPMIB.CPtpClockPortRunningTable, [], name, value)
@@ -2807,20 +2833,20 @@ class CISCOPTPMIB(Entity):
                 self.ylist_key_names = ['cptpclockportrunningdomainindex','cptpclockportrunningclocktypeindex','cptpclockportrunningclockinstanceindex','cptpclockportrunningportnumberindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cptpclockportrunningdomainindex', YLeaf(YType.uint32, 'cPtpClockPortRunningDomainIndex')),
-                    ('cptpclockportrunningclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockPortRunningClockTypeIndex')),
-                    ('cptpclockportrunningclockinstanceindex', YLeaf(YType.uint32, 'cPtpClockPortRunningClockInstanceIndex')),
-                    ('cptpclockportrunningportnumberindex', YLeaf(YType.uint32, 'cPtpClockPortRunningPortNumberIndex')),
-                    ('cptpclockportrunningname', YLeaf(YType.str, 'cPtpClockPortRunningName')),
-                    ('cptpclockportrunningstate', YLeaf(YType.enumeration, 'cPtpClockPortRunningState')),
-                    ('cptpclockportrunningrole', YLeaf(YType.enumeration, 'cPtpClockPortRunningRole')),
-                    ('cptpclockportrunninginterfaceindex', YLeaf(YType.int32, 'cPtpClockPortRunningInterfaceIndex')),
-                    ('cptpclockportrunningipversion', YLeaf(YType.int32, 'cPtpClockPortRunningIPversion')),
-                    ('cptpclockportrunningencapsulationtype', YLeaf(YType.int32, 'cPtpClockPortRunningEncapsulationType')),
-                    ('cptpclockportrunningtxmode', YLeaf(YType.enumeration, 'cPtpClockPortRunningTxMode')),
-                    ('cptpclockportrunningrxmode', YLeaf(YType.enumeration, 'cPtpClockPortRunningRxMode')),
-                    ('cptpclockportrunningpacketsreceived', YLeaf(YType.uint64, 'cPtpClockPortRunningPacketsReceived')),
-                    ('cptpclockportrunningpacketssent', YLeaf(YType.uint64, 'cPtpClockPortRunningPacketsSent')),
+                    ('cptpclockportrunningdomainindex', (YLeaf(YType.uint32, 'cPtpClockPortRunningDomainIndex'), ['int'])),
+                    ('cptpclockportrunningclocktypeindex', (YLeaf(YType.enumeration, 'cPtpClockPortRunningClockTypeIndex'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockType', '')])),
+                    ('cptpclockportrunningclockinstanceindex', (YLeaf(YType.uint32, 'cPtpClockPortRunningClockInstanceIndex'), ['int'])),
+                    ('cptpclockportrunningportnumberindex', (YLeaf(YType.uint32, 'cPtpClockPortRunningPortNumberIndex'), ['int'])),
+                    ('cptpclockportrunningname', (YLeaf(YType.str, 'cPtpClockPortRunningName'), ['str'])),
+                    ('cptpclockportrunningstate', (YLeaf(YType.enumeration, 'cPtpClockPortRunningState'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockPortState', '')])),
+                    ('cptpclockportrunningrole', (YLeaf(YType.enumeration, 'cPtpClockPortRunningRole'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockRoleType', '')])),
+                    ('cptpclockportrunninginterfaceindex', (YLeaf(YType.int32, 'cPtpClockPortRunningInterfaceIndex'), ['int'])),
+                    ('cptpclockportrunningipversion', (YLeaf(YType.int32, 'cPtpClockPortRunningIPversion'), ['int'])),
+                    ('cptpclockportrunningencapsulationtype', (YLeaf(YType.int32, 'cPtpClockPortRunningEncapsulationType'), ['int'])),
+                    ('cptpclockportrunningtxmode', (YLeaf(YType.enumeration, 'cPtpClockPortRunningTxMode'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockTxModeType', '')])),
+                    ('cptpclockportrunningrxmode', (YLeaf(YType.enumeration, 'cPtpClockPortRunningRxMode'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockTxModeType', '')])),
+                    ('cptpclockportrunningpacketsreceived', (YLeaf(YType.uint64, 'cPtpClockPortRunningPacketsReceived'), ['int'])),
+                    ('cptpclockportrunningpacketssent', (YLeaf(YType.uint64, 'cPtpClockPortRunningPacketsSent'), ['int'])),
                 ])
                 self.cptpclockportrunningdomainindex = None
                 self.cptpclockportrunningclocktypeindex = None
@@ -2838,6 +2864,7 @@ class CISCOPTPMIB(Entity):
                 self.cptpclockportrunningpacketssent = None
                 self._segment_path = lambda: "cPtpClockPortRunningEntry" + "[cPtpClockPortRunningDomainIndex='" + str(self.cptpclockportrunningdomainindex) + "']" + "[cPtpClockPortRunningClockTypeIndex='" + str(self.cptpclockportrunningclocktypeindex) + "']" + "[cPtpClockPortRunningClockInstanceIndex='" + str(self.cptpclockportrunningclockinstanceindex) + "']" + "[cPtpClockPortRunningPortNumberIndex='" + str(self.cptpclockportrunningportnumberindex) + "']"
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortRunningTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockPortRunningTable.CPtpClockPortRunningEntry, ['cptpclockportrunningdomainindex', 'cptpclockportrunningclocktypeindex', 'cptpclockportrunningclockinstanceindex', 'cptpclockportrunningportnumberindex', 'cptpclockportrunningname', 'cptpclockportrunningstate', 'cptpclockportrunningrole', 'cptpclockportrunninginterfaceindex', 'cptpclockportrunningipversion', 'cptpclockportrunningencapsulationtype', 'cptpclockportrunningtxmode', 'cptpclockportrunningrxmode', 'cptpclockportrunningpacketsreceived', 'cptpclockportrunningpacketssent'], name, value)
@@ -2874,6 +2901,7 @@ class CISCOPTPMIB(Entity):
             self.cptpclockporttransdsentry = YList(self)
             self._segment_path = lambda: "cPtpClockPortTransDSTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPTPMIB.CPtpClockPortTransDSTable, [], name, value)
@@ -2948,13 +2976,13 @@ class CISCOPTPMIB(Entity):
                 self.ylist_key_names = ['cptpclockporttransdsdomainindex','cptpclockporttransdsinstanceindex','cptpclockporttransdsportnumberindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cptpclockporttransdsdomainindex', YLeaf(YType.uint32, 'cPtpClockPortTransDSDomainIndex')),
-                    ('cptpclockporttransdsinstanceindex', YLeaf(YType.uint32, 'cPtpClockPortTransDSInstanceIndex')),
-                    ('cptpclockporttransdsportnumberindex', YLeaf(YType.uint32, 'cPtpClockPortTransDSPortNumberIndex')),
-                    ('cptpclockporttransdsportidentity', YLeaf(YType.str, 'cPtpClockPortTransDSPortIdentity')),
-                    ('cptpclockporttransdslogminpdelayreqint', YLeaf(YType.int32, 'cPtpClockPortTransDSlogMinPdelayReqInt')),
-                    ('cptpclockporttransdsfaultyflag', YLeaf(YType.boolean, 'cPtpClockPortTransDSFaultyFlag')),
-                    ('cptpclockporttransdspeermeanpathdelay', YLeaf(YType.str, 'cPtpClockPortTransDSPeerMeanPathDelay')),
+                    ('cptpclockporttransdsdomainindex', (YLeaf(YType.uint32, 'cPtpClockPortTransDSDomainIndex'), ['int'])),
+                    ('cptpclockporttransdsinstanceindex', (YLeaf(YType.uint32, 'cPtpClockPortTransDSInstanceIndex'), ['int'])),
+                    ('cptpclockporttransdsportnumberindex', (YLeaf(YType.uint32, 'cPtpClockPortTransDSPortNumberIndex'), ['int'])),
+                    ('cptpclockporttransdsportidentity', (YLeaf(YType.str, 'cPtpClockPortTransDSPortIdentity'), ['str'])),
+                    ('cptpclockporttransdslogminpdelayreqint', (YLeaf(YType.int32, 'cPtpClockPortTransDSlogMinPdelayReqInt'), ['int'])),
+                    ('cptpclockporttransdsfaultyflag', (YLeaf(YType.boolean, 'cPtpClockPortTransDSFaultyFlag'), ['bool'])),
+                    ('cptpclockporttransdspeermeanpathdelay', (YLeaf(YType.str, 'cPtpClockPortTransDSPeerMeanPathDelay'), ['str'])),
                 ])
                 self.cptpclockporttransdsdomainindex = None
                 self.cptpclockporttransdsinstanceindex = None
@@ -2965,6 +2993,7 @@ class CISCOPTPMIB(Entity):
                 self.cptpclockporttransdspeermeanpathdelay = None
                 self._segment_path = lambda: "cPtpClockPortTransDSEntry" + "[cPtpClockPortTransDSDomainIndex='" + str(self.cptpclockporttransdsdomainindex) + "']" + "[cPtpClockPortTransDSInstanceIndex='" + str(self.cptpclockporttransdsinstanceindex) + "']" + "[cPtpClockPortTransDSPortNumberIndex='" + str(self.cptpclockporttransdsportnumberindex) + "']"
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortTransDSTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockPortTransDSTable.CPtpClockPortTransDSEntry, ['cptpclockporttransdsdomainindex', 'cptpclockporttransdsinstanceindex', 'cptpclockporttransdsportnumberindex', 'cptpclockporttransdsportidentity', 'cptpclockporttransdslogminpdelayreqint', 'cptpclockporttransdsfaultyflag', 'cptpclockporttransdspeermeanpathdelay'], name, value)
@@ -3008,6 +3037,7 @@ class CISCOPTPMIB(Entity):
             self.cptpclockportassociateentry = YList(self)
             self._segment_path = lambda: "cPtpClockPortAssociateTable"
             self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPTPMIB.CPtpClockPortAssociateTable, [], name, value)
@@ -3116,17 +3146,17 @@ class CISCOPTPMIB(Entity):
                 self.ylist_key_names = ['cptpclockportcurrentdomainindex','cptpclockportcurrentclocktypeindex','cptpclockportcurrentclockinstanceindex','cptpclockportcurrentportnumberindex','cptpclockportassociateportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cptpclockportcurrentdomainindex', YLeaf(YType.uint32, 'cPtpClockPortCurrentDomainIndex')),
-                    ('cptpclockportcurrentclocktypeindex', YLeaf(YType.enumeration, 'cPtpClockPortCurrentClockTypeIndex')),
-                    ('cptpclockportcurrentclockinstanceindex', YLeaf(YType.uint32, 'cPtpClockPortCurrentClockInstanceIndex')),
-                    ('cptpclockportcurrentportnumberindex', YLeaf(YType.uint32, 'cPtpClockPortCurrentPortNumberIndex')),
-                    ('cptpclockportassociateportindex', YLeaf(YType.uint32, 'cPtpClockPortAssociatePortIndex')),
-                    ('cptpclockportassociateaddresstype', YLeaf(YType.enumeration, 'cPtpClockPortAssociateAddressType')),
-                    ('cptpclockportassociateaddress', YLeaf(YType.str, 'cPtpClockPortAssociateAddress')),
-                    ('cptpclockportassociatepacketssent', YLeaf(YType.uint64, 'cPtpClockPortAssociatePacketsSent')),
-                    ('cptpclockportassociatepacketsreceived', YLeaf(YType.uint64, 'cPtpClockPortAssociatePacketsReceived')),
-                    ('cptpclockportassociateinerrors', YLeaf(YType.uint64, 'cPtpClockPortAssociateInErrors')),
-                    ('cptpclockportassociateouterrors', YLeaf(YType.uint64, 'cPtpClockPortAssociateOutErrors')),
+                    ('cptpclockportcurrentdomainindex', (YLeaf(YType.uint32, 'cPtpClockPortCurrentDomainIndex'), ['int'])),
+                    ('cptpclockportcurrentclocktypeindex', (YLeaf(YType.enumeration, 'cPtpClockPortCurrentClockTypeIndex'), [('ydk.models.cisco_ios_xe.CISCO_PTP_MIB', 'ClockType', '')])),
+                    ('cptpclockportcurrentclockinstanceindex', (YLeaf(YType.uint32, 'cPtpClockPortCurrentClockInstanceIndex'), ['int'])),
+                    ('cptpclockportcurrentportnumberindex', (YLeaf(YType.uint32, 'cPtpClockPortCurrentPortNumberIndex'), ['int'])),
+                    ('cptpclockportassociateportindex', (YLeaf(YType.uint32, 'cPtpClockPortAssociatePortIndex'), ['int'])),
+                    ('cptpclockportassociateaddresstype', (YLeaf(YType.enumeration, 'cPtpClockPortAssociateAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cptpclockportassociateaddress', (YLeaf(YType.str, 'cPtpClockPortAssociateAddress'), ['str'])),
+                    ('cptpclockportassociatepacketssent', (YLeaf(YType.uint64, 'cPtpClockPortAssociatePacketsSent'), ['int'])),
+                    ('cptpclockportassociatepacketsreceived', (YLeaf(YType.uint64, 'cPtpClockPortAssociatePacketsReceived'), ['int'])),
+                    ('cptpclockportassociateinerrors', (YLeaf(YType.uint64, 'cPtpClockPortAssociateInErrors'), ['int'])),
+                    ('cptpclockportassociateouterrors', (YLeaf(YType.uint64, 'cPtpClockPortAssociateOutErrors'), ['int'])),
                 ])
                 self.cptpclockportcurrentdomainindex = None
                 self.cptpclockportcurrentclocktypeindex = None
@@ -3141,6 +3171,7 @@ class CISCOPTPMIB(Entity):
                 self.cptpclockportassociateouterrors = None
                 self._segment_path = lambda: "cPtpClockPortAssociateEntry" + "[cPtpClockPortCurrentDomainIndex='" + str(self.cptpclockportcurrentdomainindex) + "']" + "[cPtpClockPortCurrentClockTypeIndex='" + str(self.cptpclockportcurrentclocktypeindex) + "']" + "[cPtpClockPortCurrentClockInstanceIndex='" + str(self.cptpclockportcurrentclockinstanceindex) + "']" + "[cPtpClockPortCurrentPortNumberIndex='" + str(self.cptpclockportcurrentportnumberindex) + "']" + "[cPtpClockPortAssociatePortIndex='" + str(self.cptpclockportassociateportindex) + "']"
                 self._absolute_path = lambda: "CISCO-PTP-MIB:CISCO-PTP-MIB/cPtpClockPortAssociateTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOPTPMIB.CPtpClockPortAssociateTable.CPtpClockPortAssociateEntry, ['cptpclockportcurrentdomainindex', 'cptpclockportcurrentclocktypeindex', 'cptpclockportcurrentclockinstanceindex', 'cptpclockportcurrentportnumberindex', 'cptpclockportassociateportindex', 'cptpclockportassociateaddresstype', 'cptpclockportassociateaddress', 'cptpclockportassociatepacketssent', 'cptpclockportassociatepacketsreceived', 'cptpclockportassociateinerrors', 'cptpclockportassociateouterrors'], name, value)

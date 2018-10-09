@@ -37,9 +37,18 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg import SpanTrafficDirection
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_subscriber_cfg import SpanMirrorInterval
+    def test_Cisco_IOS_XR_Subscriber_infra_subdb_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper import SubdbObjectTypeData
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper import SessionState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_Subscriber_infra_subdb_oper import SubscriberDatabase
+
+
+    def test_Cisco_IOS_XR_Subscriber_infra_subdb_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_Subscriber_infra_subdb_oper_sub2(self):
+        pass
 
 
     def test_Cisco_IOS_XR_aaa_aaacore_cfg(self):
@@ -81,6 +90,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes import AaaAccounting
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes import AaaMethod
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes import AaaAccountingBroadcast
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes import AaaMethodAccounting
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_aaa_lib_datatypes import AaaAccountingRpFailover
 
 
@@ -190,265 +200,6 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_asr9k_asic_errors_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_asic_errors_oper import AsicErrorStats
-
-
-    def test_Cisco_IOS_XR_asr9k_asic_errors_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_ext_usb_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ext_usb_cfg import HardwareModuleExtUsb
-
-
-    def test_Cisco_IOS_XR_asr9k_fab_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fab_cfg import Asr9kFabMode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fab_cfg import FabVqiConfig
-
-
-    def test_Cisco_IOS_XR_asr9k_fia_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fia_cfg import FabricFiaConfig
-
-
-    def test_Cisco_IOS_XR_asr9k_fsi_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_fsi_oper import FabricStats
-
-
-    def test_Cisco_IOS_XR_asr9k_fsi_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_lc_ethctrl_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg import PermitPluggable
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg import EtherCtrlTransportMode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_cfg import PermitPluggablePid
-
-
-    def test_Cisco_IOS_XR_asr9k_lc_ethctrl_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_ethctrl_oper import Mlan
-
-
-    def test_Cisco_IOS_XR_asr9k_lc_ethctrl_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_lc_fca_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper import SpaResetReason
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper import SpaFailureReason
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper import SpaOperState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper import MpaInternal
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_fca_oper import Mpa
-
-
-    def test_Cisco_IOS_XR_asr9k_lc_fca_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_lc_fca_oper_sub2(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_lc_pwrglide_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lc_pwrglide_cfg import HardwareModulePortMode
-
-
-    def test_Cisco_IOS_XR_asr9k_lpts_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper import PlatformLptspIfibStatic
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper import PlatformLptspIfib
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_lpts_oper import PlatformLptspIfibNpStats
-
-
-    def test_Cisco_IOS_XR_asr9k_lpts_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_mlan_cmp_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_mlan_cmp_cfg import MlanDisableCmp
-
-
-    def test_Cisco_IOS_XR_asr9k_netflow_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_netflow_oper import NetFlow
-
-
-    def test_Cisco_IOS_XR_asr9k_netflow_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_netflow_oper_sub2(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_np_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_np_oper import HardwareModuleNp
-
-
-    def test_Cisco_IOS_XR_asr9k_np_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_prm_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg import Asr9kEfdMode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg import Asr9kEfdOperation
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg import PrmTcamProfile
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg import HardwareModuleQosMode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg import HardwareModuleTcpMssAdjust
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg import HardwareModuleLoadBalance
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg import HardwareModuleTcam
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_prm_cfg import HardwareModuleEfd
-
-
-    def test_Cisco_IOS_XR_asr9k_ptp_pd_cfg(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_ptp_pd_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_ptp_pd_oper import PlatformPtp
-
-
-    def test_Cisco_IOS_XR_asr9k_ptp_pd_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_qos_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_qos_oper import ActionOpcode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_qos_oper import Wred
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_qos_oper import TbAlgorithm
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_qos_oper import PolicyParamUnit
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_qos_oper import ShapeProfiletypeV2
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_qos_oper import Queue
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_qos_oper import Wred1
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_qos_oper import Action
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_qos_oper import QosUnit
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_qos_oper import CacState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_qos_oper import PolicyState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_qos_oper import PlatformQos
-
-
-    def test_Cisco_IOS_XR_asr9k_qos_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_qos_oper_sub2(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_sc_diag_admin_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper import DiagProcessor
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper import DiagSlot
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper import NodeState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper import DiagNode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_admin_oper import Diag
-
-
-    def test_Cisco_IOS_XR_asr9k_sc_diag_admin_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_sc_diag_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper import DiagProcessor
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper import DiagSlot
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper import NodeState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper import DiagNode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_diag_oper import Diag
-
-
-    def test_Cisco_IOS_XR_asr9k_sc_diag_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_sc_envmon_admin_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_admin_oper import EnvironmentalMonitoring
-
-
-    def test_Cisco_IOS_XR_asr9k_sc_envmon_admin_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_sc_envmon_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper import EnvironmentalMonitoringCli
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_envmon_oper import EnvironmentalMonitoring
-
-
-    def test_Cisco_IOS_XR_asr9k_sc_envmon_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper import CardResetReason
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper import Inventory
-
-
-    def test_Cisco_IOS_XR_asr9k_sc_invmgr_admin_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_sc_invmgr_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper import CardResetReason
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_sc_invmgr_oper import Inventory
-
-
-    def test_Cisco_IOS_XR_asr9k_sc_invmgr_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_xbar_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_asr9k_xbar_oper import CrossBarStats
-
-
-    def test_Cisco_IOS_XR_asr9k_xbar_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_asr9k_xbar_oper_sub2(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_atm_common_datatypes(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes import AtmVpShaping
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes import AtmPvcShaping
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes import AtmPvcEncapsulation
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_common_datatypes import AtmPvcData
-
-
-    def test_Cisco_IOS_XR_atm_vcm_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg import AtmVpiBitsMode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg import AtmPvcTestMode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_cfg import AtmPvpTestMode
-
-
-    def test_Cisco_IOS_XR_atm_vcm_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper import Vc
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper import VcEncap
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper import VcManageLevel
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper import VcTestMode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper import VpTrafShaping
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper import VcState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper import ClassLinkOamInheritLevel
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper import VpState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper import VcTrafShaping
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper import VcCellPackingMode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper import VcmPort
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper import VcInheritLevel
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_atm_vcm_oper import AtmVcm
-
-
-    def test_Cisco_IOS_XR_atm_vcm_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_atm_vcm_oper_sub2(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_atm_vcm_oper_sub3(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_atm_vcm_oper_sub4(self):
-        pass
-
-
     def test_Cisco_IOS_XR_bundlemgr_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg import BundleMaximumActiveLinksMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_bundlemgr_cfg import BundleCiscoExtTypes
@@ -539,13 +290,6 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_cfgmgr_rollback_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act import RollBackConfigurationLast
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act import RollBackConfigurationTo
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act import RollBackConfigurationToExclude
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_cfgmgr_rollback_act import RollBackConfiguration
-
-
     def test_Cisco_IOS_XR_clns_isis_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisSnpAuth
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibMaxAreaAddressMismatchBoolean
@@ -553,7 +297,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibSequenceNumberSkipBoolean
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisInterfaceFrrTiebreaker
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisAuthenticationAlgorithm
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisOverloadBitMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisAdvTypeExternal
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibRejectedAdjacencyBoolean
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibCorruptedLspDetectedBoolean
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisAdjCheck
@@ -562,26 +306,30 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibAuthenticationFailureBoolean
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisInterfaceState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisTracingMode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMetricStyle
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisAdvTypeInterLevel
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisNsfFlavor
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisInterfaceAfState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsissidProtected
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMetricStyle
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisApplyWeight
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisPrefixPriority
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisfrrSrlgProtection
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisOverloadBitMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibAuthenticationTypeFailureBoolean
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMicroLoopAvoidance
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisAdvTypeExternal
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisApplication
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisRemoteLfa
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibAreaMismatchBoolean
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibAttemptToExceedMaxSequenceBoolean
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisPrefixPriority
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisConfigurableLevels
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisfrrTiebreaker
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibManualAddressDropsBoolean
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisexplicitNullFlag
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisEnablePoi
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMetric
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisHelloPadding
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibDatabaseOverFlowBoolean
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisAdvTypeInterLevel
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisApplicationAttribute
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisAuthenticationFailureMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisMibProtocolsSupportedMismatchBoolean
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_cfg import IsisRedistProto
@@ -641,12 +389,12 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import OpenconfigIsisLspNlpidEnum
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import IsisIfClnsProtoDownReason
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import SrmsMiFlagEB
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import IsisSpfTrigger
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import IsisAdjTopoStatus
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import OpenconfigIsisLspLanAdjacencySidStateFlagsEnum
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import IsisIfTopoDisabledReason
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import IsisIfAdjFormDisabledReason
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import OpenconfigIsisLspIsisMetricFlagsEnum
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import OpenconfigSegmentRoutingLabelOptionsEnum
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import IsisLevels
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import OpenconfigIsisTypesCircuitTypeEnum
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import OpenconfigIsisLspCryptoTypeEnum
@@ -674,12 +422,14 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import OpenconfigIsisLspSegmentRoutingCapabilityStateFlagsEnum
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import IsisMetricStyle
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import IsisIfAdvPrefixDisabledReason
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import OpenconfigIsisTypesLevelTypeEnum
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import IsisSpfClass
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import IsisSpfTrigger
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import IsisIfClnsSnpaUnknownReason
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import OpenconfigIsisTypesIsisInterfaceAdjStateEnum
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import IsisReachable
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import IsisUloopAvoidance
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import OpenconfigIsisTypesLevelTypeEnum
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import Srv6EndFunction
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import IsisPrefixOrigin
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import OpenconfigIsisLspAttributesEnum
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_clns_isis_oper import OpenconfigIsisLspPduTypeEnum
@@ -704,18 +454,6 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XR_cmproxy_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_cofo_csi_ma_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_csi_ma_oper import CsiMaFoTimerState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_csi_ma_oper import CsiMaAfi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_csi_ma_oper import CsiMaItemState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_csi_ma_oper import CsiMaConnState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_cofo_csi_ma_oper import CrossSdrIntfMa
-
-
-    def test_Cisco_IOS_XR_cofo_csi_ma_oper_sub1(self):
         pass
 
 
@@ -754,6 +492,20 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XR_config_mibs_cfg(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_config_valid_ccv_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_valid_ccv_cfg import Failure
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_valid_ccv_cfg import FailureAction
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_config_valid_ccv_cfg import Configurationvalidation
+
+
+    def test_Cisco_IOS_XR_config_valid_ccv_oper(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_config_valid_ccv_oper_sub1(self):
         pass
 
 
@@ -796,9 +548,11 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XR_controller_optics_oper(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper import OpticsAmplifierGainRange
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper import OpticsModulation
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper import OpticsAmplifierControlMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper import EthernetPmd
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper import OpticsWaveBand
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper import OpticsAinsStateEt
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper import FiberConnector
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper import OpticsFormFactor
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_optics_oper import SonetApplicationCode
@@ -842,6 +596,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper import OtuPrbsPattern
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper import OtuStateEt
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper import OtuPrbsTest
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper import OtuAinsStateEt
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper import OtuPpFsmState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper import OtuG709fecMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_controller_otu_oper import OtuPrbsMode
@@ -859,26 +614,6 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_crypto_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyGenerateRsaGeneralKeys
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyGenerateRsaUsageKeys
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyGenerateRsa
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyGenerateDsa
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyGenerateEcdsa
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyZeroizeRsa
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyZeroizeDsa
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyZeroizeEcdsa
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyZeroizeAuthenticationRsa
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import KeyImportAuthenticationRsa
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import CaAuthenticate
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import CaEnroll
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import CaImportCertificate
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import CaCancelEnroll
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import CaCrlRequest
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import CaTrustpoolImportUrl
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_act import CaTrustpoolImportUrlClean
-
-
     def test_Cisco_IOS_XR_crypto_macsec_mka_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg import MacsecMkaConfOffset
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_cfg import MacsecMkaSecurityPolicy
@@ -892,10 +627,22 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XR_crypto_macsec_mka_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper import MacsecCipherSuite
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper import MkaAuthenticationMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper import MacsecServicePort
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_mka_oper import Macsec
 
 
     def test_Cisco_IOS_XR_crypto_macsec_mka_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_crypto_macsec_pl_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper import MacsecPhyVendor
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_macsec_pl_oper import MacsecPlatform
+
+
+    def test_Cisco_IOS_XR_crypto_macsec_pl_oper_sub1(self):
         pass
 
 
@@ -980,6 +727,26 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_dnx_netflow_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_netflow_oper import NetFlow
+
+
+    def test_Cisco_IOS_XR_dnx_netflow_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_dnx_netflow_oper_sub2(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_dnx_port_mapper_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_port_mapper_oper import Oor
+
+
+    def test_Cisco_IOS_XR_dnx_port_mapper_oper_sub1(self):
+        pass
+
+
     def test_Cisco_IOS_XR_dot1x_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg import Dot1x
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_dot1x_cfg import Eap
@@ -1039,9 +806,9 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_drivers_vpa_infra_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_vpa_infra_cfg import HwModuleShutdownPowerMode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_vpa_infra_cfg import HardwareModule
+    def test_Cisco_IOS_XR_drivers_mpa_infra_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_mpa_infra_cfg import HwModuleShutdownPowerMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_mpa_infra_cfg import HardwareModule
 
 
     def test_Cisco_IOS_XR_dwdm_ui_cfg(self):
@@ -1235,22 +1002,32 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XR_evpn_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnAdRtRole
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import ImStateEnum
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnEvpnSmacSrc
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnAdRt
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import BgpRouteTargetRole
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnRgRole
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnEvpnScMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnEvpnMfMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnEvpnLbMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnEvpnEsi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnRgRole
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnTdmRtpOption
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import BgpRouteTargetRole
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnEvpn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnFrMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnEvpnRtOrigin
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnInterface
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import EvpnIgmpSource
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnAtmMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnAdRtRole
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import ImStateEnum
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnTdmMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import IflistRepStatus
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import EvpnIgmpGrp
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import EvpnIgmpMsg
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import BgpRouteTargetFormat
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnAdRd
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnEvpnScMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import EvpnGrp
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import BgpRouteTarget
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnEvpnSmacSrc
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnAdRt
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import EvpnIgmpVersion
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnTimeStampMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import L2vpnAdRd
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_evpn_oper import Evpn
 
 
@@ -1262,16 +1039,16 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_fia_hw_profile_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_hw_profile_cfg import HwModuleProfileConfig
+
+
     def test_Cisco_IOS_XR_fia_internal_tcam_oper(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_fia_internal_tcam_oper import Controller
 
 
     def test_Cisco_IOS_XR_fia_internal_tcam_oper_sub1(self):
         pass
-
-
-    def test_Cisco_IOS_XR_fib_cef_lba_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_fib_cef_lba_cfg import Fiblb
 
 
     def test_Cisco_IOS_XR_fib_common_cfg(self):
@@ -1342,6 +1119,30 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_flowspec_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_cfg import FsAddf
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_cfg import FsVrfAf
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_cfg import FsVrfAfP
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_cfg import FsAfP
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_cfg import FlowSpec
+
+
+    def test_Cisco_IOS_XR_flowspec_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper import FsClient
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper import FsMgrClientState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_flowspec_oper import FlowSpec
+
+
+    def test_Cisco_IOS_XR_flowspec_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_fpd_infra_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_fpd_infra_cfg import AutoReload
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_fpd_infra_cfg import AutoUpgrade
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_fpd_infra_cfg import Fpd
+
+
     def test_Cisco_IOS_XR_freqsync_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg import FsyncClockSource
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_cfg import FsyncSourceSelectionLogging
@@ -1366,12 +1167,12 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper import FsyncBagQlO2G2Value
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper import FsyncBagQlOption
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper import FsyncBagSourceState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper import FsyncBagForwardtraceNode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper import FsyncStream
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper import FsyncBagClockIntfClass
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper import FsyncBagQlO1Value
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper import FsyncBagSourceClass
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper import FsyncBagQlO2G1Value
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper import FsyncBagForwardtraceNode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper import FsyncSource
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_freqsync_oper import FrequencySynchronization
 
@@ -1380,7 +1181,52 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_freqsync_sat_cfg(self):
+    def test_Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper import Drop
+
+
+    def test_Cisco_IOS_XR_fretta_bcm_dpa_drop_stats_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper import Resource
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper import Dpa
+
+
+    def test_Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_fretta_bcm_dpa_hw_resources_oper_sub2(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper import Dpa
+
+
+    def test_Cisco_IOS_XR_fretta_bcm_dpa_npu_stats_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_fretta_bcm_dpa_resources_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_bcm_dpa_resources_oper import Dpa
+
+
+    def test_Cisco_IOS_XR_fretta_bcm_dpa_resources_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_fretta_bcm_dpa_resources_oper_sub2(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_fretta_grid_svr_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_fretta_grid_svr_oper import Grid
+
+
+    def test_Cisco_IOS_XR_fretta_grid_svr_oper_sub1(self):
         pass
 
 
@@ -1397,111 +1243,9 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_cfg import EventManager
 
 
-    def test_Cisco_IOS_XR_ha_eem_policy_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ha_eem_policy_oper import Eem
-
-
-    def test_Cisco_IOS_XR_ha_eem_policy_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_hwmod_mpa_reload_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_hwmod_mpa_reload_act import HwModuleSubslot
-
-
     def test_Cisco_IOS_XR_icpe_infra_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg import NvSatelliteGlobal
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg import NvSatellites
-
-
-    def test_Cisco_IOS_XR_icpe_infra_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOpmSyncFsmState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOperSdacpSessState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOpmTransportState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOpmAuthFsmState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOpmController
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOpmResyncFsmState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOpmChanFsmState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOpmSessState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOperInstallState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOperPort
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOperFabricPort
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeInstallPkgSupp
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeGcoOperControlReason
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeInstallSatState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOpmArbitrationFsmState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOperConflict
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOperVerCheckState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOperReloadLevel
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOperMultichassisRedundancy
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOperDiscdLinkState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOperTopoRemoteSource
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import IcpeOpticalSyncState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_oper import NvSatellite
-
-
-    def test_Cisco_IOS_XR_icpe_infra_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_icpe_infra_oper_sub10(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_icpe_infra_oper_sub11(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_icpe_infra_oper_sub2(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_icpe_infra_oper_sub3(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_icpe_infra_oper_sub4(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_icpe_infra_oper_sub5(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_icpe_infra_oper_sub6(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_icpe_infra_oper_sub7(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_icpe_infra_oper_sub8(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_icpe_infra_oper_sub9(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_icpe_sdacp_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper import IcpeCpmChannelResyncState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper import IcpeCpmChanFsmState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper import DpmProtoHostState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper import IcpeCpmControlFsmState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_sdacp_oper import DpmProtoState
-
-
-    def test_Cisco_IOS_XR_icpe_sdacp_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_icpe_sdacp_oper_sub2(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_icpe_sdacp_oper_sub3(self):
-        pass
 
 
     def test_Cisco_IOS_XR_iedge4710_cfg(self):
@@ -1605,58 +1349,9 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_infra_dumper_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg import Context
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg import Skipcpuinfo
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg import Packetmemory
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg import Sparse
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg import Mainmemory
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg import Nocore
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg import Copy
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg import Sharedmemory
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_cfg import Exception
-
-
-    def test_Cisco_IOS_XR_infra_dumper_exception_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_exception_oper import Exception
-
-
-    def test_Cisco_IOS_XR_infra_dumper_exception_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_infra_dumper_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_dumper_oper import Context
-
-
-    def test_Cisco_IOS_XR_infra_dumper_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_infra_fti_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_fti_cfg import DciFabricInterconnect
-
-
-    def test_Cisco_IOS_XR_infra_fti_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_fti_oper import FtiBagFabricState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_fti_oper import FtiBagFabricConfigState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_fti_oper import FtiBagFabricPeerState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_fti_oper import DciFabricInterconnect
-
-
-    def test_Cisco_IOS_XR_infra_fti_oper_sub1(self):
-        pass
-
-
     def test_Cisco_IOS_XR_infra_infra_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_cfg import Banner
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_cfg import Banners
-
-
-    def test_Cisco_IOS_XR_infra_infra_clock_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg import ClockMonth
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg import ClockSummerTimeMode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_clock_cfg import Clock
 
 
     def test_Cisco_IOS_XR_infra_infra_clock_linux_cfg(self):
@@ -1672,6 +1367,10 @@ class ImportTest(unittest.TestCase):
     def test_Cisco_IOS_XR_infra_ltrace_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg import InfraLtraceScale
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_ltrace_cfg import InfraLtraceMode
+
+
+    def test_Cisco_IOS_XR_infra_notification_log_mib_cfg(self):
+        pass
 
 
     def test_Cisco_IOS_XR_infra_nsr_cfg(self):
@@ -1848,6 +1547,10 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_infra_rt_check_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rt_check_cfg import Rcc
+
+
     def test_Cisco_IOS_XR_infra_serg_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg import SergAddrFamily
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_serg_cfg import SessionRedundancyGroupRole
@@ -1903,12 +1606,6 @@ class ImportTest(unittest.TestCase):
     def test_Cisco_IOS_XR_infra_sla_oper(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper import Sla
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_sla_oper import SlaNodes
-
-
-    def test_Cisco_IOS_XR_infra_statsd_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_act import ClearCountersController
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_act import ClearCountersAll
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_statsd_act import ClearCountersInterface
 
 
     def test_Cisco_IOS_XR_infra_statsd_cfg(self):
@@ -1977,6 +1674,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg import XtcEndPoint
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg import XtcDisjointness
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg import XtcAutoRouteMetric
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg import XtcSteeringApplication
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg import XtcBindingSid
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg import XtcSegment
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_agent_cfg import XtcBindingSidexplicitRule
@@ -2009,7 +1707,14 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XR_infra_xtc_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg import PceSegment
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg import PceBindingSid
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg import PceExplicitPathHop
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg import PcePath
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg import PceEndPoint
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg import PcerestAuthentication
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg import PcePathHop
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg import PceMetric
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg import PceDisjointPath
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_xtc_cfg import Pce
 
@@ -2035,41 +1740,6 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XR_infra_xtc_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_installmgr_admin_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrIssuAbortMethod
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrBagRequestTrigger
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import IsmCardTypeFamily
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrBagUserMsgCategory
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstallmgrIsmNodeConforming
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrInstallPhase
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrIssuAbortImpact
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrIsmNodeState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrPkg
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrCardState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrNodeRole
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrRequest
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrIsmFsmState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrBagIiDirection
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrPiCard
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrBagIiState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrBagLogEntryUserMsgCategory
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import InstmgrBagAbortState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_installmgr_admin_oper import Install
-
-
-    def test_Cisco_IOS_XR_installmgr_admin_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_installmgr_admin_oper_sub2(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_installmgr_admin_oper_sub3(self):
         pass
 
 
@@ -2134,8 +1804,9 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XR_ip_daps_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper import DapsClient
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper import DapsSergRole
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper import IpAddr
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper import DapsClient
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_daps_oper import AddressPoolService
 
 
@@ -2378,10 +2049,6 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_ip_rsvp_oper_sub2(self):
-        pass
-
-
     def test_Cisco_IOS_XR_ip_sbfd_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_sbfd_cfg import Sbfd
 
@@ -2415,8 +2082,10 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper import MessageTypeIgmp_
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper import Packet
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper import MessageTypeIcmp_
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper import TcpKeyInvalidReason
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper import AddrFamily
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper import NsrStatus
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper import TcpMacAlgo
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper import TcpAddressFamily
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper import MessageTypeIcmpv6_
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_tcp_oper import NsrDownReason
@@ -2571,547 +2240,6 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_ipv4_bgp_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import InstanceName
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Vpnv6Safi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Afi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import VrfName
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Ipv4Safi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import AfiSafiType
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Vpnv4Safi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Ipv6Safi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Ipv4Safi_
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Ipv6Safi_
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import L2vpnSafi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import LinkStateSafi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Vpnv4Safi_
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import Vpnv6Safi_
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import L2vpnSafi_
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import LinkStateSafi_
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAllGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAll
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpIpAddrGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpIpAddrLongLivedStale
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAllSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAllSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAllSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAllSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiIpAddrLongLivedStale
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiIpAddrSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiIpAddrSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiIpAddrSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiIpAddrSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAsSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAsSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAsSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiAsSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiDampeningIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiDampening
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiExternalSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiExternalSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiExternalSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiExternalSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatisticsIpAddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatisticsIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatisticsIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatisticsRegexp
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatisticsRoutePolicy
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiNexthopPerformanceStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiNexthopRegistrationIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiSelfOriginated
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiShutdown
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqAddressFamilyUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqAddressFamily
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqNeighborIpAddrRefresh
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqNeighborIpAddrUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqNeighborIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqUpdateGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiUpdateOutqUpdateGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAsGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAs
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiBridgeDomainIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiBridgeDomainIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiBridgeDomainIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrfIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrfNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRtConstraintNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpv4TunnelNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRd
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrf
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiSrPolicyPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiBridgeDomainIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiMp2mpIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrfIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrfIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiRdIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrfIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrfIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathAfiSafiVrfIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiRdNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiVrfNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiRd
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafiVrf
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpBestpathVrfAfiSafi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpExternalGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpExternal
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAllGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAll
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceIpAddrGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceIpAddrLongLivedStale
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAllSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAllSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAllSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAllSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiIpAddrLongLivedStale
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiIpAddrSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiIpAddrSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiIpAddrSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiIpAddrSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAsSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAsSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAsSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiAsSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiDampeningIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiDampening
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiExternalSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiExternalSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiExternalSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiExternalSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatisticsIpAddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatisticsIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatisticsIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatisticsRegexp
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatisticsRoutePolicy
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiNexthopPerformanceStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiNexthopRegistrationIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiSelfOriginated
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiShutdown
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqAddressFamilyUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqAddressFamily
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrRefresh
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddrUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqNeighborIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqUpdateGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiUpdateOutqUpdateGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAsGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAs
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiBridgeDomainIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiBridgeDomainIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrfIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrfNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRtConstraintNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpv4TunnelNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRd
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrf
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiSrPolicyPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiBridgeDomainIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiMp2mpIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrfIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrfIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiRdIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrfIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrfIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathAfiSafiVrfIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiRdNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiVrfNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiRd
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafiVrf
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceBestpathVrfAfiSafi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceExternalGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceExternal
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiDampeningIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatisticsIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiDampeningIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceAfiSafiFlapStatisticsIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceNexthopPerformanceStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceNexthopRegistrationIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstancePeerDropsAll
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstancePeerDropsIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstancePerformanceStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceRpkiServerAllSerialQuery
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceRpkiServerAll
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceRpkiServerRpkiServer
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceRpkiValidationIpv4
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceRpkiValidationIpv6
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceRpkiValidation
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceShutdown
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqAddressFamilyUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqAddressFamily
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqNeighborIpAddrRefreshUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqNeighborIpAddrRefresh
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqNeighborIpAddrUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqNeighborIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqProcess
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqUpdateGroupSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqUpdateGroupSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqUpdateGroupSubGroupRefreshSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqUpdateGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceUpdateOutqUpdateGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiBridgeDomainIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiBridgeDomainIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrfIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrfNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRtConstraintNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpv4TunnelNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRd
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrf
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiSrPolicyPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiBridgeDomainIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiMp2mpIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrfIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrfIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiRdIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrfIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrfIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionAfiSafiVrfIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiRdNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiVrfNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiRd
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafiVrf
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVersionVrfAfiSafi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAllGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAll
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfIpAddrGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfIpAddrLongLivedStale
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAsGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAs
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfExternalGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfExternal
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAllSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAllSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAllSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAllSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiIpAddrLongLivedStale
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiIpAddrSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiIpAddrSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiIpAddrSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiIpAddrSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAsSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAsSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAsSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiAsSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiDampeningIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiDampening
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiExternalSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiExternalSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiExternalSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiExternalSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiFlapStatisticsIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiFlapStatisticsRegexp
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiFlapStatisticsRoutePolicy
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiFlapStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiNexthopPerformanceStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiNexthopRegistrationIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiSelfOriginated
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiShutdown
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamilyUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqAddressFamily
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrRefresh
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqNeighborIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiUpdateOutqUpdateGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiDampeningIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfAfiSafiFlapStatisticsIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfNexthopPerformanceStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfNexthopRegistrationIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfPeerDropsAll
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfPeerDropsIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfPerformanceStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfShutdown
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqAddressFamilyUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqAddressFamily
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefreshUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqNeighborIpAddrRefresh
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqNeighborIpAddrUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqNeighborIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqUpdateGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpInstanceVrfUpdateOutqUpdateGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiDampeningIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatisticsIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiDampeningIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpAfiSafiFlapStatisticsIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpNexthopPerformanceStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpNexthopRegistrationIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpPeerDropsAll
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpPeerDropsIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpPerformanceStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpRpkiServerAllSerialQuery
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpRpkiServerAll
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpRpkiServerRpkiServer
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpRpkiValidationIpv4
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpRpkiValidationIpv6
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpRpkiValidation
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpShutdown
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqAddressFamilyUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqAddressFamily
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqNeighborIpAddrRefreshUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqNeighborIpAddrRefresh
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqNeighborIpAddrUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqNeighborIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqProcess
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqUpdateGroupSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqUpdateGroupSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqUpdateGroupSubGroupRefreshSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqUpdateGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpUpdateOutqUpdateGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiBridgeDomainIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiBridgeDomainIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiBridgeDomainIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrfIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrfNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRtConstraintNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpv4TunnelNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRd
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrf
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiSrPolicyPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiBridgeDomainIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiMp2mpIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrfIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrfIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiRdIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrfIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrfIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionAfiSafiVrfIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfIpAddrIpNetmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfIpPrefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiIpv4AddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiIpv4Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiRdNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiVrfNetwork
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiIpv6AddrIpv6Netmask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiIpv6Addr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiRd
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafiVrf
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVersionVrfAfiSafi
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAllGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAll
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfIpAddrGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfIpAddrLongLivedStale
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAsGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAs
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfExternalGraceful
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfExternal
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAllSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAllSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAllSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAllSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiIpAddrLongLivedStale
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiIpAddrSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiIpAddrSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiIpAddrSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiIpAddrSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAsSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAsSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAsSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiAsSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiDampeningIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiDampening
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiExternalSoftInPrefixFilter
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiExternalSoftIn
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiExternalSoftOut
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiExternalSoft
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiFlapStatisticsIpAddrIpv4Mask
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiFlapStatisticsIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiFlapStatisticsIpv4Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiFlapStatisticsRegexp
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiFlapStatisticsRoutePolicy
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiFlapStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiNexthopPerformanceStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiNexthopRegistrationIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiSelfOriginated
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiShutdown
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqAddressFamilyUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqAddressFamily
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefreshUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrRefresh
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddrUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqNeighborIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqUpdateGroupSubGroupRefreshSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqUpdateGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiUpdateOutqUpdateGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiDampeningIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfAfiSafiFlapStatisticsIpv6Prefix
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfNexthopPerformanceStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfNexthopRegistrationIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfPeerDropsAll
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfPeerDropsIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfPerformanceStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfShutdown
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqAddressFamilyUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqAddressFamily
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqNeighborIpAddrRefreshUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqNeighborIpAddrRefresh
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqNeighborIpAddrUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqNeighborIpAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqUpdateGroupSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqUpdateGroupSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqUpdateGroupSubGroupRefreshSubGroup
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqUpdateGroupUpdateParent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_act import ClearBgpVrfUpdateOutqUpdateGroup
-
-
     def test_Cisco_IOS_XR_ipv4_bgp_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg import BgpSiteOfOrigin
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_bgp_cfg import BgpAsn
@@ -3218,25 +2346,26 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XR_ipv4_dhcpd_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Dhcpv4LimitLease1
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import ProxyAction
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdLayer
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdFmtSpecifier
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Matchaction
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Dhcpv4AuthUsername
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import LeaseLimitValue
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdRelayInfoOptionPolicy
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdRelayInfoOptionAuthenticate
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Policy
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdBroadcastFlagPolicy
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Dhcpv4MatchOption
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdRelayInfoOptionvpnMode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdGiaddrPolicy
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdFmt
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Matchoption
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import MacMismatchAction
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import BaseAction
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Dhcpv4LimitLease1
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdLayer
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdGiaddrPolicy
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdFmtSpecifier
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdRelayInfoOptionPolicy
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import MacMismatchAction
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdBroadcastFlagPolicy
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdFmt
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdRelayInfoOptionvpnMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import ProxyAction
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import LeaseLimitValue
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Dhcpv4MatchOption
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdRelayInfoOptionAuthenticate
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4dhcpdRelayGiaddrPolicy
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_dhcpd_cfg import Ipv4Dhcpd
 
 
@@ -3318,12 +2447,12 @@ class ImportTest(unittest.TestCase):
     def test_Cisco_IOS_XR_ipv4_io_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg import Ipv4DefaultPing
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg import Ipv4SelfPing
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg import DhcpClientOptionCode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg import Ipv4Reachable
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_cfg import Ipv4InterfaceQppb
 
 
     def test_Cisco_IOS_XR_ipv4_io_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper import Ipv4MaOperConfig
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper import RpfMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper import Ipv4MaOperLineState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_io_oper import Ipv4Network
@@ -3344,6 +2473,7 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XR_ipv4_ma_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper import Ipv4MaOperConfig
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper import RpfMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_oper import Ipv4MaOperLineState
 
@@ -3365,16 +2495,6 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg import MsdpListTypeVrf
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg import MsdpFilterTypeVrf
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_msdp_cfg import Msdp
-
-
-    def test_Cisco_IOS_XR_ipv4_ospf_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act import ClearOspfRoutes
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act import ClearOspfRedistribution
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act import ClearOspfStatistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act import ClearOspfStatisticsNeighbor
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act import ClearOspfStatisticsInterface
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act import ClearOspfProcess
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_act import ClearOspfInstanceVrf
 
 
     def test_Cisco_IOS_XR_ipv4_ospf_cfg(self):
@@ -3426,9 +2546,10 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import Ipfrr
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import OspfSrgbStatus
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import OspfSrEndpResFailReason
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import OspfSrlbStatus
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import SrDp
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import Interface
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import InterfaceState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import OspfInternalLsaTypes
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import ExMetric
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import GsState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import OspfShOpqRiPceAddrTypes
@@ -3443,7 +2564,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import SrmsMiFlagEB
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import SrmsMiAfEB
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import NeighborState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import OspfInternalLsaTypes
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import InterfaceState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import MplsTeOptTlv
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import RedistProtocol
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import Lfa
@@ -3451,6 +2572,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import Lsa
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import OspfSrPolMetricMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import DrBdrState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import OspfCrytographicAlgo
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import TimerTable
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import OspfGrReason
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ospf_oper import OspfMaxMetricAbrOffReasons
@@ -3502,10 +2624,6 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_ipv4_ping_act(self):
-        pass
-
-
     def test_Cisco_IOS_XR_ipv4_smiap_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_smiap_cfg import Ipv4Virtual
 
@@ -3517,10 +2635,6 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XR_ipv4_telnet_mgmt_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_telnet_mgmt_cfg import Telnet
-
-
-    def test_Cisco_IOS_XR_ipv4_traceroute_act(self):
-        pass
 
 
     def test_Cisco_IOS_XR_ipv4_vrrp_cfg(self):
@@ -3566,7 +2680,6 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclLoggingEnum
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclTypeEnum
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclStatusEnum
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes import Ipv6AclTcpBitsNumber
 
 
     def test_Cisco_IOS_XR_ipv6_acl_oper(self):
@@ -3677,15 +2790,6 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_ipv6_ospfv3_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act import ClearOspfv3Routes
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act import ClearOspfv3Redistribution
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act import ClearOspfv3Process
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act import ClearOspfv3StatisticsNeighbor
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act import ClearOspfv3Statistics
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_act import ClearOspfv3InstanceVrf
-
-
     def test_Cisco_IOS_XR_ipv6_ospfv3_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg import Ospfv3DomainId
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ospfv3_cfg import Ospfv3Network
@@ -3741,25 +2845,8 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_ipv6_ping_act(self):
-        pass
-
-
     def test_Cisco_IOS_XR_ipv6_smiap_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_smiap_cfg import Ipv6Virtual
-
-
-    def test_Cisco_IOS_XR_ipv6_traceroute_act(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_isis_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act import ClearIsisProcess
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act import ClearIsisRoute
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act import ClearIsisStat
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act import ClearIsisDist
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act import ClearIsisLocalLsp
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_isis_act import ClearIsis
 
 
     def test_Cisco_IOS_XR_kim_tpa_cfg(self):
@@ -3776,10 +2863,11 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XR_l2_eth_infra_datatypes(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes import VlanTagOrCvp
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes import Rewrite
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes import Vlan
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes import VsMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes import EthertypeMatch
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes import VlanTagOrNull
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes import Rewrite
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes import VlanTagOrAny
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes import VlanTagOrNative
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes import Match
@@ -3787,13 +2875,14 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XR_l2_eth_infra_oper(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper import VlanEncaps
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper import EthCapsUcastMacMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper import VlanSwitchedMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper import ImStateEnum
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper import EfpTagPriority
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper import EfpTagEtype
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper import VlanService
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper import EfpPayloadEtype
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper import VlanQinqOuterEtype
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper import EthCapsUcastMacMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper import EthFiltering
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper import MacAccounting
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper import Vlan
@@ -3829,6 +2918,7 @@ class ImportTest(unittest.TestCase):
     def test_Cisco_IOS_XR_l2vpn_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import FlowLabelTlvCode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import MacAging
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import MacLimitAction
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import BdmacLearn
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import Interworking
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import PwSwitchingPointTlv
@@ -3837,7 +2927,6 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import BgpRouteTargetRole
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import ErpPort
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import BgpRouteTarget
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import MacLimitAction
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import FlowLabelLoadBalance
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import L2vpnVerification
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import MacLearn
@@ -3856,16 +2945,17 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import BgpRouteTargetFormat
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import MplsSignalingProtocol
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import EvpnSide
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import ControlWord
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import PreferredPath
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import EvpnEncapsulation
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import MplsSequencing
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import EthernetSegmentLoadBalance
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import L2tpSignalingProtocol
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import ControlWord
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import EthernetSegmentIdentifier
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import BridgeDomainTransportMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import LdpVplsId
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import L2Encapsulation
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import EthernetSegmentServiceCarving
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import L2vpnLogging
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import MacWithdrawBehavior
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_cfg import RplRole
@@ -3884,6 +2974,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2fibStormControlRateUnit
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnAdVplsId
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnBagMacLimitAction
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnPwheIflistRepStatus
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2fibL2tpSession
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnVirtualportState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import MgmtL2fibMacLimitNotify
@@ -3900,7 +2991,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnBridgeCoupledState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import MgmtL2fibBridge
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnSignallingProto
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnBriefPsn
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnEncapMethod
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2fibG8032ApsPortStatus
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import EvpnMainInterface
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnVniEncaps
@@ -3908,7 +2999,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import MgmtL2fibMacLimitAction
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnAdLsdErr
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnPwControlWord
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnEncapMethod
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnBriefPsn
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnMainIfProtectected
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnPrefpathOption
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnPw
@@ -3920,8 +3011,8 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnAtmMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2fibPwRedundancyRole
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import IccpSmState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnPwFlowLabel
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import MgmtL2fibBridgeMacEvpnCtx
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnHaNsrNotReadyReason
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnRgState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnSyncStatus
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnTimeStampMode
@@ -3933,10 +3024,12 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnBagMacWithdrawOption
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnVfiP2mpTransport
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnBridgeState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import PwhePortImState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnpw
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import MgmtL2fibStatsData
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2fibGroupState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnPeer
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnPwheIntf
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnAcEncap
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnG8032Rpl
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnXcState
@@ -3952,7 +3045,6 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnSegment
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import MgmtL2fibMacSecAction
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2fibG8032Rpl
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnProcNsrNotReadyReason
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnBagMacLimitNotify
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnPwId
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnLoadBal
@@ -3967,7 +3059,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import MgmtL2fibSwitching
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnBridge
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnTdmMode
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnProcRole
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnPwFlowLabel
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnBagMacAgingMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnVfiP2mpSignaling
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2vpn_oper import L2vpnPwSequence
@@ -3993,14 +3085,12 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_l2vpn_oper_sub4(self):
+        pass
+
+
     def test_Cisco_IOS_XR_li_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_li_cfg import LawfulIntercept
-
-
-    def test_Cisco_IOS_XR_lib_keychain_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act import MasterKeyAdd
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act import MasterKeyDelete
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_keychain_act import MasterKeyUpdate
 
 
     def test_Cisco_IOS_XR_lib_keychain_cfg(self):
@@ -4119,7 +3209,19 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_lpts_punt_flowtrap_cfg import LptsPuntFlowtrapProtoId
 
 
+    def test_Cisco_IOS_XR_macsec_ctrlr_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper import MacsecCtrlrCiphersuit
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper import MacsecCtrlrState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_macsec_ctrlr_oper import MacsecCtrlrOper
+
+
+    def test_Cisco_IOS_XR_macsec_ctrlr_oper_sub1(self):
+        pass
+
+
     def test_Cisco_IOS_XR_man_ems_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg import Dscp
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg import GrpCTlsCipherDefault
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_ems_cfg import Grpc
 
 
@@ -4230,6 +3332,14 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XR_mdrv_lib_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mdrv_lib_cfg import FastShutdown
+
+
+    def test_Cisco_IOS_XR_mediasvr_linux_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mediasvr_linux_oper import MediaSvr
+
+
+    def test_Cisco_IOS_XR_mediasvr_linux_oper_sub1(self):
+        pass
 
 
     def test_Cisco_IOS_XR_mpls_io_cfg(self):
@@ -4480,7 +3590,6 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MteTunnelAdminState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeApsSncMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeAutobwAppRej
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import PceState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeSyncNotReadyReason
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TunnelAttributeSet
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeBfdLspSessionState
@@ -4488,16 +3597,14 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TePpDiversity
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import LinkDirectionEnum
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeBackupUsage
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeLoadshare
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import FloodingTrigger
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeTunnelState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeLspRole
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeVifBfdEncapMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import IgpteLibBwModel
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeBackup
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import SignalingAgentEnum
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import RrrDsteMigrationMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeXroSubobj
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsProtection
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TePathInvalAction
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import AdmissionPolicy
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsMteTunnelFailReason
@@ -4510,37 +3617,33 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeMgmtGmplsLabelOrigin
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import PceSrSid
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTpTunnelSwitchoverTrig
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import FloodingTrigger
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeLoadshare
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTpTunnelActiveLsp
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TePnrRevertOptions
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import PceLspAutorouteMetric
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeBackupStatus
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeMgmtGmplsLabel
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeAutoTunExpPathHop
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeVifBfd
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import OcMplsTeTunnel
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTpTunnelState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeHopLimitIgnore
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import PceTunnelState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeSoftPreemptionResolution
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeSoftPreemptionState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import GmplsUniMgmtDwdmCs
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeP2mpTimer
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeSrSid
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeS2lSrPathSelection
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import ResourceProvider
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TpMidLspStatus
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import AutoBackupProtection
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeFrrState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeBfdSessionDownAction1
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import LspOperStatus
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeProtocol
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeP2mpTimer
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import PceState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeOduLevel
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import IgpOspfAreaFormat
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import PceTunPathState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import AutoBackupSrlgMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeRevEroRejectReasons
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeProtect
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import LspAdminStatus
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TePathProtProfile
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTePceFailReasons
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeFrrSharing
@@ -4550,7 +3653,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeAffinityTable
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeNode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeMgmtGenericTspec
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TePnrRevertOptions
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import LspOorState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import HwOorState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeMetric
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TpLinkState
@@ -4570,9 +3673,8 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeServTunClient
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTePath
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeS2lOutputRwExplicitNull
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import OcMplsTeAaMetric
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import RsvpMgmtEroSubobjStatus
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import LspOorState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeHopLimitIgnore
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeReoptDecisionReason
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeAutobwAppTrigger
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeDestinationState
@@ -4587,7 +3689,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import IgpteAaMetricMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeXroExclusion
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import RsvpMgmtRroSubobj
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeLspWrapState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TpMidLspStatus
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeLsp
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeIgpProtocol
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeNextHop
@@ -4600,7 +3702,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeMeshgroup
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeMgmtGenericFspec
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeTermination
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import OcMplsTeLsp
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTeLspWrapState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeOduCapability
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import TeSyncPendingReason
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_te_oper import MplsTpLspState
@@ -4646,10 +3748,6 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_mpls_te_oper_sub9(self):
-        pass
-
-
     def test_Cisco_IOS_XR_mpls_vpn_cfg(self):
         pass
 
@@ -4665,19 +3763,133 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_ncs1001_otdr_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper import Direction
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper import OtdrEvent
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper import OtsOtdrDataTypeDetails
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper import OtdrScanMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper import OtdrStatus
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper import OtsOtdrData
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_otdr_oper import HwModule
+
+
+    def test_Cisco_IOS_XR_ncs1001_otdr_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_ncs1001_ots_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg import OtsOtdrDirection
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg import OtsPsmLockoutFrom
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg import OtsAmplifierGridMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg import OtsAmplifierNode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_cfg import HardwareModule
+
+
+    def test_Cisco_IOS_XR_ncs1001_ots_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper import OtsChannelsTrailData
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper import OtsAmpliTrailData
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper import Trailview
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper import Chfilter
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1001_ots_oper import HwModule
+
+
+    def test_Cisco_IOS_XR_ncs1001_ots_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_ncs1k_macsec_ea_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper import Ncs1kCipherSuit
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_macsec_ea_oper import Ncs1kMacsecOper
+
+
+    def test_Cisco_IOS_XR_ncs1k_macsec_ea_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_ncs1k_mxp_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg import ClientDataRate
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg import Fec
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg import TrunkDataRate
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_cfg import HardwareModule
+
+
+    def test_Cisco_IOS_XR_ncs1k_mxp_headless_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper import MxpOtnPrbsStatus
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_headless_oper import HeadlessFuncData
+
+
+    def test_Cisco_IOS_XR_ncs1k_mxp_headless_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_ncs1k_mxp_lldp_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper import LldpL3AddrProtocol
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_lldp_oper import LldpSnoopData
+
+
+    def test_Cisco_IOS_XR_ncs1k_mxp_lldp_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_ncs1k_mxp_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper import ClientDataRate
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper import TrunkDataRate
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper import HwModuleSliceStatus
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs1k_mxp_oper import HwModule
+
+
+    def test_Cisco_IOS_XR_ncs1k_mxp_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_ncs5500_coherent_node_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_node_oper import Coherent
+
+
+    def test_Cisco_IOS_XR_ncs5500_coherent_node_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_ncs5500_coherent_portmode_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_portmode_cfg import DiffSel
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_portmode_cfg import ModSel
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_portmode_cfg import FecSel
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_portmode_cfg import SpeedSel
+
+
+    def test_Cisco_IOS_XR_ncs5500_coherent_portmode_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_coherent_portmode_oper import ControllerPortMode
+
+
+    def test_Cisco_IOS_XR_ncs5500_coherent_portmode_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_ncs5500_qos_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper import DnxQoseaShowAction
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper import PolicyParamUnit
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper import DnxQoseaShowWred
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper import DnxQoseaShowHpLevel
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper import QosPolicyAccountEnum
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper import DnxQoseaShowMark
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper import DnxQoseaShowPolicyStatus
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper import DnxQoseaShowIntfStatus
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper import DnxQoseaShowLevel
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper import DnxQoseaShowQueue
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5500_qos_oper import PlatformQos
+
+
+    def test_Cisco_IOS_XR_ncs5500_qos_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_ncs5500_qos_oper_sub2(self):
+        pass
+
+
     def test_Cisco_IOS_XR_ncs5k_fea_pfilter_nonatomic_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5k_fea_pfilter_nonatomic_cfg import AtomicDisableDfltActn
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs5k_fea_pfilter_nonatomic_cfg import Hardware
-
-
-    def test_Cisco_IOS_XR_ncs6k_acl_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs6k_acl_oper import SsePfilterAddr
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs6k_acl_oper import SseGrant
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ncs6k_acl_oper import AccessListHardware
-
-
-    def test_Cisco_IOS_XR_ncs6k_acl_oper_sub1(self):
-        pass
 
 
     def test_Cisco_IOS_XR_nto_misc_oper(self):
@@ -4688,27 +3900,19 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_nto_misc_shmem_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shmem_oper import MemorySummary
-
-
-    def test_Cisco_IOS_XR_nto_misc_shmem_oper_sub1(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_nto_misc_shprocmem_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_nto_misc_shprocmem_oper import ProcessesMemory
-
-
-    def test_Cisco_IOS_XR_nto_misc_shprocmem_oper_sub1(self):
-        pass
-
-
     def test_Cisco_IOS_XR_ocni_intfbase_oper(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_intfbase_oper import OcniNiIntfbase
 
 
     def test_Cisco_IOS_XR_ocni_intfbase_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_ocni_local_routing_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ocni_local_routing_oper import Ocni
+
+
+    def test_Cisco_IOS_XR_ocni_local_routing_oper_sub1(self):
         pass
 
 
@@ -4738,6 +3942,15 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XR_parser_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_parser_cfg import Parser
+
+
+    def test_Cisco_IOS_XR_patch_panel_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_patch_panel_cfg import PatchPanel
+
+
+    def test_Cisco_IOS_XR_pbr_bng_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_bng_cfg import BngPbrHttpEnrichmentParams
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_bng_cfg import BngPbr
 
 
     def test_Cisco_IOS_XR_pbr_cfg(self):
@@ -4783,6 +3996,28 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_perf_meas_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_cfg import PerformanceMeasurement
+
+
+    def test_Cisco_IOS_XR_perf_meas_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper import PmMeasurement
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper import PmAdvertReason
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper import PmProbeNotRunningReason
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper import PmDelayMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper import PmTransport
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper import PerformanceMeasurement
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_perf_meas_oper import PerformanceMeasurementResponder
+
+
+    def test_Cisco_IOS_XR_perf_meas_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_perf_meas_oper_sub2(self):
+        pass
+
+
     def test_Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper import ImStateEnum
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_ctrlr_oper import Controllers
@@ -4794,6 +4029,7 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XR_pfi_im_cmd_oper(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper import ImCmdIntfTypeEnum
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper import VlanSwitchedMode
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper import ImCmdStatsEnum
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper import SrpMgmtFailureStateEt
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfi_im_cmd_oper import GccDerState
@@ -4848,31 +4084,23 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_pfm_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pfm_oper import PlatformFaultManager
+    def test_Cisco_IOS_XR_plat_chas_invmgr_ng_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper import InvAdminState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper import InvResetReason
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper import InvCardState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper import InvMonitorState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper import NodeState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper import CardRedundancyState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper import InvPowerAdminState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper import Platform
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_ng_oper import PlatformInventory
 
 
-    def test_Cisco_IOS_XR_ping_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ping_act import Ping
-
-
-    def test_Cisco_IOS_XR_plat_chas_invmgr_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper import InvAdminState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper import InvResetReason
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper import InvCardState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper import InvMonitorState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper import NodeState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper import CardRedundancyState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper import InvPowerAdminState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper import Platform
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_plat_chas_invmgr_oper import PlatformInventory
-
-
-    def test_Cisco_IOS_XR_plat_chas_invmgr_oper_sub1(self):
+    def test_Cisco_IOS_XR_plat_chas_invmgr_ng_oper_sub1(self):
         pass
 
 
-    def test_Cisco_IOS_XR_plat_chas_invmgr_oper_sub2(self):
+    def test_Cisco_IOS_XR_plat_chas_invmgr_ng_oper_sub2(self):
         pass
 
 
@@ -4893,7 +4121,9 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg import FecReport
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg import HoVcThreshold
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg import GfpThreshold
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg import PcsThreshold
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg import SecytxThreshold
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg import PcsReport
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg import Report
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg import OtnTcmReport
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_pmengine_cfg import OpticsReport
@@ -5020,8 +4250,14 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_prm_hwmod_loadbalance_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_loadbalance_cfg import HardwareModule
+    def test_Cisco_IOS_XR_prm_hwmod_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_cfg import UrpfConfig
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_cfg import HardwareModule
+
+
+    def test_Cisco_IOS_XR_prm_hwmod_profile_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_profile_cfg import ProfileTypeData
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_prm_hwmod_profile_cfg import HardwareModule
 
 
     def test_Cisco_IOS_XR_prm_hwmod_sr_cfg(self):
@@ -5086,9 +4322,16 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_qos_ma_bng_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg import Qosl2DataLink
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_bng_cfg import Qosl2Encap
+    def test_Cisco_IOS_XR_ptp_pd_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_pd_cfg import LogServoRoot
+
+
+    def test_Cisco_IOS_XR_ptp_pd_oper(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_ptp_pd_oper_sub1(self):
+        pass
 
 
     def test_Cisco_IOS_XR_qos_ma_cfg(self):
@@ -5107,19 +4350,7 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_qos_ma_oper import Qos
 
 
-    def test_Cisco_IOS_XR_qos_ma_sat_cfg(self):
-        pass
-
-
     def test_Cisco_IOS_XR_qos_mibs_cfg(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_reboot_history_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_reboot_history_oper import RebootHistory
-
-
-    def test_Cisco_IOS_XR_reboot_history_oper_sub1(self):
         pass
 
 
@@ -5133,6 +4364,22 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XR_rgmgr_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_rptiming_dti_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_rptiming_dti_oper import DtiController
+
+
+    def test_Cisco_IOS_XR_rptiming_dti_oper_sub1(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_rptiming_tmg_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_rptiming_tmg_oper import TimingCard
+
+
+    def test_Cisco_IOS_XR_rptiming_tmg_oper_sub1(self):
         pass
 
 
@@ -5237,10 +4484,6 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XR_skywarp_netflow_oper_sub2(self):
         pass
-
-
-    def test_Cisco_IOS_XR_slice_mgr_proxy_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_slice_mgr_proxy_cfg import NodePath
 
 
     def test_Cisco_IOS_XR_snmp_agent_cfg(self):
@@ -5362,56 +4605,8 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_snmp_test_trap_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import SnmpColdStart
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import SnmpWarmStart
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InterfaceLinkUp
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InterfaceLinkDown
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import SonetSectionStatus
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import SonetLineStatus
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import SonetPathStatus
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraSyslogMessageGenerated
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraFlashDeviceInserted
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraFlashDeviceRemoved
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraRedundancyProgression
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraRedundancySwitch
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraBridgeNewRoot
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraBridgeTopologyChange
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import InfraConfigEvent
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import EntitySensorThresholdNotification
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import EntityFruPowerStatusChangeFailed
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import EntityFruModuleStatusChangeUp
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import EntityFruModuleStatusChangeDown
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import EntityFruFanTrayOperStatusUp
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import EntityFruFanTrayInserted
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import EntityFruFanTrayRemoved
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import PlatformHfrBundleDownedLink
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import PlatformHfrBundleState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import PlatformHfrPlaneState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingBgpEstablished
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingBgpEstablishedRemotePeer
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingBgpStateChange
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingBgpStateChangeRemotePeer
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingOspfNeighborStateChange
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingOspfNeighborStateChangeAddress
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsLdpSessionDown
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsLdpSessionDownEntityId
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsTunnelReRouted
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsTunnelReRoutedIndex
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsTunnelReOptimized
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsTunnelReOptimizedIndex
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsTunnelDown
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import RoutingMplsTunnelDownIndex
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_test_trap_act import All
-
-
     def test_Cisco_IOS_XR_spirit_corehelper_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_corehelper_cfg import Exception
-
-
-    def test_Cisco_IOS_XR_spirit_fpd_infra_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_fpd_infra_cfg import AutoUpgrade
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_fpd_infra_cfg import Fpd
 
 
     def test_Cisco_IOS_XR_spirit_install_instmgr_oper(self):
@@ -5430,14 +4625,6 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XR_spirit_install_instmgr_oper_sub2(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_sse_span_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sse_span_oper import Ssespan
-
-
-    def test_Cisco_IOS_XR_sse_span_oper_sub1(self):
         pass
 
 
@@ -5483,9 +4670,11 @@ class ImportTest(unittest.TestCase):
 
 
     def test_Cisco_IOS_XR_subscriber_pppoe_ma_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper import PppoeMaThrottleState
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper import PppoeMaLimitState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper import PppoeMaSessionState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper import PppoeMaSessionIdbSrgState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper import PppoeMaSessionTrig
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper import PppoeMaLimitState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper import PppoeMaThrottleState
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_oper import Pppoe
 
 
@@ -5529,6 +4718,28 @@ class ImportTest(unittest.TestCase):
         pass
 
 
+    def test_Cisco_IOS_XR_syncc_controller_cfg(self):
+        pass
+
+
+    def test_Cisco_IOS_XR_syncc_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper import Smode1
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper import Smode2
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper import ClockModes
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper import QlOption1
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper import Direct
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper import SourceStateName
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper import Source
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper import NodeState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper import InterfaceState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper import SynccStates
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_syncc_oper import TimingController
+
+
+    def test_Cisco_IOS_XR_syncc_oper_sub1(self):
+        pass
+
+
     def test_Cisco_IOS_XR_sysadmin_aaa_aaa_show(self):
         pass
 
@@ -5550,12 +4761,8 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_asic_errors_ael import AsicErrors
 
 
-    def test_Cisco_IOS_XR_sysadmin_clear(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_clear import Clear
-
-
-    def test_Cisco_IOS_XR_sysadmin_clear_asr9k(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_clear_asr9k import Clear
+    def test_Cisco_IOS_XR_sysadmin_card_mgr(self):
+        pass
 
 
     def test_Cisco_IOS_XR_sysadmin_cm(self):
@@ -5569,20 +4776,6 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm import LeaderStatistics
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm import TopologyNeighbors
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_cm import Placement
-
-
-    def test_Cisco_IOS_XR_sysadmin_console(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_console import Console
-
-
-    def test_Cisco_IOS_XR_sysadmin_controllers(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers import Gaspp
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers import Set
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers import Controller
-
-
-    def test_Cisco_IOS_XR_sysadmin_controllers_asr9k(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_controllers_asr9k import Controller
 
 
     def test_Cisco_IOS_XR_sysadmin_debug_trace(self):
@@ -5647,15 +4840,7 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_sysadmin_ethsw_esdma_cli(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_sysadmin_ethsw_esdma_cli_asr9k(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_sysadmin_ethsw_esdma_debug(self):
+    def test_Cisco_IOS_XR_sysadmin_ethsw_esdma_cli_ncs5500(self):
         pass
 
 
@@ -5671,23 +4856,7 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_sysadmin_ethsw_esdma_mlap(self):
-        pass
-
-
     def test_Cisco_IOS_XR_sysadmin_ethsw_esdma_reachable(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_sysadmin_ethsw_esdma_sdr(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_sysadmin_ethsw_esdma_serdes(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_sysadmin_ethsw_esdma_sfp(self):
         pass
 
 
@@ -5738,35 +4907,11 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_sysadmin_external_usb(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_external_usb import ExternalUsb
-
-
-    def test_Cisco_IOS_XR_sysadmin_fabric(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_sysadmin_fabric_cxp_ncs6k(self):
-        pass
-
-
     def test_Cisco_IOS_XR_sysadmin_fabric_driver_sfe(self):
         pass
 
 
-    def test_Cisco_IOS_XR_sysadmin_fabric_groups(self):
-        pass
-
-
     def test_Cisco_IOS_XR_sysadmin_fabric_mgr_fgid(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_sysadmin_fabric_mgr_fsdb_aggregator(self):
-        pass
-
-
-    def test_Cisco_IOS_XR_sysadmin_fabric_mgr_fsdb_server(self):
         pass
 
 
@@ -5831,10 +4976,6 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_obfl import Obfl
 
 
-    def test_Cisco_IOS_XR_sysadmin_obfl_clear(self):
-        pass
-
-
     def test_Cisco_IOS_XR_sysadmin_obfl_conf(self):
         pass
 
@@ -5856,23 +4997,12 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_rvm_mgr import RVM
 
 
-    def test_Cisco_IOS_XR_sysadmin_sdm_diag(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdm_diag import Diagnostic
-
-
-    def test_Cisco_IOS_XR_sysadmin_sdr_connect(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_connect import SdrConnect
-
-
-    def test_Cisco_IOS_XR_sysadmin_sdr_console(self):
-        pass
-
-
     def test_Cisco_IOS_XR_sysadmin_sdr_mgr(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr import VmReloadReason
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr import CardType
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr import SdrConfig
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr import SdrManager
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr import SdrOperation
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_sdr_mgr import PrivateSdr
 
 
@@ -5914,10 +5044,6 @@ class ImportTest(unittest.TestCase):
 
     def test_Cisco_IOS_XR_sysadmin_show_trace_instmgr(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_instmgr import Instmgr
-
-
-    def test_Cisco_IOS_XR_sysadmin_show_trace_slice_manager(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_show_trace_slice_manager import SliceManager
 
 
     def test_Cisco_IOS_XR_sysadmin_show_trace_vmm(self):
@@ -5969,6 +5095,10 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_types import GenericOperStatus__
 
 
+    def test_Cisco_IOS_XR_sysadmin_usb(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_usb import Usb
+
+
     def test_Cisco_IOS_XR_sysadmin_vm_mgr(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_vm_mgr import VM
 
@@ -5978,21 +5108,9 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_wdmon import WdmonInfo
 
 
-    def test_Cisco_IOS_XR_sysadmin_zapdisk(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_zapdisk import Zapdisk
-
-
     def test_Cisco_IOS_XR_sysdb_oper(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysdb_oper import SysdbConnections
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysdb_oper import Sysdb
-
-
-    def test_Cisco_IOS_XR_syslog_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_syslog_act import Logmsg
-
-
-    def test_Cisco_IOS_XR_sysmgr_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysmgr_act import SysmgrProcessRestart
 
 
     def test_Cisco_IOS_XR_sysmgr_cfg(self):
@@ -6026,8 +5144,27 @@ class ImportTest(unittest.TestCase):
         pass
 
 
-    def test_Cisco_IOS_XR_traceroute_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_traceroute_act import Traceroute
+    def test_Cisco_IOS_XR_terminal_device_cfg(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg import LogicalTribRate
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg import LogicalLoopbackMode
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg import LogicalChannelOtnTtiAuto
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg import LogicalAdminState
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg import LogicalChannelAssignment
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg import LogicalTribProtocol
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg import LogicalProtocol
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg import LogicalChannels
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_cfg import OpticalChannels
+
+
+    def test_Cisco_IOS_XR_terminal_device_oper(self):
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper import LogicalProtocol
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper import TribProtocol
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper import TribRateClass
+        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_terminal_device_oper import OpticalInterface
+
+
+    def test_Cisco_IOS_XR_terminal_device_oper_sub1(self):
+        pass
 
 
     def test_Cisco_IOS_XR_traffmon_netflow_cfg(self):
@@ -6166,22 +5303,6 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_types import EncryptionType
 
 
-    def test_Cisco_IOS_XR_upgrade_fpd_ng_act(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_ng_act import UpgradeFpd
-
-
-    def test_Cisco_IOS_XR_upgrade_fpd_oper(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper import FpdSub1
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper import Fpd
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper import Fpd1
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper import FpdSub
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_upgrade_fpd_oper import Fpd_
-
-
-    def test_Cisco_IOS_XR_upgrade_fpd_oper_sub1(self):
-        pass
-
-
     def test_Cisco_IOS_XR_vservice_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg import SfcSfTransport
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg import SfcMetadataDispositionMatch
@@ -6209,10 +5330,6 @@ class ImportTest(unittest.TestCase):
     def test_Cisco_IOS_XR_watchd_cfg(self):
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_watchd_cfg import Watchdog
         from ydk.models.cisco_ios_xr.Cisco_IOS_XR_watchd_cfg import Watchd
-
-
-    def test_Cisco_IOS_XR_wd_cfg(self):
-        from ydk.models.cisco_ios_xr.Cisco_IOS_XR_wd_cfg import Watchdog
 
 
     def test_Cisco_IOS_XR_wd_oper(self):
@@ -6244,26 +5361,6 @@ class ImportTest(unittest.TestCase):
         from ydk.models.cisco_ios_xr.SNMPv2_TC import RowStatus
 
 
-    def test_ccc(self):
-        pass
-
-
-    def test_fit(self):
-        from ydk.models.cisco_ios_xr.fit import Set
-
-
-    def test_gaspp(self):
-        pass
-
-
-    def test_nc_notifications(self):
-        from ydk.models.cisco_ios_xr.nc_notifications import Netconf
-
-
-    def test_notifications(self):
-        from ydk.models.cisco_ios_xr.notifications import CreateSubscription
-
-
     def test_tailf_aaa(self):
         from ydk.models.cisco_ios_xr.tailf_aaa import DataOperationType
         from ydk.models.cisco_ios_xr.tailf_aaa import BuiltinModes
@@ -6293,10 +5390,6 @@ class ImportTest(unittest.TestCase):
 
 
     def test_tailf_xsd_types(self):
-        pass
-
-
-    def test_zen(self):
         pass
 
 

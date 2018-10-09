@@ -47,6 +47,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOENTITYEXTMIB(Entity):
     """
     
@@ -97,6 +98,7 @@ class CISCOENTITYEXTMIB(Entity):
         self.ceextentityledtable.parent = self
         self._children_name_map["ceextentityledtable"] = "ceExtEntityLEDTable"
         self._segment_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOENTITYEXTMIB, [], name, value)
@@ -134,6 +136,7 @@ class CISCOENTITYEXTMIB(Entity):
             self.ceextphysicalprocessorentry = YList(self)
             self._segment_path = lambda: "ceExtPhysicalProcessorTable"
             self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYEXTMIB.CeExtPhysicalProcessorTable, [], name, value)
@@ -235,12 +238,12 @@ class CISCOENTITYEXTMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('ceextprocessorram', YLeaf(YType.uint32, 'ceExtProcessorRam')),
-                    ('ceextnvramsize', YLeaf(YType.uint32, 'ceExtNVRAMSize')),
-                    ('ceextnvramused', YLeaf(YType.uint32, 'ceExtNVRAMUsed')),
-                    ('ceextprocessorramoverflow', YLeaf(YType.uint32, 'ceExtProcessorRamOverflow')),
-                    ('ceexthcprocessorram', YLeaf(YType.uint64, 'ceExtHCProcessorRam')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('ceextprocessorram', (YLeaf(YType.uint32, 'ceExtProcessorRam'), ['int'])),
+                    ('ceextnvramsize', (YLeaf(YType.uint32, 'ceExtNVRAMSize'), ['int'])),
+                    ('ceextnvramused', (YLeaf(YType.uint32, 'ceExtNVRAMUsed'), ['int'])),
+                    ('ceextprocessorramoverflow', (YLeaf(YType.uint32, 'ceExtProcessorRamOverflow'), ['int'])),
+                    ('ceexthcprocessorram', (YLeaf(YType.uint64, 'ceExtHCProcessorRam'), ['int'])),
                 ])
                 self.entphysicalindex = None
                 self.ceextprocessorram = None
@@ -250,6 +253,7 @@ class CISCOENTITYEXTMIB(Entity):
                 self.ceexthcprocessorram = None
                 self._segment_path = lambda: "ceExtPhysicalProcessorEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/ceExtPhysicalProcessorTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYEXTMIB.CeExtPhysicalProcessorTable.CeExtPhysicalProcessorEntry, ['entphysicalindex', 'ceextprocessorram', 'ceextnvramsize', 'ceextnvramused', 'ceextprocessorramoverflow', 'ceexthcprocessorram'], name, value)
@@ -286,6 +290,7 @@ class CISCOENTITYEXTMIB(Entity):
             self.ceextconfigregentry = YList(self)
             self._segment_path = lambda: "ceExtConfigRegTable"
             self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYEXTMIB.CeExtConfigRegTable, [], name, value)
@@ -353,11 +358,11 @@ class CISCOENTITYEXTMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('ceextconfigregister', YLeaf(YType.str, 'ceExtConfigRegister')),
-                    ('ceextconfigregnext', YLeaf(YType.str, 'ceExtConfigRegNext')),
-                    ('ceextsysbootimagelist', YLeaf(YType.str, 'ceExtSysBootImageList')),
-                    ('ceextkickstartimagelist', YLeaf(YType.str, 'ceExtKickstartImageList')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('ceextconfigregister', (YLeaf(YType.str, 'ceExtConfigRegister'), ['str'])),
+                    ('ceextconfigregnext', (YLeaf(YType.str, 'ceExtConfigRegNext'), ['str'])),
+                    ('ceextsysbootimagelist', (YLeaf(YType.str, 'ceExtSysBootImageList'), ['str'])),
+                    ('ceextkickstartimagelist', (YLeaf(YType.str, 'ceExtKickstartImageList'), ['str'])),
                 ])
                 self.entphysicalindex = None
                 self.ceextconfigregister = None
@@ -366,6 +371,7 @@ class CISCOENTITYEXTMIB(Entity):
                 self.ceextkickstartimagelist = None
                 self._segment_path = lambda: "ceExtConfigRegEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/ceExtConfigRegTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYEXTMIB.CeExtConfigRegTable.CeExtConfigRegEntry, ['entphysicalindex', 'ceextconfigregister', 'ceextconfigregnext', 'ceextsysbootimagelist', 'ceextkickstartimagelist'], name, value)
@@ -401,6 +407,7 @@ class CISCOENTITYEXTMIB(Entity):
             self.ceextentityledentry = YList(self)
             self._segment_path = lambda: "ceExtEntityLEDTable"
             self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOENTITYEXTMIB.CeExtEntityLEDTable, [], name, value)
@@ -448,15 +455,16 @@ class CISCOENTITYEXTMIB(Entity):
                 self.ylist_key_names = ['entphysicalindex','ceextentityledtype']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entphysicalindex', YLeaf(YType.str, 'entPhysicalIndex')),
-                    ('ceextentityledtype', YLeaf(YType.enumeration, 'ceExtEntityLEDType')),
-                    ('ceextentityledcolor', YLeaf(YType.enumeration, 'ceExtEntityLEDColor')),
+                    ('entphysicalindex', (YLeaf(YType.str, 'entPhysicalIndex'), ['int'])),
+                    ('ceextentityledtype', (YLeaf(YType.enumeration, 'ceExtEntityLEDType'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB', 'CISCOENTITYEXTMIB', 'CeExtEntityLEDTable.CeExtEntityLEDEntry.CeExtEntityLEDType')])),
+                    ('ceextentityledcolor', (YLeaf(YType.enumeration, 'ceExtEntityLEDColor'), [('ydk.models.cisco_ios_xe.CISCO_ENTITY_EXT_MIB', 'CISCOENTITYEXTMIB', 'CeExtEntityLEDTable.CeExtEntityLEDEntry.CeExtEntityLEDColor')])),
                 ])
                 self.entphysicalindex = None
                 self.ceextentityledtype = None
                 self.ceextentityledcolor = None
                 self._segment_path = lambda: "ceExtEntityLEDEntry" + "[entPhysicalIndex='" + str(self.entphysicalindex) + "']" + "[ceExtEntityLEDType='" + str(self.ceextentityledtype) + "']"
                 self._absolute_path = lambda: "CISCO-ENTITY-EXT-MIB:CISCO-ENTITY-EXT-MIB/ceExtEntityLEDTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOENTITYEXTMIB.CeExtEntityLEDTable.CeExtEntityLEDEntry, ['entphysicalindex', 'ceextentityledtype', 'ceextentityledcolor'], name, value)

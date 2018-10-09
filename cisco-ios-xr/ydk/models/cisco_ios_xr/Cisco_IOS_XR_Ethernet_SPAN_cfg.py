@@ -12,7 +12,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-l2vpn\-cfg
 modules with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -22,6 +22,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class SpanDestination(Enum):
@@ -156,6 +157,7 @@ class SpanMonitorSession(Entity):
         self.sessions.parent = self
         self._children_name_map["sessions"] = "sessions"
         self._segment_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SpanMonitorSession, [], name, value)
@@ -191,6 +193,7 @@ class SpanMonitorSession(Entity):
             self.session = YList(self)
             self._segment_path = lambda: "sessions"
             self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SpanMonitorSession.Sessions, [], name, value)
@@ -224,7 +227,7 @@ class SpanMonitorSession(Entity):
             	Specify the inject interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             
 
@@ -243,9 +246,9 @@ class SpanMonitorSession(Entity):
                 self.ylist_key_names = ['session']
                 self._child_classes = OrderedDict([("destination", ("destination", SpanMonitorSession.Sessions.Session.Destination))])
                 self._leafs = OrderedDict([
-                    ('session', YLeaf(YType.str, 'session')),
-                    ('class_', YLeaf(YType.enumeration, 'class')),
-                    ('inject_interface', YLeaf(YType.str, 'inject-interface')),
+                    ('session', (YLeaf(YType.str, 'session'), ['str'])),
+                    ('class_', (YLeaf(YType.enumeration, 'class'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_datatypes', 'SpanSessionClass', '')])),
+                    ('inject_interface', (YLeaf(YType.str, 'inject-interface'), ['str'])),
                 ])
                 self.session = None
                 self.class_ = None
@@ -256,6 +259,7 @@ class SpanMonitorSession(Entity):
                 self._children_name_map["destination"] = "destination"
                 self._segment_path = lambda: "session" + "[session='" + str(self.session) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-Ethernet-SPAN-cfg:span-monitor-session/sessions/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SpanMonitorSession.Sessions.Session, ['session', 'class_', 'inject_interface'], name, value)
@@ -275,7 +279,7 @@ class SpanMonitorSession(Entity):
                 	Specify the destination interface name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: destination_ipv4_address
                 
@@ -308,16 +312,17 @@ class SpanMonitorSession(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('destination_type', YLeaf(YType.enumeration, 'destination-type')),
-                        ('destination_interface_name', YLeaf(YType.str, 'destination-interface-name')),
-                        ('destination_ipv4_address', YLeaf(YType.str, 'destination-ipv4-address')),
-                        ('destination_ipv6_address', YLeaf(YType.str, 'destination-ipv6-address')),
+                        ('destination_type', (YLeaf(YType.enumeration, 'destination-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_Ethernet_SPAN_cfg', 'SpanDestination', '')])),
+                        ('destination_interface_name', (YLeaf(YType.str, 'destination-interface-name'), ['str'])),
+                        ('destination_ipv4_address', (YLeaf(YType.str, 'destination-ipv4-address'), ['str'])),
+                        ('destination_ipv6_address', (YLeaf(YType.str, 'destination-ipv6-address'), ['str'])),
                     ])
                     self.destination_type = None
                     self.destination_interface_name = None
                     self.destination_ipv4_address = None
                     self.destination_ipv6_address = None
                     self._segment_path = lambda: "destination"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SpanMonitorSession.Sessions.Session.Destination, ['destination_type', 'destination_interface_name', 'destination_ipv4_address', 'destination_ipv6_address'], name, value)

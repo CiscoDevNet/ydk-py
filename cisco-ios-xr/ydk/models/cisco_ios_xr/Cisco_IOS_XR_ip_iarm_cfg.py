@@ -8,7 +8,7 @@ for the following management objects\:
   ip\-arm\: IP Address Repository Manager (IPv4/IPv6 ARM)
     configuration data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class IpArmConflictPolicy(Enum):
@@ -96,6 +97,7 @@ class IpArm(Entity):
         self.ipv6.parent = self
         self._children_name_map["ipv6"] = "ipv6"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-iarm-cfg:ip-arm"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(IpArm, [], name, value)
@@ -142,6 +144,7 @@ class IpArm(Entity):
             self._children_name_map["multicast_host"] = "multicast-host"
             self._segment_path = lambda: "ipv4"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IpArm.Ipv4, [], name, value)
@@ -173,11 +176,12 @@ class IpArm(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('conflict_policy', YLeaf(YType.enumeration, 'conflict-policy')),
+                    ('conflict_policy', (YLeaf(YType.enumeration, 'conflict-policy'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg', 'IpArmConflictPolicy', '')])),
                 ])
                 self.conflict_policy = None
                 self._segment_path = lambda: "conflict-policy-table"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/ipv4/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IpArm.Ipv4.ConflictPolicyTable, ['conflict_policy'], name, value)
@@ -192,7 +196,7 @@ class IpArm(Entity):
             	Default multicast host interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             
 
@@ -211,11 +215,12 @@ class IpArm(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('multicast_host_interface', YLeaf(YType.str, 'multicast-host-interface')),
+                    ('multicast_host_interface', (YLeaf(YType.str, 'multicast-host-interface'), ['str'])),
                 ])
                 self.multicast_host_interface = None
                 self._segment_path = lambda: "multicast-host"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/ipv4/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IpArm.Ipv4.MulticastHost, ['multicast_host_interface'], name, value)
@@ -262,6 +267,7 @@ class IpArm(Entity):
             self._children_name_map["multicast_host"] = "multicast-host"
             self._segment_path = lambda: "ipv6"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IpArm.Ipv6, [], name, value)
@@ -293,11 +299,12 @@ class IpArm(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('conflict_policy', YLeaf(YType.enumeration, 'conflict-policy')),
+                    ('conflict_policy', (YLeaf(YType.enumeration, 'conflict-policy'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iarm_cfg', 'IpArmConflictPolicy', '')])),
                 ])
                 self.conflict_policy = None
                 self._segment_path = lambda: "conflict-policy-table"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/ipv6/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IpArm.Ipv6.ConflictPolicyTable, ['conflict_policy'], name, value)
@@ -312,7 +319,7 @@ class IpArm(Entity):
             	Default multicast host interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             
 
@@ -331,11 +338,12 @@ class IpArm(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('multicast_host_interface', YLeaf(YType.str, 'multicast-host-interface')),
+                    ('multicast_host_interface', (YLeaf(YType.str, 'multicast-host-interface'), ['str'])),
                 ])
                 self.multicast_host_interface = None
                 self._segment_path = lambda: "multicast-host"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-iarm-cfg:ip-arm/ipv6/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IpArm.Ipv6.MulticastHost, ['multicast_host_interface'], name, value)

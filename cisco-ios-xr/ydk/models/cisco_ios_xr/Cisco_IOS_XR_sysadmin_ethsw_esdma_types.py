@@ -1,10 +1,16 @@
 """ Cisco_IOS_XR_sysadmin_ethsw_esdma_types 
 
+This module contains definitions
+for the Calvados model objects.
+
 This module contains the YANG enumerated type
 definitions used by the Cisco IOS\-XR SysAdmin
 Control Ethernet commands.
 
 Copyright(c) 2011\-2017 by Cisco Systems, Inc.
+All rights reserved.
+
+Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -14,6 +20,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class EsdCirEirType(Enum):
@@ -550,6 +557,8 @@ class EsdmaSwitchTypeEnum(Enum):
 
     .. data:: Unknown = 9
 
+    .. data:: RP_SW1 = 10
+
     """
 
     RP_SW = Enum.YLeaf(0, "RP-SW")
@@ -571,6 +580,8 @@ class EsdmaSwitchTypeEnum(Enum):
     CB_SW = Enum.YLeaf(8, "CB-SW")
 
     Unknown = Enum.YLeaf(9, "Unknown")
+
+    RP_SW1 = Enum.YLeaf(10, "RP-SW1")
 
 
 class EsdmaSwitchYesNoEnum(Enum):

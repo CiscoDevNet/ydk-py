@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   sam\: Software authentication manager certificate information
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class CertificateIssuer(Enum):
@@ -326,6 +327,7 @@ class Sam(Entity):
         self.certificate_revocation_list_summary.parent = self
         self._children_name_map["certificate_revocation_list_summary"] = "certificate-revocation-list-summary"
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Sam, [], name, value)
@@ -371,18 +373,19 @@ class Sam(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('is_running', YLeaf(YType.boolean, 'is-running')),
-                ('prompt_interval', YLeaf(YType.uint32, 'prompt-interval')),
-                ('is_default_response', YLeaf(YType.boolean, 'is-default-response')),
+                ('is_running', (YLeaf(YType.boolean, 'is-running'), ['bool'])),
+                ('prompt_interval', (YLeaf(YType.uint32, 'prompt-interval'), ['int'])),
+                ('is_default_response', (YLeaf(YType.boolean, 'is-default-response'), ['bool'])),
             ])
             self.is_running = None
             self.prompt_interval = None
             self.is_default_response = None
             self._segment_path = lambda: "system-information"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Sam.SystemInformation, ['is_running', 'prompt_interval', 'is_default_response'], name, value)
+            self._perform_setattr(Sam.SystemInformation, [u'is_running', u'prompt_interval', u'is_default_response'], name, value)
 
 
     class LogContents(Entity):
@@ -415,6 +418,7 @@ class Sam(Entity):
             self.log_content = YList(self)
             self._segment_path = lambda: "log-contents"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Sam.LogContents, [], name, value)
@@ -467,9 +471,9 @@ class Sam(Entity):
                 self.ylist_key_names = ['number_of_lines']
                 self._child_classes = OrderedDict([("logs", ("logs", Sam.LogContents.LogContent.Logs))])
                 self._leafs = OrderedDict([
-                    ('number_of_lines', YLeaf(YType.uint32, 'number-of-lines')),
-                    ('total_entries', YLeaf(YType.uint32, 'total-entries')),
-                    ('entries_shown', YLeaf(YType.uint32, 'entries-shown')),
+                    ('number_of_lines', (YLeaf(YType.uint32, 'number-of-lines'), ['int'])),
+                    ('total_entries', (YLeaf(YType.uint32, 'total-entries'), ['int'])),
+                    ('entries_shown', (YLeaf(YType.uint32, 'entries-shown'), ['int'])),
                 ])
                 self.number_of_lines = None
                 self.total_entries = None
@@ -478,9 +482,10 @@ class Sam(Entity):
                 self.logs = YList(self)
                 self._segment_path = lambda: "log-content" + "[number-of-lines='" + str(self.number_of_lines) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/log-contents/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Sam.LogContents.LogContent, ['number_of_lines', 'total_entries', 'entries_shown'], name, value)
+                self._perform_setattr(Sam.LogContents.LogContent, ['number_of_lines', u'total_entries', u'entries_shown'], name, value)
 
 
             class Logs(Entity):
@@ -563,17 +568,17 @@ class Sam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('time', YLeaf(YType.str, 'time')),
-                        ('code', YLeaf(YType.enumeration, 'code')),
-                        ('target_device', YLeaf(YType.str, 'target-device')),
-                        ('index', YLeaf(YType.uint32, 'index')),
-                        ('error', YLeaf(YType.enumeration, 'error')),
-                        ('issuer', YLeaf(YType.enumeration, 'issuer')),
-                        ('serial_no', YLeaf(YType.str, 'serial-no')),
-                        ('sam_table_index', YLeaf(YType.uint32, 'sam-table-index')),
-                        ('update_time', YLeaf(YType.str, 'update-time')),
-                        ('source_device', YLeaf(YType.str, 'source-device')),
-                        ('table', YLeaf(YType.enumeration, 'table')),
+                        ('time', (YLeaf(YType.str, 'time'), ['str'])),
+                        ('code', (YLeaf(YType.enumeration, 'code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper', 'LogCode', '')])),
+                        ('target_device', (YLeaf(YType.str, 'target-device'), ['str'])),
+                        ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                        ('error', (YLeaf(YType.enumeration, 'error'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper', 'LogError', '')])),
+                        ('issuer', (YLeaf(YType.enumeration, 'issuer'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper', 'CertificateIssuer', '')])),
+                        ('serial_no', (YLeaf(YType.str, 'serial-no'), ['str'])),
+                        ('sam_table_index', (YLeaf(YType.uint32, 'sam-table-index'), ['int'])),
+                        ('update_time', (YLeaf(YType.str, 'update-time'), ['str'])),
+                        ('source_device', (YLeaf(YType.str, 'source-device'), ['str'])),
+                        ('table', (YLeaf(YType.enumeration, 'table'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_crypto_sam_oper', 'LogTables', '')])),
                     ])
                     self.time = None
                     self.code = None
@@ -587,9 +592,10 @@ class Sam(Entity):
                     self.source_device = None
                     self.table = None
                     self._segment_path = lambda: "logs"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Sam.LogContents.LogContent.Logs, ['time', 'code', 'target_device', 'index', 'error', 'issuer', 'serial_no', 'sam_table_index', 'update_time', 'source_device', 'table'], name, value)
+                    self._perform_setattr(Sam.LogContents.LogContent.Logs, [u'time', u'code', u'target_device', u'index', u'error', u'issuer', u'serial_no', u'sam_table_index', u'update_time', u'source_device', u'table'], name, value)
 
 
     class Devices(Entity):
@@ -622,6 +628,7 @@ class Sam(Entity):
             self.device = YList(self)
             self._segment_path = lambda: "devices"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Sam.Devices, [], name, value)
@@ -660,7 +667,7 @@ class Sam(Entity):
                 self.ylist_key_names = ['device_name']
                 self._child_classes = OrderedDict([("certificate", ("certificate", Sam.Devices.Device.Certificate))])
                 self._leafs = OrderedDict([
-                    ('device_name', YLeaf(YType.str, 'device-name')),
+                    ('device_name', (YLeaf(YType.str, 'device-name'), ['str'])),
                 ])
                 self.device_name = None
 
@@ -669,6 +676,7 @@ class Sam(Entity):
                 self._children_name_map["certificate"] = "certificate"
                 self._segment_path = lambda: "device" + "[device-name='" + str(self.device_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/devices/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Sam.Devices.Device, ['device_name'], name, value)
@@ -714,6 +722,7 @@ class Sam(Entity):
                     self.certificate_indexes.parent = self
                     self._children_name_map["certificate_indexes"] = "certificate-indexes"
                     self._segment_path = lambda: "certificate"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Sam.Devices.Device.Certificate, [], name, value)
@@ -757,8 +766,8 @@ class Sam(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("certificate-flags", ("certificate_flags", Sam.Devices.Device.Certificate.Brief.CertificateFlags))])
                         self._leafs = OrderedDict([
-                            ('location', YLeaf(YType.str, 'location')),
-                            ('certificate_index', YLeaf(YType.uint16, 'certificate-index')),
+                            ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                            ('certificate_index', (YLeaf(YType.uint16, 'certificate-index'), ['int'])),
                         ])
                         self.location = None
                         self.certificate_index = None
@@ -767,9 +776,10 @@ class Sam(Entity):
                         self.certificate_flags.parent = self
                         self._children_name_map["certificate_flags"] = "certificate-flags"
                         self._segment_path = lambda: "brief"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sam.Devices.Device.Certificate.Brief, ['location', 'certificate_index'], name, value)
+                        self._perform_setattr(Sam.Devices.Device.Certificate.Brief, [u'location', u'certificate_index'], name, value)
 
 
                     class CertificateFlags(Entity):
@@ -813,19 +823,20 @@ class Sam(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('is_trusted', YLeaf(YType.boolean, 'is-trusted')),
-                                ('is_revoked', YLeaf(YType.boolean, 'is-revoked')),
-                                ('is_expired', YLeaf(YType.boolean, 'is-expired')),
-                                ('is_validated', YLeaf(YType.boolean, 'is-validated')),
+                                ('is_trusted', (YLeaf(YType.boolean, 'is-trusted'), ['bool'])),
+                                ('is_revoked', (YLeaf(YType.boolean, 'is-revoked'), ['bool'])),
+                                ('is_expired', (YLeaf(YType.boolean, 'is-expired'), ['bool'])),
+                                ('is_validated', (YLeaf(YType.boolean, 'is-validated'), ['bool'])),
                             ])
                             self.is_trusted = None
                             self.is_revoked = None
                             self.is_expired = None
                             self.is_validated = None
                             self._segment_path = lambda: "certificate-flags"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Sam.Devices.Device.Certificate.Brief.CertificateFlags, ['is_trusted', 'is_revoked', 'is_expired', 'is_validated'], name, value)
+                            self._perform_setattr(Sam.Devices.Device.Certificate.Brief.CertificateFlags, [u'is_trusted', u'is_revoked', u'is_expired', u'is_validated'], name, value)
 
 
                 class CertificateIndexes(Entity):
@@ -857,6 +868,7 @@ class Sam(Entity):
 
                         self.certificate_index = YList(self)
                         self._segment_path = lambda: "certificate-indexes"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes, [], name, value)
@@ -895,7 +907,7 @@ class Sam(Entity):
                             self.ylist_key_names = ['index']
                             self._child_classes = OrderedDict([("detail", ("detail", Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail))])
                             self._leafs = OrderedDict([
-                                ('index', YLeaf(YType.uint32, 'index')),
+                                ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
                             ])
                             self.index = None
 
@@ -903,6 +915,7 @@ class Sam(Entity):
                             self.detail.parent = self
                             self._children_name_map["detail"] = "detail"
                             self._segment_path = lambda: "certificate-index" + "[index='" + str(self.index) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex, ['index'], name, value)
@@ -946,8 +959,8 @@ class Sam(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("certificate-flags", ("certificate_flags", Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags))])
                                 self._leafs = OrderedDict([
-                                    ('location', YLeaf(YType.str, 'location')),
-                                    ('certificate_index', YLeaf(YType.uint16, 'certificate-index')),
+                                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                                    ('certificate_index', (YLeaf(YType.uint16, 'certificate-index'), ['int'])),
                                 ])
                                 self.location = None
                                 self.certificate_index = None
@@ -956,9 +969,10 @@ class Sam(Entity):
                                 self.certificate_flags.parent = self
                                 self._children_name_map["certificate_flags"] = "certificate-flags"
                                 self._segment_path = lambda: "detail"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail, ['location', 'certificate_index'], name, value)
+                                self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail, [u'location', u'certificate_index'], name, value)
 
 
                             class CertificateFlags(Entity):
@@ -1002,19 +1016,20 @@ class Sam(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('is_trusted', YLeaf(YType.boolean, 'is-trusted')),
-                                        ('is_revoked', YLeaf(YType.boolean, 'is-revoked')),
-                                        ('is_expired', YLeaf(YType.boolean, 'is-expired')),
-                                        ('is_validated', YLeaf(YType.boolean, 'is-validated')),
+                                        ('is_trusted', (YLeaf(YType.boolean, 'is-trusted'), ['bool'])),
+                                        ('is_revoked', (YLeaf(YType.boolean, 'is-revoked'), ['bool'])),
+                                        ('is_expired', (YLeaf(YType.boolean, 'is-expired'), ['bool'])),
+                                        ('is_validated', (YLeaf(YType.boolean, 'is-validated'), ['bool'])),
                                     ])
                                     self.is_trusted = None
                                     self.is_revoked = None
                                     self.is_expired = None
                                     self.is_validated = None
                                     self._segment_path = lambda: "certificate-flags"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags, ['is_trusted', 'is_revoked', 'is_expired', 'is_validated'], name, value)
+                                    self._perform_setattr(Sam.Devices.Device.Certificate.CertificateIndexes.CertificateIndex.Detail.CertificateFlags, [u'is_trusted', u'is_revoked', u'is_expired', u'is_validated'], name, value)
 
 
     class Packages(Entity):
@@ -1047,6 +1062,7 @@ class Sam(Entity):
             self.package = YList(self)
             self._segment_path = lambda: "packages"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Sam.Packages, [], name, value)
@@ -1096,9 +1112,9 @@ class Sam(Entity):
                 self.ylist_key_names = ['package_name']
                 self._child_classes = OrderedDict([("certificate-flags", ("certificate_flags", Sam.Packages.Package.CertificateFlags))])
                 self._leafs = OrderedDict([
-                    ('package_name', YLeaf(YType.str, 'package-name')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('certificate_index', YLeaf(YType.uint16, 'certificate-index')),
+                    ('package_name', (YLeaf(YType.str, 'package-name'), ['str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('certificate_index', (YLeaf(YType.uint16, 'certificate-index'), ['int'])),
                 ])
                 self.package_name = None
                 self.location = None
@@ -1109,9 +1125,10 @@ class Sam(Entity):
                 self._children_name_map["certificate_flags"] = "certificate-flags"
                 self._segment_path = lambda: "package" + "[package-name='" + str(self.package_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/packages/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Sam.Packages.Package, ['package_name', 'location', 'certificate_index'], name, value)
+                self._perform_setattr(Sam.Packages.Package, ['package_name', u'location', u'certificate_index'], name, value)
 
 
             class CertificateFlags(Entity):
@@ -1155,19 +1172,20 @@ class Sam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('is_trusted', YLeaf(YType.boolean, 'is-trusted')),
-                        ('is_revoked', YLeaf(YType.boolean, 'is-revoked')),
-                        ('is_expired', YLeaf(YType.boolean, 'is-expired')),
-                        ('is_validated', YLeaf(YType.boolean, 'is-validated')),
+                        ('is_trusted', (YLeaf(YType.boolean, 'is-trusted'), ['bool'])),
+                        ('is_revoked', (YLeaf(YType.boolean, 'is-revoked'), ['bool'])),
+                        ('is_expired', (YLeaf(YType.boolean, 'is-expired'), ['bool'])),
+                        ('is_validated', (YLeaf(YType.boolean, 'is-validated'), ['bool'])),
                     ])
                     self.is_trusted = None
                     self.is_revoked = None
                     self.is_expired = None
                     self.is_validated = None
                     self._segment_path = lambda: "certificate-flags"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Sam.Packages.Package.CertificateFlags, ['is_trusted', 'is_revoked', 'is_expired', 'is_validated'], name, value)
+                    self._perform_setattr(Sam.Packages.Package.CertificateFlags, [u'is_trusted', u'is_revoked', u'is_expired', u'is_validated'], name, value)
 
 
     class CertificateRevocations(Entity):
@@ -1201,6 +1219,7 @@ class Sam(Entity):
             self.certificate_revocation = YList(self)
             self._segment_path = lambda: "certificate-revocations"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Sam.CertificateRevocations, [], name, value)
@@ -1239,7 +1258,7 @@ class Sam(Entity):
                 self.ylist_key_names = ['crl_index']
                 self._child_classes = OrderedDict([("certificate-revocation-list-detail", ("certificate_revocation_list_detail", Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail))])
                 self._leafs = OrderedDict([
-                    ('crl_index', YLeaf(YType.uint32, 'crl-index')),
+                    ('crl_index', (YLeaf(YType.uint32, 'crl-index'), ['int'])),
                 ])
                 self.crl_index = None
 
@@ -1248,6 +1267,7 @@ class Sam(Entity):
                 self._children_name_map["certificate_revocation_list_detail"] = "certificate-revocation-list-detail"
                 self._segment_path = lambda: "certificate-revocation" + "[crl-index='" + str(self.crl_index) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/certificate-revocations/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation, ['crl_index'], name, value)
@@ -1291,8 +1311,8 @@ class Sam(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("issuer", ("issuer", Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer))])
                     self._leafs = OrderedDict([
-                        ('crl_index', YLeaf(YType.uint16, 'crl-index')),
-                        ('updates', YLeaf(YType.str, 'updates')),
+                        ('crl_index', (YLeaf(YType.uint16, 'crl-index'), ['int'])),
+                        ('updates', (YLeaf(YType.str, 'updates'), ['str'])),
                     ])
                     self.crl_index = None
                     self.updates = None
@@ -1301,9 +1321,10 @@ class Sam(Entity):
                     self.issuer.parent = self
                     self._children_name_map["issuer"] = "issuer"
                     self._segment_path = lambda: "certificate-revocation-list-detail"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail, ['crl_index', 'updates'], name, value)
+                    self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail, [u'crl_index', u'updates'], name, value)
 
 
                 class Issuer(Entity):
@@ -1342,17 +1363,18 @@ class Sam(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('common_name', YLeaf(YType.str, 'common-name')),
-                            ('organization', YLeaf(YType.str, 'organization')),
-                            ('country', YLeaf(YType.str, 'country')),
+                            ('common_name', (YLeaf(YType.str, 'common-name'), ['str'])),
+                            ('organization', (YLeaf(YType.str, 'organization'), ['str'])),
+                            ('country', (YLeaf(YType.str, 'country'), ['str'])),
                         ])
                         self.common_name = None
                         self.organization = None
                         self.country = None
                         self._segment_path = lambda: "issuer"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer, ['common_name', 'organization', 'country'], name, value)
+                        self._perform_setattr(Sam.CertificateRevocations.CertificateRevocation.CertificateRevocationListDetail.Issuer, [u'common_name', u'organization', u'country'], name, value)
 
 
     class CertificateRevocationListSummary(Entity):
@@ -1393,8 +1415,8 @@ class Sam(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("issuer", ("issuer", Sam.CertificateRevocationListSummary.Issuer))])
             self._leafs = OrderedDict([
-                ('crl_index', YLeaf(YType.uint16, 'crl-index')),
-                ('updates', YLeaf(YType.str, 'updates')),
+                ('crl_index', (YLeaf(YType.uint16, 'crl-index'), ['int'])),
+                ('updates', (YLeaf(YType.str, 'updates'), ['str'])),
             ])
             self.crl_index = None
             self.updates = None
@@ -1404,9 +1426,10 @@ class Sam(Entity):
             self._children_name_map["issuer"] = "issuer"
             self._segment_path = lambda: "certificate-revocation-list-summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Sam.CertificateRevocationListSummary, ['crl_index', 'updates'], name, value)
+            self._perform_setattr(Sam.CertificateRevocationListSummary, [u'crl_index', u'updates'], name, value)
 
 
         class Issuer(Entity):
@@ -1445,18 +1468,19 @@ class Sam(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('common_name', YLeaf(YType.str, 'common-name')),
-                    ('organization', YLeaf(YType.str, 'organization')),
-                    ('country', YLeaf(YType.str, 'country')),
+                    ('common_name', (YLeaf(YType.str, 'common-name'), ['str'])),
+                    ('organization', (YLeaf(YType.str, 'organization'), ['str'])),
+                    ('country', (YLeaf(YType.str, 'country'), ['str'])),
                 ])
                 self.common_name = None
                 self.organization = None
                 self.country = None
                 self._segment_path = lambda: "issuer"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-sam-oper:sam/certificate-revocation-list-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Sam.CertificateRevocationListSummary.Issuer, ['common_name', 'organization', 'country'], name, value)
+                self._perform_setattr(Sam.CertificateRevocationListSummary.Issuer, [u'common_name', u'organization', u'country'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Sam()

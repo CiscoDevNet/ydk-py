@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   tpa\: tpa configuration commands
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -70,6 +71,7 @@ class Tpa(Entity):
         self.statistics.parent = self
         self._children_name_map["statistics"] = "statistics"
         self._segment_path = lambda: "Cisco-IOS-XR-kim-tpa-cfg:tpa"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Tpa, [], name, value)
@@ -105,6 +107,7 @@ class Tpa(Entity):
             self.vrf_name = YList(self)
             self._segment_path = lambda: "vrf-names"
             self._absolute_path = lambda: "Cisco-IOS-XR-kim-tpa-cfg:tpa/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Tpa.VrfNames, [], name, value)
@@ -153,8 +156,8 @@ class Tpa(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("east-west-names", ("east_west_names", Tpa.VrfNames.VrfName.EastWestNames)), ("address-family", ("address_family", Tpa.VrfNames.VrfName.AddressFamily))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('disable', YLeaf(YType.empty, 'disable')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                 ])
                 self.vrf_name = None
                 self.disable = None
@@ -168,6 +171,7 @@ class Tpa(Entity):
                 self._children_name_map["address_family"] = "address-family"
                 self._segment_path = lambda: "vrf-name" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-kim-tpa-cfg:tpa/vrf-names/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Tpa.VrfNames.VrfName, ['vrf_name', 'disable'], name, value)
@@ -202,6 +206,7 @@ class Tpa(Entity):
 
                     self.east_west_name = YList(self)
                     self._segment_path = lambda: "east-west-names"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Tpa.VrfNames.VrfName.EastWestNames, [], name, value)
@@ -245,14 +250,15 @@ class Tpa(Entity):
                         self.ylist_key_names = ['east_west_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('east_west_name', YLeaf(YType.str, 'east-west-name')),
-                            ('vrf', YLeaf(YType.str, 'vrf')),
-                            ('interface', YLeaf(YType.str, 'interface')),
+                            ('east_west_name', (YLeaf(YType.str, 'east-west-name'), ['str'])),
+                            ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                         ])
                         self.east_west_name = None
                         self.vrf = None
                         self.interface = None
                         self._segment_path = lambda: "east-west-name" + "[east-west-name='" + str(self.east_west_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tpa.VrfNames.VrfName.EastWestNames.EastWestName, ['east_west_name', 'vrf', 'interface'], name, value)
@@ -298,6 +304,7 @@ class Tpa(Entity):
                     self.ipv4.parent = self
                     self._children_name_map["ipv4"] = "ipv4"
                     self._segment_path = lambda: "address-family"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily, [], name, value)
@@ -339,7 +346,7 @@ class Tpa(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("interface-names", ("interface_names", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames)), ("update-source", ("update_source", Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource))])
                         self._leafs = OrderedDict([
-                            ('default_route', YLeaf(YType.str, 'default-route')),
+                            ('default_route', (YLeaf(YType.str, 'default-route'), ['str'])),
                         ])
                         self.default_route = None
 
@@ -351,6 +358,7 @@ class Tpa(Entity):
                         self.update_source.parent = self
                         self._children_name_map["update_source"] = "update-source"
                         self._segment_path = lambda: "ipv6"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6, ['default_route'], name, value)
@@ -386,6 +394,7 @@ class Tpa(Entity):
 
                             self.interface_name = YList(self)
                             self._segment_path = lambda: "interface-names"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames, [], name, value)
@@ -407,7 +416,7 @@ class Tpa(Entity):
                             	Interface name for source address
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             
 
@@ -426,12 +435,13 @@ class Tpa(Entity):
                                 self.ylist_key_names = ['interface_name']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('egress_interface_source', YLeaf(YType.str, 'egress-interface-source')),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('egress_interface_source', (YLeaf(YType.str, 'egress-interface-source'), ['str'])),
                                 ])
                                 self.interface_name = None
                                 self.egress_interface_source = None
                                 self._segment_path = lambda: "interface-name" + "[interface-name='" + str(self.interface_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.InterfaceNames.InterfaceName, ['interface_name', 'egress_interface_source'], name, value)
@@ -446,7 +456,7 @@ class Tpa(Entity):
                         	Interface name for source address
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: active_management
                         
@@ -470,12 +480,13 @@ class Tpa(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('active_management', YLeaf(YType.empty, 'active-management')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('active_management', (YLeaf(YType.empty, 'active-management'), ['Empty'])),
                             ])
                             self.interface_name = None
                             self.active_management = None
                             self._segment_path = lambda: "update-source"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv6.UpdateSource, ['interface_name', 'active_management'], name, value)
@@ -517,7 +528,7 @@ class Tpa(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("interface-names", ("interface_names", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames)), ("update-source", ("update_source", Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource))])
                         self._leafs = OrderedDict([
-                            ('default_route', YLeaf(YType.str, 'default-route')),
+                            ('default_route', (YLeaf(YType.str, 'default-route'), ['str'])),
                         ])
                         self.default_route = None
 
@@ -529,6 +540,7 @@ class Tpa(Entity):
                         self.update_source.parent = self
                         self._children_name_map["update_source"] = "update-source"
                         self._segment_path = lambda: "ipv4"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4, ['default_route'], name, value)
@@ -564,6 +576,7 @@ class Tpa(Entity):
 
                             self.interface_name = YList(self)
                             self._segment_path = lambda: "interface-names"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames, [], name, value)
@@ -585,7 +598,7 @@ class Tpa(Entity):
                             	Interface name for source address
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             
 
@@ -604,12 +617,13 @@ class Tpa(Entity):
                                 self.ylist_key_names = ['interface_name']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('egress_interface_source', YLeaf(YType.str, 'egress-interface-source')),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('egress_interface_source', (YLeaf(YType.str, 'egress-interface-source'), ['str'])),
                                 ])
                                 self.interface_name = None
                                 self.egress_interface_source = None
                                 self._segment_path = lambda: "interface-name" + "[interface-name='" + str(self.interface_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.InterfaceNames.InterfaceName, ['interface_name', 'egress_interface_source'], name, value)
@@ -624,7 +638,7 @@ class Tpa(Entity):
                         	Interface name for source address
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: active_management
                         
@@ -648,12 +662,13 @@ class Tpa(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('active_management', YLeaf(YType.empty, 'active-management')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('active_management', (YLeaf(YType.empty, 'active-management'), ['Empty'])),
                             ])
                             self.interface_name = None
                             self.active_management = None
                             self._segment_path = lambda: "update-source"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Tpa.VrfNames.VrfName.AddressFamily.Ipv4.UpdateSource, ['interface_name', 'active_management'], name, value)
@@ -691,6 +706,7 @@ class Tpa(Entity):
             self._children_name_map["kim"] = "kim"
             self._segment_path = lambda: "logging"
             self._absolute_path = lambda: "Cisco-IOS-XR-kim-tpa-cfg:tpa/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Tpa.Logging, [], name, value)
@@ -733,13 +749,14 @@ class Tpa(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('rotation_max', YLeaf(YType.uint32, 'rotation-max')),
-                    ('file_size_max_kb', YLeaf(YType.uint32, 'file-size-max-kb')),
+                    ('rotation_max', (YLeaf(YType.uint32, 'rotation-max'), ['int'])),
+                    ('file_size_max_kb', (YLeaf(YType.uint32, 'file-size-max-kb'), ['int'])),
                 ])
                 self.rotation_max = None
                 self.file_size_max_kb = None
                 self._segment_path = lambda: "kim"
                 self._absolute_path = lambda: "Cisco-IOS-XR-kim-tpa-cfg:tpa/logging/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Tpa.Logging.Kim, ['rotation_max', 'file_size_max_kb'], name, value)
@@ -789,15 +806,16 @@ class Tpa(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('max_intf_events', YLeaf(YType.uint32, 'max-intf-events')),
-                ('max_lpts_events', YLeaf(YType.uint32, 'max-lpts-events')),
-                ('statistics_update_frequency', YLeaf(YType.uint32, 'statistics-update-frequency')),
+                ('max_intf_events', (YLeaf(YType.uint32, 'max-intf-events'), ['int'])),
+                ('max_lpts_events', (YLeaf(YType.uint32, 'max-lpts-events'), ['int'])),
+                ('statistics_update_frequency', (YLeaf(YType.uint32, 'statistics-update-frequency'), ['int'])),
             ])
             self.max_intf_events = None
             self.max_lpts_events = None
             self.statistics_update_frequency = None
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-kim-tpa-cfg:tpa/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Tpa.Statistics, ['max_intf_events', 'max_lpts_events', 'statistics_update_frequency'], name, value)

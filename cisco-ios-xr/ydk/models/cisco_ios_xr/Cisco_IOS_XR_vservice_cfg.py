@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   vservice\: configure vservice node
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class SfcMetadataAlloc(Enum):
@@ -129,7 +130,7 @@ class Vservice(Entity):
     """
 
     _prefix = 'vservice-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(Vservice, self).__init__()
@@ -163,6 +164,7 @@ class Vservice(Entity):
         self.service_function_path.parent = self
         self._children_name_map["service_function_path"] = "service-function-path"
         self._segment_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Vservice, [], name, value)
@@ -182,7 +184,7 @@ class Vservice(Entity):
         """
 
         _prefix = 'vservice-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vservice.ServiceFunctionLocator, self).__init__()
@@ -200,6 +202,7 @@ class Vservice(Entity):
             self._children_name_map["names"] = "names"
             self._segment_path = lambda: "service-function-locator"
             self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vservice.ServiceFunctionLocator, [], name, value)
@@ -219,7 +222,7 @@ class Vservice(Entity):
             """
 
             _prefix = 'vservice-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vservice.ServiceFunctionLocator.Names, self).__init__()
@@ -235,6 +238,7 @@ class Vservice(Entity):
                 self.name = YList(self)
                 self._segment_path = lambda: "names"
                 self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/service-function-locator/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vservice.ServiceFunctionLocator.Names, [], name, value)
@@ -268,7 +272,7 @@ class Vservice(Entity):
                 """
 
                 _prefix = 'vservice-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vservice.ServiceFunctionLocator.Names.Name, self).__init__()
@@ -280,8 +284,8 @@ class Vservice(Entity):
                     self.ylist_key_names = ['function_name','locator_id']
                     self._child_classes = OrderedDict([("node", ("node", Vservice.ServiceFunctionLocator.Names.Name.Node))])
                     self._leafs = OrderedDict([
-                        ('function_name', YLeaf(YType.str, 'function-name')),
-                        ('locator_id', YLeaf(YType.uint32, 'locator-id')),
+                        ('function_name', (YLeaf(YType.str, 'function-name'), ['str'])),
+                        ('locator_id', (YLeaf(YType.uint32, 'locator-id'), ['int'])),
                     ])
                     self.function_name = None
                     self.locator_id = None
@@ -291,6 +295,7 @@ class Vservice(Entity):
                     self._children_name_map["node"] = "node"
                     self._segment_path = lambda: "name" + "[function-name='" + str(self.function_name) + "']" + "[locator-id='" + str(self.locator_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/service-function-locator/names/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vservice.ServiceFunctionLocator.Names.Name, ['function_name', 'locator_id'], name, value)
@@ -324,14 +329,14 @@ class Vservice(Entity):
                     	VNI
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     
 
                     """
 
                     _prefix = 'vservice-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vservice.ServiceFunctionLocator.Names.Name.Node, self).__init__()
@@ -343,16 +348,17 @@ class Vservice(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('transport', YLeaf(YType.enumeration, 'transport')),
-                            ('ipv4_source_address', YLeaf(YType.str, 'ipv4-source-address')),
-                            ('ipv4_destination_address', YLeaf(YType.str, 'ipv4-destination-address')),
-                            ('vni', YLeaf(YType.int32, 'vni')),
+                            ('transport', (YLeaf(YType.enumeration, 'transport'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg', 'SfcSfTransport', '')])),
+                            ('ipv4_source_address', (YLeaf(YType.str, 'ipv4-source-address'), ['str'])),
+                            ('ipv4_destination_address', (YLeaf(YType.str, 'ipv4-destination-address'), ['str'])),
+                            ('vni', (YLeaf(YType.uint32, 'vni'), ['int'])),
                         ])
                         self.transport = None
                         self.ipv4_source_address = None
                         self.ipv4_destination_address = None
                         self.vni = None
                         self._segment_path = lambda: "node"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vservice.ServiceFunctionLocator.Names.Name.Node, ['transport', 'ipv4_source_address', 'ipv4_destination_address', 'vni'], name, value)
@@ -372,7 +378,7 @@ class Vservice(Entity):
         """
 
         _prefix = 'vservice-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vservice.MetadataDispositions, self).__init__()
@@ -388,6 +394,7 @@ class Vservice(Entity):
             self.metadata_disposition = YList(self)
             self._segment_path = lambda: "metadata-dispositions"
             self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vservice.MetadataDispositions, [], name, value)
@@ -419,7 +426,7 @@ class Vservice(Entity):
             """
 
             _prefix = 'vservice-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vservice.MetadataDispositions.MetadataDisposition, self).__init__()
@@ -431,8 +438,8 @@ class Vservice(Entity):
                 self.ylist_key_names = ['disposition_name','format']
                 self._child_classes = OrderedDict([("match-entry", ("match_entry", Vservice.MetadataDispositions.MetadataDisposition.MatchEntry))])
                 self._leafs = OrderedDict([
-                    ('disposition_name', YLeaf(YType.str, 'disposition-name')),
-                    ('format', YLeaf(YType.enumeration, 'format')),
+                    ('disposition_name', (YLeaf(YType.str, 'disposition-name'), ['str'])),
+                    ('format', (YLeaf(YType.enumeration, 'format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg', 'SfcMetadataType1AllocFormat', '')])),
                 ])
                 self.disposition_name = None
                 self.format = None
@@ -440,6 +447,7 @@ class Vservice(Entity):
                 self.match_entry = YList(self)
                 self._segment_path = lambda: "metadata-disposition" + "[disposition-name='" + str(self.disposition_name) + "']" + "[format='" + str(self.format) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/metadata-dispositions/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vservice.MetadataDispositions.MetadataDisposition, ['disposition_name', 'format'], name, value)
@@ -466,7 +474,7 @@ class Vservice(Entity):
                 """
 
                 _prefix = 'vservice-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry, self).__init__()
@@ -478,7 +486,7 @@ class Vservice(Entity):
                     self.ylist_key_names = ['match_entry_name']
                     self._child_classes = OrderedDict([("node", ("node", Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node))])
                     self._leafs = OrderedDict([
-                        ('match_entry_name', YLeaf(YType.str, 'match-entry-name')),
+                        ('match_entry_name', (YLeaf(YType.str, 'match-entry-name'), ['str'])),
                     ])
                     self.match_entry_name = None
 
@@ -486,6 +494,7 @@ class Vservice(Entity):
                     self.node.parent = self
                     self._children_name_map["node"] = "node"
                     self._segment_path = lambda: "match-entry" + "[match-entry-name='" + str(self.match_entry_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry, ['match_entry_name'], name, value)
@@ -522,14 +531,14 @@ class Vservice(Entity):
                     	24\-bit tenant id
                     	**type**\: list of int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     
 
                     """
 
                     _prefix = 'vservice-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node, self).__init__()
@@ -541,11 +550,11 @@ class Vservice(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('match_type', YLeaf(YType.enumeration, 'match-type')),
-                            ('action_type', YLeaf(YType.enumeration, 'action-type')),
-                            ('vrf', YLeaf(YType.str, 'vrf')),
-                            ('nexthop_ipv4_address', YLeaf(YType.str, 'nexthop-ipv4-address')),
-                            ('tenant_id', YLeafList(YType.int32, 'tenant-id')),
+                            ('match_type', (YLeaf(YType.enumeration, 'match-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg', 'SfcMetadataDispositionMatch', '')])),
+                            ('action_type', (YLeaf(YType.enumeration, 'action-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg', 'SfcMetadataDispositionAction', '')])),
+                            ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                            ('nexthop_ipv4_address', (YLeaf(YType.str, 'nexthop-ipv4-address'), ['str'])),
+                            ('tenant_id', (YLeafList(YType.uint32, 'tenant-id'), ['int'])),
                         ])
                         self.match_type = None
                         self.action_type = None
@@ -553,6 +562,7 @@ class Vservice(Entity):
                         self.nexthop_ipv4_address = None
                         self.tenant_id = []
                         self._segment_path = lambda: "node"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vservice.MetadataDispositions.MetadataDisposition.MatchEntry.Node, ['match_type', 'action_type', 'vrf', 'nexthop_ipv4_address', 'tenant_id'], name, value)
@@ -572,7 +582,7 @@ class Vservice(Entity):
         """
 
         _prefix = 'vservice-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vservice.ServiceFunctionForwardLocator, self).__init__()
@@ -590,6 +600,7 @@ class Vservice(Entity):
             self._children_name_map["names"] = "names"
             self._segment_path = lambda: "service-function-forward-locator"
             self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vservice.ServiceFunctionForwardLocator, [], name, value)
@@ -609,7 +620,7 @@ class Vservice(Entity):
             """
 
             _prefix = 'vservice-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vservice.ServiceFunctionForwardLocator.Names, self).__init__()
@@ -625,6 +636,7 @@ class Vservice(Entity):
                 self.name = YList(self)
                 self._segment_path = lambda: "names"
                 self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/service-function-forward-locator/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vservice.ServiceFunctionForwardLocator.Names, [], name, value)
@@ -658,7 +670,7 @@ class Vservice(Entity):
                 """
 
                 _prefix = 'vservice-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vservice.ServiceFunctionForwardLocator.Names.Name, self).__init__()
@@ -670,8 +682,8 @@ class Vservice(Entity):
                     self.ylist_key_names = ['function_name','locator_id']
                     self._child_classes = OrderedDict([("node", ("node", Vservice.ServiceFunctionForwardLocator.Names.Name.Node))])
                     self._leafs = OrderedDict([
-                        ('function_name', YLeaf(YType.str, 'function-name')),
-                        ('locator_id', YLeaf(YType.uint32, 'locator-id')),
+                        ('function_name', (YLeaf(YType.str, 'function-name'), ['str'])),
+                        ('locator_id', (YLeaf(YType.uint32, 'locator-id'), ['int'])),
                     ])
                     self.function_name = None
                     self.locator_id = None
@@ -681,6 +693,7 @@ class Vservice(Entity):
                     self._children_name_map["node"] = "node"
                     self._segment_path = lambda: "name" + "[function-name='" + str(self.function_name) + "']" + "[locator-id='" + str(self.locator_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/service-function-forward-locator/names/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vservice.ServiceFunctionForwardLocator.Names.Name, ['function_name', 'locator_id'], name, value)
@@ -714,14 +727,14 @@ class Vservice(Entity):
                     	VNI
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     
 
                     """
 
                     _prefix = 'vservice-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vservice.ServiceFunctionForwardLocator.Names.Name.Node, self).__init__()
@@ -733,16 +746,17 @@ class Vservice(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('transport', YLeaf(YType.enumeration, 'transport')),
-                            ('ipv4_source_address', YLeaf(YType.str, 'ipv4-source-address')),
-                            ('ipv4_destination_address', YLeaf(YType.str, 'ipv4-destination-address')),
-                            ('vni', YLeaf(YType.int32, 'vni')),
+                            ('transport', (YLeaf(YType.enumeration, 'transport'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg', 'SfcSfTransport', '')])),
+                            ('ipv4_source_address', (YLeaf(YType.str, 'ipv4-source-address'), ['str'])),
+                            ('ipv4_destination_address', (YLeaf(YType.str, 'ipv4-destination-address'), ['str'])),
+                            ('vni', (YLeaf(YType.uint32, 'vni'), ['int'])),
                         ])
                         self.transport = None
                         self.ipv4_source_address = None
                         self.ipv4_destination_address = None
                         self.vni = None
                         self._segment_path = lambda: "node"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vservice.ServiceFunctionForwardLocator.Names.Name.Node, ['transport', 'ipv4_source_address', 'ipv4_destination_address', 'vni'], name, value)
@@ -762,7 +776,7 @@ class Vservice(Entity):
         """
 
         _prefix = 'vservice-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vservice.MetadataTemplates, self).__init__()
@@ -778,6 +792,7 @@ class Vservice(Entity):
             self.metadata_template = YList(self)
             self._segment_path = lambda: "metadata-templates"
             self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vservice.MetadataTemplates, [], name, value)
@@ -816,7 +831,7 @@ class Vservice(Entity):
             """
 
             _prefix = 'vservice-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vservice.MetadataTemplates.MetadataTemplate, self).__init__()
@@ -828,10 +843,10 @@ class Vservice(Entity):
                 self.ylist_key_names = ['metadata_name','type','format']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('metadata_name', YLeaf(YType.str, 'metadata-name')),
-                    ('type', YLeaf(YType.enumeration, 'type')),
-                    ('format', YLeaf(YType.enumeration, 'format')),
-                    ('tenant_id', YLeaf(YType.uint32, 'tenant-id')),
+                    ('metadata_name', (YLeaf(YType.str, 'metadata-name'), ['str'])),
+                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg', 'SfcMetadataAlloc', '')])),
+                    ('format', (YLeaf(YType.enumeration, 'format'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg', 'SfcMetadataType1AllocFormat', '')])),
+                    ('tenant_id', (YLeaf(YType.uint32, 'tenant-id'), ['int'])),
                 ])
                 self.metadata_name = None
                 self.type = None
@@ -839,6 +854,7 @@ class Vservice(Entity):
                 self.tenant_id = None
                 self._segment_path = lambda: "metadata-template" + "[metadata-name='" + str(self.metadata_name) + "']" + "[type='" + str(self.type) + "']" + "[format='" + str(self.format) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/metadata-templates/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vservice.MetadataTemplates.MetadataTemplate, ['metadata_name', 'type', 'format', 'tenant_id'], name, value)
@@ -858,7 +874,7 @@ class Vservice(Entity):
         """
 
         _prefix = 'vservice-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Vservice.ServiceFunctionPath, self).__init__()
@@ -876,6 +892,7 @@ class Vservice(Entity):
             self._children_name_map["paths"] = "paths"
             self._segment_path = lambda: "service-function-path"
             self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vservice.ServiceFunctionPath, [], name, value)
@@ -895,7 +912,7 @@ class Vservice(Entity):
             """
 
             _prefix = 'vservice-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Vservice.ServiceFunctionPath.Paths, self).__init__()
@@ -911,6 +928,7 @@ class Vservice(Entity):
                 self.path = YList(self)
                 self._segment_path = lambda: "paths"
                 self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vservice.ServiceFunctionPath.Paths, [], name, value)
@@ -937,7 +955,7 @@ class Vservice(Entity):
                 """
 
                 _prefix = 'vservice-cfg'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Vservice.ServiceFunctionPath.Paths.Path, self).__init__()
@@ -949,13 +967,14 @@ class Vservice(Entity):
                     self.ylist_key_names = ['path_id']
                     self._child_classes = OrderedDict([("service-index", ("service_index", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex))])
                     self._leafs = OrderedDict([
-                        ('path_id', YLeaf(YType.uint32, 'path-id')),
+                        ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
                     ])
                     self.path_id = None
 
                     self.service_index = YList(self)
                     self._segment_path = lambda: "path" + "[path-id='" + str(self.path_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-vservice-cfg:vservice/service-function-path/paths/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path, ['path_id'], name, value)
@@ -992,7 +1011,7 @@ class Vservice(Entity):
                     """
 
                     _prefix = 'vservice-cfg'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex, self).__init__()
@@ -1004,7 +1023,7 @@ class Vservice(Entity):
                         self.ylist_key_names = ['index']
                         self._child_classes = OrderedDict([("terminate", ("terminate", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate)), ("sff-names", ("sff_names", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames)), ("sf-names", ("sf_names", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames))])
                         self._leafs = OrderedDict([
-                            ('index', YLeaf(YType.uint32, 'index')),
+                            ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
                         ])
                         self.index = None
 
@@ -1020,6 +1039,7 @@ class Vservice(Entity):
                         self.sf_names.parent = self
                         self._children_name_map["sf_names"] = "sf-names"
                         self._segment_path = lambda: "service-index" + "[index='" + str(self.index) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex, ['index'], name, value)
@@ -1039,7 +1059,7 @@ class Vservice(Entity):
                         """
 
                         _prefix = 'vservice-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate, self).__init__()
@@ -1056,6 +1076,7 @@ class Vservice(Entity):
                             self.node.parent = self
                             self._children_name_map["node"] = "node"
                             self._segment_path = lambda: "terminate"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate, [], name, value)
@@ -1092,7 +1113,7 @@ class Vservice(Entity):
                             """
 
                             _prefix = 'vservice-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node, self).__init__()
@@ -1104,16 +1125,17 @@ class Vservice(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('action', YLeaf(YType.enumeration, 'action')),
-                                    ('vrf', YLeaf(YType.str, 'vrf')),
-                                    ('nexthop_ipv4_address', YLeaf(YType.str, 'nexthop-ipv4-address')),
-                                    ('metatdata_disposition', YLeaf(YType.str, 'metatdata-disposition')),
+                                    ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_vservice_cfg', 'SfcMetadataDispositionAction', '')])),
+                                    ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                                    ('nexthop_ipv4_address', (YLeaf(YType.str, 'nexthop-ipv4-address'), ['str'])),
+                                    ('metatdata_disposition', (YLeaf(YType.str, 'metatdata-disposition'), ['str'])),
                                 ])
                                 self.action = None
                                 self.vrf = None
                                 self.nexthop_ipv4_address = None
                                 self.metatdata_disposition = None
                                 self._segment_path = lambda: "node"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.Terminate.Node, ['action', 'vrf', 'nexthop_ipv4_address', 'metatdata_disposition'], name, value)
@@ -1133,7 +1155,7 @@ class Vservice(Entity):
                         """
 
                         _prefix = 'vservice-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames, self).__init__()
@@ -1148,6 +1170,7 @@ class Vservice(Entity):
 
                             self.sff_name = YList(self)
                             self._segment_path = lambda: "sff-names"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames, [], name, value)
@@ -1174,7 +1197,7 @@ class Vservice(Entity):
                             """
 
                             _prefix = 'vservice-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName, self).__init__()
@@ -1186,7 +1209,7 @@ class Vservice(Entity):
                                 self.ylist_key_names = ['name']
                                 self._child_classes = OrderedDict([("node", ("node", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node))])
                                 self._leafs = OrderedDict([
-                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                                 ])
                                 self.name = None
 
@@ -1194,6 +1217,7 @@ class Vservice(Entity):
                                 self.node.parent = self
                                 self._children_name_map["node"] = "node"
                                 self._segment_path = lambda: "sff-name" + "[name='" + str(self.name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName, ['name'], name, value)
@@ -1218,7 +1242,7 @@ class Vservice(Entity):
                                 """
 
                                 _prefix = 'vservice-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node, self).__init__()
@@ -1230,12 +1254,13 @@ class Vservice(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('enable', YLeaf(YType.empty, 'enable')),
-                                        ('reserved', YLeaf(YType.empty, 'reserved')),
+                                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                        ('reserved', (YLeaf(YType.empty, 'reserved'), ['Empty'])),
                                     ])
                                     self.enable = None
                                     self.reserved = None
                                     self._segment_path = lambda: "node"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SffNames.SffName.Node, ['enable', 'reserved'], name, value)
@@ -1255,7 +1280,7 @@ class Vservice(Entity):
                         """
 
                         _prefix = 'vservice-cfg'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames, self).__init__()
@@ -1270,6 +1295,7 @@ class Vservice(Entity):
 
                             self.sf_name = YList(self)
                             self._segment_path = lambda: "sf-names"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames, [], name, value)
@@ -1296,7 +1322,7 @@ class Vservice(Entity):
                             """
 
                             _prefix = 'vservice-cfg'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName, self).__init__()
@@ -1308,7 +1334,7 @@ class Vservice(Entity):
                                 self.ylist_key_names = ['name']
                                 self._child_classes = OrderedDict([("node", ("node", Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node))])
                                 self._leafs = OrderedDict([
-                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                                 ])
                                 self.name = None
 
@@ -1316,6 +1342,7 @@ class Vservice(Entity):
                                 self.node.parent = self
                                 self._children_name_map["node"] = "node"
                                 self._segment_path = lambda: "sf-name" + "[name='" + str(self.name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName, ['name'], name, value)
@@ -1340,7 +1367,7 @@ class Vservice(Entity):
                                 """
 
                                 _prefix = 'vservice-cfg'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node, self).__init__()
@@ -1352,12 +1379,13 @@ class Vservice(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('enable', YLeaf(YType.empty, 'enable')),
-                                        ('reserved', YLeaf(YType.empty, 'reserved')),
+                                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                        ('reserved', (YLeaf(YType.empty, 'reserved'), ['Empty'])),
                                     ])
                                     self.enable = None
                                     self.reserved = None
                                     self._segment_path = lambda: "node"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vservice.ServiceFunctionPath.Paths.Path.ServiceIndex.SfNames.SfName.Node, ['enable', 'reserved'], name, value)

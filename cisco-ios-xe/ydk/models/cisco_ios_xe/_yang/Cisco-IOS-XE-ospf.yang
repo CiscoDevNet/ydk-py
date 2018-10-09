@@ -35,12 +35,26 @@ module Cisco-IOS-XE-ospf {
 
   description
     "Cisco XE Native Open Shortest Path First (OSPF) Yang model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+   revision 2018-06-28{
+    description
+        "Added must constraints for deleting vrf, changing switchport from no switchport";
+  }
+
+  revision 2018-05-21 {
+     description
+       "change ip ospf id to type leafref under an interafce";
+  }
+  revision 2018-01-19 {
+     description
+       "fix issue in redistribute maximum-prefix <number> <threshold> warning-only";
+  }
+
   revision 2017-11-27 {
      description
        "Added Change 25GE name";
@@ -393,9 +407,14 @@ module Cisco-IOS-XE-ospf {
       description
         "OSPF interface commands";
       list process-id {
+	must "not (../../../ios:switchport-conf/ios:switchport) or (../../../ios:switchport-conf/ios:switchport = 'false')" {
+	  error-message "To configure ip ospf, set switchport to false 1st; To change switchport from false to true, delete ip ospf 1st ";
+        }
         key "id";
         leaf id {
-          type uint16;
+          type leafref {
+	    path "/ios:native/ios:router/ios-ospf:ospf/ios-ospf:id";
+          }
         }
         leaf area {
           type ios-types:ospf-area-type;
@@ -991,6 +1010,9 @@ module Cisco-IOS-XE-ospf {
         list non-global-vrf {
           key "name";
           leaf name {
+	    must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+	      error-message "VRF must be created 1st, deleted last";
+            }
             type string;
           }
           uses ospf-redistribute-top-grouping;
@@ -1974,6 +1996,13 @@ module Cisco-IOS-XE-ospf {
     list bgp {
       description
         "Border Gateway Protocol (BGP)";
+      // must "not (/ios:native/ios:router/ios-ospf:ospf/ios-ospf:vrf) or 
+      //        compare(/ios:native/ios:vrf/ios:definition/ios:name, /ios:native/ios:router/ios-ospf:ospf/ios-ospf:vrf) = 0 and 
+      must "not (/ios:native/ios:router/ios-ospf:ospf/ios-ospf:vrf) or 
+             (/ios:native/ios:vrf/ios:definition/ios:name = /ios:native/ios:router/ios-ospf:ospf/ios-ospf:vrf) and
+	     /ios:native/ios:vrf/ios:definition/ios:rd" {
+	     error-message "To delete vrf/rd, ospf/vrf redistribute bgp needs to be deleted 1st";
+	     }
       key "as-number";
       uses ospf-redistribute-bgp-grouping;
     }
@@ -2074,6 +2103,9 @@ module Cisco-IOS-XE-ospf {
       leaf vrf {
         description
           "VPN Routing/Forwarding Instance";
+	must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+	  error-message "VRF must be created 1st, deleted last";
+        }
         type string;
       }
     }
@@ -2248,6 +2280,9 @@ module Cisco-IOS-XE-ospf {
       leaf vrf {
         description
           "VPN Routing/Forwarding Instance";
+	must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+	  error-message "VRF must be created 1st, deleted last";
+        }
         type string;
       }
 

@@ -14,6 +14,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class VlanStatusType(Enum):
     """
     VlanStatusType (Enum Class)
@@ -46,7 +47,7 @@ class Vlans(Entity):
     """
 
     _prefix = 'vlan-ios-xe-oper'
-    _revision = '2017-05-05'
+    _revision = '2018-04-09'
 
     def __init__(self):
         super(Vlans, self).__init__()
@@ -62,6 +63,7 @@ class Vlans(Entity):
 
         self.vlan = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-vlan-oper:vlans"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Vlans, [], name, value)
@@ -93,12 +95,17 @@ class Vlans(Entity):
         	Assigned ports
         	**type**\: list of  		 :py:class:`Ports <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vlan_oper.Vlans.Vlan.Ports>`
         
+        .. attribute:: vlan_interfaces
+        
+        	List of interfaces for a given VLAN
+        	**type**\: list of  		 :py:class:`VlanInterfaces <ydk.models.cisco_ios_xe.Cisco_IOS_XE_vlan_oper.Vlans.Vlan.VlanInterfaces>`
+        
         
 
         """
 
         _prefix = 'vlan-ios-xe-oper'
-        _revision = '2017-05-05'
+        _revision = '2018-04-09'
 
         def __init__(self):
             super(Vlans.Vlan, self).__init__()
@@ -108,19 +115,21 @@ class Vlans(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['id']
-            self._child_classes = OrderedDict([("ports", ("ports", Vlans.Vlan.Ports))])
+            self._child_classes = OrderedDict([("ports", ("ports", Vlans.Vlan.Ports)), ("vlan-interfaces", ("vlan_interfaces", Vlans.Vlan.VlanInterfaces))])
             self._leafs = OrderedDict([
-                ('id', YLeaf(YType.uint16, 'id')),
-                ('name', YLeaf(YType.str, 'name')),
-                ('status', YLeaf(YType.enumeration, 'status')),
+                ('id', (YLeaf(YType.uint16, 'id'), ['int'])),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_vlan_oper', 'VlanStatusType', '')])),
             ])
             self.id = None
             self.name = None
             self.status = None
 
             self.ports = YList(self)
+            self.vlan_interfaces = YList(self)
             self._segment_path = lambda: "vlan" + "[id='" + str(self.id) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-vlan-oper:vlans/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vlans.Vlan, ['id', 'name', 'status'], name, value)
@@ -147,7 +156,7 @@ class Vlans(Entity):
             """
 
             _prefix = 'vlan-ios-xe-oper'
-            _revision = '2017-05-05'
+            _revision = '2018-04-09'
 
             def __init__(self):
                 super(Vlans.Vlan.Ports, self).__init__()
@@ -159,15 +168,61 @@ class Vlans(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface', YLeaf(YType.str, 'interface')),
-                    ('subinterface', YLeaf(YType.uint32, 'subinterface')),
+                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                    ('subinterface', (YLeaf(YType.uint32, 'subinterface'), ['int'])),
                 ])
                 self.interface = None
                 self.subinterface = None
                 self._segment_path = lambda: "ports"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vlans.Vlan.Ports, ['interface', 'subinterface'], name, value)
+
+
+        class VlanInterfaces(Entity):
+            """
+            List of interfaces for a given VLAN
+            
+            .. attribute:: interface  (key)
+            
+            	Assigned interface to the vlan
+            	**type**\: str
+            
+            .. attribute:: subinterface
+            
+            	Assigned subinterface to the vlan
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'vlan-ios-xe-oper'
+            _revision = '2018-04-09'
+
+            def __init__(self):
+                super(Vlans.Vlan.VlanInterfaces, self).__init__()
+
+                self.yang_name = "vlan-interfaces"
+                self.yang_parent_name = "vlan"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = ['interface']
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                    ('subinterface', (YLeaf(YType.uint32, 'subinterface'), ['int'])),
+                ])
+                self.interface = None
+                self.subinterface = None
+                self._segment_path = lambda: "vlan-interfaces" + "[interface='" + str(self.interface) + "']"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Vlans.Vlan.VlanInterfaces, ['interface', 'subinterface'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Vlans()

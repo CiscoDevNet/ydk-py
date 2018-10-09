@@ -14,6 +14,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class ADDRESSFAMILY(Identity):
     """
     A base identity for all address families
@@ -25,11 +26,11 @@ class ADDRESSFAMILY(Identity):
     _prefix = 'oc-types'
     _revision = '2017-01-13'
 
-    def __init__(self):
-        super(ADDRESSFAMILY, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:ADDRESS_FAMILY")
+    def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:ADDRESS_FAMILY"):
+        super(ADDRESSFAMILY, self).__init__(ns, pref, tag)
 
 
-class L2ETHERNET(Identity):
+class L2ETHERNET(ADDRESSFAMILY):
     """
     The 802.3 Ethernet address family
     
@@ -40,11 +41,11 @@ class L2ETHERNET(Identity):
     _prefix = 'oc-types'
     _revision = '2017-01-13'
 
-    def __init__(self):
-        super(L2ETHERNET, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:L2_ETHERNET")
+    def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:L2_ETHERNET"):
+        super(L2ETHERNET, self).__init__(ns, pref, tag)
 
 
-class IPV6(Identity):
+class IPV6(ADDRESSFAMILY):
     """
     The IPv6 address family
     
@@ -55,11 +56,11 @@ class IPV6(Identity):
     _prefix = 'oc-types'
     _revision = '2017-01-13'
 
-    def __init__(self):
-        super(IPV6, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:IPV6")
+    def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:IPV6"):
+        super(IPV6, self).__init__(ns, pref, tag)
 
 
-class MPLS(Identity):
+class MPLS(ADDRESSFAMILY):
     """
     The MPLS address family
     
@@ -70,11 +71,11 @@ class MPLS(Identity):
     _prefix = 'oc-types'
     _revision = '2017-01-13'
 
-    def __init__(self):
-        super(MPLS, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:MPLS")
+    def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:MPLS"):
+        super(MPLS, self).__init__(ns, pref, tag)
 
 
-class IPV4(Identity):
+class IPV4(ADDRESSFAMILY):
     """
     The IPv4 address family
     
@@ -85,7 +86,7 @@ class IPV4(Identity):
     _prefix = 'oc-types'
     _revision = '2017-01-13'
 
-    def __init__(self):
-        super(IPV4, self).__init__("http://openconfig.net/yang/openconfig-types", "openconfig-types", "openconfig-types:IPV4")
+    def __init__(self, ns="http://openconfig.net/yang/openconfig-types", pref="openconfig-types", tag="openconfig-types:IPV4"):
+        super(IPV4, self).__init__(ns, pref, tag)
 
 

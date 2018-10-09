@@ -30,6 +30,11 @@ submodule Cisco-IOS-XE-line {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-03-01 {
+    description
+      "Added line console authorization exec list commands ";
+  }
+
   revision 2017-09-06 {
     description
       "Added line console/vty history ";
@@ -90,6 +95,20 @@ submodule Cisco-IOS-XE-line {
         }
         leaf auth-name {
           type string;
+        }
+      }
+      container exec {
+        description
+          "For starting an exec (shell)";
+        leaf authorization-name {
+          description
+            "Use an authorization list with this name";
+          type string;
+        }
+        leaf default {
+          description
+            "Use the default authorization list";
+          type empty;
         }
       }
     }

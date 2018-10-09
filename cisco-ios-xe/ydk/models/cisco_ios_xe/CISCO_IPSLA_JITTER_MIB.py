@@ -22,6 +22,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOIPSLAJITTERMIB(Entity):
     """
     
@@ -63,6 +64,7 @@ class CISCOIPSLAJITTERMIB(Entity):
         self.cipslaicmpjittertmpltable.parent = self
         self._children_name_map["cipslaicmpjittertmpltable"] = "cipslaIcmpJitterTmplTable"
         self._segment_path = lambda: "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIPSLAJITTERMIB, [], name, value)
@@ -98,6 +100,7 @@ class CISCOIPSLAJITTERMIB(Entity):
             self.cipslaudpjittertmplentry = YList(self)
             self._segment_path = lambda: "cipslaUdpJitterTmplTable"
             self._absolute_path = lambda: "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable, [], name, value)
@@ -331,35 +334,35 @@ class CISCOIPSLAJITTERMIB(Entity):
                 self.ylist_key_names = ['cipslaudpjittertmplname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cipslaudpjittertmplname', YLeaf(YType.str, 'cipslaUdpJitterTmplName')),
-                    ('cipslaudpjittertmpldescription', YLeaf(YType.str, 'cipslaUdpJitterTmplDescription')),
-                    ('cipslaudpjittertmplcontrolenable', YLeaf(YType.boolean, 'cipslaUdpJitterTmplControlEnable')),
-                    ('cipslaudpjittertmpltimeout', YLeaf(YType.uint32, 'cipslaUdpJitterTmplTimeOut')),
-                    ('cipslaudpjittertmplverifydata', YLeaf(YType.boolean, 'cipslaUdpJitterTmplVerifyData')),
-                    ('cipslaudpjittertmplcodectype', YLeaf(YType.enumeration, 'cipslaUdpJitterTmplCodecType')),
-                    ('cipslaudpjittertmplcodecinterval', YLeaf(YType.uint32, 'cipslaUdpJitterTmplCodecInterval')),
-                    ('cipslaudpjittertmplcodecpayload', YLeaf(YType.uint32, 'cipslaUdpJitterTmplCodecPayload')),
-                    ('cipslaudpjittertmplcodecnumpkts', YLeaf(YType.uint32, 'cipslaUdpJitterTmplCodecNumPkts')),
-                    ('cipslaudpjittertmplinterval', YLeaf(YType.uint32, 'cipslaUdpJitterTmplInterval')),
-                    ('cipslaudpjittertmplnumpkts', YLeaf(YType.uint32, 'cipslaUdpJitterTmplNumPkts')),
-                    ('cipslaudpjittertmplsrcaddrtype', YLeaf(YType.enumeration, 'cipslaUdpJitterTmplSrcAddrType')),
-                    ('cipslaudpjittertmplsrcaddr', YLeaf(YType.str, 'cipslaUdpJitterTmplSrcAddr')),
-                    ('cipslaudpjittertmplsrcport', YLeaf(YType.uint16, 'cipslaUdpJitterTmplSrcPort')),
-                    ('cipslaudpjittertmplprecision', YLeaf(YType.enumeration, 'cipslaUdpJitterTmplPrecision')),
-                    ('cipslaudpjittertmplreqdatasize', YLeaf(YType.uint32, 'cipslaUdpJitterTmplReqDataSize')),
-                    ('cipslaudpjittertmplpktpriority', YLeaf(YType.enumeration, 'cipslaUdpJitterTmplPktPriority')),
-                    ('cipslaudpjittertmpltos', YLeaf(YType.uint32, 'cipslaUdpJitterTmplTOS')),
-                    ('cipslaudpjittertmplvrfname', YLeaf(YType.str, 'cipslaUdpJitterTmplVrfName')),
-                    ('cipslaudpjittertmplthreshold', YLeaf(YType.uint32, 'cipslaUdpJitterTmplThreshold')),
-                    ('cipslaudpjittertmplntptolabs', YLeaf(YType.uint32, 'cipslaUdpJitterTmplNTPTolAbs')),
-                    ('cipslaudpjittertmplntptolpct', YLeaf(YType.uint32, 'cipslaUdpJitterTmplNTPTolPct')),
-                    ('cipslaudpjittertmplntptoltype', YLeaf(YType.enumeration, 'cipslaUdpJitterTmplNTPTolType')),
-                    ('cipslaudpjittertmplicpiffactor', YLeaf(YType.uint32, 'cipslaUdpJitterTmplIcpifFactor')),
-                    ('cipslaudpjittertmplstatshours', YLeaf(YType.uint32, 'cipslaUdpJitterTmplStatsHours')),
-                    ('cipslaudpjittertmpldistbuckets', YLeaf(YType.uint32, 'cipslaUdpJitterTmplDistBuckets')),
-                    ('cipslaudpjittertmpldistinterval', YLeaf(YType.uint32, 'cipslaUdpJitterTmplDistInterval')),
-                    ('cipslaudpjittertmplstoragetype', YLeaf(YType.enumeration, 'cipslaUdpJitterTmplStorageType')),
-                    ('cipslaudpjittertmplrowstatus', YLeaf(YType.enumeration, 'cipslaUdpJitterTmplRowStatus')),
+                    ('cipslaudpjittertmplname', (YLeaf(YType.str, 'cipslaUdpJitterTmplName'), ['str'])),
+                    ('cipslaudpjittertmpldescription', (YLeaf(YType.str, 'cipslaUdpJitterTmplDescription'), ['str'])),
+                    ('cipslaudpjittertmplcontrolenable', (YLeaf(YType.boolean, 'cipslaUdpJitterTmplControlEnable'), ['bool'])),
+                    ('cipslaudpjittertmpltimeout', (YLeaf(YType.uint32, 'cipslaUdpJitterTmplTimeOut'), ['int'])),
+                    ('cipslaudpjittertmplverifydata', (YLeaf(YType.boolean, 'cipslaUdpJitterTmplVerifyData'), ['bool'])),
+                    ('cipslaudpjittertmplcodectype', (YLeaf(YType.enumeration, 'cipslaUdpJitterTmplCodecType'), [('ydk.models.cisco_ios_xe.CISCO_IPSLA_TC_MIB', 'IpSlaCodecType', '')])),
+                    ('cipslaudpjittertmplcodecinterval', (YLeaf(YType.uint32, 'cipslaUdpJitterTmplCodecInterval'), ['int'])),
+                    ('cipslaudpjittertmplcodecpayload', (YLeaf(YType.uint32, 'cipslaUdpJitterTmplCodecPayload'), ['int'])),
+                    ('cipslaudpjittertmplcodecnumpkts', (YLeaf(YType.uint32, 'cipslaUdpJitterTmplCodecNumPkts'), ['int'])),
+                    ('cipslaudpjittertmplinterval', (YLeaf(YType.uint32, 'cipslaUdpJitterTmplInterval'), ['int'])),
+                    ('cipslaudpjittertmplnumpkts', (YLeaf(YType.uint32, 'cipslaUdpJitterTmplNumPkts'), ['int'])),
+                    ('cipslaudpjittertmplsrcaddrtype', (YLeaf(YType.enumeration, 'cipslaUdpJitterTmplSrcAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cipslaudpjittertmplsrcaddr', (YLeaf(YType.str, 'cipslaUdpJitterTmplSrcAddr'), ['str'])),
+                    ('cipslaudpjittertmplsrcport', (YLeaf(YType.uint16, 'cipslaUdpJitterTmplSrcPort'), ['int'])),
+                    ('cipslaudpjittertmplprecision', (YLeaf(YType.enumeration, 'cipslaUdpJitterTmplPrecision'), [('ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB', 'CISCOIPSLAJITTERMIB', 'CipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry.CipslaUdpJitterTmplPrecision')])),
+                    ('cipslaudpjittertmplreqdatasize', (YLeaf(YType.uint32, 'cipslaUdpJitterTmplReqDataSize'), ['int'])),
+                    ('cipslaudpjittertmplpktpriority', (YLeaf(YType.enumeration, 'cipslaUdpJitterTmplPktPriority'), [('ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB', 'CISCOIPSLAJITTERMIB', 'CipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry.CipslaUdpJitterTmplPktPriority')])),
+                    ('cipslaudpjittertmpltos', (YLeaf(YType.uint32, 'cipslaUdpJitterTmplTOS'), ['int'])),
+                    ('cipslaudpjittertmplvrfname', (YLeaf(YType.str, 'cipslaUdpJitterTmplVrfName'), ['str'])),
+                    ('cipslaudpjittertmplthreshold', (YLeaf(YType.uint32, 'cipslaUdpJitterTmplThreshold'), ['int'])),
+                    ('cipslaudpjittertmplntptolabs', (YLeaf(YType.uint32, 'cipslaUdpJitterTmplNTPTolAbs'), ['int'])),
+                    ('cipslaudpjittertmplntptolpct', (YLeaf(YType.uint32, 'cipslaUdpJitterTmplNTPTolPct'), ['int'])),
+                    ('cipslaudpjittertmplntptoltype', (YLeaf(YType.enumeration, 'cipslaUdpJitterTmplNTPTolType'), [('ydk.models.cisco_ios_xe.CISCO_IPSLA_JITTER_MIB', 'CISCOIPSLAJITTERMIB', 'CipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry.CipslaUdpJitterTmplNTPTolType')])),
+                    ('cipslaudpjittertmplicpiffactor', (YLeaf(YType.uint32, 'cipslaUdpJitterTmplIcpifFactor'), ['int'])),
+                    ('cipslaudpjittertmplstatshours', (YLeaf(YType.uint32, 'cipslaUdpJitterTmplStatsHours'), ['int'])),
+                    ('cipslaudpjittertmpldistbuckets', (YLeaf(YType.uint32, 'cipslaUdpJitterTmplDistBuckets'), ['int'])),
+                    ('cipslaudpjittertmpldistinterval', (YLeaf(YType.uint32, 'cipslaUdpJitterTmplDistInterval'), ['int'])),
+                    ('cipslaudpjittertmplstoragetype', (YLeaf(YType.enumeration, 'cipslaUdpJitterTmplStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('cipslaudpjittertmplrowstatus', (YLeaf(YType.enumeration, 'cipslaUdpJitterTmplRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cipslaudpjittertmplname = None
                 self.cipslaudpjittertmpldescription = None
@@ -392,6 +395,7 @@ class CISCOIPSLAJITTERMIB(Entity):
                 self.cipslaudpjittertmplrowstatus = None
                 self._segment_path = lambda: "cipslaUdpJitterTmplEntry" + "[cipslaUdpJitterTmplName='" + str(self.cipslaudpjittertmplname) + "']"
                 self._absolute_path = lambda: "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/cipslaUdpJitterTmplTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPSLAJITTERMIB.CipslaUdpJitterTmplTable.CipslaUdpJitterTmplEntry, ['cipslaudpjittertmplname', 'cipslaudpjittertmpldescription', 'cipslaudpjittertmplcontrolenable', 'cipslaudpjittertmpltimeout', 'cipslaudpjittertmplverifydata', 'cipslaudpjittertmplcodectype', 'cipslaudpjittertmplcodecinterval', 'cipslaudpjittertmplcodecpayload', 'cipslaudpjittertmplcodecnumpkts', 'cipslaudpjittertmplinterval', 'cipslaudpjittertmplnumpkts', 'cipslaudpjittertmplsrcaddrtype', 'cipslaudpjittertmplsrcaddr', 'cipslaudpjittertmplsrcport', 'cipslaudpjittertmplprecision', 'cipslaudpjittertmplreqdatasize', 'cipslaudpjittertmplpktpriority', 'cipslaudpjittertmpltos', 'cipslaudpjittertmplvrfname', 'cipslaudpjittertmplthreshold', 'cipslaudpjittertmplntptolabs', 'cipslaudpjittertmplntptolpct', 'cipslaudpjittertmplntptoltype', 'cipslaudpjittertmplicpiffactor', 'cipslaudpjittertmplstatshours', 'cipslaudpjittertmpldistbuckets', 'cipslaudpjittertmpldistinterval', 'cipslaudpjittertmplstoragetype', 'cipslaudpjittertmplrowstatus'], name, value)
@@ -500,6 +504,7 @@ class CISCOIPSLAJITTERMIB(Entity):
             self.cipslaicmpjittertmplentry = YList(self)
             self._segment_path = lambda: "cipslaIcmpJitterTmplTable"
             self._absolute_path = lambda: "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPSLAJITTERMIB.CipslaIcmpJitterTmplTable, [], name, value)
@@ -642,22 +647,22 @@ class CISCOIPSLAJITTERMIB(Entity):
                 self.ylist_key_names = ['cipslaicmpjittertmplname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cipslaicmpjittertmplname', YLeaf(YType.str, 'cipslaIcmpJitterTmplName')),
-                    ('cipslaicmpjittertmpldescription', YLeaf(YType.str, 'cipslaIcmpJitterTmplDescription')),
-                    ('cipslaicmpjittertmpltimeout', YLeaf(YType.uint32, 'cipslaIcmpJitterTmplTimeOut')),
-                    ('cipslaicmpjittertmplverifydata', YLeaf(YType.boolean, 'cipslaIcmpJitterTmplVerifyData')),
-                    ('cipslaicmpjittertmplnumpkts', YLeaf(YType.uint32, 'cipslaIcmpJitterTmplNumPkts')),
-                    ('cipslaicmpjittertmplinterval', YLeaf(YType.uint32, 'cipslaIcmpJitterTmplInterval')),
-                    ('cipslaicmpjittertmplsrcaddrtype', YLeaf(YType.enumeration, 'cipslaIcmpJitterTmplSrcAddrType')),
-                    ('cipslaicmpjittertmplsrcaddr', YLeaf(YType.str, 'cipslaIcmpJitterTmplSrcAddr')),
-                    ('cipslaicmpjittertmpltos', YLeaf(YType.uint32, 'cipslaIcmpJitterTmplTOS')),
-                    ('cipslaicmpjittertmplvrfname', YLeaf(YType.str, 'cipslaIcmpJitterTmplVrfName')),
-                    ('cipslaicmpjittertmplthreshold', YLeaf(YType.uint32, 'cipslaIcmpJitterTmplThreshold')),
-                    ('cipslaicmpjittertmplstatshours', YLeaf(YType.uint32, 'cipslaIcmpJitterTmplStatsHours')),
-                    ('cipslaicmpjittertmpldistbuckets', YLeaf(YType.uint32, 'cipslaIcmpJitterTmplDistBuckets')),
-                    ('cipslaicmpjittertmpldistinterval', YLeaf(YType.uint32, 'cipslaIcmpJitterTmplDistInterval')),
-                    ('cipslaicmpjittertmplstoragetype', YLeaf(YType.enumeration, 'cipslaIcmpJitterTmplStorageType')),
-                    ('cipslaicmpjittertmplrowstatus', YLeaf(YType.enumeration, 'cipslaIcmpJitterTmplRowStatus')),
+                    ('cipslaicmpjittertmplname', (YLeaf(YType.str, 'cipslaIcmpJitterTmplName'), ['str'])),
+                    ('cipslaicmpjittertmpldescription', (YLeaf(YType.str, 'cipslaIcmpJitterTmplDescription'), ['str'])),
+                    ('cipslaicmpjittertmpltimeout', (YLeaf(YType.uint32, 'cipslaIcmpJitterTmplTimeOut'), ['int'])),
+                    ('cipslaicmpjittertmplverifydata', (YLeaf(YType.boolean, 'cipslaIcmpJitterTmplVerifyData'), ['bool'])),
+                    ('cipslaicmpjittertmplnumpkts', (YLeaf(YType.uint32, 'cipslaIcmpJitterTmplNumPkts'), ['int'])),
+                    ('cipslaicmpjittertmplinterval', (YLeaf(YType.uint32, 'cipslaIcmpJitterTmplInterval'), ['int'])),
+                    ('cipslaicmpjittertmplsrcaddrtype', (YLeaf(YType.enumeration, 'cipslaIcmpJitterTmplSrcAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cipslaicmpjittertmplsrcaddr', (YLeaf(YType.str, 'cipslaIcmpJitterTmplSrcAddr'), ['str'])),
+                    ('cipslaicmpjittertmpltos', (YLeaf(YType.uint32, 'cipslaIcmpJitterTmplTOS'), ['int'])),
+                    ('cipslaicmpjittertmplvrfname', (YLeaf(YType.str, 'cipslaIcmpJitterTmplVrfName'), ['str'])),
+                    ('cipslaicmpjittertmplthreshold', (YLeaf(YType.uint32, 'cipslaIcmpJitterTmplThreshold'), ['int'])),
+                    ('cipslaicmpjittertmplstatshours', (YLeaf(YType.uint32, 'cipslaIcmpJitterTmplStatsHours'), ['int'])),
+                    ('cipslaicmpjittertmpldistbuckets', (YLeaf(YType.uint32, 'cipslaIcmpJitterTmplDistBuckets'), ['int'])),
+                    ('cipslaicmpjittertmpldistinterval', (YLeaf(YType.uint32, 'cipslaIcmpJitterTmplDistInterval'), ['int'])),
+                    ('cipslaicmpjittertmplstoragetype', (YLeaf(YType.enumeration, 'cipslaIcmpJitterTmplStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('cipslaicmpjittertmplrowstatus', (YLeaf(YType.enumeration, 'cipslaIcmpJitterTmplRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cipslaicmpjittertmplname = None
                 self.cipslaicmpjittertmpldescription = None
@@ -677,6 +682,7 @@ class CISCOIPSLAJITTERMIB(Entity):
                 self.cipslaicmpjittertmplrowstatus = None
                 self._segment_path = lambda: "cipslaIcmpJitterTmplEntry" + "[cipslaIcmpJitterTmplName='" + str(self.cipslaicmpjittertmplname) + "']"
                 self._absolute_path = lambda: "CISCO-IPSLA-JITTER-MIB:CISCO-IPSLA-JITTER-MIB/cipslaIcmpJitterTmplTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPSLAJITTERMIB.CipslaIcmpJitterTmplTable.CipslaIcmpJitterTmplEntry, ['cipslaicmpjittertmplname', 'cipslaicmpjittertmpldescription', 'cipslaicmpjittertmpltimeout', 'cipslaicmpjittertmplverifydata', 'cipslaicmpjittertmplnumpkts', 'cipslaicmpjittertmplinterval', 'cipslaicmpjittertmplsrcaddrtype', 'cipslaicmpjittertmplsrcaddr', 'cipslaicmpjittertmpltos', 'cipslaicmpjittertmplvrfname', 'cipslaicmpjittertmplthreshold', 'cipslaicmpjittertmplstatshours', 'cipslaicmpjittertmpldistbuckets', 'cipslaicmpjittertmpldistinterval', 'cipslaicmpjittertmplstoragetype', 'cipslaicmpjittertmplrowstatus'], name, value)

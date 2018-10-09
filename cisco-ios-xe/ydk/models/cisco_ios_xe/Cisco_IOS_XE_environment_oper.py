@@ -14,6 +14,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class SensorUnitsType(Enum):
     """
     SensorUnitsType (Enum Class)
@@ -90,6 +91,7 @@ class EnvironmentSensors(Entity):
 
         self.environment_sensor = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-environment-oper:environment-sensors"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(EnvironmentSensors, [], name, value)
@@ -171,15 +173,15 @@ class EnvironmentSensors(Entity):
             self.ylist_key_names = ['name','location']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
-                ('location', YLeaf(YType.str, 'location')),
-                ('state', YLeaf(YType.str, 'state')),
-                ('current_reading', YLeaf(YType.uint32, 'current-reading')),
-                ('sensor_units', YLeaf(YType.enumeration, 'sensor-units')),
-                ('low_critical_threshold', YLeaf(YType.int32, 'low-critical-threshold')),
-                ('low_normal_threshold', YLeaf(YType.int32, 'low-normal-threshold')),
-                ('high_normal_threshold', YLeaf(YType.int32, 'high-normal-threshold')),
-                ('high_critical_threshold', YLeaf(YType.int32, 'high-critical-threshold')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                ('state', (YLeaf(YType.str, 'state'), ['str'])),
+                ('current_reading', (YLeaf(YType.uint32, 'current-reading'), ['int'])),
+                ('sensor_units', (YLeaf(YType.enumeration, 'sensor-units'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_environment_oper', 'SensorUnitsType', '')])),
+                ('low_critical_threshold', (YLeaf(YType.int32, 'low-critical-threshold'), ['int'])),
+                ('low_normal_threshold', (YLeaf(YType.int32, 'low-normal-threshold'), ['int'])),
+                ('high_normal_threshold', (YLeaf(YType.int32, 'high-normal-threshold'), ['int'])),
+                ('high_critical_threshold', (YLeaf(YType.int32, 'high-critical-threshold'), ['int'])),
             ])
             self.name = None
             self.location = None
@@ -192,6 +194,7 @@ class EnvironmentSensors(Entity):
             self.high_critical_threshold = None
             self._segment_path = lambda: "environment-sensor" + "[name='" + str(self.name) + "']" + "[location='" + str(self.location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-environment-oper:environment-sensors/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EnvironmentSensors.EnvironmentSensor, ['name', 'location', 'state', 'current_reading', 'sensor_units', 'low_critical_threshold', 'low_normal_threshold', 'high_normal_threshold', 'high_critical_threshold'], name, value)

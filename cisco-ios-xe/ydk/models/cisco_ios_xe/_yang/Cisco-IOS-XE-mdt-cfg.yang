@@ -22,13 +22,18 @@ module Cisco-IOS-XE-mdt-cfg {
   description
     "This module contains a collection of YANG 
      definitions for configuration of streaming telemetry.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
-  revision 2017-10-29 {
+  revision 2018-02-12 {
     description
-      "Transform support for Native stream";
-    reference "1.2.0";
+      "Transform support for Native stream.";
+    reference "2.1.0";
+  }
+  revision 2018-02-07 {
+    description
+      "Fix top level name.";
+    reference "2.0.0";
   }
   revision 2017-09-20 {
     description
@@ -53,6 +58,11 @@ module Cisco-IOS-XE-mdt-cfg {
         value 1;
         description
           "Indicates that mandatory filter is set.";
+      }
+      enum "primary" {
+        value 2;
+        description
+          "Indicates that primary filter is set.";
       }
     }
     description
@@ -368,16 +378,16 @@ module Cisco-IOS-XE-mdt-cfg {
       description
         "Receiver transport protocol.";
     }
-    leaf security-profile {
+    leaf profile {
       type string;
       description
-        "Receiver security profile.";
+        "Name of protocol profile used by receiver.";
     }
   }
 
-  container mdt-subscriptions {
+  container mdt-config-data {
     description
-      "Subscription configuration";
+      "MDT configuration data";
     list mdt-subscription {
       key "subscription-id";
       description

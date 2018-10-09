@@ -1,5 +1,10 @@
 """ SNMP_FRAMEWORK_MIB 
 
+This module contains definitions
+for the Calvados model objects.
+
+Copyright (c) 2012\-2018 by Cisco Systems, Inc.
+All rights reserved.
 
 """
 from collections import OrderedDict
@@ -8,6 +13,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class SnmpSecurityLevel(Enum):
@@ -62,6 +68,7 @@ class SNMPFRAMEWORKMIB(Entity):
         self.snmpengine.parent = self
         self._children_name_map["snmpengine"] = "snmpEngine"
         self._segment_path = lambda: "SNMP-FRAMEWORK-MIB:SNMP-FRAMEWORK-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SNMPFRAMEWORKMIB, [], name, value)
@@ -116,10 +123,10 @@ class SNMPFRAMEWORKMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('snmpengineid', YLeaf(YType.str, 'snmpEngineID')),
-                ('snmpengineboots', YLeaf(YType.int32, 'snmpEngineBoots')),
-                ('snmpenginetime', YLeaf(YType.int32, 'snmpEngineTime')),
-                ('snmpenginemaxmessagesize', YLeaf(YType.int32, 'snmpEngineMaxMessageSize')),
+                ('snmpengineid', (YLeaf(YType.str, 'snmpEngineID'), ['str'])),
+                ('snmpengineboots', (YLeaf(YType.int32, 'snmpEngineBoots'), ['int'])),
+                ('snmpenginetime', (YLeaf(YType.int32, 'snmpEngineTime'), ['int'])),
+                ('snmpenginemaxmessagesize', (YLeaf(YType.int32, 'snmpEngineMaxMessageSize'), ['int'])),
             ])
             self.snmpengineid = None
             self.snmpengineboots = None
@@ -127,9 +134,10 @@ class SNMPFRAMEWORKMIB(Entity):
             self.snmpenginemaxmessagesize = None
             self._segment_path = lambda: "snmpEngine"
             self._absolute_path = lambda: "SNMP-FRAMEWORK-MIB:SNMP-FRAMEWORK-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPFRAMEWORKMIB.SnmpEngine, [u'snmpengineid', u'snmpengineboots', u'snmpenginetime', u'snmpenginemaxmessagesize'], name, value)
+            self._perform_setattr(SNMPFRAMEWORKMIB.SnmpEngine, ['snmpengineid', 'snmpengineboots', 'snmpenginetime', 'snmpenginemaxmessagesize'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SNMPFRAMEWORKMIB()

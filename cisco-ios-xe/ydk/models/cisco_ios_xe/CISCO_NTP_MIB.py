@@ -107,6 +107,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class NTPLeapIndicator(Enum):
     """
     NTPLeapIndicator (Enum Class)
@@ -203,6 +204,7 @@ class CISCONTPMIB(Entity):
         self.cntpfilterregistertable.parent = self
         self._children_name_map["cntpfilterregistertable"] = "cntpFilterRegisterTable"
         self._segment_path = lambda: "CISCO-NTP-MIB:CISCO-NTP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCONTPMIB, [], name, value)
@@ -306,17 +308,17 @@ class CISCONTPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cntpsysleap', YLeaf(YType.enumeration, 'cntpSysLeap')),
-                ('cntpsysstratum', YLeaf(YType.int32, 'cntpSysStratum')),
-                ('cntpsysprecision', YLeaf(YType.int32, 'cntpSysPrecision')),
-                ('cntpsysrootdelay', YLeaf(YType.str, 'cntpSysRootDelay')),
-                ('cntpsysrootdispersion', YLeaf(YType.str, 'cntpSysRootDispersion')),
-                ('cntpsysrefid', YLeaf(YType.str, 'cntpSysRefId')),
-                ('cntpsysreftime', YLeaf(YType.str, 'cntpSysRefTime')),
-                ('cntpsyspoll', YLeaf(YType.int32, 'cntpSysPoll')),
-                ('cntpsyspeer', YLeaf(YType.int32, 'cntpSysPeer')),
-                ('cntpsysclock', YLeaf(YType.str, 'cntpSysClock')),
-                ('cntpsyssrvstatus', YLeaf(YType.enumeration, 'cntpSysSrvStatus')),
+                ('cntpsysleap', (YLeaf(YType.enumeration, 'cntpSysLeap'), [('ydk.models.cisco_ios_xe.CISCO_NTP_MIB', 'NTPLeapIndicator', '')])),
+                ('cntpsysstratum', (YLeaf(YType.int32, 'cntpSysStratum'), ['int'])),
+                ('cntpsysprecision', (YLeaf(YType.int32, 'cntpSysPrecision'), ['int'])),
+                ('cntpsysrootdelay', (YLeaf(YType.str, 'cntpSysRootDelay'), ['str'])),
+                ('cntpsysrootdispersion', (YLeaf(YType.str, 'cntpSysRootDispersion'), ['str'])),
+                ('cntpsysrefid', (YLeaf(YType.str, 'cntpSysRefId'), ['str'])),
+                ('cntpsysreftime', (YLeaf(YType.str, 'cntpSysRefTime'), ['str'])),
+                ('cntpsyspoll', (YLeaf(YType.int32, 'cntpSysPoll'), ['int'])),
+                ('cntpsyspeer', (YLeaf(YType.int32, 'cntpSysPeer'), ['int'])),
+                ('cntpsysclock', (YLeaf(YType.str, 'cntpSysClock'), ['str'])),
+                ('cntpsyssrvstatus', (YLeaf(YType.enumeration, 'cntpSysSrvStatus'), [('ydk.models.cisco_ios_xe.CISCO_NTP_MIB', 'CISCONTPMIB', 'CntpSystem.CntpSysSrvStatus')])),
             ])
             self.cntpsysleap = None
             self.cntpsysstratum = None
@@ -331,6 +333,7 @@ class CISCONTPMIB(Entity):
             self.cntpsyssrvstatus = None
             self._segment_path = lambda: "cntpSystem"
             self._absolute_path = lambda: "CISCO-NTP-MIB:CISCO-NTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONTPMIB.CntpSystem, ['cntpsysleap', 'cntpsysstratum', 'cntpsysprecision', 'cntpsysrootdelay', 'cntpsysrootdispersion', 'cntpsysrefid', 'cntpsysreftime', 'cntpsyspoll', 'cntpsyspeer', 'cntpsysclock', 'cntpsyssrvstatus'], name, value)
@@ -414,6 +417,7 @@ class CISCONTPMIB(Entity):
             self.cntppeersvarentry = YList(self)
             self._segment_path = lambda: "cntpPeersVarTable"
             self._absolute_path = lambda: "CISCO-NTP-MIB:CISCO-NTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONTPMIB.CntpPeersVarTable, [], name, value)
@@ -675,37 +679,37 @@ class CISCONTPMIB(Entity):
                 self.ylist_key_names = ['cntppeersassocid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cntppeersassocid', YLeaf(YType.int32, 'cntpPeersAssocId')),
-                    ('cntppeersconfigured', YLeaf(YType.boolean, 'cntpPeersConfigured')),
-                    ('cntppeerspeeraddress', YLeaf(YType.str, 'cntpPeersPeerAddress')),
-                    ('cntppeerspeerport', YLeaf(YType.int32, 'cntpPeersPeerPort')),
-                    ('cntppeershostaddress', YLeaf(YType.str, 'cntpPeersHostAddress')),
-                    ('cntppeershostport', YLeaf(YType.int32, 'cntpPeersHostPort')),
-                    ('cntppeersleap', YLeaf(YType.enumeration, 'cntpPeersLeap')),
-                    ('cntppeersmode', YLeaf(YType.enumeration, 'cntpPeersMode')),
-                    ('cntppeersstratum', YLeaf(YType.int32, 'cntpPeersStratum')),
-                    ('cntppeerspeerpoll', YLeaf(YType.int32, 'cntpPeersPeerPoll')),
-                    ('cntppeershostpoll', YLeaf(YType.int32, 'cntpPeersHostPoll')),
-                    ('cntppeersprecision', YLeaf(YType.int32, 'cntpPeersPrecision')),
-                    ('cntppeersrootdelay', YLeaf(YType.str, 'cntpPeersRootDelay')),
-                    ('cntppeersrootdispersion', YLeaf(YType.str, 'cntpPeersRootDispersion')),
-                    ('cntppeersrefid', YLeaf(YType.str, 'cntpPeersRefId')),
-                    ('cntppeersreftime', YLeaf(YType.str, 'cntpPeersRefTime')),
-                    ('cntppeersorgtime', YLeaf(YType.str, 'cntpPeersOrgTime')),
-                    ('cntppeersreceivetime', YLeaf(YType.str, 'cntpPeersReceiveTime')),
-                    ('cntppeerstransmittime', YLeaf(YType.str, 'cntpPeersTransmitTime')),
-                    ('cntppeersupdatetime', YLeaf(YType.int32, 'cntpPeersUpdateTime')),
-                    ('cntppeersreach', YLeaf(YType.int32, 'cntpPeersReach')),
-                    ('cntppeerstimer', YLeaf(YType.int32, 'cntpPeersTimer')),
-                    ('cntppeersoffset', YLeaf(YType.str, 'cntpPeersOffset')),
-                    ('cntppeersdelay', YLeaf(YType.str, 'cntpPeersDelay')),
-                    ('cntppeersdispersion', YLeaf(YType.str, 'cntpPeersDispersion')),
-                    ('cntppeersfiltervalidentries', YLeaf(YType.uint32, 'cntpPeersFilterValidEntries')),
-                    ('cntppeersentrystatus', YLeaf(YType.enumeration, 'cntpPeersEntryStatus')),
-                    ('cntppeersupdatetimerev1', YLeaf(YType.uint32, 'cntpPeersUpdateTimeRev1')),
-                    ('cntppeersprefpeer', YLeaf(YType.boolean, 'cntpPeersPrefPeer')),
-                    ('cntppeerspeertype', YLeaf(YType.enumeration, 'cntpPeersPeerType')),
-                    ('cntppeerspeername', YLeaf(YType.str, 'cntpPeersPeerName')),
+                    ('cntppeersassocid', (YLeaf(YType.int32, 'cntpPeersAssocId'), ['int'])),
+                    ('cntppeersconfigured', (YLeaf(YType.boolean, 'cntpPeersConfigured'), ['bool'])),
+                    ('cntppeerspeeraddress', (YLeaf(YType.str, 'cntpPeersPeerAddress'), ['str'])),
+                    ('cntppeerspeerport', (YLeaf(YType.int32, 'cntpPeersPeerPort'), ['int'])),
+                    ('cntppeershostaddress', (YLeaf(YType.str, 'cntpPeersHostAddress'), ['str'])),
+                    ('cntppeershostport', (YLeaf(YType.int32, 'cntpPeersHostPort'), ['int'])),
+                    ('cntppeersleap', (YLeaf(YType.enumeration, 'cntpPeersLeap'), [('ydk.models.cisco_ios_xe.CISCO_NTP_MIB', 'NTPLeapIndicator', '')])),
+                    ('cntppeersmode', (YLeaf(YType.enumeration, 'cntpPeersMode'), [('ydk.models.cisco_ios_xe.CISCO_NTP_MIB', 'CISCONTPMIB', 'CntpPeersVarTable.CntpPeersVarEntry.CntpPeersMode')])),
+                    ('cntppeersstratum', (YLeaf(YType.int32, 'cntpPeersStratum'), ['int'])),
+                    ('cntppeerspeerpoll', (YLeaf(YType.int32, 'cntpPeersPeerPoll'), ['int'])),
+                    ('cntppeershostpoll', (YLeaf(YType.int32, 'cntpPeersHostPoll'), ['int'])),
+                    ('cntppeersprecision', (YLeaf(YType.int32, 'cntpPeersPrecision'), ['int'])),
+                    ('cntppeersrootdelay', (YLeaf(YType.str, 'cntpPeersRootDelay'), ['str'])),
+                    ('cntppeersrootdispersion', (YLeaf(YType.str, 'cntpPeersRootDispersion'), ['str'])),
+                    ('cntppeersrefid', (YLeaf(YType.str, 'cntpPeersRefId'), ['str'])),
+                    ('cntppeersreftime', (YLeaf(YType.str, 'cntpPeersRefTime'), ['str'])),
+                    ('cntppeersorgtime', (YLeaf(YType.str, 'cntpPeersOrgTime'), ['str'])),
+                    ('cntppeersreceivetime', (YLeaf(YType.str, 'cntpPeersReceiveTime'), ['str'])),
+                    ('cntppeerstransmittime', (YLeaf(YType.str, 'cntpPeersTransmitTime'), ['str'])),
+                    ('cntppeersupdatetime', (YLeaf(YType.int32, 'cntpPeersUpdateTime'), ['int'])),
+                    ('cntppeersreach', (YLeaf(YType.int32, 'cntpPeersReach'), ['int'])),
+                    ('cntppeerstimer', (YLeaf(YType.int32, 'cntpPeersTimer'), ['int'])),
+                    ('cntppeersoffset', (YLeaf(YType.str, 'cntpPeersOffset'), ['str'])),
+                    ('cntppeersdelay', (YLeaf(YType.str, 'cntpPeersDelay'), ['str'])),
+                    ('cntppeersdispersion', (YLeaf(YType.str, 'cntpPeersDispersion'), ['str'])),
+                    ('cntppeersfiltervalidentries', (YLeaf(YType.uint32, 'cntpPeersFilterValidEntries'), ['int'])),
+                    ('cntppeersentrystatus', (YLeaf(YType.enumeration, 'cntpPeersEntryStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('cntppeersupdatetimerev1', (YLeaf(YType.uint32, 'cntpPeersUpdateTimeRev1'), ['int'])),
+                    ('cntppeersprefpeer', (YLeaf(YType.boolean, 'cntpPeersPrefPeer'), ['bool'])),
+                    ('cntppeerspeertype', (YLeaf(YType.enumeration, 'cntpPeersPeerType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cntppeerspeername', (YLeaf(YType.str, 'cntpPeersPeerName'), ['str'])),
                 ])
                 self.cntppeersassocid = None
                 self.cntppeersconfigured = None
@@ -740,6 +744,7 @@ class CISCONTPMIB(Entity):
                 self.cntppeerspeername = None
                 self._segment_path = lambda: "cntpPeersVarEntry" + "[cntpPeersAssocId='" + str(self.cntppeersassocid) + "']"
                 self._absolute_path = lambda: "CISCO-NTP-MIB:CISCO-NTP-MIB/cntpPeersVarTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONTPMIB.CntpPeersVarTable.CntpPeersVarEntry, ['cntppeersassocid', 'cntppeersconfigured', 'cntppeerspeeraddress', 'cntppeerspeerport', 'cntppeershostaddress', 'cntppeershostport', 'cntppeersleap', 'cntppeersmode', 'cntppeersstratum', 'cntppeerspeerpoll', 'cntppeershostpoll', 'cntppeersprecision', 'cntppeersrootdelay', 'cntppeersrootdispersion', 'cntppeersrefid', 'cntppeersreftime', 'cntppeersorgtime', 'cntppeersreceivetime', 'cntppeerstransmittime', 'cntppeersupdatetime', 'cntppeersreach', 'cntppeerstimer', 'cntppeersoffset', 'cntppeersdelay', 'cntppeersdispersion', 'cntppeersfiltervalidentries', 'cntppeersentrystatus', 'cntppeersupdatetimerev1', 'cntppeersprefpeer', 'cntppeerspeertype', 'cntppeerspeername'], name, value)
@@ -927,6 +932,7 @@ class CISCONTPMIB(Entity):
             self.cntpfilterregisterentry = YList(self)
             self._segment_path = lambda: "cntpFilterRegisterTable"
             self._absolute_path = lambda: "CISCO-NTP-MIB:CISCO-NTP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONTPMIB.CntpFilterRegisterTable, [], name, value)
@@ -1001,11 +1007,11 @@ class CISCONTPMIB(Entity):
                 self.ylist_key_names = ['cntppeersassocid','cntpfilterindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cntppeersassocid', YLeaf(YType.str, 'cntpPeersAssocId')),
-                    ('cntpfilterindex', YLeaf(YType.int32, 'cntpFilterIndex')),
-                    ('cntpfilterpeersoffset', YLeaf(YType.str, 'cntpFilterPeersOffset')),
-                    ('cntpfilterpeersdelay', YLeaf(YType.str, 'cntpFilterPeersDelay')),
-                    ('cntpfilterpeersdispersion', YLeaf(YType.str, 'cntpFilterPeersDispersion')),
+                    ('cntppeersassocid', (YLeaf(YType.str, 'cntpPeersAssocId'), ['int'])),
+                    ('cntpfilterindex', (YLeaf(YType.int32, 'cntpFilterIndex'), ['int'])),
+                    ('cntpfilterpeersoffset', (YLeaf(YType.str, 'cntpFilterPeersOffset'), ['str'])),
+                    ('cntpfilterpeersdelay', (YLeaf(YType.str, 'cntpFilterPeersDelay'), ['str'])),
+                    ('cntpfilterpeersdispersion', (YLeaf(YType.str, 'cntpFilterPeersDispersion'), ['str'])),
                 ])
                 self.cntppeersassocid = None
                 self.cntpfilterindex = None
@@ -1014,6 +1020,7 @@ class CISCONTPMIB(Entity):
                 self.cntpfilterpeersdispersion = None
                 self._segment_path = lambda: "cntpFilterRegisterEntry" + "[cntpPeersAssocId='" + str(self.cntppeersassocid) + "']" + "[cntpFilterIndex='" + str(self.cntpfilterindex) + "']"
                 self._absolute_path = lambda: "CISCO-NTP-MIB:CISCO-NTP-MIB/cntpFilterRegisterTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONTPMIB.CntpFilterRegisterTable.CntpFilterRegisterEntry, ['cntppeersassocid', 'cntpfilterindex', 'cntpfilterpeersoffset', 'cntpfilterpeersdelay', 'cntpfilterpeersdispersion'], name, value)

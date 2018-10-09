@@ -15,6 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class AccessLists(Entity):
     """
     This is top level container for Access Control Lists. It can have one
@@ -46,6 +47,7 @@ class AccessLists(Entity):
 
         self.access_list = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-acl-oper:access-lists"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(AccessLists, [], name, value)
@@ -89,7 +91,7 @@ class AccessLists(Entity):
             self.ylist_key_names = ['access_control_list_name']
             self._child_classes = OrderedDict([("access-list-entries", ("access_list_entries", AccessLists.AccessList.AccessListEntries))])
             self._leafs = OrderedDict([
-                ('access_control_list_name', YLeaf(YType.str, 'access-control-list-name')),
+                ('access_control_list_name', (YLeaf(YType.str, 'access-control-list-name'), ['str'])),
             ])
             self.access_control_list_name = None
 
@@ -98,6 +100,7 @@ class AccessLists(Entity):
             self._children_name_map["access_list_entries"] = "access-list-entries"
             self._segment_path = lambda: "access-list" + "[access-control-list-name='" + str(self.access_control_list_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-acl-oper:access-lists/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AccessLists.AccessList, ['access_control_list_name'], name, value)
@@ -132,6 +135,7 @@ class AccessLists(Entity):
 
                 self.access_list_entry = YList(self)
                 self._segment_path = lambda: "access-list-entries"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AccessLists.AccessList.AccessListEntries, [], name, value)
@@ -170,7 +174,7 @@ class AccessLists(Entity):
                     self.ylist_key_names = ['rule_name']
                     self._child_classes = OrderedDict([("access-list-entries-oper-data", ("access_list_entries_oper_data", AccessLists.AccessList.AccessListEntries.AccessListEntry.AccessListEntriesOperData))])
                     self._leafs = OrderedDict([
-                        ('rule_name', YLeaf(YType.uint32, 'rule-name')),
+                        ('rule_name', (YLeaf(YType.uint32, 'rule-name'), ['int'])),
                     ])
                     self.rule_name = None
 
@@ -178,6 +182,7 @@ class AccessLists(Entity):
                     self.access_list_entries_oper_data.parent = self
                     self._children_name_map["access_list_entries_oper_data"] = "access-list-entries-oper-data"
                     self._segment_path = lambda: "access-list-entry" + "[rule-name='" + str(self.rule_name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AccessLists.AccessList.AccessListEntries.AccessListEntry, ['rule_name'], name, value)
@@ -211,10 +216,11 @@ class AccessLists(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('match_counter', YLeaf(YType.uint64, 'match-counter')),
+                            ('match_counter', (YLeaf(YType.uint64, 'match-counter'), ['int'])),
                         ])
                         self.match_counter = None
                         self._segment_path = lambda: "access-list-entries-oper-data"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AccessLists.AccessList.AccessListEntries.AccessListEntry.AccessListEntriesOperData, ['match_counter'], name, value)

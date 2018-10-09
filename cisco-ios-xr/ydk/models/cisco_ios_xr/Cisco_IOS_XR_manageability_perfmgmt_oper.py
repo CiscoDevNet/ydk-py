@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   perf\-mgmt\: Performance Management agent operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -39,7 +40,7 @@ class PerfMgmt(Entity):
     """
 
     _prefix = 'manageability-perfmgmt-oper'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(PerfMgmt, self).__init__()
@@ -61,6 +62,7 @@ class PerfMgmt(Entity):
         self.monitor.parent = self
         self._children_name_map["monitor"] = "monitor"
         self._segment_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(PerfMgmt, [], name, value)
@@ -100,7 +102,7 @@ class PerfMgmt(Entity):
         """
 
         _prefix = 'manageability-perfmgmt-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(PerfMgmt.Periodic, self).__init__()
@@ -134,6 +136,7 @@ class PerfMgmt(Entity):
             self._children_name_map["interface"] = "interface"
             self._segment_path = lambda: "periodic"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PerfMgmt.Periodic, [], name, value)
@@ -158,7 +161,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Periodic.Ospf, self).__init__()
@@ -180,6 +183,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["ospfv3_protocol_instances"] = "ospfv3-protocol-instances"
                 self._segment_path = lambda: "ospf"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Periodic.Ospf, [], name, value)
@@ -200,7 +204,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances, self).__init__()
@@ -216,6 +220,7 @@ class PerfMgmt(Entity):
                     self.ospfv2_protocol_instance = YList(self)
                     self._segment_path = lambda: "ospfv2-protocol-instances"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/ospf/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances, [], name, value)
@@ -243,7 +248,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance, self).__init__()
@@ -255,7 +260,7 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['instance_name']
                         self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples))])
                         self._leafs = OrderedDict([
-                            ('instance_name', YLeaf(YType.str, 'instance-name')),
+                            ('instance_name', (YLeaf(YType.str, 'instance-name'), ['str'])),
                         ])
                         self.instance_name = None
 
@@ -264,6 +269,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["samples"] = "samples"
                         self._segment_path = lambda: "ospfv2-protocol-instance" + "[instance-name='" + str(self.instance_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/ospf/ospfv2-protocol-instances/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance, ['instance_name'], name, value)
@@ -283,7 +289,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples, self).__init__()
@@ -298,6 +304,7 @@ class PerfMgmt(Entity):
 
                             self.sample = YList(self)
                             self._segment_path = lambda: "samples"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples, [], name, value)
@@ -312,7 +319,7 @@ class PerfMgmt(Entity):
                             	Sample ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: time_stamp
                             
@@ -475,7 +482,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, self).__init__()
@@ -487,29 +494,29 @@ class PerfMgmt(Entity):
                                 self.ylist_key_names = ['sample_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                    ('input_packets', YLeaf(YType.uint32, 'input-packets')),
-                                    ('output_packets', YLeaf(YType.uint32, 'output-packets')),
-                                    ('input_hello_packets', YLeaf(YType.uint32, 'input-hello-packets')),
-                                    ('output_hello_packets', YLeaf(YType.uint32, 'output-hello-packets')),
-                                    ('input_db_ds', YLeaf(YType.uint32, 'input-db-ds')),
-                                    ('input_db_ds_lsa', YLeaf(YType.uint32, 'input-db-ds-lsa')),
-                                    ('output_db_ds', YLeaf(YType.uint32, 'output-db-ds')),
-                                    ('output_db_ds_lsa', YLeaf(YType.uint32, 'output-db-ds-lsa')),
-                                    ('input_ls_requests', YLeaf(YType.uint32, 'input-ls-requests')),
-                                    ('input_ls_requests_lsa', YLeaf(YType.uint32, 'input-ls-requests-lsa')),
-                                    ('output_ls_requests', YLeaf(YType.uint32, 'output-ls-requests')),
-                                    ('output_ls_requests_lsa', YLeaf(YType.uint32, 'output-ls-requests-lsa')),
-                                    ('input_lsa_updates', YLeaf(YType.uint32, 'input-lsa-updates')),
-                                    ('input_lsa_updates_lsa', YLeaf(YType.uint32, 'input-lsa-updates-lsa')),
-                                    ('output_lsa_updates', YLeaf(YType.uint32, 'output-lsa-updates')),
-                                    ('output_lsa_updates_lsa', YLeaf(YType.uint32, 'output-lsa-updates-lsa')),
-                                    ('input_lsa_acks', YLeaf(YType.uint32, 'input-lsa-acks')),
-                                    ('input_lsa_acks_lsa', YLeaf(YType.uint32, 'input-lsa-acks-lsa')),
-                                    ('output_lsa_acks', YLeaf(YType.uint32, 'output-lsa-acks')),
-                                    ('output_lsa_acks_lsa', YLeaf(YType.uint32, 'output-lsa-acks-lsa')),
-                                    ('checksum_errors', YLeaf(YType.uint32, 'checksum-errors')),
+                                    ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                    ('input_packets', (YLeaf(YType.uint32, 'input-packets'), ['int'])),
+                                    ('output_packets', (YLeaf(YType.uint32, 'output-packets'), ['int'])),
+                                    ('input_hello_packets', (YLeaf(YType.uint32, 'input-hello-packets'), ['int'])),
+                                    ('output_hello_packets', (YLeaf(YType.uint32, 'output-hello-packets'), ['int'])),
+                                    ('input_db_ds', (YLeaf(YType.uint32, 'input-db-ds'), ['int'])),
+                                    ('input_db_ds_lsa', (YLeaf(YType.uint32, 'input-db-ds-lsa'), ['int'])),
+                                    ('output_db_ds', (YLeaf(YType.uint32, 'output-db-ds'), ['int'])),
+                                    ('output_db_ds_lsa', (YLeaf(YType.uint32, 'output-db-ds-lsa'), ['int'])),
+                                    ('input_ls_requests', (YLeaf(YType.uint32, 'input-ls-requests'), ['int'])),
+                                    ('input_ls_requests_lsa', (YLeaf(YType.uint32, 'input-ls-requests-lsa'), ['int'])),
+                                    ('output_ls_requests', (YLeaf(YType.uint32, 'output-ls-requests'), ['int'])),
+                                    ('output_ls_requests_lsa', (YLeaf(YType.uint32, 'output-ls-requests-lsa'), ['int'])),
+                                    ('input_lsa_updates', (YLeaf(YType.uint32, 'input-lsa-updates'), ['int'])),
+                                    ('input_lsa_updates_lsa', (YLeaf(YType.uint32, 'input-lsa-updates-lsa'), ['int'])),
+                                    ('output_lsa_updates', (YLeaf(YType.uint32, 'output-lsa-updates'), ['int'])),
+                                    ('output_lsa_updates_lsa', (YLeaf(YType.uint32, 'output-lsa-updates-lsa'), ['int'])),
+                                    ('input_lsa_acks', (YLeaf(YType.uint32, 'input-lsa-acks'), ['int'])),
+                                    ('input_lsa_acks_lsa', (YLeaf(YType.uint32, 'input-lsa-acks-lsa'), ['int'])),
+                                    ('output_lsa_acks', (YLeaf(YType.uint32, 'output-lsa-acks'), ['int'])),
+                                    ('output_lsa_acks_lsa', (YLeaf(YType.uint32, 'output-lsa-acks-lsa'), ['int'])),
+                                    ('checksum_errors', (YLeaf(YType.uint32, 'checksum-errors'), ['int'])),
                                 ])
                                 self.sample_id = None
                                 self.time_stamp = None
@@ -535,9 +542,10 @@ class PerfMgmt(Entity):
                                 self.output_lsa_acks_lsa = None
                                 self.checksum_errors = None
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, ['sample_id', u'time_stamp', u'input_packets', u'output_packets', u'input_hello_packets', u'output_hello_packets', u'input_db_ds', u'input_db_ds_lsa', u'output_db_ds', u'output_db_ds_lsa', u'input_ls_requests', u'input_ls_requests_lsa', u'output_ls_requests', u'output_ls_requests_lsa', u'input_lsa_updates', u'input_lsa_updates_lsa', u'output_lsa_updates', u'output_lsa_updates_lsa', u'input_lsa_acks', u'input_lsa_acks_lsa', u'output_lsa_acks', u'output_lsa_acks_lsa', u'checksum_errors'], name, value)
+                                self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, ['sample_id', 'time_stamp', 'input_packets', 'output_packets', 'input_hello_packets', 'output_hello_packets', 'input_db_ds', 'input_db_ds_lsa', 'output_db_ds', 'output_db_ds_lsa', 'input_ls_requests', 'input_ls_requests_lsa', 'output_ls_requests', 'output_ls_requests_lsa', 'input_lsa_updates', 'input_lsa_updates_lsa', 'output_lsa_updates', 'output_lsa_updates_lsa', 'input_lsa_acks', 'input_lsa_acks_lsa', 'output_lsa_acks', 'output_lsa_acks_lsa', 'checksum_errors'], name, value)
 
 
             class Ospfv3ProtocolInstances(Entity):
@@ -555,7 +563,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances, self).__init__()
@@ -571,6 +579,7 @@ class PerfMgmt(Entity):
                     self.ospfv3_protocol_instance = YList(self)
                     self._segment_path = lambda: "ospfv3-protocol-instances"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/ospf/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances, [], name, value)
@@ -598,7 +607,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance, self).__init__()
@@ -610,7 +619,7 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['instance_name']
                         self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples))])
                         self._leafs = OrderedDict([
-                            ('instance_name', YLeaf(YType.str, 'instance-name')),
+                            ('instance_name', (YLeaf(YType.str, 'instance-name'), ['str'])),
                         ])
                         self.instance_name = None
 
@@ -619,6 +628,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["samples"] = "samples"
                         self._segment_path = lambda: "ospfv3-protocol-instance" + "[instance-name='" + str(self.instance_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/ospf/ospfv3-protocol-instances/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance, ['instance_name'], name, value)
@@ -638,7 +648,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples, self).__init__()
@@ -653,6 +663,7 @@ class PerfMgmt(Entity):
 
                             self.sample = YList(self)
                             self._segment_path = lambda: "samples"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples, [], name, value)
@@ -667,7 +678,7 @@ class PerfMgmt(Entity):
                             	Sample ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: time_stamp
                             
@@ -823,7 +834,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, self).__init__()
@@ -835,28 +846,28 @@ class PerfMgmt(Entity):
                                 self.ylist_key_names = ['sample_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                    ('input_packets', YLeaf(YType.uint32, 'input-packets')),
-                                    ('output_packets', YLeaf(YType.uint32, 'output-packets')),
-                                    ('input_hello_packets', YLeaf(YType.uint32, 'input-hello-packets')),
-                                    ('output_hello_packets', YLeaf(YType.uint32, 'output-hello-packets')),
-                                    ('input_db_ds', YLeaf(YType.uint32, 'input-db-ds')),
-                                    ('input_db_ds_lsa', YLeaf(YType.uint32, 'input-db-ds-lsa')),
-                                    ('output_db_ds', YLeaf(YType.uint32, 'output-db-ds')),
-                                    ('output_db_ds_lsa', YLeaf(YType.uint32, 'output-db-ds-lsa')),
-                                    ('input_ls_requests', YLeaf(YType.uint32, 'input-ls-requests')),
-                                    ('input_ls_requests_lsa', YLeaf(YType.uint32, 'input-ls-requests-lsa')),
-                                    ('output_ls_requests', YLeaf(YType.uint32, 'output-ls-requests')),
-                                    ('output_ls_requests_lsa', YLeaf(YType.uint32, 'output-ls-requests-lsa')),
-                                    ('input_lsa_updates', YLeaf(YType.uint32, 'input-lsa-updates')),
-                                    ('input_lsa_updates_lsa', YLeaf(YType.uint32, 'input-lsa-updates-lsa')),
-                                    ('output_lsa_updates', YLeaf(YType.uint32, 'output-lsa-updates')),
-                                    ('output_lsa_updates_lsa', YLeaf(YType.uint32, 'output-lsa-updates-lsa')),
-                                    ('input_lsa_acks', YLeaf(YType.uint32, 'input-lsa-acks')),
-                                    ('input_lsa_acks_lsa', YLeaf(YType.uint32, 'input-lsa-acks-lsa')),
-                                    ('output_lsa_acks', YLeaf(YType.uint32, 'output-lsa-acks')),
-                                    ('output_lsa_acks_lsa', YLeaf(YType.uint32, 'output-lsa-acks-lsa')),
+                                    ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                    ('input_packets', (YLeaf(YType.uint32, 'input-packets'), ['int'])),
+                                    ('output_packets', (YLeaf(YType.uint32, 'output-packets'), ['int'])),
+                                    ('input_hello_packets', (YLeaf(YType.uint32, 'input-hello-packets'), ['int'])),
+                                    ('output_hello_packets', (YLeaf(YType.uint32, 'output-hello-packets'), ['int'])),
+                                    ('input_db_ds', (YLeaf(YType.uint32, 'input-db-ds'), ['int'])),
+                                    ('input_db_ds_lsa', (YLeaf(YType.uint32, 'input-db-ds-lsa'), ['int'])),
+                                    ('output_db_ds', (YLeaf(YType.uint32, 'output-db-ds'), ['int'])),
+                                    ('output_db_ds_lsa', (YLeaf(YType.uint32, 'output-db-ds-lsa'), ['int'])),
+                                    ('input_ls_requests', (YLeaf(YType.uint32, 'input-ls-requests'), ['int'])),
+                                    ('input_ls_requests_lsa', (YLeaf(YType.uint32, 'input-ls-requests-lsa'), ['int'])),
+                                    ('output_ls_requests', (YLeaf(YType.uint32, 'output-ls-requests'), ['int'])),
+                                    ('output_ls_requests_lsa', (YLeaf(YType.uint32, 'output-ls-requests-lsa'), ['int'])),
+                                    ('input_lsa_updates', (YLeaf(YType.uint32, 'input-lsa-updates'), ['int'])),
+                                    ('input_lsa_updates_lsa', (YLeaf(YType.uint32, 'input-lsa-updates-lsa'), ['int'])),
+                                    ('output_lsa_updates', (YLeaf(YType.uint32, 'output-lsa-updates'), ['int'])),
+                                    ('output_lsa_updates_lsa', (YLeaf(YType.uint32, 'output-lsa-updates-lsa'), ['int'])),
+                                    ('input_lsa_acks', (YLeaf(YType.uint32, 'input-lsa-acks'), ['int'])),
+                                    ('input_lsa_acks_lsa', (YLeaf(YType.uint32, 'input-lsa-acks-lsa'), ['int'])),
+                                    ('output_lsa_acks', (YLeaf(YType.uint32, 'output-lsa-acks'), ['int'])),
+                                    ('output_lsa_acks_lsa', (YLeaf(YType.uint32, 'output-lsa-acks-lsa'), ['int'])),
                                 ])
                                 self.sample_id = None
                                 self.time_stamp = None
@@ -881,9 +892,10 @@ class PerfMgmt(Entity):
                                 self.output_lsa_acks = None
                                 self.output_lsa_acks_lsa = None
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, ['sample_id', u'time_stamp', u'input_packets', u'output_packets', u'input_hello_packets', u'output_hello_packets', u'input_db_ds', u'input_db_ds_lsa', u'output_db_ds', u'output_db_ds_lsa', u'input_ls_requests', u'input_ls_requests_lsa', u'output_ls_requests', u'output_ls_requests_lsa', u'input_lsa_updates', u'input_lsa_updates_lsa', u'output_lsa_updates', u'output_lsa_updates_lsa', u'input_lsa_acks', u'input_lsa_acks_lsa', u'output_lsa_acks', u'output_lsa_acks_lsa'], name, value)
+                                self._perform_setattr(PerfMgmt.Periodic.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, ['sample_id', 'time_stamp', 'input_packets', 'output_packets', 'input_hello_packets', 'output_hello_packets', 'input_db_ds', 'input_db_ds_lsa', 'output_db_ds', 'output_db_ds_lsa', 'input_ls_requests', 'input_ls_requests_lsa', 'output_ls_requests', 'output_ls_requests_lsa', 'input_lsa_updates', 'input_lsa_updates_lsa', 'output_lsa_updates', 'output_lsa_updates_lsa', 'input_lsa_acks', 'input_lsa_acks_lsa', 'output_lsa_acks', 'output_lsa_acks_lsa'], name, value)
 
 
         class Mpls(Entity):
@@ -900,7 +912,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Periodic.Mpls, self).__init__()
@@ -918,6 +930,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["ldp_neighbors"] = "ldp-neighbors"
                 self._segment_path = lambda: "mpls"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Periodic.Mpls, [], name, value)
@@ -938,7 +951,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Periodic.Mpls.LdpNeighbors, self).__init__()
@@ -954,6 +967,7 @@ class PerfMgmt(Entity):
                     self.ldp_neighbor = YList(self)
                     self._segment_path = lambda: "ldp-neighbors"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/mpls/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Periodic.Mpls.LdpNeighbors, [], name, value)
@@ -980,7 +994,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor, self).__init__()
@@ -992,7 +1006,7 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['nbr']
                         self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples))])
                         self._leafs = OrderedDict([
-                            ('nbr', YLeaf(YType.str, 'nbr')),
+                            ('nbr', (YLeaf(YType.str, 'nbr'), ['str'])),
                         ])
                         self.nbr = None
 
@@ -1001,6 +1015,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["samples"] = "samples"
                         self._segment_path = lambda: "ldp-neighbor" + "[nbr='" + str(self.nbr) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/mpls/ldp-neighbors/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor, ['nbr'], name, value)
@@ -1020,7 +1035,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples, self).__init__()
@@ -1035,6 +1050,7 @@ class PerfMgmt(Entity):
 
                             self.sample = YList(self)
                             self._segment_path = lambda: "samples"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples, [], name, value)
@@ -1049,7 +1065,7 @@ class PerfMgmt(Entity):
                             	Sample ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: time_stamp
                             
@@ -1191,7 +1207,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, self).__init__()
@@ -1203,26 +1219,26 @@ class PerfMgmt(Entity):
                                 self.ylist_key_names = ['sample_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                    ('total_msgs_sent', YLeaf(YType.uint16, 'total-msgs-sent')),
-                                    ('total_msgs_rcvd', YLeaf(YType.uint16, 'total-msgs-rcvd')),
-                                    ('init_msgs_sent', YLeaf(YType.uint16, 'init-msgs-sent')),
-                                    ('init_msgs_rcvd', YLeaf(YType.uint16, 'init-msgs-rcvd')),
-                                    ('address_msgs_sent', YLeaf(YType.uint16, 'address-msgs-sent')),
-                                    ('address_msgs_rcvd', YLeaf(YType.uint16, 'address-msgs-rcvd')),
-                                    ('address_withdraw_msgs_sent', YLeaf(YType.uint16, 'address-withdraw-msgs-sent')),
-                                    ('address_withdraw_msgs_rcvd', YLeaf(YType.uint16, 'address-withdraw-msgs-rcvd')),
-                                    ('label_mapping_msgs_sent', YLeaf(YType.uint16, 'label-mapping-msgs-sent')),
-                                    ('label_mapping_msgs_rcvd', YLeaf(YType.uint16, 'label-mapping-msgs-rcvd')),
-                                    ('label_withdraw_msgs_sent', YLeaf(YType.uint16, 'label-withdraw-msgs-sent')),
-                                    ('label_withdraw_msgs_rcvd', YLeaf(YType.uint16, 'label-withdraw-msgs-rcvd')),
-                                    ('label_release_msgs_sent', YLeaf(YType.uint16, 'label-release-msgs-sent')),
-                                    ('label_release_msgs_rcvd', YLeaf(YType.uint16, 'label-release-msgs-rcvd')),
-                                    ('notification_msgs_sent', YLeaf(YType.uint16, 'notification-msgs-sent')),
-                                    ('notification_msgs_rcvd', YLeaf(YType.uint16, 'notification-msgs-rcvd')),
-                                    ('keepalive_msgs_sent', YLeaf(YType.uint16, 'keepalive-msgs-sent')),
-                                    ('keepalive_msgs_rcvd', YLeaf(YType.uint16, 'keepalive-msgs-rcvd')),
+                                    ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                    ('total_msgs_sent', (YLeaf(YType.uint16, 'total-msgs-sent'), ['int'])),
+                                    ('total_msgs_rcvd', (YLeaf(YType.uint16, 'total-msgs-rcvd'), ['int'])),
+                                    ('init_msgs_sent', (YLeaf(YType.uint16, 'init-msgs-sent'), ['int'])),
+                                    ('init_msgs_rcvd', (YLeaf(YType.uint16, 'init-msgs-rcvd'), ['int'])),
+                                    ('address_msgs_sent', (YLeaf(YType.uint16, 'address-msgs-sent'), ['int'])),
+                                    ('address_msgs_rcvd', (YLeaf(YType.uint16, 'address-msgs-rcvd'), ['int'])),
+                                    ('address_withdraw_msgs_sent', (YLeaf(YType.uint16, 'address-withdraw-msgs-sent'), ['int'])),
+                                    ('address_withdraw_msgs_rcvd', (YLeaf(YType.uint16, 'address-withdraw-msgs-rcvd'), ['int'])),
+                                    ('label_mapping_msgs_sent', (YLeaf(YType.uint16, 'label-mapping-msgs-sent'), ['int'])),
+                                    ('label_mapping_msgs_rcvd', (YLeaf(YType.uint16, 'label-mapping-msgs-rcvd'), ['int'])),
+                                    ('label_withdraw_msgs_sent', (YLeaf(YType.uint16, 'label-withdraw-msgs-sent'), ['int'])),
+                                    ('label_withdraw_msgs_rcvd', (YLeaf(YType.uint16, 'label-withdraw-msgs-rcvd'), ['int'])),
+                                    ('label_release_msgs_sent', (YLeaf(YType.uint16, 'label-release-msgs-sent'), ['int'])),
+                                    ('label_release_msgs_rcvd', (YLeaf(YType.uint16, 'label-release-msgs-rcvd'), ['int'])),
+                                    ('notification_msgs_sent', (YLeaf(YType.uint16, 'notification-msgs-sent'), ['int'])),
+                                    ('notification_msgs_rcvd', (YLeaf(YType.uint16, 'notification-msgs-rcvd'), ['int'])),
+                                    ('keepalive_msgs_sent', (YLeaf(YType.uint16, 'keepalive-msgs-sent'), ['int'])),
+                                    ('keepalive_msgs_rcvd', (YLeaf(YType.uint16, 'keepalive-msgs-rcvd'), ['int'])),
                                 ])
                                 self.sample_id = None
                                 self.time_stamp = None
@@ -1245,9 +1261,10 @@ class PerfMgmt(Entity):
                                 self.keepalive_msgs_sent = None
                                 self.keepalive_msgs_rcvd = None
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, ['sample_id', u'time_stamp', u'total_msgs_sent', u'total_msgs_rcvd', u'init_msgs_sent', u'init_msgs_rcvd', u'address_msgs_sent', u'address_msgs_rcvd', u'address_withdraw_msgs_sent', u'address_withdraw_msgs_rcvd', u'label_mapping_msgs_sent', u'label_mapping_msgs_rcvd', u'label_withdraw_msgs_sent', u'label_withdraw_msgs_rcvd', u'label_release_msgs_sent', u'label_release_msgs_rcvd', u'notification_msgs_sent', u'notification_msgs_rcvd', u'keepalive_msgs_sent', u'keepalive_msgs_rcvd'], name, value)
+                                self._perform_setattr(PerfMgmt.Periodic.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, ['sample_id', 'time_stamp', 'total_msgs_sent', 'total_msgs_rcvd', 'init_msgs_sent', 'init_msgs_rcvd', 'address_msgs_sent', 'address_msgs_rcvd', 'address_withdraw_msgs_sent', 'address_withdraw_msgs_rcvd', 'label_mapping_msgs_sent', 'label_mapping_msgs_rcvd', 'label_withdraw_msgs_sent', 'label_withdraw_msgs_rcvd', 'label_release_msgs_sent', 'label_release_msgs_rcvd', 'notification_msgs_sent', 'notification_msgs_rcvd', 'keepalive_msgs_sent', 'keepalive_msgs_rcvd'], name, value)
 
 
         class Nodes(Entity):
@@ -1264,7 +1281,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Periodic.Nodes, self).__init__()
@@ -1280,6 +1297,7 @@ class PerfMgmt(Entity):
                 self.node = YList(self)
                 self._segment_path = lambda: "nodes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Periodic.Nodes, [], name, value)
@@ -1316,7 +1334,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Periodic.Nodes.Node, self).__init__()
@@ -1328,7 +1346,7 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = ['node_id']
                     self._child_classes = OrderedDict([("sample-xr", ("sample_xr", PerfMgmt.Periodic.Nodes.Node.SampleXr)), ("processes", ("processes", PerfMgmt.Periodic.Nodes.Node.Processes)), ("samples", ("samples", PerfMgmt.Periodic.Nodes.Node.Samples))])
                     self._leafs = OrderedDict([
-                        ('node_id', YLeaf(YType.str, 'node-id')),
+                        ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
                     ])
                     self.node_id = None
 
@@ -1345,6 +1363,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["samples"] = "samples"
                     self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/nodes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Periodic.Nodes.Node, ['node_id'], name, value)
@@ -1364,7 +1383,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Periodic.Nodes.Node.SampleXr, self).__init__()
@@ -1379,6 +1398,7 @@ class PerfMgmt(Entity):
 
                         self.sample = YList(self)
                         self._segment_path = lambda: "sample-xr"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.SampleXr, [], name, value)
@@ -1393,7 +1413,7 @@ class PerfMgmt(Entity):
                         	Sample ID
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: time_stamp
                         
@@ -1423,7 +1443,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Periodic.Nodes.Node.SampleXr.Sample, self).__init__()
@@ -1435,19 +1455,20 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['sample_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                ('no_processes', YLeaf(YType.uint32, 'no-processes')),
-                                ('average_cpu_used', YLeaf(YType.uint32, 'average-cpu-used')),
+                                ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                ('no_processes', (YLeaf(YType.uint32, 'no-processes'), ['int'])),
+                                ('average_cpu_used', (YLeaf(YType.uint32, 'average-cpu-used'), ['int'])),
                             ])
                             self.sample_id = None
                             self.time_stamp = None
                             self.no_processes = None
                             self.average_cpu_used = None
                             self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.SampleXr.Sample, ['sample_id', u'time_stamp', u'no_processes', u'average_cpu_used'], name, value)
+                            self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.SampleXr.Sample, ['sample_id', 'time_stamp', 'no_processes', 'average_cpu_used'], name, value)
 
 
                 class Processes(Entity):
@@ -1464,7 +1485,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Periodic.Nodes.Node.Processes, self).__init__()
@@ -1479,6 +1500,7 @@ class PerfMgmt(Entity):
 
                         self.process = YList(self)
                         self._segment_path = lambda: "processes"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Processes, [], name, value)
@@ -1493,7 +1515,7 @@ class PerfMgmt(Entity):
                         	Process ID
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: samples
                         
@@ -1505,7 +1527,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Periodic.Nodes.Node.Processes.Process, self).__init__()
@@ -1517,7 +1539,7 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['process_id']
                             self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples))])
                             self._leafs = OrderedDict([
-                                ('process_id', YLeaf(YType.int32, 'process-id')),
+                                ('process_id', (YLeaf(YType.uint32, 'process-id'), ['int'])),
                             ])
                             self.process_id = None
 
@@ -1525,6 +1547,7 @@ class PerfMgmt(Entity):
                             self.samples.parent = self
                             self._children_name_map["samples"] = "samples"
                             self._segment_path = lambda: "process" + "[process-id='" + str(self.process_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Processes.Process, ['process_id'], name, value)
@@ -1544,7 +1567,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples, self).__init__()
@@ -1559,6 +1582,7 @@ class PerfMgmt(Entity):
 
                                 self.sample = YList(self)
                                 self._segment_path = lambda: "samples"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples, [], name, value)
@@ -1573,7 +1597,7 @@ class PerfMgmt(Entity):
                                 	Sample ID
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: time_stamp
                                 
@@ -1612,7 +1636,7 @@ class PerfMgmt(Entity):
                                 """
 
                                 _prefix = 'manageability-perfmgmt-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples.Sample, self).__init__()
@@ -1624,11 +1648,11 @@ class PerfMgmt(Entity):
                                     self.ylist_key_names = ['sample_id']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                        ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                        ('peak_memory', YLeaf(YType.uint32, 'peak-memory')),
-                                        ('average_cpu_used', YLeaf(YType.uint32, 'average-cpu-used')),
-                                        ('no_threads', YLeaf(YType.uint32, 'no-threads')),
+                                        ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                        ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                        ('peak_memory', (YLeaf(YType.uint32, 'peak-memory'), ['int'])),
+                                        ('average_cpu_used', (YLeaf(YType.uint32, 'average-cpu-used'), ['int'])),
+                                        ('no_threads', (YLeaf(YType.uint32, 'no-threads'), ['int'])),
                                     ])
                                     self.sample_id = None
                                     self.time_stamp = None
@@ -1636,9 +1660,10 @@ class PerfMgmt(Entity):
                                     self.average_cpu_used = None
                                     self.no_threads = None
                                     self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples.Sample, ['sample_id', u'time_stamp', u'peak_memory', u'average_cpu_used', u'no_threads'], name, value)
+                                    self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Processes.Process.Samples.Sample, ['sample_id', 'time_stamp', 'peak_memory', 'average_cpu_used', 'no_threads'], name, value)
 
 
                 class Samples(Entity):
@@ -1655,7 +1680,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Periodic.Nodes.Node.Samples, self).__init__()
@@ -1670,6 +1695,7 @@ class PerfMgmt(Entity):
 
                         self.sample = YList(self)
                         self._segment_path = lambda: "samples"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Samples, [], name, value)
@@ -1684,7 +1710,7 @@ class PerfMgmt(Entity):
                         	Sample ID
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: time_stamp
                         
@@ -1718,7 +1744,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Periodic.Nodes.Node.Samples.Sample, self).__init__()
@@ -1730,19 +1756,20 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['sample_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                ('curr_memory', YLeaf(YType.uint32, 'curr-memory')),
-                                ('peak_memory', YLeaf(YType.uint32, 'peak-memory')),
+                                ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                ('curr_memory', (YLeaf(YType.uint32, 'curr-memory'), ['int'])),
+                                ('peak_memory', (YLeaf(YType.uint32, 'peak-memory'), ['int'])),
                             ])
                             self.sample_id = None
                             self.time_stamp = None
                             self.curr_memory = None
                             self.peak_memory = None
                             self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Samples.Sample, ['sample_id', u'time_stamp', u'curr_memory', u'peak_memory'], name, value)
+                            self._perform_setattr(PerfMgmt.Periodic.Nodes.Node.Samples.Sample, ['sample_id', 'time_stamp', 'curr_memory', 'peak_memory'], name, value)
 
 
         class Bgp(Entity):
@@ -1759,7 +1786,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Periodic.Bgp, self).__init__()
@@ -1777,6 +1804,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["bgp_neighbors"] = "bgp-neighbors"
                 self._segment_path = lambda: "bgp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Periodic.Bgp, [], name, value)
@@ -1796,7 +1824,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Periodic.Bgp.BgpNeighbors, self).__init__()
@@ -1812,6 +1840,7 @@ class PerfMgmt(Entity):
                     self.bgp_neighbor = YList(self)
                     self._segment_path = lambda: "bgp-neighbors"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/bgp/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Periodic.Bgp.BgpNeighbors, [], name, value)
@@ -1838,7 +1867,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor, self).__init__()
@@ -1850,7 +1879,7 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['ip_address']
                         self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples))])
                         self._leafs = OrderedDict([
-                            ('ip_address', YLeaf(YType.str, 'ip-address')),
+                            ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
                         ])
                         self.ip_address = None
 
@@ -1859,6 +1888,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["samples"] = "samples"
                         self._segment_path = lambda: "bgp-neighbor" + "[ip-address='" + str(self.ip_address) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/bgp/bgp-neighbors/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor, ['ip_address'], name, value)
@@ -1878,7 +1908,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples, self).__init__()
@@ -1893,6 +1923,7 @@ class PerfMgmt(Entity):
 
                             self.sample = YList(self)
                             self._segment_path = lambda: "samples"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples, [], name, value)
@@ -1907,7 +1938,7 @@ class PerfMgmt(Entity):
                             	Sample ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: time_stamp
                             
@@ -1979,7 +2010,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, self).__init__()
@@ -1991,16 +2022,16 @@ class PerfMgmt(Entity):
                                 self.ylist_key_names = ['sample_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                    ('input_messages', YLeaf(YType.uint32, 'input-messages')),
-                                    ('output_messages', YLeaf(YType.uint32, 'output-messages')),
-                                    ('input_update_messages', YLeaf(YType.uint32, 'input-update-messages')),
-                                    ('output_update_messages', YLeaf(YType.uint32, 'output-update-messages')),
-                                    ('conn_established', YLeaf(YType.uint32, 'conn-established')),
-                                    ('conn_dropped', YLeaf(YType.uint32, 'conn-dropped')),
-                                    ('errors_received', YLeaf(YType.uint32, 'errors-received')),
-                                    ('errors_sent', YLeaf(YType.uint32, 'errors-sent')),
+                                    ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                    ('input_messages', (YLeaf(YType.uint32, 'input-messages'), ['int'])),
+                                    ('output_messages', (YLeaf(YType.uint32, 'output-messages'), ['int'])),
+                                    ('input_update_messages', (YLeaf(YType.uint32, 'input-update-messages'), ['int'])),
+                                    ('output_update_messages', (YLeaf(YType.uint32, 'output-update-messages'), ['int'])),
+                                    ('conn_established', (YLeaf(YType.uint32, 'conn-established'), ['int'])),
+                                    ('conn_dropped', (YLeaf(YType.uint32, 'conn-dropped'), ['int'])),
+                                    ('errors_received', (YLeaf(YType.uint32, 'errors-received'), ['int'])),
+                                    ('errors_sent', (YLeaf(YType.uint32, 'errors-sent'), ['int'])),
                                 ])
                                 self.sample_id = None
                                 self.time_stamp = None
@@ -2013,9 +2044,10 @@ class PerfMgmt(Entity):
                                 self.errors_received = None
                                 self.errors_sent = None
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, ['sample_id', u'time_stamp', u'input_messages', u'output_messages', u'input_update_messages', u'output_update_messages', u'conn_established', u'conn_dropped', u'errors_received', u'errors_sent'], name, value)
+                                self._perform_setattr(PerfMgmt.Periodic.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, ['sample_id', 'time_stamp', 'input_messages', 'output_messages', 'input_update_messages', 'output_update_messages', 'conn_established', 'conn_dropped', 'errors_received', 'errors_sent'], name, value)
 
 
         class Interface(Entity):
@@ -2042,7 +2074,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Periodic.Interface, self).__init__()
@@ -2068,6 +2100,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["data_rate_interfaces"] = "data-rate-interfaces"
                 self._segment_path = lambda: "interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Periodic.Interface, [], name, value)
@@ -2088,7 +2121,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Periodic.Interface.GenericCounterInterfaces, self).__init__()
@@ -2104,6 +2137,7 @@ class PerfMgmt(Entity):
                     self.generic_counter_interface = YList(self)
                     self._segment_path = lambda: "generic-counter-interfaces"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Periodic.Interface.GenericCounterInterfaces, [], name, value)
@@ -2118,7 +2152,7 @@ class PerfMgmt(Entity):
                     	Interface Name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: samples
                     
@@ -2130,7 +2164,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface, self).__init__()
@@ -2142,7 +2176,7 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
 
@@ -2151,6 +2185,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["samples"] = "samples"
                         self._segment_path = lambda: "generic-counter-interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/generic-counter-interfaces/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface, ['interface_name'], name, value)
@@ -2170,7 +2205,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples, self).__init__()
@@ -2185,6 +2220,7 @@ class PerfMgmt(Entity):
 
                             self.sample = YList(self)
                             self._segment_path = lambda: "samples"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples, [], name, value)
@@ -2199,7 +2235,7 @@ class PerfMgmt(Entity):
                             	Sample ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: time_stamp
                             
@@ -2359,7 +2395,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, self).__init__()
@@ -2371,28 +2407,28 @@ class PerfMgmt(Entity):
                                 self.ylist_key_names = ['sample_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                    ('in_packets', YLeaf(YType.uint64, 'in-packets')),
-                                    ('in_octets', YLeaf(YType.uint64, 'in-octets')),
-                                    ('out_packets', YLeaf(YType.uint64, 'out-packets')),
-                                    ('out_octets', YLeaf(YType.uint64, 'out-octets')),
-                                    ('in_ucast_pkts', YLeaf(YType.uint64, 'in-ucast-pkts')),
-                                    ('in_multicast_pkts', YLeaf(YType.uint64, 'in-multicast-pkts')),
-                                    ('in_broadcast_pkts', YLeaf(YType.uint64, 'in-broadcast-pkts')),
-                                    ('out_ucast_pkts', YLeaf(YType.uint64, 'out-ucast-pkts')),
-                                    ('out_multicast_pkts', YLeaf(YType.uint64, 'out-multicast-pkts')),
-                                    ('out_broadcast_pkts', YLeaf(YType.uint64, 'out-broadcast-pkts')),
-                                    ('output_total_drops', YLeaf(YType.uint32, 'output-total-drops')),
-                                    ('input_total_drops', YLeaf(YType.uint32, 'input-total-drops')),
-                                    ('input_queue_drops', YLeaf(YType.uint32, 'input-queue-drops')),
-                                    ('input_unknown_proto', YLeaf(YType.uint32, 'input-unknown-proto')),
-                                    ('output_total_errors', YLeaf(YType.uint32, 'output-total-errors')),
-                                    ('output_underrun', YLeaf(YType.uint32, 'output-underrun')),
-                                    ('input_total_errors', YLeaf(YType.uint32, 'input-total-errors')),
-                                    ('input_crc', YLeaf(YType.uint32, 'input-crc')),
-                                    ('input_overrun', YLeaf(YType.uint32, 'input-overrun')),
-                                    ('input_frame', YLeaf(YType.uint32, 'input-frame')),
+                                    ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                    ('in_packets', (YLeaf(YType.uint64, 'in-packets'), ['int'])),
+                                    ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
+                                    ('out_packets', (YLeaf(YType.uint64, 'out-packets'), ['int'])),
+                                    ('out_octets', (YLeaf(YType.uint64, 'out-octets'), ['int'])),
+                                    ('in_ucast_pkts', (YLeaf(YType.uint64, 'in-ucast-pkts'), ['int'])),
+                                    ('in_multicast_pkts', (YLeaf(YType.uint64, 'in-multicast-pkts'), ['int'])),
+                                    ('in_broadcast_pkts', (YLeaf(YType.uint64, 'in-broadcast-pkts'), ['int'])),
+                                    ('out_ucast_pkts', (YLeaf(YType.uint64, 'out-ucast-pkts'), ['int'])),
+                                    ('out_multicast_pkts', (YLeaf(YType.uint64, 'out-multicast-pkts'), ['int'])),
+                                    ('out_broadcast_pkts', (YLeaf(YType.uint64, 'out-broadcast-pkts'), ['int'])),
+                                    ('output_total_drops', (YLeaf(YType.uint32, 'output-total-drops'), ['int'])),
+                                    ('input_total_drops', (YLeaf(YType.uint32, 'input-total-drops'), ['int'])),
+                                    ('input_queue_drops', (YLeaf(YType.uint32, 'input-queue-drops'), ['int'])),
+                                    ('input_unknown_proto', (YLeaf(YType.uint32, 'input-unknown-proto'), ['int'])),
+                                    ('output_total_errors', (YLeaf(YType.uint32, 'output-total-errors'), ['int'])),
+                                    ('output_underrun', (YLeaf(YType.uint32, 'output-underrun'), ['int'])),
+                                    ('input_total_errors', (YLeaf(YType.uint32, 'input-total-errors'), ['int'])),
+                                    ('input_crc', (YLeaf(YType.uint32, 'input-crc'), ['int'])),
+                                    ('input_overrun', (YLeaf(YType.uint32, 'input-overrun'), ['int'])),
+                                    ('input_frame', (YLeaf(YType.uint32, 'input-frame'), ['int'])),
                                 ])
                                 self.sample_id = None
                                 self.time_stamp = None
@@ -2417,9 +2453,10 @@ class PerfMgmt(Entity):
                                 self.input_overrun = None
                                 self.input_frame = None
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, ['sample_id', u'time_stamp', u'in_packets', u'in_octets', u'out_packets', u'out_octets', u'in_ucast_pkts', u'in_multicast_pkts', u'in_broadcast_pkts', u'out_ucast_pkts', u'out_multicast_pkts', u'out_broadcast_pkts', u'output_total_drops', u'input_total_drops', u'input_queue_drops', u'input_unknown_proto', u'output_total_errors', u'output_underrun', u'input_total_errors', u'input_crc', u'input_overrun', u'input_frame'], name, value)
+                                self._perform_setattr(PerfMgmt.Periodic.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, ['sample_id', 'time_stamp', 'in_packets', 'in_octets', 'out_packets', 'out_octets', 'in_ucast_pkts', 'in_multicast_pkts', 'in_broadcast_pkts', 'out_ucast_pkts', 'out_multicast_pkts', 'out_broadcast_pkts', 'output_total_drops', 'input_total_drops', 'input_queue_drops', 'input_unknown_proto', 'output_total_errors', 'output_underrun', 'input_total_errors', 'input_crc', 'input_overrun', 'input_frame'], name, value)
 
 
             class BasicCounterInterfaces(Entity):
@@ -2437,7 +2474,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Periodic.Interface.BasicCounterInterfaces, self).__init__()
@@ -2453,6 +2490,7 @@ class PerfMgmt(Entity):
                     self.basic_counter_interface = YList(self)
                     self._segment_path = lambda: "basic-counter-interfaces"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Periodic.Interface.BasicCounterInterfaces, [], name, value)
@@ -2467,7 +2505,7 @@ class PerfMgmt(Entity):
                     	Interface Name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: samples
                     
@@ -2479,7 +2517,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface, self).__init__()
@@ -2491,7 +2529,7 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
 
@@ -2500,6 +2538,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["samples"] = "samples"
                         self._segment_path = lambda: "basic-counter-interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/basic-counter-interfaces/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface, ['interface_name'], name, value)
@@ -2519,7 +2558,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples, self).__init__()
@@ -2534,6 +2573,7 @@ class PerfMgmt(Entity):
 
                             self.sample = YList(self)
                             self._segment_path = lambda: "samples"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples, [], name, value)
@@ -2548,7 +2588,7 @@ class PerfMgmt(Entity):
                             	Sample ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: time_stamp
                             
@@ -2638,7 +2678,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, self).__init__()
@@ -2650,18 +2690,18 @@ class PerfMgmt(Entity):
                                 self.ylist_key_names = ['sample_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                    ('in_packets', YLeaf(YType.uint64, 'in-packets')),
-                                    ('in_octets', YLeaf(YType.uint64, 'in-octets')),
-                                    ('out_packets', YLeaf(YType.uint64, 'out-packets')),
-                                    ('out_octets', YLeaf(YType.uint64, 'out-octets')),
-                                    ('input_total_drops', YLeaf(YType.uint64, 'input-total-drops')),
-                                    ('input_queue_drops', YLeaf(YType.uint64, 'input-queue-drops')),
-                                    ('input_total_errors', YLeaf(YType.uint64, 'input-total-errors')),
-                                    ('output_total_drops', YLeaf(YType.uint64, 'output-total-drops')),
-                                    ('output_queue_drops', YLeaf(YType.uint64, 'output-queue-drops')),
-                                    ('output_total_errors', YLeaf(YType.uint64, 'output-total-errors')),
+                                    ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                    ('in_packets', (YLeaf(YType.uint64, 'in-packets'), ['int'])),
+                                    ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
+                                    ('out_packets', (YLeaf(YType.uint64, 'out-packets'), ['int'])),
+                                    ('out_octets', (YLeaf(YType.uint64, 'out-octets'), ['int'])),
+                                    ('input_total_drops', (YLeaf(YType.uint64, 'input-total-drops'), ['int'])),
+                                    ('input_queue_drops', (YLeaf(YType.uint64, 'input-queue-drops'), ['int'])),
+                                    ('input_total_errors', (YLeaf(YType.uint64, 'input-total-errors'), ['int'])),
+                                    ('output_total_drops', (YLeaf(YType.uint64, 'output-total-drops'), ['int'])),
+                                    ('output_queue_drops', (YLeaf(YType.uint64, 'output-queue-drops'), ['int'])),
+                                    ('output_total_errors', (YLeaf(YType.uint64, 'output-total-errors'), ['int'])),
                                 ])
                                 self.sample_id = None
                                 self.time_stamp = None
@@ -2676,9 +2716,10 @@ class PerfMgmt(Entity):
                                 self.output_queue_drops = None
                                 self.output_total_errors = None
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, ['sample_id', u'time_stamp', u'in_packets', u'in_octets', u'out_packets', u'out_octets', u'input_total_drops', u'input_queue_drops', u'input_total_errors', u'output_total_drops', u'output_queue_drops', u'output_total_errors'], name, value)
+                                self._perform_setattr(PerfMgmt.Periodic.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, ['sample_id', 'time_stamp', 'in_packets', 'in_octets', 'out_packets', 'out_octets', 'input_total_drops', 'input_queue_drops', 'input_total_errors', 'output_total_drops', 'output_queue_drops', 'output_total_errors'], name, value)
 
 
             class DataRateInterfaces(Entity):
@@ -2695,7 +2736,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Periodic.Interface.DataRateInterfaces, self).__init__()
@@ -2711,6 +2752,7 @@ class PerfMgmt(Entity):
                     self.data_rate_interface = YList(self)
                     self._segment_path = lambda: "data-rate-interfaces"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Periodic.Interface.DataRateInterfaces, [], name, value)
@@ -2725,7 +2767,7 @@ class PerfMgmt(Entity):
                     	Interface Name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: samples
                     
@@ -2737,7 +2779,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface, self).__init__()
@@ -2749,7 +2791,7 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
 
@@ -2758,6 +2800,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["samples"] = "samples"
                         self._segment_path = lambda: "data-rate-interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/periodic/interface/data-rate-interfaces/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface, ['interface_name'], name, value)
@@ -2777,7 +2820,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples, self).__init__()
@@ -2792,6 +2835,7 @@ class PerfMgmt(Entity):
 
                             self.sample = YList(self)
                             self._segment_path = lambda: "samples"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples, [], name, value)
@@ -2806,7 +2850,7 @@ class PerfMgmt(Entity):
                             	Sample ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: time_stamp
                             
@@ -2895,7 +2939,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, self).__init__()
@@ -2907,17 +2951,17 @@ class PerfMgmt(Entity):
                                 self.ylist_key_names = ['sample_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                    ('input_data_rate', YLeaf(YType.uint32, 'input-data-rate')),
-                                    ('input_packet_rate', YLeaf(YType.uint32, 'input-packet-rate')),
-                                    ('output_data_rate', YLeaf(YType.uint32, 'output-data-rate')),
-                                    ('output_packet_rate', YLeaf(YType.uint32, 'output-packet-rate')),
-                                    ('input_peak_rate', YLeaf(YType.uint32, 'input-peak-rate')),
-                                    ('input_peak_pkts', YLeaf(YType.uint32, 'input-peak-pkts')),
-                                    ('output_peak_rate', YLeaf(YType.uint32, 'output-peak-rate')),
-                                    ('output_peak_pkts', YLeaf(YType.uint32, 'output-peak-pkts')),
-                                    ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                                    ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                    ('input_data_rate', (YLeaf(YType.uint32, 'input-data-rate'), ['int'])),
+                                    ('input_packet_rate', (YLeaf(YType.uint32, 'input-packet-rate'), ['int'])),
+                                    ('output_data_rate', (YLeaf(YType.uint32, 'output-data-rate'), ['int'])),
+                                    ('output_packet_rate', (YLeaf(YType.uint32, 'output-packet-rate'), ['int'])),
+                                    ('input_peak_rate', (YLeaf(YType.uint32, 'input-peak-rate'), ['int'])),
+                                    ('input_peak_pkts', (YLeaf(YType.uint32, 'input-peak-pkts'), ['int'])),
+                                    ('output_peak_rate', (YLeaf(YType.uint32, 'output-peak-rate'), ['int'])),
+                                    ('output_peak_pkts', (YLeaf(YType.uint32, 'output-peak-pkts'), ['int'])),
+                                    ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
                                 ])
                                 self.sample_id = None
                                 self.time_stamp = None
@@ -2931,9 +2975,10 @@ class PerfMgmt(Entity):
                                 self.output_peak_pkts = None
                                 self.bandwidth = None
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, ['sample_id', u'time_stamp', u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate', u'input_peak_rate', u'input_peak_pkts', u'output_peak_rate', u'output_peak_pkts', u'bandwidth'], name, value)
+                                self._perform_setattr(PerfMgmt.Periodic.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, ['sample_id', 'time_stamp', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'input_peak_rate', 'input_peak_pkts', 'output_peak_rate', 'output_peak_pkts', 'bandwidth'], name, value)
 
 
     class Monitor(Entity):
@@ -2970,7 +3015,7 @@ class PerfMgmt(Entity):
         """
 
         _prefix = 'manageability-perfmgmt-oper'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(PerfMgmt.Monitor, self).__init__()
@@ -3004,6 +3049,7 @@ class PerfMgmt(Entity):
             self._children_name_map["interface"] = "interface"
             self._segment_path = lambda: "monitor"
             self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PerfMgmt.Monitor, [], name, value)
@@ -3028,7 +3074,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Monitor.Ospf, self).__init__()
@@ -3050,6 +3096,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["ospfv3_protocol_instances"] = "ospfv3-protocol-instances"
                 self._segment_path = lambda: "ospf"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Monitor.Ospf, [], name, value)
@@ -3070,7 +3117,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances, self).__init__()
@@ -3086,6 +3133,7 @@ class PerfMgmt(Entity):
                     self.ospfv2_protocol_instance = YList(self)
                     self._segment_path = lambda: "ospfv2-protocol-instances"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/ospf/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances, [], name, value)
@@ -3113,7 +3161,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance, self).__init__()
@@ -3125,7 +3173,7 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['instance_name']
                         self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples))])
                         self._leafs = OrderedDict([
-                            ('instance_name', YLeaf(YType.str, 'instance-name')),
+                            ('instance_name', (YLeaf(YType.str, 'instance-name'), ['str'])),
                         ])
                         self.instance_name = None
 
@@ -3134,6 +3182,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["samples"] = "samples"
                         self._segment_path = lambda: "ospfv2-protocol-instance" + "[instance-name='" + str(self.instance_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/ospf/ospfv2-protocol-instances/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance, ['instance_name'], name, value)
@@ -3153,7 +3202,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples, self).__init__()
@@ -3168,6 +3217,7 @@ class PerfMgmt(Entity):
 
                             self.sample = YList(self)
                             self._segment_path = lambda: "samples"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples, [], name, value)
@@ -3182,7 +3232,7 @@ class PerfMgmt(Entity):
                             	Sample ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: time_stamp
                             
@@ -3345,7 +3395,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, self).__init__()
@@ -3357,29 +3407,29 @@ class PerfMgmt(Entity):
                                 self.ylist_key_names = ['sample_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                    ('input_packets', YLeaf(YType.uint32, 'input-packets')),
-                                    ('output_packets', YLeaf(YType.uint32, 'output-packets')),
-                                    ('input_hello_packets', YLeaf(YType.uint32, 'input-hello-packets')),
-                                    ('output_hello_packets', YLeaf(YType.uint32, 'output-hello-packets')),
-                                    ('input_db_ds', YLeaf(YType.uint32, 'input-db-ds')),
-                                    ('input_db_ds_lsa', YLeaf(YType.uint32, 'input-db-ds-lsa')),
-                                    ('output_db_ds', YLeaf(YType.uint32, 'output-db-ds')),
-                                    ('output_db_ds_lsa', YLeaf(YType.uint32, 'output-db-ds-lsa')),
-                                    ('input_ls_requests', YLeaf(YType.uint32, 'input-ls-requests')),
-                                    ('input_ls_requests_lsa', YLeaf(YType.uint32, 'input-ls-requests-lsa')),
-                                    ('output_ls_requests', YLeaf(YType.uint32, 'output-ls-requests')),
-                                    ('output_ls_requests_lsa', YLeaf(YType.uint32, 'output-ls-requests-lsa')),
-                                    ('input_lsa_updates', YLeaf(YType.uint32, 'input-lsa-updates')),
-                                    ('input_lsa_updates_lsa', YLeaf(YType.uint32, 'input-lsa-updates-lsa')),
-                                    ('output_lsa_updates', YLeaf(YType.uint32, 'output-lsa-updates')),
-                                    ('output_lsa_updates_lsa', YLeaf(YType.uint32, 'output-lsa-updates-lsa')),
-                                    ('input_lsa_acks', YLeaf(YType.uint32, 'input-lsa-acks')),
-                                    ('input_lsa_acks_lsa', YLeaf(YType.uint32, 'input-lsa-acks-lsa')),
-                                    ('output_lsa_acks', YLeaf(YType.uint32, 'output-lsa-acks')),
-                                    ('output_lsa_acks_lsa', YLeaf(YType.uint32, 'output-lsa-acks-lsa')),
-                                    ('checksum_errors', YLeaf(YType.uint32, 'checksum-errors')),
+                                    ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                    ('input_packets', (YLeaf(YType.uint32, 'input-packets'), ['int'])),
+                                    ('output_packets', (YLeaf(YType.uint32, 'output-packets'), ['int'])),
+                                    ('input_hello_packets', (YLeaf(YType.uint32, 'input-hello-packets'), ['int'])),
+                                    ('output_hello_packets', (YLeaf(YType.uint32, 'output-hello-packets'), ['int'])),
+                                    ('input_db_ds', (YLeaf(YType.uint32, 'input-db-ds'), ['int'])),
+                                    ('input_db_ds_lsa', (YLeaf(YType.uint32, 'input-db-ds-lsa'), ['int'])),
+                                    ('output_db_ds', (YLeaf(YType.uint32, 'output-db-ds'), ['int'])),
+                                    ('output_db_ds_lsa', (YLeaf(YType.uint32, 'output-db-ds-lsa'), ['int'])),
+                                    ('input_ls_requests', (YLeaf(YType.uint32, 'input-ls-requests'), ['int'])),
+                                    ('input_ls_requests_lsa', (YLeaf(YType.uint32, 'input-ls-requests-lsa'), ['int'])),
+                                    ('output_ls_requests', (YLeaf(YType.uint32, 'output-ls-requests'), ['int'])),
+                                    ('output_ls_requests_lsa', (YLeaf(YType.uint32, 'output-ls-requests-lsa'), ['int'])),
+                                    ('input_lsa_updates', (YLeaf(YType.uint32, 'input-lsa-updates'), ['int'])),
+                                    ('input_lsa_updates_lsa', (YLeaf(YType.uint32, 'input-lsa-updates-lsa'), ['int'])),
+                                    ('output_lsa_updates', (YLeaf(YType.uint32, 'output-lsa-updates'), ['int'])),
+                                    ('output_lsa_updates_lsa', (YLeaf(YType.uint32, 'output-lsa-updates-lsa'), ['int'])),
+                                    ('input_lsa_acks', (YLeaf(YType.uint32, 'input-lsa-acks'), ['int'])),
+                                    ('input_lsa_acks_lsa', (YLeaf(YType.uint32, 'input-lsa-acks-lsa'), ['int'])),
+                                    ('output_lsa_acks', (YLeaf(YType.uint32, 'output-lsa-acks'), ['int'])),
+                                    ('output_lsa_acks_lsa', (YLeaf(YType.uint32, 'output-lsa-acks-lsa'), ['int'])),
+                                    ('checksum_errors', (YLeaf(YType.uint32, 'checksum-errors'), ['int'])),
                                 ])
                                 self.sample_id = None
                                 self.time_stamp = None
@@ -3405,9 +3455,10 @@ class PerfMgmt(Entity):
                                 self.output_lsa_acks_lsa = None
                                 self.checksum_errors = None
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, ['sample_id', u'time_stamp', u'input_packets', u'output_packets', u'input_hello_packets', u'output_hello_packets', u'input_db_ds', u'input_db_ds_lsa', u'output_db_ds', u'output_db_ds_lsa', u'input_ls_requests', u'input_ls_requests_lsa', u'output_ls_requests', u'output_ls_requests_lsa', u'input_lsa_updates', u'input_lsa_updates_lsa', u'output_lsa_updates', u'output_lsa_updates_lsa', u'input_lsa_acks', u'input_lsa_acks_lsa', u'output_lsa_acks', u'output_lsa_acks_lsa', u'checksum_errors'], name, value)
+                                self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv2ProtocolInstances.Ospfv2ProtocolInstance.Samples.Sample, ['sample_id', 'time_stamp', 'input_packets', 'output_packets', 'input_hello_packets', 'output_hello_packets', 'input_db_ds', 'input_db_ds_lsa', 'output_db_ds', 'output_db_ds_lsa', 'input_ls_requests', 'input_ls_requests_lsa', 'output_ls_requests', 'output_ls_requests_lsa', 'input_lsa_updates', 'input_lsa_updates_lsa', 'output_lsa_updates', 'output_lsa_updates_lsa', 'input_lsa_acks', 'input_lsa_acks_lsa', 'output_lsa_acks', 'output_lsa_acks_lsa', 'checksum_errors'], name, value)
 
 
             class Ospfv3ProtocolInstances(Entity):
@@ -3425,7 +3476,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances, self).__init__()
@@ -3441,6 +3492,7 @@ class PerfMgmt(Entity):
                     self.ospfv3_protocol_instance = YList(self)
                     self._segment_path = lambda: "ospfv3-protocol-instances"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/ospf/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances, [], name, value)
@@ -3468,7 +3520,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance, self).__init__()
@@ -3480,7 +3532,7 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['instance_name']
                         self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples))])
                         self._leafs = OrderedDict([
-                            ('instance_name', YLeaf(YType.str, 'instance-name')),
+                            ('instance_name', (YLeaf(YType.str, 'instance-name'), ['str'])),
                         ])
                         self.instance_name = None
 
@@ -3489,6 +3541,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["samples"] = "samples"
                         self._segment_path = lambda: "ospfv3-protocol-instance" + "[instance-name='" + str(self.instance_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/ospf/ospfv3-protocol-instances/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance, ['instance_name'], name, value)
@@ -3508,7 +3561,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples, self).__init__()
@@ -3523,6 +3576,7 @@ class PerfMgmt(Entity):
 
                             self.sample = YList(self)
                             self._segment_path = lambda: "samples"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples, [], name, value)
@@ -3537,7 +3591,7 @@ class PerfMgmt(Entity):
                             	Sample ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: time_stamp
                             
@@ -3693,7 +3747,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, self).__init__()
@@ -3705,28 +3759,28 @@ class PerfMgmt(Entity):
                                 self.ylist_key_names = ['sample_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                    ('input_packets', YLeaf(YType.uint32, 'input-packets')),
-                                    ('output_packets', YLeaf(YType.uint32, 'output-packets')),
-                                    ('input_hello_packets', YLeaf(YType.uint32, 'input-hello-packets')),
-                                    ('output_hello_packets', YLeaf(YType.uint32, 'output-hello-packets')),
-                                    ('input_db_ds', YLeaf(YType.uint32, 'input-db-ds')),
-                                    ('input_db_ds_lsa', YLeaf(YType.uint32, 'input-db-ds-lsa')),
-                                    ('output_db_ds', YLeaf(YType.uint32, 'output-db-ds')),
-                                    ('output_db_ds_lsa', YLeaf(YType.uint32, 'output-db-ds-lsa')),
-                                    ('input_ls_requests', YLeaf(YType.uint32, 'input-ls-requests')),
-                                    ('input_ls_requests_lsa', YLeaf(YType.uint32, 'input-ls-requests-lsa')),
-                                    ('output_ls_requests', YLeaf(YType.uint32, 'output-ls-requests')),
-                                    ('output_ls_requests_lsa', YLeaf(YType.uint32, 'output-ls-requests-lsa')),
-                                    ('input_lsa_updates', YLeaf(YType.uint32, 'input-lsa-updates')),
-                                    ('input_lsa_updates_lsa', YLeaf(YType.uint32, 'input-lsa-updates-lsa')),
-                                    ('output_lsa_updates', YLeaf(YType.uint32, 'output-lsa-updates')),
-                                    ('output_lsa_updates_lsa', YLeaf(YType.uint32, 'output-lsa-updates-lsa')),
-                                    ('input_lsa_acks', YLeaf(YType.uint32, 'input-lsa-acks')),
-                                    ('input_lsa_acks_lsa', YLeaf(YType.uint32, 'input-lsa-acks-lsa')),
-                                    ('output_lsa_acks', YLeaf(YType.uint32, 'output-lsa-acks')),
-                                    ('output_lsa_acks_lsa', YLeaf(YType.uint32, 'output-lsa-acks-lsa')),
+                                    ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                    ('input_packets', (YLeaf(YType.uint32, 'input-packets'), ['int'])),
+                                    ('output_packets', (YLeaf(YType.uint32, 'output-packets'), ['int'])),
+                                    ('input_hello_packets', (YLeaf(YType.uint32, 'input-hello-packets'), ['int'])),
+                                    ('output_hello_packets', (YLeaf(YType.uint32, 'output-hello-packets'), ['int'])),
+                                    ('input_db_ds', (YLeaf(YType.uint32, 'input-db-ds'), ['int'])),
+                                    ('input_db_ds_lsa', (YLeaf(YType.uint32, 'input-db-ds-lsa'), ['int'])),
+                                    ('output_db_ds', (YLeaf(YType.uint32, 'output-db-ds'), ['int'])),
+                                    ('output_db_ds_lsa', (YLeaf(YType.uint32, 'output-db-ds-lsa'), ['int'])),
+                                    ('input_ls_requests', (YLeaf(YType.uint32, 'input-ls-requests'), ['int'])),
+                                    ('input_ls_requests_lsa', (YLeaf(YType.uint32, 'input-ls-requests-lsa'), ['int'])),
+                                    ('output_ls_requests', (YLeaf(YType.uint32, 'output-ls-requests'), ['int'])),
+                                    ('output_ls_requests_lsa', (YLeaf(YType.uint32, 'output-ls-requests-lsa'), ['int'])),
+                                    ('input_lsa_updates', (YLeaf(YType.uint32, 'input-lsa-updates'), ['int'])),
+                                    ('input_lsa_updates_lsa', (YLeaf(YType.uint32, 'input-lsa-updates-lsa'), ['int'])),
+                                    ('output_lsa_updates', (YLeaf(YType.uint32, 'output-lsa-updates'), ['int'])),
+                                    ('output_lsa_updates_lsa', (YLeaf(YType.uint32, 'output-lsa-updates-lsa'), ['int'])),
+                                    ('input_lsa_acks', (YLeaf(YType.uint32, 'input-lsa-acks'), ['int'])),
+                                    ('input_lsa_acks_lsa', (YLeaf(YType.uint32, 'input-lsa-acks-lsa'), ['int'])),
+                                    ('output_lsa_acks', (YLeaf(YType.uint32, 'output-lsa-acks'), ['int'])),
+                                    ('output_lsa_acks_lsa', (YLeaf(YType.uint32, 'output-lsa-acks-lsa'), ['int'])),
                                 ])
                                 self.sample_id = None
                                 self.time_stamp = None
@@ -3751,9 +3805,10 @@ class PerfMgmt(Entity):
                                 self.output_lsa_acks = None
                                 self.output_lsa_acks_lsa = None
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, ['sample_id', u'time_stamp', u'input_packets', u'output_packets', u'input_hello_packets', u'output_hello_packets', u'input_db_ds', u'input_db_ds_lsa', u'output_db_ds', u'output_db_ds_lsa', u'input_ls_requests', u'input_ls_requests_lsa', u'output_ls_requests', u'output_ls_requests_lsa', u'input_lsa_updates', u'input_lsa_updates_lsa', u'output_lsa_updates', u'output_lsa_updates_lsa', u'input_lsa_acks', u'input_lsa_acks_lsa', u'output_lsa_acks', u'output_lsa_acks_lsa'], name, value)
+                                self._perform_setattr(PerfMgmt.Monitor.Ospf.Ospfv3ProtocolInstances.Ospfv3ProtocolInstance.Samples.Sample, ['sample_id', 'time_stamp', 'input_packets', 'output_packets', 'input_hello_packets', 'output_hello_packets', 'input_db_ds', 'input_db_ds_lsa', 'output_db_ds', 'output_db_ds_lsa', 'input_ls_requests', 'input_ls_requests_lsa', 'output_ls_requests', 'output_ls_requests_lsa', 'input_lsa_updates', 'input_lsa_updates_lsa', 'output_lsa_updates', 'output_lsa_updates_lsa', 'input_lsa_acks', 'input_lsa_acks_lsa', 'output_lsa_acks', 'output_lsa_acks_lsa'], name, value)
 
 
         class Mpls(Entity):
@@ -3770,7 +3825,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Monitor.Mpls, self).__init__()
@@ -3788,6 +3843,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["ldp_neighbors"] = "ldp-neighbors"
                 self._segment_path = lambda: "mpls"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Monitor.Mpls, [], name, value)
@@ -3808,7 +3864,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Monitor.Mpls.LdpNeighbors, self).__init__()
@@ -3824,6 +3880,7 @@ class PerfMgmt(Entity):
                     self.ldp_neighbor = YList(self)
                     self._segment_path = lambda: "ldp-neighbors"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/mpls/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Monitor.Mpls.LdpNeighbors, [], name, value)
@@ -3850,7 +3907,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor, self).__init__()
@@ -3862,7 +3919,7 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['nbr']
                         self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples))])
                         self._leafs = OrderedDict([
-                            ('nbr', YLeaf(YType.str, 'nbr')),
+                            ('nbr', (YLeaf(YType.str, 'nbr'), ['str'])),
                         ])
                         self.nbr = None
 
@@ -3871,6 +3928,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["samples"] = "samples"
                         self._segment_path = lambda: "ldp-neighbor" + "[nbr='" + str(self.nbr) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/mpls/ldp-neighbors/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor, ['nbr'], name, value)
@@ -3890,7 +3948,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples, self).__init__()
@@ -3905,6 +3963,7 @@ class PerfMgmt(Entity):
 
                             self.sample = YList(self)
                             self._segment_path = lambda: "samples"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples, [], name, value)
@@ -3919,7 +3978,7 @@ class PerfMgmt(Entity):
                             	Sample ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: time_stamp
                             
@@ -4061,7 +4120,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, self).__init__()
@@ -4073,26 +4132,26 @@ class PerfMgmt(Entity):
                                 self.ylist_key_names = ['sample_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                    ('total_msgs_sent', YLeaf(YType.uint16, 'total-msgs-sent')),
-                                    ('total_msgs_rcvd', YLeaf(YType.uint16, 'total-msgs-rcvd')),
-                                    ('init_msgs_sent', YLeaf(YType.uint16, 'init-msgs-sent')),
-                                    ('init_msgs_rcvd', YLeaf(YType.uint16, 'init-msgs-rcvd')),
-                                    ('address_msgs_sent', YLeaf(YType.uint16, 'address-msgs-sent')),
-                                    ('address_msgs_rcvd', YLeaf(YType.uint16, 'address-msgs-rcvd')),
-                                    ('address_withdraw_msgs_sent', YLeaf(YType.uint16, 'address-withdraw-msgs-sent')),
-                                    ('address_withdraw_msgs_rcvd', YLeaf(YType.uint16, 'address-withdraw-msgs-rcvd')),
-                                    ('label_mapping_msgs_sent', YLeaf(YType.uint16, 'label-mapping-msgs-sent')),
-                                    ('label_mapping_msgs_rcvd', YLeaf(YType.uint16, 'label-mapping-msgs-rcvd')),
-                                    ('label_withdraw_msgs_sent', YLeaf(YType.uint16, 'label-withdraw-msgs-sent')),
-                                    ('label_withdraw_msgs_rcvd', YLeaf(YType.uint16, 'label-withdraw-msgs-rcvd')),
-                                    ('label_release_msgs_sent', YLeaf(YType.uint16, 'label-release-msgs-sent')),
-                                    ('label_release_msgs_rcvd', YLeaf(YType.uint16, 'label-release-msgs-rcvd')),
-                                    ('notification_msgs_sent', YLeaf(YType.uint16, 'notification-msgs-sent')),
-                                    ('notification_msgs_rcvd', YLeaf(YType.uint16, 'notification-msgs-rcvd')),
-                                    ('keepalive_msgs_sent', YLeaf(YType.uint16, 'keepalive-msgs-sent')),
-                                    ('keepalive_msgs_rcvd', YLeaf(YType.uint16, 'keepalive-msgs-rcvd')),
+                                    ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                    ('total_msgs_sent', (YLeaf(YType.uint16, 'total-msgs-sent'), ['int'])),
+                                    ('total_msgs_rcvd', (YLeaf(YType.uint16, 'total-msgs-rcvd'), ['int'])),
+                                    ('init_msgs_sent', (YLeaf(YType.uint16, 'init-msgs-sent'), ['int'])),
+                                    ('init_msgs_rcvd', (YLeaf(YType.uint16, 'init-msgs-rcvd'), ['int'])),
+                                    ('address_msgs_sent', (YLeaf(YType.uint16, 'address-msgs-sent'), ['int'])),
+                                    ('address_msgs_rcvd', (YLeaf(YType.uint16, 'address-msgs-rcvd'), ['int'])),
+                                    ('address_withdraw_msgs_sent', (YLeaf(YType.uint16, 'address-withdraw-msgs-sent'), ['int'])),
+                                    ('address_withdraw_msgs_rcvd', (YLeaf(YType.uint16, 'address-withdraw-msgs-rcvd'), ['int'])),
+                                    ('label_mapping_msgs_sent', (YLeaf(YType.uint16, 'label-mapping-msgs-sent'), ['int'])),
+                                    ('label_mapping_msgs_rcvd', (YLeaf(YType.uint16, 'label-mapping-msgs-rcvd'), ['int'])),
+                                    ('label_withdraw_msgs_sent', (YLeaf(YType.uint16, 'label-withdraw-msgs-sent'), ['int'])),
+                                    ('label_withdraw_msgs_rcvd', (YLeaf(YType.uint16, 'label-withdraw-msgs-rcvd'), ['int'])),
+                                    ('label_release_msgs_sent', (YLeaf(YType.uint16, 'label-release-msgs-sent'), ['int'])),
+                                    ('label_release_msgs_rcvd', (YLeaf(YType.uint16, 'label-release-msgs-rcvd'), ['int'])),
+                                    ('notification_msgs_sent', (YLeaf(YType.uint16, 'notification-msgs-sent'), ['int'])),
+                                    ('notification_msgs_rcvd', (YLeaf(YType.uint16, 'notification-msgs-rcvd'), ['int'])),
+                                    ('keepalive_msgs_sent', (YLeaf(YType.uint16, 'keepalive-msgs-sent'), ['int'])),
+                                    ('keepalive_msgs_rcvd', (YLeaf(YType.uint16, 'keepalive-msgs-rcvd'), ['int'])),
                                 ])
                                 self.sample_id = None
                                 self.time_stamp = None
@@ -4115,9 +4174,10 @@ class PerfMgmt(Entity):
                                 self.keepalive_msgs_sent = None
                                 self.keepalive_msgs_rcvd = None
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, ['sample_id', u'time_stamp', u'total_msgs_sent', u'total_msgs_rcvd', u'init_msgs_sent', u'init_msgs_rcvd', u'address_msgs_sent', u'address_msgs_rcvd', u'address_withdraw_msgs_sent', u'address_withdraw_msgs_rcvd', u'label_mapping_msgs_sent', u'label_mapping_msgs_rcvd', u'label_withdraw_msgs_sent', u'label_withdraw_msgs_rcvd', u'label_release_msgs_sent', u'label_release_msgs_rcvd', u'notification_msgs_sent', u'notification_msgs_rcvd', u'keepalive_msgs_sent', u'keepalive_msgs_rcvd'], name, value)
+                                self._perform_setattr(PerfMgmt.Monitor.Mpls.LdpNeighbors.LdpNeighbor.Samples.Sample, ['sample_id', 'time_stamp', 'total_msgs_sent', 'total_msgs_rcvd', 'init_msgs_sent', 'init_msgs_rcvd', 'address_msgs_sent', 'address_msgs_rcvd', 'address_withdraw_msgs_sent', 'address_withdraw_msgs_rcvd', 'label_mapping_msgs_sent', 'label_mapping_msgs_rcvd', 'label_withdraw_msgs_sent', 'label_withdraw_msgs_rcvd', 'label_release_msgs_sent', 'label_release_msgs_rcvd', 'notification_msgs_sent', 'notification_msgs_rcvd', 'keepalive_msgs_sent', 'keepalive_msgs_rcvd'], name, value)
 
 
         class Nodes(Entity):
@@ -4134,7 +4194,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Monitor.Nodes, self).__init__()
@@ -4150,6 +4210,7 @@ class PerfMgmt(Entity):
                 self.node = YList(self)
                 self._segment_path = lambda: "nodes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Monitor.Nodes, [], name, value)
@@ -4186,7 +4247,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Monitor.Nodes.Node, self).__init__()
@@ -4198,7 +4259,7 @@ class PerfMgmt(Entity):
                     self.ylist_key_names = ['node_id']
                     self._child_classes = OrderedDict([("sample-xr", ("sample_xr", PerfMgmt.Monitor.Nodes.Node.SampleXr)), ("processes", ("processes", PerfMgmt.Monitor.Nodes.Node.Processes)), ("samples", ("samples", PerfMgmt.Monitor.Nodes.Node.Samples))])
                     self._leafs = OrderedDict([
-                        ('node_id', YLeaf(YType.str, 'node-id')),
+                        ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
                     ])
                     self.node_id = None
 
@@ -4215,6 +4276,7 @@ class PerfMgmt(Entity):
                     self._children_name_map["samples"] = "samples"
                     self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/nodes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Monitor.Nodes.Node, ['node_id'], name, value)
@@ -4234,7 +4296,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Monitor.Nodes.Node.SampleXr, self).__init__()
@@ -4249,6 +4311,7 @@ class PerfMgmt(Entity):
 
                         self.sample = YList(self)
                         self._segment_path = lambda: "sample-xr"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.SampleXr, [], name, value)
@@ -4263,7 +4326,7 @@ class PerfMgmt(Entity):
                         	Sample ID
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: time_stamp
                         
@@ -4293,7 +4356,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Monitor.Nodes.Node.SampleXr.Sample, self).__init__()
@@ -4305,19 +4368,20 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['sample_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                ('no_processes', YLeaf(YType.uint32, 'no-processes')),
-                                ('average_cpu_used', YLeaf(YType.uint32, 'average-cpu-used')),
+                                ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                ('no_processes', (YLeaf(YType.uint32, 'no-processes'), ['int'])),
+                                ('average_cpu_used', (YLeaf(YType.uint32, 'average-cpu-used'), ['int'])),
                             ])
                             self.sample_id = None
                             self.time_stamp = None
                             self.no_processes = None
                             self.average_cpu_used = None
                             self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.SampleXr.Sample, ['sample_id', u'time_stamp', u'no_processes', u'average_cpu_used'], name, value)
+                            self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.SampleXr.Sample, ['sample_id', 'time_stamp', 'no_processes', 'average_cpu_used'], name, value)
 
 
                 class Processes(Entity):
@@ -4334,7 +4398,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Monitor.Nodes.Node.Processes, self).__init__()
@@ -4349,6 +4413,7 @@ class PerfMgmt(Entity):
 
                         self.process = YList(self)
                         self._segment_path = lambda: "processes"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Processes, [], name, value)
@@ -4363,7 +4428,7 @@ class PerfMgmt(Entity):
                         	Process ID
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: samples
                         
@@ -4375,7 +4440,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Monitor.Nodes.Node.Processes.Process, self).__init__()
@@ -4387,7 +4452,7 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['process_id']
                             self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples))])
                             self._leafs = OrderedDict([
-                                ('process_id', YLeaf(YType.int32, 'process-id')),
+                                ('process_id', (YLeaf(YType.uint32, 'process-id'), ['int'])),
                             ])
                             self.process_id = None
 
@@ -4395,6 +4460,7 @@ class PerfMgmt(Entity):
                             self.samples.parent = self
                             self._children_name_map["samples"] = "samples"
                             self._segment_path = lambda: "process" + "[process-id='" + str(self.process_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Processes.Process, ['process_id'], name, value)
@@ -4414,7 +4480,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples, self).__init__()
@@ -4429,6 +4495,7 @@ class PerfMgmt(Entity):
 
                                 self.sample = YList(self)
                                 self._segment_path = lambda: "samples"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples, [], name, value)
@@ -4443,7 +4510,7 @@ class PerfMgmt(Entity):
                                 	Sample ID
                                 	**type**\: int
                                 
-                                	**range:** \-2147483648..2147483647
+                                	**range:** 0..4294967295
                                 
                                 .. attribute:: time_stamp
                                 
@@ -4482,7 +4549,7 @@ class PerfMgmt(Entity):
                                 """
 
                                 _prefix = 'manageability-perfmgmt-oper'
-                                _revision = '2015-11-09'
+                                _revision = '2017-09-07'
 
                                 def __init__(self):
                                     super(PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples.Sample, self).__init__()
@@ -4494,11 +4561,11 @@ class PerfMgmt(Entity):
                                     self.ylist_key_names = ['sample_id']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                        ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                        ('peak_memory', YLeaf(YType.uint32, 'peak-memory')),
-                                        ('average_cpu_used', YLeaf(YType.uint32, 'average-cpu-used')),
-                                        ('no_threads', YLeaf(YType.uint32, 'no-threads')),
+                                        ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                        ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                        ('peak_memory', (YLeaf(YType.uint32, 'peak-memory'), ['int'])),
+                                        ('average_cpu_used', (YLeaf(YType.uint32, 'average-cpu-used'), ['int'])),
+                                        ('no_threads', (YLeaf(YType.uint32, 'no-threads'), ['int'])),
                                     ])
                                     self.sample_id = None
                                     self.time_stamp = None
@@ -4506,9 +4573,10 @@ class PerfMgmt(Entity):
                                     self.average_cpu_used = None
                                     self.no_threads = None
                                     self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples.Sample, ['sample_id', u'time_stamp', u'peak_memory', u'average_cpu_used', u'no_threads'], name, value)
+                                    self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Processes.Process.Samples.Sample, ['sample_id', 'time_stamp', 'peak_memory', 'average_cpu_used', 'no_threads'], name, value)
 
 
                 class Samples(Entity):
@@ -4525,7 +4593,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Monitor.Nodes.Node.Samples, self).__init__()
@@ -4540,6 +4608,7 @@ class PerfMgmt(Entity):
 
                         self.sample = YList(self)
                         self._segment_path = lambda: "samples"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Samples, [], name, value)
@@ -4554,7 +4623,7 @@ class PerfMgmt(Entity):
                         	Sample ID
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         .. attribute:: time_stamp
                         
@@ -4588,7 +4657,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Monitor.Nodes.Node.Samples.Sample, self).__init__()
@@ -4600,19 +4669,20 @@ class PerfMgmt(Entity):
                             self.ylist_key_names = ['sample_id']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                ('curr_memory', YLeaf(YType.uint32, 'curr-memory')),
-                                ('peak_memory', YLeaf(YType.uint32, 'peak-memory')),
+                                ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                ('curr_memory', (YLeaf(YType.uint32, 'curr-memory'), ['int'])),
+                                ('peak_memory', (YLeaf(YType.uint32, 'peak-memory'), ['int'])),
                             ])
                             self.sample_id = None
                             self.time_stamp = None
                             self.curr_memory = None
                             self.peak_memory = None
                             self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Samples.Sample, ['sample_id', u'time_stamp', u'curr_memory', u'peak_memory'], name, value)
+                            self._perform_setattr(PerfMgmt.Monitor.Nodes.Node.Samples.Sample, ['sample_id', 'time_stamp', 'curr_memory', 'peak_memory'], name, value)
 
 
         class Bgp(Entity):
@@ -4629,7 +4699,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Monitor.Bgp, self).__init__()
@@ -4647,6 +4717,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["bgp_neighbors"] = "bgp-neighbors"
                 self._segment_path = lambda: "bgp"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Monitor.Bgp, [], name, value)
@@ -4666,7 +4737,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Monitor.Bgp.BgpNeighbors, self).__init__()
@@ -4682,6 +4753,7 @@ class PerfMgmt(Entity):
                     self.bgp_neighbor = YList(self)
                     self._segment_path = lambda: "bgp-neighbors"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/bgp/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Monitor.Bgp.BgpNeighbors, [], name, value)
@@ -4708,7 +4780,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor, self).__init__()
@@ -4720,7 +4792,7 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['ip_address']
                         self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples))])
                         self._leafs = OrderedDict([
-                            ('ip_address', YLeaf(YType.str, 'ip-address')),
+                            ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
                         ])
                         self.ip_address = None
 
@@ -4729,6 +4801,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["samples"] = "samples"
                         self._segment_path = lambda: "bgp-neighbor" + "[ip-address='" + str(self.ip_address) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/bgp/bgp-neighbors/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor, ['ip_address'], name, value)
@@ -4748,7 +4821,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples, self).__init__()
@@ -4763,6 +4836,7 @@ class PerfMgmt(Entity):
 
                             self.sample = YList(self)
                             self._segment_path = lambda: "samples"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples, [], name, value)
@@ -4777,7 +4851,7 @@ class PerfMgmt(Entity):
                             	Sample ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: time_stamp
                             
@@ -4849,7 +4923,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, self).__init__()
@@ -4861,16 +4935,16 @@ class PerfMgmt(Entity):
                                 self.ylist_key_names = ['sample_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                    ('input_messages', YLeaf(YType.uint32, 'input-messages')),
-                                    ('output_messages', YLeaf(YType.uint32, 'output-messages')),
-                                    ('input_update_messages', YLeaf(YType.uint32, 'input-update-messages')),
-                                    ('output_update_messages', YLeaf(YType.uint32, 'output-update-messages')),
-                                    ('conn_established', YLeaf(YType.uint32, 'conn-established')),
-                                    ('conn_dropped', YLeaf(YType.uint32, 'conn-dropped')),
-                                    ('errors_received', YLeaf(YType.uint32, 'errors-received')),
-                                    ('errors_sent', YLeaf(YType.uint32, 'errors-sent')),
+                                    ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                    ('input_messages', (YLeaf(YType.uint32, 'input-messages'), ['int'])),
+                                    ('output_messages', (YLeaf(YType.uint32, 'output-messages'), ['int'])),
+                                    ('input_update_messages', (YLeaf(YType.uint32, 'input-update-messages'), ['int'])),
+                                    ('output_update_messages', (YLeaf(YType.uint32, 'output-update-messages'), ['int'])),
+                                    ('conn_established', (YLeaf(YType.uint32, 'conn-established'), ['int'])),
+                                    ('conn_dropped', (YLeaf(YType.uint32, 'conn-dropped'), ['int'])),
+                                    ('errors_received', (YLeaf(YType.uint32, 'errors-received'), ['int'])),
+                                    ('errors_sent', (YLeaf(YType.uint32, 'errors-sent'), ['int'])),
                                 ])
                                 self.sample_id = None
                                 self.time_stamp = None
@@ -4883,9 +4957,10 @@ class PerfMgmt(Entity):
                                 self.errors_received = None
                                 self.errors_sent = None
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, ['sample_id', u'time_stamp', u'input_messages', u'output_messages', u'input_update_messages', u'output_update_messages', u'conn_established', u'conn_dropped', u'errors_received', u'errors_sent'], name, value)
+                                self._perform_setattr(PerfMgmt.Monitor.Bgp.BgpNeighbors.BgpNeighbor.Samples.Sample, ['sample_id', 'time_stamp', 'input_messages', 'output_messages', 'input_update_messages', 'output_update_messages', 'conn_established', 'conn_dropped', 'errors_received', 'errors_sent'], name, value)
 
 
         class Interface(Entity):
@@ -4912,7 +4987,7 @@ class PerfMgmt(Entity):
             """
 
             _prefix = 'manageability-perfmgmt-oper'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(PerfMgmt.Monitor.Interface, self).__init__()
@@ -4938,6 +5013,7 @@ class PerfMgmt(Entity):
                 self._children_name_map["data_rate_interfaces"] = "data-rate-interfaces"
                 self._segment_path = lambda: "interface"
                 self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PerfMgmt.Monitor.Interface, [], name, value)
@@ -4958,7 +5034,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Monitor.Interface.GenericCounterInterfaces, self).__init__()
@@ -4974,6 +5050,7 @@ class PerfMgmt(Entity):
                     self.generic_counter_interface = YList(self)
                     self._segment_path = lambda: "generic-counter-interfaces"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Monitor.Interface.GenericCounterInterfaces, [], name, value)
@@ -4988,7 +5065,7 @@ class PerfMgmt(Entity):
                     	Interface Name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: samples
                     
@@ -5000,7 +5077,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface, self).__init__()
@@ -5012,7 +5089,7 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
 
@@ -5021,6 +5098,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["samples"] = "samples"
                         self._segment_path = lambda: "generic-counter-interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/generic-counter-interfaces/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface, ['interface_name'], name, value)
@@ -5040,7 +5118,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples, self).__init__()
@@ -5055,6 +5133,7 @@ class PerfMgmt(Entity):
 
                             self.sample = YList(self)
                             self._segment_path = lambda: "samples"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples, [], name, value)
@@ -5069,7 +5148,7 @@ class PerfMgmt(Entity):
                             	Sample ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: time_stamp
                             
@@ -5229,7 +5308,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, self).__init__()
@@ -5241,28 +5320,28 @@ class PerfMgmt(Entity):
                                 self.ylist_key_names = ['sample_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                    ('in_packets', YLeaf(YType.uint64, 'in-packets')),
-                                    ('in_octets', YLeaf(YType.uint64, 'in-octets')),
-                                    ('out_packets', YLeaf(YType.uint64, 'out-packets')),
-                                    ('out_octets', YLeaf(YType.uint64, 'out-octets')),
-                                    ('in_ucast_pkts', YLeaf(YType.uint64, 'in-ucast-pkts')),
-                                    ('in_multicast_pkts', YLeaf(YType.uint64, 'in-multicast-pkts')),
-                                    ('in_broadcast_pkts', YLeaf(YType.uint64, 'in-broadcast-pkts')),
-                                    ('out_ucast_pkts', YLeaf(YType.uint64, 'out-ucast-pkts')),
-                                    ('out_multicast_pkts', YLeaf(YType.uint64, 'out-multicast-pkts')),
-                                    ('out_broadcast_pkts', YLeaf(YType.uint64, 'out-broadcast-pkts')),
-                                    ('output_total_drops', YLeaf(YType.uint32, 'output-total-drops')),
-                                    ('input_total_drops', YLeaf(YType.uint32, 'input-total-drops')),
-                                    ('input_queue_drops', YLeaf(YType.uint32, 'input-queue-drops')),
-                                    ('input_unknown_proto', YLeaf(YType.uint32, 'input-unknown-proto')),
-                                    ('output_total_errors', YLeaf(YType.uint32, 'output-total-errors')),
-                                    ('output_underrun', YLeaf(YType.uint32, 'output-underrun')),
-                                    ('input_total_errors', YLeaf(YType.uint32, 'input-total-errors')),
-                                    ('input_crc', YLeaf(YType.uint32, 'input-crc')),
-                                    ('input_overrun', YLeaf(YType.uint32, 'input-overrun')),
-                                    ('input_frame', YLeaf(YType.uint32, 'input-frame')),
+                                    ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                    ('in_packets', (YLeaf(YType.uint64, 'in-packets'), ['int'])),
+                                    ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
+                                    ('out_packets', (YLeaf(YType.uint64, 'out-packets'), ['int'])),
+                                    ('out_octets', (YLeaf(YType.uint64, 'out-octets'), ['int'])),
+                                    ('in_ucast_pkts', (YLeaf(YType.uint64, 'in-ucast-pkts'), ['int'])),
+                                    ('in_multicast_pkts', (YLeaf(YType.uint64, 'in-multicast-pkts'), ['int'])),
+                                    ('in_broadcast_pkts', (YLeaf(YType.uint64, 'in-broadcast-pkts'), ['int'])),
+                                    ('out_ucast_pkts', (YLeaf(YType.uint64, 'out-ucast-pkts'), ['int'])),
+                                    ('out_multicast_pkts', (YLeaf(YType.uint64, 'out-multicast-pkts'), ['int'])),
+                                    ('out_broadcast_pkts', (YLeaf(YType.uint64, 'out-broadcast-pkts'), ['int'])),
+                                    ('output_total_drops', (YLeaf(YType.uint32, 'output-total-drops'), ['int'])),
+                                    ('input_total_drops', (YLeaf(YType.uint32, 'input-total-drops'), ['int'])),
+                                    ('input_queue_drops', (YLeaf(YType.uint32, 'input-queue-drops'), ['int'])),
+                                    ('input_unknown_proto', (YLeaf(YType.uint32, 'input-unknown-proto'), ['int'])),
+                                    ('output_total_errors', (YLeaf(YType.uint32, 'output-total-errors'), ['int'])),
+                                    ('output_underrun', (YLeaf(YType.uint32, 'output-underrun'), ['int'])),
+                                    ('input_total_errors', (YLeaf(YType.uint32, 'input-total-errors'), ['int'])),
+                                    ('input_crc', (YLeaf(YType.uint32, 'input-crc'), ['int'])),
+                                    ('input_overrun', (YLeaf(YType.uint32, 'input-overrun'), ['int'])),
+                                    ('input_frame', (YLeaf(YType.uint32, 'input-frame'), ['int'])),
                                 ])
                                 self.sample_id = None
                                 self.time_stamp = None
@@ -5287,9 +5366,10 @@ class PerfMgmt(Entity):
                                 self.input_overrun = None
                                 self.input_frame = None
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, ['sample_id', u'time_stamp', u'in_packets', u'in_octets', u'out_packets', u'out_octets', u'in_ucast_pkts', u'in_multicast_pkts', u'in_broadcast_pkts', u'out_ucast_pkts', u'out_multicast_pkts', u'out_broadcast_pkts', u'output_total_drops', u'input_total_drops', u'input_queue_drops', u'input_unknown_proto', u'output_total_errors', u'output_underrun', u'input_total_errors', u'input_crc', u'input_overrun', u'input_frame'], name, value)
+                                self._perform_setattr(PerfMgmt.Monitor.Interface.GenericCounterInterfaces.GenericCounterInterface.Samples.Sample, ['sample_id', 'time_stamp', 'in_packets', 'in_octets', 'out_packets', 'out_octets', 'in_ucast_pkts', 'in_multicast_pkts', 'in_broadcast_pkts', 'out_ucast_pkts', 'out_multicast_pkts', 'out_broadcast_pkts', 'output_total_drops', 'input_total_drops', 'input_queue_drops', 'input_unknown_proto', 'output_total_errors', 'output_underrun', 'input_total_errors', 'input_crc', 'input_overrun', 'input_frame'], name, value)
 
 
             class BasicCounterInterfaces(Entity):
@@ -5307,7 +5387,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Monitor.Interface.BasicCounterInterfaces, self).__init__()
@@ -5323,6 +5403,7 @@ class PerfMgmt(Entity):
                     self.basic_counter_interface = YList(self)
                     self._segment_path = lambda: "basic-counter-interfaces"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Monitor.Interface.BasicCounterInterfaces, [], name, value)
@@ -5337,7 +5418,7 @@ class PerfMgmt(Entity):
                     	Interface Name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: samples
                     
@@ -5349,7 +5430,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface, self).__init__()
@@ -5361,7 +5442,7 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
 
@@ -5370,6 +5451,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["samples"] = "samples"
                         self._segment_path = lambda: "basic-counter-interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/basic-counter-interfaces/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface, ['interface_name'], name, value)
@@ -5389,7 +5471,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples, self).__init__()
@@ -5404,6 +5486,7 @@ class PerfMgmt(Entity):
 
                             self.sample = YList(self)
                             self._segment_path = lambda: "samples"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples, [], name, value)
@@ -5418,7 +5501,7 @@ class PerfMgmt(Entity):
                             	Sample ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: time_stamp
                             
@@ -5508,7 +5591,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, self).__init__()
@@ -5520,18 +5603,18 @@ class PerfMgmt(Entity):
                                 self.ylist_key_names = ['sample_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                    ('in_packets', YLeaf(YType.uint64, 'in-packets')),
-                                    ('in_octets', YLeaf(YType.uint64, 'in-octets')),
-                                    ('out_packets', YLeaf(YType.uint64, 'out-packets')),
-                                    ('out_octets', YLeaf(YType.uint64, 'out-octets')),
-                                    ('input_total_drops', YLeaf(YType.uint64, 'input-total-drops')),
-                                    ('input_queue_drops', YLeaf(YType.uint64, 'input-queue-drops')),
-                                    ('input_total_errors', YLeaf(YType.uint64, 'input-total-errors')),
-                                    ('output_total_drops', YLeaf(YType.uint64, 'output-total-drops')),
-                                    ('output_queue_drops', YLeaf(YType.uint64, 'output-queue-drops')),
-                                    ('output_total_errors', YLeaf(YType.uint64, 'output-total-errors')),
+                                    ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                    ('in_packets', (YLeaf(YType.uint64, 'in-packets'), ['int'])),
+                                    ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
+                                    ('out_packets', (YLeaf(YType.uint64, 'out-packets'), ['int'])),
+                                    ('out_octets', (YLeaf(YType.uint64, 'out-octets'), ['int'])),
+                                    ('input_total_drops', (YLeaf(YType.uint64, 'input-total-drops'), ['int'])),
+                                    ('input_queue_drops', (YLeaf(YType.uint64, 'input-queue-drops'), ['int'])),
+                                    ('input_total_errors', (YLeaf(YType.uint64, 'input-total-errors'), ['int'])),
+                                    ('output_total_drops', (YLeaf(YType.uint64, 'output-total-drops'), ['int'])),
+                                    ('output_queue_drops', (YLeaf(YType.uint64, 'output-queue-drops'), ['int'])),
+                                    ('output_total_errors', (YLeaf(YType.uint64, 'output-total-errors'), ['int'])),
                                 ])
                                 self.sample_id = None
                                 self.time_stamp = None
@@ -5546,9 +5629,10 @@ class PerfMgmt(Entity):
                                 self.output_queue_drops = None
                                 self.output_total_errors = None
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, ['sample_id', u'time_stamp', u'in_packets', u'in_octets', u'out_packets', u'out_octets', u'input_total_drops', u'input_queue_drops', u'input_total_errors', u'output_total_drops', u'output_queue_drops', u'output_total_errors'], name, value)
+                                self._perform_setattr(PerfMgmt.Monitor.Interface.BasicCounterInterfaces.BasicCounterInterface.Samples.Sample, ['sample_id', 'time_stamp', 'in_packets', 'in_octets', 'out_packets', 'out_octets', 'input_total_drops', 'input_queue_drops', 'input_total_errors', 'output_total_drops', 'output_queue_drops', 'output_total_errors'], name, value)
 
 
             class DataRateInterfaces(Entity):
@@ -5565,7 +5649,7 @@ class PerfMgmt(Entity):
                 """
 
                 _prefix = 'manageability-perfmgmt-oper'
-                _revision = '2015-11-09'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(PerfMgmt.Monitor.Interface.DataRateInterfaces, self).__init__()
@@ -5581,6 +5665,7 @@ class PerfMgmt(Entity):
                     self.data_rate_interface = YList(self)
                     self._segment_path = lambda: "data-rate-interfaces"
                     self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PerfMgmt.Monitor.Interface.DataRateInterfaces, [], name, value)
@@ -5595,7 +5680,7 @@ class PerfMgmt(Entity):
                     	Interface Name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: samples
                     
@@ -5607,7 +5692,7 @@ class PerfMgmt(Entity):
                     """
 
                     _prefix = 'manageability-perfmgmt-oper'
-                    _revision = '2015-11-09'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface, self).__init__()
@@ -5619,7 +5704,7 @@ class PerfMgmt(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("samples", ("samples", PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
 
@@ -5628,6 +5713,7 @@ class PerfMgmt(Entity):
                         self._children_name_map["samples"] = "samples"
                         self._segment_path = lambda: "data-rate-interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-manageability-perfmgmt-oper:perf-mgmt/monitor/interface/data-rate-interfaces/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface, ['interface_name'], name, value)
@@ -5647,7 +5733,7 @@ class PerfMgmt(Entity):
                         """
 
                         _prefix = 'manageability-perfmgmt-oper'
-                        _revision = '2015-11-09'
+                        _revision = '2017-09-07'
 
                         def __init__(self):
                             super(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples, self).__init__()
@@ -5662,6 +5748,7 @@ class PerfMgmt(Entity):
 
                             self.sample = YList(self)
                             self._segment_path = lambda: "samples"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples, [], name, value)
@@ -5676,7 +5763,7 @@ class PerfMgmt(Entity):
                             	Sample ID
                             	**type**\: int
                             
-                            	**range:** \-2147483648..2147483647
+                            	**range:** 0..4294967295
                             
                             .. attribute:: time_stamp
                             
@@ -5765,7 +5852,7 @@ class PerfMgmt(Entity):
                             """
 
                             _prefix = 'manageability-perfmgmt-oper'
-                            _revision = '2015-11-09'
+                            _revision = '2017-09-07'
 
                             def __init__(self):
                                 super(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, self).__init__()
@@ -5777,17 +5864,17 @@ class PerfMgmt(Entity):
                                 self.ylist_key_names = ['sample_id']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sample_id', YLeaf(YType.int32, 'sample-id')),
-                                    ('time_stamp', YLeaf(YType.uint64, 'time-stamp')),
-                                    ('input_data_rate', YLeaf(YType.uint32, 'input-data-rate')),
-                                    ('input_packet_rate', YLeaf(YType.uint32, 'input-packet-rate')),
-                                    ('output_data_rate', YLeaf(YType.uint32, 'output-data-rate')),
-                                    ('output_packet_rate', YLeaf(YType.uint32, 'output-packet-rate')),
-                                    ('input_peak_rate', YLeaf(YType.uint32, 'input-peak-rate')),
-                                    ('input_peak_pkts', YLeaf(YType.uint32, 'input-peak-pkts')),
-                                    ('output_peak_rate', YLeaf(YType.uint32, 'output-peak-rate')),
-                                    ('output_peak_pkts', YLeaf(YType.uint32, 'output-peak-pkts')),
-                                    ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
+                                    ('sample_id', (YLeaf(YType.uint32, 'sample-id'), ['int'])),
+                                    ('time_stamp', (YLeaf(YType.uint64, 'time-stamp'), ['int'])),
+                                    ('input_data_rate', (YLeaf(YType.uint32, 'input-data-rate'), ['int'])),
+                                    ('input_packet_rate', (YLeaf(YType.uint32, 'input-packet-rate'), ['int'])),
+                                    ('output_data_rate', (YLeaf(YType.uint32, 'output-data-rate'), ['int'])),
+                                    ('output_packet_rate', (YLeaf(YType.uint32, 'output-packet-rate'), ['int'])),
+                                    ('input_peak_rate', (YLeaf(YType.uint32, 'input-peak-rate'), ['int'])),
+                                    ('input_peak_pkts', (YLeaf(YType.uint32, 'input-peak-pkts'), ['int'])),
+                                    ('output_peak_rate', (YLeaf(YType.uint32, 'output-peak-rate'), ['int'])),
+                                    ('output_peak_pkts', (YLeaf(YType.uint32, 'output-peak-pkts'), ['int'])),
+                                    ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
                                 ])
                                 self.sample_id = None
                                 self.time_stamp = None
@@ -5801,9 +5888,10 @@ class PerfMgmt(Entity):
                                 self.output_peak_pkts = None
                                 self.bandwidth = None
                                 self._segment_path = lambda: "sample" + "[sample-id='" + str(self.sample_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, ['sample_id', u'time_stamp', u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate', u'input_peak_rate', u'input_peak_pkts', u'output_peak_rate', u'output_peak_pkts', u'bandwidth'], name, value)
+                                self._perform_setattr(PerfMgmt.Monitor.Interface.DataRateInterfaces.DataRateInterface.Samples.Sample, ['sample_id', 'time_stamp', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'input_peak_rate', 'input_peak_pkts', 'output_peak_rate', 'output_peak_pkts', 'bandwidth'], name, value)
 
     def clone_ptr(self):
         self._top_entity = PerfMgmt()

@@ -30,9 +30,11 @@ from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
+from ydk.models.ietf.ietf_routing import Ipv6
 
 
-class Ipv6Unicast(Identity):
+
+class Ipv6Unicast(Ipv6):
     """
     This identity represents the IPv6 unicast address family.
     
@@ -43,7 +45,7 @@ class Ipv6Unicast(Identity):
     _prefix = 'v6ur'
     _revision = '2015-05-25'
 
-    def __init__(self):
-        super(Ipv6Unicast, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ipv6-unicast-routing", "ietf-ipv6-unicast-routing", "ietf-ipv6-unicast-routing:ipv6-unicast")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ipv6-unicast-routing", pref="ietf-ipv6-unicast-routing", tag="ietf-ipv6-unicast-routing:ipv6-unicast"):
+        super(Ipv6Unicast, self).__init__(ns, pref, tag)
 
 

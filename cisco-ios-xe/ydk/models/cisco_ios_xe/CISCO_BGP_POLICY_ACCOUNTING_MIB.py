@@ -12,6 +12,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
     """
     
@@ -44,6 +45,7 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
         self.cbpaccttable.parent = self
         self._children_name_map["cbpaccttable"] = "cbpAcctTable"
         self._segment_path = lambda: "CISCO-BGP-POLICY-ACCOUNTING-MIB:CISCO-BGP-POLICY-ACCOUNTING-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOBGPPOLICYACCOUNTINGMIB, [], name, value)
@@ -81,6 +83,7 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
             self.cbpacctentry = YList(self)
             self._segment_path = lambda: "cbpAcctTable"
             self._absolute_path = lambda: "CISCO-BGP-POLICY-ACCOUNTING-MIB:CISCO-BGP-POLICY-ACCOUNTING-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOBGPPOLICYACCOUNTINGMIB.CbpAcctTable, [], name, value)
@@ -163,12 +166,12 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
                 self.ylist_key_names = ['ifindex','cbpaccttrafficindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('cbpaccttrafficindex', YLeaf(YType.int32, 'cbpAcctTrafficIndex')),
-                    ('cbpacctinpacketcount', YLeaf(YType.uint64, 'cbpAcctInPacketCount')),
-                    ('cbpacctinoctetcount', YLeaf(YType.uint64, 'cbpAcctInOctetCount')),
-                    ('cbpacctoutpacketcount', YLeaf(YType.uint64, 'cbpAcctOutPacketCount')),
-                    ('cbpacctoutoctetcount', YLeaf(YType.uint64, 'cbpAcctOutOctetCount')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('cbpaccttrafficindex', (YLeaf(YType.int32, 'cbpAcctTrafficIndex'), ['int'])),
+                    ('cbpacctinpacketcount', (YLeaf(YType.uint64, 'cbpAcctInPacketCount'), ['int'])),
+                    ('cbpacctinoctetcount', (YLeaf(YType.uint64, 'cbpAcctInOctetCount'), ['int'])),
+                    ('cbpacctoutpacketcount', (YLeaf(YType.uint64, 'cbpAcctOutPacketCount'), ['int'])),
+                    ('cbpacctoutoctetcount', (YLeaf(YType.uint64, 'cbpAcctOutOctetCount'), ['int'])),
                 ])
                 self.ifindex = None
                 self.cbpaccttrafficindex = None
@@ -178,6 +181,7 @@ class CISCOBGPPOLICYACCOUNTINGMIB(Entity):
                 self.cbpacctoutoctetcount = None
                 self._segment_path = lambda: "cbpAcctEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[cbpAcctTrafficIndex='" + str(self.cbpaccttrafficindex) + "']"
                 self._absolute_path = lambda: "CISCO-BGP-POLICY-ACCOUNTING-MIB:CISCO-BGP-POLICY-ACCOUNTING-MIB/cbpAcctTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOBGPPOLICYACCOUNTINGMIB.CbpAcctTable.CbpAcctEntry, ['ifindex', 'cbpaccttrafficindex', 'cbpacctinpacketcount', 'cbpacctinoctetcount', 'cbpacctoutpacketcount', 'cbpacctoutoctetcount'], name, value)

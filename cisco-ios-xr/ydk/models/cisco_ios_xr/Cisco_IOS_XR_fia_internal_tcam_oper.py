@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   controller\: Controller Resources
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class Controller(Entity):
         self.dpa.parent = self
         self._children_name_map["dpa"] = "dpa"
         self._segment_path = lambda: "Cisco-IOS-XR-fia-internal-tcam-oper:controller"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Controller, [], name, value)
@@ -89,6 +91,7 @@ class Controller(Entity):
             self._children_name_map["nodes"] = "nodes"
             self._segment_path = lambda: "dpa"
             self._absolute_path = lambda: "Cisco-IOS-XR-fia-internal-tcam-oper:controller/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Controller.Dpa, [], name, value)
@@ -124,6 +127,7 @@ class Controller(Entity):
                 self.node = YList(self)
                 self._segment_path = lambda: "nodes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-fia-internal-tcam-oper:controller/dpa/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Controller.Dpa.Nodes, [], name, value)
@@ -167,7 +171,7 @@ class Controller(Entity):
                     self.ylist_key_names = ['node_name']
                     self._child_classes = OrderedDict([("external-tcam-resources", ("external_tcam_resources", Controller.Dpa.Nodes.Node.ExternalTcamResources)), ("internal-tcam-resources", ("internal_tcam_resources", Controller.Dpa.Nodes.Node.InternalTcamResources))])
                     self._leafs = OrderedDict([
-                        ('node_name', YLeaf(YType.str, 'node-name')),
+                        ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                     ])
                     self.node_name = None
 
@@ -180,6 +184,7 @@ class Controller(Entity):
                     self._children_name_map["internal_tcam_resources"] = "internal-tcam-resources"
                     self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-fia-internal-tcam-oper:controller/dpa/nodes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Controller.Dpa.Nodes.Node, ['node_name'], name, value)
@@ -214,6 +219,7 @@ class Controller(Entity):
 
                         self.npu_tcam = YList(self)
                         self._segment_path = lambda: "external-tcam-resources"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources, [], name, value)
@@ -252,12 +258,13 @@ class Controller(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("tcam-bank", ("tcam_bank", Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank))])
                             self._leafs = OrderedDict([
-                                ('npu_id', YLeaf(YType.uint32, 'npu-id')),
+                                ('npu_id', (YLeaf(YType.uint32, 'npu-id'), ['int'])),
                             ])
                             self.npu_id = None
 
                             self.tcam_bank = YList(self)
                             self._segment_path = lambda: "npu-tcam"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam, ['npu_id'], name, value)
@@ -325,12 +332,12 @@ class Controller(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("bank-db", ("bank_db", Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank.BankDb))])
                                 self._leafs = OrderedDict([
-                                    ('bank_id', YLeaf(YType.str, 'bank-id')),
-                                    ('bank_key_size', YLeaf(YType.str, 'bank-key-size')),
-                                    ('bank_free_entries', YLeaf(YType.uint32, 'bank-free-entries')),
-                                    ('bank_inuse_entries', YLeaf(YType.uint32, 'bank-inuse-entries')),
-                                    ('owner', YLeaf(YType.str, 'owner')),
-                                    ('nof_dbs', YLeaf(YType.uint32, 'nof-dbs')),
+                                    ('bank_id', (YLeaf(YType.str, 'bank-id'), ['str'])),
+                                    ('bank_key_size', (YLeaf(YType.str, 'bank-key-size'), ['str'])),
+                                    ('bank_free_entries', (YLeaf(YType.uint32, 'bank-free-entries'), ['int'])),
+                                    ('bank_inuse_entries', (YLeaf(YType.uint32, 'bank-inuse-entries'), ['int'])),
+                                    ('owner', (YLeaf(YType.str, 'owner'), ['str'])),
+                                    ('nof_dbs', (YLeaf(YType.uint32, 'nof-dbs'), ['int'])),
                                 ])
                                 self.bank_id = None
                                 self.bank_key_size = None
@@ -341,6 +348,7 @@ class Controller(Entity):
 
                                 self.bank_db = YList(self)
                                 self._segment_path = lambda: "tcam-bank"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank, ['bank_id', 'bank_key_size', 'bank_free_entries', 'bank_inuse_entries', 'owner', 'nof_dbs'], name, value)
@@ -386,14 +394,15 @@ class Controller(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('db_id', YLeaf(YType.uint32, 'db-id')),
-                                        ('db_inuse_entries', YLeaf(YType.uint32, 'db-inuse-entries')),
-                                        ('db_prefix', YLeaf(YType.str, 'db-prefix')),
+                                        ('db_id', (YLeaf(YType.uint32, 'db-id'), ['int'])),
+                                        ('db_inuse_entries', (YLeaf(YType.uint32, 'db-inuse-entries'), ['int'])),
+                                        ('db_prefix', (YLeaf(YType.str, 'db-prefix'), ['str'])),
                                     ])
                                     self.db_id = None
                                     self.db_inuse_entries = None
                                     self.db_prefix = None
                                     self._segment_path = lambda: "bank-db"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Controller.Dpa.Nodes.Node.ExternalTcamResources.NpuTcam.TcamBank.BankDb, ['db_id', 'db_inuse_entries', 'db_prefix'], name, value)
@@ -428,6 +437,7 @@ class Controller(Entity):
 
                         self.npu_tcam = YList(self)
                         self._segment_path = lambda: "internal-tcam-resources"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources, [], name, value)
@@ -466,12 +476,13 @@ class Controller(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("tcam-bank", ("tcam_bank", Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank))])
                             self._leafs = OrderedDict([
-                                ('npu_id', YLeaf(YType.uint32, 'npu-id')),
+                                ('npu_id', (YLeaf(YType.uint32, 'npu-id'), ['int'])),
                             ])
                             self.npu_id = None
 
                             self.tcam_bank = YList(self)
                             self._segment_path = lambda: "npu-tcam"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam, ['npu_id'], name, value)
@@ -539,12 +550,12 @@ class Controller(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("bank-db", ("bank_db", Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank.BankDb))])
                                 self._leafs = OrderedDict([
-                                    ('bank_id', YLeaf(YType.str, 'bank-id')),
-                                    ('bank_key_size', YLeaf(YType.str, 'bank-key-size')),
-                                    ('bank_free_entries', YLeaf(YType.uint32, 'bank-free-entries')),
-                                    ('bank_inuse_entries', YLeaf(YType.uint32, 'bank-inuse-entries')),
-                                    ('owner', YLeaf(YType.str, 'owner')),
-                                    ('nof_dbs', YLeaf(YType.uint32, 'nof-dbs')),
+                                    ('bank_id', (YLeaf(YType.str, 'bank-id'), ['str'])),
+                                    ('bank_key_size', (YLeaf(YType.str, 'bank-key-size'), ['str'])),
+                                    ('bank_free_entries', (YLeaf(YType.uint32, 'bank-free-entries'), ['int'])),
+                                    ('bank_inuse_entries', (YLeaf(YType.uint32, 'bank-inuse-entries'), ['int'])),
+                                    ('owner', (YLeaf(YType.str, 'owner'), ['str'])),
+                                    ('nof_dbs', (YLeaf(YType.uint32, 'nof-dbs'), ['int'])),
                                 ])
                                 self.bank_id = None
                                 self.bank_key_size = None
@@ -555,6 +566,7 @@ class Controller(Entity):
 
                                 self.bank_db = YList(self)
                                 self._segment_path = lambda: "tcam-bank"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank, ['bank_id', 'bank_key_size', 'bank_free_entries', 'bank_inuse_entries', 'owner', 'nof_dbs'], name, value)
@@ -600,14 +612,15 @@ class Controller(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('db_id', YLeaf(YType.uint32, 'db-id')),
-                                        ('db_inuse_entries', YLeaf(YType.uint32, 'db-inuse-entries')),
-                                        ('db_prefix', YLeaf(YType.str, 'db-prefix')),
+                                        ('db_id', (YLeaf(YType.uint32, 'db-id'), ['int'])),
+                                        ('db_inuse_entries', (YLeaf(YType.uint32, 'db-inuse-entries'), ['int'])),
+                                        ('db_prefix', (YLeaf(YType.str, 'db-prefix'), ['str'])),
                                     ])
                                     self.db_id = None
                                     self.db_inuse_entries = None
                                     self.db_prefix = None
                                     self._segment_path = lambda: "bank-db"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Controller.Dpa.Nodes.Node.InternalTcamResources.NpuTcam.TcamBank.BankDb, ['db_id', 'db_inuse_entries', 'db_prefix'], name, value)

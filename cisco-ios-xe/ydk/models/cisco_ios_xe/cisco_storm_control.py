@@ -18,6 +18,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class StormControlAction(Identity):
     """
     Actions to be taken once storm control limit threshold is
@@ -30,11 +31,11 @@ class StormControlAction(Identity):
     _prefix = 'cisco-stormctrl'
     _revision = '2016-12-14'
 
-    def __init__(self):
-        super(StormControlAction, self).__init__("urn:cisco:params:xml:ns:yang:cisco-storm-control", "cisco-storm-control", "cisco-storm-control:storm-control-action")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-storm-control", pref="cisco-storm-control", tag="cisco-storm-control:storm-control-action"):
+        super(StormControlAction, self).__init__(ns, pref, tag)
 
 
-class ActionShutdown(Identity):
+class ActionShutdown(StormControlAction):
     """
     Shutdown service.
     
@@ -45,11 +46,11 @@ class ActionShutdown(Identity):
     _prefix = 'cisco-stormctrl'
     _revision = '2016-12-14'
 
-    def __init__(self):
-        super(ActionShutdown, self).__init__("urn:cisco:params:xml:ns:yang:cisco-storm-control", "cisco-storm-control", "cisco-storm-control:action-shutdown")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-storm-control", pref="cisco-storm-control", tag="cisco-storm-control:action-shutdown"):
+        super(ActionShutdown, self).__init__(ns, pref, tag)
 
 
-class ActionSnmpTrap(Identity):
+class ActionSnmpTrap(StormControlAction):
     """
     Generate SNMP traps.
     
@@ -60,11 +61,11 @@ class ActionSnmpTrap(Identity):
     _prefix = 'cisco-stormctrl'
     _revision = '2016-12-14'
 
-    def __init__(self):
-        super(ActionSnmpTrap, self).__init__("urn:cisco:params:xml:ns:yang:cisco-storm-control", "cisco-storm-control", "cisco-storm-control:action-snmp-trap")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-storm-control", pref="cisco-storm-control", tag="cisco-storm-control:action-snmp-trap"):
+        super(ActionSnmpTrap, self).__init__(ns, pref, tag)
 
 
-class ActionDrop(Identity):
+class ActionDrop(StormControlAction):
     """
     Drop packets.
     
@@ -75,7 +76,7 @@ class ActionDrop(Identity):
     _prefix = 'cisco-stormctrl'
     _revision = '2016-12-14'
 
-    def __init__(self):
-        super(ActionDrop, self).__init__("urn:cisco:params:xml:ns:yang:cisco-storm-control", "cisco-storm-control", "cisco-storm-control:action-drop")
+    def __init__(self, ns="urn:cisco:params:xml:ns:yang:cisco-storm-control", pref="cisco-storm-control", tag="cisco-storm-control:action-drop"):
+        super(ActionDrop, self).__init__(ns, pref, tag)
 
 

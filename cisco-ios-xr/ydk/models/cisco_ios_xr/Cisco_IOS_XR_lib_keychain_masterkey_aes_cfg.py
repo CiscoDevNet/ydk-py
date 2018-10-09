@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   password\: Configure masterkey
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class Password(Entity):
         self.encryption.parent = self
         self._children_name_map["encryption"] = "encryption"
         self._segment_path = lambda: "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg:password"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Password, [], name, value)
@@ -87,11 +89,12 @@ class Password(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('aes', YLeaf(YType.uint32, 'aes')),
+                ('aes', (YLeaf(YType.uint32, 'aes'), ['int'])),
             ])
             self.aes = None
             self._segment_path = lambda: "encryption"
             self._absolute_path = lambda: "Cisco-IOS-XR-lib-keychain-masterkey-aes-cfg:password/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Password.Encryption, ['aes'], name, value)

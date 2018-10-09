@@ -12,6 +12,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class EncapsulationHeaderType(Enum):
     """
     EncapsulationHeaderType (Enum Class)
@@ -146,7 +147,7 @@ class FibOperData(Entity):
     """
     This module contains a collection of YANG definitions for
     monitoring the operation of IOS\-XE CEF.
-    Copyright (c) 2016\-2017 by Cisco Systems, Inc.
+    Copyright (c) 2016\-2018 by Cisco Systems, Inc.
     All rights reserved.
     
     .. attribute:: fib_ni_entry
@@ -159,7 +160,7 @@ class FibOperData(Entity):
     """
 
     _prefix = 'fib-ios-xe-oper'
-    _revision = '2017-07-04'
+    _revision = '2018-03-07'
 
     def __init__(self):
         super(FibOperData, self).__init__()
@@ -175,6 +176,7 @@ class FibOperData(Entity):
 
         self.fib_ni_entry = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-fib-oper:fib-oper-data"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(FibOperData, [], name, value)
@@ -225,7 +227,7 @@ class FibOperData(Entity):
         """
 
         _prefix = 'fib-ios-xe-oper'
-        _revision = '2017-07-04'
+        _revision = '2018-03-07'
 
         def __init__(self):
             super(FibOperData.FibNiEntry, self).__init__()
@@ -237,11 +239,11 @@ class FibOperData(Entity):
             self.ylist_key_names = ['instance_name']
             self._child_classes = OrderedDict([("fib-entries", ("fib_entries", FibOperData.FibNiEntry.FibEntries))])
             self._leafs = OrderedDict([
-                ('instance_name', YLeaf(YType.str, 'instance-name')),
-                ('af', YLeaf(YType.enumeration, 'af')),
-                ('num_pfx', YLeaf(YType.uint32, 'num-pfx')),
-                ('num_pfx_fwd', YLeaf(YType.uint32, 'num-pfx-fwd')),
-                ('num_pfx_non_fwd', YLeaf(YType.uint32, 'num-pfx-non-fwd')),
+                ('instance_name', (YLeaf(YType.str, 'instance-name'), ['str'])),
+                ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper', 'FibAddressFamily', '')])),
+                ('num_pfx', (YLeaf(YType.uint32, 'num-pfx'), ['int'])),
+                ('num_pfx_fwd', (YLeaf(YType.uint32, 'num-pfx-fwd'), ['int'])),
+                ('num_pfx_non_fwd', (YLeaf(YType.uint32, 'num-pfx-non-fwd'), ['int'])),
             ])
             self.instance_name = None
             self.af = None
@@ -252,6 +254,7 @@ class FibOperData(Entity):
             self.fib_entries = YList(self)
             self._segment_path = lambda: "fib-ni-entry" + "[instance-name='" + str(self.instance_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-fib-oper:fib-oper-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(FibOperData.FibNiEntry, ['instance_name', 'af', 'num_pfx', 'num_pfx_fwd', 'num_pfx_non_fwd'], name, value)
@@ -315,7 +318,7 @@ class FibOperData(Entity):
             """
 
             _prefix = 'fib-ios-xe-oper'
-            _revision = '2017-07-04'
+            _revision = '2018-03-07'
 
             def __init__(self):
                 super(FibOperData.FibNiEntry.FibEntries, self).__init__()
@@ -327,12 +330,12 @@ class FibOperData(Entity):
                 self.ylist_key_names = ['ip_addr']
                 self._child_classes = OrderedDict([("fib-nexthop-entries", ("fib_nexthop_entries", FibOperData.FibNiEntry.FibEntries.FibNexthopEntries))])
                 self._leafs = OrderedDict([
-                    ('ip_addr', YLeaf(YType.str, 'ip-addr')),
-                    ('instance_name', YLeaf(YType.str, 'instance-name')),
-                    ('af', YLeaf(YType.enumeration, 'af')),
-                    ('num_paths', YLeaf(YType.uint8, 'num-paths')),
-                    ('packets_forwarded', YLeaf(YType.uint64, 'packets-forwarded')),
-                    ('octets_forwarded', YLeaf(YType.uint64, 'octets-forwarded')),
+                    ('ip_addr', (YLeaf(YType.str, 'ip-addr'), ['str','str'])),
+                    ('instance_name', (YLeaf(YType.str, 'instance-name'), ['str'])),
+                    ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper', 'FibAddressFamily', '')])),
+                    ('num_paths', (YLeaf(YType.uint8, 'num-paths'), ['int'])),
+                    ('packets_forwarded', (YLeaf(YType.uint64, 'packets-forwarded'), ['int'])),
+                    ('octets_forwarded', (YLeaf(YType.uint64, 'octets-forwarded'), ['int'])),
                 ])
                 self.ip_addr = None
                 self.instance_name = None
@@ -343,6 +346,7 @@ class FibOperData(Entity):
 
                 self.fib_nexthop_entries = YList(self)
                 self._segment_path = lambda: "fib-entries" + "[ip-addr='" + str(self.ip_addr) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(FibOperData.FibNiEntry.FibEntries, ['ip_addr', 'instance_name', 'af', 'num_paths', 'packets_forwarded', 'octets_forwarded'], name, value)
@@ -354,7 +358,7 @@ class FibOperData(Entity):
                 
                 .. attribute:: nh_addr  (key)
                 
-                	IP Address
+                	Nexthop IP Address
                 	**type**\: union of the below types:
                 
                 		**type**\: str
@@ -411,12 +415,25 @@ class FibOperData(Entity):
                 	Decap Header Type
                 	**type**\:  :py:class:`EncapsulationHeaderType <ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper.EncapsulationHeaderType>`
                 
+                .. attribute:: resolved_nh_addr
+                
+                	Resolved Nexthop IP Address
+                	**type**\: union of the below types:
+                
+                		**type**\: str
+                
+                			**pattern:** (([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])\\.){3}([0\-9]\|[1\-9][0\-9]\|1[0\-9][0\-9]\|2[0\-4][0\-9]\|25[0\-5])/(([0\-9])\|([1\-2][0\-9])\|(3[0\-2]))
+                
+                		**type**\: str
+                
+                			**pattern:** ((\:\|[0\-9a\-fA\-F]{0,4})\:)([0\-9a\-fA\-F]{0,4}\:){0,5}((([0\-9a\-fA\-F]{0,4}\:)?(\:\|[0\-9a\-fA\-F]{0,4}))\|(((25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])\\.){3}(25[0\-5]\|2[0\-4][0\-9]\|[01]?[0\-9]?[0\-9])))(/(([0\-9])\|([0\-9]{2})\|(1[0\-1][0\-9])\|(12[0\-8])))
+                
                 
 
                 """
 
                 _prefix = 'fib-ios-xe-oper'
-                _revision = '2017-07-04'
+                _revision = '2018-03-07'
 
                 def __init__(self):
                     super(FibOperData.FibNiEntry.FibEntries.FibNexthopEntries, self).__init__()
@@ -428,15 +445,16 @@ class FibOperData(Entity):
                     self.ylist_key_names = ['nh_addr']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('nh_addr', YLeaf(YType.str, 'nh-addr')),
-                        ('index', YLeaf(YType.uint32, 'index')),
-                        ('af', YLeaf(YType.enumeration, 'af')),
-                        ('ifname', YLeaf(YType.str, 'ifname')),
-                        ('path_type', YLeaf(YType.enumeration, 'path-type')),
-                        ('path_id', YLeaf(YType.uint32, 'path-id')),
-                        ('weight', YLeaf(YType.uint8, 'weight')),
-                        ('encap', YLeaf(YType.enumeration, 'encap')),
-                        ('decap', YLeaf(YType.enumeration, 'decap')),
+                        ('nh_addr', (YLeaf(YType.str, 'nh-addr'), ['str','str'])),
+                        ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                        ('af', (YLeaf(YType.enumeration, 'af'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper', 'FibAddressFamily', '')])),
+                        ('ifname', (YLeaf(YType.str, 'ifname'), ['str'])),
+                        ('path_type', (YLeaf(YType.enumeration, 'path-type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper', 'FibPathType', '')])),
+                        ('path_id', (YLeaf(YType.uint32, 'path-id'), ['int'])),
+                        ('weight', (YLeaf(YType.uint8, 'weight'), ['int'])),
+                        ('encap', (YLeaf(YType.enumeration, 'encap'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper', 'EncapsulationHeaderType', '')])),
+                        ('decap', (YLeaf(YType.enumeration, 'decap'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_fib_oper', 'EncapsulationHeaderType', '')])),
+                        ('resolved_nh_addr', (YLeaf(YType.str, 'resolved-nh-addr'), ['str','str'])),
                     ])
                     self.nh_addr = None
                     self.index = None
@@ -447,10 +465,12 @@ class FibOperData(Entity):
                     self.weight = None
                     self.encap = None
                     self.decap = None
+                    self.resolved_nh_addr = None
                     self._segment_path = lambda: "fib-nexthop-entries" + "[nh-addr='" + str(self.nh_addr) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(FibOperData.FibNiEntry.FibEntries.FibNexthopEntries, ['nh_addr', 'index', 'af', 'ifname', 'path_type', 'path_id', 'weight', 'encap', 'decap'], name, value)
+                    self._perform_setattr(FibOperData.FibNiEntry.FibEntries.FibNexthopEntries, ['nh_addr', 'index', 'af', 'ifname', 'path_type', 'path_id', 'weight', 'encap', 'decap', 'resolved_nh_addr'], name, value)
 
     def clone_ptr(self):
         self._top_entity = FibOperData()

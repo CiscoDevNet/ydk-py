@@ -3,7 +3,7 @@
 This module contains a collection of YANG definitions
 for Cisco IOS\-XR mpls\-ldp\-oper\-data package operational data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -13,6 +13,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class MplsLdpOperAfName(Enum):
@@ -29,11 +30,17 @@ class MplsLdpOperAfName(Enum):
 
     	IPv6
 
+    .. data:: all = 65535
+
+    	All
+
     """
 
     ipv4 = Enum.YLeaf(1, "ipv4")
 
     ipv6 = Enum.YLeaf(2, "ipv6")
+
+    all = Enum.YLeaf(65535, "all")
 
 
 

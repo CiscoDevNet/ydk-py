@@ -11,6 +11,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class QosInterfaceQueueType(Enum):
     """
     QosInterfaceQueueType (Enum Class)
@@ -484,6 +485,7 @@ class CISCOQOSPIBMIB(Entity):
         self.qosifweightstable.parent = self
         self._children_name_map["qosifweightstable"] = "qosIfWeightsTable"
         self._segment_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOQOSPIBMIB, [], name, value)
@@ -523,6 +525,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosdevicepibincarnationentry = YList(self)
             self._segment_path = lambda: "qosDevicePibIncarnationTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosDevicePibIncarnationTable, [], name, value)
@@ -577,10 +580,10 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosdeviceincarnationid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosdeviceincarnationid', YLeaf(YType.uint32, 'qosDeviceIncarnationId')),
-                    ('qosdevicepdpname', YLeaf(YType.str, 'qosDevicePdpName')),
-                    ('qosdevicepibincarnation', YLeaf(YType.str, 'qosDevicePibIncarnation')),
-                    ('qosdevicepibttl', YLeaf(YType.uint32, 'qosDevicePibTtl')),
+                    ('qosdeviceincarnationid', (YLeaf(YType.uint32, 'qosDeviceIncarnationId'), ['int'])),
+                    ('qosdevicepdpname', (YLeaf(YType.str, 'qosDevicePdpName'), ['str'])),
+                    ('qosdevicepibincarnation', (YLeaf(YType.str, 'qosDevicePibIncarnation'), ['str'])),
+                    ('qosdevicepibttl', (YLeaf(YType.uint32, 'qosDevicePibTtl'), ['int'])),
                 ])
                 self.qosdeviceincarnationid = None
                 self.qosdevicepdpname = None
@@ -588,6 +591,7 @@ class CISCOQOSPIBMIB(Entity):
                 self.qosdevicepibttl = None
                 self._segment_path = lambda: "qosDevicePibIncarnationEntry" + "[qosDeviceIncarnationId='" + str(self.qosdeviceincarnationid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosDevicePibIncarnationTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosDevicePibIncarnationTable.QosDevicePibIncarnationEntry, [u'qosdeviceincarnationid', u'qosdevicepdpname', u'qosdevicepibincarnation', u'qosdevicepibttl'], name, value)
@@ -629,6 +633,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosdeviceattributeentry = YList(self)
             self._segment_path = lambda: "qosDeviceAttributeTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosDeviceAttributeTable, [], name, value)
@@ -694,12 +699,12 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosdeviceattributeid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosdeviceattributeid', YLeaf(YType.uint32, 'qosDeviceAttributeId')),
-                    ('qosdevicepepdomain', YLeaf(YType.str, 'qosDevicePepDomain')),
-                    ('qosdeviceprimarypdp', YLeaf(YType.str, 'qosDevicePrimaryPdp')),
-                    ('qosdevicesecondarypdp', YLeaf(YType.str, 'qosDeviceSecondaryPdp')),
-                    ('qosdevicemaxmessagesize', YLeaf(YType.uint32, 'qosDeviceMaxMessageSize')),
-                    ('qosdevicecapabilities', YLeaf(YType.bits, 'qosDeviceCapabilities')),
+                    ('qosdeviceattributeid', (YLeaf(YType.uint32, 'qosDeviceAttributeId'), ['int'])),
+                    ('qosdevicepepdomain', (YLeaf(YType.str, 'qosDevicePepDomain'), ['str'])),
+                    ('qosdeviceprimarypdp', (YLeaf(YType.str, 'qosDevicePrimaryPdp'), ['str'])),
+                    ('qosdevicesecondarypdp', (YLeaf(YType.str, 'qosDeviceSecondaryPdp'), ['str'])),
+                    ('qosdevicemaxmessagesize', (YLeaf(YType.uint32, 'qosDeviceMaxMessageSize'), ['int'])),
+                    ('qosdevicecapabilities', (YLeaf(YType.bits, 'qosDeviceCapabilities'), ['Bits'])),
                 ])
                 self.qosdeviceattributeid = None
                 self.qosdevicepepdomain = None
@@ -709,6 +714,7 @@ class CISCOQOSPIBMIB(Entity):
                 self.qosdevicecapabilities = Bits()
                 self._segment_path = lambda: "qosDeviceAttributeEntry" + "[qosDeviceAttributeId='" + str(self.qosdeviceattributeid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosDeviceAttributeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosDeviceAttributeTable.QosDeviceAttributeEntry, [u'qosdeviceattributeid', u'qosdevicepepdomain', u'qosdeviceprimarypdp', u'qosdevicesecondarypdp', u'qosdevicemaxmessagesize', u'qosdevicecapabilities'], name, value)
@@ -747,6 +753,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosinterfacetypeentry = YList(self)
             self._segment_path = lambda: "qosInterfaceTypeTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosInterfaceTypeTable, [], name, value)
@@ -798,10 +805,10 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosinterfacetypeid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosinterfacetypeid', YLeaf(YType.uint32, 'qosInterfaceTypeId')),
-                    ('qosinterfacequeuetype', YLeaf(YType.enumeration, 'qosInterfaceQueueType')),
-                    ('qosinterfacetyperoles', YLeaf(YType.str, 'qosInterfaceTypeRoles')),
-                    ('qosinterfacetypecapabilities', YLeaf(YType.bits, 'qosInterfaceTypeCapabilities')),
+                    ('qosinterfacetypeid', (YLeaf(YType.uint32, 'qosInterfaceTypeId'), ['int'])),
+                    ('qosinterfacequeuetype', (YLeaf(YType.enumeration, 'qosInterfaceQueueType'), [('ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB', 'QosInterfaceQueueType', '')])),
+                    ('qosinterfacetyperoles', (YLeaf(YType.str, 'qosInterfaceTypeRoles'), ['str'])),
+                    ('qosinterfacetypecapabilities', (YLeaf(YType.bits, 'qosInterfaceTypeCapabilities'), ['Bits'])),
                 ])
                 self.qosinterfacetypeid = None
                 self.qosinterfacequeuetype = None
@@ -809,6 +816,7 @@ class CISCOQOSPIBMIB(Entity):
                 self.qosinterfacetypecapabilities = Bits()
                 self._segment_path = lambda: "qosInterfaceTypeEntry" + "[qosInterfaceTypeId='" + str(self.qosinterfacetypeid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosInterfaceTypeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosInterfaceTypeTable.QosInterfaceTypeEntry, [u'qosinterfacetypeid', u'qosinterfacequeuetype', u'qosinterfacetyperoles', u'qosinterfacetypecapabilities'], name, value)
@@ -849,6 +857,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosdiffservmappingentry = YList(self)
             self._segment_path = lambda: "qosDiffServMappingTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosDiffServMappingTable, [], name, value)
@@ -896,15 +905,16 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosdscp']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosdscp', YLeaf(YType.int32, 'qosDscp')),
-                    ('qosmarkeddscp', YLeaf(YType.int32, 'qosMarkedDscp')),
-                    ('qosl2cos', YLeaf(YType.int32, 'qosL2Cos')),
+                    ('qosdscp', (YLeaf(YType.int32, 'qosDscp'), ['int'])),
+                    ('qosmarkeddscp', (YLeaf(YType.int32, 'qosMarkedDscp'), ['int'])),
+                    ('qosl2cos', (YLeaf(YType.int32, 'qosL2Cos'), ['int'])),
                 ])
                 self.qosdscp = None
                 self.qosmarkeddscp = None
                 self.qosl2cos = None
                 self._segment_path = lambda: "qosDiffServMappingEntry" + "[qosDscp='" + str(self.qosdscp) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosDiffServMappingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosDiffServMappingTable.QosDiffServMappingEntry, [u'qosdscp', u'qosmarkeddscp', u'qosl2cos'], name, value)
@@ -944,6 +954,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qoscostodscpentry = YList(self)
             self._segment_path = lambda: "qosCosToDscpTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosCosToDscpTable, [], name, value)
@@ -984,13 +995,14 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qoscostodscpcos']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qoscostodscpcos', YLeaf(YType.int32, 'qosCosToDscpCos')),
-                    ('qoscostodscpdscp', YLeaf(YType.int32, 'qosCosToDscpDscp')),
+                    ('qoscostodscpcos', (YLeaf(YType.int32, 'qosCosToDscpCos'), ['int'])),
+                    ('qoscostodscpdscp', (YLeaf(YType.int32, 'qosCosToDscpDscp'), ['int'])),
                 ])
                 self.qoscostodscpcos = None
                 self.qoscostodscpdscp = None
                 self._segment_path = lambda: "qosCosToDscpEntry" + "[qosCosToDscpCos='" + str(self.qoscostodscpcos) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosCosToDscpTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosCosToDscpTable.QosCosToDscpEntry, [u'qoscostodscpcos', u'qoscostodscpdscp'], name, value)
@@ -1028,6 +1040,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosunmatchedpolicyentry = YList(self)
             self._segment_path = lambda: "qosUnmatchedPolicyTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosUnmatchedPolicyTable, [], name, value)
@@ -1101,13 +1114,13 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosunmatchedpolicyid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosunmatchedpolicyid', YLeaf(YType.uint32, 'qosUnmatchedPolicyId')),
-                    ('qosunmatchedpolicyrole', YLeaf(YType.str, 'qosUnmatchedPolicyRole')),
-                    ('qosunmatchedpolicydirection', YLeaf(YType.enumeration, 'qosUnmatchedPolicyDirection')),
-                    ('qosunmatchedpolicydscp', YLeaf(YType.int32, 'qosUnmatchedPolicyDscp')),
-                    ('qosunmatchedpolicydscptrusted', YLeaf(YType.boolean, 'qosUnmatchedPolicyDscpTrusted')),
-                    ('qosunmatchpolmicroflowpolicerid', YLeaf(YType.uint32, 'qosUnmatchPolMicroFlowPolicerId')),
-                    ('qosunmatchedpolicyaggregateid', YLeaf(YType.uint32, 'qosUnmatchedPolicyAggregateId')),
+                    ('qosunmatchedpolicyid', (YLeaf(YType.uint32, 'qosUnmatchedPolicyId'), ['int'])),
+                    ('qosunmatchedpolicyrole', (YLeaf(YType.str, 'qosUnmatchedPolicyRole'), ['str'])),
+                    ('qosunmatchedpolicydirection', (YLeaf(YType.enumeration, 'qosUnmatchedPolicyDirection'), [('ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB', 'CISCOQOSPIBMIB', 'QosUnmatchedPolicyTable.QosUnmatchedPolicyEntry.QosUnmatchedPolicyDirection')])),
+                    ('qosunmatchedpolicydscp', (YLeaf(YType.int32, 'qosUnmatchedPolicyDscp'), ['int'])),
+                    ('qosunmatchedpolicydscptrusted', (YLeaf(YType.boolean, 'qosUnmatchedPolicyDscpTrusted'), ['bool'])),
+                    ('qosunmatchpolmicroflowpolicerid', (YLeaf(YType.uint32, 'qosUnmatchPolMicroFlowPolicerId'), ['int'])),
+                    ('qosunmatchedpolicyaggregateid', (YLeaf(YType.uint32, 'qosUnmatchedPolicyAggregateId'), ['int'])),
                 ])
                 self.qosunmatchedpolicyid = None
                 self.qosunmatchedpolicyrole = None
@@ -1118,6 +1131,7 @@ class CISCOQOSPIBMIB(Entity):
                 self.qosunmatchedpolicyaggregateid = None
                 self._segment_path = lambda: "qosUnmatchedPolicyEntry" + "[qosUnmatchedPolicyId='" + str(self.qosunmatchedpolicyid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosUnmatchedPolicyTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosUnmatchedPolicyTable.QosUnmatchedPolicyEntry, [u'qosunmatchedpolicyid', u'qosunmatchedpolicyrole', u'qosunmatchedpolicydirection', u'qosunmatchedpolicydscp', u'qosunmatchedpolicydscptrusted', u'qosunmatchpolmicroflowpolicerid', u'qosunmatchedpolicyaggregateid'], name, value)
@@ -1175,6 +1189,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qospolicerentry = YList(self)
             self._segment_path = lambda: "qosPolicerTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosPolicerTable, [], name, value)
@@ -1235,11 +1250,11 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qospolicerid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qospolicerid', YLeaf(YType.uint32, 'qosPolicerId')),
-                    ('qospolicerrate', YLeaf(YType.uint32, 'qosPolicerRate')),
-                    ('qospolicernormalburst', YLeaf(YType.uint32, 'qosPolicerNormalBurst')),
-                    ('qospolicerexcessburst', YLeaf(YType.uint32, 'qosPolicerExcessBurst')),
-                    ('qospoliceraction', YLeaf(YType.enumeration, 'qosPolicerAction')),
+                    ('qospolicerid', (YLeaf(YType.uint32, 'qosPolicerId'), ['int'])),
+                    ('qospolicerrate', (YLeaf(YType.uint32, 'qosPolicerRate'), ['int'])),
+                    ('qospolicernormalburst', (YLeaf(YType.uint32, 'qosPolicerNormalBurst'), ['int'])),
+                    ('qospolicerexcessburst', (YLeaf(YType.uint32, 'qosPolicerExcessBurst'), ['int'])),
+                    ('qospoliceraction', (YLeaf(YType.enumeration, 'qosPolicerAction'), [('ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB', 'CISCOQOSPIBMIB', 'QosPolicerTable.QosPolicerEntry.QosPolicerAction')])),
                 ])
                 self.qospolicerid = None
                 self.qospolicerrate = None
@@ -1248,6 +1263,7 @@ class CISCOQOSPIBMIB(Entity):
                 self.qospoliceraction = None
                 self._segment_path = lambda: "qosPolicerEntry" + "[qosPolicerId='" + str(self.qospolicerid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosPolicerTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosPolicerTable.QosPolicerEntry, [u'qospolicerid', u'qospolicerrate', u'qospolicernormalburst', u'qospolicerexcessburst', u'qospoliceraction'], name, value)
@@ -1309,6 +1325,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosaggregateentry = YList(self)
             self._segment_path = lambda: "qosAggregateTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosAggregateTable, [], name, value)
@@ -1350,13 +1367,14 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosaggregateid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosaggregateid', YLeaf(YType.uint32, 'qosAggregateId')),
-                    ('qosaggregatepolicerid', YLeaf(YType.uint32, 'qosAggregatePolicerId')),
+                    ('qosaggregateid', (YLeaf(YType.uint32, 'qosAggregateId'), ['int'])),
+                    ('qosaggregatepolicerid', (YLeaf(YType.uint32, 'qosAggregatePolicerId'), ['int'])),
                 ])
                 self.qosaggregateid = None
                 self.qosaggregatepolicerid = None
                 self._segment_path = lambda: "qosAggregateEntry" + "[qosAggregateId='" + str(self.qosaggregateid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosAggregateTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosAggregateTable.QosAggregateEntry, [u'qosaggregateid', u'qosaggregatepolicerid'], name, value)
@@ -1392,6 +1410,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosmacclassificationentry = YList(self)
             self._segment_path = lambda: "qosMacClassificationTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosMacClassificationTable, [], name, value)
@@ -1447,10 +1466,10 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosmacclassificationid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosmacclassificationid', YLeaf(YType.uint32, 'qosMacClassificationId')),
-                    ('qosdstmacvlan', YLeaf(YType.int32, 'qosDstMacVlan')),
-                    ('qosdstmacaddress', YLeaf(YType.str, 'qosDstMacAddress')),
-                    ('qosdstmaccos', YLeaf(YType.int32, 'qosDstMacCos')),
+                    ('qosmacclassificationid', (YLeaf(YType.uint32, 'qosMacClassificationId'), ['int'])),
+                    ('qosdstmacvlan', (YLeaf(YType.int32, 'qosDstMacVlan'), ['int'])),
+                    ('qosdstmacaddress', (YLeaf(YType.str, 'qosDstMacAddress'), ['str'])),
+                    ('qosdstmaccos', (YLeaf(YType.int32, 'qosDstMacCos'), ['int'])),
                 ])
                 self.qosmacclassificationid = None
                 self.qosdstmacvlan = None
@@ -1458,6 +1477,7 @@ class CISCOQOSPIBMIB(Entity):
                 self.qosdstmaccos = None
                 self._segment_path = lambda: "qosMacClassificationEntry" + "[qosMacClassificationId='" + str(self.qosmacclassificationid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosMacClassificationTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosMacClassificationTable.QosMacClassificationEntry, [u'qosmacclassificationid', u'qosdstmacvlan', u'qosdstmacaddress', u'qosdstmaccos'], name, value)
@@ -1493,6 +1513,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosipaceentry = YList(self)
             self._segment_path = lambda: "qosIpAceTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosIpAceTable, [], name, value)
@@ -1608,19 +1629,19 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosipaceid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosipaceid', YLeaf(YType.uint32, 'qosIpAceId')),
-                    ('qosipacedstaddr', YLeaf(YType.str, 'qosIpAceDstAddr')),
-                    ('qosipacedstaddrmask', YLeaf(YType.str, 'qosIpAceDstAddrMask')),
-                    ('qosipacesrcaddr', YLeaf(YType.str, 'qosIpAceSrcAddr')),
-                    ('qosipacesrcaddrmask', YLeaf(YType.str, 'qosIpAceSrcAddrMask')),
-                    ('qosipacedscpmin', YLeaf(YType.int32, 'qosIpAceDscpMin')),
-                    ('qosipacedscpmax', YLeaf(YType.int32, 'qosIpAceDscpMax')),
-                    ('qosipaceprotocol', YLeaf(YType.int32, 'qosIpAceProtocol')),
-                    ('qosipacedstl4portmin', YLeaf(YType.int32, 'qosIpAceDstL4PortMin')),
-                    ('qosipacedstl4portmax', YLeaf(YType.int32, 'qosIpAceDstL4PortMax')),
-                    ('qosipacesrcl4portmin', YLeaf(YType.int32, 'qosIpAceSrcL4PortMin')),
-                    ('qosipacesrcl4portmax', YLeaf(YType.int32, 'qosIpAceSrcL4PortMax')),
-                    ('qosipacepermit', YLeaf(YType.boolean, 'qosIpAcePermit')),
+                    ('qosipaceid', (YLeaf(YType.uint32, 'qosIpAceId'), ['int'])),
+                    ('qosipacedstaddr', (YLeaf(YType.str, 'qosIpAceDstAddr'), ['str'])),
+                    ('qosipacedstaddrmask', (YLeaf(YType.str, 'qosIpAceDstAddrMask'), ['str'])),
+                    ('qosipacesrcaddr', (YLeaf(YType.str, 'qosIpAceSrcAddr'), ['str'])),
+                    ('qosipacesrcaddrmask', (YLeaf(YType.str, 'qosIpAceSrcAddrMask'), ['str'])),
+                    ('qosipacedscpmin', (YLeaf(YType.int32, 'qosIpAceDscpMin'), ['int'])),
+                    ('qosipacedscpmax', (YLeaf(YType.int32, 'qosIpAceDscpMax'), ['int'])),
+                    ('qosipaceprotocol', (YLeaf(YType.int32, 'qosIpAceProtocol'), ['int'])),
+                    ('qosipacedstl4portmin', (YLeaf(YType.int32, 'qosIpAceDstL4PortMin'), ['int'])),
+                    ('qosipacedstl4portmax', (YLeaf(YType.int32, 'qosIpAceDstL4PortMax'), ['int'])),
+                    ('qosipacesrcl4portmin', (YLeaf(YType.int32, 'qosIpAceSrcL4PortMin'), ['int'])),
+                    ('qosipacesrcl4portmax', (YLeaf(YType.int32, 'qosIpAceSrcL4PortMax'), ['int'])),
+                    ('qosipacepermit', (YLeaf(YType.boolean, 'qosIpAcePermit'), ['bool'])),
                 ])
                 self.qosipaceid = None
                 self.qosipacedstaddr = None
@@ -1637,6 +1658,7 @@ class CISCOQOSPIBMIB(Entity):
                 self.qosipacepermit = None
                 self._segment_path = lambda: "qosIpAceEntry" + "[qosIpAceId='" + str(self.qosipaceid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIpAceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosIpAceTable.QosIpAceEntry, [u'qosipaceid', u'qosipacedstaddr', u'qosipacedstaddrmask', u'qosipacesrcaddr', u'qosipacesrcaddrmask', u'qosipacedscpmin', u'qosipacedscpmax', u'qosipaceprotocol', u'qosipacedstl4portmin', u'qosipacedstl4portmax', u'qosipacesrcl4portmin', u'qosipacesrcl4portmax', u'qosipacepermit'], name, value)
@@ -1673,6 +1695,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosipacldefinitionentry = YList(self)
             self._segment_path = lambda: "qosIpAclDefinitionTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosIpAclDefinitionTable, [], name, value)
@@ -1728,10 +1751,10 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosipacldefinitionid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosipacldefinitionid', YLeaf(YType.uint32, 'qosIpAclDefinitionId')),
-                    ('qosipaclid', YLeaf(YType.uint32, 'qosIpAclId')),
-                    ('qosipaceorder', YLeaf(YType.uint32, 'qosIpAceOrder')),
-                    ('qosipacldefaceid', YLeaf(YType.uint32, 'qosIpAclDefAceId')),
+                    ('qosipacldefinitionid', (YLeaf(YType.uint32, 'qosIpAclDefinitionId'), ['int'])),
+                    ('qosipaclid', (YLeaf(YType.uint32, 'qosIpAclId'), ['int'])),
+                    ('qosipaceorder', (YLeaf(YType.uint32, 'qosIpAceOrder'), ['int'])),
+                    ('qosipacldefaceid', (YLeaf(YType.uint32, 'qosIpAclDefAceId'), ['int'])),
                 ])
                 self.qosipacldefinitionid = None
                 self.qosipaclid = None
@@ -1739,6 +1762,7 @@ class CISCOQOSPIBMIB(Entity):
                 self.qosipacldefaceid = None
                 self._segment_path = lambda: "qosIpAclDefinitionEntry" + "[qosIpAclDefinitionId='" + str(self.qosipacldefinitionid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIpAclDefinitionTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosIpAclDefinitionTable.QosIpAclDefinitionEntry, [u'qosipacldefinitionid', u'qosipaclid', u'qosipaceorder', u'qosipacldefaceid'], name, value)
@@ -1779,6 +1803,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosipaclactionentry = YList(self)
             self._segment_path = lambda: "qosIpAclActionTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosIpAclActionTable, [], name, value)
@@ -1867,15 +1892,15 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosipaclactionid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosipaclactionid', YLeaf(YType.uint32, 'qosIpAclActionId')),
-                    ('qosipaclactaclid', YLeaf(YType.uint32, 'qosIpAclActAclId')),
-                    ('qosipaclinterfaceroles', YLeaf(YType.str, 'qosIpAclInterfaceRoles')),
-                    ('qosipaclinterfacedirection', YLeaf(YType.enumeration, 'qosIpAclInterfaceDirection')),
-                    ('qosipaclorder', YLeaf(YType.uint32, 'qosIpAclOrder')),
-                    ('qosipacldscp', YLeaf(YType.int32, 'qosIpAclDscp')),
-                    ('qosipacldscptrusted', YLeaf(YType.boolean, 'qosIpAclDscpTrusted')),
-                    ('qosipaclmicroflowpolicerid', YLeaf(YType.uint32, 'qosIpAclMicroFlowPolicerId')),
-                    ('qosipaclaggregateid', YLeaf(YType.uint32, 'qosIpAclAggregateId')),
+                    ('qosipaclactionid', (YLeaf(YType.uint32, 'qosIpAclActionId'), ['int'])),
+                    ('qosipaclactaclid', (YLeaf(YType.uint32, 'qosIpAclActAclId'), ['int'])),
+                    ('qosipaclinterfaceroles', (YLeaf(YType.str, 'qosIpAclInterfaceRoles'), ['str'])),
+                    ('qosipaclinterfacedirection', (YLeaf(YType.enumeration, 'qosIpAclInterfaceDirection'), [('ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB', 'CISCOQOSPIBMIB', 'QosIpAclActionTable.QosIpAclActionEntry.QosIpAclInterfaceDirection')])),
+                    ('qosipaclorder', (YLeaf(YType.uint32, 'qosIpAclOrder'), ['int'])),
+                    ('qosipacldscp', (YLeaf(YType.int32, 'qosIpAclDscp'), ['int'])),
+                    ('qosipacldscptrusted', (YLeaf(YType.boolean, 'qosIpAclDscpTrusted'), ['bool'])),
+                    ('qosipaclmicroflowpolicerid', (YLeaf(YType.uint32, 'qosIpAclMicroFlowPolicerId'), ['int'])),
+                    ('qosipaclaggregateid', (YLeaf(YType.uint32, 'qosIpAclAggregateId'), ['int'])),
                 ])
                 self.qosipaclactionid = None
                 self.qosipaclactaclid = None
@@ -1888,6 +1913,7 @@ class CISCOQOSPIBMIB(Entity):
                 self.qosipaclaggregateid = None
                 self._segment_path = lambda: "qosIpAclActionEntry" + "[qosIpAclActionId='" + str(self.qosipaclactionid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIpAclActionTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosIpAclActionTable.QosIpAclActionEntry, [u'qosipaclactionid', u'qosipaclactaclid', u'qosipaclinterfaceroles', u'qosipaclinterfacedirection', u'qosipaclorder', u'qosipacldscp', u'qosipacldscptrusted', u'qosipaclmicroflowpolicerid', u'qosipaclaggregateid'], name, value)
@@ -1944,6 +1970,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosifschedulingpreferenceentry = YList(self)
             self._segment_path = lambda: "qosIfSchedulingPreferencesTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosIfSchedulingPreferencesTable, [], name, value)
@@ -2003,11 +2030,11 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosifschedulingpreferenceid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosifschedulingpreferenceid', YLeaf(YType.uint32, 'qosIfSchedulingPreferenceId')),
-                    ('qosifschedulingroles', YLeaf(YType.str, 'qosIfSchedulingRoles')),
-                    ('qosifschedulingpreference', YLeaf(YType.int32, 'qosIfSchedulingPreference')),
-                    ('qosifschedulingdiscipline', YLeaf(YType.enumeration, 'qosIfSchedulingDiscipline')),
-                    ('qosifschedulingqueuetype', YLeaf(YType.enumeration, 'qosIfSchedulingQueueType')),
+                    ('qosifschedulingpreferenceid', (YLeaf(YType.uint32, 'qosIfSchedulingPreferenceId'), ['int'])),
+                    ('qosifschedulingroles', (YLeaf(YType.str, 'qosIfSchedulingRoles'), ['str'])),
+                    ('qosifschedulingpreference', (YLeaf(YType.int32, 'qosIfSchedulingPreference'), ['int'])),
+                    ('qosifschedulingdiscipline', (YLeaf(YType.enumeration, 'qosIfSchedulingDiscipline'), [('ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB', 'CISCOQOSPIBMIB', 'QosIfSchedulingPreferencesTable.QosIfSchedulingPreferenceEntry.QosIfSchedulingDiscipline')])),
+                    ('qosifschedulingqueuetype', (YLeaf(YType.enumeration, 'qosIfSchedulingQueueType'), [('ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB', 'QosInterfaceQueueType', '')])),
                 ])
                 self.qosifschedulingpreferenceid = None
                 self.qosifschedulingroles = None
@@ -2016,6 +2043,7 @@ class CISCOQOSPIBMIB(Entity):
                 self.qosifschedulingqueuetype = None
                 self._segment_path = lambda: "qosIfSchedulingPreferenceEntry" + "[qosIfSchedulingPreferenceId='" + str(self.qosifschedulingpreferenceid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfSchedulingPreferencesTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosIfSchedulingPreferencesTable.QosIfSchedulingPreferenceEntry, [u'qosifschedulingpreferenceid', u'qosifschedulingroles', u'qosifschedulingpreference', u'qosifschedulingdiscipline', u'qosifschedulingqueuetype'], name, value)
@@ -2094,6 +2122,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosifdroppreferenceentry = YList(self)
             self._segment_path = lambda: "qosIfDropPreferenceTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosIfDropPreferenceTable, [], name, value)
@@ -2148,10 +2177,10 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosifdroppreferenceid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosifdroppreferenceid', YLeaf(YType.uint32, 'qosIfDropPreferenceId')),
-                    ('qosifdroproles', YLeaf(YType.str, 'qosIfDropRoles')),
-                    ('qosifdroppreference', YLeaf(YType.int32, 'qosIfDropPreference')),
-                    ('qosifdropdiscipline', YLeaf(YType.enumeration, 'qosIfDropDiscipline')),
+                    ('qosifdroppreferenceid', (YLeaf(YType.uint32, 'qosIfDropPreferenceId'), ['int'])),
+                    ('qosifdroproles', (YLeaf(YType.str, 'qosIfDropRoles'), ['str'])),
+                    ('qosifdroppreference', (YLeaf(YType.int32, 'qosIfDropPreference'), ['int'])),
+                    ('qosifdropdiscipline', (YLeaf(YType.enumeration, 'qosIfDropDiscipline'), [('ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB', 'CISCOQOSPIBMIB', 'QosIfDropPreferenceTable.QosIfDropPreferenceEntry.QosIfDropDiscipline')])),
                 ])
                 self.qosifdroppreferenceid = None
                 self.qosifdroproles = None
@@ -2159,6 +2188,7 @@ class CISCOQOSPIBMIB(Entity):
                 self.qosifdropdiscipline = None
                 self._segment_path = lambda: "qosIfDropPreferenceEntry" + "[qosIfDropPreferenceId='" + str(self.qosifdroppreferenceid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfDropPreferenceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosIfDropPreferenceTable.QosIfDropPreferenceEntry, [u'qosifdroppreferenceid', u'qosifdroproles', u'qosifdroppreference', u'qosifdropdiscipline'], name, value)
@@ -2212,6 +2242,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosifdscpassignmententry = YList(self)
             self._segment_path = lambda: "qosIfDscpAssignmentTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosIfDscpAssignmentTable, [], name, value)
@@ -2280,12 +2311,12 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosifdscpassignmentid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosifdscpassignmentid', YLeaf(YType.uint32, 'qosIfDscpAssignmentId')),
-                    ('qosifdscproles', YLeaf(YType.str, 'qosIfDscpRoles')),
-                    ('qosifqueuetype', YLeaf(YType.enumeration, 'qosIfQueueType')),
-                    ('qosifdscp', YLeaf(YType.int32, 'qosIfDscp')),
-                    ('qosifqueue', YLeaf(YType.int32, 'qosIfQueue')),
-                    ('qosifthresholdset', YLeaf(YType.int32, 'qosIfThresholdSet')),
+                    ('qosifdscpassignmentid', (YLeaf(YType.uint32, 'qosIfDscpAssignmentId'), ['int'])),
+                    ('qosifdscproles', (YLeaf(YType.str, 'qosIfDscpRoles'), ['str'])),
+                    ('qosifqueuetype', (YLeaf(YType.enumeration, 'qosIfQueueType'), [('ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB', 'QosInterfaceQueueType', '')])),
+                    ('qosifdscp', (YLeaf(YType.int32, 'qosIfDscp'), ['int'])),
+                    ('qosifqueue', (YLeaf(YType.int32, 'qosIfQueue'), ['int'])),
+                    ('qosifthresholdset', (YLeaf(YType.int32, 'qosIfThresholdSet'), ['int'])),
                 ])
                 self.qosifdscpassignmentid = None
                 self.qosifdscproles = None
@@ -2295,6 +2326,7 @@ class CISCOQOSPIBMIB(Entity):
                 self.qosifthresholdset = None
                 self._segment_path = lambda: "qosIfDscpAssignmentEntry" + "[qosIfDscpAssignmentId='" + str(self.qosifdscpassignmentid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfDscpAssignmentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosIfDscpAssignmentTable.QosIfDscpAssignmentEntry, [u'qosifdscpassignmentid', u'qosifdscproles', u'qosifqueuetype', u'qosifdscp', u'qosifqueue', u'qosifthresholdset'], name, value)
@@ -2336,6 +2368,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosifredentry = YList(self)
             self._segment_path = lambda: "qosIfRedTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosIfRedTable, [], name, value)
@@ -2404,12 +2437,12 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosifredid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosifredid', YLeaf(YType.uint32, 'qosIfRedId')),
-                    ('qosifredroles', YLeaf(YType.str, 'qosIfRedRoles')),
-                    ('qosifrednumthresholdsets', YLeaf(YType.enumeration, 'qosIfRedNumThresholdSets')),
-                    ('qosifredthresholdset', YLeaf(YType.int32, 'qosIfRedThresholdSet')),
-                    ('qosifredthresholdsetlower', YLeaf(YType.int32, 'qosIfRedThresholdSetLower')),
-                    ('qosifredthresholdsetupper', YLeaf(YType.int32, 'qosIfRedThresholdSetUpper')),
+                    ('qosifredid', (YLeaf(YType.uint32, 'qosIfRedId'), ['int'])),
+                    ('qosifredroles', (YLeaf(YType.str, 'qosIfRedRoles'), ['str'])),
+                    ('qosifrednumthresholdsets', (YLeaf(YType.enumeration, 'qosIfRedNumThresholdSets'), [('ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB', 'ThresholdSetRange', '')])),
+                    ('qosifredthresholdset', (YLeaf(YType.int32, 'qosIfRedThresholdSet'), ['int'])),
+                    ('qosifredthresholdsetlower', (YLeaf(YType.int32, 'qosIfRedThresholdSetLower'), ['int'])),
+                    ('qosifredthresholdsetupper', (YLeaf(YType.int32, 'qosIfRedThresholdSetUpper'), ['int'])),
                 ])
                 self.qosifredid = None
                 self.qosifredroles = None
@@ -2419,6 +2452,7 @@ class CISCOQOSPIBMIB(Entity):
                 self.qosifredthresholdsetupper = None
                 self._segment_path = lambda: "qosIfRedEntry" + "[qosIfRedId='" + str(self.qosifredid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfRedTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosIfRedTable.QosIfRedEntry, [u'qosifredid', u'qosifredroles', u'qosifrednumthresholdsets', u'qosifredthresholdset', u'qosifredthresholdsetlower', u'qosifredthresholdsetupper'], name, value)
@@ -2459,6 +2493,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosiftaildropentry = YList(self)
             self._segment_path = lambda: "qosIfTailDropTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosIfTailDropTable, [], name, value)
@@ -2520,11 +2555,11 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosiftaildropid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosiftaildropid', YLeaf(YType.uint32, 'qosIfTailDropId')),
-                    ('qosiftaildroproles', YLeaf(YType.str, 'qosIfTailDropRoles')),
-                    ('qosiftaildropnumthresholdsets', YLeaf(YType.enumeration, 'qosIfTailDropNumThresholdSets')),
-                    ('qosiftaildropthresholdset', YLeaf(YType.int32, 'qosIfTailDropThresholdSet')),
-                    ('qosiftaildropthresholdsetvalue', YLeaf(YType.int32, 'qosIfTailDropThresholdSetValue')),
+                    ('qosiftaildropid', (YLeaf(YType.uint32, 'qosIfTailDropId'), ['int'])),
+                    ('qosiftaildroproles', (YLeaf(YType.str, 'qosIfTailDropRoles'), ['str'])),
+                    ('qosiftaildropnumthresholdsets', (YLeaf(YType.enumeration, 'qosIfTailDropNumThresholdSets'), [('ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB', 'ThresholdSetRange', '')])),
+                    ('qosiftaildropthresholdset', (YLeaf(YType.int32, 'qosIfTailDropThresholdSet'), ['int'])),
+                    ('qosiftaildropthresholdsetvalue', (YLeaf(YType.int32, 'qosIfTailDropThresholdSetValue'), ['int'])),
                 ])
                 self.qosiftaildropid = None
                 self.qosiftaildroproles = None
@@ -2533,6 +2568,7 @@ class CISCOQOSPIBMIB(Entity):
                 self.qosiftaildropthresholdsetvalue = None
                 self._segment_path = lambda: "qosIfTailDropEntry" + "[qosIfTailDropId='" + str(self.qosiftaildropid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfTailDropTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosIfTailDropTable.QosIfTailDropEntry, [u'qosiftaildropid', u'qosiftaildroproles', u'qosiftaildropnumthresholdsets', u'qosiftaildropthresholdset', u'qosiftaildropthresholdsetvalue'], name, value)
@@ -2573,6 +2609,7 @@ class CISCOQOSPIBMIB(Entity):
             self.qosifweightsentry = YList(self)
             self._segment_path = lambda: "qosIfWeightsTable"
             self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOQOSPIBMIB.QosIfWeightsTable, [], name, value)
@@ -2641,12 +2678,12 @@ class CISCOQOSPIBMIB(Entity):
                 self.ylist_key_names = ['qosifweightsid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('qosifweightsid', YLeaf(YType.uint32, 'qosIfWeightsId')),
-                    ('qosifweightsroles', YLeaf(YType.str, 'qosIfWeightsRoles')),
-                    ('qosifweightsnumqueues', YLeaf(YType.enumeration, 'qosIfWeightsNumQueues')),
-                    ('qosifweightsqueue', YLeaf(YType.int32, 'qosIfWeightsQueue')),
-                    ('qosifweightsdrainsize', YLeaf(YType.uint32, 'qosIfWeightsDrainSize')),
-                    ('qosifweightsqueuesize', YLeaf(YType.uint32, 'qosIfWeightsQueueSize')),
+                    ('qosifweightsid', (YLeaf(YType.uint32, 'qosIfWeightsId'), ['int'])),
+                    ('qosifweightsroles', (YLeaf(YType.str, 'qosIfWeightsRoles'), ['str'])),
+                    ('qosifweightsnumqueues', (YLeaf(YType.enumeration, 'qosIfWeightsNumQueues'), [('ydk.models.cisco_ios_xe.CISCO_QOS_PIB_MIB', 'QueueRange', '')])),
+                    ('qosifweightsqueue', (YLeaf(YType.int32, 'qosIfWeightsQueue'), ['int'])),
+                    ('qosifweightsdrainsize', (YLeaf(YType.uint32, 'qosIfWeightsDrainSize'), ['int'])),
+                    ('qosifweightsqueuesize', (YLeaf(YType.uint32, 'qosIfWeightsQueueSize'), ['int'])),
                 ])
                 self.qosifweightsid = None
                 self.qosifweightsroles = None
@@ -2656,6 +2693,7 @@ class CISCOQOSPIBMIB(Entity):
                 self.qosifweightsqueuesize = None
                 self._segment_path = lambda: "qosIfWeightsEntry" + "[qosIfWeightsId='" + str(self.qosifweightsid) + "']"
                 self._absolute_path = lambda: "CISCO-QOS-PIB-MIB:CISCO-QOS-PIB-MIB/qosIfWeightsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOQOSPIBMIB.QosIfWeightsTable.QosIfWeightsEntry, [u'qosifweightsid', u'qosifweightsroles', u'qosifweightsnumqueues', u'qosifweightsqueue', u'qosifweightsdrainsize', u'qosifweightsqueuesize'], name, value)

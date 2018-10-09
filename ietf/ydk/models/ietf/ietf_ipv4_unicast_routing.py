@@ -30,9 +30,11 @@ from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
+from ydk.models.ietf.ietf_routing import Ipv4
 
 
-class Ipv4Unicast(Identity):
+
+class Ipv4Unicast(Ipv4):
     """
     This identity represents the IPv4 unicast address family.
     
@@ -43,7 +45,7 @@ class Ipv4Unicast(Identity):
     _prefix = 'v4ur'
     _revision = '2015-05-25'
 
-    def __init__(self):
-        super(Ipv4Unicast, self).__init__("urn:ietf:params:xml:ns:yang:ietf-ipv4-unicast-routing", "ietf-ipv4-unicast-routing", "ietf-ipv4-unicast-routing:ipv4-unicast")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-ipv4-unicast-routing", pref="ietf-ipv4-unicast-routing", tag="ietf-ipv4-unicast-routing:ipv4-unicast"):
+        super(Ipv4Unicast, self).__init__(ns, pref, tag)
 
 

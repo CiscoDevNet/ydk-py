@@ -27,12 +27,28 @@ module Cisco-IOS-XE-platform {
 
   description
     "Cisco XE Native Platform Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016, 2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-05-17 {
+    description
+      "modified platform ipsec control type";
+  }
+  revision 2018-04-06 {
+    description
+      "Add support for platform hardware crypto-offload";
+  }
+  revision 2018-03-14 {
+    description
+      "Add support for platform ipsec";
+  }
+  revision 2017-11-29 {
+    description
+      "Add support for time-source ntp";
+  }
   revision 2017-06-02 {
     description
       "Add dependency between qos match-statistics per-filter and per-ace";
@@ -105,6 +121,25 @@ module Cisco-IOS-XE-platform {
     leaf bfd-debug-trace {
       type uint8;
     }
+
+    container time-source {
+      description
+        "Configure time-source";
+      container ntp {
+        description
+          "Configure ntp";
+        presence true;
+        leaf time-scale {
+          description
+            "Configure ntp";
+          type enumeration {
+            enum "epoch-1900";
+            enum "epoch-1970";
+          }
+        }
+      }
+    }
+
     container console {
       description
         "Direct IOS output to console";
@@ -175,6 +210,15 @@ module Cisco-IOS-XE-platform {
           }
         }
       }
+      container crypto-offload {
+        description
+          "Configure crypto offload";
+        leaf enable {
+          description
+            "Enable crypto offload";
+          type empty;
+        }
+      }
     }
     container ipsec {
       description
@@ -216,7 +260,28 @@ module Cisco-IOS-XE-platform {
           type empty;
         }
       }
-    }
+      leaf flexvpn-bypass-tcam {
+        description
+          " bypass TCAM for FlexVPN";
+        type empty;
+      }
+      leaf modexp-throttle-window {
+          description
+              " set modexp throttle window";
+          type uint8 {
+               range "0..32";
+          }
+      }
+      leaf control-plane {
+        description
+          "allocate extra crypto cores for control plane";
+        type enumeration {
+          enum "heavy";
+          enum "medium";
+        }
+      }
+    } //ipsec
+
     container l2vpn {
       description
         "Configure platform l2vpn global configuration";
@@ -448,6 +513,31 @@ module Cisco-IOS-XE-platform {
         }
       }
     }
+}
+
+leaf flexvpn-bypass-tcam {
+
+        description
+
+          " bypass TCAM for FlexVPN";
+
+        type empty;
+
+      }
+
+leaf modexp-throttle-window {
+
+        description
+
+          " set modexp throttle window";
+
+           type uint8 {
+
+            range "0..32";
+
+          }
+
+
   }
 
   /////////////////////////////////////////////////////////

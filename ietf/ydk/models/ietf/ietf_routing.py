@@ -32,6 +32,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class RoutingProtocol(Identity):
     """
     Base identity from which routing protocol identities are
@@ -44,8 +45,8 @@ class RoutingProtocol(Identity):
     _prefix = 'rt'
     _revision = '2015-05-25'
 
-    def __init__(self):
-        super(RoutingProtocol, self).__init__("urn:ietf:params:xml:ns:yang:ietf-routing", "ietf-routing", "ietf-routing:routing-protocol")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:routing-protocol"):
+        super(RoutingProtocol, self).__init__(ns, pref, tag)
 
 
 class RoutingInstance(Identity):
@@ -60,8 +61,8 @@ class RoutingInstance(Identity):
     _prefix = 'rt'
     _revision = '2015-05-25'
 
-    def __init__(self):
-        super(RoutingInstance, self).__init__("urn:ietf:params:xml:ns:yang:ietf-routing", "ietf-routing", "ietf-routing:routing-instance")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:routing-instance"):
+        super(RoutingInstance, self).__init__(ns, pref, tag)
 
 
 class AddressFamily(Identity):
@@ -76,8 +77,8 @@ class AddressFamily(Identity):
     _prefix = 'rt'
     _revision = '2015-05-25'
 
-    def __init__(self):
-        super(AddressFamily, self).__init__("urn:ietf:params:xml:ns:yang:ietf-routing", "ietf-routing", "ietf-routing:address-family")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:address-family"):
+        super(AddressFamily, self).__init__(ns, pref, tag)
 
 
 class RoutingState(Entity):
@@ -110,6 +111,7 @@ class RoutingState(Entity):
 
         self.routing_instance = YList(self)
         self._segment_path = lambda: "ietf-routing:routing-state"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(RoutingState, [], name, value)
@@ -179,9 +181,9 @@ class RoutingState(Entity):
             self.ylist_key_names = ['name']
             self._child_classes = OrderedDict([("interfaces", ("interfaces", RoutingState.RoutingInstance.Interfaces)), ("routing-protocols", ("routing_protocols", RoutingState.RoutingInstance.RoutingProtocols)), ("ribs", ("ribs", RoutingState.RoutingInstance.Ribs))])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
-                ('type', YLeaf(YType.identityref, 'type')),
-                ('router_id', YLeaf(YType.str, 'router-id')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.ietf.ietf_routing', 'RoutingInstance')])),
+                ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
             ])
             self.name = None
             self.type = None
@@ -200,6 +202,7 @@ class RoutingState(Entity):
             self._children_name_map["ribs"] = "ribs"
             self._segment_path = lambda: "routing-instance" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "ietf-routing:routing-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RoutingState.RoutingInstance, [u'name', u'type', u'router_id'], name, value)
@@ -234,10 +237,11 @@ class RoutingState(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface', YLeafList(YType.str, 'interface')),
+                    ('interface', (YLeafList(YType.str, 'interface'), ['str'])),
                 ])
                 self.interface = []
                 self._segment_path = lambda: "interfaces"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingState.RoutingInstance.Interfaces, [u'interface'], name, value)
@@ -272,6 +276,7 @@ class RoutingState(Entity):
 
                 self.routing_protocol = YList(self)
                 self._segment_path = lambda: "routing-protocols"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols, [], name, value)
@@ -317,8 +322,8 @@ class RoutingState(Entity):
                     self.ylist_key_names = ['type','name']
                     self._child_classes = OrderedDict([("ietf-ospf:ospf", ("ospf", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf))])
                     self._leafs = OrderedDict([
-                        ('type', YLeaf(YType.identityref, 'type')),
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.ietf.ietf_routing', 'RoutingProtocol')])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.type = None
                     self.name = None
@@ -327,6 +332,7 @@ class RoutingState(Entity):
                     self.ospf.parent = self
                     self._children_name_map["ospf"] = "ietf-ospf:ospf"
                     self._segment_path = lambda: "routing-protocol" + "[type='" + str(self.type) + "']" + "[name='" + str(self.name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol, [u'type', u'name'], name, value)
@@ -363,12 +369,13 @@ class RoutingState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("instance", ("instance", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance))])
                         self._leafs = OrderedDict([
-                            ('operation_mode', YLeaf(YType.identityref, 'operation-mode')),
+                            ('operation_mode', (YLeaf(YType.identityref, 'operation-mode'), [('ydk.models.ietf.ietf_ospf', 'OperationMode')])),
                         ])
                         self.operation_mode = None
 
                         self.instance = YList(self)
                         self._segment_path = lambda: "ietf-ospf:ospf"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf, ['operation_mode'], name, value)
@@ -422,8 +429,8 @@ class RoutingState(Entity):
                             self.ylist_key_names = ['af']
                             self._child_classes = OrderedDict([("area", ("area", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area)), ("as-scope-lsas", ("as_scope_lsas", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas)), ("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology))])
                             self._leafs = OrderedDict([
-                                ('af', YLeaf(YType.identityref, 'af')),
-                                ('router_id', YLeaf(YType.str, 'router-id')),
+                                ('af', (YLeaf(YType.identityref, 'af'), [('ydk.models.ietf.ietf_routing', 'AddressFamily')])),
+                                ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
                             ])
                             self.af = None
                             self.router_id = None
@@ -432,6 +439,7 @@ class RoutingState(Entity):
                             self.as_scope_lsas = YList(self)
                             self.topology = YList(self)
                             self._segment_path = lambda: "instance" + "[af='" + str(self.af) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance, ['af', 'router_id'], name, value)
@@ -481,13 +489,14 @@ class RoutingState(Entity):
                                 self.ylist_key_names = ['area_id']
                                 self._child_classes = OrderedDict([("interfaces", ("interfaces", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces)), ("area-scope-lsas", ("area_scope_lsas", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas))])
                                 self._leafs = OrderedDict([
-                                    ('area_id', YLeaf(YType.str, 'area-id')),
+                                    ('area_id', (YLeaf(YType.str, 'area-id'), ['int','str'])),
                                 ])
                                 self.area_id = None
 
                                 self.interfaces = YList(self)
                                 self.area_scope_lsas = YList(self)
                                 self._segment_path = lambda: "area" + "[area-id='" + str(self.area_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area, ['area_id'], name, value)
@@ -688,26 +697,26 @@ class RoutingState(Entity):
                                     self.ylist_key_names = ['interface']
                                     self._child_classes = OrderedDict([("multi-area", ("multi_area", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.MultiArea)), ("static-neighbors", ("static_neighbors", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors)), ("fast-reroute", ("fast_reroute", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute)), ("ttl-security", ("ttl_security", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.TtlSecurity)), ("authentication", ("authentication", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication)), ("neighbor", ("neighbor", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Neighbor)), ("link-scope-lsas", ("link_scope_lsas", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas)), ("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Topology))])
                                     self._leafs = OrderedDict([
-                                        ('interface', YLeaf(YType.str, 'interface')),
-                                        ('network_type', YLeaf(YType.enumeration, 'network-type')),
-                                        ('passive', YLeaf(YType.boolean, 'passive')),
-                                        ('demand_circuit', YLeaf(YType.boolean, 'demand-circuit')),
-                                        ('node_flag', YLeaf(YType.boolean, 'node-flag')),
-                                        ('cost', YLeaf(YType.uint16, 'cost')),
-                                        ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
-                                        ('dead_interval', YLeaf(YType.uint16, 'dead-interval')),
-                                        ('retransmit_interval', YLeaf(YType.uint16, 'retransmit-interval')),
-                                        ('transmit_delay', YLeaf(YType.uint16, 'transmit-delay')),
-                                        ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
-                                        ('lls', YLeaf(YType.boolean, 'lls')),
-                                        ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
-                                        ('bfd', YLeaf(YType.boolean, 'bfd')),
-                                        ('enable', YLeaf(YType.boolean, 'enable')),
-                                        ('state', YLeaf(YType.str, 'state')),
-                                        ('hello_timer', YLeaf(YType.uint32, 'hello-timer')),
-                                        ('wait_timer', YLeaf(YType.uint32, 'wait-timer')),
-                                        ('dr', YLeaf(YType.str, 'dr')),
-                                        ('bdr', YLeaf(YType.str, 'bdr')),
+                                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                        ('network_type', (YLeaf(YType.enumeration, 'network-type'), [('ydk.models.ietf.ietf_routing', 'RoutingState', 'RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.NetworkType')])),
+                                        ('passive', (YLeaf(YType.boolean, 'passive'), ['bool'])),
+                                        ('demand_circuit', (YLeaf(YType.boolean, 'demand-circuit'), ['bool'])),
+                                        ('node_flag', (YLeaf(YType.boolean, 'node-flag'), ['bool'])),
+                                        ('cost', (YLeaf(YType.uint16, 'cost'), ['int'])),
+                                        ('hello_interval', (YLeaf(YType.uint16, 'hello-interval'), ['int'])),
+                                        ('dead_interval', (YLeaf(YType.uint16, 'dead-interval'), ['int'])),
+                                        ('retransmit_interval', (YLeaf(YType.uint16, 'retransmit-interval'), ['int'])),
+                                        ('transmit_delay', (YLeaf(YType.uint16, 'transmit-delay'), ['int'])),
+                                        ('mtu_ignore', (YLeaf(YType.boolean, 'mtu-ignore'), ['bool'])),
+                                        ('lls', (YLeaf(YType.boolean, 'lls'), ['bool'])),
+                                        ('prefix_suppression', (YLeaf(YType.boolean, 'prefix-suppression'), ['bool'])),
+                                        ('bfd', (YLeaf(YType.boolean, 'bfd'), ['bool'])),
+                                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                        ('state', (YLeaf(YType.str, 'state'), ['str'])),
+                                        ('hello_timer', (YLeaf(YType.uint32, 'hello-timer'), ['int'])),
+                                        ('wait_timer', (YLeaf(YType.uint32, 'wait-timer'), ['int'])),
+                                        ('dr', (YLeaf(YType.str, 'dr'), ['str'])),
+                                        ('bdr', (YLeaf(YType.str, 'bdr'), ['str'])),
                                     ])
                                     self.interface = None
                                     self.network_type = None
@@ -754,6 +763,7 @@ class RoutingState(Entity):
                                     self.link_scope_lsas = YList(self)
                                     self.topology = YList(self)
                                     self._segment_path = lambda: "interfaces" + "[interface='" + str(self.interface) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces, ['interface', 'network_type', 'passive', 'demand_circuit', 'node_flag', 'cost', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay', 'mtu_ignore', 'lls', 'prefix_suppression', 'bfd', 'enable', 'state', 'hello_timer', 'wait_timer', 'dr', 'bdr'], name, value)
@@ -835,12 +845,13 @@ class RoutingState(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('multi_area_id', YLeaf(YType.str, 'multi-area-id')),
-                                            ('cost', YLeaf(YType.uint16, 'cost')),
+                                            ('multi_area_id', (YLeaf(YType.str, 'multi-area-id'), ['int','str'])),
+                                            ('cost', (YLeaf(YType.uint16, 'cost'), ['int'])),
                                         ])
                                         self.multi_area_id = None
                                         self.cost = None
                                         self._segment_path = lambda: "multi-area"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.MultiArea, ['multi_area_id', 'cost'], name, value)
@@ -875,6 +886,7 @@ class RoutingState(Entity):
 
                                         self.neighbor = YList(self)
                                         self._segment_path = lambda: "static-neighbors"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors, [], name, value)
@@ -937,16 +949,17 @@ class RoutingState(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
-                                                ('cost', YLeaf(YType.uint16, 'cost')),
-                                                ('poll_interval', YLeaf(YType.uint16, 'poll-interval')),
-                                                ('priority', YLeaf(YType.uint8, 'priority')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                                                ('cost', (YLeaf(YType.uint16, 'cost'), ['int'])),
+                                                ('poll_interval', (YLeaf(YType.uint16, 'poll-interval'), ['int'])),
+                                                ('priority', (YLeaf(YType.uint8, 'priority'), ['int'])),
                                             ])
                                             self.address = None
                                             self.cost = None
                                             self.poll_interval = None
                                             self.priority = None
                                             self._segment_path = lambda: "neighbor" + "[address='" + str(self.address) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.StaticNeighbors.Neighbor, ['address', 'cost', 'poll_interval', 'priority'], name, value)
@@ -983,6 +996,7 @@ class RoutingState(Entity):
                                         self.lfa.parent = self
                                         self._children_name_map["lfa"] = "lfa"
                                         self._segment_path = lambda: "fast-reroute"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute, [], name, value)
@@ -1024,8 +1038,8 @@ class RoutingState(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa.RemoteLfa))])
                                             self._leafs = OrderedDict([
-                                                ('candidate_disabled', YLeaf(YType.boolean, 'candidate-disabled')),
-                                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                                ('candidate_disabled', (YLeaf(YType.boolean, 'candidate-disabled'), ['bool'])),
+                                                ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                                             ])
                                             self.candidate_disabled = None
                                             self.enabled = None
@@ -1034,6 +1048,7 @@ class RoutingState(Entity):
                                             self.remote_lfa.parent = self
                                             self._children_name_map["remote_lfa"] = "remote-lfa"
                                             self._segment_path = lambda: "lfa"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa, ['candidate_disabled', 'enabled'], name, value)
@@ -1065,10 +1080,11 @@ class RoutingState(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                                    ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                                                 ])
                                                 self.enabled = None
                                                 self._segment_path = lambda: "remote-lfa"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.FastReroute.Lfa.RemoteLfa, ['enabled'], name, value)
@@ -1107,12 +1123,13 @@ class RoutingState(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('enable', YLeaf(YType.boolean, 'enable')),
-                                            ('hops', YLeaf(YType.uint8, 'hops')),
+                                            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                            ('hops', (YLeaf(YType.uint8, 'hops'), ['int'])),
                                         ])
                                         self.enable = None
                                         self.hops = None
                                         self._segment_path = lambda: "ttl-security"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.TtlSecurity, ['enable', 'hops'], name, value)
@@ -1161,9 +1178,9 @@ class RoutingState(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("crypto-algorithm", ("crypto_algorithm", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication.CryptoAlgorithm))])
                                         self._leafs = OrderedDict([
-                                            ('sa', YLeaf(YType.str, 'sa')),
-                                            ('key_chain', YLeaf(YType.str, 'key-chain')),
-                                            ('key', YLeaf(YType.str, 'key')),
+                                            ('sa', (YLeaf(YType.str, 'sa'), ['str'])),
+                                            ('key_chain', (YLeaf(YType.str, 'key-chain'), ['str'])),
+                                            ('key', (YLeaf(YType.str, 'key'), ['str'])),
                                         ])
                                         self.sa = None
                                         self.key_chain = None
@@ -1173,6 +1190,7 @@ class RoutingState(Entity):
                                         self.crypto_algorithm.parent = self
                                         self._children_name_map["crypto_algorithm"] = "crypto-algorithm"
                                         self._segment_path = lambda: "authentication"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication, ['sa', 'key_chain', 'key'], name, value)
@@ -1239,14 +1257,14 @@ class RoutingState(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('hmac_sha1_12', YLeaf(YType.empty, 'hmac-sha1-12')),
-                                                ('hmac_sha1_20', YLeaf(YType.empty, 'hmac-sha1-20')),
-                                                ('md5', YLeaf(YType.empty, 'md5')),
-                                                ('sha_1', YLeaf(YType.empty, 'sha-1')),
-                                                ('hmac_sha_1', YLeaf(YType.empty, 'hmac-sha-1')),
-                                                ('hmac_sha_256', YLeaf(YType.empty, 'hmac-sha-256')),
-                                                ('hmac_sha_384', YLeaf(YType.empty, 'hmac-sha-384')),
-                                                ('hmac_sha_512', YLeaf(YType.empty, 'hmac-sha-512')),
+                                                ('hmac_sha1_12', (YLeaf(YType.empty, 'hmac-sha1-12'), ['Empty'])),
+                                                ('hmac_sha1_20', (YLeaf(YType.empty, 'hmac-sha1-20'), ['Empty'])),
+                                                ('md5', (YLeaf(YType.empty, 'md5'), ['Empty'])),
+                                                ('sha_1', (YLeaf(YType.empty, 'sha-1'), ['Empty'])),
+                                                ('hmac_sha_1', (YLeaf(YType.empty, 'hmac-sha-1'), ['Empty'])),
+                                                ('hmac_sha_256', (YLeaf(YType.empty, 'hmac-sha-256'), ['Empty'])),
+                                                ('hmac_sha_384', (YLeaf(YType.empty, 'hmac-sha-384'), ['Empty'])),
+                                                ('hmac_sha_512', (YLeaf(YType.empty, 'hmac-sha-512'), ['Empty'])),
                                             ])
                                             self.hmac_sha1_12 = None
                                             self.hmac_sha1_20 = None
@@ -1257,6 +1275,7 @@ class RoutingState(Entity):
                                             self.hmac_sha_384 = None
                                             self.hmac_sha_512 = None
                                             self._segment_path = lambda: "crypto-algorithm"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Authentication.CryptoAlgorithm, ['hmac_sha1_12', 'hmac_sha1_20', 'md5', 'sha_1', 'hmac_sha_1', 'hmac_sha_256', 'hmac_sha_384', 'hmac_sha_512'], name, value)
@@ -1322,11 +1341,11 @@ class RoutingState(Entity):
                                         self.ylist_key_names = ['neighbor_id']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('neighbor_id', YLeaf(YType.str, 'neighbor-id')),
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('dr', YLeaf(YType.str, 'dr')),
-                                            ('bdr', YLeaf(YType.str, 'bdr')),
-                                            ('state', YLeaf(YType.enumeration, 'state')),
+                                            ('neighbor_id', (YLeaf(YType.str, 'neighbor-id'), ['str'])),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                                            ('dr', (YLeaf(YType.str, 'dr'), ['str'])),
+                                            ('bdr', (YLeaf(YType.str, 'bdr'), ['str'])),
+                                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.ietf.ietf_ospf', 'NbrStateType', '')])),
                                         ])
                                         self.neighbor_id = None
                                         self.address = None
@@ -1334,6 +1353,7 @@ class RoutingState(Entity):
                                         self.bdr = None
                                         self.state = None
                                         self._segment_path = lambda: "neighbor" + "[neighbor-id='" + str(self.neighbor_id) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Neighbor, ['neighbor_id', 'address', 'dr', 'bdr', 'state'], name, value)
@@ -1372,12 +1392,13 @@ class RoutingState(Entity):
                                         self.ylist_key_names = ['lsa_type']
                                         self._child_classes = OrderedDict([("link-scope-lsa", ("link_scope_lsa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa))])
                                         self._leafs = OrderedDict([
-                                            ('lsa_type', YLeaf(YType.uint8, 'lsa-type')),
+                                            ('lsa_type', (YLeaf(YType.uint8, 'lsa-type'), ['int'])),
                                         ])
                                         self.lsa_type = None
 
                                         self.link_scope_lsa = YList(self)
                                         self._segment_path = lambda: "link-scope-lsas" + "[lsa-type='" + str(self.lsa_type) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas, ['lsa_type'], name, value)
@@ -1446,10 +1467,10 @@ class RoutingState(Entity):
                                             self.ylist_key_names = ['lsa_id','adv_router']
                                             self._child_classes = OrderedDict([("ospfv2", ("ospfv2", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2)), ("ospfv3", ("ospfv3", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3))])
                                             self._leafs = OrderedDict([
-                                                ('lsa_id', YLeaf(YType.str, 'lsa-id')),
-                                                ('adv_router', YLeaf(YType.str, 'adv-router')),
-                                                ('decoded_completed', YLeaf(YType.boolean, 'decoded-completed')),
-                                                ('raw_data', YLeaf(YType.str, 'raw-data')),
+                                                ('lsa_id', (YLeaf(YType.str, 'lsa-id'), ['str','int'])),
+                                                ('adv_router', (YLeaf(YType.str, 'adv-router'), ['str'])),
+                                                ('decoded_completed', (YLeaf(YType.boolean, 'decoded-completed'), ['bool'])),
+                                                ('raw_data', (YLeaf(YType.str, 'raw-data'), ['str'])),
                                             ])
                                             self.lsa_id = None
                                             self.adv_router = None
@@ -1464,6 +1485,7 @@ class RoutingState(Entity):
                                             self.ospfv3.parent = self
                                             self._children_name_map["ospfv3"] = "ospfv3"
                                             self._segment_path = lambda: "link-scope-lsa" + "[lsa-id='" + str(self.lsa_id) + "']" + "[adv-router='" + str(self.adv_router) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa, ['lsa_id', 'adv_router', 'decoded_completed', 'raw_data'], name, value)
@@ -1509,6 +1531,7 @@ class RoutingState(Entity):
                                                 self.body.parent = self
                                                 self._children_name_map["body"] = "body"
                                                 self._segment_path = lambda: "ospfv2"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2, [], name, value)
@@ -1619,16 +1642,16 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('options', YLeaf(YType.bits, 'options')),
-                                                        ('lsa_id', YLeaf(YType.str, 'lsa-id')),
-                                                        ('opaque_type', YLeaf(YType.uint8, 'opaque-type')),
-                                                        ('opaque_id', YLeaf(YType.uint32, 'opaque-id')),
-                                                        ('age', YLeaf(YType.uint16, 'age')),
-                                                        ('type', YLeaf(YType.uint16, 'type')),
-                                                        ('adv_router', YLeaf(YType.str, 'adv-router')),
-                                                        ('seq_num', YLeaf(YType.str, 'seq-num')),
-                                                        ('checksum', YLeaf(YType.str, 'checksum')),
-                                                        ('length', YLeaf(YType.uint16, 'length')),
+                                                        ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
+                                                        ('lsa_id', (YLeaf(YType.str, 'lsa-id'), ['str'])),
+                                                        ('opaque_type', (YLeaf(YType.uint8, 'opaque-type'), ['int'])),
+                                                        ('opaque_id', (YLeaf(YType.uint32, 'opaque-id'), ['int'])),
+                                                        ('age', (YLeaf(YType.uint16, 'age'), ['int'])),
+                                                        ('type', (YLeaf(YType.uint16, 'type'), ['int'])),
+                                                        ('adv_router', (YLeaf(YType.str, 'adv-router'), ['str'])),
+                                                        ('seq_num', (YLeaf(YType.str, 'seq-num'), ['str'])),
+                                                        ('checksum', (YLeaf(YType.str, 'checksum'), ['str'])),
+                                                        ('length', (YLeaf(YType.uint16, 'length'), ['int'])),
                                                     ])
                                                     self.options = Bits()
                                                     self.lsa_id = None
@@ -1641,6 +1664,7 @@ class RoutingState(Entity):
                                                     self.checksum = None
                                                     self.length = None
                                                     self._segment_path = lambda: "header"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Header, ['options', 'lsa_id', 'opaque_type', 'opaque_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length'], name, value)
@@ -1713,6 +1737,7 @@ class RoutingState(Entity):
                                                     self.opaque.parent = self
                                                     self._children_name_map["opaque"] = "opaque"
                                                     self._segment_path = lambda: "body"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body, [], name, value)
@@ -1756,14 +1781,15 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([("link", ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link))])
                                                         self._leafs = OrderedDict([
-                                                            ('flags', YLeaf(YType.bits, 'flags')),
-                                                            ('num_of_links', YLeaf(YType.uint16, 'num-of-links')),
+                                                            ('flags', (YLeaf(YType.bits, 'flags'), ['Bits'])),
+                                                            ('num_of_links', (YLeaf(YType.uint16, 'num-of-links'), ['int'])),
                                                         ])
                                                         self.flags = Bits()
                                                         self.num_of_links = None
 
                                                         self.link = YList(self)
                                                         self._segment_path = lambda: "router"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router, ['flags', 'num_of_links'], name, value)
@@ -1828,9 +1854,9 @@ class RoutingState(Entity):
                                                             self.ylist_key_names = ['link_id','link_data']
                                                             self._child_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link.Topology))])
                                                             self._leafs = OrderedDict([
-                                                                ('link_id', YLeaf(YType.str, 'link-id')),
-                                                                ('link_data', YLeaf(YType.str, 'link-data')),
-                                                                ('type', YLeaf(YType.uint8, 'type')),
+                                                                ('link_id', (YLeaf(YType.str, 'link-id'), ['str','str'])),
+                                                                ('link_data', (YLeaf(YType.str, 'link-data'), ['str','int'])),
+                                                                ('type', (YLeaf(YType.uint8, 'type'), ['int'])),
                                                             ])
                                                             self.link_id = None
                                                             self.link_data = None
@@ -1838,6 +1864,7 @@ class RoutingState(Entity):
 
                                                             self.topology = YList(self)
                                                             self._segment_path = lambda: "link" + "[link-id='" + str(self.link_id) + "']" + "[link-data='" + str(self.link_data) + "']"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link, ['link_id', 'link_data', 'type'], name, value)
@@ -1878,12 +1905,13 @@ class RoutingState(Entity):
                                                                 self.ylist_key_names = ['mt_id']
                                                                 self._child_classes = OrderedDict([])
                                                                 self._leafs = OrderedDict([
-                                                                    ('mt_id', YLeaf(YType.uint8, 'mt-id')),
-                                                                    ('metric', YLeaf(YType.uint16, 'metric')),
+                                                                    ('mt_id', (YLeaf(YType.uint8, 'mt-id'), ['int'])),
+                                                                    ('metric', (YLeaf(YType.uint16, 'metric'), ['int'])),
                                                                 ])
                                                                 self.mt_id = None
                                                                 self.metric = None
                                                                 self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
+                                                                self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
                                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Router.Link.Topology, ['mt_id', 'metric'], name, value)
@@ -1924,12 +1952,13 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('network_mask', YLeaf(YType.str, 'network-mask')),
-                                                            ('attached_router', YLeafList(YType.str, 'attached-router')),
+                                                            ('network_mask', (YLeaf(YType.str, 'network-mask'), ['str'])),
+                                                            ('attached_router', (YLeafList(YType.str, 'attached-router'), ['str'])),
                                                         ])
                                                         self.network_mask = None
                                                         self.attached_router = []
                                                         self._segment_path = lambda: "network"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Network, ['network_mask', 'attached_router'], name, value)
@@ -1968,12 +1997,13 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary.Topology))])
                                                         self._leafs = OrderedDict([
-                                                            ('network_mask', YLeaf(YType.str, 'network-mask')),
+                                                            ('network_mask', (YLeaf(YType.str, 'network-mask'), ['str'])),
                                                         ])
                                                         self.network_mask = None
 
                                                         self.topology = YList(self)
                                                         self._segment_path = lambda: "summary"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary, ['network_mask'], name, value)
@@ -2014,12 +2044,13 @@ class RoutingState(Entity):
                                                             self.ylist_key_names = ['mt_id']
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('mt_id', YLeaf(YType.uint8, 'mt-id')),
-                                                                ('metric', YLeaf(YType.uint32, 'metric')),
+                                                                ('mt_id', (YLeaf(YType.uint8, 'mt-id'), ['int'])),
+                                                                ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
                                                             ])
                                                             self.mt_id = None
                                                             self.metric = None
                                                             self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Summary.Topology, ['mt_id', 'metric'], name, value)
@@ -2058,12 +2089,13 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External.Topology))])
                                                         self._leafs = OrderedDict([
-                                                            ('network_mask', YLeaf(YType.str, 'network-mask')),
+                                                            ('network_mask', (YLeaf(YType.str, 'network-mask'), ['str'])),
                                                         ])
                                                         self.network_mask = None
 
                                                         self.topology = YList(self)
                                                         self._segment_path = lambda: "external"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External, ['network_mask'], name, value)
@@ -2123,11 +2155,11 @@ class RoutingState(Entity):
                                                             self.ylist_key_names = ['mt_id']
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('mt_id', YLeaf(YType.uint8, 'mt-id')),
-                                                                ('flags', YLeaf(YType.bits, 'flags')),
-                                                                ('metric', YLeaf(YType.uint32, 'metric')),
-                                                                ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
-                                                                ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
+                                                                ('mt_id', (YLeaf(YType.uint8, 'mt-id'), ['int'])),
+                                                                ('flags', (YLeaf(YType.bits, 'flags'), ['Bits'])),
+                                                                ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                                ('forwarding_address', (YLeaf(YType.str, 'forwarding-address'), ['str'])),
+                                                                ('external_route_tag', (YLeaf(YType.uint32, 'external-route-tag'), ['int'])),
                                                             ])
                                                             self.mt_id = None
                                                             self.flags = Bits()
@@ -2135,6 +2167,7 @@ class RoutingState(Entity):
                                                             self.forwarding_address = None
                                                             self.external_route_tag = None
                                                             self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.External.Topology, ['mt_id', 'flags', 'metric', 'forwarding_address', 'external_route_tag'], name, value)
@@ -2187,6 +2220,7 @@ class RoutingState(Entity):
 
                                                         self.unknown_tlv = YList(self)
                                                         self._segment_path = lambda: "opaque"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque, [], name, value)
@@ -2234,14 +2268,15 @@ class RoutingState(Entity):
                                                             self.ylist_key_names = ['type']
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('type', YLeaf(YType.uint16, 'type')),
-                                                                ('length', YLeaf(YType.uint16, 'length')),
-                                                                ('value', YLeaf(YType.str, 'value')),
+                                                                ('type', (YLeaf(YType.uint16, 'type'), ['int'])),
+                                                                ('length', (YLeaf(YType.uint16, 'length'), ['int'])),
+                                                                ('value', (YLeaf(YType.str, 'value'), ['str'])),
                                                             ])
                                                             self.type = None
                                                             self.length = None
                                                             self.value = None
                                                             self._segment_path = lambda: "unknown-tlv" + "[type='" + str(self.type) + "']"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.UnknownTlv, ['type', 'length', 'value'], name, value)
@@ -2275,10 +2310,11 @@ class RoutingState(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('router_address', YLeaf(YType.str, 'router-address')),
+                                                                ('router_address', (YLeaf(YType.str, 'router-address'), ['str'])),
                                                             ])
                                                             self.router_address = None
                                                             self._segment_path = lambda: "router-address-tlv"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv, ['router_address'], name, value)
@@ -2383,15 +2419,15 @@ class RoutingState(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([("unknown-subtlv", ("unknown_subtlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv))])
                                                             self._leafs = OrderedDict([
-                                                                ('link_type', YLeaf(YType.uint8, 'link-type')),
-                                                                ('link_id', YLeaf(YType.str, 'link-id')),
-                                                                ('local_if_ipv4_addr', YLeafList(YType.str, 'local-if-ipv4-addr')),
-                                                                ('local_remote_ipv4_addr', YLeafList(YType.str, 'local-remote-ipv4-addr')),
-                                                                ('te_metric', YLeaf(YType.uint32, 'te-metric')),
-                                                                ('max_bandwidth', YLeaf(YType.str, 'max-bandwidth')),
-                                                                ('max_reservable_bandwidth', YLeaf(YType.str, 'max-reservable-bandwidth')),
-                                                                ('unreserved_bandwidth', YLeaf(YType.str, 'unreserved-bandwidth')),
-                                                                ('admin_group', YLeaf(YType.uint32, 'admin-group')),
+                                                                ('link_type', (YLeaf(YType.uint8, 'link-type'), ['int'])),
+                                                                ('link_id', (YLeaf(YType.str, 'link-id'), ['str','str'])),
+                                                                ('local_if_ipv4_addr', (YLeafList(YType.str, 'local-if-ipv4-addr'), ['str'])),
+                                                                ('local_remote_ipv4_addr', (YLeafList(YType.str, 'local-remote-ipv4-addr'), ['str'])),
+                                                                ('te_metric', (YLeaf(YType.uint32, 'te-metric'), ['int'])),
+                                                                ('max_bandwidth', (YLeaf(YType.str, 'max-bandwidth'), ['Decimal64'])),
+                                                                ('max_reservable_bandwidth', (YLeaf(YType.str, 'max-reservable-bandwidth'), ['Decimal64'])),
+                                                                ('unreserved_bandwidth', (YLeaf(YType.str, 'unreserved-bandwidth'), ['Decimal64'])),
+                                                                ('admin_group', (YLeaf(YType.uint32, 'admin-group'), ['int'])),
                                                             ])
                                                             self.link_type = None
                                                             self.link_id = None
@@ -2405,6 +2441,7 @@ class RoutingState(Entity):
 
                                                             self.unknown_subtlv = YList(self)
                                                             self._segment_path = lambda: "link-tlv"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv, ['link_type', 'link_id', 'local_if_ipv4_addr', 'local_remote_ipv4_addr', 'te_metric', 'max_bandwidth', 'max_reservable_bandwidth', 'unreserved_bandwidth', 'admin_group'], name, value)
@@ -2452,14 +2489,15 @@ class RoutingState(Entity):
                                                                 self.ylist_key_names = ['type']
                                                                 self._child_classes = OrderedDict([])
                                                                 self._leafs = OrderedDict([
-                                                                    ('type', YLeaf(YType.uint16, 'type')),
-                                                                    ('length', YLeaf(YType.uint16, 'length')),
-                                                                    ('value', YLeaf(YType.str, 'value')),
+                                                                    ('type', (YLeaf(YType.uint16, 'type'), ['int'])),
+                                                                    ('length', (YLeaf(YType.uint16, 'length'), ['int'])),
+                                                                    ('value', (YLeaf(YType.str, 'value'), ['str'])),
                                                                 ])
                                                                 self.type = None
                                                                 self.length = None
                                                                 self.value = None
                                                                 self._segment_path = lambda: "unknown-subtlv" + "[type='" + str(self.type) + "']"
+                                                                self._is_frozen = True
 
                                                             def __setattr__(self, name, value):
                                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv, ['type', 'length', 'value'], name, value)
@@ -2505,6 +2543,7 @@ class RoutingState(Entity):
                                                 self.body.parent = self
                                                 self._children_name_map["body"] = "body"
                                                 self._segment_path = lambda: "ospfv3"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3, [], name, value)
@@ -2597,14 +2636,14 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('lsa_id', YLeaf(YType.uint32, 'lsa-id')),
-                                                        ('age', YLeaf(YType.uint16, 'age')),
-                                                        ('type', YLeaf(YType.uint16, 'type')),
-                                                        ('adv_router', YLeaf(YType.str, 'adv-router')),
-                                                        ('seq_num', YLeaf(YType.str, 'seq-num')),
-                                                        ('checksum', YLeaf(YType.str, 'checksum')),
-                                                        ('length', YLeaf(YType.uint16, 'length')),
-                                                        ('options', YLeaf(YType.bits, 'options')),
+                                                        ('lsa_id', (YLeaf(YType.uint32, 'lsa-id'), ['int'])),
+                                                        ('age', (YLeaf(YType.uint16, 'age'), ['int'])),
+                                                        ('type', (YLeaf(YType.uint16, 'type'), ['int'])),
+                                                        ('adv_router', (YLeaf(YType.str, 'adv-router'), ['str'])),
+                                                        ('seq_num', (YLeaf(YType.str, 'seq-num'), ['str'])),
+                                                        ('checksum', (YLeaf(YType.str, 'checksum'), ['str'])),
+                                                        ('length', (YLeaf(YType.uint16, 'length'), ['int'])),
+                                                        ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
                                                     ])
                                                     self.lsa_id = None
                                                     self.age = None
@@ -2615,6 +2654,7 @@ class RoutingState(Entity):
                                                     self.length = None
                                                     self.options = Bits()
                                                     self._segment_path = lambda: "header"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Header, ['lsa_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length', 'options'], name, value)
@@ -2714,6 +2754,7 @@ class RoutingState(Entity):
                                                     self.intra_area_prefix.parent = self
                                                     self._children_name_map["intra_area_prefix"] = "intra-area-prefix"
                                                     self._segment_path = lambda: "body"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body, [], name, value)
@@ -2759,14 +2800,15 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([("link", ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router.Link))])
                                                         self._leafs = OrderedDict([
-                                                            ('flags', YLeaf(YType.bits, 'flags')),
-                                                            ('options', YLeaf(YType.bits, 'options')),
+                                                            ('flags', (YLeaf(YType.bits, 'flags'), ['Bits'])),
+                                                            ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
                                                         ])
                                                         self.flags = Bits()
                                                         self.options = Bits()
 
                                                         self.link = YList(self)
                                                         self._segment_path = lambda: "router"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router, ['flags', 'options'], name, value)
@@ -2828,11 +2870,11 @@ class RoutingState(Entity):
                                                             self.ylist_key_names = ['interface_id','neighbor_interface_id','neighbor_router_id']
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('interface_id', YLeaf(YType.uint32, 'interface-id')),
-                                                                ('neighbor_interface_id', YLeaf(YType.uint32, 'neighbor-interface-id')),
-                                                                ('neighbor_router_id', YLeaf(YType.str, 'neighbor-router-id')),
-                                                                ('type', YLeaf(YType.uint8, 'type')),
-                                                                ('metric', YLeaf(YType.uint16, 'metric')),
+                                                                ('interface_id', (YLeaf(YType.uint32, 'interface-id'), ['int'])),
+                                                                ('neighbor_interface_id', (YLeaf(YType.uint32, 'neighbor-interface-id'), ['int'])),
+                                                                ('neighbor_router_id', (YLeaf(YType.str, 'neighbor-router-id'), ['str'])),
+                                                                ('type', (YLeaf(YType.uint8, 'type'), ['int'])),
+                                                                ('metric', (YLeaf(YType.uint16, 'metric'), ['int'])),
                                                             ])
                                                             self.interface_id = None
                                                             self.neighbor_interface_id = None
@@ -2840,6 +2882,7 @@ class RoutingState(Entity):
                                                             self.type = None
                                                             self.metric = None
                                                             self._segment_path = lambda: "link" + "[interface-id='" + str(self.interface_id) + "']" + "[neighbor-interface-id='" + str(self.neighbor_interface_id) + "']" + "[neighbor-router-id='" + str(self.neighbor_router_id) + "']"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Router.Link, ['interface_id', 'neighbor_interface_id', 'neighbor_router_id', 'type', 'metric'], name, value)
@@ -2880,12 +2923,13 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('options', YLeaf(YType.bits, 'options')),
-                                                            ('attached_router', YLeafList(YType.str, 'attached-router')),
+                                                            ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
+                                                            ('attached_router', (YLeafList(YType.str, 'attached-router'), ['str'])),
                                                         ])
                                                         self.options = Bits()
                                                         self.attached_router = []
                                                         self._segment_path = lambda: "network"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Network, ['options', 'attached_router'], name, value)
@@ -2931,14 +2975,15 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('metric', YLeaf(YType.uint32, 'metric')),
-                                                            ('prefix', YLeaf(YType.str, 'prefix')),
-                                                            ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                            ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                            ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                            ('prefix_options', (YLeaf(YType.str, 'prefix-options'), ['str'])),
                                                         ])
                                                         self.metric = None
                                                         self.prefix = None
                                                         self.prefix_options = None
                                                         self._segment_path = lambda: "inter-area-prefix"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaPrefix, ['metric', 'prefix', 'prefix_options'], name, value)
@@ -2986,14 +3031,15 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('options', YLeaf(YType.bits, 'options')),
-                                                            ('metric', YLeaf(YType.uint32, 'metric')),
-                                                            ('destination_router_id', YLeaf(YType.str, 'destination-router-id')),
+                                                            ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
+                                                            ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                            ('destination_router_id', (YLeaf(YType.str, 'destination-router-id'), ['str'])),
                                                         ])
                                                         self.options = Bits()
                                                         self.metric = None
                                                         self.destination_router_id = None
                                                         self._segment_path = lambda: "inter-area-router"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.InterAreaRouter, ['options', 'metric', 'destination_router_id'], name, value)
@@ -3072,14 +3118,14 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('metric', YLeaf(YType.uint32, 'metric')),
-                                                            ('flags', YLeaf(YType.bits, 'flags')),
-                                                            ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
-                                                            ('prefix', YLeaf(YType.str, 'prefix')),
-                                                            ('prefix_options', YLeaf(YType.str, 'prefix-options')),
-                                                            ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
-                                                            ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
-                                                            ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
+                                                            ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                            ('flags', (YLeaf(YType.bits, 'flags'), ['Bits'])),
+                                                            ('referenced_ls_type', (YLeaf(YType.uint16, 'referenced-ls-type'), ['int'])),
+                                                            ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                            ('prefix_options', (YLeaf(YType.str, 'prefix-options'), ['str'])),
+                                                            ('forwarding_address', (YLeaf(YType.str, 'forwarding-address'), ['str'])),
+                                                            ('external_route_tag', (YLeaf(YType.uint32, 'external-route-tag'), ['int'])),
+                                                            ('referenced_link_state_id', (YLeaf(YType.uint32, 'referenced-link-state-id'), ['int'])),
                                                         ])
                                                         self.metric = None
                                                         self.flags = Bits()
@@ -3090,6 +3136,7 @@ class RoutingState(Entity):
                                                         self.external_route_tag = None
                                                         self.referenced_link_state_id = None
                                                         self._segment_path = lambda: "as-external"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.AsExternal, ['metric', 'flags', 'referenced_ls_type', 'prefix', 'prefix_options', 'forwarding_address', 'external_route_tag', 'referenced_link_state_id'], name, value)
@@ -3168,14 +3215,14 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('metric', YLeaf(YType.uint32, 'metric')),
-                                                            ('flags', YLeaf(YType.bits, 'flags')),
-                                                            ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
-                                                            ('prefix', YLeaf(YType.str, 'prefix')),
-                                                            ('prefix_options', YLeaf(YType.str, 'prefix-options')),
-                                                            ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
-                                                            ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
-                                                            ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
+                                                            ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                            ('flags', (YLeaf(YType.bits, 'flags'), ['Bits'])),
+                                                            ('referenced_ls_type', (YLeaf(YType.uint16, 'referenced-ls-type'), ['int'])),
+                                                            ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                            ('prefix_options', (YLeaf(YType.str, 'prefix-options'), ['str'])),
+                                                            ('forwarding_address', (YLeaf(YType.str, 'forwarding-address'), ['str'])),
+                                                            ('external_route_tag', (YLeaf(YType.uint32, 'external-route-tag'), ['int'])),
+                                                            ('referenced_link_state_id', (YLeaf(YType.uint32, 'referenced-link-state-id'), ['int'])),
                                                         ])
                                                         self.metric = None
                                                         self.flags = Bits()
@@ -3186,6 +3233,7 @@ class RoutingState(Entity):
                                                         self.external_route_tag = None
                                                         self.referenced_link_state_id = None
                                                         self._segment_path = lambda: "nssa"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Nssa, ['metric', 'flags', 'referenced_ls_type', 'prefix', 'prefix_options', 'forwarding_address', 'external_route_tag', 'referenced_link_state_id'], name, value)
@@ -3251,10 +3299,10 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([("prefix-list", ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link.PrefixList))])
                                                         self._leafs = OrderedDict([
-                                                            ('rtr_priority', YLeaf(YType.uint8, 'rtr-priority')),
-                                                            ('options', YLeaf(YType.bits, 'options')),
-                                                            ('link_local_interface_address', YLeaf(YType.str, 'link-local-interface-address')),
-                                                            ('num_of_prefixes', YLeaf(YType.uint32, 'num-of-prefixes')),
+                                                            ('rtr_priority', (YLeaf(YType.uint8, 'rtr-priority'), ['int'])),
+                                                            ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
+                                                            ('link_local_interface_address', (YLeaf(YType.str, 'link-local-interface-address'), ['str','str'])),
+                                                            ('num_of_prefixes', (YLeaf(YType.uint32, 'num-of-prefixes'), ['int'])),
                                                         ])
                                                         self.rtr_priority = None
                                                         self.options = Bits()
@@ -3263,6 +3311,7 @@ class RoutingState(Entity):
 
                                                         self.prefix_list = YList(self)
                                                         self._segment_path = lambda: "link"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link, ['rtr_priority', 'options', 'link_local_interface_address', 'num_of_prefixes'], name, value)
@@ -3301,12 +3350,13 @@ class RoutingState(Entity):
                                                             self.ylist_key_names = ['prefix']
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('prefix', YLeaf(YType.str, 'prefix')),
-                                                                ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                                ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                                ('prefix_options', (YLeaf(YType.str, 'prefix-options'), ['str'])),
                                                             ])
                                                             self.prefix = None
                                                             self.prefix_options = None
                                                             self._segment_path = lambda: "prefix-list" + "[prefix='" + str(self.prefix) + "']"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.Link.PrefixList, ['prefix', 'prefix_options'], name, value)
@@ -3366,10 +3416,10 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([("prefix-list", ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList))])
                                                         self._leafs = OrderedDict([
-                                                            ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
-                                                            ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
-                                                            ('referenced_adv_router', YLeaf(YType.str, 'referenced-adv-router')),
-                                                            ('num_of_prefixes', YLeaf(YType.uint16, 'num-of-prefixes')),
+                                                            ('referenced_ls_type', (YLeaf(YType.uint16, 'referenced-ls-type'), ['int'])),
+                                                            ('referenced_link_state_id', (YLeaf(YType.uint32, 'referenced-link-state-id'), ['int'])),
+                                                            ('referenced_adv_router', (YLeaf(YType.str, 'referenced-adv-router'), ['str'])),
+                                                            ('num_of_prefixes', (YLeaf(YType.uint16, 'num-of-prefixes'), ['int'])),
                                                         ])
                                                         self.referenced_ls_type = None
                                                         self.referenced_link_state_id = None
@@ -3378,6 +3428,7 @@ class RoutingState(Entity):
 
                                                         self.prefix_list = YList(self)
                                                         self._segment_path = lambda: "intra-area-prefix"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix, ['referenced_ls_type', 'referenced_link_state_id', 'referenced_adv_router', 'num_of_prefixes'], name, value)
@@ -3423,14 +3474,15 @@ class RoutingState(Entity):
                                                             self.ylist_key_names = ['prefix']
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('prefix', YLeaf(YType.str, 'prefix')),
-                                                                ('prefix_options', YLeaf(YType.str, 'prefix-options')),
-                                                                ('metric', YLeaf(YType.uint32, 'metric')),
+                                                                ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                                ('prefix_options', (YLeaf(YType.str, 'prefix-options'), ['str'])),
+                                                                ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
                                                             ])
                                                             self.prefix = None
                                                             self.prefix_options = None
                                                             self.metric = None
                                                             self._segment_path = lambda: "prefix-list" + "[prefix='" + str(self.prefix) + "']"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.LinkScopeLsas.LinkScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList, ['prefix', 'prefix_options', 'metric'], name, value)
@@ -3464,10 +3516,11 @@ class RoutingState(Entity):
                                         self.ylist_key_names = ['name']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('name', YLeaf(YType.str, 'name')),
+                                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                                         ])
                                         self.name = None
                                         self._segment_path = lambda: "topology" + "[name='" + str(self.name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interfaces.Topology, ['name'], name, value)
@@ -3506,12 +3559,13 @@ class RoutingState(Entity):
                                     self.ylist_key_names = ['lsa_type']
                                     self._child_classes = OrderedDict([("area-scope-lsa", ("area_scope_lsa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa))])
                                     self._leafs = OrderedDict([
-                                        ('lsa_type', YLeaf(YType.uint8, 'lsa-type')),
+                                        ('lsa_type', (YLeaf(YType.uint8, 'lsa-type'), ['int'])),
                                     ])
                                     self.lsa_type = None
 
                                     self.area_scope_lsa = YList(self)
                                     self._segment_path = lambda: "area-scope-lsas" + "[lsa-type='" + str(self.lsa_type) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas, ['lsa_type'], name, value)
@@ -3580,10 +3634,10 @@ class RoutingState(Entity):
                                         self.ylist_key_names = ['lsa_id','adv_router']
                                         self._child_classes = OrderedDict([("ospfv2", ("ospfv2", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2)), ("ospfv3", ("ospfv3", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3))])
                                         self._leafs = OrderedDict([
-                                            ('lsa_id', YLeaf(YType.str, 'lsa-id')),
-                                            ('adv_router', YLeaf(YType.str, 'adv-router')),
-                                            ('decoded_completed', YLeaf(YType.boolean, 'decoded-completed')),
-                                            ('raw_data', YLeaf(YType.str, 'raw-data')),
+                                            ('lsa_id', (YLeaf(YType.str, 'lsa-id'), ['str','int'])),
+                                            ('adv_router', (YLeaf(YType.str, 'adv-router'), ['str'])),
+                                            ('decoded_completed', (YLeaf(YType.boolean, 'decoded-completed'), ['bool'])),
+                                            ('raw_data', (YLeaf(YType.str, 'raw-data'), ['str'])),
                                         ])
                                         self.lsa_id = None
                                         self.adv_router = None
@@ -3598,6 +3652,7 @@ class RoutingState(Entity):
                                         self.ospfv3.parent = self
                                         self._children_name_map["ospfv3"] = "ospfv3"
                                         self._segment_path = lambda: "area-scope-lsa" + "[lsa-id='" + str(self.lsa_id) + "']" + "[adv-router='" + str(self.adv_router) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa, ['lsa_id', 'adv_router', 'decoded_completed', 'raw_data'], name, value)
@@ -3643,6 +3698,7 @@ class RoutingState(Entity):
                                             self.body.parent = self
                                             self._children_name_map["body"] = "body"
                                             self._segment_path = lambda: "ospfv2"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2, [], name, value)
@@ -3753,16 +3809,16 @@ class RoutingState(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('options', YLeaf(YType.bits, 'options')),
-                                                    ('lsa_id', YLeaf(YType.str, 'lsa-id')),
-                                                    ('opaque_type', YLeaf(YType.uint8, 'opaque-type')),
-                                                    ('opaque_id', YLeaf(YType.uint32, 'opaque-id')),
-                                                    ('age', YLeaf(YType.uint16, 'age')),
-                                                    ('type', YLeaf(YType.uint16, 'type')),
-                                                    ('adv_router', YLeaf(YType.str, 'adv-router')),
-                                                    ('seq_num', YLeaf(YType.str, 'seq-num')),
-                                                    ('checksum', YLeaf(YType.str, 'checksum')),
-                                                    ('length', YLeaf(YType.uint16, 'length')),
+                                                    ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
+                                                    ('lsa_id', (YLeaf(YType.str, 'lsa-id'), ['str'])),
+                                                    ('opaque_type', (YLeaf(YType.uint8, 'opaque-type'), ['int'])),
+                                                    ('opaque_id', (YLeaf(YType.uint32, 'opaque-id'), ['int'])),
+                                                    ('age', (YLeaf(YType.uint16, 'age'), ['int'])),
+                                                    ('type', (YLeaf(YType.uint16, 'type'), ['int'])),
+                                                    ('adv_router', (YLeaf(YType.str, 'adv-router'), ['str'])),
+                                                    ('seq_num', (YLeaf(YType.str, 'seq-num'), ['str'])),
+                                                    ('checksum', (YLeaf(YType.str, 'checksum'), ['str'])),
+                                                    ('length', (YLeaf(YType.uint16, 'length'), ['int'])),
                                                 ])
                                                 self.options = Bits()
                                                 self.lsa_id = None
@@ -3775,6 +3831,7 @@ class RoutingState(Entity):
                                                 self.checksum = None
                                                 self.length = None
                                                 self._segment_path = lambda: "header"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Header, ['options', 'lsa_id', 'opaque_type', 'opaque_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length'], name, value)
@@ -3847,6 +3904,7 @@ class RoutingState(Entity):
                                                 self.opaque.parent = self
                                                 self._children_name_map["opaque"] = "opaque"
                                                 self._segment_path = lambda: "body"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body, [], name, value)
@@ -3890,14 +3948,15 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("link", ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link))])
                                                     self._leafs = OrderedDict([
-                                                        ('flags', YLeaf(YType.bits, 'flags')),
-                                                        ('num_of_links', YLeaf(YType.uint16, 'num-of-links')),
+                                                        ('flags', (YLeaf(YType.bits, 'flags'), ['Bits'])),
+                                                        ('num_of_links', (YLeaf(YType.uint16, 'num-of-links'), ['int'])),
                                                     ])
                                                     self.flags = Bits()
                                                     self.num_of_links = None
 
                                                     self.link = YList(self)
                                                     self._segment_path = lambda: "router"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router, ['flags', 'num_of_links'], name, value)
@@ -3962,9 +4021,9 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = ['link_id','link_data']
                                                         self._child_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link.Topology))])
                                                         self._leafs = OrderedDict([
-                                                            ('link_id', YLeaf(YType.str, 'link-id')),
-                                                            ('link_data', YLeaf(YType.str, 'link-data')),
-                                                            ('type', YLeaf(YType.uint8, 'type')),
+                                                            ('link_id', (YLeaf(YType.str, 'link-id'), ['str','str'])),
+                                                            ('link_data', (YLeaf(YType.str, 'link-data'), ['str','int'])),
+                                                            ('type', (YLeaf(YType.uint8, 'type'), ['int'])),
                                                         ])
                                                         self.link_id = None
                                                         self.link_data = None
@@ -3972,6 +4031,7 @@ class RoutingState(Entity):
 
                                                         self.topology = YList(self)
                                                         self._segment_path = lambda: "link" + "[link-id='" + str(self.link_id) + "']" + "[link-data='" + str(self.link_data) + "']"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link, ['link_id', 'link_data', 'type'], name, value)
@@ -4012,12 +4072,13 @@ class RoutingState(Entity):
                                                             self.ylist_key_names = ['mt_id']
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('mt_id', YLeaf(YType.uint8, 'mt-id')),
-                                                                ('metric', YLeaf(YType.uint16, 'metric')),
+                                                                ('mt_id', (YLeaf(YType.uint8, 'mt-id'), ['int'])),
+                                                                ('metric', (YLeaf(YType.uint16, 'metric'), ['int'])),
                                                             ])
                                                             self.mt_id = None
                                                             self.metric = None
                                                             self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Router.Link.Topology, ['mt_id', 'metric'], name, value)
@@ -4058,12 +4119,13 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('network_mask', YLeaf(YType.str, 'network-mask')),
-                                                        ('attached_router', YLeafList(YType.str, 'attached-router')),
+                                                        ('network_mask', (YLeaf(YType.str, 'network-mask'), ['str'])),
+                                                        ('attached_router', (YLeafList(YType.str, 'attached-router'), ['str'])),
                                                     ])
                                                     self.network_mask = None
                                                     self.attached_router = []
                                                     self._segment_path = lambda: "network"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Network, ['network_mask', 'attached_router'], name, value)
@@ -4102,12 +4164,13 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary.Topology))])
                                                     self._leafs = OrderedDict([
-                                                        ('network_mask', YLeaf(YType.str, 'network-mask')),
+                                                        ('network_mask', (YLeaf(YType.str, 'network-mask'), ['str'])),
                                                     ])
                                                     self.network_mask = None
 
                                                     self.topology = YList(self)
                                                     self._segment_path = lambda: "summary"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary, ['network_mask'], name, value)
@@ -4148,12 +4211,13 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = ['mt_id']
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('mt_id', YLeaf(YType.uint8, 'mt-id')),
-                                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                                            ('mt_id', (YLeaf(YType.uint8, 'mt-id'), ['int'])),
+                                                            ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
                                                         ])
                                                         self.mt_id = None
                                                         self.metric = None
                                                         self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Summary.Topology, ['mt_id', 'metric'], name, value)
@@ -4192,12 +4256,13 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External.Topology))])
                                                     self._leafs = OrderedDict([
-                                                        ('network_mask', YLeaf(YType.str, 'network-mask')),
+                                                        ('network_mask', (YLeaf(YType.str, 'network-mask'), ['str'])),
                                                     ])
                                                     self.network_mask = None
 
                                                     self.topology = YList(self)
                                                     self._segment_path = lambda: "external"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External, ['network_mask'], name, value)
@@ -4257,11 +4322,11 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = ['mt_id']
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('mt_id', YLeaf(YType.uint8, 'mt-id')),
-                                                            ('flags', YLeaf(YType.bits, 'flags')),
-                                                            ('metric', YLeaf(YType.uint32, 'metric')),
-                                                            ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
-                                                            ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
+                                                            ('mt_id', (YLeaf(YType.uint8, 'mt-id'), ['int'])),
+                                                            ('flags', (YLeaf(YType.bits, 'flags'), ['Bits'])),
+                                                            ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                            ('forwarding_address', (YLeaf(YType.str, 'forwarding-address'), ['str'])),
+                                                            ('external_route_tag', (YLeaf(YType.uint32, 'external-route-tag'), ['int'])),
                                                         ])
                                                         self.mt_id = None
                                                         self.flags = Bits()
@@ -4269,6 +4334,7 @@ class RoutingState(Entity):
                                                         self.forwarding_address = None
                                                         self.external_route_tag = None
                                                         self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.External.Topology, ['mt_id', 'flags', 'metric', 'forwarding_address', 'external_route_tag'], name, value)
@@ -4321,6 +4387,7 @@ class RoutingState(Entity):
 
                                                     self.unknown_tlv = YList(self)
                                                     self._segment_path = lambda: "opaque"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque, [], name, value)
@@ -4368,14 +4435,15 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = ['type']
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('type', YLeaf(YType.uint16, 'type')),
-                                                            ('length', YLeaf(YType.uint16, 'length')),
-                                                            ('value', YLeaf(YType.str, 'value')),
+                                                            ('type', (YLeaf(YType.uint16, 'type'), ['int'])),
+                                                            ('length', (YLeaf(YType.uint16, 'length'), ['int'])),
+                                                            ('value', (YLeaf(YType.str, 'value'), ['str'])),
                                                         ])
                                                         self.type = None
                                                         self.length = None
                                                         self.value = None
                                                         self._segment_path = lambda: "unknown-tlv" + "[type='" + str(self.type) + "']"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.UnknownTlv, ['type', 'length', 'value'], name, value)
@@ -4409,10 +4477,11 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('router_address', YLeaf(YType.str, 'router-address')),
+                                                            ('router_address', (YLeaf(YType.str, 'router-address'), ['str'])),
                                                         ])
                                                         self.router_address = None
                                                         self._segment_path = lambda: "router-address-tlv"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv, ['router_address'], name, value)
@@ -4517,15 +4586,15 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([("unknown-subtlv", ("unknown_subtlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv))])
                                                         self._leafs = OrderedDict([
-                                                            ('link_type', YLeaf(YType.uint8, 'link-type')),
-                                                            ('link_id', YLeaf(YType.str, 'link-id')),
-                                                            ('local_if_ipv4_addr', YLeafList(YType.str, 'local-if-ipv4-addr')),
-                                                            ('local_remote_ipv4_addr', YLeafList(YType.str, 'local-remote-ipv4-addr')),
-                                                            ('te_metric', YLeaf(YType.uint32, 'te-metric')),
-                                                            ('max_bandwidth', YLeaf(YType.str, 'max-bandwidth')),
-                                                            ('max_reservable_bandwidth', YLeaf(YType.str, 'max-reservable-bandwidth')),
-                                                            ('unreserved_bandwidth', YLeaf(YType.str, 'unreserved-bandwidth')),
-                                                            ('admin_group', YLeaf(YType.uint32, 'admin-group')),
+                                                            ('link_type', (YLeaf(YType.uint8, 'link-type'), ['int'])),
+                                                            ('link_id', (YLeaf(YType.str, 'link-id'), ['str','str'])),
+                                                            ('local_if_ipv4_addr', (YLeafList(YType.str, 'local-if-ipv4-addr'), ['str'])),
+                                                            ('local_remote_ipv4_addr', (YLeafList(YType.str, 'local-remote-ipv4-addr'), ['str'])),
+                                                            ('te_metric', (YLeaf(YType.uint32, 'te-metric'), ['int'])),
+                                                            ('max_bandwidth', (YLeaf(YType.str, 'max-bandwidth'), ['Decimal64'])),
+                                                            ('max_reservable_bandwidth', (YLeaf(YType.str, 'max-reservable-bandwidth'), ['Decimal64'])),
+                                                            ('unreserved_bandwidth', (YLeaf(YType.str, 'unreserved-bandwidth'), ['Decimal64'])),
+                                                            ('admin_group', (YLeaf(YType.uint32, 'admin-group'), ['int'])),
                                                         ])
                                                         self.link_type = None
                                                         self.link_id = None
@@ -4539,6 +4608,7 @@ class RoutingState(Entity):
 
                                                         self.unknown_subtlv = YList(self)
                                                         self._segment_path = lambda: "link-tlv"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv, ['link_type', 'link_id', 'local_if_ipv4_addr', 'local_remote_ipv4_addr', 'te_metric', 'max_bandwidth', 'max_reservable_bandwidth', 'unreserved_bandwidth', 'admin_group'], name, value)
@@ -4586,14 +4656,15 @@ class RoutingState(Entity):
                                                             self.ylist_key_names = ['type']
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('type', YLeaf(YType.uint16, 'type')),
-                                                                ('length', YLeaf(YType.uint16, 'length')),
-                                                                ('value', YLeaf(YType.str, 'value')),
+                                                                ('type', (YLeaf(YType.uint16, 'type'), ['int'])),
+                                                                ('length', (YLeaf(YType.uint16, 'length'), ['int'])),
+                                                                ('value', (YLeaf(YType.str, 'value'), ['str'])),
                                                             ])
                                                             self.type = None
                                                             self.length = None
                                                             self.value = None
                                                             self._segment_path = lambda: "unknown-subtlv" + "[type='" + str(self.type) + "']"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv, ['type', 'length', 'value'], name, value)
@@ -4639,6 +4710,7 @@ class RoutingState(Entity):
                                             self.body.parent = self
                                             self._children_name_map["body"] = "body"
                                             self._segment_path = lambda: "ospfv3"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3, [], name, value)
@@ -4731,14 +4803,14 @@ class RoutingState(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('lsa_id', YLeaf(YType.uint32, 'lsa-id')),
-                                                    ('age', YLeaf(YType.uint16, 'age')),
-                                                    ('type', YLeaf(YType.uint16, 'type')),
-                                                    ('adv_router', YLeaf(YType.str, 'adv-router')),
-                                                    ('seq_num', YLeaf(YType.str, 'seq-num')),
-                                                    ('checksum', YLeaf(YType.str, 'checksum')),
-                                                    ('length', YLeaf(YType.uint16, 'length')),
-                                                    ('options', YLeaf(YType.bits, 'options')),
+                                                    ('lsa_id', (YLeaf(YType.uint32, 'lsa-id'), ['int'])),
+                                                    ('age', (YLeaf(YType.uint16, 'age'), ['int'])),
+                                                    ('type', (YLeaf(YType.uint16, 'type'), ['int'])),
+                                                    ('adv_router', (YLeaf(YType.str, 'adv-router'), ['str'])),
+                                                    ('seq_num', (YLeaf(YType.str, 'seq-num'), ['str'])),
+                                                    ('checksum', (YLeaf(YType.str, 'checksum'), ['str'])),
+                                                    ('length', (YLeaf(YType.uint16, 'length'), ['int'])),
+                                                    ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
                                                 ])
                                                 self.lsa_id = None
                                                 self.age = None
@@ -4749,6 +4821,7 @@ class RoutingState(Entity):
                                                 self.length = None
                                                 self.options = Bits()
                                                 self._segment_path = lambda: "header"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Header, ['lsa_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length', 'options'], name, value)
@@ -4848,6 +4921,7 @@ class RoutingState(Entity):
                                                 self.intra_area_prefix.parent = self
                                                 self._children_name_map["intra_area_prefix"] = "intra-area-prefix"
                                                 self._segment_path = lambda: "body"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body, [], name, value)
@@ -4893,14 +4967,15 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("link", ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router.Link))])
                                                     self._leafs = OrderedDict([
-                                                        ('flags', YLeaf(YType.bits, 'flags')),
-                                                        ('options', YLeaf(YType.bits, 'options')),
+                                                        ('flags', (YLeaf(YType.bits, 'flags'), ['Bits'])),
+                                                        ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
                                                     ])
                                                     self.flags = Bits()
                                                     self.options = Bits()
 
                                                     self.link = YList(self)
                                                     self._segment_path = lambda: "router"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router, ['flags', 'options'], name, value)
@@ -4962,11 +5037,11 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = ['interface_id','neighbor_interface_id','neighbor_router_id']
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('interface_id', YLeaf(YType.uint32, 'interface-id')),
-                                                            ('neighbor_interface_id', YLeaf(YType.uint32, 'neighbor-interface-id')),
-                                                            ('neighbor_router_id', YLeaf(YType.str, 'neighbor-router-id')),
-                                                            ('type', YLeaf(YType.uint8, 'type')),
-                                                            ('metric', YLeaf(YType.uint16, 'metric')),
+                                                            ('interface_id', (YLeaf(YType.uint32, 'interface-id'), ['int'])),
+                                                            ('neighbor_interface_id', (YLeaf(YType.uint32, 'neighbor-interface-id'), ['int'])),
+                                                            ('neighbor_router_id', (YLeaf(YType.str, 'neighbor-router-id'), ['str'])),
+                                                            ('type', (YLeaf(YType.uint8, 'type'), ['int'])),
+                                                            ('metric', (YLeaf(YType.uint16, 'metric'), ['int'])),
                                                         ])
                                                         self.interface_id = None
                                                         self.neighbor_interface_id = None
@@ -4974,6 +5049,7 @@ class RoutingState(Entity):
                                                         self.type = None
                                                         self.metric = None
                                                         self._segment_path = lambda: "link" + "[interface-id='" + str(self.interface_id) + "']" + "[neighbor-interface-id='" + str(self.neighbor_interface_id) + "']" + "[neighbor-router-id='" + str(self.neighbor_router_id) + "']"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Router.Link, ['interface_id', 'neighbor_interface_id', 'neighbor_router_id', 'type', 'metric'], name, value)
@@ -5014,12 +5090,13 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('options', YLeaf(YType.bits, 'options')),
-                                                        ('attached_router', YLeafList(YType.str, 'attached-router')),
+                                                        ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
+                                                        ('attached_router', (YLeafList(YType.str, 'attached-router'), ['str'])),
                                                     ])
                                                     self.options = Bits()
                                                     self.attached_router = []
                                                     self._segment_path = lambda: "network"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Network, ['options', 'attached_router'], name, value)
@@ -5065,14 +5142,15 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('metric', YLeaf(YType.uint32, 'metric')),
-                                                        ('prefix', YLeaf(YType.str, 'prefix')),
-                                                        ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                        ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                        ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                        ('prefix_options', (YLeaf(YType.str, 'prefix-options'), ['str'])),
                                                     ])
                                                     self.metric = None
                                                     self.prefix = None
                                                     self.prefix_options = None
                                                     self._segment_path = lambda: "inter-area-prefix"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaPrefix, ['metric', 'prefix', 'prefix_options'], name, value)
@@ -5120,14 +5198,15 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('options', YLeaf(YType.bits, 'options')),
-                                                        ('metric', YLeaf(YType.uint32, 'metric')),
-                                                        ('destination_router_id', YLeaf(YType.str, 'destination-router-id')),
+                                                        ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
+                                                        ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                        ('destination_router_id', (YLeaf(YType.str, 'destination-router-id'), ['str'])),
                                                     ])
                                                     self.options = Bits()
                                                     self.metric = None
                                                     self.destination_router_id = None
                                                     self._segment_path = lambda: "inter-area-router"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.InterAreaRouter, ['options', 'metric', 'destination_router_id'], name, value)
@@ -5206,14 +5285,14 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('metric', YLeaf(YType.uint32, 'metric')),
-                                                        ('flags', YLeaf(YType.bits, 'flags')),
-                                                        ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
-                                                        ('prefix', YLeaf(YType.str, 'prefix')),
-                                                        ('prefix_options', YLeaf(YType.str, 'prefix-options')),
-                                                        ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
-                                                        ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
-                                                        ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
+                                                        ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                        ('flags', (YLeaf(YType.bits, 'flags'), ['Bits'])),
+                                                        ('referenced_ls_type', (YLeaf(YType.uint16, 'referenced-ls-type'), ['int'])),
+                                                        ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                        ('prefix_options', (YLeaf(YType.str, 'prefix-options'), ['str'])),
+                                                        ('forwarding_address', (YLeaf(YType.str, 'forwarding-address'), ['str'])),
+                                                        ('external_route_tag', (YLeaf(YType.uint32, 'external-route-tag'), ['int'])),
+                                                        ('referenced_link_state_id', (YLeaf(YType.uint32, 'referenced-link-state-id'), ['int'])),
                                                     ])
                                                     self.metric = None
                                                     self.flags = Bits()
@@ -5224,6 +5303,7 @@ class RoutingState(Entity):
                                                     self.external_route_tag = None
                                                     self.referenced_link_state_id = None
                                                     self._segment_path = lambda: "as-external"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.AsExternal, ['metric', 'flags', 'referenced_ls_type', 'prefix', 'prefix_options', 'forwarding_address', 'external_route_tag', 'referenced_link_state_id'], name, value)
@@ -5302,14 +5382,14 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('metric', YLeaf(YType.uint32, 'metric')),
-                                                        ('flags', YLeaf(YType.bits, 'flags')),
-                                                        ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
-                                                        ('prefix', YLeaf(YType.str, 'prefix')),
-                                                        ('prefix_options', YLeaf(YType.str, 'prefix-options')),
-                                                        ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
-                                                        ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
-                                                        ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
+                                                        ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                        ('flags', (YLeaf(YType.bits, 'flags'), ['Bits'])),
+                                                        ('referenced_ls_type', (YLeaf(YType.uint16, 'referenced-ls-type'), ['int'])),
+                                                        ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                        ('prefix_options', (YLeaf(YType.str, 'prefix-options'), ['str'])),
+                                                        ('forwarding_address', (YLeaf(YType.str, 'forwarding-address'), ['str'])),
+                                                        ('external_route_tag', (YLeaf(YType.uint32, 'external-route-tag'), ['int'])),
+                                                        ('referenced_link_state_id', (YLeaf(YType.uint32, 'referenced-link-state-id'), ['int'])),
                                                     ])
                                                     self.metric = None
                                                     self.flags = Bits()
@@ -5320,6 +5400,7 @@ class RoutingState(Entity):
                                                     self.external_route_tag = None
                                                     self.referenced_link_state_id = None
                                                     self._segment_path = lambda: "nssa"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Nssa, ['metric', 'flags', 'referenced_ls_type', 'prefix', 'prefix_options', 'forwarding_address', 'external_route_tag', 'referenced_link_state_id'], name, value)
@@ -5385,10 +5466,10 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("prefix-list", ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link.PrefixList))])
                                                     self._leafs = OrderedDict([
-                                                        ('rtr_priority', YLeaf(YType.uint8, 'rtr-priority')),
-                                                        ('options', YLeaf(YType.bits, 'options')),
-                                                        ('link_local_interface_address', YLeaf(YType.str, 'link-local-interface-address')),
-                                                        ('num_of_prefixes', YLeaf(YType.uint32, 'num-of-prefixes')),
+                                                        ('rtr_priority', (YLeaf(YType.uint8, 'rtr-priority'), ['int'])),
+                                                        ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
+                                                        ('link_local_interface_address', (YLeaf(YType.str, 'link-local-interface-address'), ['str','str'])),
+                                                        ('num_of_prefixes', (YLeaf(YType.uint32, 'num-of-prefixes'), ['int'])),
                                                     ])
                                                     self.rtr_priority = None
                                                     self.options = Bits()
@@ -5397,6 +5478,7 @@ class RoutingState(Entity):
 
                                                     self.prefix_list = YList(self)
                                                     self._segment_path = lambda: "link"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link, ['rtr_priority', 'options', 'link_local_interface_address', 'num_of_prefixes'], name, value)
@@ -5435,12 +5517,13 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = ['prefix']
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('prefix', YLeaf(YType.str, 'prefix')),
-                                                            ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                            ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                            ('prefix_options', (YLeaf(YType.str, 'prefix-options'), ['str'])),
                                                         ])
                                                         self.prefix = None
                                                         self.prefix_options = None
                                                         self._segment_path = lambda: "prefix-list" + "[prefix='" + str(self.prefix) + "']"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.Link.PrefixList, ['prefix', 'prefix_options'], name, value)
@@ -5500,10 +5583,10 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("prefix-list", ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList))])
                                                     self._leafs = OrderedDict([
-                                                        ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
-                                                        ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
-                                                        ('referenced_adv_router', YLeaf(YType.str, 'referenced-adv-router')),
-                                                        ('num_of_prefixes', YLeaf(YType.uint16, 'num-of-prefixes')),
+                                                        ('referenced_ls_type', (YLeaf(YType.uint16, 'referenced-ls-type'), ['int'])),
+                                                        ('referenced_link_state_id', (YLeaf(YType.uint32, 'referenced-link-state-id'), ['int'])),
+                                                        ('referenced_adv_router', (YLeaf(YType.str, 'referenced-adv-router'), ['str'])),
+                                                        ('num_of_prefixes', (YLeaf(YType.uint16, 'num-of-prefixes'), ['int'])),
                                                     ])
                                                     self.referenced_ls_type = None
                                                     self.referenced_link_state_id = None
@@ -5512,6 +5595,7 @@ class RoutingState(Entity):
 
                                                     self.prefix_list = YList(self)
                                                     self._segment_path = lambda: "intra-area-prefix"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix, ['referenced_ls_type', 'referenced_link_state_id', 'referenced_adv_router', 'num_of_prefixes'], name, value)
@@ -5557,14 +5641,15 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = ['prefix']
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('prefix', YLeaf(YType.str, 'prefix')),
-                                                            ('prefix_options', YLeaf(YType.str, 'prefix-options')),
-                                                            ('metric', YLeaf(YType.uint32, 'metric')),
+                                                            ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                            ('prefix_options', (YLeaf(YType.str, 'prefix-options'), ['str'])),
+                                                            ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
                                                         ])
                                                         self.prefix = None
                                                         self.prefix_options = None
                                                         self.metric = None
                                                         self._segment_path = lambda: "prefix-list" + "[prefix='" + str(self.prefix) + "']"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AreaScopeLsas.AreaScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList, ['prefix', 'prefix_options', 'metric'], name, value)
@@ -5603,12 +5688,13 @@ class RoutingState(Entity):
                                 self.ylist_key_names = ['lsa_type']
                                 self._child_classes = OrderedDict([("as-scope-lsa", ("as_scope_lsa", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa))])
                                 self._leafs = OrderedDict([
-                                    ('lsa_type', YLeaf(YType.uint8, 'lsa-type')),
+                                    ('lsa_type', (YLeaf(YType.uint8, 'lsa-type'), ['int'])),
                                 ])
                                 self.lsa_type = None
 
                                 self.as_scope_lsa = YList(self)
                                 self._segment_path = lambda: "as-scope-lsas" + "[lsa-type='" + str(self.lsa_type) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas, ['lsa_type'], name, value)
@@ -5677,10 +5763,10 @@ class RoutingState(Entity):
                                     self.ylist_key_names = ['lsa_id','adv_router']
                                     self._child_classes = OrderedDict([("ospfv2", ("ospfv2", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2)), ("ospfv3", ("ospfv3", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3))])
                                     self._leafs = OrderedDict([
-                                        ('lsa_id', YLeaf(YType.str, 'lsa-id')),
-                                        ('adv_router', YLeaf(YType.str, 'adv-router')),
-                                        ('decoded_completed', YLeaf(YType.boolean, 'decoded-completed')),
-                                        ('raw_data', YLeaf(YType.str, 'raw-data')),
+                                        ('lsa_id', (YLeaf(YType.str, 'lsa-id'), ['str','int'])),
+                                        ('adv_router', (YLeaf(YType.str, 'adv-router'), ['str'])),
+                                        ('decoded_completed', (YLeaf(YType.boolean, 'decoded-completed'), ['bool'])),
+                                        ('raw_data', (YLeaf(YType.str, 'raw-data'), ['str'])),
                                     ])
                                     self.lsa_id = None
                                     self.adv_router = None
@@ -5695,6 +5781,7 @@ class RoutingState(Entity):
                                     self.ospfv3.parent = self
                                     self._children_name_map["ospfv3"] = "ospfv3"
                                     self._segment_path = lambda: "as-scope-lsa" + "[lsa-id='" + str(self.lsa_id) + "']" + "[adv-router='" + str(self.adv_router) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa, ['lsa_id', 'adv_router', 'decoded_completed', 'raw_data'], name, value)
@@ -5740,6 +5827,7 @@ class RoutingState(Entity):
                                         self.body.parent = self
                                         self._children_name_map["body"] = "body"
                                         self._segment_path = lambda: "ospfv2"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2, [], name, value)
@@ -5850,16 +5938,16 @@ class RoutingState(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('options', YLeaf(YType.bits, 'options')),
-                                                ('lsa_id', YLeaf(YType.str, 'lsa-id')),
-                                                ('opaque_type', YLeaf(YType.uint8, 'opaque-type')),
-                                                ('opaque_id', YLeaf(YType.uint32, 'opaque-id')),
-                                                ('age', YLeaf(YType.uint16, 'age')),
-                                                ('type', YLeaf(YType.uint16, 'type')),
-                                                ('adv_router', YLeaf(YType.str, 'adv-router')),
-                                                ('seq_num', YLeaf(YType.str, 'seq-num')),
-                                                ('checksum', YLeaf(YType.str, 'checksum')),
-                                                ('length', YLeaf(YType.uint16, 'length')),
+                                                ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
+                                                ('lsa_id', (YLeaf(YType.str, 'lsa-id'), ['str'])),
+                                                ('opaque_type', (YLeaf(YType.uint8, 'opaque-type'), ['int'])),
+                                                ('opaque_id', (YLeaf(YType.uint32, 'opaque-id'), ['int'])),
+                                                ('age', (YLeaf(YType.uint16, 'age'), ['int'])),
+                                                ('type', (YLeaf(YType.uint16, 'type'), ['int'])),
+                                                ('adv_router', (YLeaf(YType.str, 'adv-router'), ['str'])),
+                                                ('seq_num', (YLeaf(YType.str, 'seq-num'), ['str'])),
+                                                ('checksum', (YLeaf(YType.str, 'checksum'), ['str'])),
+                                                ('length', (YLeaf(YType.uint16, 'length'), ['int'])),
                                             ])
                                             self.options = Bits()
                                             self.lsa_id = None
@@ -5872,6 +5960,7 @@ class RoutingState(Entity):
                                             self.checksum = None
                                             self.length = None
                                             self._segment_path = lambda: "header"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Header, ['options', 'lsa_id', 'opaque_type', 'opaque_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length'], name, value)
@@ -5944,6 +6033,7 @@ class RoutingState(Entity):
                                             self.opaque.parent = self
                                             self._children_name_map["opaque"] = "opaque"
                                             self._segment_path = lambda: "body"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body, [], name, value)
@@ -5987,14 +6077,15 @@ class RoutingState(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("link", ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link))])
                                                 self._leafs = OrderedDict([
-                                                    ('flags', YLeaf(YType.bits, 'flags')),
-                                                    ('num_of_links', YLeaf(YType.uint16, 'num-of-links')),
+                                                    ('flags', (YLeaf(YType.bits, 'flags'), ['Bits'])),
+                                                    ('num_of_links', (YLeaf(YType.uint16, 'num-of-links'), ['int'])),
                                                 ])
                                                 self.flags = Bits()
                                                 self.num_of_links = None
 
                                                 self.link = YList(self)
                                                 self._segment_path = lambda: "router"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router, ['flags', 'num_of_links'], name, value)
@@ -6059,9 +6150,9 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = ['link_id','link_data']
                                                     self._child_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link.Topology))])
                                                     self._leafs = OrderedDict([
-                                                        ('link_id', YLeaf(YType.str, 'link-id')),
-                                                        ('link_data', YLeaf(YType.str, 'link-data')),
-                                                        ('type', YLeaf(YType.uint8, 'type')),
+                                                        ('link_id', (YLeaf(YType.str, 'link-id'), ['str','str'])),
+                                                        ('link_data', (YLeaf(YType.str, 'link-data'), ['str','int'])),
+                                                        ('type', (YLeaf(YType.uint8, 'type'), ['int'])),
                                                     ])
                                                     self.link_id = None
                                                     self.link_data = None
@@ -6069,6 +6160,7 @@ class RoutingState(Entity):
 
                                                     self.topology = YList(self)
                                                     self._segment_path = lambda: "link" + "[link-id='" + str(self.link_id) + "']" + "[link-data='" + str(self.link_data) + "']"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link, ['link_id', 'link_data', 'type'], name, value)
@@ -6109,12 +6201,13 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = ['mt_id']
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('mt_id', YLeaf(YType.uint8, 'mt-id')),
-                                                            ('metric', YLeaf(YType.uint16, 'metric')),
+                                                            ('mt_id', (YLeaf(YType.uint8, 'mt-id'), ['int'])),
+                                                            ('metric', (YLeaf(YType.uint16, 'metric'), ['int'])),
                                                         ])
                                                         self.mt_id = None
                                                         self.metric = None
                                                         self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Router.Link.Topology, ['mt_id', 'metric'], name, value)
@@ -6155,12 +6248,13 @@ class RoutingState(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('network_mask', YLeaf(YType.str, 'network-mask')),
-                                                    ('attached_router', YLeafList(YType.str, 'attached-router')),
+                                                    ('network_mask', (YLeaf(YType.str, 'network-mask'), ['str'])),
+                                                    ('attached_router', (YLeafList(YType.str, 'attached-router'), ['str'])),
                                                 ])
                                                 self.network_mask = None
                                                 self.attached_router = []
                                                 self._segment_path = lambda: "network"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Network, ['network_mask', 'attached_router'], name, value)
@@ -6199,12 +6293,13 @@ class RoutingState(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary.Topology))])
                                                 self._leafs = OrderedDict([
-                                                    ('network_mask', YLeaf(YType.str, 'network-mask')),
+                                                    ('network_mask', (YLeaf(YType.str, 'network-mask'), ['str'])),
                                                 ])
                                                 self.network_mask = None
 
                                                 self.topology = YList(self)
                                                 self._segment_path = lambda: "summary"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary, ['network_mask'], name, value)
@@ -6245,12 +6340,13 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = ['mt_id']
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('mt_id', YLeaf(YType.uint8, 'mt-id')),
-                                                        ('metric', YLeaf(YType.uint32, 'metric')),
+                                                        ('mt_id', (YLeaf(YType.uint8, 'mt-id'), ['int'])),
+                                                        ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
                                                     ])
                                                     self.mt_id = None
                                                     self.metric = None
                                                     self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Summary.Topology, ['mt_id', 'metric'], name, value)
@@ -6289,12 +6385,13 @@ class RoutingState(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("topology", ("topology", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External.Topology))])
                                                 self._leafs = OrderedDict([
-                                                    ('network_mask', YLeaf(YType.str, 'network-mask')),
+                                                    ('network_mask', (YLeaf(YType.str, 'network-mask'), ['str'])),
                                                 ])
                                                 self.network_mask = None
 
                                                 self.topology = YList(self)
                                                 self._segment_path = lambda: "external"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External, ['network_mask'], name, value)
@@ -6354,11 +6451,11 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = ['mt_id']
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('mt_id', YLeaf(YType.uint8, 'mt-id')),
-                                                        ('flags', YLeaf(YType.bits, 'flags')),
-                                                        ('metric', YLeaf(YType.uint32, 'metric')),
-                                                        ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
-                                                        ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
+                                                        ('mt_id', (YLeaf(YType.uint8, 'mt-id'), ['int'])),
+                                                        ('flags', (YLeaf(YType.bits, 'flags'), ['Bits'])),
+                                                        ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                        ('forwarding_address', (YLeaf(YType.str, 'forwarding-address'), ['str'])),
+                                                        ('external_route_tag', (YLeaf(YType.uint32, 'external-route-tag'), ['int'])),
                                                     ])
                                                     self.mt_id = None
                                                     self.flags = Bits()
@@ -6366,6 +6463,7 @@ class RoutingState(Entity):
                                                     self.forwarding_address = None
                                                     self.external_route_tag = None
                                                     self._segment_path = lambda: "topology" + "[mt-id='" + str(self.mt_id) + "']"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.External.Topology, ['mt_id', 'flags', 'metric', 'forwarding_address', 'external_route_tag'], name, value)
@@ -6418,6 +6516,7 @@ class RoutingState(Entity):
 
                                                 self.unknown_tlv = YList(self)
                                                 self._segment_path = lambda: "opaque"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque, [], name, value)
@@ -6465,14 +6564,15 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = ['type']
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('type', YLeaf(YType.uint16, 'type')),
-                                                        ('length', YLeaf(YType.uint16, 'length')),
-                                                        ('value', YLeaf(YType.str, 'value')),
+                                                        ('type', (YLeaf(YType.uint16, 'type'), ['int'])),
+                                                        ('length', (YLeaf(YType.uint16, 'length'), ['int'])),
+                                                        ('value', (YLeaf(YType.str, 'value'), ['str'])),
                                                     ])
                                                     self.type = None
                                                     self.length = None
                                                     self.value = None
                                                     self._segment_path = lambda: "unknown-tlv" + "[type='" + str(self.type) + "']"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.UnknownTlv, ['type', 'length', 'value'], name, value)
@@ -6506,10 +6606,11 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('router_address', YLeaf(YType.str, 'router-address')),
+                                                        ('router_address', (YLeaf(YType.str, 'router-address'), ['str'])),
                                                     ])
                                                     self.router_address = None
                                                     self._segment_path = lambda: "router-address-tlv"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.RouterAddressTlv, ['router_address'], name, value)
@@ -6614,15 +6715,15 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("unknown-subtlv", ("unknown_subtlv", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv))])
                                                     self._leafs = OrderedDict([
-                                                        ('link_type', YLeaf(YType.uint8, 'link-type')),
-                                                        ('link_id', YLeaf(YType.str, 'link-id')),
-                                                        ('local_if_ipv4_addr', YLeafList(YType.str, 'local-if-ipv4-addr')),
-                                                        ('local_remote_ipv4_addr', YLeafList(YType.str, 'local-remote-ipv4-addr')),
-                                                        ('te_metric', YLeaf(YType.uint32, 'te-metric')),
-                                                        ('max_bandwidth', YLeaf(YType.str, 'max-bandwidth')),
-                                                        ('max_reservable_bandwidth', YLeaf(YType.str, 'max-reservable-bandwidth')),
-                                                        ('unreserved_bandwidth', YLeaf(YType.str, 'unreserved-bandwidth')),
-                                                        ('admin_group', YLeaf(YType.uint32, 'admin-group')),
+                                                        ('link_type', (YLeaf(YType.uint8, 'link-type'), ['int'])),
+                                                        ('link_id', (YLeaf(YType.str, 'link-id'), ['str','str'])),
+                                                        ('local_if_ipv4_addr', (YLeafList(YType.str, 'local-if-ipv4-addr'), ['str'])),
+                                                        ('local_remote_ipv4_addr', (YLeafList(YType.str, 'local-remote-ipv4-addr'), ['str'])),
+                                                        ('te_metric', (YLeaf(YType.uint32, 'te-metric'), ['int'])),
+                                                        ('max_bandwidth', (YLeaf(YType.str, 'max-bandwidth'), ['Decimal64'])),
+                                                        ('max_reservable_bandwidth', (YLeaf(YType.str, 'max-reservable-bandwidth'), ['Decimal64'])),
+                                                        ('unreserved_bandwidth', (YLeaf(YType.str, 'unreserved-bandwidth'), ['Decimal64'])),
+                                                        ('admin_group', (YLeaf(YType.uint32, 'admin-group'), ['int'])),
                                                     ])
                                                     self.link_type = None
                                                     self.link_id = None
@@ -6636,6 +6737,7 @@ class RoutingState(Entity):
 
                                                     self.unknown_subtlv = YList(self)
                                                     self._segment_path = lambda: "link-tlv"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv, ['link_type', 'link_id', 'local_if_ipv4_addr', 'local_remote_ipv4_addr', 'te_metric', 'max_bandwidth', 'max_reservable_bandwidth', 'unreserved_bandwidth', 'admin_group'], name, value)
@@ -6683,14 +6785,15 @@ class RoutingState(Entity):
                                                         self.ylist_key_names = ['type']
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('type', YLeaf(YType.uint16, 'type')),
-                                                            ('length', YLeaf(YType.uint16, 'length')),
-                                                            ('value', YLeaf(YType.str, 'value')),
+                                                            ('type', (YLeaf(YType.uint16, 'type'), ['int'])),
+                                                            ('length', (YLeaf(YType.uint16, 'length'), ['int'])),
+                                                            ('value', (YLeaf(YType.str, 'value'), ['str'])),
                                                         ])
                                                         self.type = None
                                                         self.length = None
                                                         self.value = None
                                                         self._segment_path = lambda: "unknown-subtlv" + "[type='" + str(self.type) + "']"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv2.Body.Opaque.LinkTlv.UnknownSubtlv, ['type', 'length', 'value'], name, value)
@@ -6736,6 +6839,7 @@ class RoutingState(Entity):
                                         self.body.parent = self
                                         self._children_name_map["body"] = "body"
                                         self._segment_path = lambda: "ospfv3"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3, [], name, value)
@@ -6828,14 +6932,14 @@ class RoutingState(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('lsa_id', YLeaf(YType.uint32, 'lsa-id')),
-                                                ('age', YLeaf(YType.uint16, 'age')),
-                                                ('type', YLeaf(YType.uint16, 'type')),
-                                                ('adv_router', YLeaf(YType.str, 'adv-router')),
-                                                ('seq_num', YLeaf(YType.str, 'seq-num')),
-                                                ('checksum', YLeaf(YType.str, 'checksum')),
-                                                ('length', YLeaf(YType.uint16, 'length')),
-                                                ('options', YLeaf(YType.bits, 'options')),
+                                                ('lsa_id', (YLeaf(YType.uint32, 'lsa-id'), ['int'])),
+                                                ('age', (YLeaf(YType.uint16, 'age'), ['int'])),
+                                                ('type', (YLeaf(YType.uint16, 'type'), ['int'])),
+                                                ('adv_router', (YLeaf(YType.str, 'adv-router'), ['str'])),
+                                                ('seq_num', (YLeaf(YType.str, 'seq-num'), ['str'])),
+                                                ('checksum', (YLeaf(YType.str, 'checksum'), ['str'])),
+                                                ('length', (YLeaf(YType.uint16, 'length'), ['int'])),
+                                                ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
                                             ])
                                             self.lsa_id = None
                                             self.age = None
@@ -6846,6 +6950,7 @@ class RoutingState(Entity):
                                             self.length = None
                                             self.options = Bits()
                                             self._segment_path = lambda: "header"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Header, ['lsa_id', 'age', 'type', 'adv_router', 'seq_num', 'checksum', 'length', 'options'], name, value)
@@ -6945,6 +7050,7 @@ class RoutingState(Entity):
                                             self.intra_area_prefix.parent = self
                                             self._children_name_map["intra_area_prefix"] = "intra-area-prefix"
                                             self._segment_path = lambda: "body"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body, [], name, value)
@@ -6990,14 +7096,15 @@ class RoutingState(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("link", ("link", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router.Link))])
                                                 self._leafs = OrderedDict([
-                                                    ('flags', YLeaf(YType.bits, 'flags')),
-                                                    ('options', YLeaf(YType.bits, 'options')),
+                                                    ('flags', (YLeaf(YType.bits, 'flags'), ['Bits'])),
+                                                    ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
                                                 ])
                                                 self.flags = Bits()
                                                 self.options = Bits()
 
                                                 self.link = YList(self)
                                                 self._segment_path = lambda: "router"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router, ['flags', 'options'], name, value)
@@ -7059,11 +7166,11 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = ['interface_id','neighbor_interface_id','neighbor_router_id']
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('interface_id', YLeaf(YType.uint32, 'interface-id')),
-                                                        ('neighbor_interface_id', YLeaf(YType.uint32, 'neighbor-interface-id')),
-                                                        ('neighbor_router_id', YLeaf(YType.str, 'neighbor-router-id')),
-                                                        ('type', YLeaf(YType.uint8, 'type')),
-                                                        ('metric', YLeaf(YType.uint16, 'metric')),
+                                                        ('interface_id', (YLeaf(YType.uint32, 'interface-id'), ['int'])),
+                                                        ('neighbor_interface_id', (YLeaf(YType.uint32, 'neighbor-interface-id'), ['int'])),
+                                                        ('neighbor_router_id', (YLeaf(YType.str, 'neighbor-router-id'), ['str'])),
+                                                        ('type', (YLeaf(YType.uint8, 'type'), ['int'])),
+                                                        ('metric', (YLeaf(YType.uint16, 'metric'), ['int'])),
                                                     ])
                                                     self.interface_id = None
                                                     self.neighbor_interface_id = None
@@ -7071,6 +7178,7 @@ class RoutingState(Entity):
                                                     self.type = None
                                                     self.metric = None
                                                     self._segment_path = lambda: "link" + "[interface-id='" + str(self.interface_id) + "']" + "[neighbor-interface-id='" + str(self.neighbor_interface_id) + "']" + "[neighbor-router-id='" + str(self.neighbor_router_id) + "']"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Router.Link, ['interface_id', 'neighbor_interface_id', 'neighbor_router_id', 'type', 'metric'], name, value)
@@ -7111,12 +7219,13 @@ class RoutingState(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('options', YLeaf(YType.bits, 'options')),
-                                                    ('attached_router', YLeafList(YType.str, 'attached-router')),
+                                                    ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
+                                                    ('attached_router', (YLeafList(YType.str, 'attached-router'), ['str'])),
                                                 ])
                                                 self.options = Bits()
                                                 self.attached_router = []
                                                 self._segment_path = lambda: "network"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Network, ['options', 'attached_router'], name, value)
@@ -7162,14 +7271,15 @@ class RoutingState(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('metric', YLeaf(YType.uint32, 'metric')),
-                                                    ('prefix', YLeaf(YType.str, 'prefix')),
-                                                    ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                    ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                    ('prefix_options', (YLeaf(YType.str, 'prefix-options'), ['str'])),
                                                 ])
                                                 self.metric = None
                                                 self.prefix = None
                                                 self.prefix_options = None
                                                 self._segment_path = lambda: "inter-area-prefix"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaPrefix, ['metric', 'prefix', 'prefix_options'], name, value)
@@ -7217,14 +7327,15 @@ class RoutingState(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('options', YLeaf(YType.bits, 'options')),
-                                                    ('metric', YLeaf(YType.uint32, 'metric')),
-                                                    ('destination_router_id', YLeaf(YType.str, 'destination-router-id')),
+                                                    ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
+                                                    ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                    ('destination_router_id', (YLeaf(YType.str, 'destination-router-id'), ['str'])),
                                                 ])
                                                 self.options = Bits()
                                                 self.metric = None
                                                 self.destination_router_id = None
                                                 self._segment_path = lambda: "inter-area-router"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.InterAreaRouter, ['options', 'metric', 'destination_router_id'], name, value)
@@ -7303,14 +7414,14 @@ class RoutingState(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('metric', YLeaf(YType.uint32, 'metric')),
-                                                    ('flags', YLeaf(YType.bits, 'flags')),
-                                                    ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
-                                                    ('prefix', YLeaf(YType.str, 'prefix')),
-                                                    ('prefix_options', YLeaf(YType.str, 'prefix-options')),
-                                                    ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
-                                                    ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
-                                                    ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
+                                                    ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                    ('flags', (YLeaf(YType.bits, 'flags'), ['Bits'])),
+                                                    ('referenced_ls_type', (YLeaf(YType.uint16, 'referenced-ls-type'), ['int'])),
+                                                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                    ('prefix_options', (YLeaf(YType.str, 'prefix-options'), ['str'])),
+                                                    ('forwarding_address', (YLeaf(YType.str, 'forwarding-address'), ['str'])),
+                                                    ('external_route_tag', (YLeaf(YType.uint32, 'external-route-tag'), ['int'])),
+                                                    ('referenced_link_state_id', (YLeaf(YType.uint32, 'referenced-link-state-id'), ['int'])),
                                                 ])
                                                 self.metric = None
                                                 self.flags = Bits()
@@ -7321,6 +7432,7 @@ class RoutingState(Entity):
                                                 self.external_route_tag = None
                                                 self.referenced_link_state_id = None
                                                 self._segment_path = lambda: "as-external"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.AsExternal, ['metric', 'flags', 'referenced_ls_type', 'prefix', 'prefix_options', 'forwarding_address', 'external_route_tag', 'referenced_link_state_id'], name, value)
@@ -7399,14 +7511,14 @@ class RoutingState(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('metric', YLeaf(YType.uint32, 'metric')),
-                                                    ('flags', YLeaf(YType.bits, 'flags')),
-                                                    ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
-                                                    ('prefix', YLeaf(YType.str, 'prefix')),
-                                                    ('prefix_options', YLeaf(YType.str, 'prefix-options')),
-                                                    ('forwarding_address', YLeaf(YType.str, 'forwarding-address')),
-                                                    ('external_route_tag', YLeaf(YType.uint32, 'external-route-tag')),
-                                                    ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
+                                                    ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                                    ('flags', (YLeaf(YType.bits, 'flags'), ['Bits'])),
+                                                    ('referenced_ls_type', (YLeaf(YType.uint16, 'referenced-ls-type'), ['int'])),
+                                                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                    ('prefix_options', (YLeaf(YType.str, 'prefix-options'), ['str'])),
+                                                    ('forwarding_address', (YLeaf(YType.str, 'forwarding-address'), ['str'])),
+                                                    ('external_route_tag', (YLeaf(YType.uint32, 'external-route-tag'), ['int'])),
+                                                    ('referenced_link_state_id', (YLeaf(YType.uint32, 'referenced-link-state-id'), ['int'])),
                                                 ])
                                                 self.metric = None
                                                 self.flags = Bits()
@@ -7417,6 +7529,7 @@ class RoutingState(Entity):
                                                 self.external_route_tag = None
                                                 self.referenced_link_state_id = None
                                                 self._segment_path = lambda: "nssa"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Nssa, ['metric', 'flags', 'referenced_ls_type', 'prefix', 'prefix_options', 'forwarding_address', 'external_route_tag', 'referenced_link_state_id'], name, value)
@@ -7482,10 +7595,10 @@ class RoutingState(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("prefix-list", ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link.PrefixList))])
                                                 self._leafs = OrderedDict([
-                                                    ('rtr_priority', YLeaf(YType.uint8, 'rtr-priority')),
-                                                    ('options', YLeaf(YType.bits, 'options')),
-                                                    ('link_local_interface_address', YLeaf(YType.str, 'link-local-interface-address')),
-                                                    ('num_of_prefixes', YLeaf(YType.uint32, 'num-of-prefixes')),
+                                                    ('rtr_priority', (YLeaf(YType.uint8, 'rtr-priority'), ['int'])),
+                                                    ('options', (YLeaf(YType.bits, 'options'), ['Bits'])),
+                                                    ('link_local_interface_address', (YLeaf(YType.str, 'link-local-interface-address'), ['str','str'])),
+                                                    ('num_of_prefixes', (YLeaf(YType.uint32, 'num-of-prefixes'), ['int'])),
                                                 ])
                                                 self.rtr_priority = None
                                                 self.options = Bits()
@@ -7494,6 +7607,7 @@ class RoutingState(Entity):
 
                                                 self.prefix_list = YList(self)
                                                 self._segment_path = lambda: "link"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link, ['rtr_priority', 'options', 'link_local_interface_address', 'num_of_prefixes'], name, value)
@@ -7532,12 +7646,13 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = ['prefix']
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('prefix', YLeaf(YType.str, 'prefix')),
-                                                        ('prefix_options', YLeaf(YType.str, 'prefix-options')),
+                                                        ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                        ('prefix_options', (YLeaf(YType.str, 'prefix-options'), ['str'])),
                                                     ])
                                                     self.prefix = None
                                                     self.prefix_options = None
                                                     self._segment_path = lambda: "prefix-list" + "[prefix='" + str(self.prefix) + "']"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.Link.PrefixList, ['prefix', 'prefix_options'], name, value)
@@ -7597,10 +7712,10 @@ class RoutingState(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("prefix-list", ("prefix_list", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList))])
                                                 self._leafs = OrderedDict([
-                                                    ('referenced_ls_type', YLeaf(YType.uint16, 'referenced-ls-type')),
-                                                    ('referenced_link_state_id', YLeaf(YType.uint32, 'referenced-link-state-id')),
-                                                    ('referenced_adv_router', YLeaf(YType.str, 'referenced-adv-router')),
-                                                    ('num_of_prefixes', YLeaf(YType.uint16, 'num-of-prefixes')),
+                                                    ('referenced_ls_type', (YLeaf(YType.uint16, 'referenced-ls-type'), ['int'])),
+                                                    ('referenced_link_state_id', (YLeaf(YType.uint32, 'referenced-link-state-id'), ['int'])),
+                                                    ('referenced_adv_router', (YLeaf(YType.str, 'referenced-adv-router'), ['str'])),
+                                                    ('num_of_prefixes', (YLeaf(YType.uint16, 'num-of-prefixes'), ['int'])),
                                                 ])
                                                 self.referenced_ls_type = None
                                                 self.referenced_link_state_id = None
@@ -7609,6 +7724,7 @@ class RoutingState(Entity):
 
                                                 self.prefix_list = YList(self)
                                                 self._segment_path = lambda: "intra-area-prefix"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix, ['referenced_ls_type', 'referenced_link_state_id', 'referenced_adv_router', 'num_of_prefixes'], name, value)
@@ -7654,14 +7770,15 @@ class RoutingState(Entity):
                                                     self.ylist_key_names = ['prefix']
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('prefix', YLeaf(YType.str, 'prefix')),
-                                                        ('prefix_options', YLeaf(YType.str, 'prefix-options')),
-                                                        ('metric', YLeaf(YType.uint32, 'metric')),
+                                                        ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                                        ('prefix_options', (YLeaf(YType.str, 'prefix-options'), ['str'])),
+                                                        ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
                                                     ])
                                                     self.prefix = None
                                                     self.prefix_options = None
                                                     self.metric = None
                                                     self._segment_path = lambda: "prefix-list" + "[prefix='" + str(self.prefix) + "']"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AsScopeLsas.AsScopeLsa.Ospfv3.Body.IntraAreaPrefix.PrefixList, ['prefix', 'prefix_options', 'metric'], name, value)
@@ -7700,12 +7817,13 @@ class RoutingState(Entity):
                                 self.ylist_key_names = ['name']
                                 self._child_classes = OrderedDict([("area", ("area", RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area))])
                                 self._leafs = OrderedDict([
-                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                                 ])
                                 self.name = None
 
                                 self.area = YList(self)
                                 self._segment_path = lambda: "topology" + "[name='" + str(self.name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology, ['name'], name, value)
@@ -7745,10 +7863,11 @@ class RoutingState(Entity):
                                     self.ylist_key_names = ['area_id']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('area_id', YLeaf(YType.str, 'area-id')),
+                                        ('area_id', (YLeaf(YType.str, 'area-id'), ['int','str'])),
                                     ])
                                     self.area_id = None
                                     self._segment_path = lambda: "area" + "[area-id='" + str(self.area_id) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(RoutingState.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area, ['area_id'], name, value)
@@ -7783,6 +7902,7 @@ class RoutingState(Entity):
 
                 self.rib = YList(self)
                 self._segment_path = lambda: "ribs"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RoutingState.RoutingInstance.Ribs, [], name, value)
@@ -7839,9 +7959,9 @@ class RoutingState(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("routes", ("routes", RoutingState.RoutingInstance.Ribs.Rib.Routes))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('address_family', YLeaf(YType.identityref, 'address-family')),
-                        ('default_rib', YLeaf(YType.boolean, 'default-rib')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('address_family', (YLeaf(YType.identityref, 'address-family'), [('ydk.models.ietf.ietf_routing', 'AddressFamily')])),
+                        ('default_rib', (YLeaf(YType.boolean, 'default-rib'), ['bool'])),
                     ])
                     self.name = None
                     self.address_family = None
@@ -7851,6 +7971,7 @@ class RoutingState(Entity):
                     self.routes.parent = self
                     self._children_name_map["routes"] = "routes"
                     self._segment_path = lambda: "rib" + "[name='" + str(self.name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RoutingState.RoutingInstance.Ribs.Rib, [u'name', u'address_family', u'default_rib'], name, value)
@@ -7885,6 +8006,7 @@ class RoutingState(Entity):
 
                         self.route = YList(self)
                         self._segment_path = lambda: "routes"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(RoutingState.RoutingInstance.Ribs.Rib.Routes, [], name, value)
@@ -7975,15 +8097,15 @@ class RoutingState(Entity):
                             self.ylist_key_names = ['destination_prefix']
                             self._child_classes = OrderedDict([("next-hop", ("next_hop", RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.NextHop))])
                             self._leafs = OrderedDict([
-                                ('destination_prefix', YLeaf(YType.str, 'destination-prefix')),
-                                ('route_preference', YLeaf(YType.uint32, 'route-preference')),
-                                ('metric', YLeaf(YType.uint32, 'metric')),
-                                ('source_protocol', YLeaf(YType.identityref, 'source-protocol')),
-                                ('active', YLeaf(YType.empty, 'active')),
-                                ('last_updated', YLeaf(YType.str, 'last-updated')),
-                                ('update_source', YLeaf(YType.str, 'update-source')),
-                                ('tag', YLeaf(YType.uint32, 'ietf-ospf:tag')),
-                                ('route_type', YLeaf(YType.enumeration, 'ietf-ospf:route-type')),
+                                ('destination_prefix', (YLeaf(YType.str, 'destination-prefix'), ['str'])),
+                                ('route_preference', (YLeaf(YType.uint32, 'route-preference'), ['int'])),
+                                ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                ('source_protocol', (YLeaf(YType.identityref, 'source-protocol'), [('ydk.models.ietf.ietf_routing', 'RoutingProtocol')])),
+                                ('active', (YLeaf(YType.empty, 'active'), ['Empty'])),
+                                ('last_updated', (YLeaf(YType.str, 'last-updated'), ['str'])),
+                                ('update_source', (YLeaf(YType.str, 'update-source'), ['str'])),
+                                ('tag', (YLeaf(YType.uint32, 'ietf-ospf:tag'), ['int'])),
+                                ('route_type', (YLeaf(YType.enumeration, 'ietf-ospf:route-type'), [('ydk.models.ietf.ietf_routing', 'RoutingState', 'RoutingInstance.Ribs.Rib.Routes.Route.RouteType')])),
                             ])
                             self.destination_prefix = None
                             self.route_preference = None
@@ -7999,6 +8121,7 @@ class RoutingState(Entity):
                             self.next_hop.parent = self
                             self._children_name_map["next_hop"] = "next-hop"
                             self._segment_path = lambda: "route" + "[destination-prefix='" + str(self.destination_prefix) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(RoutingState.RoutingInstance.Ribs.Rib.Routes.Route, [u'destination_prefix', u'route_preference', u'metric', u'source_protocol', u'active', u'last_updated', u'update_source', 'tag', 'route_type'], name, value)
@@ -8085,14 +8208,15 @@ class RoutingState(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('outgoing_interface', YLeaf(YType.str, 'outgoing-interface')),
-                                    ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
-                                    ('special_next_hop', YLeaf(YType.enumeration, 'special-next-hop')),
+                                    ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
+                                    ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str'])),
+                                    ('special_next_hop', (YLeaf(YType.enumeration, 'special-next-hop'), [('ydk.models.ietf.ietf_routing', 'RoutingState', 'RoutingInstance.Ribs.Rib.Routes.Route.NextHop.SpecialNextHop')])),
                                 ])
                                 self.outgoing_interface = None
                                 self.next_hop_address = None
                                 self.special_next_hop = None
                                 self._segment_path = lambda: "next-hop"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(RoutingState.RoutingInstance.Ribs.Rib.Routes.Route.NextHop, [u'outgoing_interface', u'next_hop_address', u'special_next_hop'], name, value)
@@ -8172,6 +8296,7 @@ class Routing(Entity):
 
         self.routing_instance = YList(self)
         self._segment_path = lambda: "ietf-routing:routing"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Routing, [], name, value)
@@ -8244,11 +8369,11 @@ class Routing(Entity):
             self.ylist_key_names = ['name']
             self._child_classes = OrderedDict([("interfaces", ("interfaces", Routing.RoutingInstance.Interfaces)), ("routing-protocols", ("routing_protocols", Routing.RoutingInstance.RoutingProtocols)), ("ribs", ("ribs", Routing.RoutingInstance.Ribs))])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
-                ('type', YLeaf(YType.identityref, 'type')),
-                ('enabled', YLeaf(YType.boolean, 'enabled')),
-                ('router_id', YLeaf(YType.str, 'router-id')),
-                ('description', YLeaf(YType.str, 'description')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.ietf.ietf_routing', 'RoutingInstance')])),
+                ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                ('description', (YLeaf(YType.str, 'description'), ['str'])),
             ])
             self.name = None
             self.type = None
@@ -8269,6 +8394,7 @@ class Routing(Entity):
             self._children_name_map["ribs"] = "ribs"
             self._segment_path = lambda: "routing-instance" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "ietf-routing:routing/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Routing.RoutingInstance, [u'name', u'type', u'enabled', u'router_id', u'description'], name, value)
@@ -8302,10 +8428,11 @@ class Routing(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface', YLeafList(YType.str, 'interface')),
+                    ('interface', (YLeafList(YType.str, 'interface'), ['str'])),
                 ])
                 self.interface = []
                 self._segment_path = lambda: "interfaces"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Routing.RoutingInstance.Interfaces, [u'interface'], name, value)
@@ -8340,6 +8467,7 @@ class Routing(Entity):
 
                 self.routing_protocol = YList(self)
                 self._segment_path = lambda: "routing-protocols"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols, [], name, value)
@@ -8392,9 +8520,9 @@ class Routing(Entity):
                     self.ylist_key_names = ['type','name']
                     self._child_classes = OrderedDict([("static-routes", ("static_routes", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes)), ("ietf-ospf:ospf", ("ospf", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf))])
                     self._leafs = OrderedDict([
-                        ('type', YLeaf(YType.identityref, 'type')),
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('description', YLeaf(YType.str, 'description')),
+                        ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.ietf.ietf_routing', 'RoutingProtocol')])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
                     ])
                     self.type = None
                     self.name = None
@@ -8408,6 +8536,7 @@ class Routing(Entity):
                     self.ospf.parent = self
                     self._children_name_map["ospf"] = "ietf-ospf:ospf"
                     self._segment_path = lambda: "routing-protocol" + "[type='" + str(self.type) + "']" + "[name='" + str(self.name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol, [u'type', u'name', u'description'], name, value)
@@ -8456,6 +8585,7 @@ class Routing(Entity):
                         self.ipv4.parent = self
                         self._children_name_map["ipv4"] = "ietf-ipv4-unicast-routing:ipv4"
                         self._segment_path = lambda: "static-routes"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes, [], name, value)
@@ -8491,6 +8621,7 @@ class Routing(Entity):
 
                             self.route = YList(self)
                             self._segment_path = lambda: "ietf-ipv6-unicast-routing:ipv6"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6, [], name, value)
@@ -8536,8 +8667,8 @@ class Routing(Entity):
                                 self.ylist_key_names = ['destination_prefix']
                                 self._child_classes = OrderedDict([("next-hop", ("next_hop", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop))])
                                 self._leafs = OrderedDict([
-                                    ('destination_prefix', YLeaf(YType.str, 'destination-prefix')),
-                                    ('description', YLeaf(YType.str, 'description')),
+                                    ('destination_prefix', (YLeaf(YType.str, 'destination-prefix'), ['str'])),
+                                    ('description', (YLeaf(YType.str, 'description'), ['str'])),
                                 ])
                                 self.destination_prefix = None
                                 self.description = None
@@ -8546,6 +8677,7 @@ class Routing(Entity):
                                 self.next_hop.parent = self
                                 self._children_name_map["next_hop"] = "next-hop"
                                 self._segment_path = lambda: "route" + "[destination-prefix='" + str(self.destination_prefix) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route, ['destination_prefix', 'description'], name, value)
@@ -8589,14 +8721,15 @@ class Routing(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('outgoing_interface', YLeaf(YType.str, 'outgoing-interface')),
-                                        ('special_next_hop', YLeaf(YType.enumeration, 'special-next-hop')),
-                                        ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
+                                        ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
+                                        ('special_next_hop', (YLeaf(YType.enumeration, 'special-next-hop'), [('ydk.models.ietf.ietf_routing', 'Routing', 'RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop.SpecialNextHop')])),
+                                        ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str'])),
                                     ])
                                     self.outgoing_interface = None
                                     self.special_next_hop = None
                                     self.next_hop_address = None
                                     self._segment_path = lambda: "next-hop"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv6.Route.NextHop, [u'outgoing_interface', u'special_next_hop', 'next_hop_address'], name, value)
@@ -8673,6 +8806,7 @@ class Routing(Entity):
 
                             self.route = YList(self)
                             self._segment_path = lambda: "ietf-ipv4-unicast-routing:ipv4"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4, [], name, value)
@@ -8718,8 +8852,8 @@ class Routing(Entity):
                                 self.ylist_key_names = ['destination_prefix']
                                 self._child_classes = OrderedDict([("next-hop", ("next_hop", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route.NextHop))])
                                 self._leafs = OrderedDict([
-                                    ('destination_prefix', YLeaf(YType.str, 'destination-prefix')),
-                                    ('description', YLeaf(YType.str, 'description')),
+                                    ('destination_prefix', (YLeaf(YType.str, 'destination-prefix'), ['str'])),
+                                    ('description', (YLeaf(YType.str, 'description'), ['str'])),
                                 ])
                                 self.destination_prefix = None
                                 self.description = None
@@ -8728,6 +8862,7 @@ class Routing(Entity):
                                 self.next_hop.parent = self
                                 self._children_name_map["next_hop"] = "next-hop"
                                 self._segment_path = lambda: "route" + "[destination-prefix='" + str(self.destination_prefix) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route, ['destination_prefix', 'description'], name, value)
@@ -8771,14 +8906,15 @@ class Routing(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('outgoing_interface', YLeaf(YType.str, 'outgoing-interface')),
-                                        ('special_next_hop', YLeaf(YType.enumeration, 'special-next-hop')),
-                                        ('next_hop_address', YLeaf(YType.str, 'next-hop-address')),
+                                        ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
+                                        ('special_next_hop', (YLeaf(YType.enumeration, 'special-next-hop'), [('ydk.models.ietf.ietf_routing', 'Routing', 'RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route.NextHop.SpecialNextHop')])),
+                                        ('next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str'])),
                                     ])
                                     self.outgoing_interface = None
                                     self.special_next_hop = None
                                     self.next_hop_address = None
                                     self._segment_path = lambda: "next-hop"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.StaticRoutes.Ipv4.Route.NextHop, [u'outgoing_interface', u'special_next_hop', 'next_hop_address'], name, value)
@@ -8863,7 +8999,7 @@ class Routing(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("all-instances-inherit", ("all_instances_inherit", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit)), ("instance", ("instance", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance))])
                         self._leafs = OrderedDict([
-                            ('operation_mode', YLeaf(YType.identityref, 'operation-mode')),
+                            ('operation_mode', (YLeaf(YType.identityref, 'operation-mode'), [('ydk.models.ietf.ietf_ospf', 'OperationMode')])),
                         ])
                         self.operation_mode = None
 
@@ -8873,6 +9009,7 @@ class Routing(Entity):
 
                         self.instance = YList(self)
                         self._segment_path = lambda: "ietf-ospf:ospf"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf, ['operation_mode'], name, value)
@@ -8918,6 +9055,7 @@ class Routing(Entity):
                             self.interface.parent = self
                             self._children_name_map["interface"] = "interface"
                             self._segment_path = lambda: "all-instances-inherit"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.AllInstancesInherit, [], name, value)
@@ -8946,6 +9084,7 @@ class Routing(Entity):
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "area"
+                                self._is_frozen = True
 
 
                         class Interface(Entity):
@@ -8971,6 +9110,7 @@ class Routing(Entity):
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "interface"
+                                self._is_frozen = True
 
 
                     class Instance(Entity):
@@ -9073,9 +9213,9 @@ class Routing(Entity):
                             self.ylist_key_names = ['af']
                             self._child_classes = OrderedDict([("admin-distance", ("admin_distance", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AdminDistance)), ("nsr", ("nsr", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Nsr)), ("graceful-restart", ("graceful_restart", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.GracefulRestart)), ("auto-cost", ("auto_cost", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AutoCost)), ("spf-control", ("spf_control", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.SpfControl)), ("database-control", ("database_control", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.DatabaseControl)), ("reload-control", ("reload_control", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.ReloadControl)), ("mpls", ("mpls", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls)), ("fast-reroute", ("fast_reroute", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.FastReroute)), ("all-areas-inherit", ("all_areas_inherit", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit)), ("area", ("area", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area)), ("topology", ("topology", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology))])
                             self._leafs = OrderedDict([
-                                ('af', YLeaf(YType.identityref, 'af')),
-                                ('router_id', YLeaf(YType.str, 'router-id')),
-                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                ('af', (YLeaf(YType.identityref, 'af'), [('ydk.models.ietf.ietf_routing', 'AddressFamily')])),
+                                ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                             ])
                             self.af = None
                             self.router_id = None
@@ -9124,6 +9264,7 @@ class Routing(Entity):
                             self.area = YList(self)
                             self.topology = YList(self)
                             self._segment_path = lambda: "instance" + "[af='" + str(self.af) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance, ['af', 'router_id', 'enable'], name, value)
@@ -9178,16 +9319,17 @@ class Routing(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('intra_area', YLeaf(YType.uint8, 'intra-area')),
-                                    ('inter_area', YLeaf(YType.uint8, 'inter-area')),
-                                    ('internal', YLeaf(YType.uint8, 'internal')),
-                                    ('external', YLeaf(YType.uint8, 'external')),
+                                    ('intra_area', (YLeaf(YType.uint8, 'intra-area'), ['int'])),
+                                    ('inter_area', (YLeaf(YType.uint8, 'inter-area'), ['int'])),
+                                    ('internal', (YLeaf(YType.uint8, 'internal'), ['int'])),
+                                    ('external', (YLeaf(YType.uint8, 'external'), ['int'])),
                                 ])
                                 self.intra_area = None
                                 self.inter_area = None
                                 self.internal = None
                                 self.external = None
                                 self._segment_path = lambda: "admin-distance"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AdminDistance, ['intra_area', 'inter_area', 'internal', 'external'], name, value)
@@ -9219,10 +9361,11 @@ class Routing(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('enable', YLeaf(YType.boolean, 'enable')),
+                                    ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                                 ])
                                 self.enable = None
                                 self._segment_path = lambda: "nsr"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Nsr, ['enable'], name, value)
@@ -9275,16 +9418,17 @@ class Routing(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('enable', YLeaf(YType.boolean, 'enable')),
-                                    ('helper_enable', YLeaf(YType.boolean, 'helper-enable')),
-                                    ('restart_interval', YLeaf(YType.uint16, 'restart-interval')),
-                                    ('helper_strict_lsa_checking', YLeaf(YType.boolean, 'helper-strict-lsa-checking')),
+                                    ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                    ('helper_enable', (YLeaf(YType.boolean, 'helper-enable'), ['bool'])),
+                                    ('restart_interval', (YLeaf(YType.uint16, 'restart-interval'), ['int'])),
+                                    ('helper_strict_lsa_checking', (YLeaf(YType.boolean, 'helper-strict-lsa-checking'), ['bool'])),
                                 ])
                                 self.enable = None
                                 self.helper_enable = None
                                 self.restart_interval = None
                                 self.helper_strict_lsa_checking = None
                                 self._segment_path = lambda: "graceful-restart"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.GracefulRestart, ['enable', 'helper_enable', 'restart_interval', 'helper_strict_lsa_checking'], name, value)
@@ -9325,12 +9469,13 @@ class Routing(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('enable', YLeaf(YType.boolean, 'enable')),
-                                    ('reference_bandwidth', YLeaf(YType.uint32, 'reference-bandwidth')),
+                                    ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                    ('reference_bandwidth', (YLeaf(YType.uint32, 'reference-bandwidth'), ['int'])),
                                 ])
                                 self.enable = None
                                 self.reference_bandwidth = None
                                 self._segment_path = lambda: "auto-cost"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AutoCost, ['enable', 'reference_bandwidth'], name, value)
@@ -9364,10 +9509,11 @@ class Routing(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('paths', YLeaf(YType.uint16, 'paths')),
+                                    ('paths', (YLeaf(YType.uint16, 'paths'), ['int'])),
                                 ])
                                 self.paths = None
                                 self._segment_path = lambda: "spf-control"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.SpfControl, ['paths'], name, value)
@@ -9401,10 +9547,11 @@ class Routing(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('max_lsa', YLeaf(YType.uint32, 'max-lsa')),
+                                    ('max_lsa', (YLeaf(YType.uint32, 'max-lsa'), ['int'])),
                                 ])
                                 self.max_lsa = None
                                 self._segment_path = lambda: "database-control"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.DatabaseControl, ['max_lsa'], name, value)
@@ -9432,6 +9579,7 @@ class Routing(Entity):
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "reload-control"
+                                self._is_frozen = True
 
 
                         class Mpls(Entity):
@@ -9474,6 +9622,7 @@ class Routing(Entity):
                                 self.ldp.parent = self
                                 self._children_name_map["ldp"] = "ldp"
                                 self._segment_path = lambda: "mpls"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls, [], name, value)
@@ -9514,12 +9663,13 @@ class Routing(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('interface', YLeaf(YType.str, 'interface')),
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
+                                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
                                     ])
                                     self.interface = None
                                     self.router_id = None
                                     self._segment_path = lambda: "te-rid"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.TeRid, ['interface', 'router_id'], name, value)
@@ -9556,12 +9706,13 @@ class Routing(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('igp_sync', YLeaf(YType.boolean, 'igp-sync')),
-                                        ('autoconfig', YLeaf(YType.boolean, 'autoconfig')),
+                                        ('igp_sync', (YLeaf(YType.boolean, 'igp-sync'), ['bool'])),
+                                        ('autoconfig', (YLeaf(YType.boolean, 'autoconfig'), ['bool'])),
                                     ])
                                     self.igp_sync = None
                                     self.autoconfig = None
                                     self._segment_path = lambda: "ldp"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Mpls.Ldp, ['igp_sync', 'autoconfig'], name, value)
@@ -9599,6 +9750,7 @@ class Routing(Entity):
                                 self.lfa.parent = self
                                 self._children_name_map["lfa"] = "lfa"
                                 self._segment_path = lambda: "fast-reroute"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.FastReroute, [], name, value)
@@ -9629,6 +9781,7 @@ class Routing(Entity):
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict()
                                     self._segment_path = lambda: "lfa"
+                                    self._is_frozen = True
 
 
                         class AllAreasInherit(Entity):
@@ -9671,6 +9824,7 @@ class Routing(Entity):
                                 self.interface.parent = self
                                 self._children_name_map["interface"] = "interface"
                                 self._segment_path = lambda: "all-areas-inherit"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.AllAreasInherit, [], name, value)
@@ -9698,6 +9852,7 @@ class Routing(Entity):
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict()
                                     self._segment_path = lambda: "area"
+                                    self._is_frozen = True
 
 
                             class Interface(Entity):
@@ -9723,6 +9878,7 @@ class Routing(Entity):
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict()
                                     self._segment_path = lambda: "interface"
+                                    self._is_frozen = True
 
 
                         class Area(Entity):
@@ -9803,10 +9959,10 @@ class Routing(Entity):
                                 self.ylist_key_names = ['area_id']
                                 self._child_classes = OrderedDict([("range", ("range", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Range)), ("all-interfaces-inherit", ("all_interfaces_inherit", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit)), ("virtual-link", ("virtual_link", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink)), ("sham-link", ("sham_link", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink)), ("interface", ("interface", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface))])
                                 self._leafs = OrderedDict([
-                                    ('area_id', YLeaf(YType.str, 'area-id')),
-                                    ('area_type', YLeaf(YType.identityref, 'area-type')),
-                                    ('summary', YLeaf(YType.boolean, 'summary')),
-                                    ('default_cost', YLeaf(YType.uint32, 'default-cost')),
+                                    ('area_id', (YLeaf(YType.str, 'area-id'), ['int','str'])),
+                                    ('area_type', (YLeaf(YType.identityref, 'area-type'), [('ydk.models.ietf.ietf_ospf', 'AreaType')])),
+                                    ('summary', (YLeaf(YType.boolean, 'summary'), ['bool'])),
+                                    ('default_cost', (YLeaf(YType.uint32, 'default-cost'), ['int'])),
                                 ])
                                 self.area_id = None
                                 self.area_type = None
@@ -9822,6 +9978,7 @@ class Routing(Entity):
                                 self.sham_link = YList(self)
                                 self.interface = YList(self)
                                 self._segment_path = lambda: "area" + "[area-id='" + str(self.area_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area, ['area_id', 'area_type', 'summary', 'default_cost'], name, value)
@@ -9866,14 +10023,15 @@ class Routing(Entity):
                                     self.ylist_key_names = ['prefix']
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('prefix', YLeaf(YType.str, 'prefix')),
-                                        ('advertise', YLeaf(YType.boolean, 'advertise')),
-                                        ('cost', YLeaf(YType.uint32, 'cost')),
+                                        ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                        ('advertise', (YLeaf(YType.boolean, 'advertise'), ['bool'])),
+                                        ('cost', (YLeaf(YType.uint32, 'cost'), ['int'])),
                                     ])
                                     self.prefix = None
                                     self.advertise = None
                                     self.cost = None
                                     self._segment_path = lambda: "range" + "[prefix='" + str(self.prefix) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Range, ['prefix', 'advertise', 'cost'], name, value)
@@ -9910,6 +10068,7 @@ class Routing(Entity):
                                     self.interface.parent = self
                                     self._children_name_map["interface"] = "interface"
                                     self._segment_path = lambda: "all-interfaces-inherit"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.AllInterfacesInherit, [], name, value)
@@ -9938,6 +10097,7 @@ class Routing(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "interface"
+                                        self._is_frozen = True
 
 
                             class VirtualLink(Entity):
@@ -10048,17 +10208,17 @@ class Routing(Entity):
                                     self.ylist_key_names = ['router_id']
                                     self._child_classes = OrderedDict([("ttl-security", ("ttl_security", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.TtlSecurity)), ("authentication", ("authentication", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication))])
                                     self._leafs = OrderedDict([
-                                        ('router_id', YLeaf(YType.str, 'router-id')),
-                                        ('cost', YLeaf(YType.uint16, 'cost')),
-                                        ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
-                                        ('dead_interval', YLeaf(YType.uint16, 'dead-interval')),
-                                        ('retransmit_interval', YLeaf(YType.uint16, 'retransmit-interval')),
-                                        ('transmit_delay', YLeaf(YType.uint16, 'transmit-delay')),
-                                        ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
-                                        ('lls', YLeaf(YType.boolean, 'lls')),
-                                        ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
-                                        ('bfd', YLeaf(YType.boolean, 'bfd')),
-                                        ('enable', YLeaf(YType.boolean, 'enable')),
+                                        ('router_id', (YLeaf(YType.str, 'router-id'), ['str'])),
+                                        ('cost', (YLeaf(YType.uint16, 'cost'), ['int'])),
+                                        ('hello_interval', (YLeaf(YType.uint16, 'hello-interval'), ['int'])),
+                                        ('dead_interval', (YLeaf(YType.uint16, 'dead-interval'), ['int'])),
+                                        ('retransmit_interval', (YLeaf(YType.uint16, 'retransmit-interval'), ['int'])),
+                                        ('transmit_delay', (YLeaf(YType.uint16, 'transmit-delay'), ['int'])),
+                                        ('mtu_ignore', (YLeaf(YType.boolean, 'mtu-ignore'), ['bool'])),
+                                        ('lls', (YLeaf(YType.boolean, 'lls'), ['bool'])),
+                                        ('prefix_suppression', (YLeaf(YType.boolean, 'prefix-suppression'), ['bool'])),
+                                        ('bfd', (YLeaf(YType.boolean, 'bfd'), ['bool'])),
+                                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                                     ])
                                     self.router_id = None
                                     self.cost = None
@@ -10080,6 +10240,7 @@ class Routing(Entity):
                                     self.authentication.parent = self
                                     self._children_name_map["authentication"] = "authentication"
                                     self._segment_path = lambda: "virtual-link" + "[router-id='" + str(self.router_id) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink, ['router_id', 'cost', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay', 'mtu_ignore', 'lls', 'prefix_suppression', 'bfd', 'enable'], name, value)
@@ -10118,12 +10279,13 @@ class Routing(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('enable', YLeaf(YType.boolean, 'enable')),
-                                            ('hops', YLeaf(YType.uint8, 'hops')),
+                                            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                            ('hops', (YLeaf(YType.uint8, 'hops'), ['int'])),
                                         ])
                                         self.enable = None
                                         self.hops = None
                                         self._segment_path = lambda: "ttl-security"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.TtlSecurity, ['enable', 'hops'], name, value)
@@ -10172,9 +10334,9 @@ class Routing(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("crypto-algorithm", ("crypto_algorithm", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication.CryptoAlgorithm))])
                                         self._leafs = OrderedDict([
-                                            ('sa', YLeaf(YType.str, 'sa')),
-                                            ('key_chain', YLeaf(YType.str, 'key-chain')),
-                                            ('key', YLeaf(YType.str, 'key')),
+                                            ('sa', (YLeaf(YType.str, 'sa'), ['str'])),
+                                            ('key_chain', (YLeaf(YType.str, 'key-chain'), ['str'])),
+                                            ('key', (YLeaf(YType.str, 'key'), ['str'])),
                                         ])
                                         self.sa = None
                                         self.key_chain = None
@@ -10184,6 +10346,7 @@ class Routing(Entity):
                                         self.crypto_algorithm.parent = self
                                         self._children_name_map["crypto_algorithm"] = "crypto-algorithm"
                                         self._segment_path = lambda: "authentication"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication, ['sa', 'key_chain', 'key'], name, value)
@@ -10250,14 +10413,14 @@ class Routing(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('hmac_sha1_12', YLeaf(YType.empty, 'hmac-sha1-12')),
-                                                ('hmac_sha1_20', YLeaf(YType.empty, 'hmac-sha1-20')),
-                                                ('md5', YLeaf(YType.empty, 'md5')),
-                                                ('sha_1', YLeaf(YType.empty, 'sha-1')),
-                                                ('hmac_sha_1', YLeaf(YType.empty, 'hmac-sha-1')),
-                                                ('hmac_sha_256', YLeaf(YType.empty, 'hmac-sha-256')),
-                                                ('hmac_sha_384', YLeaf(YType.empty, 'hmac-sha-384')),
-                                                ('hmac_sha_512', YLeaf(YType.empty, 'hmac-sha-512')),
+                                                ('hmac_sha1_12', (YLeaf(YType.empty, 'hmac-sha1-12'), ['Empty'])),
+                                                ('hmac_sha1_20', (YLeaf(YType.empty, 'hmac-sha1-20'), ['Empty'])),
+                                                ('md5', (YLeaf(YType.empty, 'md5'), ['Empty'])),
+                                                ('sha_1', (YLeaf(YType.empty, 'sha-1'), ['Empty'])),
+                                                ('hmac_sha_1', (YLeaf(YType.empty, 'hmac-sha-1'), ['Empty'])),
+                                                ('hmac_sha_256', (YLeaf(YType.empty, 'hmac-sha-256'), ['Empty'])),
+                                                ('hmac_sha_384', (YLeaf(YType.empty, 'hmac-sha-384'), ['Empty'])),
+                                                ('hmac_sha_512', (YLeaf(YType.empty, 'hmac-sha-512'), ['Empty'])),
                                             ])
                                             self.hmac_sha1_12 = None
                                             self.hmac_sha1_20 = None
@@ -10268,6 +10431,7 @@ class Routing(Entity):
                                             self.hmac_sha_384 = None
                                             self.hmac_sha_512 = None
                                             self._segment_path = lambda: "crypto-algorithm"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.VirtualLink.Authentication.CryptoAlgorithm, ['hmac_sha1_12', 'hmac_sha1_20', 'md5', 'sha_1', 'hmac_sha_1', 'hmac_sha_256', 'hmac_sha_384', 'hmac_sha_512'], name, value)
@@ -10400,18 +10564,18 @@ class Routing(Entity):
                                     self.ylist_key_names = ['local_id','remote_id']
                                     self._child_classes = OrderedDict([("ttl-security", ("ttl_security", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.TtlSecurity)), ("authentication", ("authentication", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication))])
                                     self._leafs = OrderedDict([
-                                        ('local_id', YLeaf(YType.str, 'local-id')),
-                                        ('remote_id', YLeaf(YType.str, 'remote-id')),
-                                        ('cost', YLeaf(YType.uint16, 'cost')),
-                                        ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
-                                        ('dead_interval', YLeaf(YType.uint16, 'dead-interval')),
-                                        ('retransmit_interval', YLeaf(YType.uint16, 'retransmit-interval')),
-                                        ('transmit_delay', YLeaf(YType.uint16, 'transmit-delay')),
-                                        ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
-                                        ('lls', YLeaf(YType.boolean, 'lls')),
-                                        ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
-                                        ('bfd', YLeaf(YType.boolean, 'bfd')),
-                                        ('enable', YLeaf(YType.boolean, 'enable')),
+                                        ('local_id', (YLeaf(YType.str, 'local-id'), ['str','str'])),
+                                        ('remote_id', (YLeaf(YType.str, 'remote-id'), ['str','str'])),
+                                        ('cost', (YLeaf(YType.uint16, 'cost'), ['int'])),
+                                        ('hello_interval', (YLeaf(YType.uint16, 'hello-interval'), ['int'])),
+                                        ('dead_interval', (YLeaf(YType.uint16, 'dead-interval'), ['int'])),
+                                        ('retransmit_interval', (YLeaf(YType.uint16, 'retransmit-interval'), ['int'])),
+                                        ('transmit_delay', (YLeaf(YType.uint16, 'transmit-delay'), ['int'])),
+                                        ('mtu_ignore', (YLeaf(YType.boolean, 'mtu-ignore'), ['bool'])),
+                                        ('lls', (YLeaf(YType.boolean, 'lls'), ['bool'])),
+                                        ('prefix_suppression', (YLeaf(YType.boolean, 'prefix-suppression'), ['bool'])),
+                                        ('bfd', (YLeaf(YType.boolean, 'bfd'), ['bool'])),
+                                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                                     ])
                                     self.local_id = None
                                     self.remote_id = None
@@ -10434,6 +10598,7 @@ class Routing(Entity):
                                     self.authentication.parent = self
                                     self._children_name_map["authentication"] = "authentication"
                                     self._segment_path = lambda: "sham-link" + "[local-id='" + str(self.local_id) + "']" + "[remote-id='" + str(self.remote_id) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink, ['local_id', 'remote_id', 'cost', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay', 'mtu_ignore', 'lls', 'prefix_suppression', 'bfd', 'enable'], name, value)
@@ -10472,12 +10637,13 @@ class Routing(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('enable', YLeaf(YType.boolean, 'enable')),
-                                            ('hops', YLeaf(YType.uint8, 'hops')),
+                                            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                            ('hops', (YLeaf(YType.uint8, 'hops'), ['int'])),
                                         ])
                                         self.enable = None
                                         self.hops = None
                                         self._segment_path = lambda: "ttl-security"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.TtlSecurity, ['enable', 'hops'], name, value)
@@ -10526,9 +10692,9 @@ class Routing(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("crypto-algorithm", ("crypto_algorithm", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication.CryptoAlgorithm))])
                                         self._leafs = OrderedDict([
-                                            ('sa', YLeaf(YType.str, 'sa')),
-                                            ('key_chain', YLeaf(YType.str, 'key-chain')),
-                                            ('key', YLeaf(YType.str, 'key')),
+                                            ('sa', (YLeaf(YType.str, 'sa'), ['str'])),
+                                            ('key_chain', (YLeaf(YType.str, 'key-chain'), ['str'])),
+                                            ('key', (YLeaf(YType.str, 'key'), ['str'])),
                                         ])
                                         self.sa = None
                                         self.key_chain = None
@@ -10538,6 +10704,7 @@ class Routing(Entity):
                                         self.crypto_algorithm.parent = self
                                         self._children_name_map["crypto_algorithm"] = "crypto-algorithm"
                                         self._segment_path = lambda: "authentication"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication, ['sa', 'key_chain', 'key'], name, value)
@@ -10604,14 +10771,14 @@ class Routing(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('hmac_sha1_12', YLeaf(YType.empty, 'hmac-sha1-12')),
-                                                ('hmac_sha1_20', YLeaf(YType.empty, 'hmac-sha1-20')),
-                                                ('md5', YLeaf(YType.empty, 'md5')),
-                                                ('sha_1', YLeaf(YType.empty, 'sha-1')),
-                                                ('hmac_sha_1', YLeaf(YType.empty, 'hmac-sha-1')),
-                                                ('hmac_sha_256', YLeaf(YType.empty, 'hmac-sha-256')),
-                                                ('hmac_sha_384', YLeaf(YType.empty, 'hmac-sha-384')),
-                                                ('hmac_sha_512', YLeaf(YType.empty, 'hmac-sha-512')),
+                                                ('hmac_sha1_12', (YLeaf(YType.empty, 'hmac-sha1-12'), ['Empty'])),
+                                                ('hmac_sha1_20', (YLeaf(YType.empty, 'hmac-sha1-20'), ['Empty'])),
+                                                ('md5', (YLeaf(YType.empty, 'md5'), ['Empty'])),
+                                                ('sha_1', (YLeaf(YType.empty, 'sha-1'), ['Empty'])),
+                                                ('hmac_sha_1', (YLeaf(YType.empty, 'hmac-sha-1'), ['Empty'])),
+                                                ('hmac_sha_256', (YLeaf(YType.empty, 'hmac-sha-256'), ['Empty'])),
+                                                ('hmac_sha_384', (YLeaf(YType.empty, 'hmac-sha-384'), ['Empty'])),
+                                                ('hmac_sha_512', (YLeaf(YType.empty, 'hmac-sha-512'), ['Empty'])),
                                             ])
                                             self.hmac_sha1_12 = None
                                             self.hmac_sha1_20 = None
@@ -10622,6 +10789,7 @@ class Routing(Entity):
                                             self.hmac_sha_384 = None
                                             self.hmac_sha_512 = None
                                             self._segment_path = lambda: "crypto-algorithm"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.ShamLink.Authentication.CryptoAlgorithm, ['hmac_sha1_12', 'hmac_sha1_20', 'md5', 'sha_1', 'hmac_sha_1', 'hmac_sha_256', 'hmac_sha_384', 'hmac_sha_512'], name, value)
@@ -10777,21 +10945,21 @@ class Routing(Entity):
                                     self.ylist_key_names = ['interface']
                                     self._child_classes = OrderedDict([("multi-area", ("multi_area", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.MultiArea)), ("static-neighbors", ("static_neighbors", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors)), ("fast-reroute", ("fast_reroute", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute)), ("ttl-security", ("ttl_security", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.TtlSecurity)), ("authentication", ("authentication", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication)), ("topology", ("topology", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Topology))])
                                     self._leafs = OrderedDict([
-                                        ('interface', YLeaf(YType.str, 'interface')),
-                                        ('network_type', YLeaf(YType.enumeration, 'network-type')),
-                                        ('passive', YLeaf(YType.boolean, 'passive')),
-                                        ('demand_circuit', YLeaf(YType.boolean, 'demand-circuit')),
-                                        ('node_flag', YLeaf(YType.boolean, 'node-flag')),
-                                        ('cost', YLeaf(YType.uint16, 'cost')),
-                                        ('hello_interval', YLeaf(YType.uint16, 'hello-interval')),
-                                        ('dead_interval', YLeaf(YType.uint16, 'dead-interval')),
-                                        ('retransmit_interval', YLeaf(YType.uint16, 'retransmit-interval')),
-                                        ('transmit_delay', YLeaf(YType.uint16, 'transmit-delay')),
-                                        ('mtu_ignore', YLeaf(YType.boolean, 'mtu-ignore')),
-                                        ('lls', YLeaf(YType.boolean, 'lls')),
-                                        ('prefix_suppression', YLeaf(YType.boolean, 'prefix-suppression')),
-                                        ('bfd', YLeaf(YType.boolean, 'bfd')),
-                                        ('enable', YLeaf(YType.boolean, 'enable')),
+                                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                        ('network_type', (YLeaf(YType.enumeration, 'network-type'), [('ydk.models.ietf.ietf_routing', 'Routing', 'RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.NetworkType')])),
+                                        ('passive', (YLeaf(YType.boolean, 'passive'), ['bool'])),
+                                        ('demand_circuit', (YLeaf(YType.boolean, 'demand-circuit'), ['bool'])),
+                                        ('node_flag', (YLeaf(YType.boolean, 'node-flag'), ['bool'])),
+                                        ('cost', (YLeaf(YType.uint16, 'cost'), ['int'])),
+                                        ('hello_interval', (YLeaf(YType.uint16, 'hello-interval'), ['int'])),
+                                        ('dead_interval', (YLeaf(YType.uint16, 'dead-interval'), ['int'])),
+                                        ('retransmit_interval', (YLeaf(YType.uint16, 'retransmit-interval'), ['int'])),
+                                        ('transmit_delay', (YLeaf(YType.uint16, 'transmit-delay'), ['int'])),
+                                        ('mtu_ignore', (YLeaf(YType.boolean, 'mtu-ignore'), ['bool'])),
+                                        ('lls', (YLeaf(YType.boolean, 'lls'), ['bool'])),
+                                        ('prefix_suppression', (YLeaf(YType.boolean, 'prefix-suppression'), ['bool'])),
+                                        ('bfd', (YLeaf(YType.boolean, 'bfd'), ['bool'])),
+                                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                                     ])
                                     self.interface = None
                                     self.network_type = None
@@ -10831,6 +10999,7 @@ class Routing(Entity):
 
                                     self.topology = YList(self)
                                     self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface, ['interface', 'network_type', 'passive', 'demand_circuit', 'node_flag', 'cost', 'hello_interval', 'dead_interval', 'retransmit_interval', 'transmit_delay', 'mtu_ignore', 'lls', 'prefix_suppression', 'bfd', 'enable'], name, value)
@@ -10912,12 +11081,13 @@ class Routing(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('multi_area_id', YLeaf(YType.str, 'multi-area-id')),
-                                            ('cost', YLeaf(YType.uint16, 'cost')),
+                                            ('multi_area_id', (YLeaf(YType.str, 'multi-area-id'), ['int','str'])),
+                                            ('cost', (YLeaf(YType.uint16, 'cost'), ['int'])),
                                         ])
                                         self.multi_area_id = None
                                         self.cost = None
                                         self._segment_path = lambda: "multi-area"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.MultiArea, ['multi_area_id', 'cost'], name, value)
@@ -10952,6 +11122,7 @@ class Routing(Entity):
 
                                         self.neighbor = YList(self)
                                         self._segment_path = lambda: "static-neighbors"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors, [], name, value)
@@ -11014,16 +11185,17 @@ class Routing(Entity):
                                             self.ylist_key_names = ['address']
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('address', YLeaf(YType.str, 'address')),
-                                                ('cost', YLeaf(YType.uint16, 'cost')),
-                                                ('poll_interval', YLeaf(YType.uint16, 'poll-interval')),
-                                                ('priority', YLeaf(YType.uint8, 'priority')),
+                                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                                                ('cost', (YLeaf(YType.uint16, 'cost'), ['int'])),
+                                                ('poll_interval', (YLeaf(YType.uint16, 'poll-interval'), ['int'])),
+                                                ('priority', (YLeaf(YType.uint8, 'priority'), ['int'])),
                                             ])
                                             self.address = None
                                             self.cost = None
                                             self.poll_interval = None
                                             self.priority = None
                                             self._segment_path = lambda: "neighbor" + "[address='" + str(self.address) + "']"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.StaticNeighbors.Neighbor, ['address', 'cost', 'poll_interval', 'priority'], name, value)
@@ -11060,6 +11232,7 @@ class Routing(Entity):
                                         self.lfa.parent = self
                                         self._children_name_map["lfa"] = "lfa"
                                         self._segment_path = lambda: "fast-reroute"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute, [], name, value)
@@ -11101,8 +11274,8 @@ class Routing(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa.RemoteLfa))])
                                             self._leafs = OrderedDict([
-                                                ('candidate_disabled', YLeaf(YType.boolean, 'candidate-disabled')),
-                                                ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                                ('candidate_disabled', (YLeaf(YType.boolean, 'candidate-disabled'), ['bool'])),
+                                                ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                                             ])
                                             self.candidate_disabled = None
                                             self.enabled = None
@@ -11111,6 +11284,7 @@ class Routing(Entity):
                                             self.remote_lfa.parent = self
                                             self._children_name_map["remote_lfa"] = "remote-lfa"
                                             self._segment_path = lambda: "lfa"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa, ['candidate_disabled', 'enabled'], name, value)
@@ -11142,10 +11316,11 @@ class Routing(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                                    ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                                                 ])
                                                 self.enabled = None
                                                 self._segment_path = lambda: "remote-lfa"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.FastReroute.Lfa.RemoteLfa, ['enabled'], name, value)
@@ -11184,12 +11359,13 @@ class Routing(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('enable', YLeaf(YType.boolean, 'enable')),
-                                            ('hops', YLeaf(YType.uint8, 'hops')),
+                                            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                            ('hops', (YLeaf(YType.uint8, 'hops'), ['int'])),
                                         ])
                                         self.enable = None
                                         self.hops = None
                                         self._segment_path = lambda: "ttl-security"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.TtlSecurity, ['enable', 'hops'], name, value)
@@ -11238,9 +11414,9 @@ class Routing(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("crypto-algorithm", ("crypto_algorithm", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication.CryptoAlgorithm))])
                                         self._leafs = OrderedDict([
-                                            ('sa', YLeaf(YType.str, 'sa')),
-                                            ('key_chain', YLeaf(YType.str, 'key-chain')),
-                                            ('key', YLeaf(YType.str, 'key')),
+                                            ('sa', (YLeaf(YType.str, 'sa'), ['str'])),
+                                            ('key_chain', (YLeaf(YType.str, 'key-chain'), ['str'])),
+                                            ('key', (YLeaf(YType.str, 'key'), ['str'])),
                                         ])
                                         self.sa = None
                                         self.key_chain = None
@@ -11250,6 +11426,7 @@ class Routing(Entity):
                                         self.crypto_algorithm.parent = self
                                         self._children_name_map["crypto_algorithm"] = "crypto-algorithm"
                                         self._segment_path = lambda: "authentication"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication, ['sa', 'key_chain', 'key'], name, value)
@@ -11316,14 +11493,14 @@ class Routing(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('hmac_sha1_12', YLeaf(YType.empty, 'hmac-sha1-12')),
-                                                ('hmac_sha1_20', YLeaf(YType.empty, 'hmac-sha1-20')),
-                                                ('md5', YLeaf(YType.empty, 'md5')),
-                                                ('sha_1', YLeaf(YType.empty, 'sha-1')),
-                                                ('hmac_sha_1', YLeaf(YType.empty, 'hmac-sha-1')),
-                                                ('hmac_sha_256', YLeaf(YType.empty, 'hmac-sha-256')),
-                                                ('hmac_sha_384', YLeaf(YType.empty, 'hmac-sha-384')),
-                                                ('hmac_sha_512', YLeaf(YType.empty, 'hmac-sha-512')),
+                                                ('hmac_sha1_12', (YLeaf(YType.empty, 'hmac-sha1-12'), ['Empty'])),
+                                                ('hmac_sha1_20', (YLeaf(YType.empty, 'hmac-sha1-20'), ['Empty'])),
+                                                ('md5', (YLeaf(YType.empty, 'md5'), ['Empty'])),
+                                                ('sha_1', (YLeaf(YType.empty, 'sha-1'), ['Empty'])),
+                                                ('hmac_sha_1', (YLeaf(YType.empty, 'hmac-sha-1'), ['Empty'])),
+                                                ('hmac_sha_256', (YLeaf(YType.empty, 'hmac-sha-256'), ['Empty'])),
+                                                ('hmac_sha_384', (YLeaf(YType.empty, 'hmac-sha-384'), ['Empty'])),
+                                                ('hmac_sha_512', (YLeaf(YType.empty, 'hmac-sha-512'), ['Empty'])),
                                             ])
                                             self.hmac_sha1_12 = None
                                             self.hmac_sha1_20 = None
@@ -11334,6 +11511,7 @@ class Routing(Entity):
                                             self.hmac_sha_384 = None
                                             self.hmac_sha_512 = None
                                             self._segment_path = lambda: "crypto-algorithm"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Authentication.CryptoAlgorithm, ['hmac_sha1_12', 'hmac_sha1_20', 'md5', 'sha_1', 'hmac_sha_1', 'hmac_sha_256', 'hmac_sha_384', 'hmac_sha_512'], name, value)
@@ -11374,12 +11552,13 @@ class Routing(Entity):
                                         self.ylist_key_names = ['name']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('name', YLeaf(YType.str, 'name')),
-                                            ('cost', YLeaf(YType.uint32, 'cost')),
+                                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                            ('cost', (YLeaf(YType.uint32, 'cost'), ['int'])),
                                         ])
                                         self.name = None
                                         self.cost = None
                                         self._segment_path = lambda: "topology" + "[name='" + str(self.name) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Area.Interface.Topology, ['name', 'cost'], name, value)
@@ -11418,12 +11597,13 @@ class Routing(Entity):
                                 self.ylist_key_names = ['name']
                                 self._child_classes = OrderedDict([("area", ("area", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area))])
                                 self._leafs = OrderedDict([
-                                    ('name', YLeaf(YType.str, 'name')),
+                                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                                 ])
                                 self.name = None
 
                                 self.area = YList(self)
                                 self._segment_path = lambda: "topology" + "[name='" + str(self.name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology, ['name'], name, value)
@@ -11487,10 +11667,10 @@ class Routing(Entity):
                                     self.ylist_key_names = ['area_id']
                                     self._child_classes = OrderedDict([("range", ("range", Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area.Range))])
                                     self._leafs = OrderedDict([
-                                        ('area_id', YLeaf(YType.str, 'area-id')),
-                                        ('area_type', YLeaf(YType.identityref, 'area-type')),
-                                        ('summary', YLeaf(YType.boolean, 'summary')),
-                                        ('default_cost', YLeaf(YType.uint32, 'default-cost')),
+                                        ('area_id', (YLeaf(YType.str, 'area-id'), ['int','str'])),
+                                        ('area_type', (YLeaf(YType.identityref, 'area-type'), [('ydk.models.ietf.ietf_ospf', 'AreaType')])),
+                                        ('summary', (YLeaf(YType.boolean, 'summary'), ['bool'])),
+                                        ('default_cost', (YLeaf(YType.uint32, 'default-cost'), ['int'])),
                                     ])
                                     self.area_id = None
                                     self.area_type = None
@@ -11499,6 +11679,7 @@ class Routing(Entity):
 
                                     self.range = YList(self)
                                     self._segment_path = lambda: "area" + "[area-id='" + str(self.area_id) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area, ['area_id', 'area_type', 'summary', 'default_cost'], name, value)
@@ -11543,14 +11724,15 @@ class Routing(Entity):
                                         self.ylist_key_names = ['prefix']
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('prefix', YLeaf(YType.str, 'prefix')),
-                                            ('advertise', YLeaf(YType.boolean, 'advertise')),
-                                            ('cost', YLeaf(YType.uint32, 'cost')),
+                                            ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                            ('advertise', (YLeaf(YType.boolean, 'advertise'), ['bool'])),
+                                            ('cost', (YLeaf(YType.uint32, 'cost'), ['int'])),
                                         ])
                                         self.prefix = None
                                         self.advertise = None
                                         self.cost = None
                                         self._segment_path = lambda: "range" + "[prefix='" + str(self.prefix) + "']"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Routing.RoutingInstance.RoutingProtocols.RoutingProtocol.Ospf.Instance.Topology.Area.Range, ['prefix', 'advertise', 'cost'], name, value)
@@ -11585,6 +11767,7 @@ class Routing(Entity):
 
                 self.rib = YList(self)
                 self._segment_path = lambda: "ribs"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Routing.RoutingInstance.Ribs, [], name, value)
@@ -11632,14 +11815,15 @@ class Routing(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('address_family', YLeaf(YType.identityref, 'address-family')),
-                        ('description', YLeaf(YType.str, 'description')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('address_family', (YLeaf(YType.identityref, 'address-family'), [('ydk.models.ietf.ietf_routing', 'AddressFamily')])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
                     ])
                     self.name = None
                     self.address_family = None
                     self.description = None
                     self._segment_path = lambda: "rib" + "[name='" + str(self.name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Routing.RoutingInstance.Ribs.Rib, [u'name', u'address_family', u'description'], name, value)
@@ -11690,6 +11874,7 @@ class FibRoute(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "ietf-routing:fib-route"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -11725,7 +11910,7 @@ class FibRoute(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("destination-address", ("destination_address", FibRoute.Input.DestinationAddress))])
             self._leafs = OrderedDict([
-                ('routing_instance_name', YLeaf(YType.str, 'routing-instance-name')),
+                ('routing_instance_name', (YLeaf(YType.str, 'routing-instance-name'), ['str'])),
             ])
             self.routing_instance_name = None
 
@@ -11734,6 +11919,7 @@ class FibRoute(Entity):
             self._children_name_map["destination_address"] = "destination-address"
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "ietf-routing:fib-route/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(FibRoute.Input, [u'routing_instance_name'], name, value)
@@ -11784,15 +11970,16 @@ class FibRoute(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('address_family', YLeaf(YType.identityref, 'address-family')),
-                    ('ietf_ipv6_unicast_routing_address', YLeaf(YType.str, 'ietf-ipv6-unicast-routing:address')),
-                    ('ietf_ipv4_unicast_routing_address', YLeaf(YType.str, 'ietf-ipv4-unicast-routing:address')),
+                    ('address_family', (YLeaf(YType.identityref, 'address-family'), [('ydk.models.ietf.ietf_routing', 'AddressFamily')])),
+                    ('ietf_ipv6_unicast_routing_address', (YLeaf(YType.str, 'ietf-ipv6-unicast-routing:address'), ['str'])),
+                    ('ietf_ipv4_unicast_routing_address', (YLeaf(YType.str, 'ietf-ipv4-unicast-routing:address'), ['str'])),
                 ])
                 self.address_family = None
                 self.ietf_ipv6_unicast_routing_address = None
                 self.ietf_ipv4_unicast_routing_address = None
                 self._segment_path = lambda: "destination-address"
                 self._absolute_path = lambda: "ietf-routing:fib-route/input/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(FibRoute.Input.DestinationAddress, [u'address_family', 'ietf_ipv6_unicast_routing_address', 'ietf_ipv4_unicast_routing_address'], name, value)
@@ -11830,6 +12017,7 @@ class FibRoute(Entity):
             self._children_name_map["route"] = "route"
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "ietf-routing:fib-route/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(FibRoute.Output, [], name, value)
@@ -11909,12 +12097,12 @@ class FibRoute(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("next-hop", ("next_hop", FibRoute.Output.Route.NextHop))])
                 self._leafs = OrderedDict([
-                    ('address_family', YLeaf(YType.identityref, 'address-family')),
-                    ('source_protocol', YLeaf(YType.identityref, 'source-protocol')),
-                    ('active', YLeaf(YType.empty, 'active')),
-                    ('last_updated', YLeaf(YType.str, 'last-updated')),
-                    ('ietf_ipv6_unicast_routing_destination_prefix', YLeaf(YType.str, 'ietf-ipv6-unicast-routing:destination-prefix')),
-                    ('ietf_ipv4_unicast_routing_destination_prefix', YLeaf(YType.str, 'ietf-ipv4-unicast-routing:destination-prefix')),
+                    ('address_family', (YLeaf(YType.identityref, 'address-family'), [('ydk.models.ietf.ietf_routing', 'AddressFamily')])),
+                    ('source_protocol', (YLeaf(YType.identityref, 'source-protocol'), [('ydk.models.ietf.ietf_routing', 'RoutingProtocol')])),
+                    ('active', (YLeaf(YType.empty, 'active'), ['Empty'])),
+                    ('last_updated', (YLeaf(YType.str, 'last-updated'), ['str'])),
+                    ('ietf_ipv6_unicast_routing_destination_prefix', (YLeaf(YType.str, 'ietf-ipv6-unicast-routing:destination-prefix'), ['str'])),
+                    ('ietf_ipv4_unicast_routing_destination_prefix', (YLeaf(YType.str, 'ietf-ipv4-unicast-routing:destination-prefix'), ['str'])),
                 ])
                 self.address_family = None
                 self.source_protocol = None
@@ -11928,6 +12116,7 @@ class FibRoute(Entity):
                 self._children_name_map["next_hop"] = "next-hop"
                 self._segment_path = lambda: "route"
                 self._absolute_path = lambda: "ietf-routing:fib-route/output/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(FibRoute.Output.Route, [u'address_family', u'source_protocol', u'active', u'last_updated', 'ietf_ipv6_unicast_routing_destination_prefix', 'ietf_ipv4_unicast_routing_destination_prefix'], name, value)
@@ -11983,11 +12172,11 @@ class FibRoute(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('outgoing_interface', YLeaf(YType.str, 'outgoing-interface')),
-                        ('ietf_routing_next_hop_address', YLeaf(YType.str, 'next-hop-address')),
-                        ('ietf_ipv6_unicast_routing_next_hop_address', YLeaf(YType.str, 'ietf-ipv6-unicast-routing:next-hop-address')),
-                        ('ietf_ipv4_unicast_routing_next_hop_address', YLeaf(YType.str, 'ietf-ipv4-unicast-routing:next-hop-address')),
-                        ('special_next_hop', YLeaf(YType.enumeration, 'special-next-hop')),
+                        ('outgoing_interface', (YLeaf(YType.str, 'outgoing-interface'), ['str'])),
+                        ('ietf_routing_next_hop_address', (YLeaf(YType.str, 'next-hop-address'), ['str'])),
+                        ('ietf_ipv6_unicast_routing_next_hop_address', (YLeaf(YType.str, 'ietf-ipv6-unicast-routing:next-hop-address'), ['str'])),
+                        ('ietf_ipv4_unicast_routing_next_hop_address', (YLeaf(YType.str, 'ietf-ipv4-unicast-routing:next-hop-address'), ['str'])),
+                        ('special_next_hop', (YLeaf(YType.enumeration, 'special-next-hop'), [('ydk.models.ietf.ietf_routing', 'FibRoute', 'Output.Route.NextHop.SpecialNextHop')])),
                     ])
                     self.outgoing_interface = None
                     self.ietf_routing_next_hop_address = None
@@ -11996,6 +12185,7 @@ class FibRoute(Entity):
                     self.special_next_hop = None
                     self._segment_path = lambda: "next-hop"
                     self._absolute_path = lambda: "ietf-routing:fib-route/output/route/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(FibRoute.Output.Route.NextHop, [u'outgoing_interface', u'ietf_routing_next_hop_address', 'ietf_ipv6_unicast_routing_next_hop_address', 'ietf_ipv4_unicast_routing_next_hop_address', u'special_next_hop'], name, value)
@@ -12045,7 +12235,7 @@ class FibRoute(Entity):
         self._top_entity = FibRoute()
         return self._top_entity
 
-class VrfRoutingInstance(Identity):
+class VrfRoutingInstance(RoutingInstance):
     """
     This identity represents a VRF routing instance. The type is
     distinct from the default\-routing\-instance. There may be
@@ -12058,11 +12248,11 @@ class VrfRoutingInstance(Identity):
     _prefix = 'rt'
     _revision = '2015-05-25'
 
-    def __init__(self):
-        super(VrfRoutingInstance, self).__init__("urn:ietf:params:xml:ns:yang:ietf-routing", "ietf-routing", "ietf-routing:vrf-routing-instance")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:vrf-routing-instance"):
+        super(VrfRoutingInstance, self).__init__(ns, pref, tag)
 
 
-class Direct(Identity):
+class Direct(RoutingProtocol):
     """
     Routing pseudo\-protocol that provides routes to directly
     connected networks.
@@ -12074,11 +12264,11 @@ class Direct(Identity):
     _prefix = 'rt'
     _revision = '2015-05-25'
 
-    def __init__(self):
-        super(Direct, self).__init__("urn:ietf:params:xml:ns:yang:ietf-routing", "ietf-routing", "ietf-routing:direct")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:direct"):
+        super(Direct, self).__init__(ns, pref, tag)
 
 
-class DefaultRoutingInstance(Identity):
+class DefaultRoutingInstance(RoutingInstance):
     """
     This identity represents either a default routing instance, or
     the only routing instance on systems that do not support
@@ -12091,11 +12281,11 @@ class DefaultRoutingInstance(Identity):
     _prefix = 'rt'
     _revision = '2015-05-25'
 
-    def __init__(self):
-        super(DefaultRoutingInstance, self).__init__("urn:ietf:params:xml:ns:yang:ietf-routing", "ietf-routing", "ietf-routing:default-routing-instance")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:default-routing-instance"):
+        super(DefaultRoutingInstance, self).__init__(ns, pref, tag)
 
 
-class Static(Identity):
+class Static(RoutingProtocol):
     """
     Static routing pseudo\-protocol.
     
@@ -12106,11 +12296,11 @@ class Static(Identity):
     _prefix = 'rt'
     _revision = '2015-05-25'
 
-    def __init__(self):
-        super(Static, self).__init__("urn:ietf:params:xml:ns:yang:ietf-routing", "ietf-routing", "ietf-routing:static")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:static"):
+        super(Static, self).__init__(ns, pref, tag)
 
 
-class Ipv4(Identity):
+class Ipv4(AddressFamily):
     """
     This identity represents IPv4 address family.
     
@@ -12121,11 +12311,11 @@ class Ipv4(Identity):
     _prefix = 'rt'
     _revision = '2015-05-25'
 
-    def __init__(self):
-        super(Ipv4, self).__init__("urn:ietf:params:xml:ns:yang:ietf-routing", "ietf-routing", "ietf-routing:ipv4")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:ipv4"):
+        super(Ipv4, self).__init__(ns, pref, tag)
 
 
-class Ipv6(Identity):
+class Ipv6(AddressFamily):
     """
     This identity represents IPv6 address family.
     
@@ -12136,7 +12326,7 @@ class Ipv6(Identity):
     _prefix = 'rt'
     _revision = '2015-05-25'
 
-    def __init__(self):
-        super(Ipv6, self).__init__("urn:ietf:params:xml:ns:yang:ietf-routing", "ietf-routing", "ietf-routing:ipv6")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-routing", pref="ietf-routing", tag="ietf-routing:ipv6"):
+        super(Ipv6, self).__init__(ns, pref, tag)
 
 

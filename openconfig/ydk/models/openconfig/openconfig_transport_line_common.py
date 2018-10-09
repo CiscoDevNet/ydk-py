@@ -14,6 +14,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class OPTICALLINEPORTTYPE(Identity):
     """
     Type definition for optical node port types
@@ -25,11 +26,11 @@ class OPTICALLINEPORTTYPE(Identity):
     _prefix = 'oc-line-com'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(OPTICALLINEPORTTYPE, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:OPTICAL_LINE_PORT_TYPE")
+    def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:OPTICAL_LINE_PORT_TYPE"):
+        super(OPTICALLINEPORTTYPE, self).__init__(ns, pref, tag)
 
 
-class INGRESS(Identity):
+class INGRESS(OPTICALLINEPORTTYPE):
     """
     Ingress port, corresponding to a signal entering
     a line device such as an amplifier or wavelength
@@ -42,11 +43,11 @@ class INGRESS(Identity):
     _prefix = 'oc-line-com'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(INGRESS, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:INGRESS")
+    def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:INGRESS"):
+        super(INGRESS, self).__init__(ns, pref, tag)
 
 
-class MONITOR(Identity):
+class MONITOR(OPTICALLINEPORTTYPE):
     """
     Monitor port, corresponding to a signal used by an optical
     channel monitor. This is used to represent the connection
@@ -61,11 +62,11 @@ class MONITOR(Identity):
     _prefix = 'oc-line-com'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(MONITOR, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:MONITOR")
+    def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:MONITOR"):
+        super(MONITOR, self).__init__(ns, pref, tag)
 
 
-class DROP(Identity):
+class DROP(OPTICALLINEPORTTYPE):
     """
     Drop port, corresponding to a signal dropped
     at a wavelength router.
@@ -77,11 +78,11 @@ class DROP(Identity):
     _prefix = 'oc-line-com'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(DROP, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:DROP")
+    def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:DROP"):
+        super(DROP, self).__init__(ns, pref, tag)
 
 
-class ADD(Identity):
+class ADD(OPTICALLINEPORTTYPE):
     """
     Add port, corresponding to a signal injected
     at a wavelength router.
@@ -93,11 +94,11 @@ class ADD(Identity):
     _prefix = 'oc-line-com'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(ADD, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:ADD")
+    def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:ADD"):
+        super(ADD, self).__init__(ns, pref, tag)
 
 
-class EGRESS(Identity):
+class EGRESS(OPTICALLINEPORTTYPE):
     """
     Egress port, corresponding to a signal exiting
     a line device such as an amplifier or wavelength
@@ -110,7 +111,7 @@ class EGRESS(Identity):
     _prefix = 'oc-line-com'
     _revision = '2017-07-08'
 
-    def __init__(self):
-        super(EGRESS, self).__init__("http://openconfig.net/yang/transport-line-common", "openconfig-transport-line-common", "openconfig-transport-line-common:EGRESS")
+    def __init__(self, ns="http://openconfig.net/yang/transport-line-common", pref="openconfig-transport-line-common", tag="openconfig-transport-line-common:EGRESS"):
+        super(EGRESS, self).__init__(ns, pref, tag)
 
 

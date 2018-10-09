@@ -16,6 +16,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class IpAddressOriginTC(Enum):
     """
     IpAddressOriginTC (Enum Class)
@@ -402,6 +403,7 @@ class IPMIB(Entity):
         self.icmpmsgstatstable.parent = self
         self._children_name_map["icmpmsgstatstable"] = "icmpMsgStatsTable"
         self._segment_path = lambda: "IP-MIB:IP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(IPMIB, [], name, value)
@@ -642,32 +644,32 @@ class IPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ipforwarding', YLeaf(YType.enumeration, 'ipForwarding')),
-                ('ipdefaultttl', YLeaf(YType.int32, 'ipDefaultTTL')),
-                ('ipinreceives', YLeaf(YType.uint32, 'ipInReceives')),
-                ('ipinhdrerrors', YLeaf(YType.uint32, 'ipInHdrErrors')),
-                ('ipinaddrerrors', YLeaf(YType.uint32, 'ipInAddrErrors')),
-                ('ipforwdatagrams', YLeaf(YType.uint32, 'ipForwDatagrams')),
-                ('ipinunknownprotos', YLeaf(YType.uint32, 'ipInUnknownProtos')),
-                ('ipindiscards', YLeaf(YType.uint32, 'ipInDiscards')),
-                ('ipindelivers', YLeaf(YType.uint32, 'ipInDelivers')),
-                ('ipoutrequests', YLeaf(YType.uint32, 'ipOutRequests')),
-                ('ipoutdiscards', YLeaf(YType.uint32, 'ipOutDiscards')),
-                ('ipoutnoroutes', YLeaf(YType.uint32, 'ipOutNoRoutes')),
-                ('ipreasmtimeout', YLeaf(YType.int32, 'ipReasmTimeout')),
-                ('ipreasmreqds', YLeaf(YType.uint32, 'ipReasmReqds')),
-                ('ipreasmoks', YLeaf(YType.uint32, 'ipReasmOKs')),
-                ('ipreasmfails', YLeaf(YType.uint32, 'ipReasmFails')),
-                ('ipfragoks', YLeaf(YType.uint32, 'ipFragOKs')),
-                ('ipfragfails', YLeaf(YType.uint32, 'ipFragFails')),
-                ('ipfragcreates', YLeaf(YType.uint32, 'ipFragCreates')),
-                ('iproutingdiscards', YLeaf(YType.uint32, 'ipRoutingDiscards')),
-                ('ipv6ipforwarding', YLeaf(YType.enumeration, 'ipv6IpForwarding')),
-                ('ipv6ipdefaulthoplimit', YLeaf(YType.int32, 'ipv6IpDefaultHopLimit')),
-                ('ipv4interfacetablelastchange', YLeaf(YType.uint32, 'ipv4InterfaceTableLastChange')),
-                ('ipv6interfacetablelastchange', YLeaf(YType.uint32, 'ipv6InterfaceTableLastChange')),
-                ('ipaddressspinlock', YLeaf(YType.int32, 'ipAddressSpinLock')),
-                ('ipv6routeradvertspinlock', YLeaf(YType.int32, 'ipv6RouterAdvertSpinLock')),
+                ('ipforwarding', (YLeaf(YType.enumeration, 'ipForwarding'), [('ydk.models.cisco_ios_xe.IP_MIB', 'IPMIB', 'Ip.IpForwarding')])),
+                ('ipdefaultttl', (YLeaf(YType.int32, 'ipDefaultTTL'), ['int'])),
+                ('ipinreceives', (YLeaf(YType.uint32, 'ipInReceives'), ['int'])),
+                ('ipinhdrerrors', (YLeaf(YType.uint32, 'ipInHdrErrors'), ['int'])),
+                ('ipinaddrerrors', (YLeaf(YType.uint32, 'ipInAddrErrors'), ['int'])),
+                ('ipforwdatagrams', (YLeaf(YType.uint32, 'ipForwDatagrams'), ['int'])),
+                ('ipinunknownprotos', (YLeaf(YType.uint32, 'ipInUnknownProtos'), ['int'])),
+                ('ipindiscards', (YLeaf(YType.uint32, 'ipInDiscards'), ['int'])),
+                ('ipindelivers', (YLeaf(YType.uint32, 'ipInDelivers'), ['int'])),
+                ('ipoutrequests', (YLeaf(YType.uint32, 'ipOutRequests'), ['int'])),
+                ('ipoutdiscards', (YLeaf(YType.uint32, 'ipOutDiscards'), ['int'])),
+                ('ipoutnoroutes', (YLeaf(YType.uint32, 'ipOutNoRoutes'), ['int'])),
+                ('ipreasmtimeout', (YLeaf(YType.int32, 'ipReasmTimeout'), ['int'])),
+                ('ipreasmreqds', (YLeaf(YType.uint32, 'ipReasmReqds'), ['int'])),
+                ('ipreasmoks', (YLeaf(YType.uint32, 'ipReasmOKs'), ['int'])),
+                ('ipreasmfails', (YLeaf(YType.uint32, 'ipReasmFails'), ['int'])),
+                ('ipfragoks', (YLeaf(YType.uint32, 'ipFragOKs'), ['int'])),
+                ('ipfragfails', (YLeaf(YType.uint32, 'ipFragFails'), ['int'])),
+                ('ipfragcreates', (YLeaf(YType.uint32, 'ipFragCreates'), ['int'])),
+                ('iproutingdiscards', (YLeaf(YType.uint32, 'ipRoutingDiscards'), ['int'])),
+                ('ipv6ipforwarding', (YLeaf(YType.enumeration, 'ipv6IpForwarding'), [('ydk.models.cisco_ios_xe.IP_MIB', 'IPMIB', 'Ip.Ipv6IpForwarding')])),
+                ('ipv6ipdefaulthoplimit', (YLeaf(YType.int32, 'ipv6IpDefaultHopLimit'), ['int'])),
+                ('ipv4interfacetablelastchange', (YLeaf(YType.uint32, 'ipv4InterfaceTableLastChange'), ['int'])),
+                ('ipv6interfacetablelastchange', (YLeaf(YType.uint32, 'ipv6InterfaceTableLastChange'), ['int'])),
+                ('ipaddressspinlock', (YLeaf(YType.int32, 'ipAddressSpinLock'), ['int'])),
+                ('ipv6routeradvertspinlock', (YLeaf(YType.int32, 'ipv6RouterAdvertSpinLock'), ['int'])),
             ])
             self.ipforwarding = None
             self.ipdefaultttl = None
@@ -697,6 +699,7 @@ class IPMIB(Entity):
             self.ipv6routeradvertspinlock = None
             self._segment_path = lambda: "ip"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.Ip, ['ipforwarding', 'ipdefaultttl', 'ipinreceives', 'ipinhdrerrors', 'ipinaddrerrors', 'ipforwdatagrams', 'ipinunknownprotos', 'ipindiscards', 'ipindelivers', 'ipoutrequests', 'ipoutdiscards', 'ipoutnoroutes', 'ipreasmtimeout', 'ipreasmreqds', 'ipreasmoks', 'ipreasmfails', 'ipfragoks', 'ipfragfails', 'ipfragcreates', 'iproutingdiscards', 'ipv6ipforwarding', 'ipv6ipdefaulthoplimit', 'ipv4interfacetablelastchange', 'ipv6interfacetablelastchange', 'ipaddressspinlock', 'ipv6routeradvertspinlock'], name, value)
@@ -796,11 +799,12 @@ class IPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ipifstatstablelastchange', YLeaf(YType.uint32, 'ipIfStatsTableLastChange')),
+                ('ipifstatstablelastchange', (YLeaf(YType.uint32, 'ipIfStatsTableLastChange'), ['int'])),
             ])
             self.ipifstatstablelastchange = None
             self._segment_path = lambda: "ipTrafficStats"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.IpTrafficStats, ['ipifstatstablelastchange'], name, value)
@@ -1061,32 +1065,32 @@ class IPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('icmpinmsgs', YLeaf(YType.uint32, 'icmpInMsgs')),
-                ('icmpinerrors', YLeaf(YType.uint32, 'icmpInErrors')),
-                ('icmpindestunreachs', YLeaf(YType.uint32, 'icmpInDestUnreachs')),
-                ('icmpintimeexcds', YLeaf(YType.uint32, 'icmpInTimeExcds')),
-                ('icmpinparmprobs', YLeaf(YType.uint32, 'icmpInParmProbs')),
-                ('icmpinsrcquenchs', YLeaf(YType.uint32, 'icmpInSrcQuenchs')),
-                ('icmpinredirects', YLeaf(YType.uint32, 'icmpInRedirects')),
-                ('icmpinechos', YLeaf(YType.uint32, 'icmpInEchos')),
-                ('icmpinechoreps', YLeaf(YType.uint32, 'icmpInEchoReps')),
-                ('icmpintimestamps', YLeaf(YType.uint32, 'icmpInTimestamps')),
-                ('icmpintimestampreps', YLeaf(YType.uint32, 'icmpInTimestampReps')),
-                ('icmpinaddrmasks', YLeaf(YType.uint32, 'icmpInAddrMasks')),
-                ('icmpinaddrmaskreps', YLeaf(YType.uint32, 'icmpInAddrMaskReps')),
-                ('icmpoutmsgs', YLeaf(YType.uint32, 'icmpOutMsgs')),
-                ('icmpouterrors', YLeaf(YType.uint32, 'icmpOutErrors')),
-                ('icmpoutdestunreachs', YLeaf(YType.uint32, 'icmpOutDestUnreachs')),
-                ('icmpouttimeexcds', YLeaf(YType.uint32, 'icmpOutTimeExcds')),
-                ('icmpoutparmprobs', YLeaf(YType.uint32, 'icmpOutParmProbs')),
-                ('icmpoutsrcquenchs', YLeaf(YType.uint32, 'icmpOutSrcQuenchs')),
-                ('icmpoutredirects', YLeaf(YType.uint32, 'icmpOutRedirects')),
-                ('icmpoutechos', YLeaf(YType.uint32, 'icmpOutEchos')),
-                ('icmpoutechoreps', YLeaf(YType.uint32, 'icmpOutEchoReps')),
-                ('icmpouttimestamps', YLeaf(YType.uint32, 'icmpOutTimestamps')),
-                ('icmpouttimestampreps', YLeaf(YType.uint32, 'icmpOutTimestampReps')),
-                ('icmpoutaddrmasks', YLeaf(YType.uint32, 'icmpOutAddrMasks')),
-                ('icmpoutaddrmaskreps', YLeaf(YType.uint32, 'icmpOutAddrMaskReps')),
+                ('icmpinmsgs', (YLeaf(YType.uint32, 'icmpInMsgs'), ['int'])),
+                ('icmpinerrors', (YLeaf(YType.uint32, 'icmpInErrors'), ['int'])),
+                ('icmpindestunreachs', (YLeaf(YType.uint32, 'icmpInDestUnreachs'), ['int'])),
+                ('icmpintimeexcds', (YLeaf(YType.uint32, 'icmpInTimeExcds'), ['int'])),
+                ('icmpinparmprobs', (YLeaf(YType.uint32, 'icmpInParmProbs'), ['int'])),
+                ('icmpinsrcquenchs', (YLeaf(YType.uint32, 'icmpInSrcQuenchs'), ['int'])),
+                ('icmpinredirects', (YLeaf(YType.uint32, 'icmpInRedirects'), ['int'])),
+                ('icmpinechos', (YLeaf(YType.uint32, 'icmpInEchos'), ['int'])),
+                ('icmpinechoreps', (YLeaf(YType.uint32, 'icmpInEchoReps'), ['int'])),
+                ('icmpintimestamps', (YLeaf(YType.uint32, 'icmpInTimestamps'), ['int'])),
+                ('icmpintimestampreps', (YLeaf(YType.uint32, 'icmpInTimestampReps'), ['int'])),
+                ('icmpinaddrmasks', (YLeaf(YType.uint32, 'icmpInAddrMasks'), ['int'])),
+                ('icmpinaddrmaskreps', (YLeaf(YType.uint32, 'icmpInAddrMaskReps'), ['int'])),
+                ('icmpoutmsgs', (YLeaf(YType.uint32, 'icmpOutMsgs'), ['int'])),
+                ('icmpouterrors', (YLeaf(YType.uint32, 'icmpOutErrors'), ['int'])),
+                ('icmpoutdestunreachs', (YLeaf(YType.uint32, 'icmpOutDestUnreachs'), ['int'])),
+                ('icmpouttimeexcds', (YLeaf(YType.uint32, 'icmpOutTimeExcds'), ['int'])),
+                ('icmpoutparmprobs', (YLeaf(YType.uint32, 'icmpOutParmProbs'), ['int'])),
+                ('icmpoutsrcquenchs', (YLeaf(YType.uint32, 'icmpOutSrcQuenchs'), ['int'])),
+                ('icmpoutredirects', (YLeaf(YType.uint32, 'icmpOutRedirects'), ['int'])),
+                ('icmpoutechos', (YLeaf(YType.uint32, 'icmpOutEchos'), ['int'])),
+                ('icmpoutechoreps', (YLeaf(YType.uint32, 'icmpOutEchoReps'), ['int'])),
+                ('icmpouttimestamps', (YLeaf(YType.uint32, 'icmpOutTimestamps'), ['int'])),
+                ('icmpouttimestampreps', (YLeaf(YType.uint32, 'icmpOutTimestampReps'), ['int'])),
+                ('icmpoutaddrmasks', (YLeaf(YType.uint32, 'icmpOutAddrMasks'), ['int'])),
+                ('icmpoutaddrmaskreps', (YLeaf(YType.uint32, 'icmpOutAddrMaskReps'), ['int'])),
             ])
             self.icmpinmsgs = None
             self.icmpinerrors = None
@@ -1116,6 +1120,7 @@ class IPMIB(Entity):
             self.icmpoutaddrmaskreps = None
             self._segment_path = lambda: "icmp"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.Icmp, ['icmpinmsgs', 'icmpinerrors', 'icmpindestunreachs', 'icmpintimeexcds', 'icmpinparmprobs', 'icmpinsrcquenchs', 'icmpinredirects', 'icmpinechos', 'icmpinechoreps', 'icmpintimestamps', 'icmpintimestampreps', 'icmpinaddrmasks', 'icmpinaddrmaskreps', 'icmpoutmsgs', 'icmpouterrors', 'icmpoutdestunreachs', 'icmpouttimeexcds', 'icmpoutparmprobs', 'icmpoutsrcquenchs', 'icmpoutredirects', 'icmpoutechos', 'icmpoutechoreps', 'icmpouttimestamps', 'icmpouttimestampreps', 'icmpoutaddrmasks', 'icmpoutaddrmaskreps'], name, value)
@@ -1160,6 +1165,7 @@ class IPMIB(Entity):
             self.ipaddrentry = YList(self)
             self._segment_path = lambda: "ipAddrTable"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.IpAddrTable, [], name, value)
@@ -1232,11 +1238,11 @@ class IPMIB(Entity):
                 self.ylist_key_names = ['ipadentaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipadentaddr', YLeaf(YType.str, 'ipAdEntAddr')),
-                    ('ipadentifindex', YLeaf(YType.int32, 'ipAdEntIfIndex')),
-                    ('ipadentnetmask', YLeaf(YType.str, 'ipAdEntNetMask')),
-                    ('ipadentbcastaddr', YLeaf(YType.int32, 'ipAdEntBcastAddr')),
-                    ('ipadentreasmmaxsize', YLeaf(YType.int32, 'ipAdEntReasmMaxSize')),
+                    ('ipadentaddr', (YLeaf(YType.str, 'ipAdEntAddr'), ['str'])),
+                    ('ipadentifindex', (YLeaf(YType.int32, 'ipAdEntIfIndex'), ['int'])),
+                    ('ipadentnetmask', (YLeaf(YType.str, 'ipAdEntNetMask'), ['str'])),
+                    ('ipadentbcastaddr', (YLeaf(YType.int32, 'ipAdEntBcastAddr'), ['int'])),
+                    ('ipadentreasmmaxsize', (YLeaf(YType.int32, 'ipAdEntReasmMaxSize'), ['int'])),
                 ])
                 self.ipadentaddr = None
                 self.ipadentifindex = None
@@ -1245,6 +1251,7 @@ class IPMIB(Entity):
                 self.ipadentreasmmaxsize = None
                 self._segment_path = lambda: "ipAddrEntry" + "[ipAdEntAddr='" + str(self.ipadentaddr) + "']"
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipAddrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMIB.IpAddrTable.IpAddrEntry, ['ipadentaddr', 'ipadentifindex', 'ipadentnetmask', 'ipadentbcastaddr', 'ipadentreasmmaxsize'], name, value)
@@ -1287,6 +1294,7 @@ class IPMIB(Entity):
             self.ipnettomediaentry = YList(self)
             self._segment_path = lambda: "ipNetToMediaTable"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.IpNetToMediaTable, [], name, value)
@@ -1348,10 +1356,10 @@ class IPMIB(Entity):
                 self.ylist_key_names = ['ipnettomediaifindex','ipnettomedianetaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipnettomediaifindex', YLeaf(YType.int32, 'ipNetToMediaIfIndex')),
-                    ('ipnettomedianetaddress', YLeaf(YType.str, 'ipNetToMediaNetAddress')),
-                    ('ipnettomediaphysaddress', YLeaf(YType.str, 'ipNetToMediaPhysAddress')),
-                    ('ipnettomediatype', YLeaf(YType.enumeration, 'ipNetToMediaType')),
+                    ('ipnettomediaifindex', (YLeaf(YType.int32, 'ipNetToMediaIfIndex'), ['int'])),
+                    ('ipnettomedianetaddress', (YLeaf(YType.str, 'ipNetToMediaNetAddress'), ['str'])),
+                    ('ipnettomediaphysaddress', (YLeaf(YType.str, 'ipNetToMediaPhysAddress'), ['str'])),
+                    ('ipnettomediatype', (YLeaf(YType.enumeration, 'ipNetToMediaType'), [('ydk.models.cisco_ios_xe.IP_MIB', 'IPMIB', 'IpNetToMediaTable.IpNetToMediaEntry.IpNetToMediaType')])),
                 ])
                 self.ipnettomediaifindex = None
                 self.ipnettomedianetaddress = None
@@ -1359,6 +1367,7 @@ class IPMIB(Entity):
                 self.ipnettomediatype = None
                 self._segment_path = lambda: "ipNetToMediaEntry" + "[ipNetToMediaIfIndex='" + str(self.ipnettomediaifindex) + "']" + "[ipNetToMediaNetAddress='" + str(self.ipnettomedianetaddress) + "']"
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipNetToMediaTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMIB.IpNetToMediaTable.IpNetToMediaEntry, ['ipnettomediaifindex', 'ipnettomedianetaddress', 'ipnettomediaphysaddress', 'ipnettomediatype'], name, value)
@@ -1452,6 +1461,7 @@ class IPMIB(Entity):
             self.ipv4interfaceentry = YList(self)
             self._segment_path = lambda: "ipv4InterfaceTable"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.Ipv4InterfaceTable, [], name, value)
@@ -1507,10 +1517,10 @@ class IPMIB(Entity):
                 self.ylist_key_names = ['ipv4interfaceifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipv4interfaceifindex', YLeaf(YType.int32, 'ipv4InterfaceIfIndex')),
-                    ('ipv4interfacereasmmaxsize', YLeaf(YType.int32, 'ipv4InterfaceReasmMaxSize')),
-                    ('ipv4interfaceenablestatus', YLeaf(YType.enumeration, 'ipv4InterfaceEnableStatus')),
-                    ('ipv4interfaceretransmittime', YLeaf(YType.uint32, 'ipv4InterfaceRetransmitTime')),
+                    ('ipv4interfaceifindex', (YLeaf(YType.int32, 'ipv4InterfaceIfIndex'), ['int'])),
+                    ('ipv4interfacereasmmaxsize', (YLeaf(YType.int32, 'ipv4InterfaceReasmMaxSize'), ['int'])),
+                    ('ipv4interfaceenablestatus', (YLeaf(YType.enumeration, 'ipv4InterfaceEnableStatus'), [('ydk.models.cisco_ios_xe.IP_MIB', 'IPMIB', 'Ipv4InterfaceTable.Ipv4InterfaceEntry.Ipv4InterfaceEnableStatus')])),
+                    ('ipv4interfaceretransmittime', (YLeaf(YType.uint32, 'ipv4InterfaceRetransmitTime'), ['int'])),
                 ])
                 self.ipv4interfaceifindex = None
                 self.ipv4interfacereasmmaxsize = None
@@ -1518,6 +1528,7 @@ class IPMIB(Entity):
                 self.ipv4interfaceretransmittime = None
                 self._segment_path = lambda: "ipv4InterfaceEntry" + "[ipv4InterfaceIfIndex='" + str(self.ipv4interfaceifindex) + "']"
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipv4InterfaceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMIB.Ipv4InterfaceTable.Ipv4InterfaceEntry, ['ipv4interfaceifindex', 'ipv4interfacereasmmaxsize', 'ipv4interfaceenablestatus', 'ipv4interfaceretransmittime'], name, value)
@@ -1579,6 +1590,7 @@ class IPMIB(Entity):
             self.ipv6interfaceentry = YList(self)
             self._segment_path = lambda: "ipv6InterfaceTable"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.Ipv6InterfaceTable, [], name, value)
@@ -1655,13 +1667,13 @@ class IPMIB(Entity):
                 self.ylist_key_names = ['ipv6interfaceifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipv6interfaceifindex', YLeaf(YType.int32, 'ipv6InterfaceIfIndex')),
-                    ('ipv6interfacereasmmaxsize', YLeaf(YType.uint32, 'ipv6InterfaceReasmMaxSize')),
-                    ('ipv6interfaceidentifier', YLeaf(YType.str, 'ipv6InterfaceIdentifier')),
-                    ('ipv6interfaceenablestatus', YLeaf(YType.enumeration, 'ipv6InterfaceEnableStatus')),
-                    ('ipv6interfacereachabletime', YLeaf(YType.uint32, 'ipv6InterfaceReachableTime')),
-                    ('ipv6interfaceretransmittime', YLeaf(YType.uint32, 'ipv6InterfaceRetransmitTime')),
-                    ('ipv6interfaceforwarding', YLeaf(YType.enumeration, 'ipv6InterfaceForwarding')),
+                    ('ipv6interfaceifindex', (YLeaf(YType.int32, 'ipv6InterfaceIfIndex'), ['int'])),
+                    ('ipv6interfacereasmmaxsize', (YLeaf(YType.uint32, 'ipv6InterfaceReasmMaxSize'), ['int'])),
+                    ('ipv6interfaceidentifier', (YLeaf(YType.str, 'ipv6InterfaceIdentifier'), ['str'])),
+                    ('ipv6interfaceenablestatus', (YLeaf(YType.enumeration, 'ipv6InterfaceEnableStatus'), [('ydk.models.cisco_ios_xe.IP_MIB', 'IPMIB', 'Ipv6InterfaceTable.Ipv6InterfaceEntry.Ipv6InterfaceEnableStatus')])),
+                    ('ipv6interfacereachabletime', (YLeaf(YType.uint32, 'ipv6InterfaceReachableTime'), ['int'])),
+                    ('ipv6interfaceretransmittime', (YLeaf(YType.uint32, 'ipv6InterfaceRetransmitTime'), ['int'])),
+                    ('ipv6interfaceforwarding', (YLeaf(YType.enumeration, 'ipv6InterfaceForwarding'), [('ydk.models.cisco_ios_xe.IP_MIB', 'IPMIB', 'Ipv6InterfaceTable.Ipv6InterfaceEntry.Ipv6InterfaceForwarding')])),
                 ])
                 self.ipv6interfaceifindex = None
                 self.ipv6interfacereasmmaxsize = None
@@ -1672,6 +1684,7 @@ class IPMIB(Entity):
                 self.ipv6interfaceforwarding = None
                 self._segment_path = lambda: "ipv6InterfaceEntry" + "[ipv6InterfaceIfIndex='" + str(self.ipv6interfaceifindex) + "']"
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipv6InterfaceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMIB.Ipv6InterfaceTable.Ipv6InterfaceEntry, ['ipv6interfaceifindex', 'ipv6interfacereasmmaxsize', 'ipv6interfaceidentifier', 'ipv6interfaceenablestatus', 'ipv6interfacereachabletime', 'ipv6interfaceretransmittime', 'ipv6interfaceforwarding'], name, value)
@@ -1786,6 +1799,7 @@ class IPMIB(Entity):
             self.ipsystemstatsentry = YList(self)
             self._segment_path = lambda: "ipSystemStatsTable"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.IpSystemStatsTable, [], name, value)
@@ -2135,52 +2149,52 @@ class IPMIB(Entity):
                 self.ylist_key_names = ['ipsystemstatsipversion']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipsystemstatsipversion', YLeaf(YType.enumeration, 'ipSystemStatsIPVersion')),
-                    ('ipsystemstatsinreceives', YLeaf(YType.uint32, 'ipSystemStatsInReceives')),
-                    ('ipsystemstatshcinreceives', YLeaf(YType.uint64, 'ipSystemStatsHCInReceives')),
-                    ('ipsystemstatsinoctets', YLeaf(YType.uint32, 'ipSystemStatsInOctets')),
-                    ('ipsystemstatshcinoctets', YLeaf(YType.uint64, 'ipSystemStatsHCInOctets')),
-                    ('ipsystemstatsinhdrerrors', YLeaf(YType.uint32, 'ipSystemStatsInHdrErrors')),
-                    ('ipsystemstatsinnoroutes', YLeaf(YType.uint32, 'ipSystemStatsInNoRoutes')),
-                    ('ipsystemstatsinaddrerrors', YLeaf(YType.uint32, 'ipSystemStatsInAddrErrors')),
-                    ('ipsystemstatsinunknownprotos', YLeaf(YType.uint32, 'ipSystemStatsInUnknownProtos')),
-                    ('ipsystemstatsintruncatedpkts', YLeaf(YType.uint32, 'ipSystemStatsInTruncatedPkts')),
-                    ('ipsystemstatsinforwdatagrams', YLeaf(YType.uint32, 'ipSystemStatsInForwDatagrams')),
-                    ('ipsystemstatshcinforwdatagrams', YLeaf(YType.uint64, 'ipSystemStatsHCInForwDatagrams')),
-                    ('ipsystemstatsreasmreqds', YLeaf(YType.uint32, 'ipSystemStatsReasmReqds')),
-                    ('ipsystemstatsreasmoks', YLeaf(YType.uint32, 'ipSystemStatsReasmOKs')),
-                    ('ipsystemstatsreasmfails', YLeaf(YType.uint32, 'ipSystemStatsReasmFails')),
-                    ('ipsystemstatsindiscards', YLeaf(YType.uint32, 'ipSystemStatsInDiscards')),
-                    ('ipsystemstatsindelivers', YLeaf(YType.uint32, 'ipSystemStatsInDelivers')),
-                    ('ipsystemstatshcindelivers', YLeaf(YType.uint64, 'ipSystemStatsHCInDelivers')),
-                    ('ipsystemstatsoutrequests', YLeaf(YType.uint32, 'ipSystemStatsOutRequests')),
-                    ('ipsystemstatshcoutrequests', YLeaf(YType.uint64, 'ipSystemStatsHCOutRequests')),
-                    ('ipsystemstatsoutnoroutes', YLeaf(YType.uint32, 'ipSystemStatsOutNoRoutes')),
-                    ('ipsystemstatsoutforwdatagrams', YLeaf(YType.uint32, 'ipSystemStatsOutForwDatagrams')),
-                    ('ipsystemstatshcoutforwdatagrams', YLeaf(YType.uint64, 'ipSystemStatsHCOutForwDatagrams')),
-                    ('ipsystemstatsoutdiscards', YLeaf(YType.uint32, 'ipSystemStatsOutDiscards')),
-                    ('ipsystemstatsoutfragreqds', YLeaf(YType.uint32, 'ipSystemStatsOutFragReqds')),
-                    ('ipsystemstatsoutfragoks', YLeaf(YType.uint32, 'ipSystemStatsOutFragOKs')),
-                    ('ipsystemstatsoutfragfails', YLeaf(YType.uint32, 'ipSystemStatsOutFragFails')),
-                    ('ipsystemstatsoutfragcreates', YLeaf(YType.uint32, 'ipSystemStatsOutFragCreates')),
-                    ('ipsystemstatsouttransmits', YLeaf(YType.uint32, 'ipSystemStatsOutTransmits')),
-                    ('ipsystemstatshcouttransmits', YLeaf(YType.uint64, 'ipSystemStatsHCOutTransmits')),
-                    ('ipsystemstatsoutoctets', YLeaf(YType.uint32, 'ipSystemStatsOutOctets')),
-                    ('ipsystemstatshcoutoctets', YLeaf(YType.uint64, 'ipSystemStatsHCOutOctets')),
-                    ('ipsystemstatsinmcastpkts', YLeaf(YType.uint32, 'ipSystemStatsInMcastPkts')),
-                    ('ipsystemstatshcinmcastpkts', YLeaf(YType.uint64, 'ipSystemStatsHCInMcastPkts')),
-                    ('ipsystemstatsinmcastoctets', YLeaf(YType.uint32, 'ipSystemStatsInMcastOctets')),
-                    ('ipsystemstatshcinmcastoctets', YLeaf(YType.uint64, 'ipSystemStatsHCInMcastOctets')),
-                    ('ipsystemstatsoutmcastpkts', YLeaf(YType.uint32, 'ipSystemStatsOutMcastPkts')),
-                    ('ipsystemstatshcoutmcastpkts', YLeaf(YType.uint64, 'ipSystemStatsHCOutMcastPkts')),
-                    ('ipsystemstatsoutmcastoctets', YLeaf(YType.uint32, 'ipSystemStatsOutMcastOctets')),
-                    ('ipsystemstatshcoutmcastoctets', YLeaf(YType.uint64, 'ipSystemStatsHCOutMcastOctets')),
-                    ('ipsystemstatsinbcastpkts', YLeaf(YType.uint32, 'ipSystemStatsInBcastPkts')),
-                    ('ipsystemstatshcinbcastpkts', YLeaf(YType.uint64, 'ipSystemStatsHCInBcastPkts')),
-                    ('ipsystemstatsoutbcastpkts', YLeaf(YType.uint32, 'ipSystemStatsOutBcastPkts')),
-                    ('ipsystemstatshcoutbcastpkts', YLeaf(YType.uint64, 'ipSystemStatsHCOutBcastPkts')),
-                    ('ipsystemstatsdiscontinuitytime', YLeaf(YType.uint32, 'ipSystemStatsDiscontinuityTime')),
-                    ('ipsystemstatsrefreshrate', YLeaf(YType.uint32, 'ipSystemStatsRefreshRate')),
+                    ('ipsystemstatsipversion', (YLeaf(YType.enumeration, 'ipSystemStatsIPVersion'), [('ydk.models.ietf.ietf_inet_types', 'IpVersion', '')])),
+                    ('ipsystemstatsinreceives', (YLeaf(YType.uint32, 'ipSystemStatsInReceives'), ['int'])),
+                    ('ipsystemstatshcinreceives', (YLeaf(YType.uint64, 'ipSystemStatsHCInReceives'), ['int'])),
+                    ('ipsystemstatsinoctets', (YLeaf(YType.uint32, 'ipSystemStatsInOctets'), ['int'])),
+                    ('ipsystemstatshcinoctets', (YLeaf(YType.uint64, 'ipSystemStatsHCInOctets'), ['int'])),
+                    ('ipsystemstatsinhdrerrors', (YLeaf(YType.uint32, 'ipSystemStatsInHdrErrors'), ['int'])),
+                    ('ipsystemstatsinnoroutes', (YLeaf(YType.uint32, 'ipSystemStatsInNoRoutes'), ['int'])),
+                    ('ipsystemstatsinaddrerrors', (YLeaf(YType.uint32, 'ipSystemStatsInAddrErrors'), ['int'])),
+                    ('ipsystemstatsinunknownprotos', (YLeaf(YType.uint32, 'ipSystemStatsInUnknownProtos'), ['int'])),
+                    ('ipsystemstatsintruncatedpkts', (YLeaf(YType.uint32, 'ipSystemStatsInTruncatedPkts'), ['int'])),
+                    ('ipsystemstatsinforwdatagrams', (YLeaf(YType.uint32, 'ipSystemStatsInForwDatagrams'), ['int'])),
+                    ('ipsystemstatshcinforwdatagrams', (YLeaf(YType.uint64, 'ipSystemStatsHCInForwDatagrams'), ['int'])),
+                    ('ipsystemstatsreasmreqds', (YLeaf(YType.uint32, 'ipSystemStatsReasmReqds'), ['int'])),
+                    ('ipsystemstatsreasmoks', (YLeaf(YType.uint32, 'ipSystemStatsReasmOKs'), ['int'])),
+                    ('ipsystemstatsreasmfails', (YLeaf(YType.uint32, 'ipSystemStatsReasmFails'), ['int'])),
+                    ('ipsystemstatsindiscards', (YLeaf(YType.uint32, 'ipSystemStatsInDiscards'), ['int'])),
+                    ('ipsystemstatsindelivers', (YLeaf(YType.uint32, 'ipSystemStatsInDelivers'), ['int'])),
+                    ('ipsystemstatshcindelivers', (YLeaf(YType.uint64, 'ipSystemStatsHCInDelivers'), ['int'])),
+                    ('ipsystemstatsoutrequests', (YLeaf(YType.uint32, 'ipSystemStatsOutRequests'), ['int'])),
+                    ('ipsystemstatshcoutrequests', (YLeaf(YType.uint64, 'ipSystemStatsHCOutRequests'), ['int'])),
+                    ('ipsystemstatsoutnoroutes', (YLeaf(YType.uint32, 'ipSystemStatsOutNoRoutes'), ['int'])),
+                    ('ipsystemstatsoutforwdatagrams', (YLeaf(YType.uint32, 'ipSystemStatsOutForwDatagrams'), ['int'])),
+                    ('ipsystemstatshcoutforwdatagrams', (YLeaf(YType.uint64, 'ipSystemStatsHCOutForwDatagrams'), ['int'])),
+                    ('ipsystemstatsoutdiscards', (YLeaf(YType.uint32, 'ipSystemStatsOutDiscards'), ['int'])),
+                    ('ipsystemstatsoutfragreqds', (YLeaf(YType.uint32, 'ipSystemStatsOutFragReqds'), ['int'])),
+                    ('ipsystemstatsoutfragoks', (YLeaf(YType.uint32, 'ipSystemStatsOutFragOKs'), ['int'])),
+                    ('ipsystemstatsoutfragfails', (YLeaf(YType.uint32, 'ipSystemStatsOutFragFails'), ['int'])),
+                    ('ipsystemstatsoutfragcreates', (YLeaf(YType.uint32, 'ipSystemStatsOutFragCreates'), ['int'])),
+                    ('ipsystemstatsouttransmits', (YLeaf(YType.uint32, 'ipSystemStatsOutTransmits'), ['int'])),
+                    ('ipsystemstatshcouttransmits', (YLeaf(YType.uint64, 'ipSystemStatsHCOutTransmits'), ['int'])),
+                    ('ipsystemstatsoutoctets', (YLeaf(YType.uint32, 'ipSystemStatsOutOctets'), ['int'])),
+                    ('ipsystemstatshcoutoctets', (YLeaf(YType.uint64, 'ipSystemStatsHCOutOctets'), ['int'])),
+                    ('ipsystemstatsinmcastpkts', (YLeaf(YType.uint32, 'ipSystemStatsInMcastPkts'), ['int'])),
+                    ('ipsystemstatshcinmcastpkts', (YLeaf(YType.uint64, 'ipSystemStatsHCInMcastPkts'), ['int'])),
+                    ('ipsystemstatsinmcastoctets', (YLeaf(YType.uint32, 'ipSystemStatsInMcastOctets'), ['int'])),
+                    ('ipsystemstatshcinmcastoctets', (YLeaf(YType.uint64, 'ipSystemStatsHCInMcastOctets'), ['int'])),
+                    ('ipsystemstatsoutmcastpkts', (YLeaf(YType.uint32, 'ipSystemStatsOutMcastPkts'), ['int'])),
+                    ('ipsystemstatshcoutmcastpkts', (YLeaf(YType.uint64, 'ipSystemStatsHCOutMcastPkts'), ['int'])),
+                    ('ipsystemstatsoutmcastoctets', (YLeaf(YType.uint32, 'ipSystemStatsOutMcastOctets'), ['int'])),
+                    ('ipsystemstatshcoutmcastoctets', (YLeaf(YType.uint64, 'ipSystemStatsHCOutMcastOctets'), ['int'])),
+                    ('ipsystemstatsinbcastpkts', (YLeaf(YType.uint32, 'ipSystemStatsInBcastPkts'), ['int'])),
+                    ('ipsystemstatshcinbcastpkts', (YLeaf(YType.uint64, 'ipSystemStatsHCInBcastPkts'), ['int'])),
+                    ('ipsystemstatsoutbcastpkts', (YLeaf(YType.uint32, 'ipSystemStatsOutBcastPkts'), ['int'])),
+                    ('ipsystemstatshcoutbcastpkts', (YLeaf(YType.uint64, 'ipSystemStatsHCOutBcastPkts'), ['int'])),
+                    ('ipsystemstatsdiscontinuitytime', (YLeaf(YType.uint32, 'ipSystemStatsDiscontinuityTime'), ['int'])),
+                    ('ipsystemstatsrefreshrate', (YLeaf(YType.uint32, 'ipSystemStatsRefreshRate'), ['int'])),
                 ])
                 self.ipsystemstatsipversion = None
                 self.ipsystemstatsinreceives = None
@@ -2230,6 +2244,7 @@ class IPMIB(Entity):
                 self.ipsystemstatsrefreshrate = None
                 self._segment_path = lambda: "ipSystemStatsEntry" + "[ipSystemStatsIPVersion='" + str(self.ipsystemstatsipversion) + "']"
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipSystemStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMIB.IpSystemStatsTable.IpSystemStatsEntry, ['ipsystemstatsipversion', 'ipsystemstatsinreceives', 'ipsystemstatshcinreceives', 'ipsystemstatsinoctets', 'ipsystemstatshcinoctets', 'ipsystemstatsinhdrerrors', 'ipsystemstatsinnoroutes', 'ipsystemstatsinaddrerrors', 'ipsystemstatsinunknownprotos', 'ipsystemstatsintruncatedpkts', 'ipsystemstatsinforwdatagrams', 'ipsystemstatshcinforwdatagrams', 'ipsystemstatsreasmreqds', 'ipsystemstatsreasmoks', 'ipsystemstatsreasmfails', 'ipsystemstatsindiscards', 'ipsystemstatsindelivers', 'ipsystemstatshcindelivers', 'ipsystemstatsoutrequests', 'ipsystemstatshcoutrequests', 'ipsystemstatsoutnoroutes', 'ipsystemstatsoutforwdatagrams', 'ipsystemstatshcoutforwdatagrams', 'ipsystemstatsoutdiscards', 'ipsystemstatsoutfragreqds', 'ipsystemstatsoutfragoks', 'ipsystemstatsoutfragfails', 'ipsystemstatsoutfragcreates', 'ipsystemstatsouttransmits', 'ipsystemstatshcouttransmits', 'ipsystemstatsoutoctets', 'ipsystemstatshcoutoctets', 'ipsystemstatsinmcastpkts', 'ipsystemstatshcinmcastpkts', 'ipsystemstatsinmcastoctets', 'ipsystemstatshcinmcastoctets', 'ipsystemstatsoutmcastpkts', 'ipsystemstatshcoutmcastpkts', 'ipsystemstatsoutmcastoctets', 'ipsystemstatshcoutmcastoctets', 'ipsystemstatsinbcastpkts', 'ipsystemstatshcinbcastpkts', 'ipsystemstatsoutbcastpkts', 'ipsystemstatshcoutbcastpkts', 'ipsystemstatsdiscontinuitytime', 'ipsystemstatsrefreshrate'], name, value)
@@ -2270,6 +2285,7 @@ class IPMIB(Entity):
             self.ipifstatsentry = YList(self)
             self._segment_path = lambda: "ipIfStatsTable"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.IpIfStatsTable, [], name, value)
@@ -2619,52 +2635,52 @@ class IPMIB(Entity):
                 self.ylist_key_names = ['ipifstatsipversion','ipifstatsifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipifstatsipversion', YLeaf(YType.enumeration, 'ipIfStatsIPVersion')),
-                    ('ipifstatsifindex', YLeaf(YType.int32, 'ipIfStatsIfIndex')),
-                    ('ipifstatsinreceives', YLeaf(YType.uint32, 'ipIfStatsInReceives')),
-                    ('ipifstatshcinreceives', YLeaf(YType.uint64, 'ipIfStatsHCInReceives')),
-                    ('ipifstatsinoctets', YLeaf(YType.uint32, 'ipIfStatsInOctets')),
-                    ('ipifstatshcinoctets', YLeaf(YType.uint64, 'ipIfStatsHCInOctets')),
-                    ('ipifstatsinhdrerrors', YLeaf(YType.uint32, 'ipIfStatsInHdrErrors')),
-                    ('ipifstatsinnoroutes', YLeaf(YType.uint32, 'ipIfStatsInNoRoutes')),
-                    ('ipifstatsinaddrerrors', YLeaf(YType.uint32, 'ipIfStatsInAddrErrors')),
-                    ('ipifstatsinunknownprotos', YLeaf(YType.uint32, 'ipIfStatsInUnknownProtos')),
-                    ('ipifstatsintruncatedpkts', YLeaf(YType.uint32, 'ipIfStatsInTruncatedPkts')),
-                    ('ipifstatsinforwdatagrams', YLeaf(YType.uint32, 'ipIfStatsInForwDatagrams')),
-                    ('ipifstatshcinforwdatagrams', YLeaf(YType.uint64, 'ipIfStatsHCInForwDatagrams')),
-                    ('ipifstatsreasmreqds', YLeaf(YType.uint32, 'ipIfStatsReasmReqds')),
-                    ('ipifstatsreasmoks', YLeaf(YType.uint32, 'ipIfStatsReasmOKs')),
-                    ('ipifstatsreasmfails', YLeaf(YType.uint32, 'ipIfStatsReasmFails')),
-                    ('ipifstatsindiscards', YLeaf(YType.uint32, 'ipIfStatsInDiscards')),
-                    ('ipifstatsindelivers', YLeaf(YType.uint32, 'ipIfStatsInDelivers')),
-                    ('ipifstatshcindelivers', YLeaf(YType.uint64, 'ipIfStatsHCInDelivers')),
-                    ('ipifstatsoutrequests', YLeaf(YType.uint32, 'ipIfStatsOutRequests')),
-                    ('ipifstatshcoutrequests', YLeaf(YType.uint64, 'ipIfStatsHCOutRequests')),
-                    ('ipifstatsoutforwdatagrams', YLeaf(YType.uint32, 'ipIfStatsOutForwDatagrams')),
-                    ('ipifstatshcoutforwdatagrams', YLeaf(YType.uint64, 'ipIfStatsHCOutForwDatagrams')),
-                    ('ipifstatsoutdiscards', YLeaf(YType.uint32, 'ipIfStatsOutDiscards')),
-                    ('ipifstatsoutfragreqds', YLeaf(YType.uint32, 'ipIfStatsOutFragReqds')),
-                    ('ipifstatsoutfragoks', YLeaf(YType.uint32, 'ipIfStatsOutFragOKs')),
-                    ('ipifstatsoutfragfails', YLeaf(YType.uint32, 'ipIfStatsOutFragFails')),
-                    ('ipifstatsoutfragcreates', YLeaf(YType.uint32, 'ipIfStatsOutFragCreates')),
-                    ('ipifstatsouttransmits', YLeaf(YType.uint32, 'ipIfStatsOutTransmits')),
-                    ('ipifstatshcouttransmits', YLeaf(YType.uint64, 'ipIfStatsHCOutTransmits')),
-                    ('ipifstatsoutoctets', YLeaf(YType.uint32, 'ipIfStatsOutOctets')),
-                    ('ipifstatshcoutoctets', YLeaf(YType.uint64, 'ipIfStatsHCOutOctets')),
-                    ('ipifstatsinmcastpkts', YLeaf(YType.uint32, 'ipIfStatsInMcastPkts')),
-                    ('ipifstatshcinmcastpkts', YLeaf(YType.uint64, 'ipIfStatsHCInMcastPkts')),
-                    ('ipifstatsinmcastoctets', YLeaf(YType.uint32, 'ipIfStatsInMcastOctets')),
-                    ('ipifstatshcinmcastoctets', YLeaf(YType.uint64, 'ipIfStatsHCInMcastOctets')),
-                    ('ipifstatsoutmcastpkts', YLeaf(YType.uint32, 'ipIfStatsOutMcastPkts')),
-                    ('ipifstatshcoutmcastpkts', YLeaf(YType.uint64, 'ipIfStatsHCOutMcastPkts')),
-                    ('ipifstatsoutmcastoctets', YLeaf(YType.uint32, 'ipIfStatsOutMcastOctets')),
-                    ('ipifstatshcoutmcastoctets', YLeaf(YType.uint64, 'ipIfStatsHCOutMcastOctets')),
-                    ('ipifstatsinbcastpkts', YLeaf(YType.uint32, 'ipIfStatsInBcastPkts')),
-                    ('ipifstatshcinbcastpkts', YLeaf(YType.uint64, 'ipIfStatsHCInBcastPkts')),
-                    ('ipifstatsoutbcastpkts', YLeaf(YType.uint32, 'ipIfStatsOutBcastPkts')),
-                    ('ipifstatshcoutbcastpkts', YLeaf(YType.uint64, 'ipIfStatsHCOutBcastPkts')),
-                    ('ipifstatsdiscontinuitytime', YLeaf(YType.uint32, 'ipIfStatsDiscontinuityTime')),
-                    ('ipifstatsrefreshrate', YLeaf(YType.uint32, 'ipIfStatsRefreshRate')),
+                    ('ipifstatsipversion', (YLeaf(YType.enumeration, 'ipIfStatsIPVersion'), [('ydk.models.ietf.ietf_inet_types', 'IpVersion', '')])),
+                    ('ipifstatsifindex', (YLeaf(YType.int32, 'ipIfStatsIfIndex'), ['int'])),
+                    ('ipifstatsinreceives', (YLeaf(YType.uint32, 'ipIfStatsInReceives'), ['int'])),
+                    ('ipifstatshcinreceives', (YLeaf(YType.uint64, 'ipIfStatsHCInReceives'), ['int'])),
+                    ('ipifstatsinoctets', (YLeaf(YType.uint32, 'ipIfStatsInOctets'), ['int'])),
+                    ('ipifstatshcinoctets', (YLeaf(YType.uint64, 'ipIfStatsHCInOctets'), ['int'])),
+                    ('ipifstatsinhdrerrors', (YLeaf(YType.uint32, 'ipIfStatsInHdrErrors'), ['int'])),
+                    ('ipifstatsinnoroutes', (YLeaf(YType.uint32, 'ipIfStatsInNoRoutes'), ['int'])),
+                    ('ipifstatsinaddrerrors', (YLeaf(YType.uint32, 'ipIfStatsInAddrErrors'), ['int'])),
+                    ('ipifstatsinunknownprotos', (YLeaf(YType.uint32, 'ipIfStatsInUnknownProtos'), ['int'])),
+                    ('ipifstatsintruncatedpkts', (YLeaf(YType.uint32, 'ipIfStatsInTruncatedPkts'), ['int'])),
+                    ('ipifstatsinforwdatagrams', (YLeaf(YType.uint32, 'ipIfStatsInForwDatagrams'), ['int'])),
+                    ('ipifstatshcinforwdatagrams', (YLeaf(YType.uint64, 'ipIfStatsHCInForwDatagrams'), ['int'])),
+                    ('ipifstatsreasmreqds', (YLeaf(YType.uint32, 'ipIfStatsReasmReqds'), ['int'])),
+                    ('ipifstatsreasmoks', (YLeaf(YType.uint32, 'ipIfStatsReasmOKs'), ['int'])),
+                    ('ipifstatsreasmfails', (YLeaf(YType.uint32, 'ipIfStatsReasmFails'), ['int'])),
+                    ('ipifstatsindiscards', (YLeaf(YType.uint32, 'ipIfStatsInDiscards'), ['int'])),
+                    ('ipifstatsindelivers', (YLeaf(YType.uint32, 'ipIfStatsInDelivers'), ['int'])),
+                    ('ipifstatshcindelivers', (YLeaf(YType.uint64, 'ipIfStatsHCInDelivers'), ['int'])),
+                    ('ipifstatsoutrequests', (YLeaf(YType.uint32, 'ipIfStatsOutRequests'), ['int'])),
+                    ('ipifstatshcoutrequests', (YLeaf(YType.uint64, 'ipIfStatsHCOutRequests'), ['int'])),
+                    ('ipifstatsoutforwdatagrams', (YLeaf(YType.uint32, 'ipIfStatsOutForwDatagrams'), ['int'])),
+                    ('ipifstatshcoutforwdatagrams', (YLeaf(YType.uint64, 'ipIfStatsHCOutForwDatagrams'), ['int'])),
+                    ('ipifstatsoutdiscards', (YLeaf(YType.uint32, 'ipIfStatsOutDiscards'), ['int'])),
+                    ('ipifstatsoutfragreqds', (YLeaf(YType.uint32, 'ipIfStatsOutFragReqds'), ['int'])),
+                    ('ipifstatsoutfragoks', (YLeaf(YType.uint32, 'ipIfStatsOutFragOKs'), ['int'])),
+                    ('ipifstatsoutfragfails', (YLeaf(YType.uint32, 'ipIfStatsOutFragFails'), ['int'])),
+                    ('ipifstatsoutfragcreates', (YLeaf(YType.uint32, 'ipIfStatsOutFragCreates'), ['int'])),
+                    ('ipifstatsouttransmits', (YLeaf(YType.uint32, 'ipIfStatsOutTransmits'), ['int'])),
+                    ('ipifstatshcouttransmits', (YLeaf(YType.uint64, 'ipIfStatsHCOutTransmits'), ['int'])),
+                    ('ipifstatsoutoctets', (YLeaf(YType.uint32, 'ipIfStatsOutOctets'), ['int'])),
+                    ('ipifstatshcoutoctets', (YLeaf(YType.uint64, 'ipIfStatsHCOutOctets'), ['int'])),
+                    ('ipifstatsinmcastpkts', (YLeaf(YType.uint32, 'ipIfStatsInMcastPkts'), ['int'])),
+                    ('ipifstatshcinmcastpkts', (YLeaf(YType.uint64, 'ipIfStatsHCInMcastPkts'), ['int'])),
+                    ('ipifstatsinmcastoctets', (YLeaf(YType.uint32, 'ipIfStatsInMcastOctets'), ['int'])),
+                    ('ipifstatshcinmcastoctets', (YLeaf(YType.uint64, 'ipIfStatsHCInMcastOctets'), ['int'])),
+                    ('ipifstatsoutmcastpkts', (YLeaf(YType.uint32, 'ipIfStatsOutMcastPkts'), ['int'])),
+                    ('ipifstatshcoutmcastpkts', (YLeaf(YType.uint64, 'ipIfStatsHCOutMcastPkts'), ['int'])),
+                    ('ipifstatsoutmcastoctets', (YLeaf(YType.uint32, 'ipIfStatsOutMcastOctets'), ['int'])),
+                    ('ipifstatshcoutmcastoctets', (YLeaf(YType.uint64, 'ipIfStatsHCOutMcastOctets'), ['int'])),
+                    ('ipifstatsinbcastpkts', (YLeaf(YType.uint32, 'ipIfStatsInBcastPkts'), ['int'])),
+                    ('ipifstatshcinbcastpkts', (YLeaf(YType.uint64, 'ipIfStatsHCInBcastPkts'), ['int'])),
+                    ('ipifstatsoutbcastpkts', (YLeaf(YType.uint32, 'ipIfStatsOutBcastPkts'), ['int'])),
+                    ('ipifstatshcoutbcastpkts', (YLeaf(YType.uint64, 'ipIfStatsHCOutBcastPkts'), ['int'])),
+                    ('ipifstatsdiscontinuitytime', (YLeaf(YType.uint32, 'ipIfStatsDiscontinuityTime'), ['int'])),
+                    ('ipifstatsrefreshrate', (YLeaf(YType.uint32, 'ipIfStatsRefreshRate'), ['int'])),
                 ])
                 self.ipifstatsipversion = None
                 self.ipifstatsifindex = None
@@ -2714,6 +2730,7 @@ class IPMIB(Entity):
                 self.ipifstatsrefreshrate = None
                 self._segment_path = lambda: "ipIfStatsEntry" + "[ipIfStatsIPVersion='" + str(self.ipifstatsipversion) + "']" + "[ipIfStatsIfIndex='" + str(self.ipifstatsifindex) + "']"
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipIfStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMIB.IpIfStatsTable.IpIfStatsEntry, ['ipifstatsipversion', 'ipifstatsifindex', 'ipifstatsinreceives', 'ipifstatshcinreceives', 'ipifstatsinoctets', 'ipifstatshcinoctets', 'ipifstatsinhdrerrors', 'ipifstatsinnoroutes', 'ipifstatsinaddrerrors', 'ipifstatsinunknownprotos', 'ipifstatsintruncatedpkts', 'ipifstatsinforwdatagrams', 'ipifstatshcinforwdatagrams', 'ipifstatsreasmreqds', 'ipifstatsreasmoks', 'ipifstatsreasmfails', 'ipifstatsindiscards', 'ipifstatsindelivers', 'ipifstatshcindelivers', 'ipifstatsoutrequests', 'ipifstatshcoutrequests', 'ipifstatsoutforwdatagrams', 'ipifstatshcoutforwdatagrams', 'ipifstatsoutdiscards', 'ipifstatsoutfragreqds', 'ipifstatsoutfragoks', 'ipifstatsoutfragfails', 'ipifstatsoutfragcreates', 'ipifstatsouttransmits', 'ipifstatshcouttransmits', 'ipifstatsoutoctets', 'ipifstatshcoutoctets', 'ipifstatsinmcastpkts', 'ipifstatshcinmcastpkts', 'ipifstatsinmcastoctets', 'ipifstatshcinmcastoctets', 'ipifstatsoutmcastpkts', 'ipifstatshcoutmcastpkts', 'ipifstatsoutmcastoctets', 'ipifstatshcoutmcastoctets', 'ipifstatsinbcastpkts', 'ipifstatshcinbcastpkts', 'ipifstatsoutbcastpkts', 'ipifstatshcoutbcastpkts', 'ipifstatsdiscontinuitytime', 'ipifstatsrefreshrate'], name, value)
@@ -2771,6 +2788,7 @@ class IPMIB(Entity):
             self.ipaddressprefixentry = YList(self)
             self._segment_path = lambda: "ipAddressPrefixTable"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.IpAddressPrefixTable, [], name, value)
@@ -2856,15 +2874,15 @@ class IPMIB(Entity):
                 self.ylist_key_names = ['ipaddressprefixifindex','ipaddressprefixtype','ipaddressprefixprefix','ipaddressprefixlength']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipaddressprefixifindex', YLeaf(YType.int32, 'ipAddressPrefixIfIndex')),
-                    ('ipaddressprefixtype', YLeaf(YType.enumeration, 'ipAddressPrefixType')),
-                    ('ipaddressprefixprefix', YLeaf(YType.str, 'ipAddressPrefixPrefix')),
-                    ('ipaddressprefixlength', YLeaf(YType.uint32, 'ipAddressPrefixLength')),
-                    ('ipaddressprefixorigin', YLeaf(YType.enumeration, 'ipAddressPrefixOrigin')),
-                    ('ipaddressprefixonlinkflag', YLeaf(YType.boolean, 'ipAddressPrefixOnLinkFlag')),
-                    ('ipaddressprefixautonomousflag', YLeaf(YType.boolean, 'ipAddressPrefixAutonomousFlag')),
-                    ('ipaddressprefixadvpreferredlifetime', YLeaf(YType.uint32, 'ipAddressPrefixAdvPreferredLifetime')),
-                    ('ipaddressprefixadvvalidlifetime', YLeaf(YType.uint32, 'ipAddressPrefixAdvValidLifetime')),
+                    ('ipaddressprefixifindex', (YLeaf(YType.int32, 'ipAddressPrefixIfIndex'), ['int'])),
+                    ('ipaddressprefixtype', (YLeaf(YType.enumeration, 'ipAddressPrefixType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ipaddressprefixprefix', (YLeaf(YType.str, 'ipAddressPrefixPrefix'), ['str'])),
+                    ('ipaddressprefixlength', (YLeaf(YType.uint32, 'ipAddressPrefixLength'), ['int'])),
+                    ('ipaddressprefixorigin', (YLeaf(YType.enumeration, 'ipAddressPrefixOrigin'), [('ydk.models.cisco_ios_xe.IP_MIB', 'IpAddressPrefixOriginTC', '')])),
+                    ('ipaddressprefixonlinkflag', (YLeaf(YType.boolean, 'ipAddressPrefixOnLinkFlag'), ['bool'])),
+                    ('ipaddressprefixautonomousflag', (YLeaf(YType.boolean, 'ipAddressPrefixAutonomousFlag'), ['bool'])),
+                    ('ipaddressprefixadvpreferredlifetime', (YLeaf(YType.uint32, 'ipAddressPrefixAdvPreferredLifetime'), ['int'])),
+                    ('ipaddressprefixadvvalidlifetime', (YLeaf(YType.uint32, 'ipAddressPrefixAdvValidLifetime'), ['int'])),
                 ])
                 self.ipaddressprefixifindex = None
                 self.ipaddressprefixtype = None
@@ -2877,6 +2895,7 @@ class IPMIB(Entity):
                 self.ipaddressprefixadvvalidlifetime = None
                 self._segment_path = lambda: "ipAddressPrefixEntry" + "[ipAddressPrefixIfIndex='" + str(self.ipaddressprefixifindex) + "']" + "[ipAddressPrefixType='" + str(self.ipaddressprefixtype) + "']" + "[ipAddressPrefixPrefix='" + str(self.ipaddressprefixprefix) + "']" + "[ipAddressPrefixLength='" + str(self.ipaddressprefixlength) + "']"
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipAddressPrefixTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMIB.IpAddressPrefixTable.IpAddressPrefixEntry, ['ipaddressprefixifindex', 'ipaddressprefixtype', 'ipaddressprefixprefix', 'ipaddressprefixlength', 'ipaddressprefixorigin', 'ipaddressprefixonlinkflag', 'ipaddressprefixautonomousflag', 'ipaddressprefixadvpreferredlifetime', 'ipaddressprefixadvvalidlifetime'], name, value)
@@ -2933,6 +2952,7 @@ class IPMIB(Entity):
             self.ipaddressentry = YList(self)
             self._segment_path = lambda: "ipAddressTable"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.IpAddressTable, [], name, value)
@@ -3024,17 +3044,17 @@ class IPMIB(Entity):
                 self.ylist_key_names = ['ipaddressaddrtype','ipaddressaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipaddressaddrtype', YLeaf(YType.enumeration, 'ipAddressAddrType')),
-                    ('ipaddressaddr', YLeaf(YType.str, 'ipAddressAddr')),
-                    ('ipaddressifindex', YLeaf(YType.int32, 'ipAddressIfIndex')),
-                    ('ipaddresstype', YLeaf(YType.enumeration, 'ipAddressType')),
-                    ('ipaddressprefix', YLeaf(YType.str, 'ipAddressPrefix')),
-                    ('ipaddressorigin', YLeaf(YType.enumeration, 'ipAddressOrigin')),
-                    ('ipaddressstatus', YLeaf(YType.enumeration, 'ipAddressStatus')),
-                    ('ipaddresscreated', YLeaf(YType.uint32, 'ipAddressCreated')),
-                    ('ipaddresslastchanged', YLeaf(YType.uint32, 'ipAddressLastChanged')),
-                    ('ipaddressrowstatus', YLeaf(YType.enumeration, 'ipAddressRowStatus')),
-                    ('ipaddressstoragetype', YLeaf(YType.enumeration, 'ipAddressStorageType')),
+                    ('ipaddressaddrtype', (YLeaf(YType.enumeration, 'ipAddressAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ipaddressaddr', (YLeaf(YType.str, 'ipAddressAddr'), ['str'])),
+                    ('ipaddressifindex', (YLeaf(YType.int32, 'ipAddressIfIndex'), ['int'])),
+                    ('ipaddresstype', (YLeaf(YType.enumeration, 'ipAddressType'), [('ydk.models.cisco_ios_xe.IP_MIB', 'IPMIB', 'IpAddressTable.IpAddressEntry.IpAddressType')])),
+                    ('ipaddressprefix', (YLeaf(YType.str, 'ipAddressPrefix'), ['str'])),
+                    ('ipaddressorigin', (YLeaf(YType.enumeration, 'ipAddressOrigin'), [('ydk.models.cisco_ios_xe.IP_MIB', 'IpAddressOriginTC', '')])),
+                    ('ipaddressstatus', (YLeaf(YType.enumeration, 'ipAddressStatus'), [('ydk.models.cisco_ios_xe.IP_MIB', 'IpAddressStatusTC', '')])),
+                    ('ipaddresscreated', (YLeaf(YType.uint32, 'ipAddressCreated'), ['int'])),
+                    ('ipaddresslastchanged', (YLeaf(YType.uint32, 'ipAddressLastChanged'), ['int'])),
+                    ('ipaddressrowstatus', (YLeaf(YType.enumeration, 'ipAddressRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('ipaddressstoragetype', (YLeaf(YType.enumeration, 'ipAddressStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
                 ])
                 self.ipaddressaddrtype = None
                 self.ipaddressaddr = None
@@ -3049,6 +3069,7 @@ class IPMIB(Entity):
                 self.ipaddressstoragetype = None
                 self._segment_path = lambda: "ipAddressEntry" + "[ipAddressAddrType='" + str(self.ipaddressaddrtype) + "']" + "[ipAddressAddr='" + str(self.ipaddressaddr) + "']"
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipAddressTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMIB.IpAddressTable.IpAddressEntry, ['ipaddressaddrtype', 'ipaddressaddr', 'ipaddressifindex', 'ipaddresstype', 'ipaddressprefix', 'ipaddressorigin', 'ipaddressstatus', 'ipaddresscreated', 'ipaddresslastchanged', 'ipaddressrowstatus', 'ipaddressstoragetype'], name, value)
@@ -3119,6 +3140,7 @@ class IPMIB(Entity):
             self.ipnettophysicalentry = YList(self)
             self._segment_path = lambda: "ipNetToPhysicalTable"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.IpNetToPhysicalTable, [], name, value)
@@ -3194,14 +3216,14 @@ class IPMIB(Entity):
                 self.ylist_key_names = ['ipnettophysicalifindex','ipnettophysicalnetaddresstype','ipnettophysicalnetaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipnettophysicalifindex', YLeaf(YType.int32, 'ipNetToPhysicalIfIndex')),
-                    ('ipnettophysicalnetaddresstype', YLeaf(YType.enumeration, 'ipNetToPhysicalNetAddressType')),
-                    ('ipnettophysicalnetaddress', YLeaf(YType.str, 'ipNetToPhysicalNetAddress')),
-                    ('ipnettophysicalphysaddress', YLeaf(YType.str, 'ipNetToPhysicalPhysAddress')),
-                    ('ipnettophysicallastupdated', YLeaf(YType.uint32, 'ipNetToPhysicalLastUpdated')),
-                    ('ipnettophysicaltype', YLeaf(YType.enumeration, 'ipNetToPhysicalType')),
-                    ('ipnettophysicalstate', YLeaf(YType.enumeration, 'ipNetToPhysicalState')),
-                    ('ipnettophysicalrowstatus', YLeaf(YType.enumeration, 'ipNetToPhysicalRowStatus')),
+                    ('ipnettophysicalifindex', (YLeaf(YType.int32, 'ipNetToPhysicalIfIndex'), ['int'])),
+                    ('ipnettophysicalnetaddresstype', (YLeaf(YType.enumeration, 'ipNetToPhysicalNetAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ipnettophysicalnetaddress', (YLeaf(YType.str, 'ipNetToPhysicalNetAddress'), ['str'])),
+                    ('ipnettophysicalphysaddress', (YLeaf(YType.str, 'ipNetToPhysicalPhysAddress'), ['str'])),
+                    ('ipnettophysicallastupdated', (YLeaf(YType.uint32, 'ipNetToPhysicalLastUpdated'), ['int'])),
+                    ('ipnettophysicaltype', (YLeaf(YType.enumeration, 'ipNetToPhysicalType'), [('ydk.models.cisco_ios_xe.IP_MIB', 'IPMIB', 'IpNetToPhysicalTable.IpNetToPhysicalEntry.IpNetToPhysicalType')])),
+                    ('ipnettophysicalstate', (YLeaf(YType.enumeration, 'ipNetToPhysicalState'), [('ydk.models.cisco_ios_xe.IP_MIB', 'IPMIB', 'IpNetToPhysicalTable.IpNetToPhysicalEntry.IpNetToPhysicalState')])),
+                    ('ipnettophysicalrowstatus', (YLeaf(YType.enumeration, 'ipNetToPhysicalRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ipnettophysicalifindex = None
                 self.ipnettophysicalnetaddresstype = None
@@ -3213,6 +3235,7 @@ class IPMIB(Entity):
                 self.ipnettophysicalrowstatus = None
                 self._segment_path = lambda: "ipNetToPhysicalEntry" + "[ipNetToPhysicalIfIndex='" + str(self.ipnettophysicalifindex) + "']" + "[ipNetToPhysicalNetAddressType='" + str(self.ipnettophysicalnetaddresstype) + "']" + "[ipNetToPhysicalNetAddress='" + str(self.ipnettophysicalnetaddress) + "']"
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipNetToPhysicalTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMIB.IpNetToPhysicalTable.IpNetToPhysicalEntry, ['ipnettophysicalifindex', 'ipnettophysicalnetaddresstype', 'ipnettophysicalnetaddress', 'ipnettophysicalphysaddress', 'ipnettophysicallastupdated', 'ipnettophysicaltype', 'ipnettophysicalstate', 'ipnettophysicalrowstatus'], name, value)
@@ -3373,6 +3396,7 @@ class IPMIB(Entity):
             self.ipv6scopezoneindexentry = YList(self)
             self._segment_path = lambda: "ipv6ScopeZoneIndexTable"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.Ipv6ScopeZoneIndexTable, [], name, value)
@@ -3491,19 +3515,19 @@ class IPMIB(Entity):
                 self.ylist_key_names = ['ipv6scopezoneindexifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipv6scopezoneindexifindex', YLeaf(YType.int32, 'ipv6ScopeZoneIndexIfIndex')),
-                    ('ipv6scopezoneindexlinklocal', YLeaf(YType.uint32, 'ipv6ScopeZoneIndexLinkLocal')),
-                    ('ipv6scopezoneindex3', YLeaf(YType.uint32, 'ipv6ScopeZoneIndex3')),
-                    ('ipv6scopezoneindexadminlocal', YLeaf(YType.uint32, 'ipv6ScopeZoneIndexAdminLocal')),
-                    ('ipv6scopezoneindexsitelocal', YLeaf(YType.uint32, 'ipv6ScopeZoneIndexSiteLocal')),
-                    ('ipv6scopezoneindex6', YLeaf(YType.uint32, 'ipv6ScopeZoneIndex6')),
-                    ('ipv6scopezoneindex7', YLeaf(YType.uint32, 'ipv6ScopeZoneIndex7')),
-                    ('ipv6scopezoneindexorganizationlocal', YLeaf(YType.uint32, 'ipv6ScopeZoneIndexOrganizationLocal')),
-                    ('ipv6scopezoneindex9', YLeaf(YType.uint32, 'ipv6ScopeZoneIndex9')),
-                    ('ipv6scopezoneindexa', YLeaf(YType.uint32, 'ipv6ScopeZoneIndexA')),
-                    ('ipv6scopezoneindexb', YLeaf(YType.uint32, 'ipv6ScopeZoneIndexB')),
-                    ('ipv6scopezoneindexc', YLeaf(YType.uint32, 'ipv6ScopeZoneIndexC')),
-                    ('ipv6scopezoneindexd', YLeaf(YType.uint32, 'ipv6ScopeZoneIndexD')),
+                    ('ipv6scopezoneindexifindex', (YLeaf(YType.int32, 'ipv6ScopeZoneIndexIfIndex'), ['int'])),
+                    ('ipv6scopezoneindexlinklocal', (YLeaf(YType.uint32, 'ipv6ScopeZoneIndexLinkLocal'), ['int'])),
+                    ('ipv6scopezoneindex3', (YLeaf(YType.uint32, 'ipv6ScopeZoneIndex3'), ['int'])),
+                    ('ipv6scopezoneindexadminlocal', (YLeaf(YType.uint32, 'ipv6ScopeZoneIndexAdminLocal'), ['int'])),
+                    ('ipv6scopezoneindexsitelocal', (YLeaf(YType.uint32, 'ipv6ScopeZoneIndexSiteLocal'), ['int'])),
+                    ('ipv6scopezoneindex6', (YLeaf(YType.uint32, 'ipv6ScopeZoneIndex6'), ['int'])),
+                    ('ipv6scopezoneindex7', (YLeaf(YType.uint32, 'ipv6ScopeZoneIndex7'), ['int'])),
+                    ('ipv6scopezoneindexorganizationlocal', (YLeaf(YType.uint32, 'ipv6ScopeZoneIndexOrganizationLocal'), ['int'])),
+                    ('ipv6scopezoneindex9', (YLeaf(YType.uint32, 'ipv6ScopeZoneIndex9'), ['int'])),
+                    ('ipv6scopezoneindexa', (YLeaf(YType.uint32, 'ipv6ScopeZoneIndexA'), ['int'])),
+                    ('ipv6scopezoneindexb', (YLeaf(YType.uint32, 'ipv6ScopeZoneIndexB'), ['int'])),
+                    ('ipv6scopezoneindexc', (YLeaf(YType.uint32, 'ipv6ScopeZoneIndexC'), ['int'])),
+                    ('ipv6scopezoneindexd', (YLeaf(YType.uint32, 'ipv6ScopeZoneIndexD'), ['int'])),
                 ])
                 self.ipv6scopezoneindexifindex = None
                 self.ipv6scopezoneindexlinklocal = None
@@ -3520,6 +3544,7 @@ class IPMIB(Entity):
                 self.ipv6scopezoneindexd = None
                 self._segment_path = lambda: "ipv6ScopeZoneIndexEntry" + "[ipv6ScopeZoneIndexIfIndex='" + str(self.ipv6scopezoneindexifindex) + "']"
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipv6ScopeZoneIndexTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMIB.Ipv6ScopeZoneIndexTable.Ipv6ScopeZoneIndexEntry, ['ipv6scopezoneindexifindex', 'ipv6scopezoneindexlinklocal', 'ipv6scopezoneindex3', 'ipv6scopezoneindexadminlocal', 'ipv6scopezoneindexsitelocal', 'ipv6scopezoneindex6', 'ipv6scopezoneindex7', 'ipv6scopezoneindexorganizationlocal', 'ipv6scopezoneindex9', 'ipv6scopezoneindexa', 'ipv6scopezoneindexb', 'ipv6scopezoneindexc', 'ipv6scopezoneindexd'], name, value)
@@ -3558,6 +3583,7 @@ class IPMIB(Entity):
             self.ipdefaultrouterentry = YList(self)
             self._segment_path = lambda: "ipDefaultRouterTable"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.IpDefaultRouterTable, [], name, value)
@@ -3618,11 +3644,11 @@ class IPMIB(Entity):
                 self.ylist_key_names = ['ipdefaultrouteraddresstype','ipdefaultrouteraddress','ipdefaultrouterifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipdefaultrouteraddresstype', YLeaf(YType.enumeration, 'ipDefaultRouterAddressType')),
-                    ('ipdefaultrouteraddress', YLeaf(YType.str, 'ipDefaultRouterAddress')),
-                    ('ipdefaultrouterifindex', YLeaf(YType.int32, 'ipDefaultRouterIfIndex')),
-                    ('ipdefaultrouterlifetime', YLeaf(YType.uint32, 'ipDefaultRouterLifetime')),
-                    ('ipdefaultrouterpreference', YLeaf(YType.enumeration, 'ipDefaultRouterPreference')),
+                    ('ipdefaultrouteraddresstype', (YLeaf(YType.enumeration, 'ipDefaultRouterAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ipdefaultrouteraddress', (YLeaf(YType.str, 'ipDefaultRouterAddress'), ['str'])),
+                    ('ipdefaultrouterifindex', (YLeaf(YType.int32, 'ipDefaultRouterIfIndex'), ['int'])),
+                    ('ipdefaultrouterlifetime', (YLeaf(YType.uint32, 'ipDefaultRouterLifetime'), ['int'])),
+                    ('ipdefaultrouterpreference', (YLeaf(YType.enumeration, 'ipDefaultRouterPreference'), [('ydk.models.cisco_ios_xe.IP_MIB', 'IPMIB', 'IpDefaultRouterTable.IpDefaultRouterEntry.IpDefaultRouterPreference')])),
                 ])
                 self.ipdefaultrouteraddresstype = None
                 self.ipdefaultrouteraddress = None
@@ -3631,6 +3657,7 @@ class IPMIB(Entity):
                 self.ipdefaultrouterpreference = None
                 self._segment_path = lambda: "ipDefaultRouterEntry" + "[ipDefaultRouterAddressType='" + str(self.ipdefaultrouteraddresstype) + "']" + "[ipDefaultRouterAddress='" + str(self.ipdefaultrouteraddress) + "']" + "[ipDefaultRouterIfIndex='" + str(self.ipdefaultrouterifindex) + "']"
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipDefaultRouterTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMIB.IpDefaultRouterTable.IpDefaultRouterEntry, ['ipdefaultrouteraddresstype', 'ipdefaultrouteraddress', 'ipdefaultrouterifindex', 'ipdefaultrouterlifetime', 'ipdefaultrouterpreference'], name, value)
@@ -3706,6 +3733,7 @@ class IPMIB(Entity):
             self.ipv6routeradvertentry = YList(self)
             self._segment_path = lambda: "ipv6RouterAdvertTable"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.Ipv6RouterAdvertTable, [], name, value)
@@ -3823,18 +3851,18 @@ class IPMIB(Entity):
                 self.ylist_key_names = ['ipv6routeradvertifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipv6routeradvertifindex', YLeaf(YType.int32, 'ipv6RouterAdvertIfIndex')),
-                    ('ipv6routeradvertsendadverts', YLeaf(YType.boolean, 'ipv6RouterAdvertSendAdverts')),
-                    ('ipv6routeradvertmaxinterval', YLeaf(YType.uint32, 'ipv6RouterAdvertMaxInterval')),
-                    ('ipv6routeradvertmininterval', YLeaf(YType.uint32, 'ipv6RouterAdvertMinInterval')),
-                    ('ipv6routeradvertmanagedflag', YLeaf(YType.boolean, 'ipv6RouterAdvertManagedFlag')),
-                    ('ipv6routeradvertotherconfigflag', YLeaf(YType.boolean, 'ipv6RouterAdvertOtherConfigFlag')),
-                    ('ipv6routeradvertlinkmtu', YLeaf(YType.uint32, 'ipv6RouterAdvertLinkMTU')),
-                    ('ipv6routeradvertreachabletime', YLeaf(YType.uint32, 'ipv6RouterAdvertReachableTime')),
-                    ('ipv6routeradvertretransmittime', YLeaf(YType.uint32, 'ipv6RouterAdvertRetransmitTime')),
-                    ('ipv6routeradvertcurhoplimit', YLeaf(YType.uint32, 'ipv6RouterAdvertCurHopLimit')),
-                    ('ipv6routeradvertdefaultlifetime', YLeaf(YType.uint32, 'ipv6RouterAdvertDefaultLifetime')),
-                    ('ipv6routeradvertrowstatus', YLeaf(YType.enumeration, 'ipv6RouterAdvertRowStatus')),
+                    ('ipv6routeradvertifindex', (YLeaf(YType.int32, 'ipv6RouterAdvertIfIndex'), ['int'])),
+                    ('ipv6routeradvertsendadverts', (YLeaf(YType.boolean, 'ipv6RouterAdvertSendAdverts'), ['bool'])),
+                    ('ipv6routeradvertmaxinterval', (YLeaf(YType.uint32, 'ipv6RouterAdvertMaxInterval'), ['int'])),
+                    ('ipv6routeradvertmininterval', (YLeaf(YType.uint32, 'ipv6RouterAdvertMinInterval'), ['int'])),
+                    ('ipv6routeradvertmanagedflag', (YLeaf(YType.boolean, 'ipv6RouterAdvertManagedFlag'), ['bool'])),
+                    ('ipv6routeradvertotherconfigflag', (YLeaf(YType.boolean, 'ipv6RouterAdvertOtherConfigFlag'), ['bool'])),
+                    ('ipv6routeradvertlinkmtu', (YLeaf(YType.uint32, 'ipv6RouterAdvertLinkMTU'), ['int'])),
+                    ('ipv6routeradvertreachabletime', (YLeaf(YType.uint32, 'ipv6RouterAdvertReachableTime'), ['int'])),
+                    ('ipv6routeradvertretransmittime', (YLeaf(YType.uint32, 'ipv6RouterAdvertRetransmitTime'), ['int'])),
+                    ('ipv6routeradvertcurhoplimit', (YLeaf(YType.uint32, 'ipv6RouterAdvertCurHopLimit'), ['int'])),
+                    ('ipv6routeradvertdefaultlifetime', (YLeaf(YType.uint32, 'ipv6RouterAdvertDefaultLifetime'), ['int'])),
+                    ('ipv6routeradvertrowstatus', (YLeaf(YType.enumeration, 'ipv6RouterAdvertRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ipv6routeradvertifindex = None
                 self.ipv6routeradvertsendadverts = None
@@ -3850,6 +3878,7 @@ class IPMIB(Entity):
                 self.ipv6routeradvertrowstatus = None
                 self._segment_path = lambda: "ipv6RouterAdvertEntry" + "[ipv6RouterAdvertIfIndex='" + str(self.ipv6routeradvertifindex) + "']"
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/ipv6RouterAdvertTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMIB.Ipv6RouterAdvertTable.Ipv6RouterAdvertEntry, ['ipv6routeradvertifindex', 'ipv6routeradvertsendadverts', 'ipv6routeradvertmaxinterval', 'ipv6routeradvertmininterval', 'ipv6routeradvertmanagedflag', 'ipv6routeradvertotherconfigflag', 'ipv6routeradvertlinkmtu', 'ipv6routeradvertreachabletime', 'ipv6routeradvertretransmittime', 'ipv6routeradvertcurhoplimit', 'ipv6routeradvertdefaultlifetime', 'ipv6routeradvertrowstatus'], name, value)
@@ -3885,6 +3914,7 @@ class IPMIB(Entity):
             self.icmpstatsentry = YList(self)
             self._segment_path = lambda: "icmpStatsTable"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.IcmpStatsTable, [], name, value)
@@ -3944,11 +3974,11 @@ class IPMIB(Entity):
                 self.ylist_key_names = ['icmpstatsipversion']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('icmpstatsipversion', YLeaf(YType.enumeration, 'icmpStatsIPVersion')),
-                    ('icmpstatsinmsgs', YLeaf(YType.uint32, 'icmpStatsInMsgs')),
-                    ('icmpstatsinerrors', YLeaf(YType.uint32, 'icmpStatsInErrors')),
-                    ('icmpstatsoutmsgs', YLeaf(YType.uint32, 'icmpStatsOutMsgs')),
-                    ('icmpstatsouterrors', YLeaf(YType.uint32, 'icmpStatsOutErrors')),
+                    ('icmpstatsipversion', (YLeaf(YType.enumeration, 'icmpStatsIPVersion'), [('ydk.models.ietf.ietf_inet_types', 'IpVersion', '')])),
+                    ('icmpstatsinmsgs', (YLeaf(YType.uint32, 'icmpStatsInMsgs'), ['int'])),
+                    ('icmpstatsinerrors', (YLeaf(YType.uint32, 'icmpStatsInErrors'), ['int'])),
+                    ('icmpstatsoutmsgs', (YLeaf(YType.uint32, 'icmpStatsOutMsgs'), ['int'])),
+                    ('icmpstatsouterrors', (YLeaf(YType.uint32, 'icmpStatsOutErrors'), ['int'])),
                 ])
                 self.icmpstatsipversion = None
                 self.icmpstatsinmsgs = None
@@ -3957,6 +3987,7 @@ class IPMIB(Entity):
                 self.icmpstatsouterrors = None
                 self._segment_path = lambda: "icmpStatsEntry" + "[icmpStatsIPVersion='" + str(self.icmpstatsipversion) + "']"
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/icmpStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMIB.IcmpStatsTable.IcmpStatsEntry, ['icmpstatsipversion', 'icmpstatsinmsgs', 'icmpstatsinerrors', 'icmpstatsoutmsgs', 'icmpstatsouterrors'], name, value)
@@ -3993,6 +4024,7 @@ class IPMIB(Entity):
             self.icmpmsgstatsentry = YList(self)
             self._segment_path = lambda: "icmpMsgStatsTable"
             self._absolute_path = lambda: "IP-MIB:IP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPMIB.IcmpMsgStatsTable, [], name, value)
@@ -4055,10 +4087,10 @@ class IPMIB(Entity):
                 self.ylist_key_names = ['icmpmsgstatsipversion','icmpmsgstatstype']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('icmpmsgstatsipversion', YLeaf(YType.enumeration, 'icmpMsgStatsIPVersion')),
-                    ('icmpmsgstatstype', YLeaf(YType.int32, 'icmpMsgStatsType')),
-                    ('icmpmsgstatsinpkts', YLeaf(YType.uint32, 'icmpMsgStatsInPkts')),
-                    ('icmpmsgstatsoutpkts', YLeaf(YType.uint32, 'icmpMsgStatsOutPkts')),
+                    ('icmpmsgstatsipversion', (YLeaf(YType.enumeration, 'icmpMsgStatsIPVersion'), [('ydk.models.ietf.ietf_inet_types', 'IpVersion', '')])),
+                    ('icmpmsgstatstype', (YLeaf(YType.int32, 'icmpMsgStatsType'), ['int'])),
+                    ('icmpmsgstatsinpkts', (YLeaf(YType.uint32, 'icmpMsgStatsInPkts'), ['int'])),
+                    ('icmpmsgstatsoutpkts', (YLeaf(YType.uint32, 'icmpMsgStatsOutPkts'), ['int'])),
                 ])
                 self.icmpmsgstatsipversion = None
                 self.icmpmsgstatstype = None
@@ -4066,6 +4098,7 @@ class IPMIB(Entity):
                 self.icmpmsgstatsoutpkts = None
                 self._segment_path = lambda: "icmpMsgStatsEntry" + "[icmpMsgStatsIPVersion='" + str(self.icmpmsgstatsipversion) + "']" + "[icmpMsgStatsType='" + str(self.icmpmsgstatstype) + "']"
                 self._absolute_path = lambda: "IP-MIB:IP-MIB/icmpMsgStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPMIB.IcmpMsgStatsTable.IcmpMsgStatsEntry, ['icmpmsgstatsipversion', 'icmpmsgstatstype', 'icmpmsgstatsinpkts', 'icmpmsgstatsoutpkts'], name, value)

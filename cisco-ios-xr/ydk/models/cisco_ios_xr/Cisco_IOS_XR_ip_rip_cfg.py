@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   rip\: RIP configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class BgpRedistRoute(Enum):
@@ -205,6 +206,7 @@ class Rip(Entity):
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Rip, [], name, value)
@@ -334,17 +336,17 @@ class Rip(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("default-information", ("default_information", Rip.DefaultVrf.DefaultInformation)), ("redistribution", ("redistribution", Rip.DefaultVrf.Redistribution)), ("ip-distances", ("ip_distances", Rip.DefaultVrf.IpDistances)), ("interfaces", ("interfaces", Rip.DefaultVrf.Interfaces)), ("neighbors", ("neighbors", Rip.DefaultVrf.Neighbors)), ("timers", ("timers", Rip.DefaultVrf.Timers))])
             self._leafs = OrderedDict([
-                ('enable', YLeaf(YType.empty, 'enable')),
-                ('broadcast_for_v2', YLeaf(YType.empty, 'broadcast-for-v2')),
-                ('distance', YLeaf(YType.uint32, 'distance')),
-                ('default_metric', YLeaf(YType.uint32, 'default-metric')),
-                ('output_delay', YLeaf(YType.uint32, 'output-delay')),
-                ('auto_summary', YLeaf(YType.empty, 'auto-summary')),
-                ('policy_out', YLeaf(YType.str, 'policy-out')),
-                ('validate_source_disable', YLeaf(YType.empty, 'validate-source-disable')),
-                ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
-                ('nsf', YLeaf(YType.empty, 'nsf')),
-                ('policy_in', YLeaf(YType.str, 'policy-in')),
+                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ('broadcast_for_v2', (YLeaf(YType.empty, 'broadcast-for-v2'), ['Empty'])),
+                ('distance', (YLeaf(YType.uint32, 'distance'), ['int'])),
+                ('default_metric', (YLeaf(YType.uint32, 'default-metric'), ['int'])),
+                ('output_delay', (YLeaf(YType.uint32, 'output-delay'), ['int'])),
+                ('auto_summary', (YLeaf(YType.empty, 'auto-summary'), ['Empty'])),
+                ('policy_out', (YLeaf(YType.str, 'policy-out'), ['str'])),
+                ('validate_source_disable', (YLeaf(YType.empty, 'validate-source-disable'), ['Empty'])),
+                ('maximum_paths', (YLeaf(YType.uint32, 'maximum-paths'), ['int'])),
+                ('nsf', (YLeaf(YType.empty, 'nsf'), ['Empty'])),
+                ('policy_in', (YLeaf(YType.str, 'policy-in'), ['str'])),
             ])
             self.enable = None
             self.broadcast_for_v2 = None
@@ -381,6 +383,7 @@ class Rip(Entity):
             self._children_name_map["timers"] = "timers"
             self._segment_path = lambda: "default-vrf"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Rip.DefaultVrf, ['enable', 'broadcast_for_v2', 'distance', 'default_metric', 'output_delay', 'auto_summary', 'policy_out', 'validate_source_disable', 'maximum_paths', 'nsf', 'policy_in'], name, value)
@@ -422,13 +425,14 @@ class Rip(Entity):
                 self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
-                    ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                    ('option', YLeaf(YType.enumeration, 'option')),
+                    ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                    ('option', (YLeaf(YType.enumeration, 'option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'DefaultInformationOption', '')])),
                 ])
                 self.route_policy_name = None
                 self.option = None
                 self._segment_path = lambda: "default-information"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rip.DefaultVrf.DefaultInformation, ['route_policy_name', 'option'], name, value)
@@ -514,6 +518,7 @@ class Rip(Entity):
                 self._children_name_map["ospfs"] = "ospfs"
                 self._segment_path = lambda: "redistribution"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rip.DefaultVrf.Redistribution, [], name, value)
@@ -553,13 +558,14 @@ class Rip(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                        ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                        ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                        ('route_type', (YLeaf(YType.enumeration, 'route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'DefaultRedistRoute', '')])),
                     ])
                     self.route_policy_name = None
                     self.route_type = None
                     self._segment_path = lambda: "connected"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.Redistribution.Connected, ['route_policy_name', 'route_type'], name, value)
@@ -595,6 +601,7 @@ class Rip(Entity):
                     self.bgp = YList(self)
                     self._segment_path = lambda: "bgps"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.Redistribution.Bgps, [], name, value)
@@ -645,10 +652,10 @@ class Rip(Entity):
                         self.ylist_key_names = ['asnxx','asnyy']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('asnxx', YLeaf(YType.uint32, 'asnxx')),
-                            ('asnyy', YLeaf(YType.uint32, 'asnyy')),
-                            ('policy', YLeaf(YType.str, 'policy')),
-                            ('type', YLeaf(YType.enumeration, 'type')),
+                            ('asnxx', (YLeaf(YType.uint32, 'asnxx'), ['int'])),
+                            ('asnyy', (YLeaf(YType.uint32, 'asnyy'), ['int'])),
+                            ('policy', (YLeaf(YType.str, 'policy'), ['str'])),
+                            ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'BgpRedistRoute', '')])),
                         ])
                         self.asnxx = None
                         self.asnyy = None
@@ -656,6 +663,7 @@ class Rip(Entity):
                         self.type = None
                         self._segment_path = lambda: "bgp" + "[asnxx='" + str(self.asnxx) + "']" + "[asnyy='" + str(self.asnyy) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/bgps/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Redistribution.Bgps.Bgp, ['asnxx', 'asnyy', 'policy', 'type'], name, value)
@@ -691,6 +699,7 @@ class Rip(Entity):
                     self.isis = YList(self)
                     self._segment_path = lambda: "isises"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.Redistribution.Isises, [], name, value)
@@ -734,15 +743,16 @@ class Rip(Entity):
                         self.ylist_key_names = ['isis_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('isis_name', YLeaf(YType.str, 'isis-name')),
-                            ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                            ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                            ('isis_name', (YLeaf(YType.str, 'isis-name'), ['str'])),
+                            ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                            ('route_type', (YLeaf(YType.enumeration, 'route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'IsisRedistRoute', '')])),
                         ])
                         self.isis_name = None
                         self.route_policy_name = None
                         self.route_type = None
                         self._segment_path = lambda: "isis" + "[isis-name='" + str(self.isis_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/isises/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Redistribution.Isises.Isis, ['isis_name', 'route_policy_name', 'route_type'], name, value)
@@ -778,6 +788,7 @@ class Rip(Entity):
                     self.eigrp = YList(self)
                     self._segment_path = lambda: "eigrp-s"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.Redistribution.EigrpS, [], name, value)
@@ -821,15 +832,16 @@ class Rip(Entity):
                         self.ylist_key_names = ['as_']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('as_', YLeaf(YType.uint32, 'as')),
-                            ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                            ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                            ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                            ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                            ('route_type', (YLeaf(YType.enumeration, 'route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'DefaultRedistRoute', '')])),
                         ])
                         self.as_ = None
                         self.route_policy_name = None
                         self.route_type = None
                         self._segment_path = lambda: "eigrp" + "[as='" + str(self.as_) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/eigrp-s/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Redistribution.EigrpS.Eigrp, ['as_', 'route_policy_name', 'route_type'], name, value)
@@ -869,13 +881,14 @@ class Rip(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                        ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                        ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                        ('route_type', (YLeaf(YType.enumeration, 'route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'DefaultRedistRoute', '')])),
                     ])
                     self.route_policy_name = None
                     self.route_type = None
                     self._segment_path = lambda: "static"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.Redistribution.Static, ['route_policy_name', 'route_type'], name, value)
@@ -911,6 +924,7 @@ class Rip(Entity):
                     self.ospf = YList(self)
                     self._segment_path = lambda: "ospfs"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.Redistribution.Ospfs, [], name, value)
@@ -978,13 +992,13 @@ class Rip(Entity):
                         self.ylist_key_names = ['ospf_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ospf_name', YLeaf(YType.str, 'ospf-name')),
-                            ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                            ('internal', YLeaf(YType.boolean, 'internal')),
-                            ('external', YLeaf(YType.boolean, 'external')),
-                            ('external_type', YLeaf(YType.uint32, 'external-type')),
-                            ('nssa_external', YLeaf(YType.boolean, 'nssa-external')),
-                            ('nssa_external_type', YLeaf(YType.uint32, 'nssa-external-type')),
+                            ('ospf_name', (YLeaf(YType.str, 'ospf-name'), ['str'])),
+                            ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                            ('internal', (YLeaf(YType.boolean, 'internal'), ['bool'])),
+                            ('external', (YLeaf(YType.boolean, 'external'), ['bool'])),
+                            ('external_type', (YLeaf(YType.uint32, 'external-type'), ['int'])),
+                            ('nssa_external', (YLeaf(YType.boolean, 'nssa-external'), ['bool'])),
+                            ('nssa_external_type', (YLeaf(YType.uint32, 'nssa-external-type'), ['int'])),
                         ])
                         self.ospf_name = None
                         self.route_policy_name = None
@@ -995,6 +1009,7 @@ class Rip(Entity):
                         self.nssa_external_type = None
                         self._segment_path = lambda: "ospf" + "[ospf-name='" + str(self.ospf_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/redistribution/ospfs/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Redistribution.Ospfs.Ospf, ['ospf_name', 'route_policy_name', 'internal', 'external', 'external_type', 'nssa_external', 'nssa_external_type'], name, value)
@@ -1030,6 +1045,7 @@ class Rip(Entity):
                 self.ip_distance = YList(self)
                 self._segment_path = lambda: "ip-distances"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rip.DefaultVrf.IpDistances, [], name, value)
@@ -1079,15 +1095,16 @@ class Rip(Entity):
                     self.ylist_key_names = ['address','netmask']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('address', YLeaf(YType.str, 'address')),
-                        ('netmask', YLeaf(YType.str, 'netmask')),
-                        ('distance', YLeaf(YType.uint32, 'distance')),
+                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                        ('netmask', (YLeaf(YType.str, 'netmask'), ['str'])),
+                        ('distance', (YLeaf(YType.uint32, 'distance'), ['int'])),
                     ])
                     self.address = None
                     self.netmask = None
                     self.distance = None
                     self._segment_path = lambda: "ip-distance" + "[address='" + str(self.address) + "']" + "[netmask='" + str(self.netmask) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/ip-distances/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.IpDistances.IpDistance, ['address', 'netmask', 'distance'], name, value)
@@ -1123,6 +1140,7 @@ class Rip(Entity):
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rip.DefaultVrf.Interfaces, [], name, value)
@@ -1137,7 +1155,7 @@ class Rip(Entity):
                 	Interface name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: authentication
                 
@@ -1218,15 +1236,15 @@ class Rip(Entity):
                     self.ylist_key_names = ['interface_name']
                     self._child_classes = OrderedDict([("authentication", ("authentication", Rip.DefaultVrf.Interfaces.Interface.Authentication)), ("site-of-origin", ("site_of_origin", Rip.DefaultVrf.Interfaces.Interface.SiteOfOrigin)), ("receive-version", ("receive_version", Rip.DefaultVrf.Interfaces.Interface.ReceiveVersion)), ("send-version", ("send_version", Rip.DefaultVrf.Interfaces.Interface.SendVersion))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('broadcast_for_v2', YLeaf(YType.empty, 'broadcast-for-v2')),
-                        ('poison_reverse', YLeaf(YType.empty, 'poison-reverse')),
-                        ('passive', YLeaf(YType.empty, 'passive')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
-                        ('policy_out', YLeaf(YType.str, 'policy-out')),
-                        ('accept_metric_zero', YLeaf(YType.empty, 'accept-metric-zero')),
-                        ('policy_in', YLeaf(YType.str, 'policy-in')),
-                        ('split_horizon_disable', YLeaf(YType.empty, 'split-horizon-disable')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('broadcast_for_v2', (YLeaf(YType.empty, 'broadcast-for-v2'), ['Empty'])),
+                        ('poison_reverse', (YLeaf(YType.empty, 'poison-reverse'), ['Empty'])),
+                        ('passive', (YLeaf(YType.empty, 'passive'), ['Empty'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ('policy_out', (YLeaf(YType.str, 'policy-out'), ['str'])),
+                        ('accept_metric_zero', (YLeaf(YType.empty, 'accept-metric-zero'), ['Empty'])),
+                        ('policy_in', (YLeaf(YType.str, 'policy-in'), ['str'])),
+                        ('split_horizon_disable', (YLeaf(YType.empty, 'split-horizon-disable'), ['Empty'])),
                     ])
                     self.interface_name = None
                     self.broadcast_for_v2 = None
@@ -1254,6 +1272,7 @@ class Rip(Entity):
                     self._children_name_map["send_version"] = "send-version"
                     self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/interfaces/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface, ['interface_name', 'broadcast_for_v2', 'poison_reverse', 'passive', 'enable', 'policy_out', 'accept_metric_zero', 'policy_in', 'split_horizon_disable'], name, value)
@@ -1297,12 +1316,13 @@ class Rip(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('keychain', YLeaf(YType.str, 'keychain')),
-                            ('mode', YLeaf(YType.enumeration, 'mode')),
+                            ('keychain', (YLeaf(YType.str, 'keychain'), ['str'])),
+                            ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'RipAuthMode', '')])),
                         ])
                         self.keychain = None
                         self.mode = None
                         self._segment_path = lambda: "authentication"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.Authentication, ['keychain', 'mode'], name, value)
@@ -1370,12 +1390,12 @@ class Rip(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('type', YLeaf(YType.enumeration, 'type')),
-                            ('as_xx', YLeaf(YType.uint32, 'as-xx')),
-                            ('as_yy', YLeaf(YType.uint32, 'as-yy')),
-                            ('as_index', YLeaf(YType.uint32, 'as-index')),
-                            ('address', YLeaf(YType.str, 'address')),
-                            ('address_index', YLeaf(YType.uint32, 'address-index')),
+                            ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'RipExtCommunity', '')])),
+                            ('as_xx', (YLeaf(YType.uint32, 'as-xx'), ['int'])),
+                            ('as_yy', (YLeaf(YType.uint32, 'as-yy'), ['int'])),
+                            ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                            ('address_index', (YLeaf(YType.uint32, 'address-index'), ['int'])),
                         ])
                         self.type = None
                         self.as_xx = None
@@ -1384,6 +1404,7 @@ class Rip(Entity):
                         self.address = None
                         self.address_index = None
                         self._segment_path = lambda: "site-of-origin"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.SiteOfOrigin, ['type', 'as_xx', 'as_yy', 'as_index', 'address', 'address_index'], name, value)
@@ -1423,12 +1444,13 @@ class Rip(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version1', YLeaf(YType.boolean, 'version1')),
-                            ('version2', YLeaf(YType.boolean, 'version2')),
+                            ('version1', (YLeaf(YType.boolean, 'version1'), ['bool'])),
+                            ('version2', (YLeaf(YType.boolean, 'version2'), ['bool'])),
                         ])
                         self.version1 = None
                         self.version2 = None
                         self._segment_path = lambda: "receive-version"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.ReceiveVersion, ['version1', 'version2'], name, value)
@@ -1468,12 +1490,13 @@ class Rip(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version1', YLeaf(YType.boolean, 'version1')),
-                            ('version2', YLeaf(YType.boolean, 'version2')),
+                            ('version1', (YLeaf(YType.boolean, 'version1'), ['bool'])),
+                            ('version2', (YLeaf(YType.boolean, 'version2'), ['bool'])),
                         ])
                         self.version1 = None
                         self.version2 = None
                         self._segment_path = lambda: "send-version"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.DefaultVrf.Interfaces.Interface.SendVersion, ['version1', 'version2'], name, value)
@@ -1509,6 +1532,7 @@ class Rip(Entity):
                 self.neighbor = YList(self)
                 self._segment_path = lambda: "neighbors"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rip.DefaultVrf.Neighbors, [], name, value)
@@ -1542,11 +1566,12 @@ class Rip(Entity):
                     self.ylist_key_names = ['neighbor_address']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                        ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str'])),
                     ])
                     self.neighbor_address = None
                     self._segment_path = lambda: "neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/neighbors/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.DefaultVrf.Neighbors.Neighbor, ['neighbor_address'], name, value)
@@ -1612,10 +1637,10 @@ class Rip(Entity):
                 self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
-                    ('update_timer', YLeaf(YType.uint32, 'update-timer')),
-                    ('invalid_timer', YLeaf(YType.uint32, 'invalid-timer')),
-                    ('holddown_timer', YLeaf(YType.uint32, 'holddown-timer')),
-                    ('flush_timer', YLeaf(YType.uint32, 'flush-timer')),
+                    ('update_timer', (YLeaf(YType.uint32, 'update-timer'), ['int'])),
+                    ('invalid_timer', (YLeaf(YType.uint32, 'invalid-timer'), ['int'])),
+                    ('holddown_timer', (YLeaf(YType.uint32, 'holddown-timer'), ['int'])),
+                    ('flush_timer', (YLeaf(YType.uint32, 'flush-timer'), ['int'])),
                 ])
                 self.update_timer = None
                 self.invalid_timer = None
@@ -1623,6 +1648,7 @@ class Rip(Entity):
                 self.flush_timer = None
                 self._segment_path = lambda: "timers"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/default-vrf/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rip.DefaultVrf.Timers, ['update_timer', 'invalid_timer', 'holddown_timer', 'flush_timer'], name, value)
@@ -1658,6 +1684,7 @@ class Rip(Entity):
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Rip.Vrfs, [], name, value)
@@ -1794,18 +1821,18 @@ class Rip(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("default-information", ("default_information", Rip.Vrfs.Vrf.DefaultInformation)), ("redistribution", ("redistribution", Rip.Vrfs.Vrf.Redistribution)), ("ip-distances", ("ip_distances", Rip.Vrfs.Vrf.IpDistances)), ("interfaces", ("interfaces", Rip.Vrfs.Vrf.Interfaces)), ("neighbors", ("neighbors", Rip.Vrfs.Vrf.Neighbors)), ("timers", ("timers", Rip.Vrfs.Vrf.Timers))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
-                    ('broadcast_for_v2', YLeaf(YType.empty, 'broadcast-for-v2')),
-                    ('distance', YLeaf(YType.uint32, 'distance')),
-                    ('default_metric', YLeaf(YType.uint32, 'default-metric')),
-                    ('output_delay', YLeaf(YType.uint32, 'output-delay')),
-                    ('auto_summary', YLeaf(YType.empty, 'auto-summary')),
-                    ('policy_out', YLeaf(YType.str, 'policy-out')),
-                    ('validate_source_disable', YLeaf(YType.empty, 'validate-source-disable')),
-                    ('maximum_paths', YLeaf(YType.uint32, 'maximum-paths')),
-                    ('nsf', YLeaf(YType.empty, 'nsf')),
-                    ('policy_in', YLeaf(YType.str, 'policy-in')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                    ('broadcast_for_v2', (YLeaf(YType.empty, 'broadcast-for-v2'), ['Empty'])),
+                    ('distance', (YLeaf(YType.uint32, 'distance'), ['int'])),
+                    ('default_metric', (YLeaf(YType.uint32, 'default-metric'), ['int'])),
+                    ('output_delay', (YLeaf(YType.uint32, 'output-delay'), ['int'])),
+                    ('auto_summary', (YLeaf(YType.empty, 'auto-summary'), ['Empty'])),
+                    ('policy_out', (YLeaf(YType.str, 'policy-out'), ['str'])),
+                    ('validate_source_disable', (YLeaf(YType.empty, 'validate-source-disable'), ['Empty'])),
+                    ('maximum_paths', (YLeaf(YType.uint32, 'maximum-paths'), ['int'])),
+                    ('nsf', (YLeaf(YType.empty, 'nsf'), ['Empty'])),
+                    ('policy_in', (YLeaf(YType.str, 'policy-in'), ['str'])),
                 ])
                 self.vrf_name = None
                 self.enable = None
@@ -1843,6 +1870,7 @@ class Rip(Entity):
                 self._children_name_map["timers"] = "timers"
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rip-cfg:rip/vrfs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rip.Vrfs.Vrf, ['vrf_name', 'enable', 'broadcast_for_v2', 'distance', 'default_metric', 'output_delay', 'auto_summary', 'policy_out', 'validate_source_disable', 'maximum_paths', 'nsf', 'policy_in'], name, value)
@@ -1884,12 +1912,13 @@ class Rip(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                        ('option', YLeaf(YType.enumeration, 'option')),
+                        ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                        ('option', (YLeaf(YType.enumeration, 'option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'DefaultInformationOption', '')])),
                     ])
                     self.route_policy_name = None
                     self.option = None
                     self._segment_path = lambda: "default-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.Vrfs.Vrf.DefaultInformation, ['route_policy_name', 'option'], name, value)
@@ -1974,6 +2003,7 @@ class Rip(Entity):
                     self.ospfs.parent = self
                     self._children_name_map["ospfs"] = "ospfs"
                     self._segment_path = lambda: "redistribution"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.Vrfs.Vrf.Redistribution, [], name, value)
@@ -2013,12 +2043,13 @@ class Rip(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                            ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                            ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                            ('route_type', (YLeaf(YType.enumeration, 'route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'DefaultRedistRoute', '')])),
                         ])
                         self.route_policy_name = None
                         self.route_type = None
                         self._segment_path = lambda: "connected"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Connected, ['route_policy_name', 'route_type'], name, value)
@@ -2053,6 +2084,7 @@ class Rip(Entity):
 
                         self.bgp = YList(self)
                         self._segment_path = lambda: "bgps"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Bgps, [], name, value)
@@ -2103,16 +2135,17 @@ class Rip(Entity):
                             self.ylist_key_names = ['asnxx','asnyy']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('asnxx', YLeaf(YType.uint32, 'asnxx')),
-                                ('asnyy', YLeaf(YType.uint32, 'asnyy')),
-                                ('policy', YLeaf(YType.str, 'policy')),
-                                ('type', YLeaf(YType.enumeration, 'type')),
+                                ('asnxx', (YLeaf(YType.uint32, 'asnxx'), ['int'])),
+                                ('asnyy', (YLeaf(YType.uint32, 'asnyy'), ['int'])),
+                                ('policy', (YLeaf(YType.str, 'policy'), ['str'])),
+                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'BgpRedistRoute', '')])),
                             ])
                             self.asnxx = None
                             self.asnyy = None
                             self.policy = None
                             self.type = None
                             self._segment_path = lambda: "bgp" + "[asnxx='" + str(self.asnxx) + "']" + "[asnyy='" + str(self.asnyy) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Bgps.Bgp, ['asnxx', 'asnyy', 'policy', 'type'], name, value)
@@ -2147,6 +2180,7 @@ class Rip(Entity):
 
                         self.isis = YList(self)
                         self._segment_path = lambda: "isises"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Isises, [], name, value)
@@ -2190,14 +2224,15 @@ class Rip(Entity):
                             self.ylist_key_names = ['isis_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('isis_name', YLeaf(YType.str, 'isis-name')),
-                                ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                                ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                                ('isis_name', (YLeaf(YType.str, 'isis-name'), ['str'])),
+                                ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                                ('route_type', (YLeaf(YType.enumeration, 'route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'IsisRedistRoute', '')])),
                             ])
                             self.isis_name = None
                             self.route_policy_name = None
                             self.route_type = None
                             self._segment_path = lambda: "isis" + "[isis-name='" + str(self.isis_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Isises.Isis, ['isis_name', 'route_policy_name', 'route_type'], name, value)
@@ -2232,6 +2267,7 @@ class Rip(Entity):
 
                         self.eigrp = YList(self)
                         self._segment_path = lambda: "eigrp-s"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.EigrpS, [], name, value)
@@ -2275,14 +2311,15 @@ class Rip(Entity):
                             self.ylist_key_names = ['as_']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('as_', YLeaf(YType.uint32, 'as')),
-                                ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                                ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                                ('as_', (YLeaf(YType.uint32, 'as'), ['int'])),
+                                ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                                ('route_type', (YLeaf(YType.enumeration, 'route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'DefaultRedistRoute', '')])),
                             ])
                             self.as_ = None
                             self.route_policy_name = None
                             self.route_type = None
                             self._segment_path = lambda: "eigrp" + "[as='" + str(self.as_) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.EigrpS.Eigrp, ['as_', 'route_policy_name', 'route_type'], name, value)
@@ -2322,12 +2359,13 @@ class Rip(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                            ('route_type', YLeaf(YType.enumeration, 'route-type')),
+                            ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                            ('route_type', (YLeaf(YType.enumeration, 'route-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'DefaultRedistRoute', '')])),
                         ])
                         self.route_policy_name = None
                         self.route_type = None
                         self._segment_path = lambda: "static"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Static, ['route_policy_name', 'route_type'], name, value)
@@ -2362,6 +2400,7 @@ class Rip(Entity):
 
                         self.ospf = YList(self)
                         self._segment_path = lambda: "ospfs"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Ospfs, [], name, value)
@@ -2429,13 +2468,13 @@ class Rip(Entity):
                             self.ylist_key_names = ['ospf_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ospf_name', YLeaf(YType.str, 'ospf-name')),
-                                ('route_policy_name', YLeaf(YType.str, 'route-policy-name')),
-                                ('internal', YLeaf(YType.boolean, 'internal')),
-                                ('external', YLeaf(YType.boolean, 'external')),
-                                ('external_type', YLeaf(YType.uint32, 'external-type')),
-                                ('nssa_external', YLeaf(YType.boolean, 'nssa-external')),
-                                ('nssa_external_type', YLeaf(YType.uint32, 'nssa-external-type')),
+                                ('ospf_name', (YLeaf(YType.str, 'ospf-name'), ['str'])),
+                                ('route_policy_name', (YLeaf(YType.str, 'route-policy-name'), ['str'])),
+                                ('internal', (YLeaf(YType.boolean, 'internal'), ['bool'])),
+                                ('external', (YLeaf(YType.boolean, 'external'), ['bool'])),
+                                ('external_type', (YLeaf(YType.uint32, 'external-type'), ['int'])),
+                                ('nssa_external', (YLeaf(YType.boolean, 'nssa-external'), ['bool'])),
+                                ('nssa_external_type', (YLeaf(YType.uint32, 'nssa-external-type'), ['int'])),
                             ])
                             self.ospf_name = None
                             self.route_policy_name = None
@@ -2445,6 +2484,7 @@ class Rip(Entity):
                             self.nssa_external = None
                             self.nssa_external_type = None
                             self._segment_path = lambda: "ospf" + "[ospf-name='" + str(self.ospf_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Redistribution.Ospfs.Ospf, ['ospf_name', 'route_policy_name', 'internal', 'external', 'external_type', 'nssa_external', 'nssa_external_type'], name, value)
@@ -2479,6 +2519,7 @@ class Rip(Entity):
 
                     self.ip_distance = YList(self)
                     self._segment_path = lambda: "ip-distances"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.Vrfs.Vrf.IpDistances, [], name, value)
@@ -2528,14 +2569,15 @@ class Rip(Entity):
                         self.ylist_key_names = ['address','netmask']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('address', YLeaf(YType.str, 'address')),
-                            ('netmask', YLeaf(YType.str, 'netmask')),
-                            ('distance', YLeaf(YType.uint32, 'distance')),
+                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                            ('netmask', (YLeaf(YType.str, 'netmask'), ['str'])),
+                            ('distance', (YLeaf(YType.uint32, 'distance'), ['int'])),
                         ])
                         self.address = None
                         self.netmask = None
                         self.distance = None
                         self._segment_path = lambda: "ip-distance" + "[address='" + str(self.address) + "']" + "[netmask='" + str(self.netmask) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.IpDistances.IpDistance, ['address', 'netmask', 'distance'], name, value)
@@ -2570,6 +2612,7 @@ class Rip(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.Vrfs.Vrf.Interfaces, [], name, value)
@@ -2584,7 +2627,7 @@ class Rip(Entity):
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: authentication
                     
@@ -2665,15 +2708,15 @@ class Rip(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("authentication", ("authentication", Rip.Vrfs.Vrf.Interfaces.Interface.Authentication)), ("site-of-origin", ("site_of_origin", Rip.Vrfs.Vrf.Interfaces.Interface.SiteOfOrigin)), ("receive-version", ("receive_version", Rip.Vrfs.Vrf.Interfaces.Interface.ReceiveVersion)), ("send-version", ("send_version", Rip.Vrfs.Vrf.Interfaces.Interface.SendVersion))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('broadcast_for_v2', YLeaf(YType.empty, 'broadcast-for-v2')),
-                            ('poison_reverse', YLeaf(YType.empty, 'poison-reverse')),
-                            ('passive', YLeaf(YType.empty, 'passive')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('policy_out', YLeaf(YType.str, 'policy-out')),
-                            ('accept_metric_zero', YLeaf(YType.empty, 'accept-metric-zero')),
-                            ('policy_in', YLeaf(YType.str, 'policy-in')),
-                            ('split_horizon_disable', YLeaf(YType.empty, 'split-horizon-disable')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('broadcast_for_v2', (YLeaf(YType.empty, 'broadcast-for-v2'), ['Empty'])),
+                            ('poison_reverse', (YLeaf(YType.empty, 'poison-reverse'), ['Empty'])),
+                            ('passive', (YLeaf(YType.empty, 'passive'), ['Empty'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('policy_out', (YLeaf(YType.str, 'policy-out'), ['str'])),
+                            ('accept_metric_zero', (YLeaf(YType.empty, 'accept-metric-zero'), ['Empty'])),
+                            ('policy_in', (YLeaf(YType.str, 'policy-in'), ['str'])),
+                            ('split_horizon_disable', (YLeaf(YType.empty, 'split-horizon-disable'), ['Empty'])),
                         ])
                         self.interface_name = None
                         self.broadcast_for_v2 = None
@@ -2700,6 +2743,7 @@ class Rip(Entity):
                         self.send_version.parent = self
                         self._children_name_map["send_version"] = "send-version"
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface, ['interface_name', 'broadcast_for_v2', 'poison_reverse', 'passive', 'enable', 'policy_out', 'accept_metric_zero', 'policy_in', 'split_horizon_disable'], name, value)
@@ -2743,12 +2787,13 @@ class Rip(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('keychain', YLeaf(YType.str, 'keychain')),
-                                ('mode', YLeaf(YType.enumeration, 'mode')),
+                                ('keychain', (YLeaf(YType.str, 'keychain'), ['str'])),
+                                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'RipAuthMode', '')])),
                             ])
                             self.keychain = None
                             self.mode = None
                             self._segment_path = lambda: "authentication"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.Authentication, ['keychain', 'mode'], name, value)
@@ -2816,12 +2861,12 @@ class Rip(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('type', YLeaf(YType.enumeration, 'type')),
-                                ('as_xx', YLeaf(YType.uint32, 'as-xx')),
-                                ('as_yy', YLeaf(YType.uint32, 'as-yy')),
-                                ('as_index', YLeaf(YType.uint32, 'as-index')),
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('address_index', YLeaf(YType.uint32, 'address-index')),
+                                ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rip_cfg', 'RipExtCommunity', '')])),
+                                ('as_xx', (YLeaf(YType.uint32, 'as-xx'), ['int'])),
+                                ('as_yy', (YLeaf(YType.uint32, 'as-yy'), ['int'])),
+                                ('as_index', (YLeaf(YType.uint32, 'as-index'), ['int'])),
+                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                ('address_index', (YLeaf(YType.uint32, 'address-index'), ['int'])),
                             ])
                             self.type = None
                             self.as_xx = None
@@ -2830,6 +2875,7 @@ class Rip(Entity):
                             self.address = None
                             self.address_index = None
                             self._segment_path = lambda: "site-of-origin"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.SiteOfOrigin, ['type', 'as_xx', 'as_yy', 'as_index', 'address', 'address_index'], name, value)
@@ -2869,12 +2915,13 @@ class Rip(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('version1', YLeaf(YType.boolean, 'version1')),
-                                ('version2', YLeaf(YType.boolean, 'version2')),
+                                ('version1', (YLeaf(YType.boolean, 'version1'), ['bool'])),
+                                ('version2', (YLeaf(YType.boolean, 'version2'), ['bool'])),
                             ])
                             self.version1 = None
                             self.version2 = None
                             self._segment_path = lambda: "receive-version"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.ReceiveVersion, ['version1', 'version2'], name, value)
@@ -2914,12 +2961,13 @@ class Rip(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('version1', YLeaf(YType.boolean, 'version1')),
-                                ('version2', YLeaf(YType.boolean, 'version2')),
+                                ('version1', (YLeaf(YType.boolean, 'version1'), ['bool'])),
+                                ('version2', (YLeaf(YType.boolean, 'version2'), ['bool'])),
                             ])
                             self.version1 = None
                             self.version2 = None
                             self._segment_path = lambda: "send-version"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Rip.Vrfs.Vrf.Interfaces.Interface.SendVersion, ['version1', 'version2'], name, value)
@@ -2954,6 +3002,7 @@ class Rip(Entity):
 
                     self.neighbor = YList(self)
                     self._segment_path = lambda: "neighbors"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.Vrfs.Vrf.Neighbors, [], name, value)
@@ -2987,10 +3036,11 @@ class Rip(Entity):
                         self.ylist_key_names = ['neighbor_address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
+                            ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str'])),
                         ])
                         self.neighbor_address = None
                         self._segment_path = lambda: "neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rip.Vrfs.Vrf.Neighbors.Neighbor, ['neighbor_address'], name, value)
@@ -3056,16 +3106,17 @@ class Rip(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('update_timer', YLeaf(YType.uint32, 'update-timer')),
-                        ('invalid_timer', YLeaf(YType.uint32, 'invalid-timer')),
-                        ('holddown_timer', YLeaf(YType.uint32, 'holddown-timer')),
-                        ('flush_timer', YLeaf(YType.uint32, 'flush-timer')),
+                        ('update_timer', (YLeaf(YType.uint32, 'update-timer'), ['int'])),
+                        ('invalid_timer', (YLeaf(YType.uint32, 'invalid-timer'), ['int'])),
+                        ('holddown_timer', (YLeaf(YType.uint32, 'holddown-timer'), ['int'])),
+                        ('flush_timer', (YLeaf(YType.uint32, 'flush-timer'), ['int'])),
                     ])
                     self.update_timer = None
                     self.invalid_timer = None
                     self.holddown_timer = None
                     self.flush_timer = None
                     self._segment_path = lambda: "timers"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rip.Vrfs.Vrf.Timers, ['update_timer', 'invalid_timer', 'holddown_timer', 'flush_timer'], name, value)

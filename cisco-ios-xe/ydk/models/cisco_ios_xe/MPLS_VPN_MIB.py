@@ -19,6 +19,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class MPLSVPNMIB(Entity):
     """
     
@@ -105,6 +106,7 @@ class MPLSVPNMIB(Entity):
         self.mplsvpnvrfroutetable.parent = self
         self._children_name_map["mplsvpnvrfroutetable"] = "mplsVpnVrfRouteTable"
         self._segment_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MPLSVPNMIB, [], name, value)
@@ -164,11 +166,11 @@ class MPLSVPNMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('mplsvpnconfiguredvrfs', YLeaf(YType.uint32, 'mplsVpnConfiguredVrfs')),
-                ('mplsvpnactivevrfs', YLeaf(YType.uint32, 'mplsVpnActiveVrfs')),
-                ('mplsvpnconnectedinterfaces', YLeaf(YType.uint32, 'mplsVpnConnectedInterfaces')),
-                ('mplsvpnnotificationenable', YLeaf(YType.boolean, 'mplsVpnNotificationEnable')),
-                ('mplsvpnvrfconfmaxpossibleroutes', YLeaf(YType.uint32, 'mplsVpnVrfConfMaxPossibleRoutes')),
+                ('mplsvpnconfiguredvrfs', (YLeaf(YType.uint32, 'mplsVpnConfiguredVrfs'), ['int'])),
+                ('mplsvpnactivevrfs', (YLeaf(YType.uint32, 'mplsVpnActiveVrfs'), ['int'])),
+                ('mplsvpnconnectedinterfaces', (YLeaf(YType.uint32, 'mplsVpnConnectedInterfaces'), ['int'])),
+                ('mplsvpnnotificationenable', (YLeaf(YType.boolean, 'mplsVpnNotificationEnable'), ['bool'])),
+                ('mplsvpnvrfconfmaxpossibleroutes', (YLeaf(YType.uint32, 'mplsVpnVrfConfMaxPossibleRoutes'), ['int'])),
             ])
             self.mplsvpnconfiguredvrfs = None
             self.mplsvpnactivevrfs = None
@@ -177,9 +179,10 @@ class MPLSVPNMIB(Entity):
             self.mplsvpnvrfconfmaxpossibleroutes = None
             self._segment_path = lambda: "mplsVpnScalars"
             self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(MPLSVPNMIB.MplsVpnScalars, [u'mplsvpnconfiguredvrfs', u'mplsvpnactivevrfs', u'mplsvpnconnectedinterfaces', u'mplsvpnnotificationenable', u'mplsvpnvrfconfmaxpossibleroutes'], name, value)
+            self._perform_setattr(MPLSVPNMIB.MplsVpnScalars, ['mplsvpnconfiguredvrfs', 'mplsvpnactivevrfs', 'mplsvpnconnectedinterfaces', 'mplsvpnnotificationenable', 'mplsvpnvrfconfmaxpossibleroutes'], name, value)
 
 
     class MplsVpnInterfaceConfTable(Entity):
@@ -213,6 +216,7 @@ class MPLSVPNMIB(Entity):
             self.mplsvpninterfaceconfentry = YList(self)
             self._segment_path = lambda: "mplsVpnInterfaceConfTable"
             self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSVPNMIB.MplsVpnInterfaceConfTable, [], name, value)
@@ -285,13 +289,13 @@ class MPLSVPNMIB(Entity):
                 self.ylist_key_names = ['mplsvpnvrfname','mplsvpninterfaceconfindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsvpnvrfname', YLeaf(YType.str, 'mplsVpnVrfName')),
-                    ('mplsvpninterfaceconfindex', YLeaf(YType.int32, 'mplsVpnInterfaceConfIndex')),
-                    ('mplsvpninterfacelabeledgetype', YLeaf(YType.enumeration, 'mplsVpnInterfaceLabelEdgeType')),
-                    ('mplsvpninterfacevpnclassification', YLeaf(YType.enumeration, 'mplsVpnInterfaceVpnClassification')),
-                    ('mplsvpninterfacevpnroutedistprotocol', YLeaf(YType.bits, 'mplsVpnInterfaceVpnRouteDistProtocol')),
-                    ('mplsvpninterfaceconfstoragetype', YLeaf(YType.enumeration, 'mplsVpnInterfaceConfStorageType')),
-                    ('mplsvpninterfaceconfrowstatus', YLeaf(YType.enumeration, 'mplsVpnInterfaceConfRowStatus')),
+                    ('mplsvpnvrfname', (YLeaf(YType.str, 'mplsVpnVrfName'), ['str'])),
+                    ('mplsvpninterfaceconfindex', (YLeaf(YType.int32, 'mplsVpnInterfaceConfIndex'), ['int'])),
+                    ('mplsvpninterfacelabeledgetype', (YLeaf(YType.enumeration, 'mplsVpnInterfaceLabelEdgeType'), [('ydk.models.cisco_ios_xe.MPLS_VPN_MIB', 'MPLSVPNMIB', 'MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry.MplsVpnInterfaceLabelEdgeType')])),
+                    ('mplsvpninterfacevpnclassification', (YLeaf(YType.enumeration, 'mplsVpnInterfaceVpnClassification'), [('ydk.models.cisco_ios_xe.MPLS_VPN_MIB', 'MPLSVPNMIB', 'MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry.MplsVpnInterfaceVpnClassification')])),
+                    ('mplsvpninterfacevpnroutedistprotocol', (YLeaf(YType.bits, 'mplsVpnInterfaceVpnRouteDistProtocol'), ['Bits'])),
+                    ('mplsvpninterfaceconfstoragetype', (YLeaf(YType.enumeration, 'mplsVpnInterfaceConfStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('mplsvpninterfaceconfrowstatus', (YLeaf(YType.enumeration, 'mplsVpnInterfaceConfRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.mplsvpnvrfname = None
                 self.mplsvpninterfaceconfindex = None
@@ -302,9 +306,10 @@ class MPLSVPNMIB(Entity):
                 self.mplsvpninterfaceconfrowstatus = None
                 self._segment_path = lambda: "mplsVpnInterfaceConfEntry" + "[mplsVpnVrfName='" + str(self.mplsvpnvrfname) + "']" + "[mplsVpnInterfaceConfIndex='" + str(self.mplsvpninterfaceconfindex) + "']"
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnInterfaceConfTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry, [u'mplsvpnvrfname', u'mplsvpninterfaceconfindex', u'mplsvpninterfacelabeledgetype', u'mplsvpninterfacevpnclassification', u'mplsvpninterfacevpnroutedistprotocol', u'mplsvpninterfaceconfstoragetype', u'mplsvpninterfaceconfrowstatus'], name, value)
+                self._perform_setattr(MPLSVPNMIB.MplsVpnInterfaceConfTable.MplsVpnInterfaceConfEntry, ['mplsvpnvrfname', 'mplsvpninterfaceconfindex', 'mplsvpninterfacelabeledgetype', 'mplsvpninterfacevpnclassification', 'mplsvpninterfacevpnroutedistprotocol', 'mplsvpninterfaceconfstoragetype', 'mplsvpninterfaceconfrowstatus'], name, value)
 
             class MplsVpnInterfaceLabelEdgeType(Enum):
                 """
@@ -387,6 +392,7 @@ class MPLSVPNMIB(Entity):
             self.mplsvpnvrfentry = YList(self)
             self._segment_path = lambda: "mplsVpnVrfTable"
             self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSVPNMIB.MplsVpnVrfTable, [], name, value)
@@ -534,24 +540,24 @@ class MPLSVPNMIB(Entity):
                 self.ylist_key_names = ['mplsvpnvrfname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsvpnvrfname', YLeaf(YType.str, 'mplsVpnVrfName')),
-                    ('mplsvpnvrfdescription', YLeaf(YType.str, 'mplsVpnVrfDescription')),
-                    ('mplsvpnvrfroutedistinguisher', YLeaf(YType.str, 'mplsVpnVrfRouteDistinguisher')),
-                    ('mplsvpnvrfcreationtime', YLeaf(YType.uint32, 'mplsVpnVrfCreationTime')),
-                    ('mplsvpnvrfoperstatus', YLeaf(YType.enumeration, 'mplsVpnVrfOperStatus')),
-                    ('mplsvpnvrfactiveinterfaces', YLeaf(YType.uint32, 'mplsVpnVrfActiveInterfaces')),
-                    ('mplsvpnvrfassociatedinterfaces', YLeaf(YType.uint32, 'mplsVpnVrfAssociatedInterfaces')),
-                    ('mplsvpnvrfconfmidroutethreshold', YLeaf(YType.uint32, 'mplsVpnVrfConfMidRouteThreshold')),
-                    ('mplsvpnvrfconfhighroutethreshold', YLeaf(YType.uint32, 'mplsVpnVrfConfHighRouteThreshold')),
-                    ('mplsvpnvrfconfmaxroutes', YLeaf(YType.uint32, 'mplsVpnVrfConfMaxRoutes')),
-                    ('mplsvpnvrfconflastchanged', YLeaf(YType.uint32, 'mplsVpnVrfConfLastChanged')),
-                    ('mplsvpnvrfconfrowstatus', YLeaf(YType.enumeration, 'mplsVpnVrfConfRowStatus')),
-                    ('mplsvpnvrfconfstoragetype', YLeaf(YType.enumeration, 'mplsVpnVrfConfStorageType')),
-                    ('mplsvpnvrfsecillegallabelviolations', YLeaf(YType.uint32, 'mplsVpnVrfSecIllegalLabelViolations')),
-                    ('mplsvpnvrfsecillegallabelrcvthresh', YLeaf(YType.uint32, 'mplsVpnVrfSecIllegalLabelRcvThresh')),
-                    ('mplsvpnvrfperfroutesadded', YLeaf(YType.uint32, 'mplsVpnVrfPerfRoutesAdded')),
-                    ('mplsvpnvrfperfroutesdeleted', YLeaf(YType.uint32, 'mplsVpnVrfPerfRoutesDeleted')),
-                    ('mplsvpnvrfperfcurrnumroutes', YLeaf(YType.uint32, 'mplsVpnVrfPerfCurrNumRoutes')),
+                    ('mplsvpnvrfname', (YLeaf(YType.str, 'mplsVpnVrfName'), ['str'])),
+                    ('mplsvpnvrfdescription', (YLeaf(YType.str, 'mplsVpnVrfDescription'), ['str'])),
+                    ('mplsvpnvrfroutedistinguisher', (YLeaf(YType.str, 'mplsVpnVrfRouteDistinguisher'), ['str'])),
+                    ('mplsvpnvrfcreationtime', (YLeaf(YType.uint32, 'mplsVpnVrfCreationTime'), ['int'])),
+                    ('mplsvpnvrfoperstatus', (YLeaf(YType.enumeration, 'mplsVpnVrfOperStatus'), [('ydk.models.cisco_ios_xe.MPLS_VPN_MIB', 'MPLSVPNMIB', 'MplsVpnVrfTable.MplsVpnVrfEntry.MplsVpnVrfOperStatus')])),
+                    ('mplsvpnvrfactiveinterfaces', (YLeaf(YType.uint32, 'mplsVpnVrfActiveInterfaces'), ['int'])),
+                    ('mplsvpnvrfassociatedinterfaces', (YLeaf(YType.uint32, 'mplsVpnVrfAssociatedInterfaces'), ['int'])),
+                    ('mplsvpnvrfconfmidroutethreshold', (YLeaf(YType.uint32, 'mplsVpnVrfConfMidRouteThreshold'), ['int'])),
+                    ('mplsvpnvrfconfhighroutethreshold', (YLeaf(YType.uint32, 'mplsVpnVrfConfHighRouteThreshold'), ['int'])),
+                    ('mplsvpnvrfconfmaxroutes', (YLeaf(YType.uint32, 'mplsVpnVrfConfMaxRoutes'), ['int'])),
+                    ('mplsvpnvrfconflastchanged', (YLeaf(YType.uint32, 'mplsVpnVrfConfLastChanged'), ['int'])),
+                    ('mplsvpnvrfconfrowstatus', (YLeaf(YType.enumeration, 'mplsVpnVrfConfRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('mplsvpnvrfconfstoragetype', (YLeaf(YType.enumeration, 'mplsVpnVrfConfStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('mplsvpnvrfsecillegallabelviolations', (YLeaf(YType.uint32, 'mplsVpnVrfSecIllegalLabelViolations'), ['int'])),
+                    ('mplsvpnvrfsecillegallabelrcvthresh', (YLeaf(YType.uint32, 'mplsVpnVrfSecIllegalLabelRcvThresh'), ['int'])),
+                    ('mplsvpnvrfperfroutesadded', (YLeaf(YType.uint32, 'mplsVpnVrfPerfRoutesAdded'), ['int'])),
+                    ('mplsvpnvrfperfroutesdeleted', (YLeaf(YType.uint32, 'mplsVpnVrfPerfRoutesDeleted'), ['int'])),
+                    ('mplsvpnvrfperfcurrnumroutes', (YLeaf(YType.uint32, 'mplsVpnVrfPerfCurrNumRoutes'), ['int'])),
                 ])
                 self.mplsvpnvrfname = None
                 self.mplsvpnvrfdescription = None
@@ -573,9 +579,10 @@ class MPLSVPNMIB(Entity):
                 self.mplsvpnvrfperfcurrnumroutes = None
                 self._segment_path = lambda: "mplsVpnVrfEntry" + "[mplsVpnVrfName='" + str(self.mplsvpnvrfname) + "']"
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry, [u'mplsvpnvrfname', u'mplsvpnvrfdescription', u'mplsvpnvrfroutedistinguisher', u'mplsvpnvrfcreationtime', u'mplsvpnvrfoperstatus', u'mplsvpnvrfactiveinterfaces', u'mplsvpnvrfassociatedinterfaces', u'mplsvpnvrfconfmidroutethreshold', u'mplsvpnvrfconfhighroutethreshold', u'mplsvpnvrfconfmaxroutes', u'mplsvpnvrfconflastchanged', u'mplsvpnvrfconfrowstatus', u'mplsvpnvrfconfstoragetype', u'mplsvpnvrfsecillegallabelviolations', u'mplsvpnvrfsecillegallabelrcvthresh', u'mplsvpnvrfperfroutesadded', u'mplsvpnvrfperfroutesdeleted', u'mplsvpnvrfperfcurrnumroutes'], name, value)
+                self._perform_setattr(MPLSVPNMIB.MplsVpnVrfTable.MplsVpnVrfEntry, ['mplsvpnvrfname', 'mplsvpnvrfdescription', 'mplsvpnvrfroutedistinguisher', 'mplsvpnvrfcreationtime', 'mplsvpnvrfoperstatus', 'mplsvpnvrfactiveinterfaces', 'mplsvpnvrfassociatedinterfaces', 'mplsvpnvrfconfmidroutethreshold', 'mplsvpnvrfconfhighroutethreshold', 'mplsvpnvrfconfmaxroutes', 'mplsvpnvrfconflastchanged', 'mplsvpnvrfconfrowstatus', 'mplsvpnvrfconfstoragetype', 'mplsvpnvrfsecillegallabelviolations', 'mplsvpnvrfsecillegallabelrcvthresh', 'mplsvpnvrfperfroutesadded', 'mplsvpnvrfperfroutesdeleted', 'mplsvpnvrfperfcurrnumroutes'], name, value)
 
             class MplsVpnVrfOperStatus(Enum):
                 """
@@ -637,6 +644,7 @@ class MPLSVPNMIB(Entity):
             self.mplsvpnvrfroutetargetentry = YList(self)
             self._segment_path = lambda: "mplsVpnVrfRouteTargetTable"
             self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSVPNMIB.MplsVpnVrfRouteTargetTable, [], name, value)
@@ -704,12 +712,12 @@ class MPLSVPNMIB(Entity):
                 self.ylist_key_names = ['mplsvpnvrfname','mplsvpnvrfroutetargetindex','mplsvpnvrfroutetargettype']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsvpnvrfname', YLeaf(YType.str, 'mplsVpnVrfName')),
-                    ('mplsvpnvrfroutetargetindex', YLeaf(YType.uint32, 'mplsVpnVrfRouteTargetIndex')),
-                    ('mplsvpnvrfroutetargettype', YLeaf(YType.enumeration, 'mplsVpnVrfRouteTargetType')),
-                    ('mplsvpnvrfroutetarget', YLeaf(YType.str, 'mplsVpnVrfRouteTarget')),
-                    ('mplsvpnvrfroutetargetdescr', YLeaf(YType.str, 'mplsVpnVrfRouteTargetDescr')),
-                    ('mplsvpnvrfroutetargetrowstatus', YLeaf(YType.enumeration, 'mplsVpnVrfRouteTargetRowStatus')),
+                    ('mplsvpnvrfname', (YLeaf(YType.str, 'mplsVpnVrfName'), ['str'])),
+                    ('mplsvpnvrfroutetargetindex', (YLeaf(YType.uint32, 'mplsVpnVrfRouteTargetIndex'), ['int'])),
+                    ('mplsvpnvrfroutetargettype', (YLeaf(YType.enumeration, 'mplsVpnVrfRouteTargetType'), [('ydk.models.cisco_ios_xe.MPLS_VPN_MIB', 'MPLSVPNMIB', 'MplsVpnVrfRouteTargetTable.MplsVpnVrfRouteTargetEntry.MplsVpnVrfRouteTargetType')])),
+                    ('mplsvpnvrfroutetarget', (YLeaf(YType.str, 'mplsVpnVrfRouteTarget'), ['str'])),
+                    ('mplsvpnvrfroutetargetdescr', (YLeaf(YType.str, 'mplsVpnVrfRouteTargetDescr'), ['str'])),
+                    ('mplsvpnvrfroutetargetrowstatus', (YLeaf(YType.enumeration, 'mplsVpnVrfRouteTargetRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.mplsvpnvrfname = None
                 self.mplsvpnvrfroutetargetindex = None
@@ -719,9 +727,10 @@ class MPLSVPNMIB(Entity):
                 self.mplsvpnvrfroutetargetrowstatus = None
                 self._segment_path = lambda: "mplsVpnVrfRouteTargetEntry" + "[mplsVpnVrfName='" + str(self.mplsvpnvrfname) + "']" + "[mplsVpnVrfRouteTargetIndex='" + str(self.mplsvpnvrfroutetargetindex) + "']" + "[mplsVpnVrfRouteTargetType='" + str(self.mplsvpnvrfroutetargettype) + "']"
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfRouteTargetTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.MplsVpnVrfRouteTargetTable.MplsVpnVrfRouteTargetEntry, [u'mplsvpnvrfname', u'mplsvpnvrfroutetargetindex', u'mplsvpnvrfroutetargettype', u'mplsvpnvrfroutetarget', u'mplsvpnvrfroutetargetdescr', u'mplsvpnvrfroutetargetrowstatus'], name, value)
+                self._perform_setattr(MPLSVPNMIB.MplsVpnVrfRouteTargetTable.MplsVpnVrfRouteTargetEntry, ['mplsvpnvrfname', 'mplsvpnvrfroutetargetindex', 'mplsvpnvrfroutetargettype', 'mplsvpnvrfroutetarget', 'mplsvpnvrfroutetargetdescr', 'mplsvpnvrfroutetargetrowstatus'], name, value)
 
             class MplsVpnVrfRouteTargetType(Enum):
                 """
@@ -776,6 +785,7 @@ class MPLSVPNMIB(Entity):
             self.mplsvpnvrfbgpnbraddrentry = YList(self)
             self._segment_path = lambda: "mplsVpnVrfBgpNbrAddrTable"
             self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable, [], name, value)
@@ -857,14 +867,14 @@ class MPLSVPNMIB(Entity):
                 self.ylist_key_names = ['mplsvpnvrfname','mplsvpninterfaceconfindex','mplsvpnvrfbgpnbrindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsvpnvrfname', YLeaf(YType.str, 'mplsVpnVrfName')),
-                    ('mplsvpninterfaceconfindex', YLeaf(YType.str, 'mplsVpnInterfaceConfIndex')),
-                    ('mplsvpnvrfbgpnbrindex', YLeaf(YType.uint32, 'mplsVpnVrfBgpNbrIndex')),
-                    ('mplsvpnvrfbgpnbrrole', YLeaf(YType.enumeration, 'mplsVpnVrfBgpNbrRole')),
-                    ('mplsvpnvrfbgpnbrtype', YLeaf(YType.enumeration, 'mplsVpnVrfBgpNbrType')),
-                    ('mplsvpnvrfbgpnbraddr', YLeaf(YType.str, 'mplsVpnVrfBgpNbrAddr')),
-                    ('mplsvpnvrfbgpnbrrowstatus', YLeaf(YType.enumeration, 'mplsVpnVrfBgpNbrRowStatus')),
-                    ('mplsvpnvrfbgpnbrstoragetype', YLeaf(YType.enumeration, 'mplsVpnVrfBgpNbrStorageType')),
+                    ('mplsvpnvrfname', (YLeaf(YType.str, 'mplsVpnVrfName'), ['str'])),
+                    ('mplsvpninterfaceconfindex', (YLeaf(YType.str, 'mplsVpnInterfaceConfIndex'), ['int'])),
+                    ('mplsvpnvrfbgpnbrindex', (YLeaf(YType.uint32, 'mplsVpnVrfBgpNbrIndex'), ['int'])),
+                    ('mplsvpnvrfbgpnbrrole', (YLeaf(YType.enumeration, 'mplsVpnVrfBgpNbrRole'), [('ydk.models.cisco_ios_xe.MPLS_VPN_MIB', 'MPLSVPNMIB', 'MplsVpnVrfBgpNbrAddrTable.MplsVpnVrfBgpNbrAddrEntry.MplsVpnVrfBgpNbrRole')])),
+                    ('mplsvpnvrfbgpnbrtype', (YLeaf(YType.enumeration, 'mplsVpnVrfBgpNbrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('mplsvpnvrfbgpnbraddr', (YLeaf(YType.str, 'mplsVpnVrfBgpNbrAddr'), ['str'])),
+                    ('mplsvpnvrfbgpnbrrowstatus', (YLeaf(YType.enumeration, 'mplsVpnVrfBgpNbrRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('mplsvpnvrfbgpnbrstoragetype', (YLeaf(YType.enumeration, 'mplsVpnVrfBgpNbrStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
                 ])
                 self.mplsvpnvrfname = None
                 self.mplsvpninterfaceconfindex = None
@@ -876,9 +886,10 @@ class MPLSVPNMIB(Entity):
                 self.mplsvpnvrfbgpnbrstoragetype = None
                 self._segment_path = lambda: "mplsVpnVrfBgpNbrAddrEntry" + "[mplsVpnVrfName='" + str(self.mplsvpnvrfname) + "']" + "[mplsVpnInterfaceConfIndex='" + str(self.mplsvpninterfaceconfindex) + "']" + "[mplsVpnVrfBgpNbrIndex='" + str(self.mplsvpnvrfbgpnbrindex) + "']"
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfBgpNbrAddrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable.MplsVpnVrfBgpNbrAddrEntry, [u'mplsvpnvrfname', u'mplsvpninterfaceconfindex', u'mplsvpnvrfbgpnbrindex', u'mplsvpnvrfbgpnbrrole', u'mplsvpnvrfbgpnbrtype', u'mplsvpnvrfbgpnbraddr', u'mplsvpnvrfbgpnbrrowstatus', u'mplsvpnvrfbgpnbrstoragetype'], name, value)
+                self._perform_setattr(MPLSVPNMIB.MplsVpnVrfBgpNbrAddrTable.MplsVpnVrfBgpNbrAddrEntry, ['mplsvpnvrfname', 'mplsvpninterfaceconfindex', 'mplsvpnvrfbgpnbrindex', 'mplsvpnvrfbgpnbrrole', 'mplsvpnvrfbgpnbrtype', 'mplsvpnvrfbgpnbraddr', 'mplsvpnvrfbgpnbrrowstatus', 'mplsvpnvrfbgpnbrstoragetype'], name, value)
 
             class MplsVpnVrfBgpNbrRole(Enum):
                 """
@@ -931,6 +942,7 @@ class MPLSVPNMIB(Entity):
             self.mplsvpnvrfbgpnbrprefixentry = YList(self)
             self._segment_path = lambda: "mplsVpnVrfBgpNbrPrefixTable"
             self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable, [], name, value)
@@ -1061,21 +1073,21 @@ class MPLSVPNMIB(Entity):
                 self.ylist_key_names = ['mplsvpnvrfname','mplsvpnvrfbgppathattripaddrprefix','mplsvpnvrfbgppathattripaddrprefixlen','mplsvpnvrfbgppathattrpeer']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsvpnvrfname', YLeaf(YType.str, 'mplsVpnVrfName')),
-                    ('mplsvpnvrfbgppathattripaddrprefix', YLeaf(YType.str, 'mplsVpnVrfBgpPathAttrIpAddrPrefix')),
-                    ('mplsvpnvrfbgppathattripaddrprefixlen', YLeaf(YType.int32, 'mplsVpnVrfBgpPathAttrIpAddrPrefixLen')),
-                    ('mplsvpnvrfbgppathattrpeer', YLeaf(YType.str, 'mplsVpnVrfBgpPathAttrPeer')),
-                    ('mplsvpnvrfbgppathattrorigin', YLeaf(YType.enumeration, 'mplsVpnVrfBgpPathAttrOrigin')),
-                    ('mplsvpnvrfbgppathattraspathsegment', YLeaf(YType.str, 'mplsVpnVrfBgpPathAttrASPathSegment')),
-                    ('mplsvpnvrfbgppathattrnexthop', YLeaf(YType.str, 'mplsVpnVrfBgpPathAttrNextHop')),
-                    ('mplsvpnvrfbgppathattrmultiexitdisc', YLeaf(YType.int32, 'mplsVpnVrfBgpPathAttrMultiExitDisc')),
-                    ('mplsvpnvrfbgppathattrlocalpref', YLeaf(YType.int32, 'mplsVpnVrfBgpPathAttrLocalPref')),
-                    ('mplsvpnvrfbgppathattratomicaggregate', YLeaf(YType.enumeration, 'mplsVpnVrfBgpPathAttrAtomicAggregate')),
-                    ('mplsvpnvrfbgppathattraggregatoras', YLeaf(YType.int32, 'mplsVpnVrfBgpPathAttrAggregatorAS')),
-                    ('mplsvpnvrfbgppathattraggregatoraddr', YLeaf(YType.str, 'mplsVpnVrfBgpPathAttrAggregatorAddr')),
-                    ('mplsvpnvrfbgppathattrcalclocalpref', YLeaf(YType.int32, 'mplsVpnVrfBgpPathAttrCalcLocalPref')),
-                    ('mplsvpnvrfbgppathattrbest', YLeaf(YType.enumeration, 'mplsVpnVrfBgpPathAttrBest')),
-                    ('mplsvpnvrfbgppathattrunknown', YLeaf(YType.str, 'mplsVpnVrfBgpPathAttrUnknown')),
+                    ('mplsvpnvrfname', (YLeaf(YType.str, 'mplsVpnVrfName'), ['str'])),
+                    ('mplsvpnvrfbgppathattripaddrprefix', (YLeaf(YType.str, 'mplsVpnVrfBgpPathAttrIpAddrPrefix'), ['str'])),
+                    ('mplsvpnvrfbgppathattripaddrprefixlen', (YLeaf(YType.int32, 'mplsVpnVrfBgpPathAttrIpAddrPrefixLen'), ['int'])),
+                    ('mplsvpnvrfbgppathattrpeer', (YLeaf(YType.str, 'mplsVpnVrfBgpPathAttrPeer'), ['str'])),
+                    ('mplsvpnvrfbgppathattrorigin', (YLeaf(YType.enumeration, 'mplsVpnVrfBgpPathAttrOrigin'), [('ydk.models.cisco_ios_xe.MPLS_VPN_MIB', 'MPLSVPNMIB', 'MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry.MplsVpnVrfBgpPathAttrOrigin')])),
+                    ('mplsvpnvrfbgppathattraspathsegment', (YLeaf(YType.str, 'mplsVpnVrfBgpPathAttrASPathSegment'), ['str'])),
+                    ('mplsvpnvrfbgppathattrnexthop', (YLeaf(YType.str, 'mplsVpnVrfBgpPathAttrNextHop'), ['str'])),
+                    ('mplsvpnvrfbgppathattrmultiexitdisc', (YLeaf(YType.int32, 'mplsVpnVrfBgpPathAttrMultiExitDisc'), ['int'])),
+                    ('mplsvpnvrfbgppathattrlocalpref', (YLeaf(YType.int32, 'mplsVpnVrfBgpPathAttrLocalPref'), ['int'])),
+                    ('mplsvpnvrfbgppathattratomicaggregate', (YLeaf(YType.enumeration, 'mplsVpnVrfBgpPathAttrAtomicAggregate'), [('ydk.models.cisco_ios_xe.MPLS_VPN_MIB', 'MPLSVPNMIB', 'MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry.MplsVpnVrfBgpPathAttrAtomicAggregate')])),
+                    ('mplsvpnvrfbgppathattraggregatoras', (YLeaf(YType.int32, 'mplsVpnVrfBgpPathAttrAggregatorAS'), ['int'])),
+                    ('mplsvpnvrfbgppathattraggregatoraddr', (YLeaf(YType.str, 'mplsVpnVrfBgpPathAttrAggregatorAddr'), ['str'])),
+                    ('mplsvpnvrfbgppathattrcalclocalpref', (YLeaf(YType.int32, 'mplsVpnVrfBgpPathAttrCalcLocalPref'), ['int'])),
+                    ('mplsvpnvrfbgppathattrbest', (YLeaf(YType.enumeration, 'mplsVpnVrfBgpPathAttrBest'), [('ydk.models.cisco_ios_xe.MPLS_VPN_MIB', 'MPLSVPNMIB', 'MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry.MplsVpnVrfBgpPathAttrBest')])),
+                    ('mplsvpnvrfbgppathattrunknown', (YLeaf(YType.str, 'mplsVpnVrfBgpPathAttrUnknown'), ['str'])),
                 ])
                 self.mplsvpnvrfname = None
                 self.mplsvpnvrfbgppathattripaddrprefix = None
@@ -1094,9 +1106,10 @@ class MPLSVPNMIB(Entity):
                 self.mplsvpnvrfbgppathattrunknown = None
                 self._segment_path = lambda: "mplsVpnVrfBgpNbrPrefixEntry" + "[mplsVpnVrfName='" + str(self.mplsvpnvrfname) + "']" + "[mplsVpnVrfBgpPathAttrIpAddrPrefix='" + str(self.mplsvpnvrfbgppathattripaddrprefix) + "']" + "[mplsVpnVrfBgpPathAttrIpAddrPrefixLen='" + str(self.mplsvpnvrfbgppathattripaddrprefixlen) + "']" + "[mplsVpnVrfBgpPathAttrPeer='" + str(self.mplsvpnvrfbgppathattrpeer) + "']"
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfBgpNbrPrefixTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry, [u'mplsvpnvrfname', u'mplsvpnvrfbgppathattripaddrprefix', u'mplsvpnvrfbgppathattripaddrprefixlen', u'mplsvpnvrfbgppathattrpeer', u'mplsvpnvrfbgppathattrorigin', u'mplsvpnvrfbgppathattraspathsegment', u'mplsvpnvrfbgppathattrnexthop', u'mplsvpnvrfbgppathattrmultiexitdisc', u'mplsvpnvrfbgppathattrlocalpref', u'mplsvpnvrfbgppathattratomicaggregate', u'mplsvpnvrfbgppathattraggregatoras', u'mplsvpnvrfbgppathattraggregatoraddr', u'mplsvpnvrfbgppathattrcalclocalpref', u'mplsvpnvrfbgppathattrbest', u'mplsvpnvrfbgppathattrunknown'], name, value)
+                self._perform_setattr(MPLSVPNMIB.MplsVpnVrfBgpNbrPrefixTable.MplsVpnVrfBgpNbrPrefixEntry, ['mplsvpnvrfname', 'mplsvpnvrfbgppathattripaddrprefix', 'mplsvpnvrfbgppathattripaddrprefixlen', 'mplsvpnvrfbgppathattrpeer', 'mplsvpnvrfbgppathattrorigin', 'mplsvpnvrfbgppathattraspathsegment', 'mplsvpnvrfbgppathattrnexthop', 'mplsvpnvrfbgppathattrmultiexitdisc', 'mplsvpnvrfbgppathattrlocalpref', 'mplsvpnvrfbgppathattratomicaggregate', 'mplsvpnvrfbgppathattraggregatoras', 'mplsvpnvrfbgppathattraggregatoraddr', 'mplsvpnvrfbgppathattrcalclocalpref', 'mplsvpnvrfbgppathattrbest', 'mplsvpnvrfbgppathattrunknown'], name, value)
 
             class MplsVpnVrfBgpPathAttrAtomicAggregate(Enum):
                 """
@@ -1196,6 +1209,7 @@ class MPLSVPNMIB(Entity):
             self.mplsvpnvrfrouteentry = YList(self)
             self._segment_path = lambda: "mplsVpnVrfRouteTable"
             self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSVPNMIB.MplsVpnVrfRouteTable, [], name, value)
@@ -1361,27 +1375,27 @@ class MPLSVPNMIB(Entity):
                 self.ylist_key_names = ['mplsvpnvrfname','mplsvpnvrfroutedest','mplsvpnvrfroutemask','mplsvpnvrfroutetos','mplsvpnvrfroutenexthop']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsvpnvrfname', YLeaf(YType.str, 'mplsVpnVrfName')),
-                    ('mplsvpnvrfroutedest', YLeaf(YType.str, 'mplsVpnVrfRouteDest')),
-                    ('mplsvpnvrfroutemask', YLeaf(YType.str, 'mplsVpnVrfRouteMask')),
-                    ('mplsvpnvrfroutetos', YLeaf(YType.uint32, 'mplsVpnVrfRouteTos')),
-                    ('mplsvpnvrfroutenexthop', YLeaf(YType.str, 'mplsVpnVrfRouteNextHop')),
-                    ('mplsvpnvrfroutedestaddrtype', YLeaf(YType.enumeration, 'mplsVpnVrfRouteDestAddrType')),
-                    ('mplsvpnvrfroutemaskaddrtype', YLeaf(YType.enumeration, 'mplsVpnVrfRouteMaskAddrType')),
-                    ('mplsvpnvrfroutenexthopaddrtype', YLeaf(YType.enumeration, 'mplsVpnVrfRouteNextHopAddrType')),
-                    ('mplsvpnvrfrouteifindex', YLeaf(YType.int32, 'mplsVpnVrfRouteIfIndex')),
-                    ('mplsvpnvrfroutetype', YLeaf(YType.enumeration, 'mplsVpnVrfRouteType')),
-                    ('mplsvpnvrfrouteproto', YLeaf(YType.enumeration, 'mplsVpnVrfRouteProto')),
-                    ('mplsvpnvrfrouteage', YLeaf(YType.uint32, 'mplsVpnVrfRouteAge')),
-                    ('mplsvpnvrfrouteinfo', YLeaf(YType.str, 'mplsVpnVrfRouteInfo')),
-                    ('mplsvpnvrfroutenexthopas', YLeaf(YType.uint32, 'mplsVpnVrfRouteNextHopAS')),
-                    ('mplsvpnvrfroutemetric1', YLeaf(YType.int32, 'mplsVpnVrfRouteMetric1')),
-                    ('mplsvpnvrfroutemetric2', YLeaf(YType.int32, 'mplsVpnVrfRouteMetric2')),
-                    ('mplsvpnvrfroutemetric3', YLeaf(YType.int32, 'mplsVpnVrfRouteMetric3')),
-                    ('mplsvpnvrfroutemetric4', YLeaf(YType.int32, 'mplsVpnVrfRouteMetric4')),
-                    ('mplsvpnvrfroutemetric5', YLeaf(YType.int32, 'mplsVpnVrfRouteMetric5')),
-                    ('mplsvpnvrfrouterowstatus', YLeaf(YType.enumeration, 'mplsVpnVrfRouteRowStatus')),
-                    ('mplsvpnvrfroutestoragetype', YLeaf(YType.enumeration, 'mplsVpnVrfRouteStorageType')),
+                    ('mplsvpnvrfname', (YLeaf(YType.str, 'mplsVpnVrfName'), ['str'])),
+                    ('mplsvpnvrfroutedest', (YLeaf(YType.str, 'mplsVpnVrfRouteDest'), ['str'])),
+                    ('mplsvpnvrfroutemask', (YLeaf(YType.str, 'mplsVpnVrfRouteMask'), ['str'])),
+                    ('mplsvpnvrfroutetos', (YLeaf(YType.uint32, 'mplsVpnVrfRouteTos'), ['int'])),
+                    ('mplsvpnvrfroutenexthop', (YLeaf(YType.str, 'mplsVpnVrfRouteNextHop'), ['str'])),
+                    ('mplsvpnvrfroutedestaddrtype', (YLeaf(YType.enumeration, 'mplsVpnVrfRouteDestAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('mplsvpnvrfroutemaskaddrtype', (YLeaf(YType.enumeration, 'mplsVpnVrfRouteMaskAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('mplsvpnvrfroutenexthopaddrtype', (YLeaf(YType.enumeration, 'mplsVpnVrfRouteNextHopAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('mplsvpnvrfrouteifindex', (YLeaf(YType.int32, 'mplsVpnVrfRouteIfIndex'), ['int'])),
+                    ('mplsvpnvrfroutetype', (YLeaf(YType.enumeration, 'mplsVpnVrfRouteType'), [('ydk.models.cisco_ios_xe.MPLS_VPN_MIB', 'MPLSVPNMIB', 'MplsVpnVrfRouteTable.MplsVpnVrfRouteEntry.MplsVpnVrfRouteType')])),
+                    ('mplsvpnvrfrouteproto', (YLeaf(YType.enumeration, 'mplsVpnVrfRouteProto'), [('ydk.models.cisco_ios_xe.MPLS_VPN_MIB', 'MPLSVPNMIB', 'MplsVpnVrfRouteTable.MplsVpnVrfRouteEntry.MplsVpnVrfRouteProto')])),
+                    ('mplsvpnvrfrouteage', (YLeaf(YType.uint32, 'mplsVpnVrfRouteAge'), ['int'])),
+                    ('mplsvpnvrfrouteinfo', (YLeaf(YType.str, 'mplsVpnVrfRouteInfo'), ['str'])),
+                    ('mplsvpnvrfroutenexthopas', (YLeaf(YType.uint32, 'mplsVpnVrfRouteNextHopAS'), ['int'])),
+                    ('mplsvpnvrfroutemetric1', (YLeaf(YType.int32, 'mplsVpnVrfRouteMetric1'), ['int'])),
+                    ('mplsvpnvrfroutemetric2', (YLeaf(YType.int32, 'mplsVpnVrfRouteMetric2'), ['int'])),
+                    ('mplsvpnvrfroutemetric3', (YLeaf(YType.int32, 'mplsVpnVrfRouteMetric3'), ['int'])),
+                    ('mplsvpnvrfroutemetric4', (YLeaf(YType.int32, 'mplsVpnVrfRouteMetric4'), ['int'])),
+                    ('mplsvpnvrfroutemetric5', (YLeaf(YType.int32, 'mplsVpnVrfRouteMetric5'), ['int'])),
+                    ('mplsvpnvrfrouterowstatus', (YLeaf(YType.enumeration, 'mplsVpnVrfRouteRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('mplsvpnvrfroutestoragetype', (YLeaf(YType.enumeration, 'mplsVpnVrfRouteStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
                 ])
                 self.mplsvpnvrfname = None
                 self.mplsvpnvrfroutedest = None
@@ -1406,9 +1420,10 @@ class MPLSVPNMIB(Entity):
                 self.mplsvpnvrfroutestoragetype = None
                 self._segment_path = lambda: "mplsVpnVrfRouteEntry" + "[mplsVpnVrfName='" + str(self.mplsvpnvrfname) + "']" + "[mplsVpnVrfRouteDest='" + str(self.mplsvpnvrfroutedest) + "']" + "[mplsVpnVrfRouteMask='" + str(self.mplsvpnvrfroutemask) + "']" + "[mplsVpnVrfRouteTos='" + str(self.mplsvpnvrfroutetos) + "']" + "[mplsVpnVrfRouteNextHop='" + str(self.mplsvpnvrfroutenexthop) + "']"
                 self._absolute_path = lambda: "MPLS-VPN-MIB:MPLS-VPN-MIB/mplsVpnVrfRouteTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(MPLSVPNMIB.MplsVpnVrfRouteTable.MplsVpnVrfRouteEntry, [u'mplsvpnvrfname', u'mplsvpnvrfroutedest', u'mplsvpnvrfroutemask', u'mplsvpnvrfroutetos', u'mplsvpnvrfroutenexthop', u'mplsvpnvrfroutedestaddrtype', u'mplsvpnvrfroutemaskaddrtype', u'mplsvpnvrfroutenexthopaddrtype', u'mplsvpnvrfrouteifindex', u'mplsvpnvrfroutetype', u'mplsvpnvrfrouteproto', u'mplsvpnvrfrouteage', u'mplsvpnvrfrouteinfo', u'mplsvpnvrfroutenexthopas', u'mplsvpnvrfroutemetric1', u'mplsvpnvrfroutemetric2', u'mplsvpnvrfroutemetric3', u'mplsvpnvrfroutemetric4', u'mplsvpnvrfroutemetric5', u'mplsvpnvrfrouterowstatus', u'mplsvpnvrfroutestoragetype'], name, value)
+                self._perform_setattr(MPLSVPNMIB.MplsVpnVrfRouteTable.MplsVpnVrfRouteEntry, ['mplsvpnvrfname', 'mplsvpnvrfroutedest', 'mplsvpnvrfroutemask', 'mplsvpnvrfroutetos', 'mplsvpnvrfroutenexthop', 'mplsvpnvrfroutedestaddrtype', 'mplsvpnvrfroutemaskaddrtype', 'mplsvpnvrfroutenexthopaddrtype', 'mplsvpnvrfrouteifindex', 'mplsvpnvrfroutetype', 'mplsvpnvrfrouteproto', 'mplsvpnvrfrouteage', 'mplsvpnvrfrouteinfo', 'mplsvpnvrfroutenexthopas', 'mplsvpnvrfroutemetric1', 'mplsvpnvrfroutemetric2', 'mplsvpnvrfroutemetric3', 'mplsvpnvrfroutemetric4', 'mplsvpnvrfroutemetric5', 'mplsvpnvrfrouterowstatus', 'mplsvpnvrfroutestoragetype'], name, value)
 
             class MplsVpnVrfRouteProto(Enum):
                 """

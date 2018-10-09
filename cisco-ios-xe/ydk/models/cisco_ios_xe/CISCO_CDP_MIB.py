@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOCDPMIB(Entity):
     """
     
@@ -81,6 +82,7 @@ class CISCOCDPMIB(Entity):
         self.cdpctaddresstable.parent = self
         self._children_name_map["cdpctaddresstable"] = "cdpCtAddressTable"
         self._segment_path = lambda: "CISCO-CDP-MIB:CISCO-CDP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOCDPMIB, [], name, value)
@@ -152,13 +154,13 @@ class CISCOCDPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cdpglobalrun', YLeaf(YType.boolean, 'cdpGlobalRun')),
-                ('cdpglobalmessageinterval', YLeaf(YType.int32, 'cdpGlobalMessageInterval')),
-                ('cdpglobalholdtime', YLeaf(YType.int32, 'cdpGlobalHoldTime')),
-                ('cdpglobaldeviceid', YLeaf(YType.str, 'cdpGlobalDeviceId')),
-                ('cdpgloballastchange', YLeaf(YType.uint32, 'cdpGlobalLastChange')),
-                ('cdpglobaldeviceidformatcpb', YLeaf(YType.bits, 'cdpGlobalDeviceIdFormatCpb')),
-                ('cdpglobaldeviceidformat', YLeaf(YType.enumeration, 'cdpGlobalDeviceIdFormat')),
+                ('cdpglobalrun', (YLeaf(YType.boolean, 'cdpGlobalRun'), ['bool'])),
+                ('cdpglobalmessageinterval', (YLeaf(YType.int32, 'cdpGlobalMessageInterval'), ['int'])),
+                ('cdpglobalholdtime', (YLeaf(YType.int32, 'cdpGlobalHoldTime'), ['int'])),
+                ('cdpglobaldeviceid', (YLeaf(YType.str, 'cdpGlobalDeviceId'), ['str'])),
+                ('cdpgloballastchange', (YLeaf(YType.uint32, 'cdpGlobalLastChange'), ['int'])),
+                ('cdpglobaldeviceidformatcpb', (YLeaf(YType.bits, 'cdpGlobalDeviceIdFormatCpb'), ['Bits'])),
+                ('cdpglobaldeviceidformat', (YLeaf(YType.enumeration, 'cdpGlobalDeviceIdFormat'), [('ydk.models.cisco_ios_xe.CISCO_CDP_MIB', 'CISCOCDPMIB', 'CdpGlobal.CdpGlobalDeviceIdFormat')])),
             ])
             self.cdpglobalrun = None
             self.cdpglobalmessageinterval = None
@@ -169,6 +171,7 @@ class CISCOCDPMIB(Entity):
             self.cdpglobaldeviceidformat = None
             self._segment_path = lambda: "cdpGlobal"
             self._absolute_path = lambda: "CISCO-CDP-MIB:CISCO-CDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCDPMIB.CdpGlobal, ['cdpglobalrun', 'cdpglobalmessageinterval', 'cdpglobalholdtime', 'cdpglobaldeviceid', 'cdpgloballastchange', 'cdpglobaldeviceidformatcpb', 'cdpglobaldeviceidformat'], name, value)
@@ -250,6 +253,7 @@ class CISCOCDPMIB(Entity):
             self.cdpinterfaceentry = YList(self)
             self._segment_path = lambda: "cdpInterfaceTable"
             self._absolute_path = lambda: "CISCO-CDP-MIB:CISCO-CDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCDPMIB.CdpInterfaceTable, [], name, value)
@@ -319,12 +323,12 @@ class CISCOCDPMIB(Entity):
                 self.ylist_key_names = ['cdpinterfaceifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdpinterfaceifindex', YLeaf(YType.int32, 'cdpInterfaceIfIndex')),
-                    ('cdpinterfaceenable', YLeaf(YType.boolean, 'cdpInterfaceEnable')),
-                    ('cdpinterfacemessageinterval', YLeaf(YType.int32, 'cdpInterfaceMessageInterval')),
-                    ('cdpinterfacegroup', YLeaf(YType.int32, 'cdpInterfaceGroup')),
-                    ('cdpinterfaceport', YLeaf(YType.int32, 'cdpInterfacePort')),
-                    ('cdpinterfacename', YLeaf(YType.str, 'cdpInterfaceName')),
+                    ('cdpinterfaceifindex', (YLeaf(YType.int32, 'cdpInterfaceIfIndex'), ['int'])),
+                    ('cdpinterfaceenable', (YLeaf(YType.boolean, 'cdpInterfaceEnable'), ['bool'])),
+                    ('cdpinterfacemessageinterval', (YLeaf(YType.int32, 'cdpInterfaceMessageInterval'), ['int'])),
+                    ('cdpinterfacegroup', (YLeaf(YType.int32, 'cdpInterfaceGroup'), ['int'])),
+                    ('cdpinterfaceport', (YLeaf(YType.int32, 'cdpInterfacePort'), ['int'])),
+                    ('cdpinterfacename', (YLeaf(YType.str, 'cdpInterfaceName'), ['str'])),
                 ])
                 self.cdpinterfaceifindex = None
                 self.cdpinterfaceenable = None
@@ -334,6 +338,7 @@ class CISCOCDPMIB(Entity):
                 self.cdpinterfacename = None
                 self._segment_path = lambda: "cdpInterfaceEntry" + "[cdpInterfaceIfIndex='" + str(self.cdpinterfaceifindex) + "']"
                 self._absolute_path = lambda: "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpInterfaceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCDPMIB.CdpInterfaceTable.CdpInterfaceEntry, ['cdpinterfaceifindex', 'cdpinterfaceenable', 'cdpinterfacemessageinterval', 'cdpinterfacegroup', 'cdpinterfaceport', 'cdpinterfacename'], name, value)
@@ -370,6 +375,7 @@ class CISCOCDPMIB(Entity):
             self.cdpinterfaceextentry = YList(self)
             self._segment_path = lambda: "cdpInterfaceExtTable"
             self._absolute_path = lambda: "CISCO-CDP-MIB:CISCO-CDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCDPMIB.CdpInterfaceExtTable, [], name, value)
@@ -420,15 +426,16 @@ class CISCOCDPMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('cdpinterfaceextendedtrust', YLeaf(YType.enumeration, 'cdpInterfaceExtendedTrust')),
-                    ('cdpinterfacecosforuntrustedport', YLeaf(YType.uint32, 'cdpInterfaceCosForUntrustedPort')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('cdpinterfaceextendedtrust', (YLeaf(YType.enumeration, 'cdpInterfaceExtendedTrust'), [('ydk.models.cisco_ios_xe.CISCO_CDP_MIB', 'CISCOCDPMIB', 'CdpInterfaceExtTable.CdpInterfaceExtEntry.CdpInterfaceExtendedTrust')])),
+                    ('cdpinterfacecosforuntrustedport', (YLeaf(YType.uint32, 'cdpInterfaceCosForUntrustedPort'), ['int'])),
                 ])
                 self.ifindex = None
                 self.cdpinterfaceextendedtrust = None
                 self.cdpinterfacecosforuntrustedport = None
                 self._segment_path = lambda: "cdpInterfaceExtEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpInterfaceExtTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCDPMIB.CdpInterfaceExtTable.CdpInterfaceExtEntry, ['ifindex', 'cdpinterfaceextendedtrust', 'cdpinterfacecosforuntrustedport'], name, value)
@@ -494,6 +501,7 @@ class CISCOCDPMIB(Entity):
             self.cdpcacheentry = YList(self)
             self._segment_path = lambda: "cdpCacheTable"
             self._absolute_path = lambda: "CISCO-CDP-MIB:CISCO-CDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCDPMIB.CdpCacheTable, [], name, value)
@@ -671,30 +679,30 @@ class CISCOCDPMIB(Entity):
                 self.ylist_key_names = ['cdpcacheifindex','cdpcachedeviceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdpcacheifindex', YLeaf(YType.int32, 'cdpCacheIfIndex')),
-                    ('cdpcachedeviceindex', YLeaf(YType.int32, 'cdpCacheDeviceIndex')),
-                    ('cdpcacheaddresstype', YLeaf(YType.enumeration, 'cdpCacheAddressType')),
-                    ('cdpcacheaddress', YLeaf(YType.str, 'cdpCacheAddress')),
-                    ('cdpcacheversion', YLeaf(YType.str, 'cdpCacheVersion')),
-                    ('cdpcachedeviceid', YLeaf(YType.str, 'cdpCacheDeviceId')),
-                    ('cdpcachedeviceport', YLeaf(YType.str, 'cdpCacheDevicePort')),
-                    ('cdpcacheplatform', YLeaf(YType.str, 'cdpCachePlatform')),
-                    ('cdpcachecapabilities', YLeaf(YType.str, 'cdpCacheCapabilities')),
-                    ('cdpcachevtpmgmtdomain', YLeaf(YType.str, 'cdpCacheVTPMgmtDomain')),
-                    ('cdpcachenativevlan', YLeaf(YType.int32, 'cdpCacheNativeVLAN')),
-                    ('cdpcacheduplex', YLeaf(YType.enumeration, 'cdpCacheDuplex')),
-                    ('cdpcacheapplianceid', YLeaf(YType.uint32, 'cdpCacheApplianceID')),
-                    ('cdpcachevlanid', YLeaf(YType.uint32, 'cdpCacheVlanID')),
-                    ('cdpcachepowerconsumption', YLeaf(YType.uint32, 'cdpCachePowerConsumption')),
-                    ('cdpcachemtu', YLeaf(YType.uint32, 'cdpCacheMTU')),
-                    ('cdpcachesysname', YLeaf(YType.str, 'cdpCacheSysName')),
-                    ('cdpcachesysobjectid', YLeaf(YType.str, 'cdpCacheSysObjectID')),
-                    ('cdpcacheprimarymgmtaddrtype', YLeaf(YType.enumeration, 'cdpCachePrimaryMgmtAddrType')),
-                    ('cdpcacheprimarymgmtaddr', YLeaf(YType.str, 'cdpCachePrimaryMgmtAddr')),
-                    ('cdpcachesecondarymgmtaddrtype', YLeaf(YType.enumeration, 'cdpCacheSecondaryMgmtAddrType')),
-                    ('cdpcachesecondarymgmtaddr', YLeaf(YType.str, 'cdpCacheSecondaryMgmtAddr')),
-                    ('cdpcachephyslocation', YLeaf(YType.str, 'cdpCachePhysLocation')),
-                    ('cdpcachelastchange', YLeaf(YType.uint32, 'cdpCacheLastChange')),
+                    ('cdpcacheifindex', (YLeaf(YType.int32, 'cdpCacheIfIndex'), ['int'])),
+                    ('cdpcachedeviceindex', (YLeaf(YType.int32, 'cdpCacheDeviceIndex'), ['int'])),
+                    ('cdpcacheaddresstype', (YLeaf(YType.enumeration, 'cdpCacheAddressType'), [('ydk.models.cisco_ios_xe.CISCO_TC', 'CiscoNetworkProtocol', '')])),
+                    ('cdpcacheaddress', (YLeaf(YType.str, 'cdpCacheAddress'), ['str'])),
+                    ('cdpcacheversion', (YLeaf(YType.str, 'cdpCacheVersion'), ['str'])),
+                    ('cdpcachedeviceid', (YLeaf(YType.str, 'cdpCacheDeviceId'), ['str'])),
+                    ('cdpcachedeviceport', (YLeaf(YType.str, 'cdpCacheDevicePort'), ['str'])),
+                    ('cdpcacheplatform', (YLeaf(YType.str, 'cdpCachePlatform'), ['str'])),
+                    ('cdpcachecapabilities', (YLeaf(YType.str, 'cdpCacheCapabilities'), ['str'])),
+                    ('cdpcachevtpmgmtdomain', (YLeaf(YType.str, 'cdpCacheVTPMgmtDomain'), ['str'])),
+                    ('cdpcachenativevlan', (YLeaf(YType.int32, 'cdpCacheNativeVLAN'), ['int'])),
+                    ('cdpcacheduplex', (YLeaf(YType.enumeration, 'cdpCacheDuplex'), [('ydk.models.cisco_ios_xe.CISCO_CDP_MIB', 'CISCOCDPMIB', 'CdpCacheTable.CdpCacheEntry.CdpCacheDuplex')])),
+                    ('cdpcacheapplianceid', (YLeaf(YType.uint32, 'cdpCacheApplianceID'), ['int'])),
+                    ('cdpcachevlanid', (YLeaf(YType.uint32, 'cdpCacheVlanID'), ['int'])),
+                    ('cdpcachepowerconsumption', (YLeaf(YType.uint32, 'cdpCachePowerConsumption'), ['int'])),
+                    ('cdpcachemtu', (YLeaf(YType.uint32, 'cdpCacheMTU'), ['int'])),
+                    ('cdpcachesysname', (YLeaf(YType.str, 'cdpCacheSysName'), ['str'])),
+                    ('cdpcachesysobjectid', (YLeaf(YType.str, 'cdpCacheSysObjectID'), ['str'])),
+                    ('cdpcacheprimarymgmtaddrtype', (YLeaf(YType.enumeration, 'cdpCachePrimaryMgmtAddrType'), [('ydk.models.cisco_ios_xe.CISCO_TC', 'CiscoNetworkProtocol', '')])),
+                    ('cdpcacheprimarymgmtaddr', (YLeaf(YType.str, 'cdpCachePrimaryMgmtAddr'), ['str'])),
+                    ('cdpcachesecondarymgmtaddrtype', (YLeaf(YType.enumeration, 'cdpCacheSecondaryMgmtAddrType'), [('ydk.models.cisco_ios_xe.CISCO_TC', 'CiscoNetworkProtocol', '')])),
+                    ('cdpcachesecondarymgmtaddr', (YLeaf(YType.str, 'cdpCacheSecondaryMgmtAddr'), ['str'])),
+                    ('cdpcachephyslocation', (YLeaf(YType.str, 'cdpCachePhysLocation'), ['str'])),
+                    ('cdpcachelastchange', (YLeaf(YType.uint32, 'cdpCacheLastChange'), ['int'])),
                 ])
                 self.cdpcacheifindex = None
                 self.cdpcachedeviceindex = None
@@ -722,6 +730,7 @@ class CISCOCDPMIB(Entity):
                 self.cdpcachelastchange = None
                 self._segment_path = lambda: "cdpCacheEntry" + "[cdpCacheIfIndex='" + str(self.cdpcacheifindex) + "']" + "[cdpCacheDeviceIndex='" + str(self.cdpcachedeviceindex) + "']"
                 self._absolute_path = lambda: "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpCacheTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCDPMIB.CdpCacheTable.CdpCacheEntry, ['cdpcacheifindex', 'cdpcachedeviceindex', 'cdpcacheaddresstype', 'cdpcacheaddress', 'cdpcacheversion', 'cdpcachedeviceid', 'cdpcachedeviceport', 'cdpcacheplatform', 'cdpcachecapabilities', 'cdpcachevtpmgmtdomain', 'cdpcachenativevlan', 'cdpcacheduplex', 'cdpcacheapplianceid', 'cdpcachevlanid', 'cdpcachepowerconsumption', 'cdpcachemtu', 'cdpcachesysname', 'cdpcachesysobjectid', 'cdpcacheprimarymgmtaddrtype', 'cdpcacheprimarymgmtaddr', 'cdpcachesecondarymgmtaddrtype', 'cdpcachesecondarymgmtaddr', 'cdpcachephyslocation', 'cdpcachelastchange'], name, value)
@@ -790,6 +799,7 @@ class CISCOCDPMIB(Entity):
             self.cdpctaddressentry = YList(self)
             self._segment_path = lambda: "cdpCtAddressTable"
             self._absolute_path = lambda: "CISCO-CDP-MIB:CISCO-CDP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOCDPMIB.CdpCtAddressTable, [], name, value)
@@ -859,11 +869,11 @@ class CISCOCDPMIB(Entity):
                 self.ylist_key_names = ['cdpcacheifindex','cdpcachedeviceindex','cdpctaddressindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cdpcacheifindex', YLeaf(YType.str, 'cdpCacheIfIndex')),
-                    ('cdpcachedeviceindex', YLeaf(YType.str, 'cdpCacheDeviceIndex')),
-                    ('cdpctaddressindex', YLeaf(YType.int32, 'cdpCtAddressIndex')),
-                    ('cdpctaddresstype', YLeaf(YType.enumeration, 'cdpCtAddressType')),
-                    ('cdpctaddress', YLeaf(YType.str, 'cdpCtAddress')),
+                    ('cdpcacheifindex', (YLeaf(YType.str, 'cdpCacheIfIndex'), ['int'])),
+                    ('cdpcachedeviceindex', (YLeaf(YType.str, 'cdpCacheDeviceIndex'), ['int'])),
+                    ('cdpctaddressindex', (YLeaf(YType.int32, 'cdpCtAddressIndex'), ['int'])),
+                    ('cdpctaddresstype', (YLeaf(YType.enumeration, 'cdpCtAddressType'), [('ydk.models.cisco_ios_xe.CISCO_TC', 'CiscoNetworkProtocol', '')])),
+                    ('cdpctaddress', (YLeaf(YType.str, 'cdpCtAddress'), ['str'])),
                 ])
                 self.cdpcacheifindex = None
                 self.cdpcachedeviceindex = None
@@ -872,6 +882,7 @@ class CISCOCDPMIB(Entity):
                 self.cdpctaddress = None
                 self._segment_path = lambda: "cdpCtAddressEntry" + "[cdpCacheIfIndex='" + str(self.cdpcacheifindex) + "']" + "[cdpCacheDeviceIndex='" + str(self.cdpcachedeviceindex) + "']" + "[cdpCtAddressIndex='" + str(self.cdpctaddressindex) + "']"
                 self._absolute_path = lambda: "CISCO-CDP-MIB:CISCO-CDP-MIB/cdpCtAddressTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOCDPMIB.CdpCtAddressTable.CdpCtAddressEntry, ['cdpcacheifindex', 'cdpcachedeviceindex', 'cdpctaddressindex', 'cdpctaddresstype', 'cdpctaddress'], name, value)

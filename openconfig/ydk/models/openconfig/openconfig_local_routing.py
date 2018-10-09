@@ -31,6 +31,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class LOCALDEFINEDNEXTHOP(Identity):
     """
     A base identity type of local defined next\-hops
@@ -42,8 +43,8 @@ class LOCALDEFINEDNEXTHOP(Identity):
     _prefix = 'oc-loc-rt'
     _revision = '2017-05-15'
 
-    def __init__(self):
-        super(LOCALDEFINEDNEXTHOP, self).__init__("http://openconfig.net/yang/local-routing", "openconfig-local-routing", "openconfig-local-routing:LOCAL_DEFINED_NEXT_HOP")
+    def __init__(self, ns="http://openconfig.net/yang/local-routing", pref="openconfig-local-routing", tag="openconfig-local-routing:LOCAL_DEFINED_NEXT_HOP"):
+        super(LOCALDEFINEDNEXTHOP, self).__init__(ns, pref, tag)
 
 
 class LocalRoutes(Entity):
@@ -105,6 +106,7 @@ class LocalRoutes(Entity):
         self.local_aggregates.parent = self
         self._children_name_map["local_aggregates"] = "local-aggregates"
         self._segment_path = lambda: "openconfig-local-routing:local-routes"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(LocalRoutes, [], name, value)
@@ -133,6 +135,7 @@ class LocalRoutes(Entity):
             self._leafs = OrderedDict()
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "openconfig-local-routing:local-routes/%s" % self._segment_path()
+            self._is_frozen = True
 
 
     class State(Entity):
@@ -158,6 +161,7 @@ class LocalRoutes(Entity):
             self._leafs = OrderedDict()
             self._segment_path = lambda: "state"
             self._absolute_path = lambda: "openconfig-local-routing:local-routes/%s" % self._segment_path()
+            self._is_frozen = True
 
 
     class StaticRoutes(Entity):
@@ -190,6 +194,7 @@ class LocalRoutes(Entity):
             self.static = YList(self)
             self._segment_path = lambda: "static-routes"
             self._absolute_path = lambda: "openconfig-local-routing:local-routes/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LocalRoutes.StaticRoutes, [], name, value)
@@ -246,7 +251,7 @@ class LocalRoutes(Entity):
                 self.ylist_key_names = ['prefix']
                 self._child_classes = OrderedDict([("config", ("config", LocalRoutes.StaticRoutes.Static.Config)), ("state", ("state", LocalRoutes.StaticRoutes.Static.State)), ("next-hops", ("next_hops", LocalRoutes.StaticRoutes.Static.NextHops))])
                 self._leafs = OrderedDict([
-                    ('prefix', YLeaf(YType.str, 'prefix')),
+                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
                 ])
                 self.prefix = None
 
@@ -263,6 +268,7 @@ class LocalRoutes(Entity):
                 self._children_name_map["next_hops"] = "next-hops"
                 self._segment_path = lambda: "static" + "[prefix='" + str(self.prefix) + "']"
                 self._absolute_path = lambda: "openconfig-local-routing:local-routes/static-routes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LocalRoutes.StaticRoutes.Static, [u'prefix'], name, value)
@@ -315,12 +321,13 @@ class LocalRoutes(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('prefix', YLeaf(YType.str, 'prefix')),
-                        ('set_tag', YLeaf(YType.str, 'set-tag')),
+                        ('prefix', (YLeaf(YType.str, 'prefix'), ['str','str'])),
+                        ('set_tag', (YLeaf(YType.str, 'set-tag'), ['int','str'])),
                     ])
                     self.prefix = None
                     self.set_tag = None
                     self._segment_path = lambda: "config"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LocalRoutes.StaticRoutes.Static.Config, [u'prefix', u'set_tag'], name, value)
@@ -373,12 +380,13 @@ class LocalRoutes(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('prefix', YLeaf(YType.str, 'prefix')),
-                        ('set_tag', YLeaf(YType.str, 'set-tag')),
+                        ('prefix', (YLeaf(YType.str, 'prefix'), ['str','str'])),
+                        ('set_tag', (YLeaf(YType.str, 'set-tag'), ['int','str'])),
                     ])
                     self.prefix = None
                     self.set_tag = None
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LocalRoutes.StaticRoutes.Static.State, [u'prefix', u'set_tag'], name, value)
@@ -415,6 +423,7 @@ class LocalRoutes(Entity):
 
                     self.next_hop = YList(self)
                     self._segment_path = lambda: "next-hops"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops, [], name, value)
@@ -464,7 +473,7 @@ class LocalRoutes(Entity):
                         self.ylist_key_names = ['index']
                         self._child_classes = OrderedDict([("config", ("config", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config)), ("state", ("state", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State)), ("interface-ref", ("interface_ref", LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef))])
                         self._leafs = OrderedDict([
-                            ('index', YLeaf(YType.str, 'index')),
+                            ('index', (YLeaf(YType.str, 'index'), ['str'])),
                         ])
                         self.index = None
 
@@ -480,6 +489,7 @@ class LocalRoutes(Entity):
                         self.interface_ref.parent = self
                         self._children_name_map["interface_ref"] = "interface-ref"
                         self._segment_path = lambda: "next-hop" + "[index='" + str(self.index) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop, [u'index'], name, value)
@@ -541,16 +551,17 @@ class LocalRoutes(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('index', YLeaf(YType.str, 'index')),
-                                ('next_hop', YLeaf(YType.str, 'next-hop')),
-                                ('metric', YLeaf(YType.uint32, 'metric')),
-                                ('recurse', YLeaf(YType.boolean, 'recurse')),
+                                ('index', (YLeaf(YType.str, 'index'), ['str'])),
+                                ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str','str',('ydk.models.openconfig.openconfig_local_routing', 'LOCALDEFINEDNEXTHOP')])),
+                                ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                ('recurse', (YLeaf(YType.boolean, 'recurse'), ['bool'])),
                             ])
                             self.index = None
                             self.next_hop = None
                             self.metric = None
                             self.recurse = None
                             self._segment_path = lambda: "config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.Config, [u'index', u'next_hop', u'metric', u'recurse'], name, value)
@@ -612,16 +623,17 @@ class LocalRoutes(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('index', YLeaf(YType.str, 'index')),
-                                ('next_hop', YLeaf(YType.str, 'next-hop')),
-                                ('metric', YLeaf(YType.uint32, 'metric')),
-                                ('recurse', YLeaf(YType.boolean, 'recurse')),
+                                ('index', (YLeaf(YType.str, 'index'), ['str'])),
+                                ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str','str',('ydk.models.openconfig.openconfig_local_routing', 'LOCALDEFINEDNEXTHOP')])),
+                                ('metric', (YLeaf(YType.uint32, 'metric'), ['int'])),
+                                ('recurse', (YLeaf(YType.boolean, 'recurse'), ['bool'])),
                             ])
                             self.index = None
                             self.next_hop = None
                             self.metric = None
                             self.recurse = None
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.State, [u'index', u'next_hop', u'metric', u'recurse'], name, value)
@@ -667,6 +679,7 @@ class LocalRoutes(Entity):
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._segment_path = lambda: "interface-ref"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef, [], name, value)
@@ -709,12 +722,13 @@ class LocalRoutes(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interface', YLeaf(YType.str, 'interface')),
-                                    ('subinterface', YLeaf(YType.str, 'subinterface')),
+                                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                    ('subinterface', (YLeaf(YType.str, 'subinterface'), ['int'])),
                                 ])
                                 self.interface = None
                                 self.subinterface = None
                                 self._segment_path = lambda: "config"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
@@ -757,12 +771,13 @@ class LocalRoutes(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interface', YLeaf(YType.str, 'interface')),
-                                    ('subinterface', YLeaf(YType.str, 'subinterface')),
+                                    ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                    ('subinterface', (YLeaf(YType.str, 'subinterface'), ['int'])),
                                 ])
                                 self.interface = None
                                 self.subinterface = None
                                 self._segment_path = lambda: "state"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(LocalRoutes.StaticRoutes.Static.NextHops.NextHop.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
@@ -799,6 +814,7 @@ class LocalRoutes(Entity):
             self.aggregate = YList(self)
             self._segment_path = lambda: "local-aggregates"
             self._absolute_path = lambda: "openconfig-local-routing:local-routes/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LocalRoutes.LocalAggregates, [], name, value)
@@ -850,7 +866,7 @@ class LocalRoutes(Entity):
                 self.ylist_key_names = ['prefix']
                 self._child_classes = OrderedDict([("config", ("config", LocalRoutes.LocalAggregates.Aggregate.Config)), ("state", ("state", LocalRoutes.LocalAggregates.Aggregate.State))])
                 self._leafs = OrderedDict([
-                    ('prefix', YLeaf(YType.str, 'prefix')),
+                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
                 ])
                 self.prefix = None
 
@@ -863,6 +879,7 @@ class LocalRoutes(Entity):
                 self._children_name_map["state"] = "state"
                 self._segment_path = lambda: "aggregate" + "[prefix='" + str(self.prefix) + "']"
                 self._absolute_path = lambda: "openconfig-local-routing:local-routes/local-aggregates/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LocalRoutes.LocalAggregates.Aggregate, [u'prefix'], name, value)
@@ -922,14 +939,15 @@ class LocalRoutes(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('prefix', YLeaf(YType.str, 'prefix')),
-                        ('discard', YLeaf(YType.boolean, 'discard')),
-                        ('set_tag', YLeaf(YType.str, 'set-tag')),
+                        ('prefix', (YLeaf(YType.str, 'prefix'), ['str','str'])),
+                        ('discard', (YLeaf(YType.boolean, 'discard'), ['bool'])),
+                        ('set_tag', (YLeaf(YType.str, 'set-tag'), ['int','str'])),
                     ])
                     self.prefix = None
                     self.discard = None
                     self.set_tag = None
                     self._segment_path = lambda: "config"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LocalRoutes.LocalAggregates.Aggregate.Config, [u'prefix', u'discard', u'set_tag'], name, value)
@@ -990,14 +1008,15 @@ class LocalRoutes(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('prefix', YLeaf(YType.str, 'prefix')),
-                        ('discard', YLeaf(YType.boolean, 'discard')),
-                        ('set_tag', YLeaf(YType.str, 'set-tag')),
+                        ('prefix', (YLeaf(YType.str, 'prefix'), ['str','str'])),
+                        ('discard', (YLeaf(YType.boolean, 'discard'), ['bool'])),
+                        ('set_tag', (YLeaf(YType.str, 'set-tag'), ['int','str'])),
                     ])
                     self.prefix = None
                     self.discard = None
                     self.set_tag = None
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LocalRoutes.LocalAggregates.Aggregate.State, [u'prefix', u'discard', u'set_tag'], name, value)
@@ -1006,7 +1025,7 @@ class LocalRoutes(Entity):
         self._top_entity = LocalRoutes()
         return self._top_entity
 
-class DROP(Identity):
+class DROP(LOCALDEFINEDNEXTHOP):
     """
     Discard traffic for the corresponding destination
     
@@ -1017,11 +1036,11 @@ class DROP(Identity):
     _prefix = 'oc-loc-rt'
     _revision = '2017-05-15'
 
-    def __init__(self):
-        super(DROP, self).__init__("http://openconfig.net/yang/local-routing", "openconfig-local-routing", "openconfig-local-routing:DROP")
+    def __init__(self, ns="http://openconfig.net/yang/local-routing", pref="openconfig-local-routing", tag="openconfig-local-routing:DROP"):
+        super(DROP, self).__init__(ns, pref, tag)
 
 
-class LOCALLINK(Identity):
+class LOCALLINK(LOCALDEFINEDNEXTHOP):
     """
     Treat traffic towards addresses within the specified
     next\-hop prefix as though they are connected to a local
@@ -1037,7 +1056,7 @@ class LOCALLINK(Identity):
     _prefix = 'oc-loc-rt'
     _revision = '2017-05-15'
 
-    def __init__(self):
-        super(LOCALLINK, self).__init__("http://openconfig.net/yang/local-routing", "openconfig-local-routing", "openconfig-local-routing:LOCAL_LINK")
+    def __init__(self, ns="http://openconfig.net/yang/local-routing", pref="openconfig-local-routing", tag="openconfig-local-routing:LOCAL_LINK"):
+        super(LOCALLINK, self).__init__(ns, pref, tag)
 
 

@@ -15,6 +15,10 @@ module Cisco-IOS-XE-dhcp {
     prefix ios-types;
   }
 
+  import Cisco-IOS-XE-interface-common {
+    prefix ios-ifc;
+  }
+
   organization
     "Cisco Systems, Inc.";
 
@@ -31,12 +35,41 @@ module Cisco-IOS-XE-dhcp {
 
   description
     "Cisco XE Native Dynamic Host Configuration Protocol (DHCP) Yang model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-06-16 {
+    description
+        "Fix ip dhcp database";
+  } 
+  revision 2018-06-13 {
+    description
+        "Add more ip dhcp support";
+  }
+  revision 2018-03-22 {
+    description
+       "Fix ip dhcp use vrf connected default behavior";
+  }
+  revision 2018-03-12 {
+    description
+      "Add vrf and high-address to the key for ip dhcp excluded-address";
+  }
+  revision 2018-02-26 {
+    description
+       "add ip dhcp use support";
+  }
+  revision 2018-01-16 {
+    description
+       "Make it take multiple vlans: ip dhcp snooping vlan <num>";
+  }
+  revision 2018-01-10 {
+     description
+       "Changed ip dhcp pool / dns-server to cli-flat-list-syntax";
+  }
+
   revision 2017-11-27 {
      description
        "Added Change 25GE name";
@@ -93,6 +126,41 @@ module Cisco-IOS-XE-dhcp {
         description
           "Specify hostname to use";
         type string;
+      }
+      container option {
+        description "DHCP Client options";
+        list option-range {
+          key "option-range";
+          leaf option-range {
+            description "DHCP option code (1-254)";
+            type uint8 {
+              range "1..254";
+            }
+          }
+          leaf ascii {
+            description "Input ascii string";
+            type string;
+          }
+          leaf hex {
+            description "Input hex string";
+            type string;
+          }
+          leaf-list ip {
+            description "Input IP Address";
+            type inet:host;
+          }
+        }
+      }
+      container request {
+        description
+          "Specify options (not) to request";
+        leaf option {
+          description
+            "DHCP options";
+          type uint8 {
+              range "1..254";
+          }
+        }
       }
       container route {
         description
@@ -265,6 +333,20 @@ module Cisco-IOS-XE-dhcp {
   }
 
   grouping ip-dhcp-grouping {
+    // ip dhcp aaa
+    container aaa {
+      description
+        "Configure aaa attributes";
+      container default {
+        description
+          "Specify default values for aaa attributes";
+        leaf username {
+          description
+            "Default username for non-VRF pool subnet request or release";
+          type string;
+        }
+      }
+    }
     // ip dhcp bootp
     container bootp {
       description "BOOTP specific configuration";
@@ -279,6 +361,35 @@ module Cisco-IOS-XE-dhcp {
       key "id";
       leaf id {
         type string;
+      }
+      container option {
+        description
+          "Raw DHCP options";
+        list option-list {
+          key "option-range";
+          leaf option-range {
+            description "DHCP option code (1-254)";
+            type uint8 {
+              range "1..254";
+            }
+          }
+          leaf LINE {
+            description
+              "Specify a regular expression string";
+             type string;
+          }
+          list hex-list {
+            key "hex-string";
+            leaf hex-string {
+              type string;
+            }
+            leaf mask {
+              description
+                "Specify a bit mask for the pattern";
+              type inet:ipv4-address;
+            }
+          }
+        }
       }
       // ip dhcp class * / relay
       container relay {
@@ -304,13 +415,34 @@ module Cisco-IOS-XE-dhcp {
       }
     }
     //  compatibility              Compatibility configuration
-    //  conflict                   DHCP address conflict parameters
-    //  database                   Configure DHCP database agents
     //  excluded-address        Prevent DHCP from assigning certain addresses
-    //  limit                      Limit DHCP Lease
     //  limited-broadcast-address  Use all 1's broadcast address
-    //  ping                       Specify ping parameters used by DHCP
 
+    // ip dhcp ping
+    container ping {
+      description
+        "Specify ping parameters used by DHCP";
+      container packets {
+        description
+          "Specify number of ping packets";
+        presence "true";
+        leaf number-packets {
+          description
+            "Number of ping packets (0 disables ping)";
+          type uint8 {
+            range "0..10";
+          }
+          default 2;
+        }
+      }
+      leaf timeout {
+        description
+          "Specify ping timeout";
+        type uint16 {
+          range "100..10000";
+        }
+      } 
+    }
     //ip dhcp conflict *
     container conflict {
       description
@@ -319,6 +451,7 @@ module Cisco-IOS-XE-dhcp {
         description
           "Record address conflicts in a log file";
         type boolean;
+        default true;
       }
       container resolution {
         description
@@ -334,20 +467,126 @@ module Cisco-IOS-XE-dhcp {
       }
     }
     //ip dhcp excluded-address
-    list excluded-address {
+    container excluded-address {
       description
         "Prevent DHCP from assigning certain addresses";
-      key "low-address";
-      leaf low-address {
-        type inet:ipv4-address;
+      list low-address-list {
+        key "low-address";
+        leaf low-address {
+          type inet:ipv4-address;
+        }
       }
-      leaf vrf {
+      list low-high-address-list {
+        key "low-address high-address";
+        leaf low-address {
+          type inet:ipv4-address;
+        }
+        leaf high-address {
+          type inet:ipv4-address;
+        }
+      }
+      list vrf-low-address-list {
+        key "vrf low-address";
+        leaf vrf {
+          description "VRF name for excluded address range";
+          type string;
+        }
+        leaf low-address {
+          type inet:ipv4-address;
+        }
+      }
+      list vrf-low-high-address-list {
+        key "vrf low-address high-address";
+        leaf vrf {
+          description "VRF name for excluded address range";
+          type string;
+        }
+        leaf low-address {
+          type inet:ipv4-address;
+        }
+        leaf high-address {
+          type inet:ipv4-address;
+        }
+      }
+    }
+    //ip dhcp binding
+    container binding {
+      description
+        "DHCP address bindings";
+      container cleanup {
         description
-          "VRF name for excluded address range";
-        type string;
+          "Remove expired bindings";     
+        leaf interval {
+          description
+            "Time in seconds";
+          type uint16 {
+            range "10..600";
+          }
+        }
       }
-      leaf high-address {
-        type inet:ipv4-address;
+    }
+    //ip dhcp database
+    container database {
+      description
+        "Configure DHCP database agents";
+      list resource {
+        description
+          "Uniform Resource Locator (URL)";
+        key "resource-locator";
+        leaf  resource-locator {
+          description
+            "Uniform Resource Locator (URL)";
+          type string;
+        }
+        leaf write-delay {
+          description
+            "Set the database write delay";
+          type uint32 {
+            range "60..4294967295";
+          }
+        }
+        leaf timeout {
+          description
+            "Set the database transfer timeout";
+          type uint16 {
+            range "0..3600";
+          }
+        }
+      }
+    }
+    //ip dhcp limit
+    container limit {
+      description
+        "Limit DHCP Lease";
+      container lease {
+        description
+          "DHCP lease";
+        leaf log {
+          description
+            "Limit DHCP Lease";
+          type empty;
+        }
+        container per {
+          description
+            "per";
+          leaf interface {
+            description
+              "interface";
+            type uint16 {
+              range "1..65535";
+            } 
+          }
+        }
+      }
+    }
+    // ip dhcp subscriber-id interface-name
+    container subscriber-id {
+      description
+        "Global subscriber-id configuration";
+      leaf interface-name {
+        description
+          "Use interface short-name";
+        type empty;
       }
     }
     // ip dhcp relay
@@ -476,20 +715,24 @@ module Cisco-IOS-XE-dhcp {
           type uint8;
         }
       }
-      leaf-list default-router {
-        description
-          "Default routers";
-        type union {
-          type string;
-          type inet:ipv4-address;
+      container default-router {
+        leaf-list default-router-list {
+          description
+            "Default routers";
+          type union {
+            type inet:ipv4-address;
+            type string;
+          }
         }
       }
-      leaf-list dns-server {
-        description
-          "DNS servers";
-        type union {
-          type string;
-          type inet:ipv4-address;
+      container dns-server {
+        leaf-list dns-server-list {
+          description
+            "DNS servers";
+          type union {
+            type inet:ipv4-address;
+            type string;
+          }
         }
       }
       leaf domain-name {
@@ -557,105 +800,164 @@ module Cisco-IOS-XE-dhcp {
       type empty;
     }
     // ip dhcp snooping
-    container snooping-conf {
-      leaf snooping {
-        description
-          "DHCP Snooping";
-        type empty;
-      }
-    }
-    container snooping {
+    leaf snooping {
       description
         "DHCP Snooping";
-      //  database     DHCP snooping database agent
-      container database {
+      type empty;
+    }
+    container snooping-conf {
+      container snooping {
         description
-          "DHCP snooping database agent";
-        leaf url {
-          type string;
-        }
-        leaf timeout {
+          "DHCP Snooping";
+        //  database     DHCP snooping database agent
+        container database {
           description
-            "Configure abort timeout interval";
-          type uint32 {
-            range "0..86400";
+            "DHCP snooping database agent";
+          leaf url {
+            type string;
           }
-        }
-        leaf write-delay {
-          description
-            "Configure delay timer for writes to URL";
-          type uint32 {
-            range "15..86400";
-          }
-        }
-      }
-      container information {
-        description
-          "DHCP Snooping information";
-        leaf option-conf {
-          type boolean;
-        }
-        container option {
-          description
-            "DHCP Snooping information option";
-          presence "true";
-          leaf allow-untrusted {
+          leaf timeout {
             description
-              "DHCP Snooping information option allow-untrusted";
-            type empty;
+              "Configure abort timeout interval";
+            type uint32 {
+              range "0..86400";
+            }
           }
-          container format {
+          leaf write-delay {
             description
-              "Option 82 information format";
-            container remote-id {
+              "Configure delay timer for writes to URL";
+            type uint32 {
+              range "15..86400";
+            }
+          }
+        }
+        leaf glean {
+          description
+            "DHCP read only snooping";
+          type empty;
+        }
+        container information {
+          description
+            "DHCP Snooping information";
+          leaf option {
+            type boolean; 
+            default "true";
+          }
+          container options {
+            container option {
               description
-                "Remote id option 82 format";
-              choice remote-id-choice {
-                leaf hostname {
+                "DHCP Snooping information option";
+              leaf allow-untrusted {
+                description
+                  "DHCP Snooping information option allow-untrusted";
+                type empty;
+              }
+              container format {
+                description
+                  "Option 82 information format";
+                container remote-id {
                   description
-                    "Use configured hostname for remote id";
-                  type empty;
-                }
-                leaf string {
-                  description
-                    "User defined string for remote id";
-                  type string;
+                    "Remote id option 82 format";
+                  choice remote-id-choice {
+                    leaf hostname {
+                      description
+                        "Use configured hostname for remote id";
+                      type empty;
+                    }
+                    leaf string {
+                      description
+                        "User defined string for remote id";
+                      type string;
+                    }
+                  }
                 }
               }
             }
           }
         }
-      }
-      container track {
-        description
-          "DHCP snooping track";
-        leaf host {
+        container track {
           description
-            "DHCP snooping track host";
-          type empty;
+            "DHCP snooping track";
+          leaf host {
+            description
+              "DHCP snooping track host";
+            type empty;
+          }
         }
-      }
-      container verify {
-        description
-          "DHCP snooping verify";
-        leaf mac-address {
+        container verify {
           description
-            "DHCP snooping verify mac-address";
-          type empty;
+            "DHCP snooping verify";
+          leaf mac-address {
+            description
+              "DHCP snooping verify mac-address";
+            type empty;
+          }
+          leaf no-relay-agent-address {
+            description
+              "DHCP snooping verify giaddr";
+            type empty;
+          }
         }
-        leaf no-relay-agent-address {
+        list vlan {
           description
-            "DHCP snooping verify giaddr";
-          type empty;
+            "DHCP Snooping vlan";
+          key "id";
+          leaf id {
+            type string;
+          }
         }
-      }
-      leaf vlan {
-        description
-          "DHCP Snooping vlan";
-        type string;
+        container wireless {
+          description
+            "DHCP snooping wireless";
+          container bootp-broadcast {
+            description
+              "DHCP snooping wireless bootp-broadcast";
+            leaf enable {
+              description
+                "DHCP snooping wireless bootp-broadcast enable";
+              type empty;
+            }
+          }
+        }
       }
     }
-        //  use        Configure use of certain parameters during allocation
+    //  use  Configure use of certain parameters during allocation
+    container use {
+      description
+        "Configure use of certain parameters during allocation";
+      container class {
+        presence "true";
+        leaf aaa {
+          description
+            "Configure use of aaa to get class";
+          type empty;
+        }
+      }
+      container subscriber-id {
+        description
+          "Configure use of subscriber-id suboption";
+        leaf client-id {
+          description
+            "Use subscriber-id suboption as client-id";
+          type empty;
+        }
+      }
+      container vrf {
+        description
+          "Ignore or use receiving interface VRF";
+        leaf connected {
+          description
+            "Use input interface VRF when servicing connected clients";
+          type boolean;
+          default true;
+        } 
+        leaf remote {
+          description
+            "Use input interface VRF when servicing remote clients";
+          type empty;
+        } 
+      }
+    }
   }
   grouping ipv6-dhcp-grouping {
     container server {
@@ -753,14 +1055,28 @@ module Cisco-IOS-XE-dhcp {
         description 
           "Server's name or IPv6 addres";
         type union {
-          type string;
           type inet:ipv6-address;
+          type string;
         }
       }
       leaf domain-name {
         description 
           "Domain name to complete unqualified host names";
         type string;
+      }
+      container import {
+        description
+          "Programatically importing DHCP option parameters";
+        leaf all {
+          description
+            "all DHCP options";
+          type empty;
+        }
+        container interface {
+          description
+            "Specify interface to import options from";
+          uses ios-ifc:interface-grouping;
+        }
       }
      
       list link-address {
@@ -769,6 +1085,12 @@ module Cisco-IOS-XE-dhcp {
         leaf address {
           type ios-types:ipv6-prefix;
         }
+      }
+
+      leaf bootfile-url {
+        description
+        "Boot file url";
+        type string;
       }
     }
   }

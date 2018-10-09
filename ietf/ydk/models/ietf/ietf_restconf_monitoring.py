@@ -26,6 +26,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class RestconfState(Entity):
     """
     Contains RESTCONF protocol monitoring information.
@@ -67,6 +68,7 @@ class RestconfState(Entity):
         self.streams.parent = self
         self._children_name_map["streams"] = "streams"
         self._segment_path = lambda: "ietf-restconf-monitoring:restconf-state"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(RestconfState, [], name, value)
@@ -98,11 +100,12 @@ class RestconfState(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('capability', YLeafList(YType.str, 'capability')),
+                ('capability', (YLeafList(YType.str, 'capability'), ['str'])),
             ])
             self.capability = []
             self._segment_path = lambda: "capabilities"
             self._absolute_path = lambda: "ietf-restconf-monitoring:restconf-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RestconfState.Capabilities, ['capability'], name, value)
@@ -139,6 +142,7 @@ class RestconfState(Entity):
             self.stream = YList(self)
             self._segment_path = lambda: "streams"
             self._absolute_path = lambda: "ietf-restconf-monitoring:restconf-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RestconfState.Streams, [], name, value)
@@ -195,10 +199,10 @@ class RestconfState(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("access", ("access", RestconfState.Streams.Stream.Access))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('description', YLeaf(YType.str, 'description')),
-                    ('replay_support', YLeaf(YType.boolean, 'replay-support')),
-                    ('replay_log_creation_time', YLeaf(YType.str, 'replay-log-creation-time')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                    ('replay_support', (YLeaf(YType.boolean, 'replay-support'), ['bool'])),
+                    ('replay_log_creation_time', (YLeaf(YType.str, 'replay-log-creation-time'), ['str'])),
                 ])
                 self.name = None
                 self.description = None
@@ -208,6 +212,7 @@ class RestconfState(Entity):
                 self.access = YList(self)
                 self._segment_path = lambda: "stream" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "ietf-restconf-monitoring:restconf-state/streams/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RestconfState.Streams.Stream, ['name', 'description', 'replay_support', 'replay_log_creation_time'], name, value)
@@ -250,12 +255,13 @@ class RestconfState(Entity):
                     self.ylist_key_names = ['encoding']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('encoding', YLeaf(YType.str, 'encoding')),
-                        ('location', YLeaf(YType.str, 'location')),
+                        ('encoding', (YLeaf(YType.str, 'encoding'), ['str'])),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
                     ])
                     self.encoding = None
                     self.location = None
                     self._segment_path = lambda: "access" + "[encoding='" + str(self.encoding) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RestconfState.Streams.Stream.Access, ['encoding', 'location'], name, value)

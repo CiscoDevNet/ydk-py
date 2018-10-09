@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ethernet\-interface\: Ethernet operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class EthCtrlrAlarmState(Enum):
@@ -332,6 +333,10 @@ class EtherLinkState(Enum):
 
     	OTN Framing Error
 
+    .. data:: shutdown = 28
+
+    	Link is shutdown
+
     """
 
     state_undefined = Enum.YLeaf(0, "state-undefined")
@@ -389,6 +394,8 @@ class EtherLinkState(Enum):
     wan_framing_error = Enum.YLeaf(26, "wan-framing-error")
 
     otn_framing_error = Enum.YLeaf(27, "otn-framing-error")
+
+    shutdown = Enum.YLeaf(28, "shutdown")
 
 
 class EtherPfc(Enum):
@@ -2193,23 +2200,107 @@ class EthernetMedia(Enum):
 
     	Passive Twinax cable assembly 1m
 
-    .. data:: ethernet_10gbase_cu3m = 351
+    .. data:: ethernet_10gbase_cu1_5m = 351
+
+    	Passive Twinax cable assembly 1.5m
+
+    .. data:: ethernet_10gbase_cu2m = 352
+
+    	Passive Twinax cable assembly 2m
+
+    .. data:: ethernet_10gbase_cu2_5m = 353
+
+    	Passive Twinax cable assembly 2.5m
+
+    .. data:: ethernet_10gbase_cu3m = 354
 
     	Passive Twinax cable assembly 3m
 
-    .. data:: ethernet_10gbase_cu5m = 352
+    .. data:: ethernet_10gbase_cu5m = 355
 
     	Passive Twinax cable assembly 5m
 
-    .. data:: ethernet_10gbase_acu7m = 353
+    .. data:: ethernet_10gbase_acu7m = 356
 
     	Active Twinax cable assembly 7m
 
-    .. data:: ethernet_10gbase_acu10m = 354
+    .. data:: ethernet_10gbase_acu10m = 357
 
     	Active Twinax cable assembly 10m
 
-    .. data:: ethernet_base_max = 355
+    .. data:: ethernet_10gbase_aoc1m = 358
+
+    	Active optical cable 1m
+
+    .. data:: ethernet_10gbase_aoc2m = 359
+
+    	Active optical cable 2m
+
+    .. data:: ethernet_10gbase_aoc3m = 360
+
+    	Active optical cable 3m
+
+    .. data:: ethernet_10gbase_aoc5m = 361
+
+    	Active optical cable 5m
+
+    .. data:: ethernet_10gbase_aoc7m = 362
+
+    	Active optical cable 7m
+
+    .. data:: ethernet_10gbase_aoc10m = 363
+
+    	Active optical cable 10m
+
+    .. data:: ethernet_40gbase_aoc = 364
+
+    	Active optical cable
+
+    .. data:: ethernet_4x10g_base_lr = 365
+
+    	fiber over 4 lane optics (long reach)
+
+    .. data:: ethernet_40gbase_acu1m = 366
+
+    	Active Twinax cable assembly 1m
+
+    .. data:: ethernet_40gbase_acu3m = 367
+
+    	Active Twinax cable assembly 3m
+
+    .. data:: ethernet_40gbase_acu5m = 368
+
+    	Active Twinax cable assembly 5m
+
+    .. data:: ethernet_40gbase_acu7m = 369
+
+    	Active Twinax cable assembly 7m
+
+    .. data:: ethernet_40gbase_acu10m = 370
+
+    	Active Twinax cable assembly 10m
+
+    .. data:: ethernet_25gbase_cu1m = 371
+
+    	Twinaxial copper cabling (1m)
+
+    .. data:: ethernet_25gbase_cu2m = 372
+
+    	Twinaxial copper cabling (2m)
+
+    .. data:: ethernet_25gbase_cu3m = 373
+
+    	Twinaxial copper cabling (3m)
+
+    .. data:: ethernet_25gbase_cu5m = 374
+
+    	Twinaxial copper cabling (5m)
+
+    .. data:: ethernet_100gbase_sm_sr = 375
+
+    	4 lane CWDM Lite cable
+
+    .. data:: ethernet_base_max = 376
 
     	ethernet base max
 
@@ -2917,15 +3008,57 @@ class EthernetMedia(Enum):
 
     ethernet_10gbase_cu1m = Enum.YLeaf(350, "ethernet-10gbase-cu1m")
 
-    ethernet_10gbase_cu3m = Enum.YLeaf(351, "ethernet-10gbase-cu3m")
+    ethernet_10gbase_cu1_5m = Enum.YLeaf(351, "ethernet-10gbase-cu1-5m")
 
-    ethernet_10gbase_cu5m = Enum.YLeaf(352, "ethernet-10gbase-cu5m")
+    ethernet_10gbase_cu2m = Enum.YLeaf(352, "ethernet-10gbase-cu2m")
 
-    ethernet_10gbase_acu7m = Enum.YLeaf(353, "ethernet-10gbase-acu7m")
+    ethernet_10gbase_cu2_5m = Enum.YLeaf(353, "ethernet-10gbase-cu2-5m")
 
-    ethernet_10gbase_acu10m = Enum.YLeaf(354, "ethernet-10gbase-acu10m")
+    ethernet_10gbase_cu3m = Enum.YLeaf(354, "ethernet-10gbase-cu3m")
 
-    ethernet_base_max = Enum.YLeaf(355, "ethernet-base-max")
+    ethernet_10gbase_cu5m = Enum.YLeaf(355, "ethernet-10gbase-cu5m")
+
+    ethernet_10gbase_acu7m = Enum.YLeaf(356, "ethernet-10gbase-acu7m")
+
+    ethernet_10gbase_acu10m = Enum.YLeaf(357, "ethernet-10gbase-acu10m")
+
+    ethernet_10gbase_aoc1m = Enum.YLeaf(358, "ethernet-10gbase-aoc1m")
+
+    ethernet_10gbase_aoc2m = Enum.YLeaf(359, "ethernet-10gbase-aoc2m")
+
+    ethernet_10gbase_aoc3m = Enum.YLeaf(360, "ethernet-10gbase-aoc3m")
+
+    ethernet_10gbase_aoc5m = Enum.YLeaf(361, "ethernet-10gbase-aoc5m")
+
+    ethernet_10gbase_aoc7m = Enum.YLeaf(362, "ethernet-10gbase-aoc7m")
+
+    ethernet_10gbase_aoc10m = Enum.YLeaf(363, "ethernet-10gbase-aoc10m")
+
+    ethernet_40gbase_aoc = Enum.YLeaf(364, "ethernet-40gbase-aoc")
+
+    ethernet_4x10g_base_lr = Enum.YLeaf(365, "ethernet-4x10g-base-lr")
+
+    ethernet_40gbase_acu1m = Enum.YLeaf(366, "ethernet-40gbase-acu1m")
+
+    ethernet_40gbase_acu3m = Enum.YLeaf(367, "ethernet-40gbase-acu3m")
+
+    ethernet_40gbase_acu5m = Enum.YLeaf(368, "ethernet-40gbase-acu5m")
+
+    ethernet_40gbase_acu7m = Enum.YLeaf(369, "ethernet-40gbase-acu7m")
+
+    ethernet_40gbase_acu10m = Enum.YLeaf(370, "ethernet-40gbase-acu10m")
+
+    ethernet_25gbase_cu1m = Enum.YLeaf(371, "ethernet-25gbase-cu1m")
+
+    ethernet_25gbase_cu2m = Enum.YLeaf(372, "ethernet-25gbase-cu2m")
+
+    ethernet_25gbase_cu3m = Enum.YLeaf(373, "ethernet-25gbase-cu3m")
+
+    ethernet_25gbase_cu5m = Enum.YLeaf(374, "ethernet-25gbase-cu5m")
+
+    ethernet_100gbase_sm_sr = Enum.YLeaf(375, "ethernet-100gbase-sm-sr")
+
+    ethernet_base_max = Enum.YLeaf(376, "ethernet-base-max")
 
 
 class EthernetPortEnable(Enum):
@@ -3093,6 +3226,7 @@ class EthernetInterface(Entity):
         self.berts.parent = self
         self._children_name_map["berts"] = "berts"
         self._segment_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(EthernetInterface, [], name, value)
@@ -3128,6 +3262,7 @@ class EthernetInterface(Entity):
             self.statistic = YList(self)
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EthernetInterface.Statistics, [], name, value)
@@ -3142,7 +3277,7 @@ class EthernetInterface(Entity):
             	The name of the interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: received_total_bytes
             
@@ -3546,62 +3681,62 @@ class EthernetInterface(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('received_total_bytes', YLeaf(YType.uint64, 'received-total-bytes')),
-                    ('received_good_bytes', YLeaf(YType.uint64, 'received-good-bytes')),
-                    ('received_total_frames', YLeaf(YType.uint64, 'received-total-frames')),
-                    ('received8021q_frames', YLeaf(YType.uint64, 'received8021q-frames')),
-                    ('received_pause_frames', YLeaf(YType.uint64, 'received-pause-frames')),
-                    ('received_unknown_opcodes', YLeaf(YType.uint64, 'received-unknown-opcodes')),
-                    ('received_total64_octet_frames', YLeaf(YType.uint64, 'received-total64-octet-frames')),
-                    ('received_total_octet_frames_from65_to127', YLeaf(YType.uint64, 'received-total-octet-frames-from65-to127')),
-                    ('received_total_octet_frames_from128_to255', YLeaf(YType.uint64, 'received-total-octet-frames-from128-to255')),
-                    ('received_total_octet_frames_from256_to511', YLeaf(YType.uint64, 'received-total-octet-frames-from256-to511')),
-                    ('received_total_octet_frames_from512_to1023', YLeaf(YType.uint64, 'received-total-octet-frames-from512-to1023')),
-                    ('received_total_octet_frames_from1024_to1518', YLeaf(YType.uint64, 'received-total-octet-frames-from1024-to1518')),
-                    ('received_total_octet_frames_from1519_to_max', YLeaf(YType.uint64, 'received-total-octet-frames-from1519-to-max')),
-                    ('received_good_frames', YLeaf(YType.uint64, 'received-good-frames')),
-                    ('received_unicast_frames', YLeaf(YType.uint64, 'received-unicast-frames')),
-                    ('received_multicast_frames', YLeaf(YType.uint64, 'received-multicast-frames')),
-                    ('received_broadcast_frames', YLeaf(YType.uint64, 'received-broadcast-frames')),
-                    ('number_of_buffer_overrun_packets_dropped', YLeaf(YType.uint64, 'number-of-buffer-overrun-packets-dropped')),
-                    ('number_of_aborted_packets_dropped', YLeaf(YType.uint64, 'number-of-aborted-packets-dropped')),
-                    ('numberof_invalid_vlan_id_packets_dropped', YLeaf(YType.uint64, 'numberof-invalid-vlan-id-packets-dropped')),
-                    ('invalid_dest_mac_drop_packets', YLeaf(YType.uint64, 'invalid-dest-mac-drop-packets')),
-                    ('invalid_encap_drop_packets', YLeaf(YType.uint64, 'invalid-encap-drop-packets')),
-                    ('number_of_miscellaneous_packets_dropped', YLeaf(YType.uint64, 'number-of-miscellaneous-packets-dropped')),
-                    ('dropped_giant_packets_greaterthan_mru', YLeaf(YType.uint64, 'dropped-giant-packets-greaterthan-mru')),
-                    ('dropped_ether_stats_undersize_pkts', YLeaf(YType.uint64, 'dropped-ether-stats-undersize-pkts')),
-                    ('dropped_jabbers_packets_greaterthan_mru', YLeaf(YType.uint64, 'dropped-jabbers-packets-greaterthan-mru')),
-                    ('dropped_ether_stats_fragments', YLeaf(YType.uint64, 'dropped-ether-stats-fragments')),
-                    ('dropped_packets_with_crc_align_errors', YLeaf(YType.uint64, 'dropped-packets-with-crc-align-errors')),
-                    ('ether_stats_collisions', YLeaf(YType.uint64, 'ether-stats-collisions')),
-                    ('symbol_errors', YLeaf(YType.uint64, 'symbol-errors')),
-                    ('dropped_miscellaneous_error_packets', YLeaf(YType.uint64, 'dropped-miscellaneous-error-packets')),
-                    ('rfc2819_ether_stats_oversized_pkts', YLeaf(YType.uint64, 'rfc2819-ether-stats-oversized-pkts')),
-                    ('rfc2819_ether_stats_jabbers', YLeaf(YType.uint64, 'rfc2819-ether-stats-jabbers')),
-                    ('rfc2819_ether_stats_crc_align_errors', YLeaf(YType.uint64, 'rfc2819-ether-stats-crc-align-errors')),
-                    ('rfc3635dot3_stats_alignment_errors', YLeaf(YType.uint64, 'rfc3635dot3-stats-alignment-errors')),
-                    ('total_bytes_transmitted', YLeaf(YType.uint64, 'total-bytes-transmitted')),
-                    ('total_good_bytes_transmitted', YLeaf(YType.uint64, 'total-good-bytes-transmitted')),
-                    ('total_frames_transmitted', YLeaf(YType.uint64, 'total-frames-transmitted')),
-                    ('transmitted8021q_frames', YLeaf(YType.uint64, 'transmitted8021q-frames')),
-                    ('transmitted_total_pause_frames', YLeaf(YType.uint64, 'transmitted-total-pause-frames')),
-                    ('transmitted_total64_octet_frames', YLeaf(YType.uint64, 'transmitted-total64-octet-frames')),
-                    ('transmitted_total_octet_frames_from65_to127', YLeaf(YType.uint64, 'transmitted-total-octet-frames-from65-to127')),
-                    ('transmitted_total_octet_frames_from128_to255', YLeaf(YType.uint64, 'transmitted-total-octet-frames-from128-to255')),
-                    ('transmitted_total_octet_frames_from256_to511', YLeaf(YType.uint64, 'transmitted-total-octet-frames-from256-to511')),
-                    ('transmitted_total_octet_frames_from512_to1023', YLeaf(YType.uint64, 'transmitted-total-octet-frames-from512-to1023')),
-                    ('transmitted_total_octet_frames_from1024_to1518', YLeaf(YType.uint64, 'transmitted-total-octet-frames-from1024-to1518')),
-                    ('transmitted_total_octet_frames_from1518_to_max', YLeaf(YType.uint64, 'transmitted-total-octet-frames-from1518-to-max')),
-                    ('transmitted_good_frames', YLeaf(YType.uint64, 'transmitted-good-frames')),
-                    ('transmitted_unicast_frames', YLeaf(YType.uint64, 'transmitted-unicast-frames')),
-                    ('transmitted_multicast_frames', YLeaf(YType.uint64, 'transmitted-multicast-frames')),
-                    ('transmitted_broadcast_frames', YLeaf(YType.uint64, 'transmitted-broadcast-frames')),
-                    ('buffer_underrun_packet_drops', YLeaf(YType.uint64, 'buffer-underrun-packet-drops')),
-                    ('aborted_packet_drops', YLeaf(YType.uint64, 'aborted-packet-drops')),
-                    ('uncounted_dropped_frames', YLeaf(YType.uint64, 'uncounted-dropped-frames')),
-                    ('miscellaneous_output_errors', YLeaf(YType.uint64, 'miscellaneous-output-errors')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('received_total_bytes', (YLeaf(YType.uint64, 'received-total-bytes'), ['int'])),
+                    ('received_good_bytes', (YLeaf(YType.uint64, 'received-good-bytes'), ['int'])),
+                    ('received_total_frames', (YLeaf(YType.uint64, 'received-total-frames'), ['int'])),
+                    ('received8021q_frames', (YLeaf(YType.uint64, 'received8021q-frames'), ['int'])),
+                    ('received_pause_frames', (YLeaf(YType.uint64, 'received-pause-frames'), ['int'])),
+                    ('received_unknown_opcodes', (YLeaf(YType.uint64, 'received-unknown-opcodes'), ['int'])),
+                    ('received_total64_octet_frames', (YLeaf(YType.uint64, 'received-total64-octet-frames'), ['int'])),
+                    ('received_total_octet_frames_from65_to127', (YLeaf(YType.uint64, 'received-total-octet-frames-from65-to127'), ['int'])),
+                    ('received_total_octet_frames_from128_to255', (YLeaf(YType.uint64, 'received-total-octet-frames-from128-to255'), ['int'])),
+                    ('received_total_octet_frames_from256_to511', (YLeaf(YType.uint64, 'received-total-octet-frames-from256-to511'), ['int'])),
+                    ('received_total_octet_frames_from512_to1023', (YLeaf(YType.uint64, 'received-total-octet-frames-from512-to1023'), ['int'])),
+                    ('received_total_octet_frames_from1024_to1518', (YLeaf(YType.uint64, 'received-total-octet-frames-from1024-to1518'), ['int'])),
+                    ('received_total_octet_frames_from1519_to_max', (YLeaf(YType.uint64, 'received-total-octet-frames-from1519-to-max'), ['int'])),
+                    ('received_good_frames', (YLeaf(YType.uint64, 'received-good-frames'), ['int'])),
+                    ('received_unicast_frames', (YLeaf(YType.uint64, 'received-unicast-frames'), ['int'])),
+                    ('received_multicast_frames', (YLeaf(YType.uint64, 'received-multicast-frames'), ['int'])),
+                    ('received_broadcast_frames', (YLeaf(YType.uint64, 'received-broadcast-frames'), ['int'])),
+                    ('number_of_buffer_overrun_packets_dropped', (YLeaf(YType.uint64, 'number-of-buffer-overrun-packets-dropped'), ['int'])),
+                    ('number_of_aborted_packets_dropped', (YLeaf(YType.uint64, 'number-of-aborted-packets-dropped'), ['int'])),
+                    ('numberof_invalid_vlan_id_packets_dropped', (YLeaf(YType.uint64, 'numberof-invalid-vlan-id-packets-dropped'), ['int'])),
+                    ('invalid_dest_mac_drop_packets', (YLeaf(YType.uint64, 'invalid-dest-mac-drop-packets'), ['int'])),
+                    ('invalid_encap_drop_packets', (YLeaf(YType.uint64, 'invalid-encap-drop-packets'), ['int'])),
+                    ('number_of_miscellaneous_packets_dropped', (YLeaf(YType.uint64, 'number-of-miscellaneous-packets-dropped'), ['int'])),
+                    ('dropped_giant_packets_greaterthan_mru', (YLeaf(YType.uint64, 'dropped-giant-packets-greaterthan-mru'), ['int'])),
+                    ('dropped_ether_stats_undersize_pkts', (YLeaf(YType.uint64, 'dropped-ether-stats-undersize-pkts'), ['int'])),
+                    ('dropped_jabbers_packets_greaterthan_mru', (YLeaf(YType.uint64, 'dropped-jabbers-packets-greaterthan-mru'), ['int'])),
+                    ('dropped_ether_stats_fragments', (YLeaf(YType.uint64, 'dropped-ether-stats-fragments'), ['int'])),
+                    ('dropped_packets_with_crc_align_errors', (YLeaf(YType.uint64, 'dropped-packets-with-crc-align-errors'), ['int'])),
+                    ('ether_stats_collisions', (YLeaf(YType.uint64, 'ether-stats-collisions'), ['int'])),
+                    ('symbol_errors', (YLeaf(YType.uint64, 'symbol-errors'), ['int'])),
+                    ('dropped_miscellaneous_error_packets', (YLeaf(YType.uint64, 'dropped-miscellaneous-error-packets'), ['int'])),
+                    ('rfc2819_ether_stats_oversized_pkts', (YLeaf(YType.uint64, 'rfc2819-ether-stats-oversized-pkts'), ['int'])),
+                    ('rfc2819_ether_stats_jabbers', (YLeaf(YType.uint64, 'rfc2819-ether-stats-jabbers'), ['int'])),
+                    ('rfc2819_ether_stats_crc_align_errors', (YLeaf(YType.uint64, 'rfc2819-ether-stats-crc-align-errors'), ['int'])),
+                    ('rfc3635dot3_stats_alignment_errors', (YLeaf(YType.uint64, 'rfc3635dot3-stats-alignment-errors'), ['int'])),
+                    ('total_bytes_transmitted', (YLeaf(YType.uint64, 'total-bytes-transmitted'), ['int'])),
+                    ('total_good_bytes_transmitted', (YLeaf(YType.uint64, 'total-good-bytes-transmitted'), ['int'])),
+                    ('total_frames_transmitted', (YLeaf(YType.uint64, 'total-frames-transmitted'), ['int'])),
+                    ('transmitted8021q_frames', (YLeaf(YType.uint64, 'transmitted8021q-frames'), ['int'])),
+                    ('transmitted_total_pause_frames', (YLeaf(YType.uint64, 'transmitted-total-pause-frames'), ['int'])),
+                    ('transmitted_total64_octet_frames', (YLeaf(YType.uint64, 'transmitted-total64-octet-frames'), ['int'])),
+                    ('transmitted_total_octet_frames_from65_to127', (YLeaf(YType.uint64, 'transmitted-total-octet-frames-from65-to127'), ['int'])),
+                    ('transmitted_total_octet_frames_from128_to255', (YLeaf(YType.uint64, 'transmitted-total-octet-frames-from128-to255'), ['int'])),
+                    ('transmitted_total_octet_frames_from256_to511', (YLeaf(YType.uint64, 'transmitted-total-octet-frames-from256-to511'), ['int'])),
+                    ('transmitted_total_octet_frames_from512_to1023', (YLeaf(YType.uint64, 'transmitted-total-octet-frames-from512-to1023'), ['int'])),
+                    ('transmitted_total_octet_frames_from1024_to1518', (YLeaf(YType.uint64, 'transmitted-total-octet-frames-from1024-to1518'), ['int'])),
+                    ('transmitted_total_octet_frames_from1518_to_max', (YLeaf(YType.uint64, 'transmitted-total-octet-frames-from1518-to-max'), ['int'])),
+                    ('transmitted_good_frames', (YLeaf(YType.uint64, 'transmitted-good-frames'), ['int'])),
+                    ('transmitted_unicast_frames', (YLeaf(YType.uint64, 'transmitted-unicast-frames'), ['int'])),
+                    ('transmitted_multicast_frames', (YLeaf(YType.uint64, 'transmitted-multicast-frames'), ['int'])),
+                    ('transmitted_broadcast_frames', (YLeaf(YType.uint64, 'transmitted-broadcast-frames'), ['int'])),
+                    ('buffer_underrun_packet_drops', (YLeaf(YType.uint64, 'buffer-underrun-packet-drops'), ['int'])),
+                    ('aborted_packet_drops', (YLeaf(YType.uint64, 'aborted-packet-drops'), ['int'])),
+                    ('uncounted_dropped_frames', (YLeaf(YType.uint64, 'uncounted-dropped-frames'), ['int'])),
+                    ('miscellaneous_output_errors', (YLeaf(YType.uint64, 'miscellaneous-output-errors'), ['int'])),
                 ])
                 self.interface_name = None
                 self.received_total_bytes = None
@@ -3661,6 +3796,7 @@ class EthernetInterface(Entity):
                 self.miscellaneous_output_errors = None
                 self._segment_path = lambda: "statistic" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EthernetInterface.Statistics.Statistic, ['interface_name', 'received_total_bytes', 'received_good_bytes', 'received_total_frames', 'received8021q_frames', 'received_pause_frames', 'received_unknown_opcodes', 'received_total64_octet_frames', 'received_total_octet_frames_from65_to127', 'received_total_octet_frames_from128_to255', 'received_total_octet_frames_from256_to511', 'received_total_octet_frames_from512_to1023', 'received_total_octet_frames_from1024_to1518', 'received_total_octet_frames_from1519_to_max', 'received_good_frames', 'received_unicast_frames', 'received_multicast_frames', 'received_broadcast_frames', 'number_of_buffer_overrun_packets_dropped', 'number_of_aborted_packets_dropped', 'numberof_invalid_vlan_id_packets_dropped', 'invalid_dest_mac_drop_packets', 'invalid_encap_drop_packets', 'number_of_miscellaneous_packets_dropped', 'dropped_giant_packets_greaterthan_mru', 'dropped_ether_stats_undersize_pkts', 'dropped_jabbers_packets_greaterthan_mru', 'dropped_ether_stats_fragments', 'dropped_packets_with_crc_align_errors', 'ether_stats_collisions', 'symbol_errors', 'dropped_miscellaneous_error_packets', 'rfc2819_ether_stats_oversized_pkts', 'rfc2819_ether_stats_jabbers', 'rfc2819_ether_stats_crc_align_errors', 'rfc3635dot3_stats_alignment_errors', 'total_bytes_transmitted', 'total_good_bytes_transmitted', 'total_frames_transmitted', 'transmitted8021q_frames', 'transmitted_total_pause_frames', 'transmitted_total64_octet_frames', 'transmitted_total_octet_frames_from65_to127', 'transmitted_total_octet_frames_from128_to255', 'transmitted_total_octet_frames_from256_to511', 'transmitted_total_octet_frames_from512_to1023', 'transmitted_total_octet_frames_from1024_to1518', 'transmitted_total_octet_frames_from1518_to_max', 'transmitted_good_frames', 'transmitted_unicast_frames', 'transmitted_multicast_frames', 'transmitted_broadcast_frames', 'buffer_underrun_packet_drops', 'aborted_packet_drops', 'uncounted_dropped_frames', 'miscellaneous_output_errors'], name, value)
@@ -3696,6 +3832,7 @@ class EthernetInterface(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EthernetInterface.Interfaces, [], name, value)
@@ -3710,7 +3847,7 @@ class EthernetInterface(Entity):
             	The name of the interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: phy_info
             
@@ -3759,9 +3896,9 @@ class EthernetInterface(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([("phy-info", ("phy_info", EthernetInterface.Interfaces.Interface.PhyInfo)), ("layer1-info", ("layer1_info", EthernetInterface.Interfaces.Interface.Layer1Info)), ("mac-info", ("mac_info", EthernetInterface.Interfaces.Interface.MacInfo)), ("transport-info", ("transport_info", EthernetInterface.Interfaces.Interface.TransportInfo))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
-                    ('oper_state_up', YLeaf(YType.boolean, 'oper-state-up')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetPortEnable', '')])),
+                    ('oper_state_up', (YLeaf(YType.boolean, 'oper-state-up'), ['bool'])),
                 ])
                 self.interface_name = None
                 self.admin_state = None
@@ -3784,6 +3921,7 @@ class EthernetInterface(Entity):
                 self._children_name_map["transport_info"] = "transport-info"
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EthernetInterface.Interfaces.Interface, ['interface_name', 'admin_state', 'oper_state_up'], name, value)
@@ -3818,6 +3956,13 @@ class EthernetInterface(Entity):
                 	Port operational loopback
                 	**type**\:  :py:class:`EthernetLoopback <ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper.EthernetLoopback>`
                 
+                .. attribute:: holdoff_time
+                
+                	Holdoff Time
+                	**type**\: int
+                
+                	**range:** 0..4294967295
+                
                 .. attribute:: extended_loopback
                 
                 	Port operational extended loopback
@@ -3840,13 +3985,15 @@ class EthernetInterface(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("phy-details", ("phy_details", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails)), ("fec-details", ("fec_details", EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails)), ("extended-loopback", ("extended_loopback", EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback))])
                     self._leafs = OrderedDict([
-                        ('media_type', YLeaf(YType.enumeration, 'media-type')),
-                        ('phy_present', YLeaf(YType.enumeration, 'phy-present')),
-                        ('loopback', YLeaf(YType.enumeration, 'loopback')),
+                        ('media_type', (YLeaf(YType.enumeration, 'media-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetMedia', '')])),
+                        ('phy_present', (YLeaf(YType.enumeration, 'phy-present'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherPhyPresent', '')])),
+                        ('loopback', (YLeaf(YType.enumeration, 'loopback'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetLoopback', '')])),
+                        ('holdoff_time', (YLeaf(YType.uint32, 'holdoff-time'), ['int'])),
                     ])
                     self.media_type = None
                     self.phy_present = None
                     self.loopback = None
+                    self.holdoff_time = None
 
                     self.phy_details = EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails()
                     self.phy_details.parent = self
@@ -3858,9 +4005,10 @@ class EthernetInterface(Entity):
 
                     self.extended_loopback = YList(self)
                     self._segment_path = lambda: "phy-info"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo, ['media_type', 'phy_present', 'loopback'], name, value)
+                    self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo, ['media_type', 'phy_present', 'loopback', 'holdoff_time'], name, value)
 
 
                 class PhyDetails(Entity):
@@ -3971,17 +4119,17 @@ class EthernetInterface(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("lane-field-validity", ("lane_field_validity", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity)), ("dig-opt-mon-alarm-thresholds", ("dig_opt_mon_alarm_thresholds", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds)), ("dig-opt-mon-alarms", ("dig_opt_mon_alarms", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms)), ("lane", ("lane", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane))])
                         self._leafs = OrderedDict([
-                            ('vendor', YLeaf(YType.str, 'vendor')),
-                            ('vendor_part_number', YLeaf(YType.str, 'vendor-part-number')),
-                            ('vendor_serial_number', YLeaf(YType.str, 'vendor-serial-number')),
-                            ('transceiver_temperature', YLeaf(YType.int32, 'transceiver-temperature')),
-                            ('transceiver_voltage', YLeaf(YType.int32, 'transceiver-voltage')),
-                            ('transceiver_tx_power', YLeaf(YType.int32, 'transceiver-tx-power')),
-                            ('transceiver_rx_power', YLeaf(YType.int32, 'transceiver-rx-power')),
-                            ('transceiver_tx_bias', YLeaf(YType.int32, 'transceiver-tx-bias')),
-                            ('optics_wavelength', YLeaf(YType.uint32, 'optics-wavelength')),
-                            ('optics_type', YLeaf(YType.str, 'optics-type')),
-                            ('revision_number', YLeaf(YType.str, 'revision-number')),
+                            ('vendor', (YLeaf(YType.str, 'vendor'), ['str'])),
+                            ('vendor_part_number', (YLeaf(YType.str, 'vendor-part-number'), ['str'])),
+                            ('vendor_serial_number', (YLeaf(YType.str, 'vendor-serial-number'), ['str'])),
+                            ('transceiver_temperature', (YLeaf(YType.int32, 'transceiver-temperature'), ['int'])),
+                            ('transceiver_voltage', (YLeaf(YType.int32, 'transceiver-voltage'), ['int'])),
+                            ('transceiver_tx_power', (YLeaf(YType.int32, 'transceiver-tx-power'), ['int'])),
+                            ('transceiver_rx_power', (YLeaf(YType.int32, 'transceiver-rx-power'), ['int'])),
+                            ('transceiver_tx_bias', (YLeaf(YType.int32, 'transceiver-tx-bias'), ['int'])),
+                            ('optics_wavelength', (YLeaf(YType.uint32, 'optics-wavelength'), ['int'])),
+                            ('optics_type', (YLeaf(YType.str, 'optics-type'), ['str'])),
+                            ('revision_number', (YLeaf(YType.str, 'revision-number'), ['str'])),
                         ])
                         self.vendor = None
                         self.vendor_part_number = None
@@ -4009,6 +4157,7 @@ class EthernetInterface(Entity):
 
                         self.lane = YList(self)
                         self._segment_path = lambda: "phy-details"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails, ['vendor', 'vendor_part_number', 'vendor_serial_number', 'transceiver_temperature', 'transceiver_voltage', 'transceiver_tx_power', 'transceiver_rx_power', 'transceiver_tx_bias', 'optics_wavelength', 'optics_type', 'revision_number'], name, value)
@@ -4064,16 +4213,17 @@ class EthernetInterface(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('wavelength_valid', YLeaf(YType.int32, 'wavelength-valid')),
-                                ('transmit_power_valid', YLeaf(YType.int32, 'transmit-power-valid')),
-                                ('receive_power_valid', YLeaf(YType.int32, 'receive-power-valid')),
-                                ('laser_bias_valid', YLeaf(YType.int32, 'laser-bias-valid')),
+                                ('wavelength_valid', (YLeaf(YType.int32, 'wavelength-valid'), ['int'])),
+                                ('transmit_power_valid', (YLeaf(YType.int32, 'transmit-power-valid'), ['int'])),
+                                ('receive_power_valid', (YLeaf(YType.int32, 'receive-power-valid'), ['int'])),
+                                ('laser_bias_valid', (YLeaf(YType.int32, 'laser-bias-valid'), ['int'])),
                             ])
                             self.wavelength_valid = None
                             self.transmit_power_valid = None
                             self.receive_power_valid = None
                             self.laser_bias_valid = None
                             self._segment_path = lambda: "lane-field-validity"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.LaneFieldValidity, ['wavelength_valid', 'transmit_power_valid', 'receive_power_valid', 'laser_bias_valid'], name, value)
@@ -4245,26 +4395,26 @@ class EthernetInterface(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("field-validity", ("field_validity", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity))])
                             self._leafs = OrderedDict([
-                                ('transceiver_temperature_alarm_high', YLeaf(YType.int32, 'transceiver-temperature-alarm-high')),
-                                ('transceiver_temperature_warning_high', YLeaf(YType.int32, 'transceiver-temperature-warning-high')),
-                                ('transceiver_temperature_warning_low', YLeaf(YType.int32, 'transceiver-temperature-warning-low')),
-                                ('transceiver_temperature_alarm_low', YLeaf(YType.int32, 'transceiver-temperature-alarm-low')),
-                                ('transceiver_voltage_alarm_high', YLeaf(YType.uint32, 'transceiver-voltage-alarm-high')),
-                                ('transceiver_voltage_warning_high', YLeaf(YType.uint32, 'transceiver-voltage-warning-high')),
-                                ('transceiver_voltage_warning_low', YLeaf(YType.uint32, 'transceiver-voltage-warning-low')),
-                                ('transceiver_voltage_alarm_low', YLeaf(YType.uint32, 'transceiver-voltage-alarm-low')),
-                                ('laser_bias_alarm_high', YLeaf(YType.uint32, 'laser-bias-alarm-high')),
-                                ('laser_bias_warning_high', YLeaf(YType.uint32, 'laser-bias-warning-high')),
-                                ('laser_bias_warning_low', YLeaf(YType.uint32, 'laser-bias-warning-low')),
-                                ('laser_bias_alarm_low', YLeaf(YType.uint32, 'laser-bias-alarm-low')),
-                                ('optical_transmit_power_alarm_high', YLeaf(YType.uint32, 'optical-transmit-power-alarm-high')),
-                                ('optical_transmit_power_warning_high', YLeaf(YType.uint32, 'optical-transmit-power-warning-high')),
-                                ('optical_transmit_power_warning_low', YLeaf(YType.uint32, 'optical-transmit-power-warning-low')),
-                                ('optical_transmit_power_alarm_low', YLeaf(YType.uint32, 'optical-transmit-power-alarm-low')),
-                                ('optical_receive_power_alarm_high', YLeaf(YType.uint32, 'optical-receive-power-alarm-high')),
-                                ('optical_receive_power_warning_high', YLeaf(YType.uint32, 'optical-receive-power-warning-high')),
-                                ('optical_receive_power_warning_low', YLeaf(YType.uint32, 'optical-receive-power-warning-low')),
-                                ('optical_receive_power_alarm_low', YLeaf(YType.uint32, 'optical-receive-power-alarm-low')),
+                                ('transceiver_temperature_alarm_high', (YLeaf(YType.int32, 'transceiver-temperature-alarm-high'), ['int'])),
+                                ('transceiver_temperature_warning_high', (YLeaf(YType.int32, 'transceiver-temperature-warning-high'), ['int'])),
+                                ('transceiver_temperature_warning_low', (YLeaf(YType.int32, 'transceiver-temperature-warning-low'), ['int'])),
+                                ('transceiver_temperature_alarm_low', (YLeaf(YType.int32, 'transceiver-temperature-alarm-low'), ['int'])),
+                                ('transceiver_voltage_alarm_high', (YLeaf(YType.uint32, 'transceiver-voltage-alarm-high'), ['int'])),
+                                ('transceiver_voltage_warning_high', (YLeaf(YType.uint32, 'transceiver-voltage-warning-high'), ['int'])),
+                                ('transceiver_voltage_warning_low', (YLeaf(YType.uint32, 'transceiver-voltage-warning-low'), ['int'])),
+                                ('transceiver_voltage_alarm_low', (YLeaf(YType.uint32, 'transceiver-voltage-alarm-low'), ['int'])),
+                                ('laser_bias_alarm_high', (YLeaf(YType.uint32, 'laser-bias-alarm-high'), ['int'])),
+                                ('laser_bias_warning_high', (YLeaf(YType.uint32, 'laser-bias-warning-high'), ['int'])),
+                                ('laser_bias_warning_low', (YLeaf(YType.uint32, 'laser-bias-warning-low'), ['int'])),
+                                ('laser_bias_alarm_low', (YLeaf(YType.uint32, 'laser-bias-alarm-low'), ['int'])),
+                                ('optical_transmit_power_alarm_high', (YLeaf(YType.uint32, 'optical-transmit-power-alarm-high'), ['int'])),
+                                ('optical_transmit_power_warning_high', (YLeaf(YType.uint32, 'optical-transmit-power-warning-high'), ['int'])),
+                                ('optical_transmit_power_warning_low', (YLeaf(YType.uint32, 'optical-transmit-power-warning-low'), ['int'])),
+                                ('optical_transmit_power_alarm_low', (YLeaf(YType.uint32, 'optical-transmit-power-alarm-low'), ['int'])),
+                                ('optical_receive_power_alarm_high', (YLeaf(YType.uint32, 'optical-receive-power-alarm-high'), ['int'])),
+                                ('optical_receive_power_warning_high', (YLeaf(YType.uint32, 'optical-receive-power-warning-high'), ['int'])),
+                                ('optical_receive_power_warning_low', (YLeaf(YType.uint32, 'optical-receive-power-warning-low'), ['int'])),
+                                ('optical_receive_power_alarm_low', (YLeaf(YType.uint32, 'optical-receive-power-alarm-low'), ['int'])),
                             ])
                             self.transceiver_temperature_alarm_high = None
                             self.transceiver_temperature_warning_high = None
@@ -4291,6 +4441,7 @@ class EthernetInterface(Entity):
                             self.field_validity.parent = self
                             self._children_name_map["field_validity"] = "field-validity"
                             self._segment_path = lambda: "dig-opt-mon-alarm-thresholds"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds, ['transceiver_temperature_alarm_high', 'transceiver_temperature_warning_high', 'transceiver_temperature_warning_low', 'transceiver_temperature_alarm_low', 'transceiver_voltage_alarm_high', 'transceiver_voltage_warning_high', 'transceiver_voltage_warning_low', 'transceiver_voltage_alarm_low', 'laser_bias_alarm_high', 'laser_bias_warning_high', 'laser_bias_warning_low', 'laser_bias_alarm_low', 'optical_transmit_power_alarm_high', 'optical_transmit_power_warning_high', 'optical_transmit_power_warning_low', 'optical_transmit_power_alarm_low', 'optical_receive_power_alarm_high', 'optical_receive_power_warning_high', 'optical_receive_power_warning_low', 'optical_receive_power_alarm_low'], name, value)
@@ -4352,11 +4503,11 @@ class EthernetInterface(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('temperature_valid', YLeaf(YType.int32, 'temperature-valid')),
-                                    ('voltage_valid', YLeaf(YType.int32, 'voltage-valid')),
-                                    ('laser_bias_valid', YLeaf(YType.int32, 'laser-bias-valid')),
-                                    ('transmit_power_valid', YLeaf(YType.int32, 'transmit-power-valid')),
-                                    ('receive_power_valid', YLeaf(YType.int32, 'receive-power-valid')),
+                                    ('temperature_valid', (YLeaf(YType.int32, 'temperature-valid'), ['int'])),
+                                    ('voltage_valid', (YLeaf(YType.int32, 'voltage-valid'), ['int'])),
+                                    ('laser_bias_valid', (YLeaf(YType.int32, 'laser-bias-valid'), ['int'])),
+                                    ('transmit_power_valid', (YLeaf(YType.int32, 'transmit-power-valid'), ['int'])),
+                                    ('receive_power_valid', (YLeaf(YType.int32, 'receive-power-valid'), ['int'])),
                                 ])
                                 self.temperature_valid = None
                                 self.voltage_valid = None
@@ -4364,6 +4515,7 @@ class EthernetInterface(Entity):
                                 self.transmit_power_valid = None
                                 self.receive_power_valid = None
                                 self._segment_path = lambda: "field-validity"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarmThresholds.FieldValidity, ['temperature_valid', 'voltage_valid', 'laser_bias_valid', 'transmit_power_valid', 'receive_power_valid'], name, value)
@@ -4415,11 +4567,11 @@ class EthernetInterface(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('transceiver_temperature', YLeaf(YType.enumeration, 'transceiver-temperature')),
-                                ('transceiver_voltage', YLeaf(YType.enumeration, 'transceiver-voltage')),
-                                ('transmit_laser_power', YLeaf(YType.enumeration, 'transmit-laser-power')),
-                                ('received_laser_power', YLeaf(YType.enumeration, 'received-laser-power')),
-                                ('laser_bias_current', YLeaf(YType.enumeration, 'laser-bias-current')),
+                                ('transceiver_temperature', (YLeaf(YType.enumeration, 'transceiver-temperature'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm', '')])),
+                                ('transceiver_voltage', (YLeaf(YType.enumeration, 'transceiver-voltage'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm', '')])),
+                                ('transmit_laser_power', (YLeaf(YType.enumeration, 'transmit-laser-power'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm', '')])),
+                                ('received_laser_power', (YLeaf(YType.enumeration, 'received-laser-power'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm', '')])),
+                                ('laser_bias_current', (YLeaf(YType.enumeration, 'laser-bias-current'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm', '')])),
                             ])
                             self.transceiver_temperature = None
                             self.transceiver_voltage = None
@@ -4427,6 +4579,7 @@ class EthernetInterface(Entity):
                             self.received_laser_power = None
                             self.laser_bias_current = None
                             self._segment_path = lambda: "dig-opt-mon-alarms"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.DigOptMonAlarms, ['transceiver_temperature', 'transceiver_voltage', 'transmit_laser_power', 'received_laser_power', 'laser_bias_current'], name, value)
@@ -4494,11 +4647,11 @@ class EthernetInterface(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("dig-opt-mon-alarm", ("dig_opt_mon_alarm", EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm))])
                             self._leafs = OrderedDict([
-                                ('center_wavelength', YLeaf(YType.uint32, 'center-wavelength')),
-                                ('transmit_laser_power', YLeaf(YType.int32, 'transmit-laser-power')),
-                                ('received_laser_power', YLeaf(YType.int32, 'received-laser-power')),
-                                ('laser_bias_current', YLeaf(YType.uint32, 'laser-bias-current')),
-                                ('lane_id', YLeaf(YType.uint32, 'lane-id')),
+                                ('center_wavelength', (YLeaf(YType.uint32, 'center-wavelength'), ['int'])),
+                                ('transmit_laser_power', (YLeaf(YType.int32, 'transmit-laser-power'), ['int'])),
+                                ('received_laser_power', (YLeaf(YType.int32, 'received-laser-power'), ['int'])),
+                                ('laser_bias_current', (YLeaf(YType.uint32, 'laser-bias-current'), ['int'])),
+                                ('lane_id', (YLeaf(YType.uint32, 'lane-id'), ['int'])),
                             ])
                             self.center_wavelength = None
                             self.transmit_laser_power = None
@@ -4510,6 +4663,7 @@ class EthernetInterface(Entity):
                             self.dig_opt_mon_alarm.parent = self
                             self._children_name_map["dig_opt_mon_alarm"] = "dig-opt-mon-alarm"
                             self._segment_path = lambda: "lane"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane, ['center_wavelength', 'transmit_laser_power', 'received_laser_power', 'laser_bias_current', 'lane_id'], name, value)
@@ -4551,14 +4705,15 @@ class EthernetInterface(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('transmit_laser_power', YLeaf(YType.enumeration, 'transmit-laser-power')),
-                                    ('received_laser_power', YLeaf(YType.enumeration, 'received-laser-power')),
-                                    ('laser_bias_current', YLeaf(YType.enumeration, 'laser-bias-current')),
+                                    ('transmit_laser_power', (YLeaf(YType.enumeration, 'transmit-laser-power'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm', '')])),
+                                    ('received_laser_power', (YLeaf(YType.enumeration, 'received-laser-power'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm', '')])),
+                                    ('laser_bias_current', (YLeaf(YType.enumeration, 'laser-bias-current'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherDomAlarm', '')])),
                                 ])
                                 self.transmit_laser_power = None
                                 self.received_laser_power = None
                                 self.laser_bias_current = None
                                 self._segment_path = lambda: "dig-opt-mon-alarm"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.PhyDetails.Lane.DigOptMonAlarm, ['transmit_laser_power', 'received_laser_power', 'laser_bias_current'], name, value)
@@ -4604,14 +4759,15 @@ class EthernetInterface(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('fec', YLeaf(YType.enumeration, 'fec')),
-                            ('corrected_codeword_count', YLeaf(YType.uint64, 'corrected-codeword-count')),
-                            ('uncorrected_codeword_count', YLeaf(YType.uint64, 'uncorrected-codeword-count')),
+                            ('fec', (YLeaf(YType.enumeration, 'fec'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetFec', '')])),
+                            ('corrected_codeword_count', (YLeaf(YType.uint64, 'corrected-codeword-count'), ['int'])),
+                            ('uncorrected_codeword_count', (YLeaf(YType.uint64, 'uncorrected-codeword-count'), ['int'])),
                         ])
                         self.fec = None
                         self.corrected_codeword_count = None
                         self.uncorrected_codeword_count = None
                         self._segment_path = lambda: "fec-details"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.FecDetails, ['fec', 'corrected_codeword_count', 'uncorrected_codeword_count'], name, value)
@@ -4650,12 +4806,13 @@ class EthernetInterface(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('level', YLeaf(YType.uint32, 'level')),
-                            ('loopback', YLeaf(YType.enumeration, 'loopback')),
+                            ('level', (YLeaf(YType.uint32, 'level'), ['int'])),
+                            ('loopback', (YLeaf(YType.enumeration, 'loopback'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetLoopback', '')])),
                         ])
                         self.level = None
                         self.loopback = None
                         self._segment_path = lambda: "extended-loopback"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.PhyInfo.ExtendedLoopback, ['level', 'loopback'], name, value)
@@ -4768,15 +4925,15 @@ class EthernetInterface(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("autoneg", ("autoneg", EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg)), ("current-alarms", ("current_alarms", EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms)), ("previous-alarms", ("previous_alarms", EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms)), ("error-counts", ("error_counts", EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts)), ("ber-monitoring", ("ber_monitoring", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring)), ("opd-monitoring", ("opd_monitoring", EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring)), ("pfc-info", ("pfc_info", EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo))])
                     self._leafs = OrderedDict([
-                        ('link_state', YLeaf(YType.enumeration, 'link-state')),
-                        ('led_state', YLeaf(YType.enumeration, 'led-state')),
-                        ('speed', YLeaf(YType.enumeration, 'speed')),
-                        ('duplex', YLeaf(YType.enumeration, 'duplex')),
-                        ('flowcontrol', YLeaf(YType.enumeration, 'flowcontrol')),
-                        ('ipg', YLeaf(YType.enumeration, 'ipg')),
-                        ('laser_squelch_enabled', YLeaf(YType.boolean, 'laser-squelch-enabled')),
-                        ('bandwidth_utilization', YLeaf(YType.uint32, 'bandwidth-utilization')),
-                        ('bandwidth', YLeaf(YType.uint64, 'bandwidth')),
+                        ('link_state', (YLeaf(YType.enumeration, 'link-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherLinkState', '')])),
+                        ('led_state', (YLeaf(YType.enumeration, 'led-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherLedState', '')])),
+                        ('speed', (YLeaf(YType.enumeration, 'speed'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetSpeed', '')])),
+                        ('duplex', (YLeaf(YType.enumeration, 'duplex'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDuplex', '')])),
+                        ('flowcontrol', (YLeaf(YType.enumeration, 'flowcontrol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherFlowcontrol', '')])),
+                        ('ipg', (YLeaf(YType.enumeration, 'ipg'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetIpg', '')])),
+                        ('laser_squelch_enabled', (YLeaf(YType.boolean, 'laser-squelch-enabled'), ['bool'])),
+                        ('bandwidth_utilization', (YLeaf(YType.uint32, 'bandwidth-utilization'), ['int'])),
+                        ('bandwidth', (YLeaf(YType.uint64, 'bandwidth'), ['int'])),
                     ])
                     self.link_state = None
                     self.led_state = None
@@ -4816,6 +4973,7 @@ class EthernetInterface(Entity):
                     self.pfc_info.parent = self
                     self._children_name_map["pfc_info"] = "pfc-info"
                     self._segment_path = lambda: "layer1-info"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info, ['link_state', 'led_state', 'speed', 'duplex', 'flowcontrol', 'ipg', 'laser_squelch_enabled', 'bandwidth_utilization', 'bandwidth'], name, value)
@@ -4883,13 +5041,13 @@ class EthernetInterface(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('autoneg_enabled', YLeaf(YType.int32, 'autoneg-enabled')),
-                            ('mask', YLeaf(YType.uint32, 'mask')),
-                            ('speed', YLeaf(YType.enumeration, 'speed')),
-                            ('duplex', YLeaf(YType.enumeration, 'duplex')),
-                            ('flowcontrol', YLeaf(YType.enumeration, 'flowcontrol')),
-                            ('config_override', YLeaf(YType.int32, 'config-override')),
-                            ('fec', YLeaf(YType.enumeration, 'fec')),
+                            ('autoneg_enabled', (YLeaf(YType.int32, 'autoneg-enabled'), ['int'])),
+                            ('mask', (YLeaf(YType.uint32, 'mask'), ['int'])),
+                            ('speed', (YLeaf(YType.enumeration, 'speed'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetSpeed', '')])),
+                            ('duplex', (YLeaf(YType.enumeration, 'duplex'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDuplex', '')])),
+                            ('flowcontrol', (YLeaf(YType.enumeration, 'flowcontrol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherFlowcontrol', '')])),
+                            ('config_override', (YLeaf(YType.int32, 'config-override'), ['int'])),
+                            ('fec', (YLeaf(YType.enumeration, 'fec'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetFec', '')])),
                         ])
                         self.autoneg_enabled = None
                         self.mask = None
@@ -4899,6 +5057,7 @@ class EthernetInterface(Entity):
                         self.config_override = None
                         self.fec = None
                         self._segment_path = lambda: "autoneg"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.Autoneg, ['autoneg_enabled', 'mask', 'speed', 'duplex', 'flowcontrol', 'config_override', 'fec'], name, value)
@@ -4975,16 +5134,16 @@ class EthernetInterface(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('received_loss_of_signal_alarm', YLeaf(YType.enumeration, 'received-loss-of-signal-alarm')),
-                            ('pcs_loss_of_block_lock_alarm', YLeaf(YType.enumeration, 'pcs-loss-of-block-lock-alarm')),
-                            ('local_fault_alarm', YLeaf(YType.enumeration, 'local-fault-alarm')),
-                            ('remote_fault_alarm', YLeaf(YType.enumeration, 'remote-fault-alarm')),
-                            ('sd_ber_alarm', YLeaf(YType.enumeration, 'sd-ber-alarm')),
-                            ('sf_ber_alarm', YLeaf(YType.enumeration, 'sf-ber-alarm')),
-                            ('loss_of_synchronization_data_alarm', YLeaf(YType.enumeration, 'loss-of-synchronization-data-alarm')),
-                            ('hi_ber_alarm', YLeaf(YType.enumeration, 'hi-ber-alarm')),
-                            ('squelch_alarm', YLeaf(YType.enumeration, 'squelch-alarm')),
-                            ('rx_opd_alarm', YLeaf(YType.enumeration, 'rx-opd-alarm')),
+                            ('received_loss_of_signal_alarm', (YLeaf(YType.enumeration, 'received-loss-of-signal-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('pcs_loss_of_block_lock_alarm', (YLeaf(YType.enumeration, 'pcs-loss-of-block-lock-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('local_fault_alarm', (YLeaf(YType.enumeration, 'local-fault-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('remote_fault_alarm', (YLeaf(YType.enumeration, 'remote-fault-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('sd_ber_alarm', (YLeaf(YType.enumeration, 'sd-ber-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('sf_ber_alarm', (YLeaf(YType.enumeration, 'sf-ber-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('loss_of_synchronization_data_alarm', (YLeaf(YType.enumeration, 'loss-of-synchronization-data-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('hi_ber_alarm', (YLeaf(YType.enumeration, 'hi-ber-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('squelch_alarm', (YLeaf(YType.enumeration, 'squelch-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('rx_opd_alarm', (YLeaf(YType.enumeration, 'rx-opd-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
                         ])
                         self.received_loss_of_signal_alarm = None
                         self.pcs_loss_of_block_lock_alarm = None
@@ -4997,6 +5156,7 @@ class EthernetInterface(Entity):
                         self.squelch_alarm = None
                         self.rx_opd_alarm = None
                         self._segment_path = lambda: "current-alarms"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.CurrentAlarms, ['received_loss_of_signal_alarm', 'pcs_loss_of_block_lock_alarm', 'local_fault_alarm', 'remote_fault_alarm', 'sd_ber_alarm', 'sf_ber_alarm', 'loss_of_synchronization_data_alarm', 'hi_ber_alarm', 'squelch_alarm', 'rx_opd_alarm'], name, value)
@@ -5073,16 +5233,16 @@ class EthernetInterface(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('received_loss_of_signal_alarm', YLeaf(YType.enumeration, 'received-loss-of-signal-alarm')),
-                            ('pcs_loss_of_block_lock_alarm', YLeaf(YType.enumeration, 'pcs-loss-of-block-lock-alarm')),
-                            ('local_fault_alarm', YLeaf(YType.enumeration, 'local-fault-alarm')),
-                            ('remote_fault_alarm', YLeaf(YType.enumeration, 'remote-fault-alarm')),
-                            ('sd_ber_alarm', YLeaf(YType.enumeration, 'sd-ber-alarm')),
-                            ('sf_ber_alarm', YLeaf(YType.enumeration, 'sf-ber-alarm')),
-                            ('loss_of_synchronization_data_alarm', YLeaf(YType.enumeration, 'loss-of-synchronization-data-alarm')),
-                            ('hi_ber_alarm', YLeaf(YType.enumeration, 'hi-ber-alarm')),
-                            ('squelch_alarm', YLeaf(YType.enumeration, 'squelch-alarm')),
-                            ('rx_opd_alarm', YLeaf(YType.enumeration, 'rx-opd-alarm')),
+                            ('received_loss_of_signal_alarm', (YLeaf(YType.enumeration, 'received-loss-of-signal-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('pcs_loss_of_block_lock_alarm', (YLeaf(YType.enumeration, 'pcs-loss-of-block-lock-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('local_fault_alarm', (YLeaf(YType.enumeration, 'local-fault-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('remote_fault_alarm', (YLeaf(YType.enumeration, 'remote-fault-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('sd_ber_alarm', (YLeaf(YType.enumeration, 'sd-ber-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('sf_ber_alarm', (YLeaf(YType.enumeration, 'sf-ber-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('loss_of_synchronization_data_alarm', (YLeaf(YType.enumeration, 'loss-of-synchronization-data-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('hi_ber_alarm', (YLeaf(YType.enumeration, 'hi-ber-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('squelch_alarm', (YLeaf(YType.enumeration, 'squelch-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
+                            ('rx_opd_alarm', (YLeaf(YType.enumeration, 'rx-opd-alarm'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthCtrlrAlarmState', '')])),
                         ])
                         self.received_loss_of_signal_alarm = None
                         self.pcs_loss_of_block_lock_alarm = None
@@ -5095,6 +5255,7 @@ class EthernetInterface(Entity):
                         self.squelch_alarm = None
                         self.rx_opd_alarm = None
                         self._segment_path = lambda: "previous-alarms"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PreviousAlarms, ['received_loss_of_signal_alarm', 'pcs_loss_of_block_lock_alarm', 'local_fault_alarm', 'remote_fault_alarm', 'sd_ber_alarm', 'sf_ber_alarm', 'loss_of_synchronization_data_alarm', 'hi_ber_alarm', 'squelch_alarm', 'rx_opd_alarm'], name, value)
@@ -5135,12 +5296,13 @@ class EthernetInterface(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('sync_header_errors', YLeaf(YType.uint64, 'sync-header-errors')),
-                            ('pcsbip_errors', YLeaf(YType.uint64, 'pcsbip-errors')),
+                            ('sync_header_errors', (YLeaf(YType.uint64, 'sync-header-errors'), ['int'])),
+                            ('pcsbip_errors', (YLeaf(YType.uint64, 'pcsbip-errors'), ['int'])),
                         ])
                         self.sync_header_errors = None
                         self.pcsbip_errors = None
                         self._segment_path = lambda: "error-counts"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.ErrorCounts, ['sync_header_errors', 'pcsbip_errors'], name, value)
@@ -5184,7 +5346,7 @@ class EthernetInterface(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("settings", ("settings", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings)), ("state", ("state", EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State))])
                         self._leafs = OrderedDict([
-                            ('supported', YLeaf(YType.int32, 'supported')),
+                            ('supported', (YLeaf(YType.int32, 'supported'), ['int'])),
                         ])
                         self.supported = None
 
@@ -5196,6 +5358,7 @@ class EthernetInterface(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "ber-monitoring"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring, ['supported'], name, value)
@@ -5257,11 +5420,11 @@ class EthernetInterface(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('signal_degrade_threshold', YLeaf(YType.uint32, 'signal-degrade-threshold')),
-                                ('signal_degrade_alarm', YLeaf(YType.int32, 'signal-degrade-alarm')),
-                                ('signal_fail_threshold', YLeaf(YType.uint32, 'signal-fail-threshold')),
-                                ('signal_fail_alarm', YLeaf(YType.int32, 'signal-fail-alarm')),
-                                ('signal_remote_fault', YLeaf(YType.int32, 'signal-remote-fault')),
+                                ('signal_degrade_threshold', (YLeaf(YType.uint32, 'signal-degrade-threshold'), ['int'])),
+                                ('signal_degrade_alarm', (YLeaf(YType.int32, 'signal-degrade-alarm'), ['int'])),
+                                ('signal_fail_threshold', (YLeaf(YType.uint32, 'signal-fail-threshold'), ['int'])),
+                                ('signal_fail_alarm', (YLeaf(YType.int32, 'signal-fail-alarm'), ['int'])),
+                                ('signal_remote_fault', (YLeaf(YType.int32, 'signal-remote-fault'), ['int'])),
                             ])
                             self.signal_degrade_threshold = None
                             self.signal_degrade_alarm = None
@@ -5269,6 +5432,7 @@ class EthernetInterface(Entity):
                             self.signal_fail_alarm = None
                             self.signal_remote_fault = None
                             self._segment_path = lambda: "settings"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.Settings, ['signal_degrade_threshold', 'signal_degrade_alarm', 'signal_fail_threshold', 'signal_fail_alarm', 'signal_remote_fault'], name, value)
@@ -5309,12 +5473,13 @@ class EthernetInterface(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sd_current_ber', YLeaf(YType.uint32, 'sd-current-ber')),
-                                ('sf_current_ber', YLeaf(YType.uint32, 'sf-current-ber')),
+                                ('sd_current_ber', (YLeaf(YType.uint32, 'sd-current-ber'), ['int'])),
+                                ('sf_current_ber', (YLeaf(YType.uint32, 'sf-current-ber'), ['int'])),
                             ])
                             self.sd_current_ber = None
                             self.sf_current_ber = None
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.BerMonitoring.State, ['sd_current_ber', 'sf_current_ber'], name, value)
@@ -5353,7 +5518,7 @@ class EthernetInterface(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("settings", ("settings", EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings))])
                         self._leafs = OrderedDict([
-                            ('supported', YLeaf(YType.int32, 'supported')),
+                            ('supported', (YLeaf(YType.int32, 'supported'), ['int'])),
                         ])
                         self.supported = None
 
@@ -5361,6 +5526,7 @@ class EthernetInterface(Entity):
                         self.settings.parent = self
                         self._children_name_map["settings"] = "settings"
                         self._segment_path = lambda: "opd-monitoring"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring, ['supported'], name, value)
@@ -5401,12 +5567,13 @@ class EthernetInterface(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('received_optical_power_degrade_threshold_set', YLeaf(YType.int32, 'received-optical-power-degrade-threshold-set')),
-                                ('received_optical_power_degrade_threshold', YLeaf(YType.int32, 'received-optical-power-degrade-threshold')),
+                                ('received_optical_power_degrade_threshold_set', (YLeaf(YType.int32, 'received-optical-power-degrade-threshold-set'), ['int'])),
+                                ('received_optical_power_degrade_threshold', (YLeaf(YType.int32, 'received-optical-power-degrade-threshold'), ['int'])),
                             ])
                             self.received_optical_power_degrade_threshold_set = None
                             self.received_optical_power_degrade_threshold = None
                             self._segment_path = lambda: "settings"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.OpdMonitoring.Settings, ['received_optical_power_degrade_threshold_set', 'received_optical_power_degrade_threshold'], name, value)
@@ -5459,16 +5626,17 @@ class EthernetInterface(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('priority_flowcontrol', YLeaf(YType.enumeration, 'priority-flowcontrol')),
-                            ('priority_enabled_bitmap', YLeaf(YType.uint8, 'priority-enabled-bitmap')),
-                            ('rx_frame', YLeafList(YType.uint64, 'rx-frame')),
-                            ('tx_frame', YLeafList(YType.uint64, 'tx-frame')),
+                            ('priority_flowcontrol', (YLeaf(YType.enumeration, 'priority-flowcontrol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherPfc', '')])),
+                            ('priority_enabled_bitmap', (YLeaf(YType.uint8, 'priority-enabled-bitmap'), ['int'])),
+                            ('rx_frame', (YLeafList(YType.uint64, 'rx-frame'), ['int'])),
+                            ('tx_frame', (YLeafList(YType.uint64, 'tx-frame'), ['int'])),
                         ])
                         self.priority_flowcontrol = None
                         self.priority_enabled_bitmap = None
                         self.rx_frame = []
                         self.tx_frame = []
                         self._segment_path = lambda: "pfc-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.Layer1Info.PfcInfo, ['priority_flowcontrol', 'priority_enabled_bitmap', 'rx_frame', 'tx_frame'], name, value)
@@ -5533,10 +5701,10 @@ class EthernetInterface(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("unicast-mac-filters", ("unicast_mac_filters", EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters)), ("multicast-mac-filters", ("multicast_mac_filters", EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters))])
                     self._leafs = OrderedDict([
-                        ('mtu', YLeaf(YType.uint32, 'mtu')),
-                        ('mru', YLeaf(YType.uint32, 'mru')),
-                        ('burned_in_mac_address', YLeaf(YType.str, 'burned-in-mac-address')),
-                        ('operational_mac_address', YLeaf(YType.str, 'operational-mac-address')),
+                        ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                        ('mru', (YLeaf(YType.uint32, 'mru'), ['int'])),
+                        ('burned_in_mac_address', (YLeaf(YType.str, 'burned-in-mac-address'), ['str'])),
+                        ('operational_mac_address', (YLeaf(YType.str, 'operational-mac-address'), ['str'])),
                     ])
                     self.mtu = None
                     self.mru = None
@@ -5551,6 +5719,7 @@ class EthernetInterface(Entity):
                     self.multicast_mac_filters.parent = self
                     self._children_name_map["multicast_mac_filters"] = "multicast-mac-filters"
                     self._segment_path = lambda: "mac-info"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo, ['mtu', 'mru', 'burned_in_mac_address', 'operational_mac_address'], name, value)
@@ -5584,10 +5753,11 @@ class EthernetInterface(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('unicast_mac_address', YLeafList(YType.str, 'unicast-mac-address')),
+                            ('unicast_mac_address', (YLeafList(YType.str, 'unicast-mac-address'), ['str'])),
                         ])
                         self.unicast_mac_address = []
                         self._segment_path = lambda: "unicast-mac-filters"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.UnicastMacFilters, ['unicast_mac_address'], name, value)
@@ -5624,12 +5794,13 @@ class EthernetInterface(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("multicast-mac-address", ("multicast_mac_address", EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress))])
                         self._leafs = OrderedDict([
-                            ('multicast_promiscuous', YLeaf(YType.boolean, 'multicast-promiscuous')),
+                            ('multicast_promiscuous', (YLeaf(YType.boolean, 'multicast-promiscuous'), ['bool'])),
                         ])
                         self.multicast_promiscuous = None
 
                         self.multicast_mac_address = YList(self)
                         self._segment_path = lambda: "multicast-mac-filters"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters, ['multicast_promiscuous'], name, value)
@@ -5671,12 +5842,13 @@ class EthernetInterface(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                ('mask', YLeaf(YType.str, 'mask')),
+                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                ('mask', (YLeaf(YType.str, 'mask'), ['str'])),
                             ])
                             self.mac_address = None
                             self.mask = None
                             self._segment_path = lambda: "multicast-mac-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetInterface.Interfaces.Interface.MacInfo.MulticastMacFilters.MulticastMacAddress, ['mac_address', 'mask'], name, value)
@@ -5698,12 +5870,12 @@ class EthernetInterface(Entity):
                 
                 .. attribute:: total_duration
                 
-                	Total duration (seconds) of AINS soak timer
+                	Total duration (minutes) of AINS soak timer
                 	**type**\: int
                 
                 	**range:** 0..4294967295
                 
-                	**units**\: second
+                	**units**\: minute
                 
                 .. attribute:: remaining_duration
                 
@@ -5731,16 +5903,17 @@ class EthernetInterface(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('maintenance_mode_enabled', YLeaf(YType.boolean, 'maintenance-mode-enabled')),
-                        ('ains_status', YLeaf(YType.enumeration, 'ains-status')),
-                        ('total_duration', YLeaf(YType.uint32, 'total-duration')),
-                        ('remaining_duration', YLeaf(YType.uint32, 'remaining-duration')),
+                        ('maintenance_mode_enabled', (YLeaf(YType.boolean, 'maintenance-mode-enabled'), ['bool'])),
+                        ('ains_status', (YLeaf(YType.enumeration, 'ains-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EtherAinsStatus', '')])),
+                        ('total_duration', (YLeaf(YType.uint32, 'total-duration'), ['int'])),
+                        ('remaining_duration', (YLeaf(YType.uint32, 'remaining-duration'), ['int'])),
                     ])
                     self.maintenance_mode_enabled = None
                     self.ains_status = None
                     self.total_duration = None
                     self.remaining_duration = None
                     self._segment_path = lambda: "transport-info"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(EthernetInterface.Interfaces.Interface.TransportInfo, ['maintenance_mode_enabled', 'ains_status', 'total_duration', 'remaining_duration'], name, value)
@@ -5776,6 +5949,7 @@ class EthernetInterface(Entity):
             self.bert = YList(self)
             self._segment_path = lambda: "berts"
             self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EthernetInterface.Berts, [], name, value)
@@ -5790,7 +5964,7 @@ class EthernetInterface(Entity):
             	The name of the interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: bert_status
             
@@ -5830,9 +6004,9 @@ class EthernetInterface(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([("bert-status", ("bert_status", EthernetInterface.Berts.Bert.BertStatus))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('time_left', YLeaf(YType.uint32, 'time-left')),
-                    ('port_bert_interval', YLeaf(YType.uint32, 'port-bert-interval')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('time_left', (YLeaf(YType.uint32, 'time-left'), ['int'])),
+                    ('port_bert_interval', (YLeaf(YType.uint32, 'port-bert-interval'), ['int'])),
                 ])
                 self.interface_name = None
                 self.time_left = None
@@ -5843,6 +6017,7 @@ class EthernetInterface(Entity):
                 self._children_name_map["bert_status"] = "bert-status"
                 self._segment_path = lambda: "bert" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-drivers-media-eth-oper:ethernet-interface/berts/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EthernetInterface.Berts.Bert, ['interface_name', 'time_left', 'port_bert_interval'], name, value)
@@ -5922,15 +6097,15 @@ class EthernetInterface(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('bert_state_enabled', YLeaf(YType.boolean, 'bert-state-enabled')),
-                        ('data_availability', YLeaf(YType.uint32, 'data-availability')),
-                        ('receive_count', YLeaf(YType.uint64, 'receive-count')),
-                        ('transmit_count', YLeaf(YType.uint64, 'transmit-count')),
-                        ('receive_errors', YLeaf(YType.uint64, 'receive-errors')),
-                        ('error_type', YLeaf(YType.enumeration, 'error-type')),
-                        ('test_pattern', YLeaf(YType.enumeration, 'test-pattern')),
-                        ('device_under_test', YLeaf(YType.enumeration, 'device-under-test')),
-                        ('interface_device', YLeaf(YType.enumeration, 'interface-device')),
+                        ('bert_state_enabled', (YLeaf(YType.boolean, 'bert-state-enabled'), ['bool'])),
+                        ('data_availability', (YLeaf(YType.uint32, 'data-availability'), ['int'])),
+                        ('receive_count', (YLeaf(YType.uint64, 'receive-count'), ['int'])),
+                        ('transmit_count', (YLeaf(YType.uint64, 'transmit-count'), ['int'])),
+                        ('receive_errors', (YLeaf(YType.uint64, 'receive-errors'), ['int'])),
+                        ('error_type', (YLeaf(YType.enumeration, 'error-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetBertErrCnt', '')])),
+                        ('test_pattern', (YLeaf(YType.enumeration, 'test-pattern'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetBertPattern', '')])),
+                        ('device_under_test', (YLeaf(YType.enumeration, 'device-under-test'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDev', '')])),
+                        ('interface_device', (YLeaf(YType.enumeration, 'interface-device'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_drivers_media_eth_oper', 'EthernetDevIf', '')])),
                     ])
                     self.bert_state_enabled = None
                     self.data_availability = None
@@ -5942,6 +6117,7 @@ class EthernetInterface(Entity):
                     self.device_under_test = None
                     self.interface_device = None
                     self._segment_path = lambda: "bert-status"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(EthernetInterface.Berts.Bert.BertStatus, ['bert_state_enabled', 'data_availability', 'receive_count', 'transmit_count', 'receive_errors', 'error_type', 'test_pattern', 'device_under_test', 'interface_device'], name, value)

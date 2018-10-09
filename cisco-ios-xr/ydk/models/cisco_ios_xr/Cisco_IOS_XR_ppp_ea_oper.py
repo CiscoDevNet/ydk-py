@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   pppea\: PPPEA operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class PppEaAdjState(Enum):
@@ -73,6 +74,7 @@ class Pppea(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-ppp-ea-oper:pppea"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Pppea, [], name, value)
@@ -108,6 +110,7 @@ class Pppea(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ppp-ea-oper:pppea/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pppea.Nodes, [], name, value)
@@ -147,7 +150,7 @@ class Pppea(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("ea-interface-names", ("ea_interface_names", Pppea.Nodes.Node.EaInterfaceNames))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -156,6 +159,7 @@ class Pppea(Entity):
                 self._children_name_map["ea_interface_names"] = "ea-interface-names"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ppp-ea-oper:pppea/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pppea.Nodes.Node, ['node_name'], name, value)
@@ -191,6 +195,7 @@ class Pppea(Entity):
 
                     self.ea_interface_name = YList(self)
                     self._segment_path = lambda: "ea-interface-names"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pppea.Nodes.Node.EaInterfaceNames, [], name, value)
@@ -205,14 +210,14 @@ class Pppea(Entity):
                     	Interface running PPPEA
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: interface
                     
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: is_lcp_running
                     
@@ -317,7 +322,7 @@ class Pppea(Entity):
                     	Multilink interface that this interface is a member of, if any
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: l2_tunnel_enabled
                     
@@ -351,7 +356,7 @@ class Pppea(Entity):
                     	Parent Interface Handle
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: vrf_table_id
                     
@@ -419,40 +424,40 @@ class Pppea(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('is_lcp_running', YLeaf(YType.boolean, 'is-lcp-running')),
-                            ('is_ipcp_running', YLeaf(YType.boolean, 'is-ipcp-running')),
-                            ('is_ipv6cp_running', YLeaf(YType.boolean, 'is-ipv6cp-running')),
-                            ('is_mplscp_running', YLeaf(YType.boolean, 'is-mplscp-running')),
-                            ('local_mtu', YLeaf(YType.uint16, 'local-mtu')),
-                            ('local_mrru', YLeaf(YType.uint16, 'local-mrru')),
-                            ('peer_mrru', YLeaf(YType.uint16, 'peer-mrru')),
-                            ('local_magic', YLeaf(YType.uint32, 'local-magic')),
-                            ('peer_magic', YLeaf(YType.uint32, 'peer-magic')),
-                            ('local_mcmp_classes', YLeaf(YType.uint8, 'local-mcmp-classes')),
-                            ('peer_mcmp_classes', YLeaf(YType.uint8, 'peer-mcmp-classes')),
-                            ('echo_request_interval', YLeaf(YType.uint32, 'echo-request-interval')),
-                            ('echo_request_retry_count', YLeaf(YType.uint32, 'echo-request-retry-count')),
-                            ('is_multilink_bundle', YLeaf(YType.boolean, 'is-multilink-bundle')),
-                            ('synchronized', YLeaf(YType.boolean, 'synchronized')),
-                            ('forwarding_enabled', YLeaf(YType.boolean, 'forwarding-enabled')),
-                            ('multilink_interface', YLeaf(YType.str, 'multilink-interface')),
-                            ('l2_tunnel_enabled', YLeaf(YType.boolean, 'l2-tunnel-enabled')),
-                            ('l2_provisioned', YLeaf(YType.boolean, 'l2-provisioned')),
-                            ('l2ip_interworking_enabled', YLeaf(YType.boolean, 'l2ip-interworking-enabled')),
-                            ('is_vpdn_tunneled', YLeaf(YType.boolean, 'is-vpdn-tunneled')),
-                            ('xconnect_id', YLeaf(YType.uint32, 'xconnect-id')),
-                            ('parent_interface_handle', YLeaf(YType.str, 'parent-interface-handle')),
-                            ('vrf_table_id', YLeaf(YType.uint32, 'vrf-table-id')),
-                            ('ipv6vrf_table_id', YLeaf(YType.uint32, 'ipv6vrf-table-id')),
-                            ('l2_adjacency_state', YLeaf(YType.enumeration, 'l2-adjacency-state')),
-                            ('l2ip_interworking_adjacency_state', YLeaf(YType.enumeration, 'l2ip-interworking-adjacency-state')),
-                            ('lac_adjacency_state', YLeaf(YType.enumeration, 'lac-adjacency-state')),
-                            ('interface_adjacency_state', YLeaf(YType.enumeration, 'interface-adjacency-state')),
-                            ('ipv4_adjacency_state', YLeaf(YType.enumeration, 'ipv4-adjacency-state')),
-                            ('ipv6_adjacency_state', YLeaf(YType.enumeration, 'ipv6-adjacency-state')),
-                            ('mpls_adjacency_state', YLeaf(YType.enumeration, 'mpls-adjacency-state')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('is_lcp_running', (YLeaf(YType.boolean, 'is-lcp-running'), ['bool'])),
+                            ('is_ipcp_running', (YLeaf(YType.boolean, 'is-ipcp-running'), ['bool'])),
+                            ('is_ipv6cp_running', (YLeaf(YType.boolean, 'is-ipv6cp-running'), ['bool'])),
+                            ('is_mplscp_running', (YLeaf(YType.boolean, 'is-mplscp-running'), ['bool'])),
+                            ('local_mtu', (YLeaf(YType.uint16, 'local-mtu'), ['int'])),
+                            ('local_mrru', (YLeaf(YType.uint16, 'local-mrru'), ['int'])),
+                            ('peer_mrru', (YLeaf(YType.uint16, 'peer-mrru'), ['int'])),
+                            ('local_magic', (YLeaf(YType.uint32, 'local-magic'), ['int'])),
+                            ('peer_magic', (YLeaf(YType.uint32, 'peer-magic'), ['int'])),
+                            ('local_mcmp_classes', (YLeaf(YType.uint8, 'local-mcmp-classes'), ['int'])),
+                            ('peer_mcmp_classes', (YLeaf(YType.uint8, 'peer-mcmp-classes'), ['int'])),
+                            ('echo_request_interval', (YLeaf(YType.uint32, 'echo-request-interval'), ['int'])),
+                            ('echo_request_retry_count', (YLeaf(YType.uint32, 'echo-request-retry-count'), ['int'])),
+                            ('is_multilink_bundle', (YLeaf(YType.boolean, 'is-multilink-bundle'), ['bool'])),
+                            ('synchronized', (YLeaf(YType.boolean, 'synchronized'), ['bool'])),
+                            ('forwarding_enabled', (YLeaf(YType.boolean, 'forwarding-enabled'), ['bool'])),
+                            ('multilink_interface', (YLeaf(YType.str, 'multilink-interface'), ['str'])),
+                            ('l2_tunnel_enabled', (YLeaf(YType.boolean, 'l2-tunnel-enabled'), ['bool'])),
+                            ('l2_provisioned', (YLeaf(YType.boolean, 'l2-provisioned'), ['bool'])),
+                            ('l2ip_interworking_enabled', (YLeaf(YType.boolean, 'l2ip-interworking-enabled'), ['bool'])),
+                            ('is_vpdn_tunneled', (YLeaf(YType.boolean, 'is-vpdn-tunneled'), ['bool'])),
+                            ('xconnect_id', (YLeaf(YType.uint32, 'xconnect-id'), ['int'])),
+                            ('parent_interface_handle', (YLeaf(YType.str, 'parent-interface-handle'), ['str'])),
+                            ('vrf_table_id', (YLeaf(YType.uint32, 'vrf-table-id'), ['int'])),
+                            ('ipv6vrf_table_id', (YLeaf(YType.uint32, 'ipv6vrf-table-id'), ['int'])),
+                            ('l2_adjacency_state', (YLeaf(YType.enumeration, 'l2-adjacency-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper', 'PppEaAdjState', '')])),
+                            ('l2ip_interworking_adjacency_state', (YLeaf(YType.enumeration, 'l2ip-interworking-adjacency-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper', 'PppEaAdjState', '')])),
+                            ('lac_adjacency_state', (YLeaf(YType.enumeration, 'lac-adjacency-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper', 'PppEaAdjState', '')])),
+                            ('interface_adjacency_state', (YLeaf(YType.enumeration, 'interface-adjacency-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper', 'PppEaAdjState', '')])),
+                            ('ipv4_adjacency_state', (YLeaf(YType.enumeration, 'ipv4-adjacency-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper', 'PppEaAdjState', '')])),
+                            ('ipv6_adjacency_state', (YLeaf(YType.enumeration, 'ipv6-adjacency-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper', 'PppEaAdjState', '')])),
+                            ('mpls_adjacency_state', (YLeaf(YType.enumeration, 'mpls-adjacency-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ppp_ea_oper', 'PppEaAdjState', '')])),
                         ])
                         self.interface_name = None
                         self.interface = None
@@ -489,6 +494,7 @@ class Pppea(Entity):
                         self.ipv6_adjacency_state = None
                         self.mpls_adjacency_state = None
                         self._segment_path = lambda: "ea-interface-name" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pppea.Nodes.Node.EaInterfaceNames.EaInterfaceName, ['interface_name', u'interface', u'is_lcp_running', u'is_ipcp_running', u'is_ipv6cp_running', u'is_mplscp_running', u'local_mtu', u'local_mrru', u'peer_mrru', u'local_magic', u'peer_magic', u'local_mcmp_classes', u'peer_mcmp_classes', u'echo_request_interval', u'echo_request_retry_count', u'is_multilink_bundle', u'synchronized', u'forwarding_enabled', u'multilink_interface', u'l2_tunnel_enabled', u'l2_provisioned', u'l2ip_interworking_enabled', u'is_vpdn_tunneled', u'xconnect_id', u'parent_interface_handle', u'vrf_table_id', u'ipv6vrf_table_id', u'l2_adjacency_state', u'l2ip_interworking_adjacency_state', u'lac_adjacency_state', u'interface_adjacency_state', u'ipv4_adjacency_state', u'ipv6_adjacency_state', u'mpls_adjacency_state'], name, value)

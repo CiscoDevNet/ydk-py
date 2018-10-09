@@ -12,6 +12,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class FailureReason(Enum):
     """
     FailureReason (Enum Class)
@@ -297,6 +298,7 @@ class DISMANEVENTMIB(Entity):
         self.mteeventsettable.parent = self
         self._children_name_map["mteeventsettable"] = "mteEventSetTable"
         self._segment_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(DISMANEVENTMIB, [], name, value)
@@ -368,11 +370,11 @@ class DISMANEVENTMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('mteresourcesampleminimum', YLeaf(YType.int32, 'mteResourceSampleMinimum')),
-                ('mteresourcesampleinstancemaximum', YLeaf(YType.uint32, 'mteResourceSampleInstanceMaximum')),
-                ('mteresourcesampleinstances', YLeaf(YType.uint32, 'mteResourceSampleInstances')),
-                ('mteresourcesampleinstanceshigh', YLeaf(YType.uint32, 'mteResourceSampleInstancesHigh')),
-                ('mteresourcesampleinstancelacks', YLeaf(YType.uint32, 'mteResourceSampleInstanceLacks')),
+                ('mteresourcesampleminimum', (YLeaf(YType.int32, 'mteResourceSampleMinimum'), ['int'])),
+                ('mteresourcesampleinstancemaximum', (YLeaf(YType.uint32, 'mteResourceSampleInstanceMaximum'), ['int'])),
+                ('mteresourcesampleinstances', (YLeaf(YType.uint32, 'mteResourceSampleInstances'), ['int'])),
+                ('mteresourcesampleinstanceshigh', (YLeaf(YType.uint32, 'mteResourceSampleInstancesHigh'), ['int'])),
+                ('mteresourcesampleinstancelacks', (YLeaf(YType.uint32, 'mteResourceSampleInstanceLacks'), ['int'])),
             ])
             self.mteresourcesampleminimum = None
             self.mteresourcesampleinstancemaximum = None
@@ -381,6 +383,7 @@ class DISMANEVENTMIB(Entity):
             self.mteresourcesampleinstancelacks = None
             self._segment_path = lambda: "mteResource"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEVENTMIB.MteResource, ['mteresourcesampleminimum', 'mteresourcesampleinstancemaximum', 'mteresourcesampleinstances', 'mteresourcesampleinstanceshigh', 'mteresourcesampleinstancelacks'], name, value)
@@ -416,11 +419,12 @@ class DISMANEVENTMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('mtetriggerfailures', YLeaf(YType.uint32, 'mteTriggerFailures')),
+                ('mtetriggerfailures', (YLeaf(YType.uint32, 'mteTriggerFailures'), ['int'])),
             ])
             self.mtetriggerfailures = None
             self._segment_path = lambda: "mteTrigger"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEVENTMIB.MteTrigger, ['mtetriggerfailures'], name, value)
@@ -454,11 +458,12 @@ class DISMANEVENTMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('mteeventfailures', YLeaf(YType.uint32, 'mteEventFailures')),
+                ('mteeventfailures', (YLeaf(YType.uint32, 'mteEventFailures'), ['int'])),
             ])
             self.mteeventfailures = None
             self._segment_path = lambda: "mteEvent"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEVENTMIB.MteEvent, ['mteeventfailures'], name, value)
@@ -494,6 +499,7 @@ class DISMANEVENTMIB(Entity):
             self.mtetriggerentry = YList(self)
             self._segment_path = lambda: "mteTriggerTable"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEVENTMIB.MteTriggerTable, [], name, value)
@@ -610,21 +616,21 @@ class DISMANEVENTMIB(Entity):
                 self.ylist_key_names = ['mteowner','mtetriggername']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
-                    ('mtetriggername', YLeaf(YType.str, 'mteTriggerName')),
-                    ('mtetriggercomment', YLeaf(YType.str, 'mteTriggerComment')),
-                    ('mtetriggertest', YLeaf(YType.bits, 'mteTriggerTest')),
-                    ('mtetriggersampletype', YLeaf(YType.enumeration, 'mteTriggerSampleType')),
-                    ('mtetriggervalueid', YLeaf(YType.str, 'mteTriggerValueID')),
-                    ('mtetriggervalueidwildcard', YLeaf(YType.boolean, 'mteTriggerValueIDWildcard')),
-                    ('mtetriggertargettag', YLeaf(YType.str, 'mteTriggerTargetTag')),
-                    ('mtetriggercontextname', YLeaf(YType.str, 'mteTriggerContextName')),
-                    ('mtetriggercontextnamewildcard', YLeaf(YType.boolean, 'mteTriggerContextNameWildcard')),
-                    ('mtetriggerfrequency', YLeaf(YType.uint32, 'mteTriggerFrequency')),
-                    ('mtetriggerobjectsowner', YLeaf(YType.str, 'mteTriggerObjectsOwner')),
-                    ('mtetriggerobjects', YLeaf(YType.str, 'mteTriggerObjects')),
-                    ('mtetriggerenabled', YLeaf(YType.boolean, 'mteTriggerEnabled')),
-                    ('mtetriggerentrystatus', YLeaf(YType.enumeration, 'mteTriggerEntryStatus')),
+                    ('mteowner', (YLeaf(YType.str, 'mteOwner'), ['str'])),
+                    ('mtetriggername', (YLeaf(YType.str, 'mteTriggerName'), ['str'])),
+                    ('mtetriggercomment', (YLeaf(YType.str, 'mteTriggerComment'), ['str'])),
+                    ('mtetriggertest', (YLeaf(YType.bits, 'mteTriggerTest'), ['Bits'])),
+                    ('mtetriggersampletype', (YLeaf(YType.enumeration, 'mteTriggerSampleType'), [('ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB', 'DISMANEVENTMIB', 'MteTriggerTable.MteTriggerEntry.MteTriggerSampleType')])),
+                    ('mtetriggervalueid', (YLeaf(YType.str, 'mteTriggerValueID'), ['str'])),
+                    ('mtetriggervalueidwildcard', (YLeaf(YType.boolean, 'mteTriggerValueIDWildcard'), ['bool'])),
+                    ('mtetriggertargettag', (YLeaf(YType.str, 'mteTriggerTargetTag'), ['str'])),
+                    ('mtetriggercontextname', (YLeaf(YType.str, 'mteTriggerContextName'), ['str'])),
+                    ('mtetriggercontextnamewildcard', (YLeaf(YType.boolean, 'mteTriggerContextNameWildcard'), ['bool'])),
+                    ('mtetriggerfrequency', (YLeaf(YType.uint32, 'mteTriggerFrequency'), ['int'])),
+                    ('mtetriggerobjectsowner', (YLeaf(YType.str, 'mteTriggerObjectsOwner'), ['str'])),
+                    ('mtetriggerobjects', (YLeaf(YType.str, 'mteTriggerObjects'), ['str'])),
+                    ('mtetriggerenabled', (YLeaf(YType.boolean, 'mteTriggerEnabled'), ['bool'])),
+                    ('mtetriggerentrystatus', (YLeaf(YType.enumeration, 'mteTriggerEntryStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.mteowner = None
                 self.mtetriggername = None
@@ -643,6 +649,7 @@ class DISMANEVENTMIB(Entity):
                 self.mtetriggerentrystatus = None
                 self._segment_path = lambda: "mteTriggerEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteTriggerName='" + str(self.mtetriggername) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DISMANEVENTMIB.MteTriggerTable.MteTriggerEntry, ['mteowner', 'mtetriggername', 'mtetriggercomment', 'mtetriggertest', 'mtetriggersampletype', 'mtetriggervalueid', 'mtetriggervalueidwildcard', 'mtetriggertargettag', 'mtetriggercontextname', 'mtetriggercontextnamewildcard', 'mtetriggerfrequency', 'mtetriggerobjectsowner', 'mtetriggerobjects', 'mtetriggerenabled', 'mtetriggerentrystatus'], name, value)
@@ -726,6 +733,7 @@ class DISMANEVENTMIB(Entity):
             self.mtetriggerdeltaentry = YList(self)
             self._segment_path = lambda: "mteTriggerDeltaTable"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEVENTMIB.MteTriggerDeltaTable, [], name, value)
@@ -789,11 +797,11 @@ class DISMANEVENTMIB(Entity):
                 self.ylist_key_names = ['mteowner','mtetriggername']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
-                    ('mtetriggername', YLeaf(YType.str, 'mteTriggerName')),
-                    ('mtetriggerdeltadiscontinuityid', YLeaf(YType.str, 'mteTriggerDeltaDiscontinuityID')),
-                    ('mtetriggerdeltadiscontinuityidwildcard', YLeaf(YType.boolean, 'mteTriggerDeltaDiscontinuityIDWildcard')),
-                    ('mtetriggerdeltadiscontinuityidtype', YLeaf(YType.enumeration, 'mteTriggerDeltaDiscontinuityIDType')),
+                    ('mteowner', (YLeaf(YType.str, 'mteOwner'), ['str'])),
+                    ('mtetriggername', (YLeaf(YType.str, 'mteTriggerName'), ['str'])),
+                    ('mtetriggerdeltadiscontinuityid', (YLeaf(YType.str, 'mteTriggerDeltaDiscontinuityID'), ['str'])),
+                    ('mtetriggerdeltadiscontinuityidwildcard', (YLeaf(YType.boolean, 'mteTriggerDeltaDiscontinuityIDWildcard'), ['bool'])),
+                    ('mtetriggerdeltadiscontinuityidtype', (YLeaf(YType.enumeration, 'mteTriggerDeltaDiscontinuityIDType'), [('ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB', 'DISMANEVENTMIB', 'MteTriggerDeltaTable.MteTriggerDeltaEntry.MteTriggerDeltaDiscontinuityIDType')])),
                 ])
                 self.mteowner = None
                 self.mtetriggername = None
@@ -802,6 +810,7 @@ class DISMANEVENTMIB(Entity):
                 self.mtetriggerdeltadiscontinuityidtype = None
                 self._segment_path = lambda: "mteTriggerDeltaEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteTriggerName='" + str(self.mtetriggername) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerDeltaTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DISMANEVENTMIB.MteTriggerDeltaTable.MteTriggerDeltaEntry, ['mteowner', 'mtetriggername', 'mtetriggerdeltadiscontinuityid', 'mtetriggerdeltadiscontinuityidwildcard', 'mtetriggerdeltadiscontinuityidtype'], name, value)
@@ -865,6 +874,7 @@ class DISMANEVENTMIB(Entity):
             self.mtetriggerexistenceentry = YList(self)
             self._segment_path = lambda: "mteTriggerExistenceTable"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEVENTMIB.MteTriggerExistenceTable, [], name, value)
@@ -949,14 +959,14 @@ class DISMANEVENTMIB(Entity):
                 self.ylist_key_names = ['mteowner','mtetriggername']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
-                    ('mtetriggername', YLeaf(YType.str, 'mteTriggerName')),
-                    ('mtetriggerexistencetest', YLeaf(YType.bits, 'mteTriggerExistenceTest')),
-                    ('mtetriggerexistencestartup', YLeaf(YType.bits, 'mteTriggerExistenceStartup')),
-                    ('mtetriggerexistenceobjectsowner', YLeaf(YType.str, 'mteTriggerExistenceObjectsOwner')),
-                    ('mtetriggerexistenceobjects', YLeaf(YType.str, 'mteTriggerExistenceObjects')),
-                    ('mtetriggerexistenceeventowner', YLeaf(YType.str, 'mteTriggerExistenceEventOwner')),
-                    ('mtetriggerexistenceevent', YLeaf(YType.str, 'mteTriggerExistenceEvent')),
+                    ('mteowner', (YLeaf(YType.str, 'mteOwner'), ['str'])),
+                    ('mtetriggername', (YLeaf(YType.str, 'mteTriggerName'), ['str'])),
+                    ('mtetriggerexistencetest', (YLeaf(YType.bits, 'mteTriggerExistenceTest'), ['Bits'])),
+                    ('mtetriggerexistencestartup', (YLeaf(YType.bits, 'mteTriggerExistenceStartup'), ['Bits'])),
+                    ('mtetriggerexistenceobjectsowner', (YLeaf(YType.str, 'mteTriggerExistenceObjectsOwner'), ['str'])),
+                    ('mtetriggerexistenceobjects', (YLeaf(YType.str, 'mteTriggerExistenceObjects'), ['str'])),
+                    ('mtetriggerexistenceeventowner', (YLeaf(YType.str, 'mteTriggerExistenceEventOwner'), ['str'])),
+                    ('mtetriggerexistenceevent', (YLeaf(YType.str, 'mteTriggerExistenceEvent'), ['str'])),
                 ])
                 self.mteowner = None
                 self.mtetriggername = None
@@ -968,6 +978,7 @@ class DISMANEVENTMIB(Entity):
                 self.mtetriggerexistenceevent = None
                 self._segment_path = lambda: "mteTriggerExistenceEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteTriggerName='" + str(self.mtetriggername) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerExistenceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DISMANEVENTMIB.MteTriggerExistenceTable.MteTriggerExistenceEntry, ['mteowner', 'mtetriggername', 'mtetriggerexistencetest', 'mtetriggerexistencestartup', 'mtetriggerexistenceobjectsowner', 'mtetriggerexistenceobjects', 'mtetriggerexistenceeventowner', 'mtetriggerexistenceevent'], name, value)
@@ -1004,6 +1015,7 @@ class DISMANEVENTMIB(Entity):
             self.mtetriggerbooleanentry = YList(self)
             self._segment_path = lambda: "mteTriggerBooleanTable"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEVENTMIB.MteTriggerBooleanTable, [], name, value)
@@ -1095,15 +1107,15 @@ class DISMANEVENTMIB(Entity):
                 self.ylist_key_names = ['mteowner','mtetriggername']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
-                    ('mtetriggername', YLeaf(YType.str, 'mteTriggerName')),
-                    ('mtetriggerbooleancomparison', YLeaf(YType.enumeration, 'mteTriggerBooleanComparison')),
-                    ('mtetriggerbooleanvalue', YLeaf(YType.int32, 'mteTriggerBooleanValue')),
-                    ('mtetriggerbooleanstartup', YLeaf(YType.boolean, 'mteTriggerBooleanStartup')),
-                    ('mtetriggerbooleanobjectsowner', YLeaf(YType.str, 'mteTriggerBooleanObjectsOwner')),
-                    ('mtetriggerbooleanobjects', YLeaf(YType.str, 'mteTriggerBooleanObjects')),
-                    ('mtetriggerbooleaneventowner', YLeaf(YType.str, 'mteTriggerBooleanEventOwner')),
-                    ('mtetriggerbooleanevent', YLeaf(YType.str, 'mteTriggerBooleanEvent')),
+                    ('mteowner', (YLeaf(YType.str, 'mteOwner'), ['str'])),
+                    ('mtetriggername', (YLeaf(YType.str, 'mteTriggerName'), ['str'])),
+                    ('mtetriggerbooleancomparison', (YLeaf(YType.enumeration, 'mteTriggerBooleanComparison'), [('ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB', 'DISMANEVENTMIB', 'MteTriggerBooleanTable.MteTriggerBooleanEntry.MteTriggerBooleanComparison')])),
+                    ('mtetriggerbooleanvalue', (YLeaf(YType.int32, 'mteTriggerBooleanValue'), ['int'])),
+                    ('mtetriggerbooleanstartup', (YLeaf(YType.boolean, 'mteTriggerBooleanStartup'), ['bool'])),
+                    ('mtetriggerbooleanobjectsowner', (YLeaf(YType.str, 'mteTriggerBooleanObjectsOwner'), ['str'])),
+                    ('mtetriggerbooleanobjects', (YLeaf(YType.str, 'mteTriggerBooleanObjects'), ['str'])),
+                    ('mtetriggerbooleaneventowner', (YLeaf(YType.str, 'mteTriggerBooleanEventOwner'), ['str'])),
+                    ('mtetriggerbooleanevent', (YLeaf(YType.str, 'mteTriggerBooleanEvent'), ['str'])),
                 ])
                 self.mteowner = None
                 self.mtetriggername = None
@@ -1116,6 +1128,7 @@ class DISMANEVENTMIB(Entity):
                 self.mtetriggerbooleanevent = None
                 self._segment_path = lambda: "mteTriggerBooleanEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteTriggerName='" + str(self.mtetriggername) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerBooleanTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DISMANEVENTMIB.MteTriggerBooleanTable.MteTriggerBooleanEntry, ['mteowner', 'mtetriggername', 'mtetriggerbooleancomparison', 'mtetriggerbooleanvalue', 'mtetriggerbooleanstartup', 'mtetriggerbooleanobjectsowner', 'mtetriggerbooleanobjects', 'mtetriggerbooleaneventowner', 'mtetriggerbooleanevent'], name, value)
@@ -1195,6 +1208,7 @@ class DISMANEVENTMIB(Entity):
             self.mtetriggerthresholdentry = YList(self)
             self._segment_path = lambda: "mteTriggerThresholdTable"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEVENTMIB.MteTriggerThresholdTable, [], name, value)
@@ -1344,23 +1358,23 @@ class DISMANEVENTMIB(Entity):
                 self.ylist_key_names = ['mteowner','mtetriggername']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
-                    ('mtetriggername', YLeaf(YType.str, 'mteTriggerName')),
-                    ('mtetriggerthresholdstartup', YLeaf(YType.enumeration, 'mteTriggerThresholdStartup')),
-                    ('mtetriggerthresholdrising', YLeaf(YType.int32, 'mteTriggerThresholdRising')),
-                    ('mtetriggerthresholdfalling', YLeaf(YType.int32, 'mteTriggerThresholdFalling')),
-                    ('mtetriggerthresholddeltarising', YLeaf(YType.int32, 'mteTriggerThresholdDeltaRising')),
-                    ('mtetriggerthresholddeltafalling', YLeaf(YType.int32, 'mteTriggerThresholdDeltaFalling')),
-                    ('mtetriggerthresholdobjectsowner', YLeaf(YType.str, 'mteTriggerThresholdObjectsOwner')),
-                    ('mtetriggerthresholdobjects', YLeaf(YType.str, 'mteTriggerThresholdObjects')),
-                    ('mtetriggerthresholdrisingeventowner', YLeaf(YType.str, 'mteTriggerThresholdRisingEventOwner')),
-                    ('mtetriggerthresholdrisingevent', YLeaf(YType.str, 'mteTriggerThresholdRisingEvent')),
-                    ('mtetriggerthresholdfallingeventowner', YLeaf(YType.str, 'mteTriggerThresholdFallingEventOwner')),
-                    ('mtetriggerthresholdfallingevent', YLeaf(YType.str, 'mteTriggerThresholdFallingEvent')),
-                    ('mtetriggerthresholddeltarisingeventowner', YLeaf(YType.str, 'mteTriggerThresholdDeltaRisingEventOwner')),
-                    ('mtetriggerthresholddeltarisingevent', YLeaf(YType.str, 'mteTriggerThresholdDeltaRisingEvent')),
-                    ('mtetriggerthresholddeltafallingeventowner', YLeaf(YType.str, 'mteTriggerThresholdDeltaFallingEventOwner')),
-                    ('mtetriggerthresholddeltafallingevent', YLeaf(YType.str, 'mteTriggerThresholdDeltaFallingEvent')),
+                    ('mteowner', (YLeaf(YType.str, 'mteOwner'), ['str'])),
+                    ('mtetriggername', (YLeaf(YType.str, 'mteTriggerName'), ['str'])),
+                    ('mtetriggerthresholdstartup', (YLeaf(YType.enumeration, 'mteTriggerThresholdStartup'), [('ydk.models.cisco_ios_xe.DISMAN_EVENT_MIB', 'DISMANEVENTMIB', 'MteTriggerThresholdTable.MteTriggerThresholdEntry.MteTriggerThresholdStartup')])),
+                    ('mtetriggerthresholdrising', (YLeaf(YType.int32, 'mteTriggerThresholdRising'), ['int'])),
+                    ('mtetriggerthresholdfalling', (YLeaf(YType.int32, 'mteTriggerThresholdFalling'), ['int'])),
+                    ('mtetriggerthresholddeltarising', (YLeaf(YType.int32, 'mteTriggerThresholdDeltaRising'), ['int'])),
+                    ('mtetriggerthresholddeltafalling', (YLeaf(YType.int32, 'mteTriggerThresholdDeltaFalling'), ['int'])),
+                    ('mtetriggerthresholdobjectsowner', (YLeaf(YType.str, 'mteTriggerThresholdObjectsOwner'), ['str'])),
+                    ('mtetriggerthresholdobjects', (YLeaf(YType.str, 'mteTriggerThresholdObjects'), ['str'])),
+                    ('mtetriggerthresholdrisingeventowner', (YLeaf(YType.str, 'mteTriggerThresholdRisingEventOwner'), ['str'])),
+                    ('mtetriggerthresholdrisingevent', (YLeaf(YType.str, 'mteTriggerThresholdRisingEvent'), ['str'])),
+                    ('mtetriggerthresholdfallingeventowner', (YLeaf(YType.str, 'mteTriggerThresholdFallingEventOwner'), ['str'])),
+                    ('mtetriggerthresholdfallingevent', (YLeaf(YType.str, 'mteTriggerThresholdFallingEvent'), ['str'])),
+                    ('mtetriggerthresholddeltarisingeventowner', (YLeaf(YType.str, 'mteTriggerThresholdDeltaRisingEventOwner'), ['str'])),
+                    ('mtetriggerthresholddeltarisingevent', (YLeaf(YType.str, 'mteTriggerThresholdDeltaRisingEvent'), ['str'])),
+                    ('mtetriggerthresholddeltafallingeventowner', (YLeaf(YType.str, 'mteTriggerThresholdDeltaFallingEventOwner'), ['str'])),
+                    ('mtetriggerthresholddeltafallingevent', (YLeaf(YType.str, 'mteTriggerThresholdDeltaFallingEvent'), ['str'])),
                 ])
                 self.mteowner = None
                 self.mtetriggername = None
@@ -1381,6 +1395,7 @@ class DISMANEVENTMIB(Entity):
                 self.mtetriggerthresholddeltafallingevent = None
                 self._segment_path = lambda: "mteTriggerThresholdEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteTriggerName='" + str(self.mtetriggername) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteTriggerThresholdTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DISMANEVENTMIB.MteTriggerThresholdTable.MteTriggerThresholdEntry, ['mteowner', 'mtetriggername', 'mtetriggerthresholdstartup', 'mtetriggerthresholdrising', 'mtetriggerthresholdfalling', 'mtetriggerthresholddeltarising', 'mtetriggerthresholddeltafalling', 'mtetriggerthresholdobjectsowner', 'mtetriggerthresholdobjects', 'mtetriggerthresholdrisingeventowner', 'mtetriggerthresholdrisingevent', 'mtetriggerthresholdfallingeventowner', 'mtetriggerthresholdfallingevent', 'mtetriggerthresholddeltarisingeventowner', 'mtetriggerthresholddeltarisingevent', 'mtetriggerthresholddeltafallingeventowner', 'mtetriggerthresholddeltafallingevent'], name, value)
@@ -1461,6 +1476,7 @@ class DISMANEVENTMIB(Entity):
             self.mteobjectsentry = YList(self)
             self._segment_path = lambda: "mteObjectsTable"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEVENTMIB.MteObjectsTable, [], name, value)
@@ -1532,12 +1548,12 @@ class DISMANEVENTMIB(Entity):
                 self.ylist_key_names = ['mteowner','mteobjectsname','mteobjectsindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
-                    ('mteobjectsname', YLeaf(YType.str, 'mteObjectsName')),
-                    ('mteobjectsindex', YLeaf(YType.uint32, 'mteObjectsIndex')),
-                    ('mteobjectsid', YLeaf(YType.str, 'mteObjectsID')),
-                    ('mteobjectsidwildcard', YLeaf(YType.boolean, 'mteObjectsIDWildcard')),
-                    ('mteobjectsentrystatus', YLeaf(YType.enumeration, 'mteObjectsEntryStatus')),
+                    ('mteowner', (YLeaf(YType.str, 'mteOwner'), ['str'])),
+                    ('mteobjectsname', (YLeaf(YType.str, 'mteObjectsName'), ['str'])),
+                    ('mteobjectsindex', (YLeaf(YType.uint32, 'mteObjectsIndex'), ['int'])),
+                    ('mteobjectsid', (YLeaf(YType.str, 'mteObjectsID'), ['str'])),
+                    ('mteobjectsidwildcard', (YLeaf(YType.boolean, 'mteObjectsIDWildcard'), ['bool'])),
+                    ('mteobjectsentrystatus', (YLeaf(YType.enumeration, 'mteObjectsEntryStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.mteowner = None
                 self.mteobjectsname = None
@@ -1547,6 +1563,7 @@ class DISMANEVENTMIB(Entity):
                 self.mteobjectsentrystatus = None
                 self._segment_path = lambda: "mteObjectsEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteObjectsName='" + str(self.mteobjectsname) + "']" + "[mteObjectsIndex='" + str(self.mteobjectsindex) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteObjectsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DISMANEVENTMIB.MteObjectsTable.MteObjectsEntry, ['mteowner', 'mteobjectsname', 'mteobjectsindex', 'mteobjectsid', 'mteobjectsidwildcard', 'mteobjectsentrystatus'], name, value)
@@ -1582,6 +1599,7 @@ class DISMANEVENTMIB(Entity):
             self.mteevententry = YList(self)
             self._segment_path = lambda: "mteEventTable"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEVENTMIB.MteEventTable, [], name, value)
@@ -1645,12 +1663,12 @@ class DISMANEVENTMIB(Entity):
                 self.ylist_key_names = ['mteowner','mteeventname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
-                    ('mteeventname', YLeaf(YType.str, 'mteEventName')),
-                    ('mteeventcomment', YLeaf(YType.str, 'mteEventComment')),
-                    ('mteeventactions', YLeaf(YType.bits, 'mteEventActions')),
-                    ('mteeventenabled', YLeaf(YType.boolean, 'mteEventEnabled')),
-                    ('mteevententrystatus', YLeaf(YType.enumeration, 'mteEventEntryStatus')),
+                    ('mteowner', (YLeaf(YType.str, 'mteOwner'), ['str'])),
+                    ('mteeventname', (YLeaf(YType.str, 'mteEventName'), ['str'])),
+                    ('mteeventcomment', (YLeaf(YType.str, 'mteEventComment'), ['str'])),
+                    ('mteeventactions', (YLeaf(YType.bits, 'mteEventActions'), ['Bits'])),
+                    ('mteeventenabled', (YLeaf(YType.boolean, 'mteEventEnabled'), ['bool'])),
+                    ('mteevententrystatus', (YLeaf(YType.enumeration, 'mteEventEntryStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.mteowner = None
                 self.mteeventname = None
@@ -1660,6 +1678,7 @@ class DISMANEVENTMIB(Entity):
                 self.mteevententrystatus = None
                 self._segment_path = lambda: "mteEventEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteEventName='" + str(self.mteeventname) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteEventTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DISMANEVENTMIB.MteEventTable.MteEventEntry, ['mteowner', 'mteeventname', 'mteeventcomment', 'mteeventactions', 'mteeventenabled', 'mteevententrystatus'], name, value)
@@ -1696,6 +1715,7 @@ class DISMANEVENTMIB(Entity):
             self.mteeventnotificationentry = YList(self)
             self._segment_path = lambda: "mteEventNotificationTable"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEVENTMIB.MteEventNotificationTable, [], name, value)
@@ -1763,11 +1783,11 @@ class DISMANEVENTMIB(Entity):
                 self.ylist_key_names = ['mteowner','mteeventname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
-                    ('mteeventname', YLeaf(YType.str, 'mteEventName')),
-                    ('mteeventnotification', YLeaf(YType.str, 'mteEventNotification')),
-                    ('mteeventnotificationobjectsowner', YLeaf(YType.str, 'mteEventNotificationObjectsOwner')),
-                    ('mteeventnotificationobjects', YLeaf(YType.str, 'mteEventNotificationObjects')),
+                    ('mteowner', (YLeaf(YType.str, 'mteOwner'), ['str'])),
+                    ('mteeventname', (YLeaf(YType.str, 'mteEventName'), ['str'])),
+                    ('mteeventnotification', (YLeaf(YType.str, 'mteEventNotification'), ['str'])),
+                    ('mteeventnotificationobjectsowner', (YLeaf(YType.str, 'mteEventNotificationObjectsOwner'), ['str'])),
+                    ('mteeventnotificationobjects', (YLeaf(YType.str, 'mteEventNotificationObjects'), ['str'])),
                 ])
                 self.mteowner = None
                 self.mteeventname = None
@@ -1776,6 +1796,7 @@ class DISMANEVENTMIB(Entity):
                 self.mteeventnotificationobjects = None
                 self._segment_path = lambda: "mteEventNotificationEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteEventName='" + str(self.mteeventname) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteEventNotificationTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DISMANEVENTMIB.MteEventNotificationTable.MteEventNotificationEntry, ['mteowner', 'mteeventname', 'mteeventnotification', 'mteeventnotificationobjectsowner', 'mteeventnotificationobjects'], name, value)
@@ -1811,6 +1832,7 @@ class DISMANEVENTMIB(Entity):
             self.mteeventsetentry = YList(self)
             self._segment_path = lambda: "mteEventSetTable"
             self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DISMANEVENTMIB.MteEventSetTable, [], name, value)
@@ -1891,14 +1913,14 @@ class DISMANEVENTMIB(Entity):
                 self.ylist_key_names = ['mteowner','mteeventname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mteowner', YLeaf(YType.str, 'mteOwner')),
-                    ('mteeventname', YLeaf(YType.str, 'mteEventName')),
-                    ('mteeventsetobject', YLeaf(YType.str, 'mteEventSetObject')),
-                    ('mteeventsetobjectwildcard', YLeaf(YType.boolean, 'mteEventSetObjectWildcard')),
-                    ('mteeventsetvalue', YLeaf(YType.int32, 'mteEventSetValue')),
-                    ('mteeventsettargettag', YLeaf(YType.str, 'mteEventSetTargetTag')),
-                    ('mteeventsetcontextname', YLeaf(YType.str, 'mteEventSetContextName')),
-                    ('mteeventsetcontextnamewildcard', YLeaf(YType.boolean, 'mteEventSetContextNameWildcard')),
+                    ('mteowner', (YLeaf(YType.str, 'mteOwner'), ['str'])),
+                    ('mteeventname', (YLeaf(YType.str, 'mteEventName'), ['str'])),
+                    ('mteeventsetobject', (YLeaf(YType.str, 'mteEventSetObject'), ['str'])),
+                    ('mteeventsetobjectwildcard', (YLeaf(YType.boolean, 'mteEventSetObjectWildcard'), ['bool'])),
+                    ('mteeventsetvalue', (YLeaf(YType.int32, 'mteEventSetValue'), ['int'])),
+                    ('mteeventsettargettag', (YLeaf(YType.str, 'mteEventSetTargetTag'), ['str'])),
+                    ('mteeventsetcontextname', (YLeaf(YType.str, 'mteEventSetContextName'), ['str'])),
+                    ('mteeventsetcontextnamewildcard', (YLeaf(YType.boolean, 'mteEventSetContextNameWildcard'), ['bool'])),
                 ])
                 self.mteowner = None
                 self.mteeventname = None
@@ -1910,6 +1932,7 @@ class DISMANEVENTMIB(Entity):
                 self.mteeventsetcontextnamewildcard = None
                 self._segment_path = lambda: "mteEventSetEntry" + "[mteOwner='" + str(self.mteowner) + "']" + "[mteEventName='" + str(self.mteeventname) + "']"
                 self._absolute_path = lambda: "DISMAN-EVENT-MIB:DISMAN-EVENT-MIB/mteEventSetTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DISMANEVENTMIB.MteEventSetTable.MteEventSetEntry, ['mteowner', 'mteeventname', 'mteeventsetobject', 'mteeventsetobjectwildcard', 'mteeventsetvalue', 'mteeventsettargettag', 'mteeventsetcontextname', 'mteeventsetcontextnamewildcard'], name, value)

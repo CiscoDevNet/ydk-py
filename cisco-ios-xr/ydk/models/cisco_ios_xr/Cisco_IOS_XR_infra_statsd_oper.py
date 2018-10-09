@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   infra\-statistics\: Statistics Infrastructure
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class InfraStatistics(Entity):
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-statsd-oper:infra-statistics"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(InfraStatistics, [], name, value)
@@ -87,6 +89,7 @@ class InfraStatistics(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(InfraStatistics.Interfaces, [], name, value)
@@ -101,7 +104,7 @@ class InfraStatistics(Entity):
             	Name of the interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: cache
             
@@ -155,7 +158,7 @@ class InfraStatistics(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([("cache", ("cache", InfraStatistics.Interfaces.Interface.Cache)), ("latest", ("latest", InfraStatistics.Interfaces.Interface.Latest)), ("total", ("total", InfraStatistics.Interfaces.Interface.Total)), ("protocols", ("protocols", InfraStatistics.Interfaces.Interface.Protocols)), ("interfaces-mib-counters", ("interfaces_mib_counters", InfraStatistics.Interfaces.Interface.InterfacesMibCounters)), ("data-rate", ("data_rate", InfraStatistics.Interfaces.Interface.DataRate)), ("generic-counters", ("generic_counters", InfraStatistics.Interfaces.Interface.GenericCounters))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                 ])
                 self.interface_name = None
 
@@ -188,6 +191,7 @@ class InfraStatistics(Entity):
                 self._children_name_map["generic_counters"] = "generic-counters"
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InfraStatistics.Interfaces.Interface, ['interface_name'], name, value)
@@ -251,6 +255,7 @@ class InfraStatistics(Entity):
                     self.generic_counters.parent = self
                     self._children_name_map["generic_counters"] = "generic-counters"
                     self._segment_path = lambda: "cache"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache, [], name, value)
@@ -285,6 +290,7 @@ class InfraStatistics(Entity):
 
                         self.protocol = YList(self)
                         self._segment_path = lambda: "protocols"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.Protocols, [], name, value)
@@ -345,7 +351,7 @@ class InfraStatistics(Entity):
                         	Time when counters were last written (in seconds)
                         	**type**\: int
                         
-                        	**range:** 0..4294967295
+                        	**range:** 0..18446744073709551615
                         
                         	**units**\: second
                         
@@ -402,17 +408,17 @@ class InfraStatistics(Entity):
                             self.ylist_key_names = ['protocol_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('protocol_name', YLeaf(YType.str, 'protocol-name')),
-                                ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
-                                ('packets_received', YLeaf(YType.uint64, 'packets-received')),
-                                ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                                ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
-                                ('protocol', YLeaf(YType.uint32, 'protocol')),
-                                ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
-                                ('input_data_rate', YLeaf(YType.uint64, 'input-data-rate')),
-                                ('input_packet_rate', YLeaf(YType.uint64, 'input-packet-rate')),
-                                ('output_data_rate', YLeaf(YType.uint64, 'output-data-rate')),
-                                ('output_packet_rate', YLeaf(YType.uint64, 'output-packet-rate')),
+                                ('protocol_name', (YLeaf(YType.str, 'protocol-name'), ['str'])),
+                                ('bytes_received', (YLeaf(YType.uint64, 'bytes-received'), ['int'])),
+                                ('packets_received', (YLeaf(YType.uint64, 'packets-received'), ['int'])),
+                                ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                                ('packets_sent', (YLeaf(YType.uint64, 'packets-sent'), ['int'])),
+                                ('protocol', (YLeaf(YType.uint32, 'protocol'), ['int'])),
+                                ('last_data_time', (YLeaf(YType.uint64, 'last-data-time'), ['int'])),
+                                ('input_data_rate', (YLeaf(YType.uint64, 'input-data-rate'), ['int'])),
+                                ('input_packet_rate', (YLeaf(YType.uint64, 'input-packet-rate'), ['int'])),
+                                ('output_data_rate', (YLeaf(YType.uint64, 'output-data-rate'), ['int'])),
+                                ('output_packet_rate', (YLeaf(YType.uint64, 'output-packet-rate'), ['int'])),
                             ])
                             self.protocol_name = None
                             self.bytes_received = None
@@ -426,9 +432,10 @@ class InfraStatistics(Entity):
                             self.output_data_rate = None
                             self.output_packet_rate = None
                             self._segment_path = lambda: "protocol" + "[protocol-name='" + str(self.protocol_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol, ['protocol_name', u'bytes_received', u'packets_received', u'bytes_sent', u'packets_sent', u'protocol', u'last_data_time', u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate'], name, value)
+                            self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
 
 
                 class InterfacesMibCounters(Entity):
@@ -719,42 +726,42 @@ class InfraStatistics(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('packets_received', YLeaf(YType.uint64, 'packets-received')),
-                            ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
-                            ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
-                            ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                            ('multicast_packets_received', YLeaf(YType.uint64, 'multicast-packets-received')),
-                            ('broadcast_packets_received', YLeaf(YType.uint64, 'broadcast-packets-received')),
-                            ('multicast_packets_sent', YLeaf(YType.uint64, 'multicast-packets-sent')),
-                            ('broadcast_packets_sent', YLeaf(YType.uint64, 'broadcast-packets-sent')),
-                            ('output_drops', YLeaf(YType.uint32, 'output-drops')),
-                            ('output_queue_drops', YLeaf(YType.uint32, 'output-queue-drops')),
-                            ('input_drops', YLeaf(YType.uint32, 'input-drops')),
-                            ('input_queue_drops', YLeaf(YType.uint32, 'input-queue-drops')),
-                            ('runt_packets_received', YLeaf(YType.uint32, 'runt-packets-received')),
-                            ('giant_packets_received', YLeaf(YType.uint32, 'giant-packets-received')),
-                            ('throttled_packets_received', YLeaf(YType.uint32, 'throttled-packets-received')),
-                            ('parity_packets_received', YLeaf(YType.uint32, 'parity-packets-received')),
-                            ('unknown_protocol_packets_received', YLeaf(YType.uint32, 'unknown-protocol-packets-received')),
-                            ('input_errors', YLeaf(YType.uint32, 'input-errors')),
-                            ('crc_errors', YLeaf(YType.uint32, 'crc-errors')),
-                            ('input_overruns', YLeaf(YType.uint32, 'input-overruns')),
-                            ('framing_errors_received', YLeaf(YType.uint32, 'framing-errors-received')),
-                            ('input_ignored_packets', YLeaf(YType.uint32, 'input-ignored-packets')),
-                            ('input_aborts', YLeaf(YType.uint32, 'input-aborts')),
-                            ('output_errors', YLeaf(YType.uint32, 'output-errors')),
-                            ('output_underruns', YLeaf(YType.uint32, 'output-underruns')),
-                            ('output_buffer_failures', YLeaf(YType.uint32, 'output-buffer-failures')),
-                            ('output_buffers_swapped_out', YLeaf(YType.uint32, 'output-buffers-swapped-out')),
-                            ('applique', YLeaf(YType.uint32, 'applique')),
-                            ('resets', YLeaf(YType.uint32, 'resets')),
-                            ('carrier_transitions', YLeaf(YType.uint32, 'carrier-transitions')),
-                            ('availability_flag', YLeaf(YType.uint32, 'availability-flag')),
-                            ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
-                            ('seconds_since_last_clear_counters', YLeaf(YType.uint32, 'seconds-since-last-clear-counters')),
-                            ('last_discontinuity_time', YLeaf(YType.uint32, 'last-discontinuity-time')),
-                            ('seconds_since_packet_received', YLeaf(YType.uint32, 'seconds-since-packet-received')),
-                            ('seconds_since_packet_sent', YLeaf(YType.uint32, 'seconds-since-packet-sent')),
+                            ('packets_received', (YLeaf(YType.uint64, 'packets-received'), ['int'])),
+                            ('bytes_received', (YLeaf(YType.uint64, 'bytes-received'), ['int'])),
+                            ('packets_sent', (YLeaf(YType.uint64, 'packets-sent'), ['int'])),
+                            ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                            ('multicast_packets_received', (YLeaf(YType.uint64, 'multicast-packets-received'), ['int'])),
+                            ('broadcast_packets_received', (YLeaf(YType.uint64, 'broadcast-packets-received'), ['int'])),
+                            ('multicast_packets_sent', (YLeaf(YType.uint64, 'multicast-packets-sent'), ['int'])),
+                            ('broadcast_packets_sent', (YLeaf(YType.uint64, 'broadcast-packets-sent'), ['int'])),
+                            ('output_drops', (YLeaf(YType.uint32, 'output-drops'), ['int'])),
+                            ('output_queue_drops', (YLeaf(YType.uint32, 'output-queue-drops'), ['int'])),
+                            ('input_drops', (YLeaf(YType.uint32, 'input-drops'), ['int'])),
+                            ('input_queue_drops', (YLeaf(YType.uint32, 'input-queue-drops'), ['int'])),
+                            ('runt_packets_received', (YLeaf(YType.uint32, 'runt-packets-received'), ['int'])),
+                            ('giant_packets_received', (YLeaf(YType.uint32, 'giant-packets-received'), ['int'])),
+                            ('throttled_packets_received', (YLeaf(YType.uint32, 'throttled-packets-received'), ['int'])),
+                            ('parity_packets_received', (YLeaf(YType.uint32, 'parity-packets-received'), ['int'])),
+                            ('unknown_protocol_packets_received', (YLeaf(YType.uint32, 'unknown-protocol-packets-received'), ['int'])),
+                            ('input_errors', (YLeaf(YType.uint32, 'input-errors'), ['int'])),
+                            ('crc_errors', (YLeaf(YType.uint32, 'crc-errors'), ['int'])),
+                            ('input_overruns', (YLeaf(YType.uint32, 'input-overruns'), ['int'])),
+                            ('framing_errors_received', (YLeaf(YType.uint32, 'framing-errors-received'), ['int'])),
+                            ('input_ignored_packets', (YLeaf(YType.uint32, 'input-ignored-packets'), ['int'])),
+                            ('input_aborts', (YLeaf(YType.uint32, 'input-aborts'), ['int'])),
+                            ('output_errors', (YLeaf(YType.uint32, 'output-errors'), ['int'])),
+                            ('output_underruns', (YLeaf(YType.uint32, 'output-underruns'), ['int'])),
+                            ('output_buffer_failures', (YLeaf(YType.uint32, 'output-buffer-failures'), ['int'])),
+                            ('output_buffers_swapped_out', (YLeaf(YType.uint32, 'output-buffers-swapped-out'), ['int'])),
+                            ('applique', (YLeaf(YType.uint32, 'applique'), ['int'])),
+                            ('resets', (YLeaf(YType.uint32, 'resets'), ['int'])),
+                            ('carrier_transitions', (YLeaf(YType.uint32, 'carrier-transitions'), ['int'])),
+                            ('availability_flag', (YLeaf(YType.uint32, 'availability-flag'), ['int'])),
+                            ('last_data_time', (YLeaf(YType.uint32, 'last-data-time'), ['int'])),
+                            ('seconds_since_last_clear_counters', (YLeaf(YType.uint32, 'seconds-since-last-clear-counters'), ['int'])),
+                            ('last_discontinuity_time', (YLeaf(YType.uint32, 'last-discontinuity-time'), ['int'])),
+                            ('seconds_since_packet_received', (YLeaf(YType.uint32, 'seconds-since-packet-received'), ['int'])),
+                            ('seconds_since_packet_sent', (YLeaf(YType.uint32, 'seconds-since-packet-sent'), ['int'])),
                         ])
                         self.packets_received = None
                         self.bytes_received = None
@@ -793,9 +800,10 @@ class InfraStatistics(Entity):
                         self.seconds_since_packet_received = None
                         self.seconds_since_packet_sent = None
                         self._segment_path = lambda: "interfaces-mib-counters"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
                 class DataRate(Entity):
@@ -920,19 +928,19 @@ class InfraStatistics(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('input_data_rate', YLeaf(YType.uint64, 'input-data-rate')),
-                            ('input_packet_rate', YLeaf(YType.uint64, 'input-packet-rate')),
-                            ('output_data_rate', YLeaf(YType.uint64, 'output-data-rate')),
-                            ('output_packet_rate', YLeaf(YType.uint64, 'output-packet-rate')),
-                            ('peak_input_data_rate', YLeaf(YType.uint64, 'peak-input-data-rate')),
-                            ('peak_input_packet_rate', YLeaf(YType.uint64, 'peak-input-packet-rate')),
-                            ('peak_output_data_rate', YLeaf(YType.uint64, 'peak-output-data-rate')),
-                            ('peak_output_packet_rate', YLeaf(YType.uint64, 'peak-output-packet-rate')),
-                            ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
-                            ('load_interval', YLeaf(YType.uint32, 'load-interval')),
-                            ('output_load', YLeaf(YType.uint8, 'output-load')),
-                            ('input_load', YLeaf(YType.uint8, 'input-load')),
-                            ('reliability', YLeaf(YType.uint8, 'reliability')),
+                            ('input_data_rate', (YLeaf(YType.uint64, 'input-data-rate'), ['int'])),
+                            ('input_packet_rate', (YLeaf(YType.uint64, 'input-packet-rate'), ['int'])),
+                            ('output_data_rate', (YLeaf(YType.uint64, 'output-data-rate'), ['int'])),
+                            ('output_packet_rate', (YLeaf(YType.uint64, 'output-packet-rate'), ['int'])),
+                            ('peak_input_data_rate', (YLeaf(YType.uint64, 'peak-input-data-rate'), ['int'])),
+                            ('peak_input_packet_rate', (YLeaf(YType.uint64, 'peak-input-packet-rate'), ['int'])),
+                            ('peak_output_data_rate', (YLeaf(YType.uint64, 'peak-output-data-rate'), ['int'])),
+                            ('peak_output_packet_rate', (YLeaf(YType.uint64, 'peak-output-packet-rate'), ['int'])),
+                            ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
+                            ('load_interval', (YLeaf(YType.uint32, 'load-interval'), ['int'])),
+                            ('output_load', (YLeaf(YType.uint8, 'output-load'), ['int'])),
+                            ('input_load', (YLeaf(YType.uint8, 'input-load'), ['int'])),
+                            ('reliability', (YLeaf(YType.uint8, 'reliability'), ['int'])),
                         ])
                         self.input_data_rate = None
                         self.input_packet_rate = None
@@ -948,9 +956,10 @@ class InfraStatistics(Entity):
                         self.input_load = None
                         self.reliability = None
                         self._segment_path = lambda: "data-rate"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.DataRate, [u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate', u'peak_input_data_rate', u'peak_input_packet_rate', u'peak_output_data_rate', u'peak_output_packet_rate', u'bandwidth', u'load_interval', u'output_load', u'input_load', u'reliability'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
 
 
                 class GenericCounters(Entity):
@@ -1240,42 +1249,42 @@ class InfraStatistics(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('packets_received', YLeaf(YType.uint64, 'packets-received')),
-                            ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
-                            ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
-                            ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                            ('multicast_packets_received', YLeaf(YType.uint64, 'multicast-packets-received')),
-                            ('broadcast_packets_received', YLeaf(YType.uint64, 'broadcast-packets-received')),
-                            ('multicast_packets_sent', YLeaf(YType.uint64, 'multicast-packets-sent')),
-                            ('broadcast_packets_sent', YLeaf(YType.uint64, 'broadcast-packets-sent')),
-                            ('output_drops', YLeaf(YType.uint32, 'output-drops')),
-                            ('output_queue_drops', YLeaf(YType.uint32, 'output-queue-drops')),
-                            ('input_drops', YLeaf(YType.uint32, 'input-drops')),
-                            ('input_queue_drops', YLeaf(YType.uint32, 'input-queue-drops')),
-                            ('runt_packets_received', YLeaf(YType.uint32, 'runt-packets-received')),
-                            ('giant_packets_received', YLeaf(YType.uint32, 'giant-packets-received')),
-                            ('throttled_packets_received', YLeaf(YType.uint32, 'throttled-packets-received')),
-                            ('parity_packets_received', YLeaf(YType.uint32, 'parity-packets-received')),
-                            ('unknown_protocol_packets_received', YLeaf(YType.uint32, 'unknown-protocol-packets-received')),
-                            ('input_errors', YLeaf(YType.uint32, 'input-errors')),
-                            ('crc_errors', YLeaf(YType.uint32, 'crc-errors')),
-                            ('input_overruns', YLeaf(YType.uint32, 'input-overruns')),
-                            ('framing_errors_received', YLeaf(YType.uint32, 'framing-errors-received')),
-                            ('input_ignored_packets', YLeaf(YType.uint32, 'input-ignored-packets')),
-                            ('input_aborts', YLeaf(YType.uint32, 'input-aborts')),
-                            ('output_errors', YLeaf(YType.uint32, 'output-errors')),
-                            ('output_underruns', YLeaf(YType.uint32, 'output-underruns')),
-                            ('output_buffer_failures', YLeaf(YType.uint32, 'output-buffer-failures')),
-                            ('output_buffers_swapped_out', YLeaf(YType.uint32, 'output-buffers-swapped-out')),
-                            ('applique', YLeaf(YType.uint32, 'applique')),
-                            ('resets', YLeaf(YType.uint32, 'resets')),
-                            ('carrier_transitions', YLeaf(YType.uint32, 'carrier-transitions')),
-                            ('availability_flag', YLeaf(YType.uint32, 'availability-flag')),
-                            ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
-                            ('seconds_since_last_clear_counters', YLeaf(YType.uint32, 'seconds-since-last-clear-counters')),
-                            ('last_discontinuity_time', YLeaf(YType.uint32, 'last-discontinuity-time')),
-                            ('seconds_since_packet_received', YLeaf(YType.uint32, 'seconds-since-packet-received')),
-                            ('seconds_since_packet_sent', YLeaf(YType.uint32, 'seconds-since-packet-sent')),
+                            ('packets_received', (YLeaf(YType.uint64, 'packets-received'), ['int'])),
+                            ('bytes_received', (YLeaf(YType.uint64, 'bytes-received'), ['int'])),
+                            ('packets_sent', (YLeaf(YType.uint64, 'packets-sent'), ['int'])),
+                            ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                            ('multicast_packets_received', (YLeaf(YType.uint64, 'multicast-packets-received'), ['int'])),
+                            ('broadcast_packets_received', (YLeaf(YType.uint64, 'broadcast-packets-received'), ['int'])),
+                            ('multicast_packets_sent', (YLeaf(YType.uint64, 'multicast-packets-sent'), ['int'])),
+                            ('broadcast_packets_sent', (YLeaf(YType.uint64, 'broadcast-packets-sent'), ['int'])),
+                            ('output_drops', (YLeaf(YType.uint32, 'output-drops'), ['int'])),
+                            ('output_queue_drops', (YLeaf(YType.uint32, 'output-queue-drops'), ['int'])),
+                            ('input_drops', (YLeaf(YType.uint32, 'input-drops'), ['int'])),
+                            ('input_queue_drops', (YLeaf(YType.uint32, 'input-queue-drops'), ['int'])),
+                            ('runt_packets_received', (YLeaf(YType.uint32, 'runt-packets-received'), ['int'])),
+                            ('giant_packets_received', (YLeaf(YType.uint32, 'giant-packets-received'), ['int'])),
+                            ('throttled_packets_received', (YLeaf(YType.uint32, 'throttled-packets-received'), ['int'])),
+                            ('parity_packets_received', (YLeaf(YType.uint32, 'parity-packets-received'), ['int'])),
+                            ('unknown_protocol_packets_received', (YLeaf(YType.uint32, 'unknown-protocol-packets-received'), ['int'])),
+                            ('input_errors', (YLeaf(YType.uint32, 'input-errors'), ['int'])),
+                            ('crc_errors', (YLeaf(YType.uint32, 'crc-errors'), ['int'])),
+                            ('input_overruns', (YLeaf(YType.uint32, 'input-overruns'), ['int'])),
+                            ('framing_errors_received', (YLeaf(YType.uint32, 'framing-errors-received'), ['int'])),
+                            ('input_ignored_packets', (YLeaf(YType.uint32, 'input-ignored-packets'), ['int'])),
+                            ('input_aborts', (YLeaf(YType.uint32, 'input-aborts'), ['int'])),
+                            ('output_errors', (YLeaf(YType.uint32, 'output-errors'), ['int'])),
+                            ('output_underruns', (YLeaf(YType.uint32, 'output-underruns'), ['int'])),
+                            ('output_buffer_failures', (YLeaf(YType.uint32, 'output-buffer-failures'), ['int'])),
+                            ('output_buffers_swapped_out', (YLeaf(YType.uint32, 'output-buffers-swapped-out'), ['int'])),
+                            ('applique', (YLeaf(YType.uint32, 'applique'), ['int'])),
+                            ('resets', (YLeaf(YType.uint32, 'resets'), ['int'])),
+                            ('carrier_transitions', (YLeaf(YType.uint32, 'carrier-transitions'), ['int'])),
+                            ('availability_flag', (YLeaf(YType.uint32, 'availability-flag'), ['int'])),
+                            ('last_data_time', (YLeaf(YType.uint32, 'last-data-time'), ['int'])),
+                            ('seconds_since_last_clear_counters', (YLeaf(YType.uint32, 'seconds-since-last-clear-counters'), ['int'])),
+                            ('last_discontinuity_time', (YLeaf(YType.uint32, 'last-discontinuity-time'), ['int'])),
+                            ('seconds_since_packet_received', (YLeaf(YType.uint32, 'seconds-since-packet-received'), ['int'])),
+                            ('seconds_since_packet_sent', (YLeaf(YType.uint32, 'seconds-since-packet-sent'), ['int'])),
                         ])
                         self.packets_received = None
                         self.bytes_received = None
@@ -1314,9 +1323,10 @@ class InfraStatistics(Entity):
                         self.seconds_since_packet_received = None
                         self.seconds_since_packet_sent = None
                         self._segment_path = lambda: "generic-counters"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.GenericCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Cache.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
             class Latest(Entity):
@@ -1377,6 +1387,7 @@ class InfraStatistics(Entity):
                     self.generic_counters.parent = self
                     self._children_name_map["generic_counters"] = "generic-counters"
                     self._segment_path = lambda: "latest"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest, [], name, value)
@@ -1411,6 +1422,7 @@ class InfraStatistics(Entity):
 
                         self.protocol = YList(self)
                         self._segment_path = lambda: "protocols"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.Protocols, [], name, value)
@@ -1471,7 +1483,7 @@ class InfraStatistics(Entity):
                         	Time when counters were last written (in seconds)
                         	**type**\: int
                         
-                        	**range:** 0..4294967295
+                        	**range:** 0..18446744073709551615
                         
                         	**units**\: second
                         
@@ -1528,17 +1540,17 @@ class InfraStatistics(Entity):
                             self.ylist_key_names = ['protocol_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('protocol_name', YLeaf(YType.str, 'protocol-name')),
-                                ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
-                                ('packets_received', YLeaf(YType.uint64, 'packets-received')),
-                                ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                                ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
-                                ('protocol', YLeaf(YType.uint32, 'protocol')),
-                                ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
-                                ('input_data_rate', YLeaf(YType.uint64, 'input-data-rate')),
-                                ('input_packet_rate', YLeaf(YType.uint64, 'input-packet-rate')),
-                                ('output_data_rate', YLeaf(YType.uint64, 'output-data-rate')),
-                                ('output_packet_rate', YLeaf(YType.uint64, 'output-packet-rate')),
+                                ('protocol_name', (YLeaf(YType.str, 'protocol-name'), ['str'])),
+                                ('bytes_received', (YLeaf(YType.uint64, 'bytes-received'), ['int'])),
+                                ('packets_received', (YLeaf(YType.uint64, 'packets-received'), ['int'])),
+                                ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                                ('packets_sent', (YLeaf(YType.uint64, 'packets-sent'), ['int'])),
+                                ('protocol', (YLeaf(YType.uint32, 'protocol'), ['int'])),
+                                ('last_data_time', (YLeaf(YType.uint64, 'last-data-time'), ['int'])),
+                                ('input_data_rate', (YLeaf(YType.uint64, 'input-data-rate'), ['int'])),
+                                ('input_packet_rate', (YLeaf(YType.uint64, 'input-packet-rate'), ['int'])),
+                                ('output_data_rate', (YLeaf(YType.uint64, 'output-data-rate'), ['int'])),
+                                ('output_packet_rate', (YLeaf(YType.uint64, 'output-packet-rate'), ['int'])),
                             ])
                             self.protocol_name = None
                             self.bytes_received = None
@@ -1552,9 +1564,10 @@ class InfraStatistics(Entity):
                             self.output_data_rate = None
                             self.output_packet_rate = None
                             self._segment_path = lambda: "protocol" + "[protocol-name='" + str(self.protocol_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol, ['protocol_name', u'bytes_received', u'packets_received', u'bytes_sent', u'packets_sent', u'protocol', u'last_data_time', u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate'], name, value)
+                            self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
 
 
                 class InterfacesMibCounters(Entity):
@@ -1845,42 +1858,42 @@ class InfraStatistics(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('packets_received', YLeaf(YType.uint64, 'packets-received')),
-                            ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
-                            ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
-                            ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                            ('multicast_packets_received', YLeaf(YType.uint64, 'multicast-packets-received')),
-                            ('broadcast_packets_received', YLeaf(YType.uint64, 'broadcast-packets-received')),
-                            ('multicast_packets_sent', YLeaf(YType.uint64, 'multicast-packets-sent')),
-                            ('broadcast_packets_sent', YLeaf(YType.uint64, 'broadcast-packets-sent')),
-                            ('output_drops', YLeaf(YType.uint32, 'output-drops')),
-                            ('output_queue_drops', YLeaf(YType.uint32, 'output-queue-drops')),
-                            ('input_drops', YLeaf(YType.uint32, 'input-drops')),
-                            ('input_queue_drops', YLeaf(YType.uint32, 'input-queue-drops')),
-                            ('runt_packets_received', YLeaf(YType.uint32, 'runt-packets-received')),
-                            ('giant_packets_received', YLeaf(YType.uint32, 'giant-packets-received')),
-                            ('throttled_packets_received', YLeaf(YType.uint32, 'throttled-packets-received')),
-                            ('parity_packets_received', YLeaf(YType.uint32, 'parity-packets-received')),
-                            ('unknown_protocol_packets_received', YLeaf(YType.uint32, 'unknown-protocol-packets-received')),
-                            ('input_errors', YLeaf(YType.uint32, 'input-errors')),
-                            ('crc_errors', YLeaf(YType.uint32, 'crc-errors')),
-                            ('input_overruns', YLeaf(YType.uint32, 'input-overruns')),
-                            ('framing_errors_received', YLeaf(YType.uint32, 'framing-errors-received')),
-                            ('input_ignored_packets', YLeaf(YType.uint32, 'input-ignored-packets')),
-                            ('input_aborts', YLeaf(YType.uint32, 'input-aborts')),
-                            ('output_errors', YLeaf(YType.uint32, 'output-errors')),
-                            ('output_underruns', YLeaf(YType.uint32, 'output-underruns')),
-                            ('output_buffer_failures', YLeaf(YType.uint32, 'output-buffer-failures')),
-                            ('output_buffers_swapped_out', YLeaf(YType.uint32, 'output-buffers-swapped-out')),
-                            ('applique', YLeaf(YType.uint32, 'applique')),
-                            ('resets', YLeaf(YType.uint32, 'resets')),
-                            ('carrier_transitions', YLeaf(YType.uint32, 'carrier-transitions')),
-                            ('availability_flag', YLeaf(YType.uint32, 'availability-flag')),
-                            ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
-                            ('seconds_since_last_clear_counters', YLeaf(YType.uint32, 'seconds-since-last-clear-counters')),
-                            ('last_discontinuity_time', YLeaf(YType.uint32, 'last-discontinuity-time')),
-                            ('seconds_since_packet_received', YLeaf(YType.uint32, 'seconds-since-packet-received')),
-                            ('seconds_since_packet_sent', YLeaf(YType.uint32, 'seconds-since-packet-sent')),
+                            ('packets_received', (YLeaf(YType.uint64, 'packets-received'), ['int'])),
+                            ('bytes_received', (YLeaf(YType.uint64, 'bytes-received'), ['int'])),
+                            ('packets_sent', (YLeaf(YType.uint64, 'packets-sent'), ['int'])),
+                            ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                            ('multicast_packets_received', (YLeaf(YType.uint64, 'multicast-packets-received'), ['int'])),
+                            ('broadcast_packets_received', (YLeaf(YType.uint64, 'broadcast-packets-received'), ['int'])),
+                            ('multicast_packets_sent', (YLeaf(YType.uint64, 'multicast-packets-sent'), ['int'])),
+                            ('broadcast_packets_sent', (YLeaf(YType.uint64, 'broadcast-packets-sent'), ['int'])),
+                            ('output_drops', (YLeaf(YType.uint32, 'output-drops'), ['int'])),
+                            ('output_queue_drops', (YLeaf(YType.uint32, 'output-queue-drops'), ['int'])),
+                            ('input_drops', (YLeaf(YType.uint32, 'input-drops'), ['int'])),
+                            ('input_queue_drops', (YLeaf(YType.uint32, 'input-queue-drops'), ['int'])),
+                            ('runt_packets_received', (YLeaf(YType.uint32, 'runt-packets-received'), ['int'])),
+                            ('giant_packets_received', (YLeaf(YType.uint32, 'giant-packets-received'), ['int'])),
+                            ('throttled_packets_received', (YLeaf(YType.uint32, 'throttled-packets-received'), ['int'])),
+                            ('parity_packets_received', (YLeaf(YType.uint32, 'parity-packets-received'), ['int'])),
+                            ('unknown_protocol_packets_received', (YLeaf(YType.uint32, 'unknown-protocol-packets-received'), ['int'])),
+                            ('input_errors', (YLeaf(YType.uint32, 'input-errors'), ['int'])),
+                            ('crc_errors', (YLeaf(YType.uint32, 'crc-errors'), ['int'])),
+                            ('input_overruns', (YLeaf(YType.uint32, 'input-overruns'), ['int'])),
+                            ('framing_errors_received', (YLeaf(YType.uint32, 'framing-errors-received'), ['int'])),
+                            ('input_ignored_packets', (YLeaf(YType.uint32, 'input-ignored-packets'), ['int'])),
+                            ('input_aborts', (YLeaf(YType.uint32, 'input-aborts'), ['int'])),
+                            ('output_errors', (YLeaf(YType.uint32, 'output-errors'), ['int'])),
+                            ('output_underruns', (YLeaf(YType.uint32, 'output-underruns'), ['int'])),
+                            ('output_buffer_failures', (YLeaf(YType.uint32, 'output-buffer-failures'), ['int'])),
+                            ('output_buffers_swapped_out', (YLeaf(YType.uint32, 'output-buffers-swapped-out'), ['int'])),
+                            ('applique', (YLeaf(YType.uint32, 'applique'), ['int'])),
+                            ('resets', (YLeaf(YType.uint32, 'resets'), ['int'])),
+                            ('carrier_transitions', (YLeaf(YType.uint32, 'carrier-transitions'), ['int'])),
+                            ('availability_flag', (YLeaf(YType.uint32, 'availability-flag'), ['int'])),
+                            ('last_data_time', (YLeaf(YType.uint32, 'last-data-time'), ['int'])),
+                            ('seconds_since_last_clear_counters', (YLeaf(YType.uint32, 'seconds-since-last-clear-counters'), ['int'])),
+                            ('last_discontinuity_time', (YLeaf(YType.uint32, 'last-discontinuity-time'), ['int'])),
+                            ('seconds_since_packet_received', (YLeaf(YType.uint32, 'seconds-since-packet-received'), ['int'])),
+                            ('seconds_since_packet_sent', (YLeaf(YType.uint32, 'seconds-since-packet-sent'), ['int'])),
                         ])
                         self.packets_received = None
                         self.bytes_received = None
@@ -1919,9 +1932,10 @@ class InfraStatistics(Entity):
                         self.seconds_since_packet_received = None
                         self.seconds_since_packet_sent = None
                         self._segment_path = lambda: "interfaces-mib-counters"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
                 class DataRate(Entity):
@@ -2046,19 +2060,19 @@ class InfraStatistics(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('input_data_rate', YLeaf(YType.uint64, 'input-data-rate')),
-                            ('input_packet_rate', YLeaf(YType.uint64, 'input-packet-rate')),
-                            ('output_data_rate', YLeaf(YType.uint64, 'output-data-rate')),
-                            ('output_packet_rate', YLeaf(YType.uint64, 'output-packet-rate')),
-                            ('peak_input_data_rate', YLeaf(YType.uint64, 'peak-input-data-rate')),
-                            ('peak_input_packet_rate', YLeaf(YType.uint64, 'peak-input-packet-rate')),
-                            ('peak_output_data_rate', YLeaf(YType.uint64, 'peak-output-data-rate')),
-                            ('peak_output_packet_rate', YLeaf(YType.uint64, 'peak-output-packet-rate')),
-                            ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
-                            ('load_interval', YLeaf(YType.uint32, 'load-interval')),
-                            ('output_load', YLeaf(YType.uint8, 'output-load')),
-                            ('input_load', YLeaf(YType.uint8, 'input-load')),
-                            ('reliability', YLeaf(YType.uint8, 'reliability')),
+                            ('input_data_rate', (YLeaf(YType.uint64, 'input-data-rate'), ['int'])),
+                            ('input_packet_rate', (YLeaf(YType.uint64, 'input-packet-rate'), ['int'])),
+                            ('output_data_rate', (YLeaf(YType.uint64, 'output-data-rate'), ['int'])),
+                            ('output_packet_rate', (YLeaf(YType.uint64, 'output-packet-rate'), ['int'])),
+                            ('peak_input_data_rate', (YLeaf(YType.uint64, 'peak-input-data-rate'), ['int'])),
+                            ('peak_input_packet_rate', (YLeaf(YType.uint64, 'peak-input-packet-rate'), ['int'])),
+                            ('peak_output_data_rate', (YLeaf(YType.uint64, 'peak-output-data-rate'), ['int'])),
+                            ('peak_output_packet_rate', (YLeaf(YType.uint64, 'peak-output-packet-rate'), ['int'])),
+                            ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
+                            ('load_interval', (YLeaf(YType.uint32, 'load-interval'), ['int'])),
+                            ('output_load', (YLeaf(YType.uint8, 'output-load'), ['int'])),
+                            ('input_load', (YLeaf(YType.uint8, 'input-load'), ['int'])),
+                            ('reliability', (YLeaf(YType.uint8, 'reliability'), ['int'])),
                         ])
                         self.input_data_rate = None
                         self.input_packet_rate = None
@@ -2074,9 +2088,10 @@ class InfraStatistics(Entity):
                         self.input_load = None
                         self.reliability = None
                         self._segment_path = lambda: "data-rate"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.DataRate, [u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate', u'peak_input_data_rate', u'peak_input_packet_rate', u'peak_output_data_rate', u'peak_output_packet_rate', u'bandwidth', u'load_interval', u'output_load', u'input_load', u'reliability'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
 
 
                 class GenericCounters(Entity):
@@ -2366,42 +2381,42 @@ class InfraStatistics(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('packets_received', YLeaf(YType.uint64, 'packets-received')),
-                            ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
-                            ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
-                            ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                            ('multicast_packets_received', YLeaf(YType.uint64, 'multicast-packets-received')),
-                            ('broadcast_packets_received', YLeaf(YType.uint64, 'broadcast-packets-received')),
-                            ('multicast_packets_sent', YLeaf(YType.uint64, 'multicast-packets-sent')),
-                            ('broadcast_packets_sent', YLeaf(YType.uint64, 'broadcast-packets-sent')),
-                            ('output_drops', YLeaf(YType.uint32, 'output-drops')),
-                            ('output_queue_drops', YLeaf(YType.uint32, 'output-queue-drops')),
-                            ('input_drops', YLeaf(YType.uint32, 'input-drops')),
-                            ('input_queue_drops', YLeaf(YType.uint32, 'input-queue-drops')),
-                            ('runt_packets_received', YLeaf(YType.uint32, 'runt-packets-received')),
-                            ('giant_packets_received', YLeaf(YType.uint32, 'giant-packets-received')),
-                            ('throttled_packets_received', YLeaf(YType.uint32, 'throttled-packets-received')),
-                            ('parity_packets_received', YLeaf(YType.uint32, 'parity-packets-received')),
-                            ('unknown_protocol_packets_received', YLeaf(YType.uint32, 'unknown-protocol-packets-received')),
-                            ('input_errors', YLeaf(YType.uint32, 'input-errors')),
-                            ('crc_errors', YLeaf(YType.uint32, 'crc-errors')),
-                            ('input_overruns', YLeaf(YType.uint32, 'input-overruns')),
-                            ('framing_errors_received', YLeaf(YType.uint32, 'framing-errors-received')),
-                            ('input_ignored_packets', YLeaf(YType.uint32, 'input-ignored-packets')),
-                            ('input_aborts', YLeaf(YType.uint32, 'input-aborts')),
-                            ('output_errors', YLeaf(YType.uint32, 'output-errors')),
-                            ('output_underruns', YLeaf(YType.uint32, 'output-underruns')),
-                            ('output_buffer_failures', YLeaf(YType.uint32, 'output-buffer-failures')),
-                            ('output_buffers_swapped_out', YLeaf(YType.uint32, 'output-buffers-swapped-out')),
-                            ('applique', YLeaf(YType.uint32, 'applique')),
-                            ('resets', YLeaf(YType.uint32, 'resets')),
-                            ('carrier_transitions', YLeaf(YType.uint32, 'carrier-transitions')),
-                            ('availability_flag', YLeaf(YType.uint32, 'availability-flag')),
-                            ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
-                            ('seconds_since_last_clear_counters', YLeaf(YType.uint32, 'seconds-since-last-clear-counters')),
-                            ('last_discontinuity_time', YLeaf(YType.uint32, 'last-discontinuity-time')),
-                            ('seconds_since_packet_received', YLeaf(YType.uint32, 'seconds-since-packet-received')),
-                            ('seconds_since_packet_sent', YLeaf(YType.uint32, 'seconds-since-packet-sent')),
+                            ('packets_received', (YLeaf(YType.uint64, 'packets-received'), ['int'])),
+                            ('bytes_received', (YLeaf(YType.uint64, 'bytes-received'), ['int'])),
+                            ('packets_sent', (YLeaf(YType.uint64, 'packets-sent'), ['int'])),
+                            ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                            ('multicast_packets_received', (YLeaf(YType.uint64, 'multicast-packets-received'), ['int'])),
+                            ('broadcast_packets_received', (YLeaf(YType.uint64, 'broadcast-packets-received'), ['int'])),
+                            ('multicast_packets_sent', (YLeaf(YType.uint64, 'multicast-packets-sent'), ['int'])),
+                            ('broadcast_packets_sent', (YLeaf(YType.uint64, 'broadcast-packets-sent'), ['int'])),
+                            ('output_drops', (YLeaf(YType.uint32, 'output-drops'), ['int'])),
+                            ('output_queue_drops', (YLeaf(YType.uint32, 'output-queue-drops'), ['int'])),
+                            ('input_drops', (YLeaf(YType.uint32, 'input-drops'), ['int'])),
+                            ('input_queue_drops', (YLeaf(YType.uint32, 'input-queue-drops'), ['int'])),
+                            ('runt_packets_received', (YLeaf(YType.uint32, 'runt-packets-received'), ['int'])),
+                            ('giant_packets_received', (YLeaf(YType.uint32, 'giant-packets-received'), ['int'])),
+                            ('throttled_packets_received', (YLeaf(YType.uint32, 'throttled-packets-received'), ['int'])),
+                            ('parity_packets_received', (YLeaf(YType.uint32, 'parity-packets-received'), ['int'])),
+                            ('unknown_protocol_packets_received', (YLeaf(YType.uint32, 'unknown-protocol-packets-received'), ['int'])),
+                            ('input_errors', (YLeaf(YType.uint32, 'input-errors'), ['int'])),
+                            ('crc_errors', (YLeaf(YType.uint32, 'crc-errors'), ['int'])),
+                            ('input_overruns', (YLeaf(YType.uint32, 'input-overruns'), ['int'])),
+                            ('framing_errors_received', (YLeaf(YType.uint32, 'framing-errors-received'), ['int'])),
+                            ('input_ignored_packets', (YLeaf(YType.uint32, 'input-ignored-packets'), ['int'])),
+                            ('input_aborts', (YLeaf(YType.uint32, 'input-aborts'), ['int'])),
+                            ('output_errors', (YLeaf(YType.uint32, 'output-errors'), ['int'])),
+                            ('output_underruns', (YLeaf(YType.uint32, 'output-underruns'), ['int'])),
+                            ('output_buffer_failures', (YLeaf(YType.uint32, 'output-buffer-failures'), ['int'])),
+                            ('output_buffers_swapped_out', (YLeaf(YType.uint32, 'output-buffers-swapped-out'), ['int'])),
+                            ('applique', (YLeaf(YType.uint32, 'applique'), ['int'])),
+                            ('resets', (YLeaf(YType.uint32, 'resets'), ['int'])),
+                            ('carrier_transitions', (YLeaf(YType.uint32, 'carrier-transitions'), ['int'])),
+                            ('availability_flag', (YLeaf(YType.uint32, 'availability-flag'), ['int'])),
+                            ('last_data_time', (YLeaf(YType.uint32, 'last-data-time'), ['int'])),
+                            ('seconds_since_last_clear_counters', (YLeaf(YType.uint32, 'seconds-since-last-clear-counters'), ['int'])),
+                            ('last_discontinuity_time', (YLeaf(YType.uint32, 'last-discontinuity-time'), ['int'])),
+                            ('seconds_since_packet_received', (YLeaf(YType.uint32, 'seconds-since-packet-received'), ['int'])),
+                            ('seconds_since_packet_sent', (YLeaf(YType.uint32, 'seconds-since-packet-sent'), ['int'])),
                         ])
                         self.packets_received = None
                         self.bytes_received = None
@@ -2440,9 +2455,10 @@ class InfraStatistics(Entity):
                         self.seconds_since_packet_received = None
                         self.seconds_since_packet_sent = None
                         self._segment_path = lambda: "generic-counters"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.GenericCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Latest.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
             class Total(Entity):
@@ -2503,6 +2519,7 @@ class InfraStatistics(Entity):
                     self.generic_counters.parent = self
                     self._children_name_map["generic_counters"] = "generic-counters"
                     self._segment_path = lambda: "total"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InfraStatistics.Interfaces.Interface.Total, [], name, value)
@@ -2537,6 +2554,7 @@ class InfraStatistics(Entity):
 
                         self.protocol = YList(self)
                         self._segment_path = lambda: "protocols"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.Protocols, [], name, value)
@@ -2597,7 +2615,7 @@ class InfraStatistics(Entity):
                         	Time when counters were last written (in seconds)
                         	**type**\: int
                         
-                        	**range:** 0..4294967295
+                        	**range:** 0..18446744073709551615
                         
                         	**units**\: second
                         
@@ -2654,17 +2672,17 @@ class InfraStatistics(Entity):
                             self.ylist_key_names = ['protocol_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('protocol_name', YLeaf(YType.str, 'protocol-name')),
-                                ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
-                                ('packets_received', YLeaf(YType.uint64, 'packets-received')),
-                                ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                                ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
-                                ('protocol', YLeaf(YType.uint32, 'protocol')),
-                                ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
-                                ('input_data_rate', YLeaf(YType.uint64, 'input-data-rate')),
-                                ('input_packet_rate', YLeaf(YType.uint64, 'input-packet-rate')),
-                                ('output_data_rate', YLeaf(YType.uint64, 'output-data-rate')),
-                                ('output_packet_rate', YLeaf(YType.uint64, 'output-packet-rate')),
+                                ('protocol_name', (YLeaf(YType.str, 'protocol-name'), ['str'])),
+                                ('bytes_received', (YLeaf(YType.uint64, 'bytes-received'), ['int'])),
+                                ('packets_received', (YLeaf(YType.uint64, 'packets-received'), ['int'])),
+                                ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                                ('packets_sent', (YLeaf(YType.uint64, 'packets-sent'), ['int'])),
+                                ('protocol', (YLeaf(YType.uint32, 'protocol'), ['int'])),
+                                ('last_data_time', (YLeaf(YType.uint64, 'last-data-time'), ['int'])),
+                                ('input_data_rate', (YLeaf(YType.uint64, 'input-data-rate'), ['int'])),
+                                ('input_packet_rate', (YLeaf(YType.uint64, 'input-packet-rate'), ['int'])),
+                                ('output_data_rate', (YLeaf(YType.uint64, 'output-data-rate'), ['int'])),
+                                ('output_packet_rate', (YLeaf(YType.uint64, 'output-packet-rate'), ['int'])),
                             ])
                             self.protocol_name = None
                             self.bytes_received = None
@@ -2678,9 +2696,10 @@ class InfraStatistics(Entity):
                             self.output_data_rate = None
                             self.output_packet_rate = None
                             self._segment_path = lambda: "protocol" + "[protocol-name='" + str(self.protocol_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol, ['protocol_name', u'bytes_received', u'packets_received', u'bytes_sent', u'packets_sent', u'protocol', u'last_data_time', u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate'], name, value)
+                            self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
 
 
                 class InterfacesMibCounters(Entity):
@@ -2971,42 +2990,42 @@ class InfraStatistics(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('packets_received', YLeaf(YType.uint64, 'packets-received')),
-                            ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
-                            ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
-                            ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                            ('multicast_packets_received', YLeaf(YType.uint64, 'multicast-packets-received')),
-                            ('broadcast_packets_received', YLeaf(YType.uint64, 'broadcast-packets-received')),
-                            ('multicast_packets_sent', YLeaf(YType.uint64, 'multicast-packets-sent')),
-                            ('broadcast_packets_sent', YLeaf(YType.uint64, 'broadcast-packets-sent')),
-                            ('output_drops', YLeaf(YType.uint32, 'output-drops')),
-                            ('output_queue_drops', YLeaf(YType.uint32, 'output-queue-drops')),
-                            ('input_drops', YLeaf(YType.uint32, 'input-drops')),
-                            ('input_queue_drops', YLeaf(YType.uint32, 'input-queue-drops')),
-                            ('runt_packets_received', YLeaf(YType.uint32, 'runt-packets-received')),
-                            ('giant_packets_received', YLeaf(YType.uint32, 'giant-packets-received')),
-                            ('throttled_packets_received', YLeaf(YType.uint32, 'throttled-packets-received')),
-                            ('parity_packets_received', YLeaf(YType.uint32, 'parity-packets-received')),
-                            ('unknown_protocol_packets_received', YLeaf(YType.uint32, 'unknown-protocol-packets-received')),
-                            ('input_errors', YLeaf(YType.uint32, 'input-errors')),
-                            ('crc_errors', YLeaf(YType.uint32, 'crc-errors')),
-                            ('input_overruns', YLeaf(YType.uint32, 'input-overruns')),
-                            ('framing_errors_received', YLeaf(YType.uint32, 'framing-errors-received')),
-                            ('input_ignored_packets', YLeaf(YType.uint32, 'input-ignored-packets')),
-                            ('input_aborts', YLeaf(YType.uint32, 'input-aborts')),
-                            ('output_errors', YLeaf(YType.uint32, 'output-errors')),
-                            ('output_underruns', YLeaf(YType.uint32, 'output-underruns')),
-                            ('output_buffer_failures', YLeaf(YType.uint32, 'output-buffer-failures')),
-                            ('output_buffers_swapped_out', YLeaf(YType.uint32, 'output-buffers-swapped-out')),
-                            ('applique', YLeaf(YType.uint32, 'applique')),
-                            ('resets', YLeaf(YType.uint32, 'resets')),
-                            ('carrier_transitions', YLeaf(YType.uint32, 'carrier-transitions')),
-                            ('availability_flag', YLeaf(YType.uint32, 'availability-flag')),
-                            ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
-                            ('seconds_since_last_clear_counters', YLeaf(YType.uint32, 'seconds-since-last-clear-counters')),
-                            ('last_discontinuity_time', YLeaf(YType.uint32, 'last-discontinuity-time')),
-                            ('seconds_since_packet_received', YLeaf(YType.uint32, 'seconds-since-packet-received')),
-                            ('seconds_since_packet_sent', YLeaf(YType.uint32, 'seconds-since-packet-sent')),
+                            ('packets_received', (YLeaf(YType.uint64, 'packets-received'), ['int'])),
+                            ('bytes_received', (YLeaf(YType.uint64, 'bytes-received'), ['int'])),
+                            ('packets_sent', (YLeaf(YType.uint64, 'packets-sent'), ['int'])),
+                            ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                            ('multicast_packets_received', (YLeaf(YType.uint64, 'multicast-packets-received'), ['int'])),
+                            ('broadcast_packets_received', (YLeaf(YType.uint64, 'broadcast-packets-received'), ['int'])),
+                            ('multicast_packets_sent', (YLeaf(YType.uint64, 'multicast-packets-sent'), ['int'])),
+                            ('broadcast_packets_sent', (YLeaf(YType.uint64, 'broadcast-packets-sent'), ['int'])),
+                            ('output_drops', (YLeaf(YType.uint32, 'output-drops'), ['int'])),
+                            ('output_queue_drops', (YLeaf(YType.uint32, 'output-queue-drops'), ['int'])),
+                            ('input_drops', (YLeaf(YType.uint32, 'input-drops'), ['int'])),
+                            ('input_queue_drops', (YLeaf(YType.uint32, 'input-queue-drops'), ['int'])),
+                            ('runt_packets_received', (YLeaf(YType.uint32, 'runt-packets-received'), ['int'])),
+                            ('giant_packets_received', (YLeaf(YType.uint32, 'giant-packets-received'), ['int'])),
+                            ('throttled_packets_received', (YLeaf(YType.uint32, 'throttled-packets-received'), ['int'])),
+                            ('parity_packets_received', (YLeaf(YType.uint32, 'parity-packets-received'), ['int'])),
+                            ('unknown_protocol_packets_received', (YLeaf(YType.uint32, 'unknown-protocol-packets-received'), ['int'])),
+                            ('input_errors', (YLeaf(YType.uint32, 'input-errors'), ['int'])),
+                            ('crc_errors', (YLeaf(YType.uint32, 'crc-errors'), ['int'])),
+                            ('input_overruns', (YLeaf(YType.uint32, 'input-overruns'), ['int'])),
+                            ('framing_errors_received', (YLeaf(YType.uint32, 'framing-errors-received'), ['int'])),
+                            ('input_ignored_packets', (YLeaf(YType.uint32, 'input-ignored-packets'), ['int'])),
+                            ('input_aborts', (YLeaf(YType.uint32, 'input-aborts'), ['int'])),
+                            ('output_errors', (YLeaf(YType.uint32, 'output-errors'), ['int'])),
+                            ('output_underruns', (YLeaf(YType.uint32, 'output-underruns'), ['int'])),
+                            ('output_buffer_failures', (YLeaf(YType.uint32, 'output-buffer-failures'), ['int'])),
+                            ('output_buffers_swapped_out', (YLeaf(YType.uint32, 'output-buffers-swapped-out'), ['int'])),
+                            ('applique', (YLeaf(YType.uint32, 'applique'), ['int'])),
+                            ('resets', (YLeaf(YType.uint32, 'resets'), ['int'])),
+                            ('carrier_transitions', (YLeaf(YType.uint32, 'carrier-transitions'), ['int'])),
+                            ('availability_flag', (YLeaf(YType.uint32, 'availability-flag'), ['int'])),
+                            ('last_data_time', (YLeaf(YType.uint32, 'last-data-time'), ['int'])),
+                            ('seconds_since_last_clear_counters', (YLeaf(YType.uint32, 'seconds-since-last-clear-counters'), ['int'])),
+                            ('last_discontinuity_time', (YLeaf(YType.uint32, 'last-discontinuity-time'), ['int'])),
+                            ('seconds_since_packet_received', (YLeaf(YType.uint32, 'seconds-since-packet-received'), ['int'])),
+                            ('seconds_since_packet_sent', (YLeaf(YType.uint32, 'seconds-since-packet-sent'), ['int'])),
                         ])
                         self.packets_received = None
                         self.bytes_received = None
@@ -3045,9 +3064,10 @@ class InfraStatistics(Entity):
                         self.seconds_since_packet_received = None
                         self.seconds_since_packet_sent = None
                         self._segment_path = lambda: "interfaces-mib-counters"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
                 class DataRate(Entity):
@@ -3172,19 +3192,19 @@ class InfraStatistics(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('input_data_rate', YLeaf(YType.uint64, 'input-data-rate')),
-                            ('input_packet_rate', YLeaf(YType.uint64, 'input-packet-rate')),
-                            ('output_data_rate', YLeaf(YType.uint64, 'output-data-rate')),
-                            ('output_packet_rate', YLeaf(YType.uint64, 'output-packet-rate')),
-                            ('peak_input_data_rate', YLeaf(YType.uint64, 'peak-input-data-rate')),
-                            ('peak_input_packet_rate', YLeaf(YType.uint64, 'peak-input-packet-rate')),
-                            ('peak_output_data_rate', YLeaf(YType.uint64, 'peak-output-data-rate')),
-                            ('peak_output_packet_rate', YLeaf(YType.uint64, 'peak-output-packet-rate')),
-                            ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
-                            ('load_interval', YLeaf(YType.uint32, 'load-interval')),
-                            ('output_load', YLeaf(YType.uint8, 'output-load')),
-                            ('input_load', YLeaf(YType.uint8, 'input-load')),
-                            ('reliability', YLeaf(YType.uint8, 'reliability')),
+                            ('input_data_rate', (YLeaf(YType.uint64, 'input-data-rate'), ['int'])),
+                            ('input_packet_rate', (YLeaf(YType.uint64, 'input-packet-rate'), ['int'])),
+                            ('output_data_rate', (YLeaf(YType.uint64, 'output-data-rate'), ['int'])),
+                            ('output_packet_rate', (YLeaf(YType.uint64, 'output-packet-rate'), ['int'])),
+                            ('peak_input_data_rate', (YLeaf(YType.uint64, 'peak-input-data-rate'), ['int'])),
+                            ('peak_input_packet_rate', (YLeaf(YType.uint64, 'peak-input-packet-rate'), ['int'])),
+                            ('peak_output_data_rate', (YLeaf(YType.uint64, 'peak-output-data-rate'), ['int'])),
+                            ('peak_output_packet_rate', (YLeaf(YType.uint64, 'peak-output-packet-rate'), ['int'])),
+                            ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
+                            ('load_interval', (YLeaf(YType.uint32, 'load-interval'), ['int'])),
+                            ('output_load', (YLeaf(YType.uint8, 'output-load'), ['int'])),
+                            ('input_load', (YLeaf(YType.uint8, 'input-load'), ['int'])),
+                            ('reliability', (YLeaf(YType.uint8, 'reliability'), ['int'])),
                         ])
                         self.input_data_rate = None
                         self.input_packet_rate = None
@@ -3200,9 +3220,10 @@ class InfraStatistics(Entity):
                         self.input_load = None
                         self.reliability = None
                         self._segment_path = lambda: "data-rate"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.DataRate, [u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate', u'peak_input_data_rate', u'peak_input_packet_rate', u'peak_output_data_rate', u'peak_output_packet_rate', u'bandwidth', u'load_interval', u'output_load', u'input_load', u'reliability'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
 
 
                 class GenericCounters(Entity):
@@ -3492,42 +3513,42 @@ class InfraStatistics(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('packets_received', YLeaf(YType.uint64, 'packets-received')),
-                            ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
-                            ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
-                            ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                            ('multicast_packets_received', YLeaf(YType.uint64, 'multicast-packets-received')),
-                            ('broadcast_packets_received', YLeaf(YType.uint64, 'broadcast-packets-received')),
-                            ('multicast_packets_sent', YLeaf(YType.uint64, 'multicast-packets-sent')),
-                            ('broadcast_packets_sent', YLeaf(YType.uint64, 'broadcast-packets-sent')),
-                            ('output_drops', YLeaf(YType.uint32, 'output-drops')),
-                            ('output_queue_drops', YLeaf(YType.uint32, 'output-queue-drops')),
-                            ('input_drops', YLeaf(YType.uint32, 'input-drops')),
-                            ('input_queue_drops', YLeaf(YType.uint32, 'input-queue-drops')),
-                            ('runt_packets_received', YLeaf(YType.uint32, 'runt-packets-received')),
-                            ('giant_packets_received', YLeaf(YType.uint32, 'giant-packets-received')),
-                            ('throttled_packets_received', YLeaf(YType.uint32, 'throttled-packets-received')),
-                            ('parity_packets_received', YLeaf(YType.uint32, 'parity-packets-received')),
-                            ('unknown_protocol_packets_received', YLeaf(YType.uint32, 'unknown-protocol-packets-received')),
-                            ('input_errors', YLeaf(YType.uint32, 'input-errors')),
-                            ('crc_errors', YLeaf(YType.uint32, 'crc-errors')),
-                            ('input_overruns', YLeaf(YType.uint32, 'input-overruns')),
-                            ('framing_errors_received', YLeaf(YType.uint32, 'framing-errors-received')),
-                            ('input_ignored_packets', YLeaf(YType.uint32, 'input-ignored-packets')),
-                            ('input_aborts', YLeaf(YType.uint32, 'input-aborts')),
-                            ('output_errors', YLeaf(YType.uint32, 'output-errors')),
-                            ('output_underruns', YLeaf(YType.uint32, 'output-underruns')),
-                            ('output_buffer_failures', YLeaf(YType.uint32, 'output-buffer-failures')),
-                            ('output_buffers_swapped_out', YLeaf(YType.uint32, 'output-buffers-swapped-out')),
-                            ('applique', YLeaf(YType.uint32, 'applique')),
-                            ('resets', YLeaf(YType.uint32, 'resets')),
-                            ('carrier_transitions', YLeaf(YType.uint32, 'carrier-transitions')),
-                            ('availability_flag', YLeaf(YType.uint32, 'availability-flag')),
-                            ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
-                            ('seconds_since_last_clear_counters', YLeaf(YType.uint32, 'seconds-since-last-clear-counters')),
-                            ('last_discontinuity_time', YLeaf(YType.uint32, 'last-discontinuity-time')),
-                            ('seconds_since_packet_received', YLeaf(YType.uint32, 'seconds-since-packet-received')),
-                            ('seconds_since_packet_sent', YLeaf(YType.uint32, 'seconds-since-packet-sent')),
+                            ('packets_received', (YLeaf(YType.uint64, 'packets-received'), ['int'])),
+                            ('bytes_received', (YLeaf(YType.uint64, 'bytes-received'), ['int'])),
+                            ('packets_sent', (YLeaf(YType.uint64, 'packets-sent'), ['int'])),
+                            ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                            ('multicast_packets_received', (YLeaf(YType.uint64, 'multicast-packets-received'), ['int'])),
+                            ('broadcast_packets_received', (YLeaf(YType.uint64, 'broadcast-packets-received'), ['int'])),
+                            ('multicast_packets_sent', (YLeaf(YType.uint64, 'multicast-packets-sent'), ['int'])),
+                            ('broadcast_packets_sent', (YLeaf(YType.uint64, 'broadcast-packets-sent'), ['int'])),
+                            ('output_drops', (YLeaf(YType.uint32, 'output-drops'), ['int'])),
+                            ('output_queue_drops', (YLeaf(YType.uint32, 'output-queue-drops'), ['int'])),
+                            ('input_drops', (YLeaf(YType.uint32, 'input-drops'), ['int'])),
+                            ('input_queue_drops', (YLeaf(YType.uint32, 'input-queue-drops'), ['int'])),
+                            ('runt_packets_received', (YLeaf(YType.uint32, 'runt-packets-received'), ['int'])),
+                            ('giant_packets_received', (YLeaf(YType.uint32, 'giant-packets-received'), ['int'])),
+                            ('throttled_packets_received', (YLeaf(YType.uint32, 'throttled-packets-received'), ['int'])),
+                            ('parity_packets_received', (YLeaf(YType.uint32, 'parity-packets-received'), ['int'])),
+                            ('unknown_protocol_packets_received', (YLeaf(YType.uint32, 'unknown-protocol-packets-received'), ['int'])),
+                            ('input_errors', (YLeaf(YType.uint32, 'input-errors'), ['int'])),
+                            ('crc_errors', (YLeaf(YType.uint32, 'crc-errors'), ['int'])),
+                            ('input_overruns', (YLeaf(YType.uint32, 'input-overruns'), ['int'])),
+                            ('framing_errors_received', (YLeaf(YType.uint32, 'framing-errors-received'), ['int'])),
+                            ('input_ignored_packets', (YLeaf(YType.uint32, 'input-ignored-packets'), ['int'])),
+                            ('input_aborts', (YLeaf(YType.uint32, 'input-aborts'), ['int'])),
+                            ('output_errors', (YLeaf(YType.uint32, 'output-errors'), ['int'])),
+                            ('output_underruns', (YLeaf(YType.uint32, 'output-underruns'), ['int'])),
+                            ('output_buffer_failures', (YLeaf(YType.uint32, 'output-buffer-failures'), ['int'])),
+                            ('output_buffers_swapped_out', (YLeaf(YType.uint32, 'output-buffers-swapped-out'), ['int'])),
+                            ('applique', (YLeaf(YType.uint32, 'applique'), ['int'])),
+                            ('resets', (YLeaf(YType.uint32, 'resets'), ['int'])),
+                            ('carrier_transitions', (YLeaf(YType.uint32, 'carrier-transitions'), ['int'])),
+                            ('availability_flag', (YLeaf(YType.uint32, 'availability-flag'), ['int'])),
+                            ('last_data_time', (YLeaf(YType.uint32, 'last-data-time'), ['int'])),
+                            ('seconds_since_last_clear_counters', (YLeaf(YType.uint32, 'seconds-since-last-clear-counters'), ['int'])),
+                            ('last_discontinuity_time', (YLeaf(YType.uint32, 'last-discontinuity-time'), ['int'])),
+                            ('seconds_since_packet_received', (YLeaf(YType.uint32, 'seconds-since-packet-received'), ['int'])),
+                            ('seconds_since_packet_sent', (YLeaf(YType.uint32, 'seconds-since-packet-sent'), ['int'])),
                         ])
                         self.packets_received = None
                         self.bytes_received = None
@@ -3566,9 +3587,10 @@ class InfraStatistics(Entity):
                         self.seconds_since_packet_received = None
                         self.seconds_since_packet_sent = None
                         self._segment_path = lambda: "generic-counters"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.GenericCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Total.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
             class Protocols(Entity):
@@ -3600,6 +3622,7 @@ class InfraStatistics(Entity):
 
                     self.protocol = YList(self)
                     self._segment_path = lambda: "protocols"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InfraStatistics.Interfaces.Interface.Protocols, [], name, value)
@@ -3660,7 +3683,7 @@ class InfraStatistics(Entity):
                     	Time when counters were last written (in seconds)
                     	**type**\: int
                     
-                    	**range:** 0..4294967295
+                    	**range:** 0..18446744073709551615
                     
                     	**units**\: second
                     
@@ -3717,17 +3740,17 @@ class InfraStatistics(Entity):
                         self.ylist_key_names = ['protocol_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('protocol_name', YLeaf(YType.str, 'protocol-name')),
-                            ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
-                            ('packets_received', YLeaf(YType.uint64, 'packets-received')),
-                            ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                            ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
-                            ('protocol', YLeaf(YType.uint32, 'protocol')),
-                            ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
-                            ('input_data_rate', YLeaf(YType.uint64, 'input-data-rate')),
-                            ('input_packet_rate', YLeaf(YType.uint64, 'input-packet-rate')),
-                            ('output_data_rate', YLeaf(YType.uint64, 'output-data-rate')),
-                            ('output_packet_rate', YLeaf(YType.uint64, 'output-packet-rate')),
+                            ('protocol_name', (YLeaf(YType.str, 'protocol-name'), ['str'])),
+                            ('bytes_received', (YLeaf(YType.uint64, 'bytes-received'), ['int'])),
+                            ('packets_received', (YLeaf(YType.uint64, 'packets-received'), ['int'])),
+                            ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                            ('packets_sent', (YLeaf(YType.uint64, 'packets-sent'), ['int'])),
+                            ('protocol', (YLeaf(YType.uint32, 'protocol'), ['int'])),
+                            ('last_data_time', (YLeaf(YType.uint64, 'last-data-time'), ['int'])),
+                            ('input_data_rate', (YLeaf(YType.uint64, 'input-data-rate'), ['int'])),
+                            ('input_packet_rate', (YLeaf(YType.uint64, 'input-packet-rate'), ['int'])),
+                            ('output_data_rate', (YLeaf(YType.uint64, 'output-data-rate'), ['int'])),
+                            ('output_packet_rate', (YLeaf(YType.uint64, 'output-packet-rate'), ['int'])),
                         ])
                         self.protocol_name = None
                         self.bytes_received = None
@@ -3741,9 +3764,10 @@ class InfraStatistics(Entity):
                         self.output_data_rate = None
                         self.output_packet_rate = None
                         self._segment_path = lambda: "protocol" + "[protocol-name='" + str(self.protocol_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Protocols.Protocol, ['protocol_name', u'bytes_received', u'packets_received', u'bytes_sent', u'packets_sent', u'protocol', u'last_data_time', u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate'], name, value)
+                        self._perform_setattr(InfraStatistics.Interfaces.Interface.Protocols.Protocol, ['protocol_name', 'bytes_received', 'packets_received', 'bytes_sent', 'packets_sent', 'protocol', 'last_data_time', 'input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate'], name, value)
 
 
             class InterfacesMibCounters(Entity):
@@ -4034,42 +4058,42 @@ class InfraStatistics(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets_received', YLeaf(YType.uint64, 'packets-received')),
-                        ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
-                        ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
-                        ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                        ('multicast_packets_received', YLeaf(YType.uint64, 'multicast-packets-received')),
-                        ('broadcast_packets_received', YLeaf(YType.uint64, 'broadcast-packets-received')),
-                        ('multicast_packets_sent', YLeaf(YType.uint64, 'multicast-packets-sent')),
-                        ('broadcast_packets_sent', YLeaf(YType.uint64, 'broadcast-packets-sent')),
-                        ('output_drops', YLeaf(YType.uint32, 'output-drops')),
-                        ('output_queue_drops', YLeaf(YType.uint32, 'output-queue-drops')),
-                        ('input_drops', YLeaf(YType.uint32, 'input-drops')),
-                        ('input_queue_drops', YLeaf(YType.uint32, 'input-queue-drops')),
-                        ('runt_packets_received', YLeaf(YType.uint32, 'runt-packets-received')),
-                        ('giant_packets_received', YLeaf(YType.uint32, 'giant-packets-received')),
-                        ('throttled_packets_received', YLeaf(YType.uint32, 'throttled-packets-received')),
-                        ('parity_packets_received', YLeaf(YType.uint32, 'parity-packets-received')),
-                        ('unknown_protocol_packets_received', YLeaf(YType.uint32, 'unknown-protocol-packets-received')),
-                        ('input_errors', YLeaf(YType.uint32, 'input-errors')),
-                        ('crc_errors', YLeaf(YType.uint32, 'crc-errors')),
-                        ('input_overruns', YLeaf(YType.uint32, 'input-overruns')),
-                        ('framing_errors_received', YLeaf(YType.uint32, 'framing-errors-received')),
-                        ('input_ignored_packets', YLeaf(YType.uint32, 'input-ignored-packets')),
-                        ('input_aborts', YLeaf(YType.uint32, 'input-aborts')),
-                        ('output_errors', YLeaf(YType.uint32, 'output-errors')),
-                        ('output_underruns', YLeaf(YType.uint32, 'output-underruns')),
-                        ('output_buffer_failures', YLeaf(YType.uint32, 'output-buffer-failures')),
-                        ('output_buffers_swapped_out', YLeaf(YType.uint32, 'output-buffers-swapped-out')),
-                        ('applique', YLeaf(YType.uint32, 'applique')),
-                        ('resets', YLeaf(YType.uint32, 'resets')),
-                        ('carrier_transitions', YLeaf(YType.uint32, 'carrier-transitions')),
-                        ('availability_flag', YLeaf(YType.uint32, 'availability-flag')),
-                        ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
-                        ('seconds_since_last_clear_counters', YLeaf(YType.uint32, 'seconds-since-last-clear-counters')),
-                        ('last_discontinuity_time', YLeaf(YType.uint32, 'last-discontinuity-time')),
-                        ('seconds_since_packet_received', YLeaf(YType.uint32, 'seconds-since-packet-received')),
-                        ('seconds_since_packet_sent', YLeaf(YType.uint32, 'seconds-since-packet-sent')),
+                        ('packets_received', (YLeaf(YType.uint64, 'packets-received'), ['int'])),
+                        ('bytes_received', (YLeaf(YType.uint64, 'bytes-received'), ['int'])),
+                        ('packets_sent', (YLeaf(YType.uint64, 'packets-sent'), ['int'])),
+                        ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                        ('multicast_packets_received', (YLeaf(YType.uint64, 'multicast-packets-received'), ['int'])),
+                        ('broadcast_packets_received', (YLeaf(YType.uint64, 'broadcast-packets-received'), ['int'])),
+                        ('multicast_packets_sent', (YLeaf(YType.uint64, 'multicast-packets-sent'), ['int'])),
+                        ('broadcast_packets_sent', (YLeaf(YType.uint64, 'broadcast-packets-sent'), ['int'])),
+                        ('output_drops', (YLeaf(YType.uint32, 'output-drops'), ['int'])),
+                        ('output_queue_drops', (YLeaf(YType.uint32, 'output-queue-drops'), ['int'])),
+                        ('input_drops', (YLeaf(YType.uint32, 'input-drops'), ['int'])),
+                        ('input_queue_drops', (YLeaf(YType.uint32, 'input-queue-drops'), ['int'])),
+                        ('runt_packets_received', (YLeaf(YType.uint32, 'runt-packets-received'), ['int'])),
+                        ('giant_packets_received', (YLeaf(YType.uint32, 'giant-packets-received'), ['int'])),
+                        ('throttled_packets_received', (YLeaf(YType.uint32, 'throttled-packets-received'), ['int'])),
+                        ('parity_packets_received', (YLeaf(YType.uint32, 'parity-packets-received'), ['int'])),
+                        ('unknown_protocol_packets_received', (YLeaf(YType.uint32, 'unknown-protocol-packets-received'), ['int'])),
+                        ('input_errors', (YLeaf(YType.uint32, 'input-errors'), ['int'])),
+                        ('crc_errors', (YLeaf(YType.uint32, 'crc-errors'), ['int'])),
+                        ('input_overruns', (YLeaf(YType.uint32, 'input-overruns'), ['int'])),
+                        ('framing_errors_received', (YLeaf(YType.uint32, 'framing-errors-received'), ['int'])),
+                        ('input_ignored_packets', (YLeaf(YType.uint32, 'input-ignored-packets'), ['int'])),
+                        ('input_aborts', (YLeaf(YType.uint32, 'input-aborts'), ['int'])),
+                        ('output_errors', (YLeaf(YType.uint32, 'output-errors'), ['int'])),
+                        ('output_underruns', (YLeaf(YType.uint32, 'output-underruns'), ['int'])),
+                        ('output_buffer_failures', (YLeaf(YType.uint32, 'output-buffer-failures'), ['int'])),
+                        ('output_buffers_swapped_out', (YLeaf(YType.uint32, 'output-buffers-swapped-out'), ['int'])),
+                        ('applique', (YLeaf(YType.uint32, 'applique'), ['int'])),
+                        ('resets', (YLeaf(YType.uint32, 'resets'), ['int'])),
+                        ('carrier_transitions', (YLeaf(YType.uint32, 'carrier-transitions'), ['int'])),
+                        ('availability_flag', (YLeaf(YType.uint32, 'availability-flag'), ['int'])),
+                        ('last_data_time', (YLeaf(YType.uint32, 'last-data-time'), ['int'])),
+                        ('seconds_since_last_clear_counters', (YLeaf(YType.uint32, 'seconds-since-last-clear-counters'), ['int'])),
+                        ('last_discontinuity_time', (YLeaf(YType.uint32, 'last-discontinuity-time'), ['int'])),
+                        ('seconds_since_packet_received', (YLeaf(YType.uint32, 'seconds-since-packet-received'), ['int'])),
+                        ('seconds_since_packet_sent', (YLeaf(YType.uint32, 'seconds-since-packet-sent'), ['int'])),
                     ])
                     self.packets_received = None
                     self.bytes_received = None
@@ -4108,9 +4132,10 @@ class InfraStatistics(Entity):
                     self.seconds_since_packet_received = None
                     self.seconds_since_packet_sent = None
                     self._segment_path = lambda: "interfaces-mib-counters"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(InfraStatistics.Interfaces.Interface.InterfacesMibCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
+                    self._perform_setattr(InfraStatistics.Interfaces.Interface.InterfacesMibCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
 
             class DataRate(Entity):
@@ -4235,19 +4260,19 @@ class InfraStatistics(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('input_data_rate', YLeaf(YType.uint64, 'input-data-rate')),
-                        ('input_packet_rate', YLeaf(YType.uint64, 'input-packet-rate')),
-                        ('output_data_rate', YLeaf(YType.uint64, 'output-data-rate')),
-                        ('output_packet_rate', YLeaf(YType.uint64, 'output-packet-rate')),
-                        ('peak_input_data_rate', YLeaf(YType.uint64, 'peak-input-data-rate')),
-                        ('peak_input_packet_rate', YLeaf(YType.uint64, 'peak-input-packet-rate')),
-                        ('peak_output_data_rate', YLeaf(YType.uint64, 'peak-output-data-rate')),
-                        ('peak_output_packet_rate', YLeaf(YType.uint64, 'peak-output-packet-rate')),
-                        ('bandwidth', YLeaf(YType.uint32, 'bandwidth')),
-                        ('load_interval', YLeaf(YType.uint32, 'load-interval')),
-                        ('output_load', YLeaf(YType.uint8, 'output-load')),
-                        ('input_load', YLeaf(YType.uint8, 'input-load')),
-                        ('reliability', YLeaf(YType.uint8, 'reliability')),
+                        ('input_data_rate', (YLeaf(YType.uint64, 'input-data-rate'), ['int'])),
+                        ('input_packet_rate', (YLeaf(YType.uint64, 'input-packet-rate'), ['int'])),
+                        ('output_data_rate', (YLeaf(YType.uint64, 'output-data-rate'), ['int'])),
+                        ('output_packet_rate', (YLeaf(YType.uint64, 'output-packet-rate'), ['int'])),
+                        ('peak_input_data_rate', (YLeaf(YType.uint64, 'peak-input-data-rate'), ['int'])),
+                        ('peak_input_packet_rate', (YLeaf(YType.uint64, 'peak-input-packet-rate'), ['int'])),
+                        ('peak_output_data_rate', (YLeaf(YType.uint64, 'peak-output-data-rate'), ['int'])),
+                        ('peak_output_packet_rate', (YLeaf(YType.uint64, 'peak-output-packet-rate'), ['int'])),
+                        ('bandwidth', (YLeaf(YType.uint32, 'bandwidth'), ['int'])),
+                        ('load_interval', (YLeaf(YType.uint32, 'load-interval'), ['int'])),
+                        ('output_load', (YLeaf(YType.uint8, 'output-load'), ['int'])),
+                        ('input_load', (YLeaf(YType.uint8, 'input-load'), ['int'])),
+                        ('reliability', (YLeaf(YType.uint8, 'reliability'), ['int'])),
                     ])
                     self.input_data_rate = None
                     self.input_packet_rate = None
@@ -4263,9 +4288,10 @@ class InfraStatistics(Entity):
                     self.input_load = None
                     self.reliability = None
                     self._segment_path = lambda: "data-rate"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(InfraStatistics.Interfaces.Interface.DataRate, [u'input_data_rate', u'input_packet_rate', u'output_data_rate', u'output_packet_rate', u'peak_input_data_rate', u'peak_input_packet_rate', u'peak_output_data_rate', u'peak_output_packet_rate', u'bandwidth', u'load_interval', u'output_load', u'input_load', u'reliability'], name, value)
+                    self._perform_setattr(InfraStatistics.Interfaces.Interface.DataRate, ['input_data_rate', 'input_packet_rate', 'output_data_rate', 'output_packet_rate', 'peak_input_data_rate', 'peak_input_packet_rate', 'peak_output_data_rate', 'peak_output_packet_rate', 'bandwidth', 'load_interval', 'output_load', 'input_load', 'reliability'], name, value)
 
 
             class GenericCounters(Entity):
@@ -4555,42 +4581,42 @@ class InfraStatistics(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packets_received', YLeaf(YType.uint64, 'packets-received')),
-                        ('bytes_received', YLeaf(YType.uint64, 'bytes-received')),
-                        ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
-                        ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                        ('multicast_packets_received', YLeaf(YType.uint64, 'multicast-packets-received')),
-                        ('broadcast_packets_received', YLeaf(YType.uint64, 'broadcast-packets-received')),
-                        ('multicast_packets_sent', YLeaf(YType.uint64, 'multicast-packets-sent')),
-                        ('broadcast_packets_sent', YLeaf(YType.uint64, 'broadcast-packets-sent')),
-                        ('output_drops', YLeaf(YType.uint32, 'output-drops')),
-                        ('output_queue_drops', YLeaf(YType.uint32, 'output-queue-drops')),
-                        ('input_drops', YLeaf(YType.uint32, 'input-drops')),
-                        ('input_queue_drops', YLeaf(YType.uint32, 'input-queue-drops')),
-                        ('runt_packets_received', YLeaf(YType.uint32, 'runt-packets-received')),
-                        ('giant_packets_received', YLeaf(YType.uint32, 'giant-packets-received')),
-                        ('throttled_packets_received', YLeaf(YType.uint32, 'throttled-packets-received')),
-                        ('parity_packets_received', YLeaf(YType.uint32, 'parity-packets-received')),
-                        ('unknown_protocol_packets_received', YLeaf(YType.uint32, 'unknown-protocol-packets-received')),
-                        ('input_errors', YLeaf(YType.uint32, 'input-errors')),
-                        ('crc_errors', YLeaf(YType.uint32, 'crc-errors')),
-                        ('input_overruns', YLeaf(YType.uint32, 'input-overruns')),
-                        ('framing_errors_received', YLeaf(YType.uint32, 'framing-errors-received')),
-                        ('input_ignored_packets', YLeaf(YType.uint32, 'input-ignored-packets')),
-                        ('input_aborts', YLeaf(YType.uint32, 'input-aborts')),
-                        ('output_errors', YLeaf(YType.uint32, 'output-errors')),
-                        ('output_underruns', YLeaf(YType.uint32, 'output-underruns')),
-                        ('output_buffer_failures', YLeaf(YType.uint32, 'output-buffer-failures')),
-                        ('output_buffers_swapped_out', YLeaf(YType.uint32, 'output-buffers-swapped-out')),
-                        ('applique', YLeaf(YType.uint32, 'applique')),
-                        ('resets', YLeaf(YType.uint32, 'resets')),
-                        ('carrier_transitions', YLeaf(YType.uint32, 'carrier-transitions')),
-                        ('availability_flag', YLeaf(YType.uint32, 'availability-flag')),
-                        ('last_data_time', YLeaf(YType.uint32, 'last-data-time')),
-                        ('seconds_since_last_clear_counters', YLeaf(YType.uint32, 'seconds-since-last-clear-counters')),
-                        ('last_discontinuity_time', YLeaf(YType.uint32, 'last-discontinuity-time')),
-                        ('seconds_since_packet_received', YLeaf(YType.uint32, 'seconds-since-packet-received')),
-                        ('seconds_since_packet_sent', YLeaf(YType.uint32, 'seconds-since-packet-sent')),
+                        ('packets_received', (YLeaf(YType.uint64, 'packets-received'), ['int'])),
+                        ('bytes_received', (YLeaf(YType.uint64, 'bytes-received'), ['int'])),
+                        ('packets_sent', (YLeaf(YType.uint64, 'packets-sent'), ['int'])),
+                        ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                        ('multicast_packets_received', (YLeaf(YType.uint64, 'multicast-packets-received'), ['int'])),
+                        ('broadcast_packets_received', (YLeaf(YType.uint64, 'broadcast-packets-received'), ['int'])),
+                        ('multicast_packets_sent', (YLeaf(YType.uint64, 'multicast-packets-sent'), ['int'])),
+                        ('broadcast_packets_sent', (YLeaf(YType.uint64, 'broadcast-packets-sent'), ['int'])),
+                        ('output_drops', (YLeaf(YType.uint32, 'output-drops'), ['int'])),
+                        ('output_queue_drops', (YLeaf(YType.uint32, 'output-queue-drops'), ['int'])),
+                        ('input_drops', (YLeaf(YType.uint32, 'input-drops'), ['int'])),
+                        ('input_queue_drops', (YLeaf(YType.uint32, 'input-queue-drops'), ['int'])),
+                        ('runt_packets_received', (YLeaf(YType.uint32, 'runt-packets-received'), ['int'])),
+                        ('giant_packets_received', (YLeaf(YType.uint32, 'giant-packets-received'), ['int'])),
+                        ('throttled_packets_received', (YLeaf(YType.uint32, 'throttled-packets-received'), ['int'])),
+                        ('parity_packets_received', (YLeaf(YType.uint32, 'parity-packets-received'), ['int'])),
+                        ('unknown_protocol_packets_received', (YLeaf(YType.uint32, 'unknown-protocol-packets-received'), ['int'])),
+                        ('input_errors', (YLeaf(YType.uint32, 'input-errors'), ['int'])),
+                        ('crc_errors', (YLeaf(YType.uint32, 'crc-errors'), ['int'])),
+                        ('input_overruns', (YLeaf(YType.uint32, 'input-overruns'), ['int'])),
+                        ('framing_errors_received', (YLeaf(YType.uint32, 'framing-errors-received'), ['int'])),
+                        ('input_ignored_packets', (YLeaf(YType.uint32, 'input-ignored-packets'), ['int'])),
+                        ('input_aborts', (YLeaf(YType.uint32, 'input-aborts'), ['int'])),
+                        ('output_errors', (YLeaf(YType.uint32, 'output-errors'), ['int'])),
+                        ('output_underruns', (YLeaf(YType.uint32, 'output-underruns'), ['int'])),
+                        ('output_buffer_failures', (YLeaf(YType.uint32, 'output-buffer-failures'), ['int'])),
+                        ('output_buffers_swapped_out', (YLeaf(YType.uint32, 'output-buffers-swapped-out'), ['int'])),
+                        ('applique', (YLeaf(YType.uint32, 'applique'), ['int'])),
+                        ('resets', (YLeaf(YType.uint32, 'resets'), ['int'])),
+                        ('carrier_transitions', (YLeaf(YType.uint32, 'carrier-transitions'), ['int'])),
+                        ('availability_flag', (YLeaf(YType.uint32, 'availability-flag'), ['int'])),
+                        ('last_data_time', (YLeaf(YType.uint32, 'last-data-time'), ['int'])),
+                        ('seconds_since_last_clear_counters', (YLeaf(YType.uint32, 'seconds-since-last-clear-counters'), ['int'])),
+                        ('last_discontinuity_time', (YLeaf(YType.uint32, 'last-discontinuity-time'), ['int'])),
+                        ('seconds_since_packet_received', (YLeaf(YType.uint32, 'seconds-since-packet-received'), ['int'])),
+                        ('seconds_since_packet_sent', (YLeaf(YType.uint32, 'seconds-since-packet-sent'), ['int'])),
                     ])
                     self.packets_received = None
                     self.bytes_received = None
@@ -4629,9 +4655,10 @@ class InfraStatistics(Entity):
                     self.seconds_since_packet_received = None
                     self.seconds_since_packet_sent = None
                     self._segment_path = lambda: "generic-counters"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(InfraStatistics.Interfaces.Interface.GenericCounters, [u'packets_received', u'bytes_received', u'packets_sent', u'bytes_sent', u'multicast_packets_received', u'broadcast_packets_received', u'multicast_packets_sent', u'broadcast_packets_sent', u'output_drops', u'output_queue_drops', u'input_drops', u'input_queue_drops', u'runt_packets_received', u'giant_packets_received', u'throttled_packets_received', u'parity_packets_received', u'unknown_protocol_packets_received', u'input_errors', u'crc_errors', u'input_overruns', u'framing_errors_received', u'input_ignored_packets', u'input_aborts', u'output_errors', u'output_underruns', u'output_buffer_failures', u'output_buffers_swapped_out', u'applique', u'resets', u'carrier_transitions', u'availability_flag', u'last_data_time', u'seconds_since_last_clear_counters', u'last_discontinuity_time', u'seconds_since_packet_received', u'seconds_since_packet_sent'], name, value)
+                    self._perform_setattr(InfraStatistics.Interfaces.Interface.GenericCounters, ['packets_received', 'bytes_received', 'packets_sent', 'bytes_sent', 'multicast_packets_received', 'broadcast_packets_received', 'multicast_packets_sent', 'broadcast_packets_sent', 'output_drops', 'output_queue_drops', 'input_drops', 'input_queue_drops', 'runt_packets_received', 'giant_packets_received', 'throttled_packets_received', 'parity_packets_received', 'unknown_protocol_packets_received', 'input_errors', 'crc_errors', 'input_overruns', 'framing_errors_received', 'input_ignored_packets', 'input_aborts', 'output_errors', 'output_underruns', 'output_buffer_failures', 'output_buffers_swapped_out', 'applique', 'resets', 'carrier_transitions', 'availability_flag', 'last_data_time', 'seconds_since_last_clear_counters', 'last_discontinuity_time', 'seconds_since_packet_received', 'seconds_since_packet_sent'], name, value)
 
     def clone_ptr(self):
         self._top_entity = InfraStatistics()

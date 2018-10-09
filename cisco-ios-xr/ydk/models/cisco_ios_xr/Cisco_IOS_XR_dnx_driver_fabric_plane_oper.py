@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   fabric\: Admin fabric oper data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class FsdbPlaneAdminState(Enum):
@@ -139,6 +140,7 @@ class Fabric(Entity):
         self.plane_table.parent = self
         self._children_name_map["plane_table"] = "plane-table"
         self._segment_path = lambda: "Cisco-IOS-XR-dnx-driver-fabric-plane-oper:fabric"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Fabric, [], name, value)
@@ -185,6 +187,7 @@ class Fabric(Entity):
             self._children_name_map["plane"] = "plane"
             self._segment_path = lambda: "plane-table"
             self._absolute_path = lambda: "Cisco-IOS-XR-dnx-driver-fabric-plane-oper:fabric/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Fabric.PlaneTable, [], name, value)
@@ -220,6 +223,7 @@ class Fabric(Entity):
                 self.plane_stats_info = YList(self)
                 self._segment_path = lambda: "statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XR-dnx-driver-fabric-plane-oper:fabric/plane-table/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Fabric.PlaneTable.Statistics, [], name, value)
@@ -288,12 +292,12 @@ class Fabric(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('plane_id', YLeaf(YType.uint32, 'plane-id')),
-                        ('rx_data_cells', YLeaf(YType.uint64, 'rx-data-cells')),
-                        ('tx_data_cells', YLeaf(YType.uint64, 'tx-data-cells')),
-                        ('rx_correctable_error_cells', YLeaf(YType.uint32, 'rx-correctable-error-cells')),
-                        ('rx_un_correctable_error_cells', YLeaf(YType.uint32, 'rx-un-correctable-error-cells')),
-                        ('rx_parity_error_cells', YLeaf(YType.uint32, 'rx-parity-error-cells')),
+                        ('plane_id', (YLeaf(YType.uint32, 'plane-id'), ['int'])),
+                        ('rx_data_cells', (YLeaf(YType.uint64, 'rx-data-cells'), ['int'])),
+                        ('tx_data_cells', (YLeaf(YType.uint64, 'tx-data-cells'), ['int'])),
+                        ('rx_correctable_error_cells', (YLeaf(YType.uint32, 'rx-correctable-error-cells'), ['int'])),
+                        ('rx_un_correctable_error_cells', (YLeaf(YType.uint32, 'rx-un-correctable-error-cells'), ['int'])),
+                        ('rx_parity_error_cells', (YLeaf(YType.uint32, 'rx-parity-error-cells'), ['int'])),
                     ])
                     self.plane_id = None
                     self.rx_data_cells = None
@@ -303,6 +307,7 @@ class Fabric(Entity):
                     self.rx_parity_error_cells = None
                     self._segment_path = lambda: "plane-stats-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-dnx-driver-fabric-plane-oper:fabric/plane-table/statistics/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fabric.PlaneTable.Statistics.PlaneStatsInfo, ['plane_id', 'rx_data_cells', 'tx_data_cells', 'rx_correctable_error_cells', 'rx_un_correctable_error_cells', 'rx_parity_error_cells'], name, value)
@@ -338,6 +343,7 @@ class Fabric(Entity):
                 self.detail_plane_info = YList(self)
                 self._segment_path = lambda: "plane"
                 self._absolute_path = lambda: "Cisco-IOS-XR-dnx-driver-fabric-plane-oper:fabric/plane-table/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Fabric.PlaneTable.Plane, [], name, value)
@@ -419,15 +425,15 @@ class Fabric(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('plane_id', YLeaf(YType.uint32, 'plane-id')),
-                        ('plane_oper_status', YLeaf(YType.enumeration, 'plane-oper-status')),
-                        ('plane_admin_status', YLeaf(YType.enumeration, 'plane-admin-status')),
-                        ('plane_mode', YLeaf(YType.enumeration, 'plane-mode')),
-                        ('bundles', YLeaf(YType.uint16, 'bundles')),
-                        ('down_bundles', YLeaf(YType.uint16, 'down-bundles')),
-                        ('plane_up_down_count', YLeaf(YType.uint32, 'plane-up-down-count')),
-                        ('up_multicast_count', YLeaf(YType.uint32, 'up-multicast-count')),
-                        ('ppu_state', YLeaf(YType.str, 'ppu-state')),
+                        ('plane_id', (YLeaf(YType.uint32, 'plane-id'), ['int'])),
+                        ('plane_oper_status', (YLeaf(YType.enumeration, 'plane-oper-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_fabric_plane_oper', 'FsdbPlaneOperState', '')])),
+                        ('plane_admin_status', (YLeaf(YType.enumeration, 'plane-admin-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_fabric_plane_oper', 'FsdbPlaneAdminState', '')])),
+                        ('plane_mode', (YLeaf(YType.enumeration, 'plane-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_dnx_driver_fabric_plane_oper', 'FsdbPlaneMode', '')])),
+                        ('bundles', (YLeaf(YType.uint16, 'bundles'), ['int'])),
+                        ('down_bundles', (YLeaf(YType.uint16, 'down-bundles'), ['int'])),
+                        ('plane_up_down_count', (YLeaf(YType.uint32, 'plane-up-down-count'), ['int'])),
+                        ('up_multicast_count', (YLeaf(YType.uint32, 'up-multicast-count'), ['int'])),
+                        ('ppu_state', (YLeaf(YType.str, 'ppu-state'), ['str'])),
                     ])
                     self.plane_id = None
                     self.plane_oper_status = None
@@ -440,6 +446,7 @@ class Fabric(Entity):
                     self.ppu_state = None
                     self._segment_path = lambda: "detail-plane-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-dnx-driver-fabric-plane-oper:fabric/plane-table/plane/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Fabric.PlaneTable.Plane.DetailPlaneInfo, ['plane_id', 'plane_oper_status', 'plane_admin_status', 'plane_mode', 'bundles', 'down_bundles', 'plane_up_down_count', 'up_multicast_count', 'ppu_state'], name, value)

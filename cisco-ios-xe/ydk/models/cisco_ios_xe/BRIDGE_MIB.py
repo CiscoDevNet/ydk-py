@@ -17,6 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class BRIDGEMIB(Entity):
     """
     
@@ -112,6 +113,7 @@ class BRIDGEMIB(Entity):
         self.dot1dstatictable.parent = self
         self._children_name_map["dot1dstatictable"] = "dot1dStaticTable"
         self._segment_path = lambda: "BRIDGE-MIB:BRIDGE-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(BRIDGEMIB, [], name, value)
@@ -159,15 +161,16 @@ class BRIDGEMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('dot1dbasebridgeaddress', YLeaf(YType.str, 'dot1dBaseBridgeAddress')),
-                ('dot1dbasenumports', YLeaf(YType.int32, 'dot1dBaseNumPorts')),
-                ('dot1dbasetype', YLeaf(YType.enumeration, 'dot1dBaseType')),
+                ('dot1dbasebridgeaddress', (YLeaf(YType.str, 'dot1dBaseBridgeAddress'), ['str'])),
+                ('dot1dbasenumports', (YLeaf(YType.int32, 'dot1dBaseNumPorts'), ['int'])),
+                ('dot1dbasetype', (YLeaf(YType.enumeration, 'dot1dBaseType'), [('ydk.models.cisco_ios_xe.BRIDGE_MIB', 'BRIDGEMIB', 'Dot1dBase.Dot1dBaseType')])),
             ])
             self.dot1dbasebridgeaddress = None
             self.dot1dbasenumports = None
             self.dot1dbasetype = None
             self._segment_path = lambda: "dot1dBase"
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BRIDGEMIB.Dot1dBase, [u'dot1dbasebridgeaddress', u'dot1dbasenumports', u'dot1dbasetype'], name, value)
@@ -337,20 +340,20 @@ class BRIDGEMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('dot1dstpprotocolspecification', YLeaf(YType.enumeration, 'dot1dStpProtocolSpecification')),
-                ('dot1dstppriority', YLeaf(YType.int32, 'dot1dStpPriority')),
-                ('dot1dstptimesincetopologychange', YLeaf(YType.uint32, 'dot1dStpTimeSinceTopologyChange')),
-                ('dot1dstptopchanges', YLeaf(YType.uint32, 'dot1dStpTopChanges')),
-                ('dot1dstpdesignatedroot', YLeaf(YType.str, 'dot1dStpDesignatedRoot')),
-                ('dot1dstprootcost', YLeaf(YType.int32, 'dot1dStpRootCost')),
-                ('dot1dstprootport', YLeaf(YType.int32, 'dot1dStpRootPort')),
-                ('dot1dstpmaxage', YLeaf(YType.int32, 'dot1dStpMaxAge')),
-                ('dot1dstphellotime', YLeaf(YType.int32, 'dot1dStpHelloTime')),
-                ('dot1dstpholdtime', YLeaf(YType.int32, 'dot1dStpHoldTime')),
-                ('dot1dstpforwarddelay', YLeaf(YType.int32, 'dot1dStpForwardDelay')),
-                ('dot1dstpbridgemaxage', YLeaf(YType.int32, 'dot1dStpBridgeMaxAge')),
-                ('dot1dstpbridgehellotime', YLeaf(YType.int32, 'dot1dStpBridgeHelloTime')),
-                ('dot1dstpbridgeforwarddelay', YLeaf(YType.int32, 'dot1dStpBridgeForwardDelay')),
+                ('dot1dstpprotocolspecification', (YLeaf(YType.enumeration, 'dot1dStpProtocolSpecification'), [('ydk.models.cisco_ios_xe.BRIDGE_MIB', 'BRIDGEMIB', 'Dot1dStp.Dot1dStpProtocolSpecification')])),
+                ('dot1dstppriority', (YLeaf(YType.int32, 'dot1dStpPriority'), ['int'])),
+                ('dot1dstptimesincetopologychange', (YLeaf(YType.uint32, 'dot1dStpTimeSinceTopologyChange'), ['int'])),
+                ('dot1dstptopchanges', (YLeaf(YType.uint32, 'dot1dStpTopChanges'), ['int'])),
+                ('dot1dstpdesignatedroot', (YLeaf(YType.str, 'dot1dStpDesignatedRoot'), ['str'])),
+                ('dot1dstprootcost', (YLeaf(YType.int32, 'dot1dStpRootCost'), ['int'])),
+                ('dot1dstprootport', (YLeaf(YType.int32, 'dot1dStpRootPort'), ['int'])),
+                ('dot1dstpmaxage', (YLeaf(YType.int32, 'dot1dStpMaxAge'), ['int'])),
+                ('dot1dstphellotime', (YLeaf(YType.int32, 'dot1dStpHelloTime'), ['int'])),
+                ('dot1dstpholdtime', (YLeaf(YType.int32, 'dot1dStpHoldTime'), ['int'])),
+                ('dot1dstpforwarddelay', (YLeaf(YType.int32, 'dot1dStpForwardDelay'), ['int'])),
+                ('dot1dstpbridgemaxage', (YLeaf(YType.int32, 'dot1dStpBridgeMaxAge'), ['int'])),
+                ('dot1dstpbridgehellotime', (YLeaf(YType.int32, 'dot1dStpBridgeHelloTime'), ['int'])),
+                ('dot1dstpbridgeforwarddelay', (YLeaf(YType.int32, 'dot1dStpBridgeForwardDelay'), ['int'])),
             ])
             self.dot1dstpprotocolspecification = None
             self.dot1dstppriority = None
@@ -368,6 +371,7 @@ class BRIDGEMIB(Entity):
             self.dot1dstpbridgeforwarddelay = None
             self._segment_path = lambda: "dot1dStp"
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BRIDGEMIB.Dot1dStp, [u'dot1dstpprotocolspecification', u'dot1dstppriority', u'dot1dstptimesincetopologychange', u'dot1dstptopchanges', u'dot1dstpdesignatedroot', u'dot1dstprootcost', u'dot1dstprootport', u'dot1dstpmaxage', u'dot1dstphellotime', u'dot1dstpholdtime', u'dot1dstpforwarddelay', u'dot1dstpbridgemaxage', u'dot1dstpbridgehellotime', u'dot1dstpbridgeforwarddelay'], name, value)
@@ -443,13 +447,14 @@ class BRIDGEMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('dot1dtplearnedentrydiscards', YLeaf(YType.uint32, 'dot1dTpLearnedEntryDiscards')),
-                ('dot1dtpagingtime', YLeaf(YType.int32, 'dot1dTpAgingTime')),
+                ('dot1dtplearnedentrydiscards', (YLeaf(YType.uint32, 'dot1dTpLearnedEntryDiscards'), ['int'])),
+                ('dot1dtpagingtime', (YLeaf(YType.int32, 'dot1dTpAgingTime'), ['int'])),
             ])
             self.dot1dtplearnedentrydiscards = None
             self.dot1dtpagingtime = None
             self._segment_path = lambda: "dot1dTp"
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BRIDGEMIB.Dot1dTp, [u'dot1dtplearnedentrydiscards', u'dot1dtpagingtime'], name, value)
@@ -487,6 +492,7 @@ class BRIDGEMIB(Entity):
             self.dot1dbaseportentry = YList(self)
             self._segment_path = lambda: "dot1dBasePortTable"
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BRIDGEMIB.Dot1dBasePortTable, [], name, value)
@@ -653,28 +659,28 @@ class BRIDGEMIB(Entity):
                 self.ylist_key_names = ['dot1dbaseport']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('dot1dbaseport', YLeaf(YType.int32, 'dot1dBasePort')),
-                    ('dot1dbaseportifindex', YLeaf(YType.int32, 'dot1dBasePortIfIndex')),
-                    ('dot1dbaseportcircuit', YLeaf(YType.str, 'dot1dBasePortCircuit')),
-                    ('dot1dbaseportdelayexceededdiscards', YLeaf(YType.uint32, 'dot1dBasePortDelayExceededDiscards')),
-                    ('dot1dbaseportmtuexceededdiscards', YLeaf(YType.uint32, 'dot1dBasePortMtuExceededDiscards')),
-                    ('dot1dportcapabilities', YLeaf(YType.bits, 'P-BRIDGE-MIB:dot1dPortCapabilities')),
-                    ('dot1dportdefaultuserpriority', YLeaf(YType.int32, 'P-BRIDGE-MIB:dot1dPortDefaultUserPriority')),
-                    ('dot1dportnumtrafficclasses', YLeaf(YType.int32, 'P-BRIDGE-MIB:dot1dPortNumTrafficClasses')),
-                    ('dot1dportgarpjointime', YLeaf(YType.int32, 'P-BRIDGE-MIB:dot1dPortGarpJoinTime')),
-                    ('dot1dportgarpleavetime', YLeaf(YType.int32, 'P-BRIDGE-MIB:dot1dPortGarpLeaveTime')),
-                    ('dot1dportgarpleavealltime', YLeaf(YType.int32, 'P-BRIDGE-MIB:dot1dPortGarpLeaveAllTime')),
-                    ('dot1dportgmrpstatus', YLeaf(YType.enumeration, 'P-BRIDGE-MIB:dot1dPortGmrpStatus')),
-                    ('dot1dportgmrpfailedregistrations', YLeaf(YType.uint32, 'P-BRIDGE-MIB:dot1dPortGmrpFailedRegistrations')),
-                    ('dot1dportgmrplastpduorigin', YLeaf(YType.str, 'P-BRIDGE-MIB:dot1dPortGmrpLastPduOrigin')),
-                    ('dot1dportrestrictedgroupregistration', YLeaf(YType.boolean, 'P-BRIDGE-MIB:dot1dPortRestrictedGroupRegistration')),
-                    ('dot1qpvid', YLeaf(YType.uint32, 'Q-BRIDGE-MIB:dot1qPvid')),
-                    ('dot1qportacceptableframetypes', YLeaf(YType.enumeration, 'Q-BRIDGE-MIB:dot1qPortAcceptableFrameTypes')),
-                    ('dot1qportingressfiltering', YLeaf(YType.boolean, 'Q-BRIDGE-MIB:dot1qPortIngressFiltering')),
-                    ('dot1qportgvrpstatus', YLeaf(YType.enumeration, 'Q-BRIDGE-MIB:dot1qPortGvrpStatus')),
-                    ('dot1qportgvrpfailedregistrations', YLeaf(YType.uint32, 'Q-BRIDGE-MIB:dot1qPortGvrpFailedRegistrations')),
-                    ('dot1qportgvrplastpduorigin', YLeaf(YType.str, 'Q-BRIDGE-MIB:dot1qPortGvrpLastPduOrigin')),
-                    ('dot1qportrestrictedvlanregistration', YLeaf(YType.boolean, 'Q-BRIDGE-MIB:dot1qPortRestrictedVlanRegistration')),
+                    ('dot1dbaseport', (YLeaf(YType.int32, 'dot1dBasePort'), ['int'])),
+                    ('dot1dbaseportifindex', (YLeaf(YType.int32, 'dot1dBasePortIfIndex'), ['int'])),
+                    ('dot1dbaseportcircuit', (YLeaf(YType.str, 'dot1dBasePortCircuit'), ['str'])),
+                    ('dot1dbaseportdelayexceededdiscards', (YLeaf(YType.uint32, 'dot1dBasePortDelayExceededDiscards'), ['int'])),
+                    ('dot1dbaseportmtuexceededdiscards', (YLeaf(YType.uint32, 'dot1dBasePortMtuExceededDiscards'), ['int'])),
+                    ('dot1dportcapabilities', (YLeaf(YType.bits, 'P-BRIDGE-MIB:dot1dPortCapabilities'), ['Bits'])),
+                    ('dot1dportdefaultuserpriority', (YLeaf(YType.int32, 'P-BRIDGE-MIB:dot1dPortDefaultUserPriority'), ['int'])),
+                    ('dot1dportnumtrafficclasses', (YLeaf(YType.int32, 'P-BRIDGE-MIB:dot1dPortNumTrafficClasses'), ['int'])),
+                    ('dot1dportgarpjointime', (YLeaf(YType.int32, 'P-BRIDGE-MIB:dot1dPortGarpJoinTime'), ['int'])),
+                    ('dot1dportgarpleavetime', (YLeaf(YType.int32, 'P-BRIDGE-MIB:dot1dPortGarpLeaveTime'), ['int'])),
+                    ('dot1dportgarpleavealltime', (YLeaf(YType.int32, 'P-BRIDGE-MIB:dot1dPortGarpLeaveAllTime'), ['int'])),
+                    ('dot1dportgmrpstatus', (YLeaf(YType.enumeration, 'P-BRIDGE-MIB:dot1dPortGmrpStatus'), [('ydk.models.cisco_ios_xe.P_BRIDGE_MIB', 'EnabledStatus', '')])),
+                    ('dot1dportgmrpfailedregistrations', (YLeaf(YType.uint32, 'P-BRIDGE-MIB:dot1dPortGmrpFailedRegistrations'), ['int'])),
+                    ('dot1dportgmrplastpduorigin', (YLeaf(YType.str, 'P-BRIDGE-MIB:dot1dPortGmrpLastPduOrigin'), ['str'])),
+                    ('dot1dportrestrictedgroupregistration', (YLeaf(YType.boolean, 'P-BRIDGE-MIB:dot1dPortRestrictedGroupRegistration'), ['bool'])),
+                    ('dot1qpvid', (YLeaf(YType.uint32, 'Q-BRIDGE-MIB:dot1qPvid'), ['int'])),
+                    ('dot1qportacceptableframetypes', (YLeaf(YType.enumeration, 'Q-BRIDGE-MIB:dot1qPortAcceptableFrameTypes'), [('ydk.models.cisco_ios_xe.BRIDGE_MIB', 'BRIDGEMIB', 'Dot1dBasePortTable.Dot1dBasePortEntry.Dot1qPortAcceptableFrameTypes')])),
+                    ('dot1qportingressfiltering', (YLeaf(YType.boolean, 'Q-BRIDGE-MIB:dot1qPortIngressFiltering'), ['bool'])),
+                    ('dot1qportgvrpstatus', (YLeaf(YType.enumeration, 'Q-BRIDGE-MIB:dot1qPortGvrpStatus'), [('ydk.models.cisco_ios_xe.P_BRIDGE_MIB', 'EnabledStatus', '')])),
+                    ('dot1qportgvrpfailedregistrations', (YLeaf(YType.uint32, 'Q-BRIDGE-MIB:dot1qPortGvrpFailedRegistrations'), ['int'])),
+                    ('dot1qportgvrplastpduorigin', (YLeaf(YType.str, 'Q-BRIDGE-MIB:dot1qPortGvrpLastPduOrigin'), ['str'])),
+                    ('dot1qportrestrictedvlanregistration', (YLeaf(YType.boolean, 'Q-BRIDGE-MIB:dot1qPortRestrictedVlanRegistration'), ['bool'])),
                 ])
                 self.dot1dbaseport = None
                 self.dot1dbaseportifindex = None
@@ -700,6 +706,7 @@ class BRIDGEMIB(Entity):
                 self.dot1qportrestrictedvlanregistration = None
                 self._segment_path = lambda: "dot1dBasePortEntry" + "[dot1dBasePort='" + str(self.dot1dbaseport) + "']"
                 self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/dot1dBasePortTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(BRIDGEMIB.Dot1dBasePortTable.Dot1dBasePortEntry, [u'dot1dbaseport', u'dot1dbaseportifindex', u'dot1dbaseportcircuit', u'dot1dbaseportdelayexceededdiscards', u'dot1dbaseportmtuexceededdiscards', u'dot1dportcapabilities', u'dot1dportdefaultuserpriority', u'dot1dportnumtrafficclasses', u'dot1dportgarpjointime', u'dot1dportgarpleavetime', u'dot1dportgarpleavealltime', u'dot1dportgmrpstatus', u'dot1dportgmrpfailedregistrations', u'dot1dportgmrplastpduorigin', u'dot1dportrestrictedgroupregistration', u'dot1qpvid', u'dot1qportacceptableframetypes', u'dot1qportingressfiltering', u'dot1qportgvrpstatus', u'dot1qportgvrpfailedregistrations', u'dot1qportgvrplastpduorigin', u'dot1qportrestrictedvlanregistration'], name, value)
@@ -775,6 +782,7 @@ class BRIDGEMIB(Entity):
             self.dot1dstpportentry = YList(self)
             self._segment_path = lambda: "dot1dStpPortTable"
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BRIDGEMIB.Dot1dStpPortTable, [], name, value)
@@ -882,18 +890,18 @@ class BRIDGEMIB(Entity):
                 self.ylist_key_names = ['dot1dstpport']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('dot1dstpport', YLeaf(YType.int32, 'dot1dStpPort')),
-                    ('dot1dstpportpriority', YLeaf(YType.int32, 'dot1dStpPortPriority')),
-                    ('dot1dstpportstate', YLeaf(YType.enumeration, 'dot1dStpPortState')),
-                    ('dot1dstpportenable', YLeaf(YType.enumeration, 'dot1dStpPortEnable')),
-                    ('dot1dstpportpathcost', YLeaf(YType.int32, 'dot1dStpPortPathCost')),
-                    ('dot1dstpportdesignatedroot', YLeaf(YType.str, 'dot1dStpPortDesignatedRoot')),
-                    ('dot1dstpportdesignatedcost', YLeaf(YType.int32, 'dot1dStpPortDesignatedCost')),
-                    ('dot1dstpportdesignatedbridge', YLeaf(YType.str, 'dot1dStpPortDesignatedBridge')),
-                    ('dot1dstpportdesignatedport', YLeaf(YType.str, 'dot1dStpPortDesignatedPort')),
-                    ('dot1dstpportforwardtransitions', YLeaf(YType.uint32, 'dot1dStpPortForwardTransitions')),
-                    ('dot1dstpportpathcost32', YLeaf(YType.int32, 'dot1dStpPortPathCost32')),
-                    ('stpxlongstpportpathcost', YLeaf(YType.uint32, 'CISCO-STP-EXTENSIONS-MIB:stpxLongStpPortPathCost')),
+                    ('dot1dstpport', (YLeaf(YType.int32, 'dot1dStpPort'), ['int'])),
+                    ('dot1dstpportpriority', (YLeaf(YType.int32, 'dot1dStpPortPriority'), ['int'])),
+                    ('dot1dstpportstate', (YLeaf(YType.enumeration, 'dot1dStpPortState'), [('ydk.models.cisco_ios_xe.BRIDGE_MIB', 'BRIDGEMIB', 'Dot1dStpPortTable.Dot1dStpPortEntry.Dot1dStpPortState')])),
+                    ('dot1dstpportenable', (YLeaf(YType.enumeration, 'dot1dStpPortEnable'), [('ydk.models.cisco_ios_xe.BRIDGE_MIB', 'BRIDGEMIB', 'Dot1dStpPortTable.Dot1dStpPortEntry.Dot1dStpPortEnable')])),
+                    ('dot1dstpportpathcost', (YLeaf(YType.int32, 'dot1dStpPortPathCost'), ['int'])),
+                    ('dot1dstpportdesignatedroot', (YLeaf(YType.str, 'dot1dStpPortDesignatedRoot'), ['str'])),
+                    ('dot1dstpportdesignatedcost', (YLeaf(YType.int32, 'dot1dStpPortDesignatedCost'), ['int'])),
+                    ('dot1dstpportdesignatedbridge', (YLeaf(YType.str, 'dot1dStpPortDesignatedBridge'), ['str'])),
+                    ('dot1dstpportdesignatedport', (YLeaf(YType.str, 'dot1dStpPortDesignatedPort'), ['str'])),
+                    ('dot1dstpportforwardtransitions', (YLeaf(YType.uint32, 'dot1dStpPortForwardTransitions'), ['int'])),
+                    ('dot1dstpportpathcost32', (YLeaf(YType.int32, 'dot1dStpPortPathCost32'), ['int'])),
+                    ('stpxlongstpportpathcost', (YLeaf(YType.uint32, 'CISCO-STP-EXTENSIONS-MIB:stpxLongStpPortPathCost'), ['int'])),
                 ])
                 self.dot1dstpport = None
                 self.dot1dstpportpriority = None
@@ -909,6 +917,7 @@ class BRIDGEMIB(Entity):
                 self.stpxlongstpportpathcost = None
                 self._segment_path = lambda: "dot1dStpPortEntry" + "[dot1dStpPort='" + str(self.dot1dstpport) + "']"
                 self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/dot1dStpPortTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(BRIDGEMIB.Dot1dStpPortTable.Dot1dStpPortEntry, [u'dot1dstpport', u'dot1dstpportpriority', u'dot1dstpportstate', u'dot1dstpportenable', u'dot1dstpportpathcost', u'dot1dstpportdesignatedroot', u'dot1dstpportdesignatedcost', u'dot1dstpportdesignatedbridge', u'dot1dstpportdesignatedport', u'dot1dstpportforwardtransitions', u'dot1dstpportpathcost32', 'stpxlongstpportpathcost'], name, value)
@@ -1010,6 +1019,7 @@ class BRIDGEMIB(Entity):
             self.dot1dtpfdbentry = YList(self)
             self._segment_path = lambda: "dot1dTpFdbTable"
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BRIDGEMIB.Dot1dTpFdbTable, [], name, value)
@@ -1057,15 +1067,16 @@ class BRIDGEMIB(Entity):
                 self.ylist_key_names = ['dot1dtpfdbaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('dot1dtpfdbaddress', YLeaf(YType.str, 'dot1dTpFdbAddress')),
-                    ('dot1dtpfdbport', YLeaf(YType.int32, 'dot1dTpFdbPort')),
-                    ('dot1dtpfdbstatus', YLeaf(YType.enumeration, 'dot1dTpFdbStatus')),
+                    ('dot1dtpfdbaddress', (YLeaf(YType.str, 'dot1dTpFdbAddress'), ['str'])),
+                    ('dot1dtpfdbport', (YLeaf(YType.int32, 'dot1dTpFdbPort'), ['int'])),
+                    ('dot1dtpfdbstatus', (YLeaf(YType.enumeration, 'dot1dTpFdbStatus'), [('ydk.models.cisco_ios_xe.BRIDGE_MIB', 'BRIDGEMIB', 'Dot1dTpFdbTable.Dot1dTpFdbEntry.Dot1dTpFdbStatus')])),
                 ])
                 self.dot1dtpfdbaddress = None
                 self.dot1dtpfdbport = None
                 self.dot1dtpfdbstatus = None
                 self._segment_path = lambda: "dot1dTpFdbEntry" + "[dot1dTpFdbAddress='" + str(self.dot1dtpfdbaddress) + "']"
                 self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/dot1dTpFdbTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(BRIDGEMIB.Dot1dTpFdbTable.Dot1dTpFdbEntry, [u'dot1dtpfdbaddress', u'dot1dtpfdbport', u'dot1dtpfdbstatus'], name, value)
@@ -1177,6 +1188,7 @@ class BRIDGEMIB(Entity):
             self.dot1dtpportentry = YList(self)
             self._segment_path = lambda: "dot1dTpPortTable"
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BRIDGEMIB.Dot1dTpPortTable, [], name, value)
@@ -1247,11 +1259,11 @@ class BRIDGEMIB(Entity):
                 self.ylist_key_names = ['dot1dtpport']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('dot1dtpport', YLeaf(YType.int32, 'dot1dTpPort')),
-                    ('dot1dtpportmaxinfo', YLeaf(YType.int32, 'dot1dTpPortMaxInfo')),
-                    ('dot1dtpportinframes', YLeaf(YType.uint32, 'dot1dTpPortInFrames')),
-                    ('dot1dtpportoutframes', YLeaf(YType.uint32, 'dot1dTpPortOutFrames')),
-                    ('dot1dtpportindiscards', YLeaf(YType.uint32, 'dot1dTpPortInDiscards')),
+                    ('dot1dtpport', (YLeaf(YType.int32, 'dot1dTpPort'), ['int'])),
+                    ('dot1dtpportmaxinfo', (YLeaf(YType.int32, 'dot1dTpPortMaxInfo'), ['int'])),
+                    ('dot1dtpportinframes', (YLeaf(YType.uint32, 'dot1dTpPortInFrames'), ['int'])),
+                    ('dot1dtpportoutframes', (YLeaf(YType.uint32, 'dot1dTpPortOutFrames'), ['int'])),
+                    ('dot1dtpportindiscards', (YLeaf(YType.uint32, 'dot1dTpPortInDiscards'), ['int'])),
                 ])
                 self.dot1dtpport = None
                 self.dot1dtpportmaxinfo = None
@@ -1260,6 +1272,7 @@ class BRIDGEMIB(Entity):
                 self.dot1dtpportindiscards = None
                 self._segment_path = lambda: "dot1dTpPortEntry" + "[dot1dTpPort='" + str(self.dot1dtpport) + "']"
                 self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/dot1dTpPortTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(BRIDGEMIB.Dot1dTpPortTable.Dot1dTpPortEntry, [u'dot1dtpport', u'dot1dtpportmaxinfo', u'dot1dtpportinframes', u'dot1dtpportoutframes', u'dot1dtpportindiscards'], name, value)
@@ -1305,6 +1318,7 @@ class BRIDGEMIB(Entity):
             self.dot1dstaticentry = YList(self)
             self._segment_path = lambda: "dot1dStaticTable"
             self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BRIDGEMIB.Dot1dStaticTable, [], name, value)
@@ -1361,10 +1375,10 @@ class BRIDGEMIB(Entity):
                 self.ylist_key_names = ['dot1dstaticaddress','dot1dstaticreceiveport']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('dot1dstaticaddress', YLeaf(YType.str, 'dot1dStaticAddress')),
-                    ('dot1dstaticreceiveport', YLeaf(YType.int32, 'dot1dStaticReceivePort')),
-                    ('dot1dstaticallowedtogoto', YLeaf(YType.str, 'dot1dStaticAllowedToGoTo')),
-                    ('dot1dstaticstatus', YLeaf(YType.enumeration, 'dot1dStaticStatus')),
+                    ('dot1dstaticaddress', (YLeaf(YType.str, 'dot1dStaticAddress'), ['str'])),
+                    ('dot1dstaticreceiveport', (YLeaf(YType.int32, 'dot1dStaticReceivePort'), ['int'])),
+                    ('dot1dstaticallowedtogoto', (YLeaf(YType.str, 'dot1dStaticAllowedToGoTo'), ['str'])),
+                    ('dot1dstaticstatus', (YLeaf(YType.enumeration, 'dot1dStaticStatus'), [('ydk.models.cisco_ios_xe.BRIDGE_MIB', 'BRIDGEMIB', 'Dot1dStaticTable.Dot1dStaticEntry.Dot1dStaticStatus')])),
                 ])
                 self.dot1dstaticaddress = None
                 self.dot1dstaticreceiveport = None
@@ -1372,6 +1386,7 @@ class BRIDGEMIB(Entity):
                 self.dot1dstaticstatus = None
                 self._segment_path = lambda: "dot1dStaticEntry" + "[dot1dStaticAddress='" + str(self.dot1dstaticaddress) + "']" + "[dot1dStaticReceivePort='" + str(self.dot1dstaticreceiveport) + "']"
                 self._absolute_path = lambda: "BRIDGE-MIB:BRIDGE-MIB/dot1dStaticTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(BRIDGEMIB.Dot1dStaticTable.Dot1dStaticEntry, [u'dot1dstaticaddress', u'dot1dstaticreceiveport', u'dot1dstaticallowedtogoto', u'dot1dstaticstatus'], name, value)

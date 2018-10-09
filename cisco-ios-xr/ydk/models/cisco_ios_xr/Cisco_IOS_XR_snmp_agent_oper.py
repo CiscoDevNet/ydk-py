@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   snmp\: SNMP operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class DupReqDropStatus(Enum):
@@ -193,6 +194,7 @@ class Snmp(Entity):
         self.sensor_mib.parent = self
         self._children_name_map["sensor_mib"] = "Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib"
         self._segment_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Snmp, [], name, value)
@@ -228,6 +230,7 @@ class Snmp(Entity):
             self.trap_server = YList(self)
             self._segment_path = lambda: "trap-servers"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Snmp.TrapServers, [], name, value)
@@ -295,12 +298,12 @@ class Snmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('trap_host', YLeaf(YType.str, 'trap-host')),
-                    ('port', YLeaf(YType.uint16, 'port')),
-                    ('number_of_pkts_in_trap_q', YLeaf(YType.uint32, 'number-of-pkts-in-trap-q')),
-                    ('max_q_length_of_trap_q', YLeaf(YType.uint32, 'max-q-length-of-trap-q')),
-                    ('number_of_pkts_sent', YLeaf(YType.uint32, 'number-of-pkts-sent')),
-                    ('number_of_pkts_dropped', YLeaf(YType.uint32, 'number-of-pkts-dropped')),
+                    ('trap_host', (YLeaf(YType.str, 'trap-host'), ['str'])),
+                    ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
+                    ('number_of_pkts_in_trap_q', (YLeaf(YType.uint32, 'number-of-pkts-in-trap-q'), ['int'])),
+                    ('max_q_length_of_trap_q', (YLeaf(YType.uint32, 'max-q-length-of-trap-q'), ['int'])),
+                    ('number_of_pkts_sent', (YLeaf(YType.uint32, 'number-of-pkts-sent'), ['int'])),
+                    ('number_of_pkts_dropped', (YLeaf(YType.uint32, 'number-of-pkts-dropped'), ['int'])),
                 ])
                 self.trap_host = None
                 self.port = None
@@ -310,9 +313,10 @@ class Snmp(Entity):
                 self.number_of_pkts_dropped = None
                 self._segment_path = lambda: "trap-server"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/trap-servers/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.TrapServers.TrapServer, ['trap_host', 'port', u'number_of_pkts_in_trap_q', u'max_q_length_of_trap_q', u'number_of_pkts_sent', u'number_of_pkts_dropped'], name, value)
+                self._perform_setattr(Snmp.TrapServers.TrapServer, [u'trap_host', u'port', u'number_of_pkts_in_trap_q', u'max_q_length_of_trap_q', u'number_of_pkts_sent', u'number_of_pkts_dropped'], name, value)
 
 
     class Information(Entity):
@@ -563,6 +567,7 @@ class Snmp(Entity):
             self._children_name_map["trap_queue"] = "trap-queue"
             self._segment_path = lambda: "information"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Snmp.Information, [], name, value)
@@ -598,6 +603,7 @@ class Snmp(Entity):
                 self.host = YList(self)
                 self._segment_path = lambda: "hosts"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.Hosts, [], name, value)
@@ -636,16 +642,17 @@ class Snmp(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("host-information", ("host_information", Snmp.Information.Hosts.Host.HostInformation))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.name = None
 
                     self.host_information = YList(self)
                     self._segment_path = lambda: "host" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/hosts/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.Hosts.Host, ['name'], name, value)
+                    self._perform_setattr(Snmp.Information.Hosts.Host, [u'name'], name, value)
 
 
                 class HostInformation(Entity):
@@ -707,13 +714,13 @@ class Snmp(Entity):
                         self.ylist_key_names = ['user']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('user', YLeaf(YType.str, 'user')),
-                            ('snmp_target_address_t_host', YLeaf(YType.str, 'snmp-target-address-t-host')),
-                            ('snmp_target_address_port', YLeaf(YType.str, 'snmp-target-address-port')),
-                            ('snmp_target_addresstype', YLeaf(YType.str, 'snmp-target-addresstype')),
-                            ('snmp_target_params_security_model', YLeaf(YType.str, 'snmp-target-params-security-model')),
-                            ('snmp_target_params_security_name', YLeaf(YType.str, 'snmp-target-params-security-name')),
-                            ('snmp_target_params_security_level', YLeaf(YType.str, 'snmp-target-params-security-level')),
+                            ('user', (YLeaf(YType.str, 'user'), ['str'])),
+                            ('snmp_target_address_t_host', (YLeaf(YType.str, 'snmp-target-address-t-host'), ['str'])),
+                            ('snmp_target_address_port', (YLeaf(YType.str, 'snmp-target-address-port'), ['str'])),
+                            ('snmp_target_addresstype', (YLeaf(YType.str, 'snmp-target-addresstype'), ['str'])),
+                            ('snmp_target_params_security_model', (YLeaf(YType.str, 'snmp-target-params-security-model'), ['str'])),
+                            ('snmp_target_params_security_name', (YLeaf(YType.str, 'snmp-target-params-security-name'), ['str'])),
+                            ('snmp_target_params_security_level', (YLeaf(YType.str, 'snmp-target-params-security-level'), ['str'])),
                         ])
                         self.user = None
                         self.snmp_target_address_t_host = None
@@ -723,9 +730,10 @@ class Snmp(Entity):
                         self.snmp_target_params_security_name = None
                         self.snmp_target_params_security_level = None
                         self._segment_path = lambda: "host-information" + "[user='" + str(self.user) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.Hosts.Host.HostInformation, ['user', u'snmp_target_address_t_host', u'snmp_target_address_port', u'snmp_target_addresstype', u'snmp_target_params_security_model', u'snmp_target_params_security_name', u'snmp_target_params_security_level'], name, value)
+                        self._perform_setattr(Snmp.Information.Hosts.Host.HostInformation, [u'user', u'snmp_target_address_t_host', u'snmp_target_address_port', u'snmp_target_addresstype', u'snmp_target_params_security_model', u'snmp_target_params_security_name', u'snmp_target_params_security_level'], name, value)
 
 
         class SystemUpTime(Entity):
@@ -754,11 +762,12 @@ class Snmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('system_up_time_edm', YLeaf(YType.str, 'system-up-time-edm')),
+                    ('system_up_time_edm', (YLeaf(YType.str, 'system-up-time-edm'), ['str'])),
                 ])
                 self.system_up_time_edm = None
                 self._segment_path = lambda: "system-up-time"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.SystemUpTime, [u'system_up_time_edm'], name, value)
@@ -794,6 +803,7 @@ class Snmp(Entity):
                 self.nms_address = YList(self)
                 self._segment_path = lambda: "nms-addresses"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.NmsAddresses, [], name, value)
@@ -867,13 +877,13 @@ class Snmp(Entity):
                     self.ylist_key_names = ['nms_addr']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('nms_addr', YLeaf(YType.str, 'nms-addr')),
-                        ('nms_address', YLeaf(YType.str, 'nms-address')),
-                        ('get_request_count', YLeaf(YType.uint32, 'get-request-count')),
-                        ('getnext_request_count', YLeaf(YType.uint32, 'getnext-request-count')),
-                        ('getbulk_request_count', YLeaf(YType.uint32, 'getbulk-request-count')),
-                        ('set_request_count', YLeaf(YType.uint32, 'set-request-count')),
-                        ('test_request_count', YLeaf(YType.uint32, 'test-request-count')),
+                        ('nms_addr', (YLeaf(YType.str, 'nms-addr'), ['str'])),
+                        ('nms_address', (YLeaf(YType.str, 'nms-address'), ['str'])),
+                        ('get_request_count', (YLeaf(YType.uint32, 'get-request-count'), ['int'])),
+                        ('getnext_request_count', (YLeaf(YType.uint32, 'getnext-request-count'), ['int'])),
+                        ('getbulk_request_count', (YLeaf(YType.uint32, 'getbulk-request-count'), ['int'])),
+                        ('set_request_count', (YLeaf(YType.uint32, 'set-request-count'), ['int'])),
+                        ('test_request_count', (YLeaf(YType.uint32, 'test-request-count'), ['int'])),
                     ])
                     self.nms_addr = None
                     self.nms_address = None
@@ -884,9 +894,10 @@ class Snmp(Entity):
                     self.test_request_count = None
                     self._segment_path = lambda: "nms-address" + "[nms-addr='" + str(self.nms_addr) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/nms-addresses/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.NmsAddresses.NmsAddress, ['nms_addr', u'nms_address', u'get_request_count', u'getnext_request_count', u'getbulk_request_count', u'set_request_count', u'test_request_count'], name, value)
+                    self._perform_setattr(Snmp.Information.NmsAddresses.NmsAddress, [u'nms_addr', u'nms_address', u'get_request_count', u'getnext_request_count', u'getbulk_request_count', u'set_request_count', u'test_request_count'], name, value)
 
 
         class EngineId(Entity):
@@ -915,11 +926,12 @@ class Snmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('engine_id', YLeaf(YType.str, 'engine-id')),
+                    ('engine_id', (YLeaf(YType.str, 'engine-id'), ['str'])),
                 ])
                 self.engine_id = None
                 self._segment_path = lambda: "engine-id"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.EngineId, [u'engine_id'], name, value)
@@ -1005,13 +1017,13 @@ class Snmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("incoming-q", ("incoming_q", Snmp.Information.RxQueue.IncomingQ)), ("pending-q", ("pending_q", Snmp.Information.RxQueue.PendingQ))])
                 self._leafs = OrderedDict([
-                    ('qlen', YLeaf(YType.uint32, 'qlen')),
-                    ('in_min', YLeaf(YType.uint32, 'in-min')),
-                    ('in_avg', YLeaf(YType.uint32, 'in-avg')),
-                    ('in_max', YLeaf(YType.uint32, 'in-max')),
-                    ('pend_min', YLeaf(YType.uint32, 'pend-min')),
-                    ('pend_avg', YLeaf(YType.uint32, 'pend-avg')),
-                    ('pend_max', YLeaf(YType.uint32, 'pend-max')),
+                    ('qlen', (YLeaf(YType.uint32, 'qlen'), ['int'])),
+                    ('in_min', (YLeaf(YType.uint32, 'in-min'), ['int'])),
+                    ('in_avg', (YLeaf(YType.uint32, 'in-avg'), ['int'])),
+                    ('in_max', (YLeaf(YType.uint32, 'in-max'), ['int'])),
+                    ('pend_min', (YLeaf(YType.uint32, 'pend-min'), ['int'])),
+                    ('pend_avg', (YLeaf(YType.uint32, 'pend-avg'), ['int'])),
+                    ('pend_max', (YLeaf(YType.uint32, 'pend-max'), ['int'])),
                 ])
                 self.qlen = None
                 self.in_min = None
@@ -1025,6 +1037,7 @@ class Snmp(Entity):
                 self.pending_q = YList(self)
                 self._segment_path = lambda: "rx-queue"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.RxQueue, [u'qlen', u'in_min', u'in_avg', u'in_max', u'pend_min', u'pend_avg', u'pend_max'], name, value)
@@ -1072,15 +1085,16 @@ class Snmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('min', YLeaf(YType.uint32, 'min')),
-                        ('avg', YLeaf(YType.uint32, 'avg')),
-                        ('max', YLeaf(YType.uint32, 'max')),
+                        ('min', (YLeaf(YType.uint32, 'min'), ['int'])),
+                        ('avg', (YLeaf(YType.uint32, 'avg'), ['int'])),
+                        ('max', (YLeaf(YType.uint32, 'max'), ['int'])),
                     ])
                     self.min = None
                     self.avg = None
                     self.max = None
                     self._segment_path = lambda: "incoming-q"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/rx-queue/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.RxQueue.IncomingQ, [u'min', u'avg', u'max'], name, value)
@@ -1128,15 +1142,16 @@ class Snmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('min', YLeaf(YType.uint32, 'min')),
-                        ('avg', YLeaf(YType.uint32, 'avg')),
-                        ('max', YLeaf(YType.uint32, 'max')),
+                        ('min', (YLeaf(YType.uint32, 'min'), ['int'])),
+                        ('avg', (YLeaf(YType.uint32, 'avg'), ['int'])),
+                        ('max', (YLeaf(YType.uint32, 'max'), ['int'])),
                     ])
                     self.min = None
                     self.avg = None
                     self.max = None
                     self._segment_path = lambda: "pending-q"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/rx-queue/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.RxQueue.PendingQ, [u'min', u'avg', u'max'], name, value)
@@ -1168,11 +1183,12 @@ class Snmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('system_name', YLeaf(YType.str, 'system-name')),
+                    ('system_name', (YLeaf(YType.str, 'system-name'), ['str'])),
                 ])
                 self.system_name = None
                 self._segment_path = lambda: "system-name"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.SystemName, [u'system_name'], name, value)
@@ -1210,6 +1226,7 @@ class Snmp(Entity):
                 self._children_name_map["nms_addresses"] = "nms-addresses"
                 self._segment_path = lambda: "request-type-detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.RequestTypeDetail, [], name, value)
@@ -1245,6 +1262,7 @@ class Snmp(Entity):
                     self.nms_address = YList(self)
                     self._segment_path = lambda: "nms-addresses"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/request-type-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.RequestTypeDetail.NmsAddresses, [], name, value)
@@ -1320,13 +1338,13 @@ class Snmp(Entity):
                         self.ylist_key_names = ['nms_addr']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('nms_addr', YLeaf(YType.str, 'nms-addr')),
-                            ('total_count', YLeaf(YType.uint32, 'total-count')),
-                            ('agent_request_count', YLeaf(YType.uint32, 'agent-request-count')),
-                            ('interface_request_count', YLeaf(YType.uint32, 'interface-request-count')),
-                            ('entity_request_count', YLeaf(YType.uint32, 'entity-request-count')),
-                            ('route_request_count', YLeaf(YType.uint32, 'route-request-count')),
-                            ('infra_request_count', YLeaf(YType.uint32, 'infra-request-count')),
+                            ('nms_addr', (YLeaf(YType.str, 'nms-addr'), ['str'])),
+                            ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                            ('agent_request_count', (YLeaf(YType.uint32, 'agent-request-count'), ['int'])),
+                            ('interface_request_count', (YLeaf(YType.uint32, 'interface-request-count'), ['int'])),
+                            ('entity_request_count', (YLeaf(YType.uint32, 'entity-request-count'), ['int'])),
+                            ('route_request_count', (YLeaf(YType.uint32, 'route-request-count'), ['int'])),
+                            ('infra_request_count', (YLeaf(YType.uint32, 'infra-request-count'), ['int'])),
                         ])
                         self.nms_addr = None
                         self.total_count = None
@@ -1337,9 +1355,10 @@ class Snmp(Entity):
                         self.infra_request_count = None
                         self._segment_path = lambda: "nms-address" + "[nms-addr='" + str(self.nms_addr) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/request-type-detail/nms-addresses/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress, ['nms_addr', u'total_count', u'agent_request_count', u'interface_request_count', u'entity_request_count', u'route_request_count', u'infra_request_count'], name, value)
+                        self._perform_setattr(Snmp.Information.RequestTypeDetail.NmsAddresses.NmsAddress, [u'nms_addr', u'total_count', u'agent_request_count', u'interface_request_count', u'entity_request_count', u'route_request_count', u'infra_request_count'], name, value)
 
 
         class DuplicateDrop(Entity):
@@ -1432,17 +1451,17 @@ class Snmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('duplicate_request_status', YLeaf(YType.enumeration, 'duplicate-request-status')),
-                    ('last_status_change_time', YLeaf(YType.str, 'last-status-change-time')),
-                    ('duplicate_drop_configured_timeout', YLeaf(YType.uint32, 'duplicate-drop-configured-timeout')),
-                    ('duplicate_dropped_requests', YLeaf(YType.uint32, 'duplicate-dropped-requests')),
-                    ('retry_processed_requests', YLeaf(YType.uint32, 'retry-processed-requests')),
-                    ('first_enable_time', YLeaf(YType.str, 'first-enable-time')),
-                    ('latest_duplicate_dropped_requests', YLeaf(YType.uint32, 'latest-duplicate-dropped-requests')),
-                    ('latest_retry_processed_requests', YLeaf(YType.uint32, 'latest-retry-processed-requests')),
-                    ('duplicate_request_latest_enable_time', YLeaf(YType.str, 'duplicate-request-latest-enable-time')),
-                    ('duplicate_drop_enable_count', YLeaf(YType.uint32, 'duplicate-drop-enable-count')),
-                    ('duplicate_drop_disable_count', YLeaf(YType.uint32, 'duplicate-drop-disable-count')),
+                    ('duplicate_request_status', (YLeaf(YType.enumeration, 'duplicate-request-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper', 'DupReqDropStatus', '')])),
+                    ('last_status_change_time', (YLeaf(YType.str, 'last-status-change-time'), ['str'])),
+                    ('duplicate_drop_configured_timeout', (YLeaf(YType.uint32, 'duplicate-drop-configured-timeout'), ['int'])),
+                    ('duplicate_dropped_requests', (YLeaf(YType.uint32, 'duplicate-dropped-requests'), ['int'])),
+                    ('retry_processed_requests', (YLeaf(YType.uint32, 'retry-processed-requests'), ['int'])),
+                    ('first_enable_time', (YLeaf(YType.str, 'first-enable-time'), ['str'])),
+                    ('latest_duplicate_dropped_requests', (YLeaf(YType.uint32, 'latest-duplicate-dropped-requests'), ['int'])),
+                    ('latest_retry_processed_requests', (YLeaf(YType.uint32, 'latest-retry-processed-requests'), ['int'])),
+                    ('duplicate_request_latest_enable_time', (YLeaf(YType.str, 'duplicate-request-latest-enable-time'), ['str'])),
+                    ('duplicate_drop_enable_count', (YLeaf(YType.uint32, 'duplicate-drop-enable-count'), ['int'])),
+                    ('duplicate_drop_disable_count', (YLeaf(YType.uint32, 'duplicate-drop-disable-count'), ['int'])),
                 ])
                 self.duplicate_request_status = None
                 self.last_status_change_time = None
@@ -1457,6 +1476,7 @@ class Snmp(Entity):
                 self.duplicate_drop_disable_count = None
                 self._segment_path = lambda: "duplicate-drop"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.DuplicateDrop, [u'duplicate_request_status', u'last_status_change_time', u'duplicate_drop_configured_timeout', u'duplicate_dropped_requests', u'retry_processed_requests', u'first_enable_time', u'latest_duplicate_dropped_requests', u'latest_retry_processed_requests', u'duplicate_request_latest_enable_time', u'duplicate_drop_enable_count', u'duplicate_drop_disable_count'], name, value)
@@ -1492,6 +1512,7 @@ class Snmp(Entity):
                 self.bulk_stats_transfer = YList(self)
                 self._segment_path = lambda: "bulk-stats-transfers"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.BulkStatsTransfers, [], name, value)
@@ -1561,13 +1582,13 @@ class Snmp(Entity):
                     self.ylist_key_names = ['transfer_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('transfer_name', YLeaf(YType.str, 'transfer-name')),
-                        ('transfer_name_xr', YLeaf(YType.str, 'transfer-name-xr')),
-                        ('url_primary', YLeaf(YType.str, 'url-primary')),
-                        ('url_secondary', YLeaf(YType.str, 'url-secondary')),
-                        ('retained_file', YLeaf(YType.str, 'retained-file')),
-                        ('time_left', YLeaf(YType.uint32, 'time-left')),
-                        ('retry_left', YLeaf(YType.uint32, 'retry-left')),
+                        ('transfer_name', (YLeaf(YType.str, 'transfer-name'), ['str'])),
+                        ('transfer_name_xr', (YLeaf(YType.str, 'transfer-name-xr'), ['str'])),
+                        ('url_primary', (YLeaf(YType.str, 'url-primary'), ['str'])),
+                        ('url_secondary', (YLeaf(YType.str, 'url-secondary'), ['str'])),
+                        ('retained_file', (YLeaf(YType.str, 'retained-file'), ['str'])),
+                        ('time_left', (YLeaf(YType.uint32, 'time-left'), ['int'])),
+                        ('retry_left', (YLeaf(YType.uint32, 'retry-left'), ['int'])),
                     ])
                     self.transfer_name = None
                     self.transfer_name_xr = None
@@ -1578,9 +1599,10 @@ class Snmp(Entity):
                     self.retry_left = None
                     self._segment_path = lambda: "bulk-stats-transfer" + "[transfer-name='" + str(self.transfer_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/bulk-stats-transfers/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.BulkStatsTransfers.BulkStatsTransfer, ['transfer_name', u'transfer_name_xr', u'url_primary', u'url_secondary', u'retained_file', u'time_left', u'retry_left'], name, value)
+                    self._perform_setattr(Snmp.Information.BulkStatsTransfers.BulkStatsTransfer, [u'transfer_name', u'transfer_name_xr', u'url_primary', u'url_secondary', u'retained_file', u'time_left', u'retry_left'], name, value)
 
 
         class TrapInfos(Entity):
@@ -1613,6 +1635,7 @@ class Snmp(Entity):
                 self.trap_info = YList(self)
                 self._segment_path = lambda: "trap-infos"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.TrapInfos, [], name, value)
@@ -1676,11 +1699,11 @@ class Snmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("trap-oi-dinfo", ("trap_oi_dinfo", Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo))])
                     self._leafs = OrderedDict([
-                        ('trap_host', YLeaf(YType.str, 'trap-host')),
-                        ('port', YLeaf(YType.uint16, 'port')),
-                        ('host', YLeaf(YType.str, 'host')),
-                        ('port_xr', YLeaf(YType.uint16, 'port-xr')),
-                        ('trap_oid_count', YLeaf(YType.uint32, 'trap-oid-count')),
+                        ('trap_host', (YLeaf(YType.str, 'trap-host'), ['str'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
+                        ('host', (YLeaf(YType.str, 'host'), ['str'])),
+                        ('port_xr', (YLeaf(YType.uint16, 'port-xr'), ['int'])),
+                        ('trap_oid_count', (YLeaf(YType.uint32, 'trap-oid-count'), ['int'])),
                     ])
                     self.trap_host = None
                     self.port = None
@@ -1691,9 +1714,10 @@ class Snmp(Entity):
                     self.trap_oi_dinfo = YList(self)
                     self._segment_path = lambda: "trap-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/trap-infos/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.TrapInfos.TrapInfo, ['trap_host', 'port', u'host', u'port_xr', u'trap_oid_count'], name, value)
+                    self._perform_setattr(Snmp.Information.TrapInfos.TrapInfo, [u'trap_host', u'port', u'host', u'port_xr', u'trap_oid_count'], name, value)
 
 
                 class TrapOiDinfo(Entity):
@@ -1753,12 +1777,12 @@ class Snmp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('trap_oid', YLeaf(YType.str, 'trap-oid')),
-                            ('count', YLeaf(YType.uint32, 'count')),
-                            ('drop_count', YLeaf(YType.uint32, 'drop-count')),
-                            ('retry_count', YLeaf(YType.uint32, 'retry-count')),
-                            ('lastsent_time', YLeaf(YType.str, 'lastsent-time')),
-                            ('lasrdrop_time', YLeaf(YType.str, 'lasrdrop-time')),
+                            ('trap_oid', (YLeaf(YType.str, 'trap-oid'), ['str'])),
+                            ('count', (YLeaf(YType.uint32, 'count'), ['int'])),
+                            ('drop_count', (YLeaf(YType.uint32, 'drop-count'), ['int'])),
+                            ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
+                            ('lastsent_time', (YLeaf(YType.str, 'lastsent-time'), ['str'])),
+                            ('lasrdrop_time', (YLeaf(YType.str, 'lasrdrop-time'), ['str'])),
                         ])
                         self.trap_oid = None
                         self.count = None
@@ -1768,6 +1792,7 @@ class Snmp(Entity):
                         self.lasrdrop_time = None
                         self._segment_path = lambda: "trap-oi-dinfo"
                         self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/trap-infos/trap-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Information.TrapInfos.TrapInfo.TrapOiDinfo, [u'trap_oid', u'count', u'drop_count', u'retry_count', u'lastsent_time', u'lasrdrop_time'], name, value)
@@ -1803,6 +1828,7 @@ class Snmp(Entity):
                 self.poll_oid = YList(self)
                 self._segment_path = lambda: "poll-oids"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.PollOids, [], name, value)
@@ -1855,10 +1881,10 @@ class Snmp(Entity):
                     self.ylist_key_names = ['object_id']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('object_id', YLeaf(YType.str, 'object-id')),
-                        ('nms_count', YLeaf(YType.uint32, 'nms-count')),
-                        ('nms', YLeafList(YType.str, 'nms')),
-                        ('request_count', YLeafList(YType.uint32, 'request-count')),
+                        ('object_id', (YLeaf(YType.str, 'object-id'), ['str'])),
+                        ('nms_count', (YLeaf(YType.uint32, 'nms-count'), ['int'])),
+                        ('nms', (YLeafList(YType.str, 'nms'), ['str'])),
+                        ('request_count', (YLeafList(YType.uint32, 'request-count'), ['int'])),
                     ])
                     self.object_id = None
                     self.nms_count = None
@@ -1866,9 +1892,10 @@ class Snmp(Entity):
                     self.request_count = []
                     self._segment_path = lambda: "poll-oid" + "[object-id='" + str(self.object_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/poll-oids/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.PollOids.PollOid, ['object_id', u'nms_count', u'nms', u'request_count'], name, value)
+                    self._perform_setattr(Snmp.Information.PollOids.PollOid, [u'object_id', u'nms_count', u'nms', u'request_count'], name, value)
 
 
         class InfomDetails(Entity):
@@ -1901,6 +1928,7 @@ class Snmp(Entity):
                 self.infom_detail = YList(self)
                 self._segment_path = lambda: "infom-details"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.InfomDetails, [], name, value)
@@ -1964,11 +1992,11 @@ class Snmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("trap-oi-dinfo", ("trap_oi_dinfo", Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo))])
                     self._leafs = OrderedDict([
-                        ('trap_host', YLeaf(YType.str, 'trap-host')),
-                        ('port', YLeaf(YType.uint16, 'port')),
-                        ('host', YLeaf(YType.str, 'host')),
-                        ('port_xr', YLeaf(YType.uint16, 'port-xr')),
-                        ('trap_oid_count', YLeaf(YType.uint32, 'trap-oid-count')),
+                        ('trap_host', (YLeaf(YType.str, 'trap-host'), ['str'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
+                        ('host', (YLeaf(YType.str, 'host'), ['str'])),
+                        ('port_xr', (YLeaf(YType.uint16, 'port-xr'), ['int'])),
+                        ('trap_oid_count', (YLeaf(YType.uint32, 'trap-oid-count'), ['int'])),
                     ])
                     self.trap_host = None
                     self.port = None
@@ -1979,9 +2007,10 @@ class Snmp(Entity):
                     self.trap_oi_dinfo = YList(self)
                     self._segment_path = lambda: "infom-detail"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/infom-details/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.InfomDetails.InfomDetail, ['trap_host', 'port', u'host', u'port_xr', u'trap_oid_count'], name, value)
+                    self._perform_setattr(Snmp.Information.InfomDetails.InfomDetail, [u'trap_host', u'port', u'host', u'port_xr', u'trap_oid_count'], name, value)
 
 
                 class TrapOiDinfo(Entity):
@@ -2041,12 +2070,12 @@ class Snmp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('trap_oid', YLeaf(YType.str, 'trap-oid')),
-                            ('count', YLeaf(YType.uint32, 'count')),
-                            ('drop_count', YLeaf(YType.uint32, 'drop-count')),
-                            ('retry_count', YLeaf(YType.uint32, 'retry-count')),
-                            ('lastsent_time', YLeaf(YType.str, 'lastsent-time')),
-                            ('lasrdrop_time', YLeaf(YType.str, 'lasrdrop-time')),
+                            ('trap_oid', (YLeaf(YType.str, 'trap-oid'), ['str'])),
+                            ('count', (YLeaf(YType.uint32, 'count'), ['int'])),
+                            ('drop_count', (YLeaf(YType.uint32, 'drop-count'), ['int'])),
+                            ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
+                            ('lastsent_time', (YLeaf(YType.str, 'lastsent-time'), ['str'])),
+                            ('lasrdrop_time', (YLeaf(YType.str, 'lasrdrop-time'), ['str'])),
                         ])
                         self.trap_oid = None
                         self.count = None
@@ -2056,6 +2085,7 @@ class Snmp(Entity):
                         self.lasrdrop_time = None
                         self._segment_path = lambda: "trap-oi-dinfo"
                         self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/infom-details/infom-detail/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Information.InfomDetails.InfomDetail.TrapOiDinfo, [u'trap_oid', u'count', u'drop_count', u'retry_count', u'lastsent_time', u'lasrdrop_time'], name, value)
@@ -2292,36 +2322,36 @@ class Snmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('packets_received', YLeaf(YType.uint32, 'packets-received')),
-                    ('bad_versions_received', YLeaf(YType.uint32, 'bad-versions-received')),
-                    ('bad_community_names_received', YLeaf(YType.uint32, 'bad-community-names-received')),
-                    ('bad_community_uses_received', YLeaf(YType.uint32, 'bad-community-uses-received')),
-                    ('asn_parse_errors_received', YLeaf(YType.uint32, 'asn-parse-errors-received')),
-                    ('silent_drop_count', YLeaf(YType.uint32, 'silent-drop-count')),
-                    ('proxy_drop_count', YLeaf(YType.uint32, 'proxy-drop-count')),
-                    ('too_big_packet_received', YLeaf(YType.uint32, 'too-big-packet-received')),
-                    ('max_packet_size', YLeaf(YType.uint32, 'max-packet-size')),
-                    ('no_such_names_received', YLeaf(YType.uint32, 'no-such-names-received')),
-                    ('bad_values_received', YLeaf(YType.uint32, 'bad-values-received')),
-                    ('read_only_received', YLeaf(YType.uint32, 'read-only-received')),
-                    ('total_general_errors', YLeaf(YType.uint32, 'total-general-errors')),
-                    ('total_requested_variables', YLeaf(YType.uint32, 'total-requested-variables')),
-                    ('total_set_variables_received', YLeaf(YType.uint32, 'total-set-variables-received')),
-                    ('get_requests_received', YLeaf(YType.uint32, 'get-requests-received')),
-                    ('get_next_requests_received', YLeaf(YType.uint32, 'get-next-requests-received')),
-                    ('set_requests_received', YLeaf(YType.uint32, 'set-requests-received')),
-                    ('get_responses_received', YLeaf(YType.uint32, 'get-responses-received')),
-                    ('traps_received', YLeaf(YType.uint32, 'traps-received')),
-                    ('total_packets_sent', YLeaf(YType.uint32, 'total-packets-sent')),
-                    ('too_big_packets_sent', YLeaf(YType.uint32, 'too-big-packets-sent')),
-                    ('no_such_names_sent', YLeaf(YType.uint32, 'no-such-names-sent')),
-                    ('bad_values_sent', YLeaf(YType.uint32, 'bad-values-sent')),
-                    ('general_errors_sent', YLeaf(YType.uint32, 'general-errors-sent')),
-                    ('get_requests_sent', YLeaf(YType.uint32, 'get-requests-sent')),
-                    ('get_next_request_sent', YLeaf(YType.uint32, 'get-next-request-sent')),
-                    ('set_requests_sent', YLeaf(YType.uint32, 'set-requests-sent')),
-                    ('get_responses_sent', YLeaf(YType.uint32, 'get-responses-sent')),
-                    ('traps_sent', YLeaf(YType.uint32, 'traps-sent')),
+                    ('packets_received', (YLeaf(YType.uint32, 'packets-received'), ['int'])),
+                    ('bad_versions_received', (YLeaf(YType.uint32, 'bad-versions-received'), ['int'])),
+                    ('bad_community_names_received', (YLeaf(YType.uint32, 'bad-community-names-received'), ['int'])),
+                    ('bad_community_uses_received', (YLeaf(YType.uint32, 'bad-community-uses-received'), ['int'])),
+                    ('asn_parse_errors_received', (YLeaf(YType.uint32, 'asn-parse-errors-received'), ['int'])),
+                    ('silent_drop_count', (YLeaf(YType.uint32, 'silent-drop-count'), ['int'])),
+                    ('proxy_drop_count', (YLeaf(YType.uint32, 'proxy-drop-count'), ['int'])),
+                    ('too_big_packet_received', (YLeaf(YType.uint32, 'too-big-packet-received'), ['int'])),
+                    ('max_packet_size', (YLeaf(YType.uint32, 'max-packet-size'), ['int'])),
+                    ('no_such_names_received', (YLeaf(YType.uint32, 'no-such-names-received'), ['int'])),
+                    ('bad_values_received', (YLeaf(YType.uint32, 'bad-values-received'), ['int'])),
+                    ('read_only_received', (YLeaf(YType.uint32, 'read-only-received'), ['int'])),
+                    ('total_general_errors', (YLeaf(YType.uint32, 'total-general-errors'), ['int'])),
+                    ('total_requested_variables', (YLeaf(YType.uint32, 'total-requested-variables'), ['int'])),
+                    ('total_set_variables_received', (YLeaf(YType.uint32, 'total-set-variables-received'), ['int'])),
+                    ('get_requests_received', (YLeaf(YType.uint32, 'get-requests-received'), ['int'])),
+                    ('get_next_requests_received', (YLeaf(YType.uint32, 'get-next-requests-received'), ['int'])),
+                    ('set_requests_received', (YLeaf(YType.uint32, 'set-requests-received'), ['int'])),
+                    ('get_responses_received', (YLeaf(YType.uint32, 'get-responses-received'), ['int'])),
+                    ('traps_received', (YLeaf(YType.uint32, 'traps-received'), ['int'])),
+                    ('total_packets_sent', (YLeaf(YType.uint32, 'total-packets-sent'), ['int'])),
+                    ('too_big_packets_sent', (YLeaf(YType.uint32, 'too-big-packets-sent'), ['int'])),
+                    ('no_such_names_sent', (YLeaf(YType.uint32, 'no-such-names-sent'), ['int'])),
+                    ('bad_values_sent', (YLeaf(YType.uint32, 'bad-values-sent'), ['int'])),
+                    ('general_errors_sent', (YLeaf(YType.uint32, 'general-errors-sent'), ['int'])),
+                    ('get_requests_sent', (YLeaf(YType.uint32, 'get-requests-sent'), ['int'])),
+                    ('get_next_request_sent', (YLeaf(YType.uint32, 'get-next-request-sent'), ['int'])),
+                    ('set_requests_sent', (YLeaf(YType.uint32, 'set-requests-sent'), ['int'])),
+                    ('get_responses_sent', (YLeaf(YType.uint32, 'get-responses-sent'), ['int'])),
+                    ('traps_sent', (YLeaf(YType.uint32, 'traps-sent'), ['int'])),
                 ])
                 self.packets_received = None
                 self.bad_versions_received = None
@@ -2355,6 +2385,7 @@ class Snmp(Entity):
                 self.traps_sent = None
                 self._segment_path = lambda: "statistics"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.Statistics, [u'packets_received', u'bad_versions_received', u'bad_community_names_received', u'bad_community_uses_received', u'asn_parse_errors_received', u'silent_drop_count', u'proxy_drop_count', u'too_big_packet_received', u'max_packet_size', u'no_such_names_received', u'bad_values_received', u'read_only_received', u'total_general_errors', u'total_requested_variables', u'total_set_variables_received', u'get_requests_received', u'get_next_requests_received', u'set_requests_received', u'get_responses_received', u'traps_received', u'total_packets_sent', u'too_big_packets_sent', u'no_such_names_sent', u'bad_values_sent', u'general_errors_sent', u'get_requests_sent', u'get_next_request_sent', u'set_requests_sent', u'get_responses_sent', u'traps_sent'], name, value)
@@ -2393,13 +2424,14 @@ class Snmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("inq-entry", ("inq_entry", Snmp.Information.IncomingQueue.InqEntry))])
                 self._leafs = OrderedDict([
-                    ('queue_count', YLeaf(YType.uint32, 'queue-count')),
+                    ('queue_count', (YLeaf(YType.uint32, 'queue-count'), ['int'])),
                 ])
                 self.queue_count = None
 
                 self.inq_entry = YList(self)
                 self._segment_path = lambda: "incoming-queue"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.IncomingQueue, [u'queue_count'], name, value)
@@ -2457,11 +2489,11 @@ class Snmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('address_of_queue', YLeaf(YType.str, 'address-of-queue')),
-                        ('request_count', YLeaf(YType.uint32, 'request-count')),
-                        ('processed_request_count', YLeaf(YType.uint32, 'processed-request-count')),
-                        ('last_access_time', YLeaf(YType.str, 'last-access-time')),
-                        ('priority', YLeaf(YType.uint8, 'priority')),
+                        ('address_of_queue', (YLeaf(YType.str, 'address-of-queue'), ['str'])),
+                        ('request_count', (YLeaf(YType.uint32, 'request-count'), ['int'])),
+                        ('processed_request_count', (YLeaf(YType.uint32, 'processed-request-count'), ['int'])),
+                        ('last_access_time', (YLeaf(YType.str, 'last-access-time'), ['str'])),
+                        ('priority', (YLeaf(YType.uint8, 'priority'), ['int'])),
                     ])
                     self.address_of_queue = None
                     self.request_count = None
@@ -2470,6 +2502,7 @@ class Snmp(Entity):
                     self.priority = None
                     self._segment_path = lambda: "inq-entry"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/incoming-queue/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.IncomingQueue.InqEntry, [u'address_of_queue', u'request_count', u'processed_request_count', u'last_access_time', u'priority'], name, value)
@@ -2506,6 +2539,7 @@ class Snmp(Entity):
                 self.contex_mapping = YList(self)
                 self._segment_path = lambda: "context-mapping"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.ContextMapping, [], name, value)
@@ -2557,11 +2591,11 @@ class Snmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('context', YLeaf(YType.str, 'context')),
-                        ('feature_name', YLeaf(YType.str, 'feature-name')),
-                        ('instance', YLeaf(YType.str, 'instance')),
-                        ('topology', YLeaf(YType.str, 'topology')),
-                        ('feature', YLeaf(YType.str, 'feature')),
+                        ('context', (YLeaf(YType.str, 'context'), ['str'])),
+                        ('feature_name', (YLeaf(YType.str, 'feature-name'), ['str'])),
+                        ('instance', (YLeaf(YType.str, 'instance'), ['str'])),
+                        ('topology', (YLeaf(YType.str, 'topology'), ['str'])),
+                        ('feature', (YLeaf(YType.str, 'feature'), ['str'])),
                     ])
                     self.context = None
                     self.feature_name = None
@@ -2570,6 +2604,7 @@ class Snmp(Entity):
                     self.feature = None
                     self._segment_path = lambda: "contex-mapping"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/context-mapping/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.ContextMapping.ContexMapping, [u'context', u'feature_name', u'instance', u'topology', u'feature'], name, value)
@@ -2605,6 +2640,7 @@ class Snmp(Entity):
                 self.trap_oid = YList(self)
                 self._segment_path = lambda: "trap-oids"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.TrapOids, [], name, value)
@@ -2650,18 +2686,19 @@ class Snmp(Entity):
                     self.ylist_key_names = ['trap_oid']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('trap_oid', YLeaf(YType.str, 'trap-oid')),
-                        ('trap_oid_count', YLeaf(YType.uint32, 'trap-oid-count')),
-                        ('trap_oid_xr', YLeaf(YType.str, 'trap-oid-xr')),
+                        ('trap_oid', (YLeaf(YType.str, 'trap-oid'), ['str'])),
+                        ('trap_oid_count', (YLeaf(YType.uint32, 'trap-oid-count'), ['int'])),
+                        ('trap_oid_xr', (YLeaf(YType.str, 'trap-oid-xr'), ['str'])),
                     ])
                     self.trap_oid = None
                     self.trap_oid_count = None
                     self.trap_oid_xr = None
                     self._segment_path = lambda: "trap-oid" + "[trap-oid='" + str(self.trap_oid) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/trap-oids/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.TrapOids.TrapOid, ['trap_oid', u'trap_oid_count', u'trap_oid_xr'], name, value)
+                    self._perform_setattr(Snmp.Information.TrapOids.TrapOid, [u'trap_oid', u'trap_oid_count', u'trap_oid_xr'], name, value)
 
 
         class NmSpackets(Entity):
@@ -2694,6 +2731,7 @@ class Snmp(Entity):
                 self.nm_spacket = YList(self)
                 self._segment_path = lambda: "nm-spackets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.NmSpackets, [], name, value)
@@ -2751,11 +2789,11 @@ class Snmp(Entity):
                     self.ylist_key_names = ['packetcount']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('packetcount', YLeaf(YType.str, 'packetcount')),
-                        ('number_of_nmsq_pkts_dropped', YLeaf(YType.uint32, 'number-of-nmsq-pkts-dropped')),
-                        ('number_of_pkts_dropped', YLeaf(YType.uint32, 'number-of-pkts-dropped')),
-                        ('overload_start_time', YLeaf(YType.str, 'overload-start-time')),
-                        ('overload_end_time', YLeaf(YType.str, 'overload-end-time')),
+                        ('packetcount', (YLeaf(YType.str, 'packetcount'), ['str'])),
+                        ('number_of_nmsq_pkts_dropped', (YLeaf(YType.uint32, 'number-of-nmsq-pkts-dropped'), ['int'])),
+                        ('number_of_pkts_dropped', (YLeaf(YType.uint32, 'number-of-pkts-dropped'), ['int'])),
+                        ('overload_start_time', (YLeaf(YType.str, 'overload-start-time'), ['str'])),
+                        ('overload_end_time', (YLeaf(YType.str, 'overload-end-time'), ['str'])),
                     ])
                     self.packetcount = None
                     self.number_of_nmsq_pkts_dropped = None
@@ -2764,9 +2802,10 @@ class Snmp(Entity):
                     self.overload_end_time = None
                     self._segment_path = lambda: "nm-spacket" + "[packetcount='" + str(self.packetcount) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/nm-spackets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.NmSpackets.NmSpacket, ['packetcount', u'number_of_nmsq_pkts_dropped', u'number_of_pkts_dropped', u'overload_start_time', u'overload_end_time'], name, value)
+                    self._perform_setattr(Snmp.Information.NmSpackets.NmSpacket, [u'packetcount', u'number_of_nmsq_pkts_dropped', u'number_of_pkts_dropped', u'overload_start_time', u'overload_end_time'], name, value)
 
 
         class Mibs(Entity):
@@ -2799,6 +2838,7 @@ class Snmp(Entity):
                 self.mib = YList(self)
                 self._segment_path = lambda: "mibs"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.Mibs, [], name, value)
@@ -2842,7 +2882,7 @@ class Snmp(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("oids", ("oids", Snmp.Information.Mibs.Mib.Oids)), ("mib-information", ("mib_information", Snmp.Information.Mibs.Mib.MibInformation))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.name = None
 
@@ -2855,9 +2895,10 @@ class Snmp(Entity):
                     self._children_name_map["mib_information"] = "mib-information"
                     self._segment_path = lambda: "mib" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/mibs/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.Mibs.Mib, ['name'], name, value)
+                    self._perform_setattr(Snmp.Information.Mibs.Mib, [u'name'], name, value)
 
 
                 class Oids(Entity):
@@ -2889,6 +2930,7 @@ class Snmp(Entity):
 
                         self.oid = YList(self)
                         self._segment_path = lambda: "oids"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Information.Mibs.Mib.Oids, [], name, value)
@@ -2927,15 +2969,16 @@ class Snmp(Entity):
                             self.ylist_key_names = ['oid']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('oid', YLeaf(YType.str, 'oid')),
-                                ('oid_name', YLeaf(YType.str, 'oid-name')),
+                                ('oid', (YLeaf(YType.str, 'oid'), ['str'])),
+                                ('oid_name', (YLeaf(YType.str, 'oid-name'), ['str'])),
                             ])
                             self.oid = None
                             self.oid_name = None
                             self._segment_path = lambda: "oid" + "[oid='" + str(self.oid) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.Information.Mibs.Mib.Oids.Oid, ['oid', 'oid_name'], name, value)
+                            self._perform_setattr(Snmp.Information.Mibs.Mib.Oids.Oid, [u'oid', u'oid_name'], name, value)
 
 
                 class MibInformation(Entity):
@@ -3003,14 +3046,14 @@ class Snmp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('mib_name', YLeaf(YType.str, 'mib-name')),
-                            ('dll_name', YLeaf(YType.str, 'dll-name')),
-                            ('mib_config_filename', YLeaf(YType.str, 'mib-config-filename')),
-                            ('is_mib_loaded', YLeaf(YType.boolean, 'is-mib-loaded')),
-                            ('dll_capabilities', YLeaf(YType.uint32, 'dll-capabilities')),
-                            ('trap_strings', YLeaf(YType.str, 'trap-strings')),
-                            ('timeout', YLeaf(YType.boolean, 'timeout')),
-                            ('load_time', YLeaf(YType.uint32, 'load-time')),
+                            ('mib_name', (YLeaf(YType.str, 'mib-name'), ['str'])),
+                            ('dll_name', (YLeaf(YType.str, 'dll-name'), ['str'])),
+                            ('mib_config_filename', (YLeaf(YType.str, 'mib-config-filename'), ['str'])),
+                            ('is_mib_loaded', (YLeaf(YType.boolean, 'is-mib-loaded'), ['bool'])),
+                            ('dll_capabilities', (YLeaf(YType.uint32, 'dll-capabilities'), ['int'])),
+                            ('trap_strings', (YLeaf(YType.str, 'trap-strings'), ['str'])),
+                            ('timeout', (YLeaf(YType.boolean, 'timeout'), ['bool'])),
+                            ('load_time', (YLeaf(YType.uint32, 'load-time'), ['int'])),
                         ])
                         self.mib_name = None
                         self.dll_name = None
@@ -3021,6 +3064,7 @@ class Snmp(Entity):
                         self.timeout = None
                         self.load_time = None
                         self._segment_path = lambda: "mib-information"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Information.Mibs.Mib.MibInformation, [u'mib_name', u'dll_name', u'mib_config_filename', u'is_mib_loaded', u'dll_capabilities', u'trap_strings', u'timeout', u'load_time'], name, value)
@@ -3056,6 +3100,7 @@ class Snmp(Entity):
                 self.serial_number = YList(self)
                 self._segment_path = lambda: "serial-numbers"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.SerialNumbers, [], name, value)
@@ -3169,19 +3214,19 @@ class Snmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('number', YLeaf(YType.str, 'number')),
-                        ('req_id', YLeaf(YType.uint32, 'req-id')),
-                        ('port', YLeaf(YType.uint16, 'port')),
-                        ('nms', YLeaf(YType.str, 'nms')),
-                        ('request_id', YLeaf(YType.uint32, 'request-id')),
-                        ('port_xr', YLeaf(YType.uint16, 'port-xr')),
-                        ('pdu_type', YLeaf(YType.uint16, 'pdu-type')),
-                        ('error_status', YLeaf(YType.uint16, 'error-status')),
-                        ('serial_num', YLeaf(YType.uint32, 'serial-num')),
-                        ('input_q', YLeaf(YType.str, 'input-q')),
-                        ('output_q', YLeaf(YType.uint32, 'output-q')),
-                        ('pending_q', YLeaf(YType.uint32, 'pending-q')),
-                        ('response_out', YLeaf(YType.uint32, 'response-out')),
+                        ('number', (YLeaf(YType.str, 'number'), ['str'])),
+                        ('req_id', (YLeaf(YType.uint32, 'req-id'), ['int'])),
+                        ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
+                        ('nms', (YLeaf(YType.str, 'nms'), ['str'])),
+                        ('request_id', (YLeaf(YType.uint32, 'request-id'), ['int'])),
+                        ('port_xr', (YLeaf(YType.uint16, 'port-xr'), ['int'])),
+                        ('pdu_type', (YLeaf(YType.uint16, 'pdu-type'), ['int'])),
+                        ('error_status', (YLeaf(YType.uint16, 'error-status'), ['int'])),
+                        ('serial_num', (YLeaf(YType.uint32, 'serial-num'), ['int'])),
+                        ('input_q', (YLeaf(YType.str, 'input-q'), ['str'])),
+                        ('output_q', (YLeaf(YType.uint32, 'output-q'), ['int'])),
+                        ('pending_q', (YLeaf(YType.uint32, 'pending-q'), ['int'])),
+                        ('response_out', (YLeaf(YType.uint32, 'response-out'), ['int'])),
                     ])
                     self.number = None
                     self.req_id = None
@@ -3198,9 +3243,10 @@ class Snmp(Entity):
                     self.response_out = None
                     self._segment_path = lambda: "serial-number"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/serial-numbers/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.SerialNumbers.SerialNumber, ['number', 'req_id', 'port', u'nms', u'request_id', u'port_xr', u'pdu_type', u'error_status', u'serial_num', u'input_q', u'output_q', u'pending_q', u'response_out'], name, value)
+                    self._perform_setattr(Snmp.Information.SerialNumbers.SerialNumber, [u'number', u'req_id', u'port', u'nms', u'request_id', u'port_xr', u'pdu_type', u'error_status', u'serial_num', u'input_q', u'output_q', u'pending_q', u'response_out'], name, value)
 
 
         class DropNmsAddresses(Entity):
@@ -3233,6 +3279,7 @@ class Snmp(Entity):
                 self.drop_nms_address = YList(self)
                 self._segment_path = lambda: "drop-nms-addresses"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.DropNmsAddresses, [], name, value)
@@ -3334,17 +3381,17 @@ class Snmp(Entity):
                     self.ylist_key_names = ['nms_addr']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('nms_addr', YLeaf(YType.str, 'nms-addr')),
-                        ('nms_address', YLeaf(YType.str, 'nms-address')),
-                        ('incoming_q_count', YLeaf(YType.uint32, 'incoming-q-count')),
-                        ('threshold_incoming_q_count', YLeaf(YType.uint32, 'threshold-incoming-q-count')),
-                        ('encode_count', YLeaf(YType.uint32, 'encode-count')),
-                        ('duplicate_count', YLeaf(YType.uint32, 'duplicate-count')),
-                        ('stack_count', YLeaf(YType.uint32, 'stack-count')),
-                        ('aipc_count', YLeaf(YType.uint32, 'aipc-count')),
-                        ('overload_count', YLeaf(YType.uint32, 'overload-count')),
-                        ('timeout_count', YLeaf(YType.uint32, 'timeout-count')),
-                        ('internal_count', YLeaf(YType.uint32, 'internal-count')),
+                        ('nms_addr', (YLeaf(YType.str, 'nms-addr'), ['str'])),
+                        ('nms_address', (YLeaf(YType.str, 'nms-address'), ['str'])),
+                        ('incoming_q_count', (YLeaf(YType.uint32, 'incoming-q-count'), ['int'])),
+                        ('threshold_incoming_q_count', (YLeaf(YType.uint32, 'threshold-incoming-q-count'), ['int'])),
+                        ('encode_count', (YLeaf(YType.uint32, 'encode-count'), ['int'])),
+                        ('duplicate_count', (YLeaf(YType.uint32, 'duplicate-count'), ['int'])),
+                        ('stack_count', (YLeaf(YType.uint32, 'stack-count'), ['int'])),
+                        ('aipc_count', (YLeaf(YType.uint32, 'aipc-count'), ['int'])),
+                        ('overload_count', (YLeaf(YType.uint32, 'overload-count'), ['int'])),
+                        ('timeout_count', (YLeaf(YType.uint32, 'timeout-count'), ['int'])),
+                        ('internal_count', (YLeaf(YType.uint32, 'internal-count'), ['int'])),
                     ])
                     self.nms_addr = None
                     self.nms_address = None
@@ -3359,9 +3406,10 @@ class Snmp(Entity):
                     self.internal_count = None
                     self._segment_path = lambda: "drop-nms-address" + "[nms-addr='" + str(self.nms_addr) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/drop-nms-addresses/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.DropNmsAddresses.DropNmsAddress, ['nms_addr', u'nms_address', u'incoming_q_count', u'threshold_incoming_q_count', u'encode_count', u'duplicate_count', u'stack_count', u'aipc_count', u'overload_count', u'timeout_count', u'internal_count'], name, value)
+                    self._perform_setattr(Snmp.Information.DropNmsAddresses.DropNmsAddress, [u'nms_addr', u'nms_address', u'incoming_q_count', u'threshold_incoming_q_count', u'encode_count', u'duplicate_count', u'stack_count', u'aipc_count', u'overload_count', u'timeout_count', u'internal_count'], name, value)
 
 
         class Views(Entity):
@@ -3394,6 +3442,7 @@ class Snmp(Entity):
                 self.view = YList(self)
                 self._segment_path = lambda: "views"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.Views, [], name, value)
@@ -3432,16 +3481,17 @@ class Snmp(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("view-information", ("view_information", Snmp.Information.Views.View.ViewInformation))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.name = None
 
                     self.view_information = YList(self)
                     self._segment_path = lambda: "view" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/views/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Information.Views.View, ['name'], name, value)
+                    self._perform_setattr(Snmp.Information.Views.View, [u'name'], name, value)
 
 
                 class ViewInformation(Entity):
@@ -3487,19 +3537,20 @@ class Snmp(Entity):
                         self.ylist_key_names = ['object_id']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('object_id', YLeaf(YType.str, 'object-id')),
-                            ('snmp_view_family_type', YLeaf(YType.str, 'snmp-view-family-type')),
-                            ('snmp_view_family_storage_type', YLeaf(YType.str, 'snmp-view-family-storage-type')),
-                            ('snmp_view_family_status', YLeaf(YType.str, 'snmp-view-family-status')),
+                            ('object_id', (YLeaf(YType.str, 'object-id'), ['str'])),
+                            ('snmp_view_family_type', (YLeaf(YType.str, 'snmp-view-family-type'), ['str'])),
+                            ('snmp_view_family_storage_type', (YLeaf(YType.str, 'snmp-view-family-storage-type'), ['str'])),
+                            ('snmp_view_family_status', (YLeaf(YType.str, 'snmp-view-family-status'), ['str'])),
                         ])
                         self.object_id = None
                         self.snmp_view_family_type = None
                         self.snmp_view_family_storage_type = None
                         self.snmp_view_family_status = None
                         self._segment_path = lambda: "view-information" + "[object-id='" + str(self.object_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.Views.View.ViewInformation, ['object_id', u'snmp_view_family_type', u'snmp_view_family_storage_type', u'snmp_view_family_status'], name, value)
+                        self._perform_setattr(Snmp.Information.Views.View.ViewInformation, [u'object_id', u'snmp_view_family_type', u'snmp_view_family_storage_type', u'snmp_view_family_status'], name, value)
 
 
         class SystemDescr(Entity):
@@ -3528,11 +3579,12 @@ class Snmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('sys_descr', YLeaf(YType.str, 'sys-descr')),
+                    ('sys_descr', (YLeaf(YType.str, 'sys-descr'), ['str'])),
                 ])
                 self.sys_descr = None
                 self._segment_path = lambda: "system-descr"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.SystemDescr, [u'sys_descr'], name, value)
@@ -3579,6 +3631,7 @@ class Snmp(Entity):
                 self._children_name_map["user_engine_ids"] = "user-engine-ids"
                 self._segment_path = lambda: "tables"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.Tables, [], name, value)
@@ -3614,6 +3667,7 @@ class Snmp(Entity):
                     self.group = YList(self)
                     self._segment_path = lambda: "groups"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/tables/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.Tables.Groups, [], name, value)
@@ -3652,7 +3706,7 @@ class Snmp(Entity):
                         self.ylist_key_names = ['name']
                         self._child_classes = OrderedDict([("group-informations", ("group_informations", Snmp.Information.Tables.Groups.Group.GroupInformations))])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.name = None
 
@@ -3661,9 +3715,10 @@ class Snmp(Entity):
                         self._children_name_map["group_informations"] = "group-informations"
                         self._segment_path = lambda: "group" + "[name='" + str(self.name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/tables/groups/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.Tables.Groups.Group, ['name'], name, value)
+                        self._perform_setattr(Snmp.Information.Tables.Groups.Group, [u'name'], name, value)
 
 
                     class GroupInformations(Entity):
@@ -3695,6 +3750,7 @@ class Snmp(Entity):
 
                             self.group_information = YList(self)
                             self._segment_path = lambda: "group-informations"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.Information.Tables.Groups.Group.GroupInformations, [], name, value)
@@ -3757,12 +3813,12 @@ class Snmp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('modelnumber', YLeaf(YType.str, 'modelnumber')),
-                                    ('level', YLeaf(YType.str, 'level')),
-                                    ('vacm_access_read_view_name', YLeaf(YType.str, 'vacm-access-read-view-name')),
-                                    ('vacm_access_write_view_name', YLeaf(YType.str, 'vacm-access-write-view-name')),
-                                    ('vacm_access_notify_view_name', YLeaf(YType.str, 'vacm-access-notify-view-name')),
-                                    ('vacm_access_status', YLeaf(YType.uint32, 'vacm-access-status')),
+                                    ('modelnumber', (YLeaf(YType.str, 'modelnumber'), ['str'])),
+                                    ('level', (YLeaf(YType.str, 'level'), ['str'])),
+                                    ('vacm_access_read_view_name', (YLeaf(YType.str, 'vacm-access-read-view-name'), ['str'])),
+                                    ('vacm_access_write_view_name', (YLeaf(YType.str, 'vacm-access-write-view-name'), ['str'])),
+                                    ('vacm_access_notify_view_name', (YLeaf(YType.str, 'vacm-access-notify-view-name'), ['str'])),
+                                    ('vacm_access_status', (YLeaf(YType.uint32, 'vacm-access-status'), ['int'])),
                                 ])
                                 self.modelnumber = None
                                 self.level = None
@@ -3771,9 +3827,10 @@ class Snmp(Entity):
                                 self.vacm_access_notify_view_name = None
                                 self.vacm_access_status = None
                                 self._segment_path = lambda: "group-information"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation, ['modelnumber', 'level', u'vacm_access_read_view_name', u'vacm_access_write_view_name', u'vacm_access_notify_view_name', u'vacm_access_status'], name, value)
+                                self._perform_setattr(Snmp.Information.Tables.Groups.Group.GroupInformations.GroupInformation, [u'modelnumber', u'level', u'vacm_access_read_view_name', u'vacm_access_write_view_name', u'vacm_access_notify_view_name', u'vacm_access_status'], name, value)
 
 
             class UserEngineIds(Entity):
@@ -3806,6 +3863,7 @@ class Snmp(Entity):
                     self.user_engine_id = YList(self)
                     self._segment_path = lambda: "user-engine-ids"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/tables/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.Tables.UserEngineIds, [], name, value)
@@ -3844,16 +3902,17 @@ class Snmp(Entity):
                         self.ylist_key_names = ['engine_id']
                         self._child_classes = OrderedDict([("user-name", ("user_name", Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName))])
                         self._leafs = OrderedDict([
-                            ('engine_id', YLeaf(YType.str, 'engine-id')),
+                            ('engine_id', (YLeaf(YType.str, 'engine-id'), ['str'])),
                         ])
                         self.engine_id = None
 
                         self.user_name = YList(self)
                         self._segment_path = lambda: "user-engine-id" + "[engine-id='" + str(self.engine_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/tables/user-engine-ids/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Snmp.Information.Tables.UserEngineIds.UserEngineId, ['engine_id'], name, value)
+                        self._perform_setattr(Snmp.Information.Tables.UserEngineIds.UserEngineId, [u'engine_id'], name, value)
 
 
                     class UserName(Entity):
@@ -3898,17 +3957,18 @@ class Snmp(Entity):
                             self.ylist_key_names = ['user_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('user_name', YLeaf(YType.str, 'user-name')),
-                                ('usm_user_storage_type', YLeaf(YType.uint32, 'usm-user-storage-type')),
-                                ('usm_user_status', YLeaf(YType.uint32, 'usm-user-status')),
+                                ('user_name', (YLeaf(YType.str, 'user-name'), ['str'])),
+                                ('usm_user_storage_type', (YLeaf(YType.uint32, 'usm-user-storage-type'), ['int'])),
+                                ('usm_user_status', (YLeaf(YType.uint32, 'usm-user-status'), ['int'])),
                             ])
                             self.user_name = None
                             self.usm_user_storage_type = None
                             self.usm_user_status = None
                             self._segment_path = lambda: "user-name" + "[user-name='" + str(self.user_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName, ['user_name', u'usm_user_storage_type', u'usm_user_status'], name, value)
+                            self._perform_setattr(Snmp.Information.Tables.UserEngineIds.UserEngineId.UserName, [u'user_name', u'usm_user_storage_type', u'usm_user_status'], name, value)
 
 
         class SystemOid(Entity):
@@ -3937,11 +3997,12 @@ class Snmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('sys_obj_id', YLeaf(YType.str, 'sys-obj-id')),
+                    ('sys_obj_id', (YLeaf(YType.str, 'sys-obj-id'), ['str'])),
                 ])
                 self.sys_obj_id = None
                 self._segment_path = lambda: "system-oid"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.SystemOid, [u'sys_obj_id'], name, value)
@@ -3994,9 +4055,9 @@ class Snmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("trap-q", ("trap_q", Snmp.Information.TrapQueue.TrapQ))])
                 self._leafs = OrderedDict([
-                    ('trap_min', YLeaf(YType.uint32, 'trap-min')),
-                    ('trap_avg', YLeaf(YType.uint32, 'trap-avg')),
-                    ('trap_max', YLeaf(YType.uint32, 'trap-max')),
+                    ('trap_min', (YLeaf(YType.uint32, 'trap-min'), ['int'])),
+                    ('trap_avg', (YLeaf(YType.uint32, 'trap-avg'), ['int'])),
+                    ('trap_max', (YLeaf(YType.uint32, 'trap-max'), ['int'])),
                 ])
                 self.trap_min = None
                 self.trap_avg = None
@@ -4005,6 +4066,7 @@ class Snmp(Entity):
                 self.trap_q = YList(self)
                 self._segment_path = lambda: "trap-queue"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Information.TrapQueue, [u'trap_min', u'trap_avg', u'trap_max'], name, value)
@@ -4052,15 +4114,16 @@ class Snmp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('min', YLeaf(YType.uint32, 'min')),
-                        ('avg', YLeaf(YType.uint32, 'avg')),
-                        ('max', YLeaf(YType.uint32, 'max')),
+                        ('min', (YLeaf(YType.uint32, 'min'), ['int'])),
+                        ('avg', (YLeaf(YType.uint32, 'avg'), ['int'])),
+                        ('max', (YLeaf(YType.uint32, 'max'), ['int'])),
                     ])
                     self.min = None
                     self.avg = None
                     self.max = None
                     self._segment_path = lambda: "trap-q"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/information/trap-queue/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.Information.TrapQueue.TrapQ, [u'min', u'avg', u'max'], name, value)
@@ -4096,6 +4159,7 @@ class Snmp(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Snmp.Interfaces, [], name, value)
@@ -4110,7 +4174,7 @@ class Snmp(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: interface_index
             
@@ -4138,16 +4202,17 @@ class Snmp(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('interface_index', YLeaf(YType.uint32, 'interface-index')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('interface_index', (YLeaf(YType.uint32, 'interface-index'), ['int'])),
                 ])
                 self.name = None
                 self.interface_index = None
                 self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.Interfaces.Interface, ['name', 'interface_index'], name, value)
+                self._perform_setattr(Snmp.Interfaces.Interface, [u'name', u'interface_index'], name, value)
 
 
     class Correlator(Entity):
@@ -4209,6 +4274,7 @@ class Snmp(Entity):
             self._children_name_map["traps"] = "traps"
             self._segment_path = lambda: "correlator"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Snmp.Correlator, [], name, value)
@@ -4245,6 +4311,7 @@ class Snmp(Entity):
                 self.rule_detail = YList(self)
                 self._segment_path = lambda: "rule-details"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Correlator.RuleDetails, [], name, value)
@@ -4305,8 +4372,8 @@ class Snmp(Entity):
                     self.ylist_key_names = ['rule_name']
                     self._child_classes = OrderedDict([("rule-summary", ("rule_summary", Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary)), ("root-cause", ("root_cause", Snmp.Correlator.RuleDetails.RuleDetail.RootCause)), ("non-rootcaus", ("non_rootcaus", Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus)), ("apply-host", ("apply_host", Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost))])
                     self._leafs = OrderedDict([
-                        ('rule_name', YLeaf(YType.str, 'rule-name')),
-                        ('timeout', YLeaf(YType.uint32, 'timeout')),
+                        ('rule_name', (YLeaf(YType.str, 'rule-name'), ['str'])),
+                        ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
                     ])
                     self.rule_name = None
                     self.timeout = None
@@ -4323,9 +4390,10 @@ class Snmp(Entity):
                     self.apply_host = YList(self)
                     self._segment_path = lambda: "rule-detail" + "[rule-name='" + str(self.rule_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/rule-details/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail, ['rule_name', u'timeout'], name, value)
+                    self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail, [u'rule_name', u'timeout'], name, value)
 
 
                 class RuleSummary(Entity):
@@ -4366,14 +4434,15 @@ class Snmp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('rule_name', YLeaf(YType.str, 'rule-name')),
-                            ('rule_state', YLeaf(YType.enumeration, 'rule-state')),
-                            ('buffered_traps_count', YLeaf(YType.uint32, 'buffered-traps-count')),
+                            ('rule_name', (YLeaf(YType.str, 'rule-name'), ['str'])),
+                            ('rule_state', (YLeaf(YType.enumeration, 'rule-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper', 'SnmpCorrRuleState', '')])),
+                            ('buffered_traps_count', (YLeaf(YType.uint32, 'buffered-traps-count'), ['int'])),
                         ])
                         self.rule_name = None
                         self.rule_state = None
                         self.buffered_traps_count = None
                         self._segment_path = lambda: "rule-summary"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RuleSummary, [u'rule_name', u'rule_state', u'buffered_traps_count'], name, value)
@@ -4411,12 +4480,13 @@ class Snmp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("var-bind", ("var_bind", Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind))])
                         self._leafs = OrderedDict([
-                            ('oid', YLeaf(YType.str, 'oid')),
+                            ('oid', (YLeaf(YType.str, 'oid'), ['str'])),
                         ])
                         self.oid = None
 
                         self.var_bind = YList(self)
                         self._segment_path = lambda: "root-cause"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RootCause, [u'oid'], name, value)
@@ -4458,14 +4528,15 @@ class Snmp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('oid', YLeaf(YType.str, 'oid')),
-                                ('match_type', YLeaf(YType.enumeration, 'match-type')),
-                                ('reg_exp', YLeaf(YType.str, 'reg-exp')),
+                                ('oid', (YLeaf(YType.str, 'oid'), ['str'])),
+                                ('match_type', (YLeaf(YType.enumeration, 'match-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper', 'SnmpCorrVbindMatch', '')])),
+                                ('reg_exp', (YLeaf(YType.str, 'reg-exp'), ['str'])),
                             ])
                             self.oid = None
                             self.match_type = None
                             self.reg_exp = None
                             self._segment_path = lambda: "var-bind"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.RootCause.VarBind, [u'oid', u'match_type', u'reg_exp'], name, value)
@@ -4503,12 +4574,13 @@ class Snmp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("var-bind", ("var_bind", Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind))])
                         self._leafs = OrderedDict([
-                            ('oid', YLeaf(YType.str, 'oid')),
+                            ('oid', (YLeaf(YType.str, 'oid'), ['str'])),
                         ])
                         self.oid = None
 
                         self.var_bind = YList(self)
                         self._segment_path = lambda: "non-rootcaus"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus, [u'oid'], name, value)
@@ -4550,14 +4622,15 @@ class Snmp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('oid', YLeaf(YType.str, 'oid')),
-                                ('match_type', YLeaf(YType.enumeration, 'match-type')),
-                                ('reg_exp', YLeaf(YType.str, 'reg-exp')),
+                                ('oid', (YLeaf(YType.str, 'oid'), ['str'])),
+                                ('match_type', (YLeaf(YType.enumeration, 'match-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper', 'SnmpCorrVbindMatch', '')])),
+                                ('reg_exp', (YLeaf(YType.str, 'reg-exp'), ['str'])),
                             ])
                             self.oid = None
                             self.match_type = None
                             self.reg_exp = None
                             self._segment_path = lambda: "var-bind"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.NonRootcaus.VarBind, [u'oid', u'match_type', u'reg_exp'], name, value)
@@ -4596,12 +4669,13 @@ class Snmp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ip_address', YLeaf(YType.str, 'ip-address')),
-                            ('port', YLeaf(YType.uint16, 'port')),
+                            ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                            ('port', (YLeaf(YType.uint16, 'port'), ['int'])),
                         ])
                         self.ip_address = None
                         self.port = None
                         self._segment_path = lambda: "apply-host"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Correlator.RuleDetails.RuleDetail.ApplyHost, [u'ip_address', u'port'], name, value)
@@ -4643,13 +4717,14 @@ class Snmp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('current_size', YLeaf(YType.uint32, 'current-size')),
-                    ('configured_size', YLeaf(YType.uint32, 'configured-size')),
+                    ('current_size', (YLeaf(YType.uint32, 'current-size'), ['int'])),
+                    ('configured_size', (YLeaf(YType.uint32, 'configured-size'), ['int'])),
                 ])
                 self.current_size = None
                 self.configured_size = None
                 self._segment_path = lambda: "buffer-status"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Correlator.BufferStatus, [u'current_size', u'configured_size'], name, value)
@@ -4685,6 +4760,7 @@ class Snmp(Entity):
                 self.rule_set_detail = YList(self)
                 self._segment_path = lambda: "rule-set-details"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Correlator.RuleSetDetails, [], name, value)
@@ -4728,8 +4804,8 @@ class Snmp(Entity):
                     self.ylist_key_names = ['rule_set_name']
                     self._child_classes = OrderedDict([("rules", ("rules", Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules))])
                     self._leafs = OrderedDict([
-                        ('rule_set_name', YLeaf(YType.str, 'rule-set-name')),
-                        ('rule_set_name_xr', YLeaf(YType.str, 'rule-set-name-xr')),
+                        ('rule_set_name', (YLeaf(YType.str, 'rule-set-name'), ['str'])),
+                        ('rule_set_name_xr', (YLeaf(YType.str, 'rule-set-name-xr'), ['str'])),
                     ])
                     self.rule_set_name = None
                     self.rule_set_name_xr = None
@@ -4737,9 +4813,10 @@ class Snmp(Entity):
                     self.rules = YList(self)
                     self._segment_path = lambda: "rule-set-detail" + "[rule-set-name='" + str(self.rule_set_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/rule-set-details/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Correlator.RuleSetDetails.RuleSetDetail, ['rule_set_name', u'rule_set_name_xr'], name, value)
+                    self._perform_setattr(Snmp.Correlator.RuleSetDetails.RuleSetDetail, [u'rule_set_name', u'rule_set_name_xr'], name, value)
 
 
                 class Rules(Entity):
@@ -4780,14 +4857,15 @@ class Snmp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('rule_name', YLeaf(YType.str, 'rule-name')),
-                            ('rule_state', YLeaf(YType.enumeration, 'rule-state')),
-                            ('buffered_traps_count', YLeaf(YType.uint32, 'buffered-traps-count')),
+                            ('rule_name', (YLeaf(YType.str, 'rule-name'), ['str'])),
+                            ('rule_state', (YLeaf(YType.enumeration, 'rule-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_agent_oper', 'SnmpCorrRuleState', '')])),
+                            ('buffered_traps_count', (YLeaf(YType.uint32, 'buffered-traps-count'), ['int'])),
                         ])
                         self.rule_name = None
                         self.rule_state = None
                         self.buffered_traps_count = None
                         self._segment_path = lambda: "rules"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Correlator.RuleSetDetails.RuleSetDetail.Rules, [u'rule_name', u'rule_state', u'buffered_traps_count'], name, value)
@@ -4823,6 +4901,7 @@ class Snmp(Entity):
                 self.trap = YList(self)
                 self._segment_path = lambda: "traps"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.Correlator.Traps, [], name, value)
@@ -4878,10 +4957,10 @@ class Snmp(Entity):
                     self.ylist_key_names = ['entry_id']
                     self._child_classes = OrderedDict([("trap-info", ("trap_info", Snmp.Correlator.Traps.Trap.TrapInfo))])
                     self._leafs = OrderedDict([
-                        ('entry_id', YLeaf(YType.uint32, 'entry-id')),
-                        ('correlation_id', YLeaf(YType.uint32, 'correlation-id')),
-                        ('is_root_cause', YLeaf(YType.boolean, 'is-root-cause')),
-                        ('rule_name', YLeaf(YType.str, 'rule-name')),
+                        ('entry_id', (YLeaf(YType.uint32, 'entry-id'), ['int'])),
+                        ('correlation_id', (YLeaf(YType.uint32, 'correlation-id'), ['int'])),
+                        ('is_root_cause', (YLeaf(YType.boolean, 'is-root-cause'), ['bool'])),
+                        ('rule_name', (YLeaf(YType.str, 'rule-name'), ['str'])),
                     ])
                     self.entry_id = None
                     self.correlation_id = None
@@ -4893,9 +4972,10 @@ class Snmp(Entity):
                     self._children_name_map["trap_info"] = "trap-info"
                     self._segment_path = lambda: "trap" + "[entry-id='" + str(self.entry_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/correlator/traps/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Snmp.Correlator.Traps.Trap, ['entry_id', u'correlation_id', u'is_root_cause', u'rule_name'], name, value)
+                    self._perform_setattr(Snmp.Correlator.Traps.Trap, [u'entry_id', u'correlation_id', u'is_root_cause', u'rule_name'], name, value)
 
 
                 class TrapInfo(Entity):
@@ -4947,9 +5027,9 @@ class Snmp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("var-bind", ("var_bind", Snmp.Correlator.Traps.Trap.TrapInfo.VarBind))])
                         self._leafs = OrderedDict([
-                            ('oid', YLeaf(YType.str, 'oid')),
-                            ('relative_timestamp', YLeaf(YType.uint32, 'relative-timestamp')),
-                            ('timestamp', YLeaf(YType.uint64, 'timestamp')),
+                            ('oid', (YLeaf(YType.str, 'oid'), ['str'])),
+                            ('relative_timestamp', (YLeaf(YType.uint32, 'relative-timestamp'), ['int'])),
+                            ('timestamp', (YLeaf(YType.uint64, 'timestamp'), ['int'])),
                         ])
                         self.oid = None
                         self.relative_timestamp = None
@@ -4957,6 +5037,7 @@ class Snmp(Entity):
 
                         self.var_bind = YList(self)
                         self._segment_path = lambda: "trap-info"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.Correlator.Traps.Trap.TrapInfo, [u'oid', u'relative_timestamp', u'timestamp'], name, value)
@@ -4993,12 +5074,13 @@ class Snmp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('oid', YLeaf(YType.str, 'oid')),
-                                ('value', YLeaf(YType.str, 'value')),
+                                ('oid', (YLeaf(YType.str, 'oid'), ['str'])),
+                                ('value', (YLeaf(YType.str, 'value'), ['str'])),
                             ])
                             self.oid = None
                             self.value = None
                             self._segment_path = lambda: "var-bind"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Snmp.Correlator.Traps.Trap.TrapInfo.VarBind, [u'oid', u'value'], name, value)
@@ -5034,6 +5116,7 @@ class Snmp(Entity):
             self.interface_index = YList(self)
             self._segment_path = lambda: "interface-indexes"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Snmp.InterfaceIndexes, [], name, value)
@@ -5074,16 +5157,17 @@ class Snmp(Entity):
                 self.ylist_key_names = ['interface_index']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface_index', YLeaf(YType.uint32, 'interface-index')),
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('interface_index', (YLeaf(YType.uint32, 'interface-index'), ['int'])),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                 ])
                 self.interface_index = None
                 self.interface_name = None
                 self._segment_path = lambda: "interface-index" + "[interface-index='" + str(self.interface_index) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/interface-indexes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.InterfaceIndexes.InterfaceIndex, ['interface_index', 'interface_name'], name, value)
+                self._perform_setattr(Snmp.InterfaceIndexes.InterfaceIndex, [u'interface_index', u'interface_name'], name, value)
 
 
     class IfIndexes(Entity):
@@ -5116,6 +5200,7 @@ class Snmp(Entity):
             self.if_index = YList(self)
             self._segment_path = lambda: "if-indexes"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Snmp.IfIndexes, [], name, value)
@@ -5154,16 +5239,17 @@ class Snmp(Entity):
                 self.ylist_key_names = ['interface_index']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface_index', YLeaf(YType.uint32, 'interface-index')),
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('interface_index', (YLeaf(YType.uint32, 'interface-index'), ['int'])),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                 ])
                 self.interface_index = None
                 self.interface_name = None
                 self._segment_path = lambda: "if-index" + "[interface-index='" + str(self.interface_index) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/if-indexes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Snmp.IfIndexes.IfIndex, ['interface_index', u'interface_name'], name, value)
+                self._perform_setattr(Snmp.IfIndexes.IfIndex, [u'interface_index', u'interface_name'], name, value)
 
 
     class EntityMib(Entity):
@@ -5198,6 +5284,7 @@ class Snmp(Entity):
             self._children_name_map["entity_physical_indexes"] = "entity-physical-indexes"
             self._segment_path = lambda: "Cisco-IOS-XR-snmp-entitymib-oper:entity-mib"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Snmp.EntityMib, [], name, value)
@@ -5233,6 +5320,7 @@ class Snmp(Entity):
                 self.entity_physical_index = YList(self)
                 self._segment_path = lambda: "entity-physical-indexes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-entitymib-oper:entity-mib/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.EntityMib.EntityPhysicalIndexes, [], name, value)
@@ -5318,17 +5406,17 @@ class Snmp(Entity):
                     self.ylist_key_names = ['entity_phynum']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('entity_phynum', YLeaf(YType.str, 'entity-phynum')),
-                        ('physical_index', YLeaf(YType.uint32, 'physical-index')),
-                        ('ent_physical_name', YLeaf(YType.str, 'ent-physical-name')),
-                        ('location', YLeaf(YType.str, 'location')),
-                        ('ent_physical_descr', YLeaf(YType.str, 'ent-physical-descr')),
-                        ('ent_physical_firmware_rev', YLeaf(YType.str, 'ent-physical-firmware-rev')),
-                        ('ent_physical_hardware_rev', YLeaf(YType.str, 'ent-physical-hardware-rev')),
-                        ('ent_physical_modelname', YLeaf(YType.str, 'ent-physical-modelname')),
-                        ('ent_physical_serial_num', YLeaf(YType.str, 'ent-physical-serial-num')),
-                        ('ent_physical_software_rev', YLeaf(YType.str, 'ent-physical-software-rev')),
-                        ('ent_physical_mfg_name', YLeaf(YType.str, 'ent-physical-mfg-name')),
+                        ('entity_phynum', (YLeaf(YType.str, 'entity-phynum'), ['str'])),
+                        ('physical_index', (YLeaf(YType.uint32, 'physical-index'), ['int'])),
+                        ('ent_physical_name', (YLeaf(YType.str, 'ent-physical-name'), ['str'])),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                        ('ent_physical_descr', (YLeaf(YType.str, 'ent-physical-descr'), ['str'])),
+                        ('ent_physical_firmware_rev', (YLeaf(YType.str, 'ent-physical-firmware-rev'), ['str'])),
+                        ('ent_physical_hardware_rev', (YLeaf(YType.str, 'ent-physical-hardware-rev'), ['str'])),
+                        ('ent_physical_modelname', (YLeaf(YType.str, 'ent-physical-modelname'), ['str'])),
+                        ('ent_physical_serial_num', (YLeaf(YType.str, 'ent-physical-serial-num'), ['str'])),
+                        ('ent_physical_software_rev', (YLeaf(YType.str, 'ent-physical-software-rev'), ['str'])),
+                        ('ent_physical_mfg_name', (YLeaf(YType.str, 'ent-physical-mfg-name'), ['str'])),
                     ])
                     self.entity_phynum = None
                     self.physical_index = None
@@ -5343,6 +5431,7 @@ class Snmp(Entity):
                     self.ent_physical_mfg_name = None
                     self._segment_path = lambda: "entity-physical-index" + "[entity-phynum='" + str(self.entity_phynum) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-entitymib-oper:entity-mib/entity-physical-indexes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.EntityMib.EntityPhysicalIndexes.EntityPhysicalIndex, ['entity_phynum', u'physical_index', u'ent_physical_name', u'location', u'ent_physical_descr', u'ent_physical_firmware_rev', u'ent_physical_hardware_rev', u'ent_physical_modelname', u'ent_physical_serial_num', u'ent_physical_software_rev', u'ent_physical_mfg_name'], name, value)
@@ -5416,6 +5505,7 @@ class Snmp(Entity):
             self._children_name_map["interface_stack_statuses"] = "interface-stack-statuses"
             self._segment_path = lambda: "Cisco-IOS-XR-snmp-ifmib-oper:interface-mib"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Snmp.InterfaceMib, [], name, value)
@@ -5451,6 +5541,7 @@ class Snmp(Entity):
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.InterfaceMib.Interfaces, [], name, value)
@@ -5465,7 +5556,7 @@ class Snmp(Entity):
                 	Interface Name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: if_index
                 
@@ -5491,13 +5582,14 @@ class Snmp(Entity):
                     self.ylist_key_names = ['interface_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('if_index', YLeaf(YType.uint32, 'if-index')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('if_index', (YLeaf(YType.uint32, 'if-index'), ['int'])),
                     ])
                     self.interface_name = None
                     self.if_index = None
                     self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interfaces/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.InterfaceMib.Interfaces.Interface, ['interface_name', u'if_index'], name, value)
@@ -5533,6 +5625,7 @@ class Snmp(Entity):
                 self.interface_connector = YList(self)
                 self._segment_path = lambda: "interface-connectors"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.InterfaceMib.InterfaceConnectors, [], name, value)
@@ -5548,7 +5641,7 @@ class Snmp(Entity):
                 	Interface Name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: if_connector_present
                 
@@ -5572,13 +5665,14 @@ class Snmp(Entity):
                     self.ylist_key_names = ['interface_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('if_connector_present', YLeaf(YType.str, 'if-connector-present')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('if_connector_present', (YLeaf(YType.str, 'if-connector-present'), ['str'])),
                     ])
                     self.interface_name = None
                     self.if_connector_present = None
                     self._segment_path = lambda: "interface-connector" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interface-connectors/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.InterfaceMib.InterfaceConnectors.InterfaceConnector, ['interface_name', u'if_connector_present'], name, value)
@@ -5614,6 +5708,7 @@ class Snmp(Entity):
                 self.interface_alias = YList(self)
                 self._segment_path = lambda: "interface-aliases"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.InterfaceMib.InterfaceAliases, [], name, value)
@@ -5628,7 +5723,7 @@ class Snmp(Entity):
                 	Interface Name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: if_alias
                 
@@ -5652,13 +5747,14 @@ class Snmp(Entity):
                     self.ylist_key_names = ['interface_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('if_alias', YLeaf(YType.str, 'if-alias')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('if_alias', (YLeaf(YType.str, 'if-alias'), ['str'])),
                     ])
                     self.interface_name = None
                     self.if_alias = None
                     self._segment_path = lambda: "interface-alias" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interface-aliases/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.InterfaceMib.InterfaceAliases.InterfaceAlias, ['interface_name', u'if_alias'], name, value)
@@ -5694,6 +5790,7 @@ class Snmp(Entity):
                 self.notification_interface = YList(self)
                 self._segment_path = lambda: "notification-interfaces"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.InterfaceMib.NotificationInterfaces, [], name, value)
@@ -5708,7 +5805,7 @@ class Snmp(Entity):
                 	Interface Name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: link_up_down_notif_status
                 
@@ -5732,13 +5829,14 @@ class Snmp(Entity):
                     self.ylist_key_names = ['interface_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('link_up_down_notif_status', YLeaf(YType.enumeration, 'link-up-down-notif-status')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('link_up_down_notif_status', (YLeaf(YType.enumeration, 'link-up-down-notif-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_snmp_ifmib_oper', 'LinkUpDownStatus', '')])),
                     ])
                     self.interface_name = None
                     self.link_up_down_notif_status = None
                     self._segment_path = lambda: "notification-interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/notification-interfaces/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.InterfaceMib.NotificationInterfaces.NotificationInterface, ['interface_name', u'link_up_down_notif_status'], name, value)
@@ -5774,6 +5872,7 @@ class Snmp(Entity):
                 self.interface_stack_status = YList(self)
                 self._segment_path = lambda: "interface-stack-statuses"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.InterfaceMib.InterfaceStackStatuses, [], name, value)
@@ -5822,10 +5921,10 @@ class Snmp(Entity):
                     self.ylist_key_names = ['interface_stack_status']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_stack_status', YLeaf(YType.str, 'interface-stack-status')),
-                        ('if_stack_higher_layer', YLeaf(YType.str, 'if-stack-higher-layer')),
-                        ('if_stack_lower_layer', YLeaf(YType.str, 'if-stack-lower-layer')),
-                        ('if_stack_status', YLeaf(YType.str, 'if-stack-status')),
+                        ('interface_stack_status', (YLeaf(YType.str, 'interface-stack-status'), ['str'])),
+                        ('if_stack_higher_layer', (YLeaf(YType.str, 'if-stack-higher-layer'), ['str'])),
+                        ('if_stack_lower_layer', (YLeaf(YType.str, 'if-stack-lower-layer'), ['str'])),
+                        ('if_stack_status', (YLeaf(YType.str, 'if-stack-status'), ['str'])),
                     ])
                     self.interface_stack_status = None
                     self.if_stack_higher_layer = None
@@ -5833,6 +5932,7 @@ class Snmp(Entity):
                     self.if_stack_status = None
                     self._segment_path = lambda: "interface-stack-status" + "[interface-stack-status='" + str(self.interface_stack_status) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-ifmib-oper:interface-mib/interface-stack-statuses/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.InterfaceMib.InterfaceStackStatuses.InterfaceStackStatus, ['interface_stack_status', u'if_stack_higher_layer', u'if_stack_lower_layer', u'if_stack_status'], name, value)
@@ -5879,6 +5979,7 @@ class Snmp(Entity):
             self._children_name_map["ent_phy_indexes"] = "ent-phy-indexes"
             self._segment_path = lambda: "Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib"
             self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Snmp.SensorMib, [], name, value)
@@ -5915,6 +6016,7 @@ class Snmp(Entity):
                 self.physical_index = YList(self)
                 self._segment_path = lambda: "physical-indexes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.SensorMib.PhysicalIndexes, [], name, value)
@@ -5953,7 +6055,7 @@ class Snmp(Entity):
                     self.ylist_key_names = ['index']
                     self._child_classes = OrderedDict([("threshold-indexes", ("threshold_indexes", Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes))])
                     self._leafs = OrderedDict([
-                        ('index', YLeaf(YType.str, 'index')),
+                        ('index', (YLeaf(YType.str, 'index'), ['str'])),
                     ])
                     self.index = None
 
@@ -5962,6 +6064,7 @@ class Snmp(Entity):
                     self._children_name_map["threshold_indexes"] = "threshold-indexes"
                     self._segment_path = lambda: "physical-index" + "[index='" + str(self.index) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/physical-indexes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex, ['index'], name, value)
@@ -5996,6 +6099,7 @@ class Snmp(Entity):
 
                         self.threshold_index = YList(self)
                         self._segment_path = lambda: "threshold-indexes"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes, [], name, value)
@@ -6067,13 +6171,13 @@ class Snmp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('phy_index', YLeaf(YType.str, 'phy-index')),
-                                ('thre_index', YLeaf(YType.str, 'thre-index')),
-                                ('threshold_severity', YLeaf(YType.uint32, 'threshold-severity')),
-                                ('threshold_relation', YLeaf(YType.uint32, 'threshold-relation')),
-                                ('threshold_value', YLeaf(YType.uint32, 'threshold-value')),
-                                ('threshold_evaluation', YLeaf(YType.boolean, 'threshold-evaluation')),
-                                ('threshold_notification_enabled', YLeaf(YType.boolean, 'threshold-notification-enabled')),
+                                ('phy_index', (YLeaf(YType.str, 'phy-index'), ['str'])),
+                                ('thre_index', (YLeaf(YType.str, 'thre-index'), ['str'])),
+                                ('threshold_severity', (YLeaf(YType.uint32, 'threshold-severity'), ['int'])),
+                                ('threshold_relation', (YLeaf(YType.uint32, 'threshold-relation'), ['int'])),
+                                ('threshold_value', (YLeaf(YType.uint32, 'threshold-value'), ['int'])),
+                                ('threshold_evaluation', (YLeaf(YType.boolean, 'threshold-evaluation'), ['bool'])),
+                                ('threshold_notification_enabled', (YLeaf(YType.boolean, 'threshold-notification-enabled'), ['bool'])),
                             ])
                             self.phy_index = None
                             self.thre_index = None
@@ -6083,9 +6187,10 @@ class Snmp(Entity):
                             self.threshold_evaluation = None
                             self.threshold_notification_enabled = None
                             self._segment_path = lambda: "threshold-index"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex, ['phy_index', 'thre_index', u'threshold_severity', u'threshold_relation', u'threshold_value', u'threshold_evaluation', u'threshold_notification_enabled'], name, value)
+                            self._perform_setattr(Snmp.SensorMib.PhysicalIndexes.PhysicalIndex.ThresholdIndexes.ThresholdIndex, ['phy_index', 'thre_index', 'threshold_severity', 'threshold_relation', 'threshold_value', 'threshold_evaluation', 'threshold_notification_enabled'], name, value)
 
 
         class EntPhyIndexes(Entity):
@@ -6118,6 +6223,7 @@ class Snmp(Entity):
                 self.ent_phy_index = YList(self)
                 self._segment_path = lambda: "ent-phy-indexes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Snmp.SensorMib.EntPhyIndexes, [], name, value)
@@ -6242,20 +6348,20 @@ class Snmp(Entity):
                     self.ylist_key_names = ['index']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('index', YLeaf(YType.str, 'index')),
-                        ('field_validity_bitmap', YLeaf(YType.uint32, 'field-validity-bitmap')),
-                        ('device_description', YLeaf(YType.str, 'device-description')),
-                        ('units', YLeaf(YType.str, 'units')),
-                        ('device_id', YLeaf(YType.uint32, 'device-id')),
-                        ('value', YLeaf(YType.uint32, 'value')),
-                        ('alarm_type', YLeaf(YType.uint32, 'alarm-type')),
-                        ('data_type', YLeaf(YType.uint32, 'data-type')),
-                        ('scale', YLeaf(YType.uint32, 'scale')),
-                        ('precision', YLeaf(YType.uint32, 'precision')),
-                        ('status', YLeaf(YType.uint32, 'status')),
-                        ('age_time_stamp', YLeaf(YType.uint32, 'age-time-stamp')),
-                        ('update_rate', YLeaf(YType.uint32, 'update-rate')),
-                        ('measured_entity', YLeaf(YType.uint32, 'measured-entity')),
+                        ('index', (YLeaf(YType.str, 'index'), ['str'])),
+                        ('field_validity_bitmap', (YLeaf(YType.uint32, 'field-validity-bitmap'), ['int'])),
+                        ('device_description', (YLeaf(YType.str, 'device-description'), ['str'])),
+                        ('units', (YLeaf(YType.str, 'units'), ['str'])),
+                        ('device_id', (YLeaf(YType.uint32, 'device-id'), ['int'])),
+                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                        ('alarm_type', (YLeaf(YType.uint32, 'alarm-type'), ['int'])),
+                        ('data_type', (YLeaf(YType.uint32, 'data-type'), ['int'])),
+                        ('scale', (YLeaf(YType.uint32, 'scale'), ['int'])),
+                        ('precision', (YLeaf(YType.uint32, 'precision'), ['int'])),
+                        ('status', (YLeaf(YType.uint32, 'status'), ['int'])),
+                        ('age_time_stamp', (YLeaf(YType.uint32, 'age-time-stamp'), ['int'])),
+                        ('update_rate', (YLeaf(YType.uint32, 'update-rate'), ['int'])),
+                        ('measured_entity', (YLeaf(YType.uint32, 'measured-entity'), ['int'])),
                     ])
                     self.index = None
                     self.field_validity_bitmap = None
@@ -6273,6 +6379,7 @@ class Snmp(Entity):
                     self.measured_entity = None
                     self._segment_path = lambda: "ent-phy-index" + "[index='" + str(self.index) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-snmp-agent-oper:snmp/Cisco-IOS-XR-snmp-sensormib-oper:sensor-mib/ent-phy-indexes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Snmp.SensorMib.EntPhyIndexes.EntPhyIndex, ['index', 'field_validity_bitmap', 'device_description', 'units', 'device_id', 'value', 'alarm_type', 'data_type', 'scale', 'precision', 'status', 'age_time_stamp', 'update_rate', 'measured_entity'], name, value)

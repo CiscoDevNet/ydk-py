@@ -35,6 +35,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class CiscoPdDataType(Enum):
     """
     CiscoPdDataType (Enum Class)
@@ -210,6 +211,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
         self.cnpdsupportedprotocolstable.parent = self
         self._children_name_map["cnpdsupportedprotocolstable"] = "cnpdSupportedProtocolsTable"
         self._segment_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB, [], name, value)
@@ -241,11 +243,12 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cnpdnotificationsenable', YLeaf(YType.boolean, 'cnpdNotificationsEnable')),
+                ('cnpdnotificationsenable', (YLeaf(YType.boolean, 'cnpdNotificationsEnable'), ['bool'])),
             ])
             self.cnpdnotificationsenable = None
             self._segment_path = lambda: "cnpdNotificationsConfig"
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdNotificationsConfig, ['cnpdnotificationsenable'], name, value)
@@ -282,6 +285,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self.cnpdstatusentry = YList(self)
             self._segment_path = lambda: "cnpdStatusTable"
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdStatusTable, [], name, value)
@@ -331,15 +335,16 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('cnpdstatuspdenable', YLeaf(YType.boolean, 'cnpdStatusPdEnable')),
-                    ('cnpdstatuslastupdatetime', YLeaf(YType.uint32, 'cnpdStatusLastUpdateTime')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('cnpdstatuspdenable', (YLeaf(YType.boolean, 'cnpdStatusPdEnable'), ['bool'])),
+                    ('cnpdstatuslastupdatetime', (YLeaf(YType.uint32, 'cnpdStatusLastUpdateTime'), ['int'])),
                 ])
                 self.ifindex = None
                 self.cnpdstatuspdenable = None
                 self.cnpdstatuslastupdatetime = None
                 self._segment_path = lambda: "cnpdStatusEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdStatusTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdStatusTable.CnpdStatusEntry, ['ifindex', 'cnpdstatuspdenable', 'cnpdstatuslastupdatetime'], name, value)
@@ -381,6 +386,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self.cnpdallstatsentry = YList(self)
             self._segment_path = lambda: "cnpdAllStatsTable"
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdAllStatsTable, [], name, value)
@@ -522,19 +528,19 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self.ylist_key_names = ['ifindex','cnpdallstatsprotocolsindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('cnpdallstatsprotocolsindex', YLeaf(YType.uint32, 'cnpdAllStatsProtocolsIndex')),
-                    ('cnpdallstatsprotocolname', YLeaf(YType.str, 'cnpdAllStatsProtocolName')),
-                    ('cnpdallstatsinpkts', YLeaf(YType.uint32, 'cnpdAllStatsInPkts')),
-                    ('cnpdallstatsoutpkts', YLeaf(YType.uint32, 'cnpdAllStatsOutPkts')),
-                    ('cnpdallstatsinbytes', YLeaf(YType.uint32, 'cnpdAllStatsInBytes')),
-                    ('cnpdallstatsoutbytes', YLeaf(YType.uint32, 'cnpdAllStatsOutBytes')),
-                    ('cnpdallstatshcinpkts', YLeaf(YType.uint64, 'cnpdAllStatsHCInPkts')),
-                    ('cnpdallstatshcoutpkts', YLeaf(YType.uint64, 'cnpdAllStatsHCOutPkts')),
-                    ('cnpdallstatshcinbytes', YLeaf(YType.uint64, 'cnpdAllStatsHCInBytes')),
-                    ('cnpdallstatshcoutbytes', YLeaf(YType.uint64, 'cnpdAllStatsHCOutBytes')),
-                    ('cnpdallstatsinbitrate', YLeaf(YType.uint32, 'cnpdAllStatsInBitRate')),
-                    ('cnpdallstatsoutbitrate', YLeaf(YType.uint32, 'cnpdAllStatsOutBitRate')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('cnpdallstatsprotocolsindex', (YLeaf(YType.uint32, 'cnpdAllStatsProtocolsIndex'), ['int'])),
+                    ('cnpdallstatsprotocolname', (YLeaf(YType.str, 'cnpdAllStatsProtocolName'), ['str'])),
+                    ('cnpdallstatsinpkts', (YLeaf(YType.uint32, 'cnpdAllStatsInPkts'), ['int'])),
+                    ('cnpdallstatsoutpkts', (YLeaf(YType.uint32, 'cnpdAllStatsOutPkts'), ['int'])),
+                    ('cnpdallstatsinbytes', (YLeaf(YType.uint32, 'cnpdAllStatsInBytes'), ['int'])),
+                    ('cnpdallstatsoutbytes', (YLeaf(YType.uint32, 'cnpdAllStatsOutBytes'), ['int'])),
+                    ('cnpdallstatshcinpkts', (YLeaf(YType.uint64, 'cnpdAllStatsHCInPkts'), ['int'])),
+                    ('cnpdallstatshcoutpkts', (YLeaf(YType.uint64, 'cnpdAllStatsHCOutPkts'), ['int'])),
+                    ('cnpdallstatshcinbytes', (YLeaf(YType.uint64, 'cnpdAllStatsHCInBytes'), ['int'])),
+                    ('cnpdallstatshcoutbytes', (YLeaf(YType.uint64, 'cnpdAllStatsHCOutBytes'), ['int'])),
+                    ('cnpdallstatsinbitrate', (YLeaf(YType.uint32, 'cnpdAllStatsInBitRate'), ['int'])),
+                    ('cnpdallstatsoutbitrate', (YLeaf(YType.uint32, 'cnpdAllStatsOutBitRate'), ['int'])),
                 ])
                 self.ifindex = None
                 self.cnpdallstatsprotocolsindex = None
@@ -551,6 +557,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self.cnpdallstatsoutbitrate = None
                 self._segment_path = lambda: "cnpdAllStatsEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[cnpdAllStatsProtocolsIndex='" + str(self.cnpdallstatsprotocolsindex) + "']"
                 self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdAllStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdAllStatsTable.CnpdAllStatsEntry, ['ifindex', 'cnpdallstatsprotocolsindex', 'cnpdallstatsprotocolname', 'cnpdallstatsinpkts', 'cnpdallstatsoutpkts', 'cnpdallstatsinbytes', 'cnpdallstatsoutbytes', 'cnpdallstatshcinpkts', 'cnpdallstatshcoutpkts', 'cnpdallstatshcinbytes', 'cnpdallstatshcoutbytes', 'cnpdallstatsinbitrate', 'cnpdallstatsoutbitrate'], name, value)
@@ -587,6 +594,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self.cnpdtopnconfigentry = YList(self)
             self._segment_path = lambda: "cnpdTopNConfigTable"
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNConfigTable, [], name, value)
@@ -668,14 +676,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self.ylist_key_names = ['cnpdtopnconfigindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cnpdtopnconfigindex', YLeaf(YType.uint32, 'cnpdTopNConfigIndex')),
-                    ('cnpdtopnconfigifindex', YLeaf(YType.int32, 'cnpdTopNConfigIfIndex')),
-                    ('cnpdtopnconfigstatsselect', YLeaf(YType.enumeration, 'cnpdTopNConfigStatsSelect')),
-                    ('cnpdtopnconfigsampletime', YLeaf(YType.uint32, 'cnpdTopNConfigSampleTime')),
-                    ('cnpdtopnconfigrequestedsize', YLeaf(YType.uint32, 'cnpdTopNConfigRequestedSize')),
-                    ('cnpdtopnconfiggrantedsize', YLeaf(YType.uint32, 'cnpdTopNConfigGrantedSize')),
-                    ('cnpdtopnconfigtime', YLeaf(YType.uint32, 'cnpdTopNConfigTime')),
-                    ('cnpdtopnconfigstatus', YLeaf(YType.enumeration, 'cnpdTopNConfigStatus')),
+                    ('cnpdtopnconfigindex', (YLeaf(YType.uint32, 'cnpdTopNConfigIndex'), ['int'])),
+                    ('cnpdtopnconfigifindex', (YLeaf(YType.int32, 'cnpdTopNConfigIfIndex'), ['int'])),
+                    ('cnpdtopnconfigstatsselect', (YLeaf(YType.enumeration, 'cnpdTopNConfigStatsSelect'), [('ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB', 'CiscoPdDataType', '')])),
+                    ('cnpdtopnconfigsampletime', (YLeaf(YType.uint32, 'cnpdTopNConfigSampleTime'), ['int'])),
+                    ('cnpdtopnconfigrequestedsize', (YLeaf(YType.uint32, 'cnpdTopNConfigRequestedSize'), ['int'])),
+                    ('cnpdtopnconfiggrantedsize', (YLeaf(YType.uint32, 'cnpdTopNConfigGrantedSize'), ['int'])),
+                    ('cnpdtopnconfigtime', (YLeaf(YType.uint32, 'cnpdTopNConfigTime'), ['int'])),
+                    ('cnpdtopnconfigstatus', (YLeaf(YType.enumeration, 'cnpdTopNConfigStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cnpdtopnconfigindex = None
                 self.cnpdtopnconfigifindex = None
@@ -687,6 +695,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self.cnpdtopnconfigstatus = None
                 self._segment_path = lambda: "cnpdTopNConfigEntry" + "[cnpdTopNConfigIndex='" + str(self.cnpdtopnconfigindex) + "']"
                 self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdTopNConfigTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNConfigTable.CnpdTopNConfigEntry, ['cnpdtopnconfigindex', 'cnpdtopnconfigifindex', 'cnpdtopnconfigstatsselect', 'cnpdtopnconfigsampletime', 'cnpdtopnconfigrequestedsize', 'cnpdtopnconfiggrantedsize', 'cnpdtopnconfigtime', 'cnpdtopnconfigstatus'], name, value)
@@ -723,6 +732,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self.cnpdtopnstatsentry = YList(self)
             self._segment_path = lambda: "cnpdTopNStatsTable"
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNStatsTable, [], name, value)
@@ -794,11 +804,11 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self.ylist_key_names = ['cnpdtopnconfigindex','cnpdtopnstatsindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cnpdtopnconfigindex', YLeaf(YType.str, 'cnpdTopNConfigIndex')),
-                    ('cnpdtopnstatsindex', YLeaf(YType.uint32, 'cnpdTopNStatsIndex')),
-                    ('cnpdtopnstatsprotocolname', YLeaf(YType.str, 'cnpdTopNStatsProtocolName')),
-                    ('cnpdtopnstatsrate', YLeaf(YType.uint32, 'cnpdTopNStatsRate')),
-                    ('cnpdtopnstatshcrate', YLeaf(YType.uint64, 'cnpdTopNStatsHCRate')),
+                    ('cnpdtopnconfigindex', (YLeaf(YType.str, 'cnpdTopNConfigIndex'), ['int'])),
+                    ('cnpdtopnstatsindex', (YLeaf(YType.uint32, 'cnpdTopNStatsIndex'), ['int'])),
+                    ('cnpdtopnstatsprotocolname', (YLeaf(YType.str, 'cnpdTopNStatsProtocolName'), ['str'])),
+                    ('cnpdtopnstatsrate', (YLeaf(YType.uint32, 'cnpdTopNStatsRate'), ['int'])),
+                    ('cnpdtopnstatshcrate', (YLeaf(YType.uint64, 'cnpdTopNStatsHCRate'), ['int'])),
                 ])
                 self.cnpdtopnconfigindex = None
                 self.cnpdtopnstatsindex = None
@@ -807,6 +817,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self.cnpdtopnstatshcrate = None
                 self._segment_path = lambda: "cnpdTopNStatsEntry" + "[cnpdTopNConfigIndex='" + str(self.cnpdtopnconfigindex) + "']" + "[cnpdTopNStatsIndex='" + str(self.cnpdtopnstatsindex) + "']"
                 self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdTopNStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdTopNStatsTable.CnpdTopNStatsEntry, ['cnpdtopnconfigindex', 'cnpdtopnstatsindex', 'cnpdtopnstatsprotocolname', 'cnpdtopnstatsrate', 'cnpdtopnstatshcrate'], name, value)
@@ -845,6 +856,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self.cnpdthresholdconfigentry = YList(self)
             self._segment_path = lambda: "cnpdThresholdConfigTable"
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdConfigTable, [], name, value)
@@ -960,17 +972,17 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self.ylist_key_names = ['cnpdthresholdconfigindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cnpdthresholdconfigindex', YLeaf(YType.uint32, 'cnpdThresholdConfigIndex')),
-                    ('cnpdthresholdconfigifindex', YLeaf(YType.int32, 'cnpdThresholdConfigIfIndex')),
-                    ('cnpdthresholdconfiginterval', YLeaf(YType.uint32, 'cnpdThresholdConfigInterval')),
-                    ('cnpdthresholdconfigsampletype', YLeaf(YType.enumeration, 'cnpdThresholdConfigSampleType')),
-                    ('cnpdthresholdconfigprotocol', YLeaf(YType.uint32, 'cnpdThresholdConfigProtocol')),
-                    ('cnpdthresholdconfigprotocolany', YLeaf(YType.boolean, 'cnpdThresholdConfigProtocolAny')),
-                    ('cnpdthresholdconfigstatsselect', YLeaf(YType.enumeration, 'cnpdThresholdConfigStatsSelect')),
-                    ('cnpdthresholdconfigstartup', YLeaf(YType.enumeration, 'cnpdThresholdConfigStartup')),
-                    ('cnpdthresholdconfigrising', YLeaf(YType.uint32, 'cnpdThresholdConfigRising')),
-                    ('cnpdthresholdconfigfalling', YLeaf(YType.uint32, 'cnpdThresholdConfigFalling')),
-                    ('cnpdthresholdconfigstatus', YLeaf(YType.enumeration, 'cnpdThresholdConfigStatus')),
+                    ('cnpdthresholdconfigindex', (YLeaf(YType.uint32, 'cnpdThresholdConfigIndex'), ['int'])),
+                    ('cnpdthresholdconfigifindex', (YLeaf(YType.int32, 'cnpdThresholdConfigIfIndex'), ['int'])),
+                    ('cnpdthresholdconfiginterval', (YLeaf(YType.uint32, 'cnpdThresholdConfigInterval'), ['int'])),
+                    ('cnpdthresholdconfigsampletype', (YLeaf(YType.enumeration, 'cnpdThresholdConfigSampleType'), [('ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB', 'CISCONBARPROTOCOLDISCOVERYMIB', 'CnpdThresholdConfigTable.CnpdThresholdConfigEntry.CnpdThresholdConfigSampleType')])),
+                    ('cnpdthresholdconfigprotocol', (YLeaf(YType.uint32, 'cnpdThresholdConfigProtocol'), ['int'])),
+                    ('cnpdthresholdconfigprotocolany', (YLeaf(YType.boolean, 'cnpdThresholdConfigProtocolAny'), ['bool'])),
+                    ('cnpdthresholdconfigstatsselect', (YLeaf(YType.enumeration, 'cnpdThresholdConfigStatsSelect'), [('ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB', 'CiscoPdDataType', '')])),
+                    ('cnpdthresholdconfigstartup', (YLeaf(YType.enumeration, 'cnpdThresholdConfigStartup'), [('ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB', 'CISCONBARPROTOCOLDISCOVERYMIB', 'CnpdThresholdConfigTable.CnpdThresholdConfigEntry.CnpdThresholdConfigStartup')])),
+                    ('cnpdthresholdconfigrising', (YLeaf(YType.uint32, 'cnpdThresholdConfigRising'), ['int'])),
+                    ('cnpdthresholdconfigfalling', (YLeaf(YType.uint32, 'cnpdThresholdConfigFalling'), ['int'])),
+                    ('cnpdthresholdconfigstatus', (YLeaf(YType.enumeration, 'cnpdThresholdConfigStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.cnpdthresholdconfigindex = None
                 self.cnpdthresholdconfigifindex = None
@@ -985,6 +997,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self.cnpdthresholdconfigstatus = None
                 self._segment_path = lambda: "cnpdThresholdConfigEntry" + "[cnpdThresholdConfigIndex='" + str(self.cnpdthresholdconfigindex) + "']"
                 self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdThresholdConfigTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdConfigTable.CnpdThresholdConfigEntry, ['cnpdthresholdconfigindex', 'cnpdthresholdconfigifindex', 'cnpdthresholdconfiginterval', 'cnpdthresholdconfigsampletype', 'cnpdthresholdconfigprotocol', 'cnpdthresholdconfigprotocolany', 'cnpdthresholdconfigstatsselect', 'cnpdthresholdconfigstartup', 'cnpdthresholdconfigrising', 'cnpdthresholdconfigfalling', 'cnpdthresholdconfigstatus'], name, value)
@@ -1148,6 +1161,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self.cnpdthresholdhistoryentry = YList(self)
             self._segment_path = lambda: "cnpdThresholdHistoryTable"
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdHistoryTable, [], name, value)
@@ -1225,13 +1239,13 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self.ylist_key_names = ['cnpdthresholdhistoryindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cnpdthresholdhistoryindex', YLeaf(YType.uint32, 'cnpdThresholdHistoryIndex')),
-                    ('cnpdthresholdhistoryconfigindex', YLeaf(YType.uint32, 'cnpdThresholdHistoryConfigIndex')),
-                    ('cnpdthresholdhistoryvalue', YLeaf(YType.uint32, 'cnpdThresholdHistoryValue')),
-                    ('cnpdthresholdhistorytype', YLeaf(YType.enumeration, 'cnpdThresholdHistoryType')),
-                    ('cnpdthresholdhistorytime', YLeaf(YType.uint32, 'cnpdThresholdHistoryTime')),
-                    ('cnpdthresholdhistoryprotocol', YLeaf(YType.uint32, 'cnpdThresholdHistoryProtocol')),
-                    ('cnpdthresholdhistorystatsselect', YLeaf(YType.enumeration, 'cnpdThresholdHistoryStatsSelect')),
+                    ('cnpdthresholdhistoryindex', (YLeaf(YType.uint32, 'cnpdThresholdHistoryIndex'), ['int'])),
+                    ('cnpdthresholdhistoryconfigindex', (YLeaf(YType.uint32, 'cnpdThresholdHistoryConfigIndex'), ['int'])),
+                    ('cnpdthresholdhistoryvalue', (YLeaf(YType.uint32, 'cnpdThresholdHistoryValue'), ['int'])),
+                    ('cnpdthresholdhistorytype', (YLeaf(YType.enumeration, 'cnpdThresholdHistoryType'), [('ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB', 'CISCONBARPROTOCOLDISCOVERYMIB', 'CnpdThresholdHistoryTable.CnpdThresholdHistoryEntry.CnpdThresholdHistoryType')])),
+                    ('cnpdthresholdhistorytime', (YLeaf(YType.uint32, 'cnpdThresholdHistoryTime'), ['int'])),
+                    ('cnpdthresholdhistoryprotocol', (YLeaf(YType.uint32, 'cnpdThresholdHistoryProtocol'), ['int'])),
+                    ('cnpdthresholdhistorystatsselect', (YLeaf(YType.enumeration, 'cnpdThresholdHistoryStatsSelect'), [('ydk.models.cisco_ios_xe.CISCO_NBAR_PROTOCOL_DISCOVERY_MIB', 'CiscoPdDataType', '')])),
                 ])
                 self.cnpdthresholdhistoryindex = None
                 self.cnpdthresholdhistoryconfigindex = None
@@ -1242,6 +1256,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self.cnpdthresholdhistorystatsselect = None
                 self._segment_path = lambda: "cnpdThresholdHistoryEntry" + "[cnpdThresholdHistoryIndex='" + str(self.cnpdthresholdhistoryindex) + "']"
                 self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdThresholdHistoryTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdThresholdHistoryTable.CnpdThresholdHistoryEntry, ['cnpdthresholdhistoryindex', 'cnpdthresholdhistoryconfigindex', 'cnpdthresholdhistoryvalue', 'cnpdthresholdhistorytype', 'cnpdthresholdhistorytime', 'cnpdthresholdhistoryprotocol', 'cnpdthresholdhistorystatsselect'], name, value)
@@ -1300,6 +1315,7 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
             self.cnpdsupportedprotocolsentry = YList(self)
             self._segment_path = lambda: "cnpdSupportedProtocolsTable"
             self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdSupportedProtocolsTable, [], name, value)
@@ -1341,13 +1357,14 @@ class CISCONBARPROTOCOLDISCOVERYMIB(Entity):
                 self.ylist_key_names = ['cnpdsupportedprotocolsindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cnpdsupportedprotocolsindex', YLeaf(YType.uint32, 'cnpdSupportedProtocolsIndex')),
-                    ('cnpdsupportedprotocolsname', YLeaf(YType.str, 'cnpdSupportedProtocolsName')),
+                    ('cnpdsupportedprotocolsindex', (YLeaf(YType.uint32, 'cnpdSupportedProtocolsIndex'), ['int'])),
+                    ('cnpdsupportedprotocolsname', (YLeaf(YType.str, 'cnpdSupportedProtocolsName'), ['str'])),
                 ])
                 self.cnpdsupportedprotocolsindex = None
                 self.cnpdsupportedprotocolsname = None
                 self._segment_path = lambda: "cnpdSupportedProtocolsEntry" + "[cnpdSupportedProtocolsIndex='" + str(self.cnpdsupportedprotocolsindex) + "']"
                 self._absolute_path = lambda: "CISCO-NBAR-PROTOCOL-DISCOVERY-MIB:CISCO-NBAR-PROTOCOL-DISCOVERY-MIB/cnpdSupportedProtocolsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCONBARPROTOCOLDISCOVERYMIB.CnpdSupportedProtocolsTable.CnpdSupportedProtocolsEntry, ['cnpdsupportedprotocolsindex', 'cnpdsupportedprotocolsname'], name, value)

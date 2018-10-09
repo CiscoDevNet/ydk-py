@@ -14,6 +14,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class BfdLspType(Enum):
     """
     BfdLspType (Enum Class)
@@ -163,6 +164,7 @@ class BfdState(Entity):
         self.sessions.parent = self
         self._children_name_map["sessions"] = "sessions"
         self._segment_path = lambda: "Cisco-IOS-XE-bfd-oper:bfd-state"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(BfdState, [], name, value)
@@ -198,6 +200,7 @@ class BfdState(Entity):
             self.session = YList(self)
             self._segment_path = lambda: "sessions"
             self._absolute_path = lambda: "Cisco-IOS-XE-bfd-oper:bfd-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(BfdState.Sessions, [], name, value)
@@ -254,7 +257,7 @@ class BfdState(Entity):
                 self.ylist_key_names = ['type']
                 self._child_classes = OrderedDict([("bfd-tunnel-paths", ("bfd_tunnel_paths", BfdState.Sessions.Session.BfdTunnelPaths)), ("bfd-circuits", ("bfd_circuits", BfdState.Sessions.Session.BfdCircuits)), ("bfd-nbrs", ("bfd_nbrs", BfdState.Sessions.Session.BfdNbrs)), ("bfd-mhop-nbrs", ("bfd_mhop_nbrs", BfdState.Sessions.Session.BfdMhopNbrs)), ("bfd-mhop-vrf-nbrs", ("bfd_mhop_vrf_nbrs", BfdState.Sessions.Session.BfdMhopVrfNbrs))])
                 self._leafs = OrderedDict([
-                    ('type', YLeaf(YType.enumeration, 'type')),
+                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper', 'BfdOperSessionType', '')])),
                 ])
                 self.type = None
 
@@ -279,6 +282,7 @@ class BfdState(Entity):
                 self._children_name_map["bfd_mhop_vrf_nbrs"] = "bfd-mhop-vrf-nbrs"
                 self._segment_path = lambda: "session" + "[type='" + str(self.type) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-bfd-oper:bfd-state/sessions/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(BfdState.Sessions.Session, ['type'], name, value)
@@ -313,6 +317,7 @@ class BfdState(Entity):
 
                     self.bfd_tunnel_path = YList(self)
                     self._segment_path = lambda: "bfd-tunnel-paths"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BfdState.Sessions.Session.BfdTunnelPaths, [], name, value)
@@ -373,12 +378,12 @@ class BfdState(Entity):
                         self.ylist_key_names = ['interface','lsp_type']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('lsp_type', YLeaf(YType.enumeration, 'lsp-type')),
-                            ('ld', YLeaf(YType.uint32, 'ld')),
-                            ('rd', YLeaf(YType.uint32, 'rd')),
-                            ('remote_state', YLeaf(YType.enumeration, 'remote-state')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('lsp_type', (YLeaf(YType.enumeration, 'lsp-type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper', 'BfdLspType', '')])),
+                            ('ld', (YLeaf(YType.uint32, 'ld'), ['int'])),
+                            ('rd', (YLeaf(YType.uint32, 'rd'), ['int'])),
+                            ('remote_state', (YLeaf(YType.enumeration, 'remote-state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper', 'BfdRemoteStateType', '')])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper', 'BfdStateType', '')])),
                         ])
                         self.interface = None
                         self.lsp_type = None
@@ -387,6 +392,7 @@ class BfdState(Entity):
                         self.remote_state = None
                         self.state = None
                         self._segment_path = lambda: "bfd-tunnel-path" + "[interface='" + str(self.interface) + "']" + "[lsp-type='" + str(self.lsp_type) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BfdState.Sessions.Session.BfdTunnelPaths.BfdTunnelPath, ['interface', 'lsp_type', 'ld', 'rd', 'remote_state', 'state'], name, value)
@@ -421,6 +427,7 @@ class BfdState(Entity):
 
                     self.bfd_circuit = YList(self)
                     self._segment_path = lambda: "bfd-circuits"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BfdState.Sessions.Session.BfdCircuits, [], name, value)
@@ -483,12 +490,12 @@ class BfdState(Entity):
                         self.ylist_key_names = ['interface','vcid']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('vcid', YLeaf(YType.uint32, 'vcid')),
-                            ('ld', YLeaf(YType.uint32, 'ld')),
-                            ('rd', YLeaf(YType.uint32, 'rd')),
-                            ('remote_state', YLeaf(YType.enumeration, 'remote-state')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('vcid', (YLeaf(YType.uint32, 'vcid'), ['int'])),
+                            ('ld', (YLeaf(YType.uint32, 'ld'), ['int'])),
+                            ('rd', (YLeaf(YType.uint32, 'rd'), ['int'])),
+                            ('remote_state', (YLeaf(YType.enumeration, 'remote-state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper', 'BfdRemoteStateType', '')])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper', 'BfdStateType', '')])),
                         ])
                         self.interface = None
                         self.vcid = None
@@ -497,6 +504,7 @@ class BfdState(Entity):
                         self.remote_state = None
                         self.state = None
                         self._segment_path = lambda: "bfd-circuit" + "[interface='" + str(self.interface) + "']" + "[vcid='" + str(self.vcid) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BfdState.Sessions.Session.BfdCircuits.BfdCircuit, ['interface', 'vcid', 'ld', 'rd', 'remote_state', 'state'], name, value)
@@ -531,6 +539,7 @@ class BfdState(Entity):
 
                     self.bfd_nbr = YList(self)
                     self._segment_path = lambda: "bfd-nbrs"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BfdState.Sessions.Session.BfdNbrs, [], name, value)
@@ -599,12 +608,12 @@ class BfdState(Entity):
                         self.ylist_key_names = ['ip','interface']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ip', YLeaf(YType.str, 'ip')),
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('ld', YLeaf(YType.uint32, 'ld')),
-                            ('rd', YLeaf(YType.uint32, 'rd')),
-                            ('remote_state', YLeaf(YType.enumeration, 'remote-state')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('ip', (YLeaf(YType.str, 'ip'), ['str','str'])),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('ld', (YLeaf(YType.uint32, 'ld'), ['int'])),
+                            ('rd', (YLeaf(YType.uint32, 'rd'), ['int'])),
+                            ('remote_state', (YLeaf(YType.enumeration, 'remote-state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper', 'BfdRemoteStateType', '')])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper', 'BfdStateType', '')])),
                         ])
                         self.ip = None
                         self.interface = None
@@ -613,6 +622,7 @@ class BfdState(Entity):
                         self.remote_state = None
                         self.state = None
                         self._segment_path = lambda: "bfd-nbr" + "[ip='" + str(self.ip) + "']" + "[interface='" + str(self.interface) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BfdState.Sessions.Session.BfdNbrs.BfdNbr, ['ip', 'interface', 'ld', 'rd', 'remote_state', 'state'], name, value)
@@ -648,6 +658,7 @@ class BfdState(Entity):
 
                     self.bfd_mhop_nbr = YList(self)
                     self._segment_path = lambda: "bfd-mhop-nbrs"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BfdState.Sessions.Session.BfdMhopNbrs, [], name, value)
@@ -724,12 +735,12 @@ class BfdState(Entity):
                         self.ylist_key_names = ['ip','src_ip']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ip', YLeaf(YType.str, 'ip')),
-                            ('src_ip', YLeaf(YType.str, 'src-ip')),
-                            ('ld', YLeaf(YType.uint32, 'ld')),
-                            ('rd', YLeaf(YType.uint32, 'rd')),
-                            ('remote_state', YLeaf(YType.enumeration, 'remote-state')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('ip', (YLeaf(YType.str, 'ip'), ['str','str'])),
+                            ('src_ip', (YLeaf(YType.str, 'src-ip'), ['str','str'])),
+                            ('ld', (YLeaf(YType.uint32, 'ld'), ['int'])),
+                            ('rd', (YLeaf(YType.uint32, 'rd'), ['int'])),
+                            ('remote_state', (YLeaf(YType.enumeration, 'remote-state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper', 'BfdRemoteStateType', '')])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper', 'BfdStateType', '')])),
                         ])
                         self.ip = None
                         self.src_ip = None
@@ -738,6 +749,7 @@ class BfdState(Entity):
                         self.remote_state = None
                         self.state = None
                         self._segment_path = lambda: "bfd-mhop-nbr" + "[ip='" + str(self.ip) + "']" + "[src-ip='" + str(self.src_ip) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BfdState.Sessions.Session.BfdMhopNbrs.BfdMhopNbr, ['ip', 'src_ip', 'ld', 'rd', 'remote_state', 'state'], name, value)
@@ -773,6 +785,7 @@ class BfdState(Entity):
 
                     self.bfd_mhop_vrf_nbr = YList(self)
                     self._segment_path = lambda: "bfd-mhop-vrf-nbrs"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(BfdState.Sessions.Session.BfdMhopVrfNbrs, [], name, value)
@@ -854,13 +867,13 @@ class BfdState(Entity):
                         self.ylist_key_names = ['ip','vrf','src_ip']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ip', YLeaf(YType.str, 'ip')),
-                            ('vrf', YLeaf(YType.str, 'vrf')),
-                            ('src_ip', YLeaf(YType.str, 'src-ip')),
-                            ('ld', YLeaf(YType.uint32, 'ld')),
-                            ('rd', YLeaf(YType.uint32, 'rd')),
-                            ('remote_state', YLeaf(YType.enumeration, 'remote-state')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
+                            ('ip', (YLeaf(YType.str, 'ip'), ['str','str'])),
+                            ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                            ('src_ip', (YLeaf(YType.str, 'src-ip'), ['str','str'])),
+                            ('ld', (YLeaf(YType.uint32, 'ld'), ['int'])),
+                            ('rd', (YLeaf(YType.uint32, 'rd'), ['int'])),
+                            ('remote_state', (YLeaf(YType.enumeration, 'remote-state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper', 'BfdRemoteStateType', '')])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_bfd_oper', 'BfdStateType', '')])),
                         ])
                         self.ip = None
                         self.vrf = None
@@ -870,6 +883,7 @@ class BfdState(Entity):
                         self.remote_state = None
                         self.state = None
                         self._segment_path = lambda: "bfd-mhop-vrf-nbr" + "[ip='" + str(self.ip) + "']" + "[vrf='" + str(self.vrf) + "']" + "[src-ip='" + str(self.src_ip) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(BfdState.Sessions.Session.BfdMhopVrfNbrs.BfdMhopVrfNbr, ['ip', 'vrf', 'src_ip', 'ld', 'rd', 'remote_state', 'state'], name, value)

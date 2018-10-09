@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,13 @@ class Lldp(Entity):
     .. attribute:: enable_subintf
     
     	Enable or disable LLDP on Sub\-interfaces as well globally
+    	**type**\: bool
+    
+    	**default value**\: false
+    
+    .. attribute:: enable_mgmtintf
+    
+    	Enable or disable LLDP on Mgmt interfaces as well globally
     	**type**\: bool
     
     	**default value**\: false
@@ -99,16 +107,18 @@ class Lldp(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("tlv-select", ("tlv_select", Lldp.TlvSelect))])
         self._leafs = OrderedDict([
-            ('holdtime', YLeaf(YType.uint32, 'holdtime')),
-            ('extended_show_width', YLeaf(YType.boolean, 'extended-show-width')),
-            ('enable_subintf', YLeaf(YType.boolean, 'enable-subintf')),
-            ('timer', YLeaf(YType.uint32, 'timer')),
-            ('reinit', YLeaf(YType.uint32, 'reinit')),
-            ('enable', YLeaf(YType.boolean, 'enable')),
+            ('holdtime', (YLeaf(YType.uint32, 'holdtime'), ['int'])),
+            ('extended_show_width', (YLeaf(YType.boolean, 'extended-show-width'), ['bool'])),
+            ('enable_subintf', (YLeaf(YType.boolean, 'enable-subintf'), ['bool'])),
+            ('enable_mgmtintf', (YLeaf(YType.boolean, 'enable-mgmtintf'), ['bool'])),
+            ('timer', (YLeaf(YType.uint32, 'timer'), ['int'])),
+            ('reinit', (YLeaf(YType.uint32, 'reinit'), ['int'])),
+            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
         ])
         self.holdtime = None
         self.extended_show_width = None
         self.enable_subintf = None
+        self.enable_mgmtintf = None
         self.timer = None
         self.reinit = None
         self.enable = None
@@ -116,9 +126,10 @@ class Lldp(Entity):
         self.tlv_select = None
         self._children_name_map["tlv_select"] = "tlv-select"
         self._segment_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Lldp, ['holdtime', 'extended_show_width', 'enable_subintf', 'timer', 'reinit', 'enable'], name, value)
+        self._perform_setattr(Lldp, ['holdtime', 'extended_show_width', 'enable_subintf', 'enable_mgmtintf', 'timer', 'reinit', 'enable'], name, value)
 
 
     class TlvSelect(Entity):
@@ -177,7 +188,7 @@ class Lldp(Entity):
             self._child_classes = OrderedDict([("system-name", ("system_name", Lldp.TlvSelect.SystemName)), ("port-description", ("port_description", Lldp.TlvSelect.PortDescription)), ("system-description", ("system_description", Lldp.TlvSelect.SystemDescription)), ("system-capabilities", ("system_capabilities", Lldp.TlvSelect.SystemCapabilities)), ("management-address", ("management_address", Lldp.TlvSelect.ManagementAddress))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('tlv_select_enter', YLeaf(YType.boolean, 'tlv-select-enter')),
+                ('tlv_select_enter', (YLeaf(YType.boolean, 'tlv-select-enter'), ['bool'])),
             ])
             self.tlv_select_enter = None
 
@@ -202,6 +213,7 @@ class Lldp(Entity):
             self._children_name_map["management_address"] = "management-address"
             self._segment_path = lambda: "tlv-select"
             self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Lldp.TlvSelect, ['tlv_select_enter'], name, value)
@@ -235,11 +247,12 @@ class Lldp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('disable', YLeaf(YType.boolean, 'disable')),
+                    ('disable', (YLeaf(YType.boolean, 'disable'), ['bool'])),
                 ])
                 self.disable = None
                 self._segment_path = lambda: "system-name"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.TlvSelect.SystemName, ['disable'], name, value)
@@ -273,11 +286,12 @@ class Lldp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('disable', YLeaf(YType.boolean, 'disable')),
+                    ('disable', (YLeaf(YType.boolean, 'disable'), ['bool'])),
                 ])
                 self.disable = None
                 self._segment_path = lambda: "port-description"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.TlvSelect.PortDescription, ['disable'], name, value)
@@ -311,11 +325,12 @@ class Lldp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('disable', YLeaf(YType.boolean, 'disable')),
+                    ('disable', (YLeaf(YType.boolean, 'disable'), ['bool'])),
                 ])
                 self.disable = None
                 self._segment_path = lambda: "system-description"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.TlvSelect.SystemDescription, ['disable'], name, value)
@@ -349,11 +364,12 @@ class Lldp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('disable', YLeaf(YType.boolean, 'disable')),
+                    ('disable', (YLeaf(YType.boolean, 'disable'), ['bool'])),
                 ])
                 self.disable = None
                 self._segment_path = lambda: "system-capabilities"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.TlvSelect.SystemCapabilities, ['disable'], name, value)
@@ -387,11 +403,12 @@ class Lldp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('disable', YLeaf(YType.boolean, 'disable')),
+                    ('disable', (YLeaf(YType.boolean, 'disable'), ['bool'])),
                 ])
                 self.disable = None
                 self._segment_path = lambda: "management-address"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-cfg:lldp/tlv-select/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.TlvSelect.ManagementAddress, ['disable'], name, value)

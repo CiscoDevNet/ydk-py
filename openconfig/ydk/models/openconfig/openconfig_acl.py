@@ -23,6 +23,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class FORWARDINGACTION(Identity):
     """
     Base identity for actions in the forwarding category
@@ -34,8 +35,8 @@ class FORWARDINGACTION(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(FORWARDINGACTION, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:FORWARDING_ACTION")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:FORWARDING_ACTION"):
+        super(FORWARDINGACTION, self).__init__(ns, pref, tag)
 
 
 class ACLTYPE(Identity):
@@ -49,8 +50,8 @@ class ACLTYPE(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(ACLTYPE, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:ACL_TYPE")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_TYPE"):
+        super(ACLTYPE, self).__init__(ns, pref, tag)
 
 
 class ACLCOUNTERCAPABILITY(Identity):
@@ -65,8 +66,8 @@ class ACLCOUNTERCAPABILITY(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(ACLCOUNTERCAPABILITY, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:ACL_COUNTER_CAPABILITY")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_COUNTER_CAPABILITY"):
+        super(ACLCOUNTERCAPABILITY, self).__init__(ns, pref, tag)
 
 
 class LOGACTION(Identity):
@@ -81,8 +82,8 @@ class LOGACTION(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(LOGACTION, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:LOG_ACTION")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:LOG_ACTION"):
+        super(LOGACTION, self).__init__(ns, pref, tag)
 
 
 class Acl(Entity):
@@ -145,6 +146,7 @@ class Acl(Entity):
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
         self._segment_path = lambda: "openconfig-acl:acl"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Acl, [], name, value)
@@ -173,6 +175,7 @@ class Acl(Entity):
             self._leafs = OrderedDict()
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "openconfig-acl:acl/%s" % self._segment_path()
+            self._is_frozen = True
 
 
     class State(Entity):
@@ -201,11 +204,12 @@ class Acl(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('counter_capability', YLeaf(YType.identityref, 'counter-capability')),
+                ('counter_capability', (YLeaf(YType.identityref, 'counter-capability'), [('ydk.models.openconfig.openconfig_acl', 'ACLCOUNTERCAPABILITY')])),
             ])
             self.counter_capability = None
             self._segment_path = lambda: "state"
             self._absolute_path = lambda: "openconfig-acl:acl/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Acl.State, ['counter_capability'], name, value)
@@ -241,6 +245,7 @@ class Acl(Entity):
             self.acl_set = YList(self)
             self._segment_path = lambda: "acl-sets"
             self._absolute_path = lambda: "openconfig-acl:acl/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Acl.AclSets, [], name, value)
@@ -295,8 +300,8 @@ class Acl(Entity):
                 self.ylist_key_names = ['name','type']
                 self._child_classes = OrderedDict([("config", ("config", Acl.AclSets.AclSet.Config)), ("state", ("state", Acl.AclSets.AclSet.State)), ("acl-entries", ("acl_entries", Acl.AclSets.AclSet.AclEntries))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('type', YLeaf(YType.identityref, 'type')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.openconfig.openconfig_acl', 'ACLTYPE')])),
                 ])
                 self.name = None
                 self.type = None
@@ -314,6 +319,7 @@ class Acl(Entity):
                 self._children_name_map["acl_entries"] = "acl-entries"
                 self._segment_path = lambda: "acl-set" + "[name='" + str(self.name) + "']" + "[type='" + str(self.type) + "']"
                 self._absolute_path = lambda: "openconfig-acl:acl/acl-sets/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Acl.AclSets.AclSet, ['name', 'type'], name, value)
@@ -355,14 +361,15 @@ class Acl(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('type', YLeaf(YType.identityref, 'type')),
-                        ('description', YLeaf(YType.str, 'description')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.openconfig.openconfig_acl', 'ACLTYPE')])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
                     ])
                     self.name = None
                     self.type = None
                     self.description = None
                     self._segment_path = lambda: "config"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Acl.AclSets.AclSet.Config, ['name', 'type', 'description'], name, value)
@@ -404,14 +411,15 @@ class Acl(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('type', YLeaf(YType.identityref, 'type')),
-                        ('description', YLeaf(YType.str, 'description')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.openconfig.openconfig_acl', 'ACLTYPE')])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
                     ])
                     self.name = None
                     self.type = None
                     self.description = None
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Acl.AclSets.AclSet.State, ['name', 'type', 'description'], name, value)
@@ -446,6 +454,7 @@ class Acl(Entity):
 
                     self.acl_entry = YList(self)
                     self._segment_path = lambda: "acl-entries"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Acl.AclSets.AclSet.AclEntries, [], name, value)
@@ -521,7 +530,7 @@ class Acl(Entity):
                         self.ylist_key_names = ['sequence_id']
                         self._child_classes = OrderedDict([("config", ("config", Acl.AclSets.AclSet.AclEntries.AclEntry.Config)), ("state", ("state", Acl.AclSets.AclSet.AclEntries.AclEntry.State)), ("l2", ("l2", Acl.AclSets.AclSet.AclEntries.AclEntry.L2)), ("ipv4", ("ipv4", Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv4)), ("ipv6", ("ipv6", Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv6)), ("transport", ("transport", Acl.AclSets.AclSet.AclEntries.AclEntry.Transport)), ("input-interface", ("input_interface", Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface)), ("actions", ("actions", Acl.AclSets.AclSet.AclEntries.AclEntry.Actions))])
                         self._leafs = OrderedDict([
-                            ('sequence_id', YLeaf(YType.str, 'sequence-id')),
+                            ('sequence_id', (YLeaf(YType.str, 'sequence-id'), ['int'])),
                         ])
                         self.sequence_id = None
 
@@ -557,6 +566,7 @@ class Acl(Entity):
                         self.actions.parent = self
                         self._children_name_map["actions"] = "actions"
                         self._segment_path = lambda: "acl-entry" + "[sequence-id='" + str(self.sequence_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry, ['sequence_id'], name, value)
@@ -595,12 +605,13 @@ class Acl(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sequence_id', YLeaf(YType.uint32, 'sequence-id')),
-                                ('description', YLeaf(YType.str, 'description')),
+                                ('sequence_id', (YLeaf(YType.uint32, 'sequence-id'), ['int'])),
+                                ('description', (YLeaf(YType.str, 'description'), ['str'])),
                             ])
                             self.sequence_id = None
                             self.description = None
                             self._segment_path = lambda: "config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Config, ['sequence_id', 'description'], name, value)
@@ -653,16 +664,17 @@ class Acl(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('sequence_id', YLeaf(YType.uint32, 'sequence-id')),
-                                ('description', YLeaf(YType.str, 'description')),
-                                ('matched_packets', YLeaf(YType.uint64, 'matched-packets')),
-                                ('matched_octets', YLeaf(YType.uint64, 'matched-octets')),
+                                ('sequence_id', (YLeaf(YType.uint32, 'sequence-id'), ['int'])),
+                                ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                                ('matched_packets', (YLeaf(YType.uint64, 'matched-packets'), ['int'])),
+                                ('matched_octets', (YLeaf(YType.uint64, 'matched-octets'), ['int'])),
                             ])
                             self.sequence_id = None
                             self.description = None
                             self.matched_packets = None
                             self.matched_octets = None
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.State, ['sequence_id', 'description', 'matched_packets', 'matched_octets'], name, value)
@@ -708,6 +720,7 @@ class Acl(Entity):
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._segment_path = lambda: "l2"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.L2, [], name, value)
@@ -773,11 +786,11 @@ class Acl(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('source_mac', YLeaf(YType.str, 'source-mac')),
-                                    ('source_mac_mask', YLeaf(YType.str, 'source-mac-mask')),
-                                    ('destination_mac', YLeaf(YType.str, 'destination-mac')),
-                                    ('destination_mac_mask', YLeaf(YType.str, 'destination-mac-mask')),
-                                    ('ethertype', YLeaf(YType.str, 'ethertype')),
+                                    ('source_mac', (YLeaf(YType.str, 'source-mac'), ['str'])),
+                                    ('source_mac_mask', (YLeaf(YType.str, 'source-mac-mask'), ['str'])),
+                                    ('destination_mac', (YLeaf(YType.str, 'destination-mac'), ['str'])),
+                                    ('destination_mac_mask', (YLeaf(YType.str, 'destination-mac-mask'), ['str'])),
+                                    ('ethertype', (YLeaf(YType.str, 'ethertype'), ['int',('ydk.models.openconfig.openconfig_packet_match_types', 'ETHERTYPE')])),
                                 ])
                                 self.source_mac = None
                                 self.source_mac_mask = None
@@ -785,6 +798,7 @@ class Acl(Entity):
                                 self.destination_mac_mask = None
                                 self.ethertype = None
                                 self._segment_path = lambda: "config"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.L2.Config, ['source_mac', 'source_mac_mask', 'destination_mac', 'destination_mac_mask', 'ethertype'], name, value)
@@ -850,11 +864,11 @@ class Acl(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('source_mac', YLeaf(YType.str, 'source-mac')),
-                                    ('source_mac_mask', YLeaf(YType.str, 'source-mac-mask')),
-                                    ('destination_mac', YLeaf(YType.str, 'destination-mac')),
-                                    ('destination_mac_mask', YLeaf(YType.str, 'destination-mac-mask')),
-                                    ('ethertype', YLeaf(YType.str, 'ethertype')),
+                                    ('source_mac', (YLeaf(YType.str, 'source-mac'), ['str'])),
+                                    ('source_mac_mask', (YLeaf(YType.str, 'source-mac-mask'), ['str'])),
+                                    ('destination_mac', (YLeaf(YType.str, 'destination-mac'), ['str'])),
+                                    ('destination_mac_mask', (YLeaf(YType.str, 'destination-mac-mask'), ['str'])),
+                                    ('ethertype', (YLeaf(YType.str, 'ethertype'), ['int',('ydk.models.openconfig.openconfig_packet_match_types', 'ETHERTYPE')])),
                                 ])
                                 self.source_mac = None
                                 self.source_mac_mask = None
@@ -862,6 +876,7 @@ class Acl(Entity):
                                 self.destination_mac_mask = None
                                 self.ethertype = None
                                 self._segment_path = lambda: "state"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.L2.State, ['source_mac', 'source_mac_mask', 'destination_mac', 'destination_mac_mask', 'ethertype'], name, value)
@@ -907,6 +922,7 @@ class Acl(Entity):
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._segment_path = lambda: "ipv4"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv4, [], name, value)
@@ -972,11 +988,11 @@ class Acl(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                                    ('dscp', YLeaf(YType.uint8, 'dscp')),
-                                    ('protocol', YLeaf(YType.str, 'protocol')),
-                                    ('hop_limit', YLeaf(YType.uint8, 'hop-limit')),
+                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                                    ('dscp', (YLeaf(YType.uint8, 'dscp'), ['int'])),
+                                    ('protocol', (YLeaf(YType.str, 'protocol'), ['int',('ydk.models.openconfig.openconfig_packet_match_types', 'IPPROTOCOL')])),
+                                    ('hop_limit', (YLeaf(YType.uint8, 'hop-limit'), ['int'])),
                                 ])
                                 self.source_address = None
                                 self.destination_address = None
@@ -984,6 +1000,7 @@ class Acl(Entity):
                                 self.protocol = None
                                 self.hop_limit = None
                                 self._segment_path = lambda: "config"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv4.Config, ['source_address', 'destination_address', 'dscp', 'protocol', 'hop_limit'], name, value)
@@ -1049,11 +1066,11 @@ class Acl(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                                    ('dscp', YLeaf(YType.uint8, 'dscp')),
-                                    ('protocol', YLeaf(YType.str, 'protocol')),
-                                    ('hop_limit', YLeaf(YType.uint8, 'hop-limit')),
+                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                                    ('dscp', (YLeaf(YType.uint8, 'dscp'), ['int'])),
+                                    ('protocol', (YLeaf(YType.str, 'protocol'), ['int',('ydk.models.openconfig.openconfig_packet_match_types', 'IPPROTOCOL')])),
+                                    ('hop_limit', (YLeaf(YType.uint8, 'hop-limit'), ['int'])),
                                 ])
                                 self.source_address = None
                                 self.destination_address = None
@@ -1061,6 +1078,7 @@ class Acl(Entity):
                                 self.protocol = None
                                 self.hop_limit = None
                                 self._segment_path = lambda: "state"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv4.State, ['source_address', 'destination_address', 'dscp', 'protocol', 'hop_limit'], name, value)
@@ -1106,6 +1124,7 @@ class Acl(Entity):
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._segment_path = lambda: "ipv6"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv6, [], name, value)
@@ -1185,13 +1204,13 @@ class Acl(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                    ('source_flow_label', YLeaf(YType.uint32, 'source-flow-label')),
-                                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                                    ('destination_flow_label', YLeaf(YType.uint32, 'destination-flow-label')),
-                                    ('dscp', YLeaf(YType.uint8, 'dscp')),
-                                    ('protocol', YLeaf(YType.str, 'protocol')),
-                                    ('hop_limit', YLeaf(YType.uint8, 'hop-limit')),
+                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                    ('source_flow_label', (YLeaf(YType.uint32, 'source-flow-label'), ['int'])),
+                                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                                    ('destination_flow_label', (YLeaf(YType.uint32, 'destination-flow-label'), ['int'])),
+                                    ('dscp', (YLeaf(YType.uint8, 'dscp'), ['int'])),
+                                    ('protocol', (YLeaf(YType.str, 'protocol'), ['int',('ydk.models.openconfig.openconfig_packet_match_types', 'IPPROTOCOL')])),
+                                    ('hop_limit', (YLeaf(YType.uint8, 'hop-limit'), ['int'])),
                                 ])
                                 self.source_address = None
                                 self.source_flow_label = None
@@ -1201,6 +1220,7 @@ class Acl(Entity):
                                 self.protocol = None
                                 self.hop_limit = None
                                 self._segment_path = lambda: "config"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv6.Config, ['source_address', 'source_flow_label', 'destination_address', 'destination_flow_label', 'dscp', 'protocol', 'hop_limit'], name, value)
@@ -1280,13 +1300,13 @@ class Acl(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                    ('source_flow_label', YLeaf(YType.uint32, 'source-flow-label')),
-                                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                                    ('destination_flow_label', YLeaf(YType.uint32, 'destination-flow-label')),
-                                    ('dscp', YLeaf(YType.uint8, 'dscp')),
-                                    ('protocol', YLeaf(YType.str, 'protocol')),
-                                    ('hop_limit', YLeaf(YType.uint8, 'hop-limit')),
+                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                    ('source_flow_label', (YLeaf(YType.uint32, 'source-flow-label'), ['int'])),
+                                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                                    ('destination_flow_label', (YLeaf(YType.uint32, 'destination-flow-label'), ['int'])),
+                                    ('dscp', (YLeaf(YType.uint8, 'dscp'), ['int'])),
+                                    ('protocol', (YLeaf(YType.str, 'protocol'), ['int',('ydk.models.openconfig.openconfig_packet_match_types', 'IPPROTOCOL')])),
+                                    ('hop_limit', (YLeaf(YType.uint8, 'hop-limit'), ['int'])),
                                 ])
                                 self.source_address = None
                                 self.source_flow_label = None
@@ -1296,6 +1316,7 @@ class Acl(Entity):
                                 self.protocol = None
                                 self.hop_limit = None
                                 self._segment_path = lambda: "state"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Ipv6.State, ['source_address', 'source_flow_label', 'destination_address', 'destination_flow_label', 'dscp', 'protocol', 'hop_limit'], name, value)
@@ -1341,6 +1362,7 @@ class Acl(Entity):
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._segment_path = lambda: "transport"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Transport, [], name, value)
@@ -1402,14 +1424,15 @@ class Acl(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('source_port', YLeaf(YType.str, 'source-port')),
-                                    ('destination_port', YLeaf(YType.str, 'destination-port')),
-                                    ('tcp_flags', YLeafList(YType.identityref, 'tcp-flags')),
+                                    ('source_port', (YLeaf(YType.str, 'source-port'), ['str','int',('ydk.models.openconfig.openconfig_packet_match_types', 'PortNumRange', '')])),
+                                    ('destination_port', (YLeaf(YType.str, 'destination-port'), ['str','int',('ydk.models.openconfig.openconfig_packet_match_types', 'PortNumRange', '')])),
+                                    ('tcp_flags', (YLeafList(YType.identityref, 'tcp-flags'), [('ydk.models.openconfig.openconfig_packet_match_types', 'TCPFLAGS')])),
                                 ])
                                 self.source_port = None
                                 self.destination_port = None
                                 self.tcp_flags = []
                                 self._segment_path = lambda: "config"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Transport.Config, ['source_port', 'destination_port', 'tcp_flags'], name, value)
@@ -1471,14 +1494,15 @@ class Acl(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('source_port', YLeaf(YType.str, 'source-port')),
-                                    ('destination_port', YLeaf(YType.str, 'destination-port')),
-                                    ('tcp_flags', YLeafList(YType.identityref, 'tcp-flags')),
+                                    ('source_port', (YLeaf(YType.str, 'source-port'), ['str','int',('ydk.models.openconfig.openconfig_packet_match_types', 'PortNumRange', '')])),
+                                    ('destination_port', (YLeaf(YType.str, 'destination-port'), ['str','int',('ydk.models.openconfig.openconfig_packet_match_types', 'PortNumRange', '')])),
+                                    ('tcp_flags', (YLeafList(YType.identityref, 'tcp-flags'), [('ydk.models.openconfig.openconfig_packet_match_types', 'TCPFLAGS')])),
                                 ])
                                 self.source_port = None
                                 self.destination_port = None
                                 self.tcp_flags = []
                                 self._segment_path = lambda: "state"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Transport.State, ['source_port', 'destination_port', 'tcp_flags'], name, value)
@@ -1533,6 +1557,7 @@ class Acl(Entity):
                             self.interface_ref.parent = self
                             self._children_name_map["interface_ref"] = "interface-ref"
                             self._segment_path = lambda: "input-interface"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface, [], name, value)
@@ -1560,6 +1585,7 @@ class Acl(Entity):
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "config"
+                                self._is_frozen = True
 
 
                         class State(Entity):
@@ -1584,6 +1610,7 @@ class Acl(Entity):
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict()
                                 self._segment_path = lambda: "state"
+                                self._is_frozen = True
 
 
                         class InterfaceRef(Entity):
@@ -1626,6 +1653,7 @@ class Acl(Entity):
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
                                 self._segment_path = lambda: "interface-ref"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef, [], name, value)
@@ -1668,12 +1696,13 @@ class Acl(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('interface', YLeaf(YType.str, 'interface')),
-                                        ('subinterface', YLeaf(YType.str, 'subinterface')),
+                                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                        ('subinterface', (YLeaf(YType.str, 'subinterface'), ['int'])),
                                     ])
                                     self.interface = None
                                     self.subinterface = None
                                     self._segment_path = lambda: "config"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
@@ -1716,12 +1745,13 @@ class Acl(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('interface', YLeaf(YType.str, 'interface')),
-                                        ('subinterface', YLeaf(YType.str, 'subinterface')),
+                                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                        ('subinterface', (YLeaf(YType.str, 'subinterface'), ['int'])),
                                     ])
                                     self.interface = None
                                     self.subinterface = None
                                     self._segment_path = lambda: "state"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.InputInterface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
@@ -1768,6 +1798,7 @@ class Acl(Entity):
                             self.state.parent = self
                             self._children_name_map["state"] = "state"
                             self._segment_path = lambda: "actions"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Actions, [], name, value)
@@ -1808,12 +1839,13 @@ class Acl(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('forwarding_action', YLeaf(YType.identityref, 'forwarding-action')),
-                                    ('log_action', YLeaf(YType.identityref, 'log-action')),
+                                    ('forwarding_action', (YLeaf(YType.identityref, 'forwarding-action'), [('ydk.models.openconfig.openconfig_acl', 'FORWARDINGACTION')])),
+                                    ('log_action', (YLeaf(YType.identityref, 'log-action'), [('ydk.models.openconfig.openconfig_acl', 'LOGACTION')])),
                                 ])
                                 self.forwarding_action = None
                                 self.log_action = None
                                 self._segment_path = lambda: "config"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Actions.Config, ['forwarding_action', 'log_action'], name, value)
@@ -1854,12 +1886,13 @@ class Acl(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('forwarding_action', YLeaf(YType.identityref, 'forwarding-action')),
-                                    ('log_action', YLeaf(YType.identityref, 'log-action')),
+                                    ('forwarding_action', (YLeaf(YType.identityref, 'forwarding-action'), [('ydk.models.openconfig.openconfig_acl', 'FORWARDINGACTION')])),
+                                    ('log_action', (YLeaf(YType.identityref, 'log-action'), [('ydk.models.openconfig.openconfig_acl', 'LOGACTION')])),
                                 ])
                                 self.forwarding_action = None
                                 self.log_action = None
                                 self._segment_path = lambda: "state"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Acl.AclSets.AclSet.AclEntries.AclEntry.Actions.State, ['forwarding_action', 'log_action'], name, value)
@@ -1896,6 +1929,7 @@ class Acl(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "openconfig-acl:acl/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Acl.Interfaces, [], name, value)
@@ -1954,7 +1988,7 @@ class Acl(Entity):
                 self.ylist_key_names = ['id']
                 self._child_classes = OrderedDict([("config", ("config", Acl.Interfaces.Interface.Config)), ("state", ("state", Acl.Interfaces.Interface.State)), ("interface-ref", ("interface_ref", Acl.Interfaces.Interface.InterfaceRef)), ("ingress-acl-sets", ("ingress_acl_sets", Acl.Interfaces.Interface.IngressAclSets)), ("egress-acl-sets", ("egress_acl_sets", Acl.Interfaces.Interface.EgressAclSets))])
                 self._leafs = OrderedDict([
-                    ('id', YLeaf(YType.str, 'id')),
+                    ('id', (YLeaf(YType.str, 'id'), ['str'])),
                 ])
                 self.id = None
 
@@ -1979,6 +2013,7 @@ class Acl(Entity):
                 self._children_name_map["egress_acl_sets"] = "egress-acl-sets"
                 self._segment_path = lambda: "interface" + "[id='" + str(self.id) + "']"
                 self._absolute_path = lambda: "openconfig-acl:acl/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Acl.Interfaces.Interface, ['id'], name, value)
@@ -2010,10 +2045,11 @@ class Acl(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('id', YLeaf(YType.str, 'id')),
+                        ('id', (YLeaf(YType.str, 'id'), ['str'])),
                     ])
                     self.id = None
                     self._segment_path = lambda: "config"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Acl.Interfaces.Interface.Config, ['id'], name, value)
@@ -2045,10 +2081,11 @@ class Acl(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('id', YLeaf(YType.str, 'id')),
+                        ('id', (YLeaf(YType.str, 'id'), ['str'])),
                     ])
                     self.id = None
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Acl.Interfaces.Interface.State, ['id'], name, value)
@@ -2094,6 +2131,7 @@ class Acl(Entity):
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._segment_path = lambda: "interface-ref"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Acl.Interfaces.Interface.InterfaceRef, [], name, value)
@@ -2136,12 +2174,13 @@ class Acl(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('subinterface', YLeaf(YType.str, 'subinterface')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('subinterface', (YLeaf(YType.str, 'subinterface'), ['int'])),
                         ])
                         self.interface = None
                         self.subinterface = None
                         self._segment_path = lambda: "config"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Acl.Interfaces.Interface.InterfaceRef.Config, [u'interface', u'subinterface'], name, value)
@@ -2184,12 +2223,13 @@ class Acl(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('subinterface', YLeaf(YType.str, 'subinterface')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('subinterface', (YLeaf(YType.str, 'subinterface'), ['int'])),
                         ])
                         self.interface = None
                         self.subinterface = None
                         self._segment_path = lambda: "state"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Acl.Interfaces.Interface.InterfaceRef.State, [u'interface', u'subinterface'], name, value)
@@ -2225,6 +2265,7 @@ class Acl(Entity):
 
                     self.ingress_acl_set = YList(self)
                     self._segment_path = lambda: "ingress-acl-sets"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Acl.Interfaces.Interface.IngressAclSets, [], name, value)
@@ -2278,8 +2319,8 @@ class Acl(Entity):
                         self.ylist_key_names = ['set_name','type']
                         self._child_classes = OrderedDict([("config", ("config", Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.Config)), ("state", ("state", Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.State)), ("acl-entries", ("acl_entries", Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries))])
                         self._leafs = OrderedDict([
-                            ('set_name', YLeaf(YType.str, 'set-name')),
-                            ('type', YLeaf(YType.identityref, 'type')),
+                            ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                            ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.openconfig.openconfig_acl', 'ACLTYPE')])),
                         ])
                         self.set_name = None
                         self.type = None
@@ -2296,6 +2337,7 @@ class Acl(Entity):
                         self.acl_entries.parent = self
                         self._children_name_map["acl_entries"] = "acl-entries"
                         self._segment_path = lambda: "ingress-acl-set" + "[set-name='" + str(self.set_name) + "']" + "[type='" + str(self.type) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet, ['set_name', 'type'], name, value)
@@ -2334,12 +2376,13 @@ class Acl(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('set_name', YLeaf(YType.str, 'set-name')),
-                                ('type', YLeaf(YType.identityref, 'type')),
+                                ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                                ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.openconfig.openconfig_acl', 'ACLTYPE')])),
                             ])
                             self.set_name = None
                             self.type = None
                             self._segment_path = lambda: "config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.Config, ['set_name', 'type'], name, value)
@@ -2378,12 +2421,13 @@ class Acl(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('set_name', YLeaf(YType.str, 'set-name')),
-                                ('type', YLeaf(YType.identityref, 'type')),
+                                ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                                ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.openconfig.openconfig_acl', 'ACLTYPE')])),
                             ])
                             self.set_name = None
                             self.type = None
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.State, ['set_name', 'type'], name, value)
@@ -2418,6 +2462,7 @@ class Acl(Entity):
 
                             self.acl_entry = YList(self)
                             self._segment_path = lambda: "acl-entries"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries, [], name, value)
@@ -2458,7 +2503,7 @@ class Acl(Entity):
                                 self.ylist_key_names = ['sequence_id']
                                 self._child_classes = OrderedDict([("state", ("state", Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry.State))])
                                 self._leafs = OrderedDict([
-                                    ('sequence_id', YLeaf(YType.str, 'sequence-id')),
+                                    ('sequence_id', (YLeaf(YType.str, 'sequence-id'), ['int'])),
                                 ])
                                 self.sequence_id = None
 
@@ -2466,6 +2511,7 @@ class Acl(Entity):
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
                                 self._segment_path = lambda: "acl-entry" + "[sequence-id='" + str(self.sequence_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry, ['sequence_id'], name, value)
@@ -2515,14 +2561,15 @@ class Acl(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('sequence_id', YLeaf(YType.str, 'sequence-id')),
-                                        ('matched_packets', YLeaf(YType.uint64, 'matched-packets')),
-                                        ('matched_octets', YLeaf(YType.uint64, 'matched-octets')),
+                                        ('sequence_id', (YLeaf(YType.str, 'sequence-id'), ['int'])),
+                                        ('matched_packets', (YLeaf(YType.uint64, 'matched-packets'), ['int'])),
+                                        ('matched_octets', (YLeaf(YType.uint64, 'matched-octets'), ['int'])),
                                     ])
                                     self.sequence_id = None
                                     self.matched_packets = None
                                     self.matched_octets = None
                                     self._segment_path = lambda: "state"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Acl.Interfaces.Interface.IngressAclSets.IngressAclSet.AclEntries.AclEntry.State, ['sequence_id', 'matched_packets', 'matched_octets'], name, value)
@@ -2558,6 +2605,7 @@ class Acl(Entity):
 
                     self.egress_acl_set = YList(self)
                     self._segment_path = lambda: "egress-acl-sets"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Acl.Interfaces.Interface.EgressAclSets, [], name, value)
@@ -2611,8 +2659,8 @@ class Acl(Entity):
                         self.ylist_key_names = ['set_name','type']
                         self._child_classes = OrderedDict([("config", ("config", Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.Config)), ("state", ("state", Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.State)), ("acl-entries", ("acl_entries", Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries))])
                         self._leafs = OrderedDict([
-                            ('set_name', YLeaf(YType.str, 'set-name')),
-                            ('type', YLeaf(YType.identityref, 'type')),
+                            ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                            ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.openconfig.openconfig_acl', 'ACLTYPE')])),
                         ])
                         self.set_name = None
                         self.type = None
@@ -2629,6 +2677,7 @@ class Acl(Entity):
                         self.acl_entries.parent = self
                         self._children_name_map["acl_entries"] = "acl-entries"
                         self._segment_path = lambda: "egress-acl-set" + "[set-name='" + str(self.set_name) + "']" + "[type='" + str(self.type) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet, ['set_name', 'type'], name, value)
@@ -2667,12 +2716,13 @@ class Acl(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('set_name', YLeaf(YType.str, 'set-name')),
-                                ('type', YLeaf(YType.identityref, 'type')),
+                                ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                                ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.openconfig.openconfig_acl', 'ACLTYPE')])),
                             ])
                             self.set_name = None
                             self.type = None
                             self._segment_path = lambda: "config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.Config, ['set_name', 'type'], name, value)
@@ -2711,12 +2761,13 @@ class Acl(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('set_name', YLeaf(YType.str, 'set-name')),
-                                ('type', YLeaf(YType.identityref, 'type')),
+                                ('set_name', (YLeaf(YType.str, 'set-name'), ['str'])),
+                                ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.openconfig.openconfig_acl', 'ACLTYPE')])),
                             ])
                             self.set_name = None
                             self.type = None
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.State, ['set_name', 'type'], name, value)
@@ -2751,6 +2802,7 @@ class Acl(Entity):
 
                             self.acl_entry = YList(self)
                             self._segment_path = lambda: "acl-entries"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries, [], name, value)
@@ -2791,7 +2843,7 @@ class Acl(Entity):
                                 self.ylist_key_names = ['sequence_id']
                                 self._child_classes = OrderedDict([("state", ("state", Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry.State))])
                                 self._leafs = OrderedDict([
-                                    ('sequence_id', YLeaf(YType.str, 'sequence-id')),
+                                    ('sequence_id', (YLeaf(YType.str, 'sequence-id'), ['int'])),
                                 ])
                                 self.sequence_id = None
 
@@ -2799,6 +2851,7 @@ class Acl(Entity):
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
                                 self._segment_path = lambda: "acl-entry" + "[sequence-id='" + str(self.sequence_id) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry, ['sequence_id'], name, value)
@@ -2848,14 +2901,15 @@ class Acl(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('sequence_id', YLeaf(YType.str, 'sequence-id')),
-                                        ('matched_packets', YLeaf(YType.uint64, 'matched-packets')),
-                                        ('matched_octets', YLeaf(YType.uint64, 'matched-octets')),
+                                        ('sequence_id', (YLeaf(YType.str, 'sequence-id'), ['int'])),
+                                        ('matched_packets', (YLeaf(YType.uint64, 'matched-packets'), ['int'])),
+                                        ('matched_octets', (YLeaf(YType.uint64, 'matched-octets'), ['int'])),
                                     ])
                                     self.sequence_id = None
                                     self.matched_packets = None
                                     self.matched_octets = None
                                     self._segment_path = lambda: "state"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Acl.Interfaces.Interface.EgressAclSets.EgressAclSet.AclEntries.AclEntry.State, ['sequence_id', 'matched_packets', 'matched_octets'], name, value)
@@ -2864,7 +2918,7 @@ class Acl(Entity):
         self._top_entity = Acl()
         return self._top_entity
 
-class ACLL2(Identity):
+class ACLL2(ACLTYPE):
     """
     MAC\-layer ACLs
     
@@ -2875,11 +2929,11 @@ class ACLL2(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(ACLL2, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:ACL_L2")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_L2"):
+        super(ACLL2, self).__init__(ns, pref, tag)
 
 
-class ACLIPV6(Identity):
+class ACLIPV6(ACLTYPE):
     """
     IP\-layer ACLs with IPv6 addresses
     
@@ -2890,11 +2944,11 @@ class ACLIPV6(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(ACLIPV6, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:ACL_IPV6")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_IPV6"):
+        super(ACLIPV6, self).__init__(ns, pref, tag)
 
 
-class LOGNONE(Identity):
+class LOGNONE(LOGACTION):
     """
     No logging
     
@@ -2905,11 +2959,11 @@ class LOGNONE(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(LOGNONE, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:LOG_NONE")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:LOG_NONE"):
+        super(LOGNONE, self).__init__(ns, pref, tag)
 
 
-class ACLIPV4(Identity):
+class ACLIPV4(ACLTYPE):
     """
     IP\-layer ACLs with IPv4 addresses
     
@@ -2920,11 +2974,11 @@ class ACLIPV4(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(ACLIPV4, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:ACL_IPV4")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_IPV4"):
+        super(ACLIPV4, self).__init__(ns, pref, tag)
 
 
-class DROP(Identity):
+class DROP(FORWARDINGACTION):
     """
     Drop packet without sending any ICMP error message
     
@@ -2935,11 +2989,11 @@ class DROP(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(DROP, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:DROP")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:DROP"):
+        super(DROP, self).__init__(ns, pref, tag)
 
 
-class ACCEPT(Identity):
+class ACCEPT(FORWARDINGACTION):
     """
     Accept the packet
     
@@ -2950,11 +3004,11 @@ class ACCEPT(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(ACCEPT, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:ACCEPT")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACCEPT"):
+        super(ACCEPT, self).__init__(ns, pref, tag)
 
 
-class INTERFACEONLY(Identity):
+class INTERFACEONLY(ACLCOUNTERCAPABILITY):
     """
     ACL counters are available and reported only per interface
     
@@ -2965,11 +3019,11 @@ class INTERFACEONLY(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(INTERFACEONLY, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:INTERFACE_ONLY")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:INTERFACE_ONLY"):
+        super(INTERFACEONLY, self).__init__(ns, pref, tag)
 
 
-class ACLMIXED(Identity):
+class ACLMIXED(ACLTYPE):
     """
     Mixed\-mode ACL that specifies L2 and L3 protocol
     fields.  This ACL type is not implemented by many
@@ -2982,11 +3036,11 @@ class ACLMIXED(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(ACLMIXED, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:ACL_MIXED")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:ACL_MIXED"):
+        super(ACLMIXED, self).__init__(ns, pref, tag)
 
 
-class INTERFACEAGGREGATE(Identity):
+class INTERFACEAGGREGATE(ACLCOUNTERCAPABILITY):
     """
     ACL counters are reported per interface, and also aggregated
     and reported per ACL entry.
@@ -2998,11 +3052,11 @@ class INTERFACEAGGREGATE(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(INTERFACEAGGREGATE, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:INTERFACE_AGGREGATE")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:INTERFACE_AGGREGATE"):
+        super(INTERFACEAGGREGATE, self).__init__(ns, pref, tag)
 
 
-class REJECT(Identity):
+class REJECT(FORWARDINGACTION):
     """
     Drop the packet and send an ICMP error message to the source
     
@@ -3013,11 +3067,11 @@ class REJECT(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(REJECT, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:REJECT")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:REJECT"):
+        super(REJECT, self).__init__(ns, pref, tag)
 
 
-class LOGSYSLOG(Identity):
+class LOGSYSLOG(LOGACTION):
     """
     Log the packet in Syslog
     
@@ -3028,11 +3082,11 @@ class LOGSYSLOG(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(LOGSYSLOG, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:LOG_SYSLOG")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:LOG_SYSLOG"):
+        super(LOGSYSLOG, self).__init__(ns, pref, tag)
 
 
-class AGGREGATEONLY(Identity):
+class AGGREGATEONLY(ACLCOUNTERCAPABILITY):
     """
     ACL counters are aggregated over all interfaces, and reported
     only per ACL entry
@@ -3044,7 +3098,7 @@ class AGGREGATEONLY(Identity):
     _prefix = 'oc-acl'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(AGGREGATEONLY, self).__init__("http://openconfig.net/yang/acl", "openconfig-acl", "openconfig-acl:AGGREGATE_ONLY")
+    def __init__(self, ns="http://openconfig.net/yang/acl", pref="openconfig-acl", tag="openconfig-acl:AGGREGATE_ONLY"):
+        super(AGGREGATEONLY, self).__init__(ns, pref, tag)
 
 

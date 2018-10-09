@@ -21,6 +21,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class MPLSLDPGENERICSTDMIB(Entity):
     """
     
@@ -53,6 +54,7 @@ class MPLSLDPGENERICSTDMIB(Entity):
         self.mplsldpentitygenericlrtable.parent = self
         self._children_name_map["mplsldpentitygenericlrtable"] = "mplsLdpEntityGenericLRTable"
         self._segment_path = lambda: "MPLS-LDP-GENERIC-STD-MIB:MPLS-LDP-GENERIC-STD-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MPLSLDPGENERICSTDMIB, [], name, value)
@@ -97,6 +99,7 @@ class MPLSLDPGENERICSTDMIB(Entity):
             self.mplsldpentitygenericlrentry = YList(self)
             self._segment_path = lambda: "mplsLdpEntityGenericLRTable"
             self._absolute_path = lambda: "MPLS-LDP-GENERIC-STD-MIB:MPLS-LDP-GENERIC-STD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MPLSLDPGENERICSTDMIB.MplsLdpEntityGenericLRTable, [], name, value)
@@ -189,14 +192,14 @@ class MPLSLDPGENERICSTDMIB(Entity):
                 self.ylist_key_names = ['mplsldpentityldpid','mplsldpentityindex','mplsldpentitygenericlrmin','mplsldpentitygenericlrmax']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('mplsldpentityldpid', YLeaf(YType.str, 'mplsLdpEntityLdpId')),
-                    ('mplsldpentityindex', YLeaf(YType.str, 'mplsLdpEntityIndex')),
-                    ('mplsldpentitygenericlrmin', YLeaf(YType.uint32, 'mplsLdpEntityGenericLRMin')),
-                    ('mplsldpentitygenericlrmax', YLeaf(YType.uint32, 'mplsLdpEntityGenericLRMax')),
-                    ('mplsldpentitygenericlabelspace', YLeaf(YType.enumeration, 'mplsLdpEntityGenericLabelSpace')),
-                    ('mplsldpentitygenericifindexorzero', YLeaf(YType.int32, 'mplsLdpEntityGenericIfIndexOrZero')),
-                    ('mplsldpentitygenericlrstoragetype', YLeaf(YType.enumeration, 'mplsLdpEntityGenericLRStorageType')),
-                    ('mplsldpentitygenericlrrowstatus', YLeaf(YType.enumeration, 'mplsLdpEntityGenericLRRowStatus')),
+                    ('mplsldpentityldpid', (YLeaf(YType.str, 'mplsLdpEntityLdpId'), ['str'])),
+                    ('mplsldpentityindex', (YLeaf(YType.str, 'mplsLdpEntityIndex'), ['int'])),
+                    ('mplsldpentitygenericlrmin', (YLeaf(YType.uint32, 'mplsLdpEntityGenericLRMin'), ['int'])),
+                    ('mplsldpentitygenericlrmax', (YLeaf(YType.uint32, 'mplsLdpEntityGenericLRMax'), ['int'])),
+                    ('mplsldpentitygenericlabelspace', (YLeaf(YType.enumeration, 'mplsLdpEntityGenericLabelSpace'), [('ydk.models.cisco_ios_xe.MPLS_LDP_GENERIC_STD_MIB', 'MPLSLDPGENERICSTDMIB', 'MplsLdpEntityGenericLRTable.MplsLdpEntityGenericLREntry.MplsLdpEntityGenericLabelSpace')])),
+                    ('mplsldpentitygenericifindexorzero', (YLeaf(YType.int32, 'mplsLdpEntityGenericIfIndexOrZero'), ['int'])),
+                    ('mplsldpentitygenericlrstoragetype', (YLeaf(YType.enumeration, 'mplsLdpEntityGenericLRStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('mplsldpentitygenericlrrowstatus', (YLeaf(YType.enumeration, 'mplsLdpEntityGenericLRRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.mplsldpentityldpid = None
                 self.mplsldpentityindex = None
@@ -208,6 +211,7 @@ class MPLSLDPGENERICSTDMIB(Entity):
                 self.mplsldpentitygenericlrrowstatus = None
                 self._segment_path = lambda: "mplsLdpEntityGenericLREntry" + "[mplsLdpEntityLdpId='" + str(self.mplsldpentityldpid) + "']" + "[mplsLdpEntityIndex='" + str(self.mplsldpentityindex) + "']" + "[mplsLdpEntityGenericLRMin='" + str(self.mplsldpentitygenericlrmin) + "']" + "[mplsLdpEntityGenericLRMax='" + str(self.mplsldpentitygenericlrmax) + "']"
                 self._absolute_path = lambda: "MPLS-LDP-GENERIC-STD-MIB:MPLS-LDP-GENERIC-STD-MIB/mplsLdpEntityGenericLRTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MPLSLDPGENERICSTDMIB.MplsLdpEntityGenericLRTable.MplsLdpEntityGenericLREntry, ['mplsldpentityldpid', 'mplsldpentityindex', 'mplsldpentitygenericlrmin', 'mplsldpentitygenericlrmax', 'mplsldpentitygenericlabelspace', 'mplsldpentitygenericifindexorzero', 'mplsldpentitygenericlrstoragetype', 'mplsldpentitygenericlrrowstatus'], name, value)

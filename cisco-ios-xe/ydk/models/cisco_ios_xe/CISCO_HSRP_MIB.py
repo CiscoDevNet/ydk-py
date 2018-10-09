@@ -43,6 +43,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class HsrpState(Enum):
     """
     HsrpState (Enum Class)
@@ -120,6 +121,7 @@ class CISCOHSRPMIB(Entity):
         self.chsrpgrptable.parent = self
         self._children_name_map["chsrpgrptable"] = "cHsrpGrpTable"
         self._segment_path = lambda: "CISCO-HSRP-MIB:CISCO-HSRP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOHSRPMIB, [], name, value)
@@ -155,11 +157,12 @@ class CISCOHSRPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('chsrpconfigtimeout', YLeaf(YType.uint32, 'cHsrpConfigTimeout')),
+                ('chsrpconfigtimeout', (YLeaf(YType.uint32, 'cHsrpConfigTimeout'), ['int'])),
             ])
             self.chsrpconfigtimeout = None
             self._segment_path = lambda: "cHsrpGlobalConfig"
             self._absolute_path = lambda: "CISCO-HSRP-MIB:CISCO-HSRP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOHSRPMIB.CHsrpGlobalConfig, [u'chsrpconfigtimeout'], name, value)
@@ -196,6 +199,7 @@ class CISCOHSRPMIB(Entity):
             self.chsrpgrpentry = YList(self)
             self._segment_path = lambda: "cHsrpGrpTable"
             self._absolute_path = lambda: "CISCO-HSRP-MIB:CISCO-HSRP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOHSRPMIB.CHsrpGrpTable, [], name, value)
@@ -388,25 +392,25 @@ class CISCOHSRPMIB(Entity):
                 self.ylist_key_names = ['ifindex','chsrpgrpnumber']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('chsrpgrpnumber', YLeaf(YType.uint32, 'cHsrpGrpNumber')),
-                    ('chsrpgrpauth', YLeaf(YType.str, 'cHsrpGrpAuth')),
-                    ('chsrpgrppriority', YLeaf(YType.uint32, 'cHsrpGrpPriority')),
-                    ('chsrpgrppreempt', YLeaf(YType.boolean, 'cHsrpGrpPreempt')),
-                    ('chsrpgrppreemptdelay', YLeaf(YType.uint32, 'cHsrpGrpPreemptDelay')),
-                    ('chsrpgrpuseconfiguredtimers', YLeaf(YType.boolean, 'cHsrpGrpUseConfiguredTimers')),
-                    ('chsrpgrpconfiguredhellotime', YLeaf(YType.uint32, 'cHsrpGrpConfiguredHelloTime')),
-                    ('chsrpgrpconfiguredholdtime', YLeaf(YType.uint32, 'cHsrpGrpConfiguredHoldTime')),
-                    ('chsrpgrplearnedhellotime', YLeaf(YType.uint32, 'cHsrpGrpLearnedHelloTime')),
-                    ('chsrpgrplearnedholdtime', YLeaf(YType.uint32, 'cHsrpGrpLearnedHoldTime')),
-                    ('chsrpgrpvirtualipaddr', YLeaf(YType.str, 'cHsrpGrpVirtualIpAddr')),
-                    ('chsrpgrpuseconfigvirtualipaddr', YLeaf(YType.boolean, 'cHsrpGrpUseConfigVirtualIpAddr')),
-                    ('chsrpgrpactiverouter', YLeaf(YType.str, 'cHsrpGrpActiveRouter')),
-                    ('chsrpgrpstandbyrouter', YLeaf(YType.str, 'cHsrpGrpStandbyRouter')),
-                    ('chsrpgrpstandbystate', YLeaf(YType.enumeration, 'cHsrpGrpStandbyState')),
-                    ('chsrpgrpvirtualmacaddr', YLeaf(YType.str, 'cHsrpGrpVirtualMacAddr')),
-                    ('chsrpgrpentryrowstatus', YLeaf(YType.enumeration, 'cHsrpGrpEntryRowStatus')),
-                    ('chsrpgrpipnone', YLeaf(YType.boolean, 'cHsrpGrpIpNone')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('chsrpgrpnumber', (YLeaf(YType.uint32, 'cHsrpGrpNumber'), ['int'])),
+                    ('chsrpgrpauth', (YLeaf(YType.str, 'cHsrpGrpAuth'), ['str'])),
+                    ('chsrpgrppriority', (YLeaf(YType.uint32, 'cHsrpGrpPriority'), ['int'])),
+                    ('chsrpgrppreempt', (YLeaf(YType.boolean, 'cHsrpGrpPreempt'), ['bool'])),
+                    ('chsrpgrppreemptdelay', (YLeaf(YType.uint32, 'cHsrpGrpPreemptDelay'), ['int'])),
+                    ('chsrpgrpuseconfiguredtimers', (YLeaf(YType.boolean, 'cHsrpGrpUseConfiguredTimers'), ['bool'])),
+                    ('chsrpgrpconfiguredhellotime', (YLeaf(YType.uint32, 'cHsrpGrpConfiguredHelloTime'), ['int'])),
+                    ('chsrpgrpconfiguredholdtime', (YLeaf(YType.uint32, 'cHsrpGrpConfiguredHoldTime'), ['int'])),
+                    ('chsrpgrplearnedhellotime', (YLeaf(YType.uint32, 'cHsrpGrpLearnedHelloTime'), ['int'])),
+                    ('chsrpgrplearnedholdtime', (YLeaf(YType.uint32, 'cHsrpGrpLearnedHoldTime'), ['int'])),
+                    ('chsrpgrpvirtualipaddr', (YLeaf(YType.str, 'cHsrpGrpVirtualIpAddr'), ['str'])),
+                    ('chsrpgrpuseconfigvirtualipaddr', (YLeaf(YType.boolean, 'cHsrpGrpUseConfigVirtualIpAddr'), ['bool'])),
+                    ('chsrpgrpactiverouter', (YLeaf(YType.str, 'cHsrpGrpActiveRouter'), ['str'])),
+                    ('chsrpgrpstandbyrouter', (YLeaf(YType.str, 'cHsrpGrpStandbyRouter'), ['str'])),
+                    ('chsrpgrpstandbystate', (YLeaf(YType.enumeration, 'cHsrpGrpStandbyState'), [('ydk.models.cisco_ios_xe.CISCO_HSRP_MIB', 'HsrpState', '')])),
+                    ('chsrpgrpvirtualmacaddr', (YLeaf(YType.str, 'cHsrpGrpVirtualMacAddr'), ['str'])),
+                    ('chsrpgrpentryrowstatus', (YLeaf(YType.enumeration, 'cHsrpGrpEntryRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('chsrpgrpipnone', (YLeaf(YType.boolean, 'cHsrpGrpIpNone'), ['bool'])),
                 ])
                 self.ifindex = None
                 self.chsrpgrpnumber = None
@@ -429,6 +433,7 @@ class CISCOHSRPMIB(Entity):
                 self.chsrpgrpipnone = None
                 self._segment_path = lambda: "cHsrpGrpEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[cHsrpGrpNumber='" + str(self.chsrpgrpnumber) + "']"
                 self._absolute_path = lambda: "CISCO-HSRP-MIB:CISCO-HSRP-MIB/cHsrpGrpTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOHSRPMIB.CHsrpGrpTable.CHsrpGrpEntry, [u'ifindex', u'chsrpgrpnumber', u'chsrpgrpauth', u'chsrpgrppriority', u'chsrpgrppreempt', u'chsrpgrppreemptdelay', u'chsrpgrpuseconfiguredtimers', u'chsrpgrpconfiguredhellotime', u'chsrpgrpconfiguredholdtime', u'chsrpgrplearnedhellotime', u'chsrpgrplearnedholdtime', u'chsrpgrpvirtualipaddr', u'chsrpgrpuseconfigvirtualipaddr', u'chsrpgrpactiverouter', u'chsrpgrpstandbyrouter', u'chsrpgrpstandbystate', u'chsrpgrpvirtualmacaddr', u'chsrpgrpentryrowstatus', u'chsrpgrpipnone'], name, value)

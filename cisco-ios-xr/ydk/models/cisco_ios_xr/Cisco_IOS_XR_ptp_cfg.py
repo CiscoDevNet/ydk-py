@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -48,10 +49,29 @@ class Ptp(Entity):
     	PTP logging configuration
     	**type**\:  :py:class:`Logging <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Logging>`
     
+    .. attribute:: uncalibrated_clock_class
+    
+    	Clock class to be used while acquiring phase\-lock to a parent clock. Note that this is deprecated and should not be  used
+    	**type**\: int
+    
+    	**range:** 0..255
+    
+    .. attribute:: uncalibrated_clock_class2
+    
+    	Clock class to be used while acquiring phase\-lock to a parent clock
+    	**type**\:  :py:class:`UncalibratedClockClass2 <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.UncalibratedClockClass2>`
+    
+    	**presence node**\: True
+    
     .. attribute:: transparent_clock
     
     	Transparent clock configuration
     	**type**\:  :py:class:`TransparentClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.TransparentClock>`
+    
+    .. attribute:: virtual_port
+    
+    	PTP virtual port configuration
+    	**type**\:  :py:class:`VirtualPort <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.VirtualPort>`
     
     .. attribute:: time_of_day_priority
     
@@ -90,12 +110,10 @@ class Ptp(Entity):
     
     	**range:** 0..255
     
-    .. attribute:: uncalibrated_clock_class
+    .. attribute:: physical_layer_frequency
     
-    	Clock class to be used while acquiring phase\-lock to a parent clock
-    	**type**\: int
-    
-    	**range:** 0..255
+    	Disable PTP as a source for frequency as only physical layer frequency sources are used
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: freerun_clock_class
     
@@ -120,22 +138,24 @@ class Ptp(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("clock", ("clock", Ptp.Clock)), ("profiles", ("profiles", Ptp.Profiles)), ("utc-offset", ("utc_offset", Ptp.UtcOffset)), ("logging", ("logging", Ptp.Logging)), ("transparent-clock", ("transparent_clock", Ptp.TransparentClock))])
+        self._child_classes = OrderedDict([("clock", ("clock", Ptp.Clock)), ("profiles", ("profiles", Ptp.Profiles)), ("utc-offset", ("utc_offset", Ptp.UtcOffset)), ("logging", ("logging", Ptp.Logging)), ("uncalibrated-clock-class2", ("uncalibrated_clock_class2", Ptp.UncalibratedClockClass2)), ("transparent-clock", ("transparent_clock", Ptp.TransparentClock)), ("virtual-port", ("virtual_port", Ptp.VirtualPort))])
         self._leafs = OrderedDict([
-            ('time_of_day_priority', YLeaf(YType.uint32, 'time-of-day-priority')),
-            ('frequency_priority', YLeaf(YType.uint32, 'frequency-priority')),
-            ('startup_clock_class', YLeaf(YType.uint32, 'startup-clock-class')),
-            ('enable', YLeaf(YType.empty, 'enable')),
-            ('min_clock_class', YLeaf(YType.uint32, 'min-clock-class')),
-            ('uncalibrated_clock_class', YLeaf(YType.uint32, 'uncalibrated-clock-class')),
-            ('freerun_clock_class', YLeaf(YType.uint32, 'freerun-clock-class')),
+            ('uncalibrated_clock_class', (YLeaf(YType.uint32, 'uncalibrated-clock-class'), ['int'])),
+            ('time_of_day_priority', (YLeaf(YType.uint32, 'time-of-day-priority'), ['int'])),
+            ('frequency_priority', (YLeaf(YType.uint32, 'frequency-priority'), ['int'])),
+            ('startup_clock_class', (YLeaf(YType.uint32, 'startup-clock-class'), ['int'])),
+            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+            ('min_clock_class', (YLeaf(YType.uint32, 'min-clock-class'), ['int'])),
+            ('physical_layer_frequency', (YLeaf(YType.empty, 'physical-layer-frequency'), ['Empty'])),
+            ('freerun_clock_class', (YLeaf(YType.uint32, 'freerun-clock-class'), ['int'])),
         ])
+        self.uncalibrated_clock_class = None
         self.time_of_day_priority = None
         self.frequency_priority = None
         self.startup_clock_class = None
         self.enable = None
         self.min_clock_class = None
-        self.uncalibrated_clock_class = None
+        self.physical_layer_frequency = None
         self.freerun_clock_class = None
 
         self.clock = Ptp.Clock()
@@ -154,13 +174,21 @@ class Ptp(Entity):
         self.logging.parent = self
         self._children_name_map["logging"] = "logging"
 
+        self.uncalibrated_clock_class2 = None
+        self._children_name_map["uncalibrated_clock_class2"] = "uncalibrated-clock-class2"
+
         self.transparent_clock = Ptp.TransparentClock()
         self.transparent_clock.parent = self
         self._children_name_map["transparent_clock"] = "transparent-clock"
+
+        self.virtual_port = Ptp.VirtualPort()
+        self.virtual_port.parent = self
+        self._children_name_map["virtual_port"] = "virtual-port"
         self._segment_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(Ptp, [u'time_of_day_priority', u'frequency_priority', u'startup_clock_class', u'enable', u'min_clock_class', u'uncalibrated_clock_class', u'freerun_clock_class'], name, value)
+        self._perform_setattr(Ptp, ['uncalibrated_clock_class', 'time_of_day_priority', 'frequency_priority', 'startup_clock_class', 'enable', 'min_clock_class', 'physical_layer_frequency', 'freerun_clock_class'], name, value)
 
 
     class Clock(Entity):
@@ -240,12 +268,12 @@ class Ptp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("profile", ("profile", Ptp.Clock.Profile)), ("identity", ("identity", Ptp.Clock.Identity))])
             self._leafs = OrderedDict([
-                ('timescale', YLeaf(YType.enumeration, 'timescale')),
-                ('domain', YLeaf(YType.uint32, 'domain')),
-                ('priority2', YLeaf(YType.uint32, 'priority2')),
-                ('time_source', YLeaf(YType.enumeration, 'time-source')),
-                ('priority1', YLeaf(YType.uint32, 'priority1')),
-                ('clock_class', YLeaf(YType.uint32, 'clock-class')),
+                ('timescale', (YLeaf(YType.enumeration, 'timescale'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTimescale', '')])),
+                ('domain', (YLeaf(YType.uint32, 'domain'), ['int'])),
+                ('priority2', (YLeaf(YType.uint32, 'priority2'), ['int'])),
+                ('time_source', (YLeaf(YType.enumeration, 'time-source'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTimeSource', '')])),
+                ('priority1', (YLeaf(YType.uint32, 'priority1'), ['int'])),
+                ('clock_class', (YLeaf(YType.uint32, 'clock-class'), ['int'])),
             ])
             self.timescale = None
             self.domain = None
@@ -263,9 +291,10 @@ class Ptp(Entity):
             self._children_name_map["identity"] = "identity"
             self._segment_path = lambda: "clock"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ptp.Clock, [u'timescale', u'domain', u'priority2', u'time_source', u'priority1', u'clock_class'], name, value)
+            self._perform_setattr(Ptp.Clock, ['timescale', 'domain', 'priority2', 'time_source', 'priority1', 'clock_class'], name, value)
 
 
         class Profile(Entity):
@@ -301,16 +330,17 @@ class Ptp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('clock_profile', YLeaf(YType.enumeration, 'clock-profile')),
-                    ('telecom_clock_type', YLeaf(YType.enumeration, 'telecom-clock-type')),
+                    ('clock_profile', (YLeaf(YType.enumeration, 'clock-profile'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpClockProfile', '')])),
+                    ('telecom_clock_type', (YLeaf(YType.enumeration, 'telecom-clock-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTelecomClock', '')])),
                 ])
                 self.clock_profile = None
                 self.telecom_clock_type = None
                 self._segment_path = lambda: "profile"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/clock/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Clock.Profile, [u'clock_profile', u'telecom_clock_type'], name, value)
+                self._perform_setattr(Ptp.Clock.Profile, ['clock_profile', 'telecom_clock_type'], name, value)
 
 
         class Identity(Entity):
@@ -353,18 +383,19 @@ class Ptp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('clock_id_type', YLeaf(YType.enumeration, 'clock-id-type')),
-                    ('mac_address', YLeaf(YType.str, 'mac-address')),
-                    ('eui', YLeaf(YType.str, 'eui')),
+                    ('clock_id_type', (YLeaf(YType.enumeration, 'clock-id-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpClockId', '')])),
+                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                    ('eui', (YLeaf(YType.str, 'eui'), ['str'])),
                 ])
                 self.clock_id_type = None
                 self.mac_address = None
                 self.eui = None
                 self._segment_path = lambda: "identity"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/clock/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Clock.Identity, [u'clock_id_type', u'mac_address', u'eui'], name, value)
+                self._perform_setattr(Ptp.Clock.Identity, ['clock_id_type', 'mac_address', 'eui'], name, value)
 
 
     class Profiles(Entity):
@@ -397,6 +428,7 @@ class Ptp(Entity):
             self.profile = YList(self)
             self._segment_path = lambda: "profiles"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ptp.Profiles, [], name, value)
@@ -417,6 +449,11 @@ class Ptp(Entity):
             
             	Announce interval
             	**type**\:  :py:class:`AnnounceInterval <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.AnnounceInterval>`
+            
+            .. attribute:: interop
+            
+            	Table for interop configuration
+            	**type**\:  :py:class:`Interop <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Interop>`
             
             .. attribute:: source_ipv4_address
             
@@ -509,6 +546,15 @@ class Ptp(Entity):
             
             	**default value**\: 6
             
+            .. attribute:: ipv4ttl
+            
+            	IPv4 TTL
+            	**type**\: int
+            
+            	**range:** 1..255
+            
+            	**default value**\: 255
+            
             .. attribute:: port_state
             
             	Port state restriction
@@ -555,6 +601,15 @@ class Ptp(Entity):
             	**range:** 0..63
             
             	**default value**\: 46
+            
+            .. attribute:: ipv6_hop_limit
+            
+            	IPv6 Hop Limit
+            	**type**\: int
+            
+            	**range:** 1..255
+            
+            	**default value**\: 255
             
             .. attribute:: general_dscp
             
@@ -614,25 +669,27 @@ class Ptp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['profile_name']
-                self._child_classes = OrderedDict([("announce-interval", ("announce_interval", Ptp.Profiles.Profile.AnnounceInterval)), ("source-ipv4-address", ("source_ipv4_address", Ptp.Profiles.Profile.SourceIpv4Address)), ("slaves", ("slaves", Ptp.Profiles.Profile.Slaves)), ("sync-interval", ("sync_interval", Ptp.Profiles.Profile.SyncInterval)), ("masters", ("masters", Ptp.Profiles.Profile.Masters)), ("communication", ("communication", Ptp.Profiles.Profile.Communication)), ("delay-request-minimum-interval", ("delay_request_minimum_interval", Ptp.Profiles.Profile.DelayRequestMinimumInterval)), ("source-ipv6-address", ("source_ipv6_address", Ptp.Profiles.Profile.SourceIpv6Address))])
+                self._child_classes = OrderedDict([("announce-interval", ("announce_interval", Ptp.Profiles.Profile.AnnounceInterval)), ("interop", ("interop", Ptp.Profiles.Profile.Interop)), ("source-ipv4-address", ("source_ipv4_address", Ptp.Profiles.Profile.SourceIpv4Address)), ("slaves", ("slaves", Ptp.Profiles.Profile.Slaves)), ("sync-interval", ("sync_interval", Ptp.Profiles.Profile.SyncInterval)), ("masters", ("masters", Ptp.Profiles.Profile.Masters)), ("communication", ("communication", Ptp.Profiles.Profile.Communication)), ("delay-request-minimum-interval", ("delay_request_minimum_interval", Ptp.Profiles.Profile.DelayRequestMinimumInterval)), ("source-ipv6-address", ("source_ipv6_address", Ptp.Profiles.Profile.SourceIpv6Address))])
                 self._leafs = OrderedDict([
-                    ('profile_name', YLeaf(YType.str, 'profile-name')),
-                    ('sync_grant_duration', YLeaf(YType.uint32, 'sync-grant-duration')),
-                    ('general_cos', YLeaf(YType.uint32, 'general-cos')),
-                    ('sync_timeout', YLeaf(YType.uint32, 'sync-timeout')),
-                    ('transport', YLeaf(YType.enumeration, 'transport')),
-                    ('announce_timeout', YLeaf(YType.uint32, 'announce-timeout')),
-                    ('cos', YLeaf(YType.uint32, 'cos')),
-                    ('port_state', YLeaf(YType.enumeration, 'port-state')),
-                    ('delay_response_timeout', YLeaf(YType.uint32, 'delay-response-timeout')),
-                    ('delay_response_grant_duration', YLeaf(YType.uint32, 'delay-response-grant-duration')),
-                    ('event_cos', YLeaf(YType.uint32, 'event-cos')),
-                    ('dscp', YLeaf(YType.uint32, 'dscp')),
-                    ('general_dscp', YLeaf(YType.uint32, 'general-dscp')),
-                    ('clock_operation', YLeaf(YType.enumeration, 'clock-operation')),
-                    ('announce_grant_duration', YLeaf(YType.uint32, 'announce-grant-duration')),
-                    ('unicast_grant_invalid_request', YLeaf(YType.enumeration, 'unicast-grant-invalid-request')),
-                    ('event_dscp', YLeaf(YType.uint32, 'event-dscp')),
+                    ('profile_name', (YLeaf(YType.str, 'profile-name'), ['str'])),
+                    ('sync_grant_duration', (YLeaf(YType.uint32, 'sync-grant-duration'), ['int'])),
+                    ('general_cos', (YLeaf(YType.uint32, 'general-cos'), ['int'])),
+                    ('sync_timeout', (YLeaf(YType.uint32, 'sync-timeout'), ['int'])),
+                    ('transport', (YLeaf(YType.enumeration, 'transport'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpEncap', '')])),
+                    ('announce_timeout', (YLeaf(YType.uint32, 'announce-timeout'), ['int'])),
+                    ('cos', (YLeaf(YType.uint32, 'cos'), ['int'])),
+                    ('ipv4ttl', (YLeaf(YType.uint32, 'ipv4ttl'), ['int'])),
+                    ('port_state', (YLeaf(YType.enumeration, 'port-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpPortState', '')])),
+                    ('delay_response_timeout', (YLeaf(YType.uint32, 'delay-response-timeout'), ['int'])),
+                    ('delay_response_grant_duration', (YLeaf(YType.uint32, 'delay-response-grant-duration'), ['int'])),
+                    ('event_cos', (YLeaf(YType.uint32, 'event-cos'), ['int'])),
+                    ('dscp', (YLeaf(YType.uint32, 'dscp'), ['int'])),
+                    ('ipv6_hop_limit', (YLeaf(YType.uint32, 'ipv6-hop-limit'), ['int'])),
+                    ('general_dscp', (YLeaf(YType.uint32, 'general-dscp'), ['int'])),
+                    ('clock_operation', (YLeaf(YType.enumeration, 'clock-operation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpClockOperation', '')])),
+                    ('announce_grant_duration', (YLeaf(YType.uint32, 'announce-grant-duration'), ['int'])),
+                    ('unicast_grant_invalid_request', (YLeaf(YType.enumeration, 'unicast-grant-invalid-request'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpInvalidUnicastGrantRequestResponse', '')])),
+                    ('event_dscp', (YLeaf(YType.uint32, 'event-dscp'), ['int'])),
                 ])
                 self.profile_name = None
                 self.sync_grant_duration = None
@@ -641,11 +698,13 @@ class Ptp(Entity):
                 self.transport = None
                 self.announce_timeout = None
                 self.cos = None
+                self.ipv4ttl = None
                 self.port_state = None
                 self.delay_response_timeout = None
                 self.delay_response_grant_duration = None
                 self.event_cos = None
                 self.dscp = None
+                self.ipv6_hop_limit = None
                 self.general_dscp = None
                 self.clock_operation = None
                 self.announce_grant_duration = None
@@ -655,6 +714,10 @@ class Ptp(Entity):
                 self.announce_interval = Ptp.Profiles.Profile.AnnounceInterval()
                 self.announce_interval.parent = self
                 self._children_name_map["announce_interval"] = "announce-interval"
+
+                self.interop = Ptp.Profiles.Profile.Interop()
+                self.interop.parent = self
+                self._children_name_map["interop"] = "interop"
 
                 self.source_ipv4_address = Ptp.Profiles.Profile.SourceIpv4Address()
                 self.source_ipv4_address.parent = self
@@ -685,9 +748,10 @@ class Ptp(Entity):
                 self._children_name_map["source_ipv6_address"] = "source-ipv6-address"
                 self._segment_path = lambda: "profile" + "[profile-name='" + str(self.profile_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/profiles/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Profiles.Profile, [u'profile_name', u'sync_grant_duration', u'general_cos', u'sync_timeout', u'transport', u'announce_timeout', u'cos', u'port_state', u'delay_response_timeout', u'delay_response_grant_duration', u'event_cos', u'dscp', u'general_dscp', u'clock_operation', u'announce_grant_duration', u'unicast_grant_invalid_request', u'event_dscp'], name, value)
+                self._perform_setattr(Ptp.Profiles.Profile, ['profile_name', 'sync_grant_duration', 'general_cos', 'sync_timeout', 'transport', 'announce_timeout', 'cos', 'ipv4ttl', 'port_state', 'delay_response_timeout', 'delay_response_grant_duration', 'event_cos', 'dscp', 'ipv6_hop_limit', 'general_dscp', 'clock_operation', 'announce_grant_duration', 'unicast_grant_invalid_request', 'event_dscp'], name, value)
 
 
             class AnnounceInterval(Entity):
@@ -725,15 +789,417 @@ class Ptp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('time_type', YLeaf(YType.enumeration, 'time-type')),
-                        ('time_period', YLeaf(YType.enumeration, 'time-period')),
+                        ('time_type', (YLeaf(YType.enumeration, 'time-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTime', '')])),
+                        ('time_period', (YLeaf(YType.enumeration, 'time-period'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTimePeriod', '')])),
                     ])
                     self.time_type = None
                     self.time_period = None
                     self._segment_path = lambda: "announce-interval"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.AnnounceInterval, [u'time_type', u'time_period'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.AnnounceInterval, ['time_type', 'time_period'], name, value)
+
+
+            class Interop(Entity):
+                """
+                Table for interop configuration
+                
+                .. attribute:: egress_conversion
+                
+                	Iteroperation configuration to be used on egress
+                	**type**\:  :py:class:`EgressConversion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Interop.EgressConversion>`
+                
+                .. attribute:: ingress_conversion
+                
+                	Iteroperation configuration to be used on ingress
+                	**type**\:  :py:class:`IngressConversion <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Interop.IngressConversion>`
+                
+                .. attribute:: profile
+                
+                	Profile to interoperate with
+                	**type**\:  :py:class:`PtpClockProfile <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes.PtpClockProfile>`
+                
+                .. attribute:: domain
+                
+                	Domain number of the peer clock
+                	**type**\: int
+                
+                	**range:** 0..255
+                
+                
+
+                """
+
+                _prefix = 'ptp-cfg'
+                _revision = '2017-02-02'
+
+                def __init__(self):
+                    super(Ptp.Profiles.Profile.Interop, self).__init__()
+
+                    self.yang_name = "interop"
+                    self.yang_parent_name = "profile"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("egress-conversion", ("egress_conversion", Ptp.Profiles.Profile.Interop.EgressConversion)), ("ingress-conversion", ("ingress_conversion", Ptp.Profiles.Profile.Interop.IngressConversion))])
+                    self._leafs = OrderedDict([
+                        ('profile', (YLeaf(YType.enumeration, 'profile'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpClockProfile', '')])),
+                        ('domain', (YLeaf(YType.uint32, 'domain'), ['int'])),
+                    ])
+                    self.profile = None
+                    self.domain = None
+
+                    self.egress_conversion = Ptp.Profiles.Profile.Interop.EgressConversion()
+                    self.egress_conversion.parent = self
+                    self._children_name_map["egress_conversion"] = "egress-conversion"
+
+                    self.ingress_conversion = Ptp.Profiles.Profile.Interop.IngressConversion()
+                    self.ingress_conversion.parent = self
+                    self._children_name_map["ingress_conversion"] = "ingress-conversion"
+                    self._segment_path = lambda: "interop"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Ptp.Profiles.Profile.Interop, ['profile', 'domain'], name, value)
+
+
+                class EgressConversion(Entity):
+                    """
+                    Iteroperation configuration to be used on
+                    egress
+                    
+                    .. attribute:: clock_class_mappings
+                    
+                    	Table for specific mappings for given clock class values
+                    	**type**\:  :py:class:`ClockClassMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings>`
+                    
+                    .. attribute:: clock_accuracy
+                    
+                    	Clock Accuracy value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..254
+                    
+                    .. attribute:: priority2
+                    
+                    	Priority2 value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: clock_class_default
+                    
+                    	Default clock class to use when a more specific mapping is not available
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: offset_scaled_log_variance
+                    
+                    	OSLV value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: priority1
+                    
+                    	Priority1 value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    
+
+                    """
+
+                    _prefix = 'ptp-cfg'
+                    _revision = '2017-02-02'
+
+                    def __init__(self):
+                        super(Ptp.Profiles.Profile.Interop.EgressConversion, self).__init__()
+
+                        self.yang_name = "egress-conversion"
+                        self.yang_parent_name = "interop"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("clock-class-mappings", ("clock_class_mappings", Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings))])
+                        self._leafs = OrderedDict([
+                            ('clock_accuracy', (YLeaf(YType.uint32, 'clock-accuracy'), ['int'])),
+                            ('priority2', (YLeaf(YType.uint32, 'priority2'), ['int'])),
+                            ('clock_class_default', (YLeaf(YType.uint32, 'clock-class-default'), ['int'])),
+                            ('offset_scaled_log_variance', (YLeaf(YType.uint32, 'offset-scaled-log-variance'), ['int'])),
+                            ('priority1', (YLeaf(YType.uint32, 'priority1'), ['int'])),
+                        ])
+                        self.clock_accuracy = None
+                        self.priority2 = None
+                        self.clock_class_default = None
+                        self.offset_scaled_log_variance = None
+                        self.priority1 = None
+
+                        self.clock_class_mappings = Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings()
+                        self.clock_class_mappings.parent = self
+                        self._children_name_map["clock_class_mappings"] = "clock-class-mappings"
+                        self._segment_path = lambda: "egress-conversion"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ptp.Profiles.Profile.Interop.EgressConversion, ['clock_accuracy', 'priority2', 'clock_class_default', 'offset_scaled_log_variance', 'priority1'], name, value)
+
+
+                    class ClockClassMappings(Entity):
+                        """
+                        Table for specific mappings for given clock
+                        class values
+                        
+                        .. attribute:: clock_class_mapping
+                        
+                        	Mapping for a given clock class value
+                        	**type**\: list of  		 :py:class:`ClockClassMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings.ClockClassMapping>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ptp-cfg'
+                        _revision = '2017-02-02'
+
+                        def __init__(self):
+                            super(Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings, self).__init__()
+
+                            self.yang_name = "clock-class-mappings"
+                            self.yang_parent_name = "egress-conversion"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("clock-class-mapping", ("clock_class_mapping", Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings.ClockClassMapping))])
+                            self._leafs = OrderedDict()
+
+                            self.clock_class_mapping = YList(self)
+                            self._segment_path = lambda: "clock-class-mappings"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings, [], name, value)
+
+
+                        class ClockClassMapping(Entity):
+                            """
+                            Mapping for a given clock class value
+                            
+                            .. attribute:: clock_class_from  (key)
+                            
+                            	Clock Class to map from
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: clock_class_to
+                            
+                            	Clock class to map to
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            	**mandatory**\: True
+                            
+                            
+
+                            """
+
+                            _prefix = 'ptp-cfg'
+                            _revision = '2017-02-02'
+
+                            def __init__(self):
+                                super(Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings.ClockClassMapping, self).__init__()
+
+                                self.yang_name = "clock-class-mapping"
+                                self.yang_parent_name = "clock-class-mappings"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['clock_class_from']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('clock_class_from', (YLeaf(YType.uint32, 'clock-class-from'), ['int'])),
+                                    ('clock_class_to', (YLeaf(YType.uint32, 'clock-class-to'), ['int'])),
+                                ])
+                                self.clock_class_from = None
+                                self.clock_class_to = None
+                                self._segment_path = lambda: "clock-class-mapping" + "[clock-class-from='" + str(self.clock_class_from) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ptp.Profiles.Profile.Interop.EgressConversion.ClockClassMappings.ClockClassMapping, ['clock_class_from', 'clock_class_to'], name, value)
+
+
+                class IngressConversion(Entity):
+                    """
+                    Iteroperation configuration to be used on
+                    ingress
+                    
+                    .. attribute:: clock_class_mappings
+                    
+                    	Table for specific mappings for given clock class values
+                    	**type**\:  :py:class:`ClockClassMappings <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings>`
+                    
+                    .. attribute:: clock_accuracy
+                    
+                    	Clock Accuracy value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..254
+                    
+                    .. attribute:: priority2
+                    
+                    	Priority2 value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: clock_class_default
+                    
+                    	Default clock class to use when a more specific mapping is not available
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    .. attribute:: offset_scaled_log_variance
+                    
+                    	OSLV value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..65535
+                    
+                    .. attribute:: priority1
+                    
+                    	Priority1 value to use for the peer clock
+                    	**type**\: int
+                    
+                    	**range:** 0..255
+                    
+                    
+
+                    """
+
+                    _prefix = 'ptp-cfg'
+                    _revision = '2017-02-02'
+
+                    def __init__(self):
+                        super(Ptp.Profiles.Profile.Interop.IngressConversion, self).__init__()
+
+                        self.yang_name = "ingress-conversion"
+                        self.yang_parent_name = "interop"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([("clock-class-mappings", ("clock_class_mappings", Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings))])
+                        self._leafs = OrderedDict([
+                            ('clock_accuracy', (YLeaf(YType.uint32, 'clock-accuracy'), ['int'])),
+                            ('priority2', (YLeaf(YType.uint32, 'priority2'), ['int'])),
+                            ('clock_class_default', (YLeaf(YType.uint32, 'clock-class-default'), ['int'])),
+                            ('offset_scaled_log_variance', (YLeaf(YType.uint32, 'offset-scaled-log-variance'), ['int'])),
+                            ('priority1', (YLeaf(YType.uint32, 'priority1'), ['int'])),
+                        ])
+                        self.clock_accuracy = None
+                        self.priority2 = None
+                        self.clock_class_default = None
+                        self.offset_scaled_log_variance = None
+                        self.priority1 = None
+
+                        self.clock_class_mappings = Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings()
+                        self.clock_class_mappings.parent = self
+                        self._children_name_map["clock_class_mappings"] = "clock-class-mappings"
+                        self._segment_path = lambda: "ingress-conversion"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Ptp.Profiles.Profile.Interop.IngressConversion, ['clock_accuracy', 'priority2', 'clock_class_default', 'offset_scaled_log_variance', 'priority1'], name, value)
+
+
+                    class ClockClassMappings(Entity):
+                        """
+                        Table for specific mappings for given clock
+                        class values
+                        
+                        .. attribute:: clock_class_mapping
+                        
+                        	Mapping for a given clock class value
+                        	**type**\: list of  		 :py:class:`ClockClassMapping <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings.ClockClassMapping>`
+                        
+                        
+
+                        """
+
+                        _prefix = 'ptp-cfg'
+                        _revision = '2017-02-02'
+
+                        def __init__(self):
+                            super(Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings, self).__init__()
+
+                            self.yang_name = "clock-class-mappings"
+                            self.yang_parent_name = "ingress-conversion"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("clock-class-mapping", ("clock_class_mapping", Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings.ClockClassMapping))])
+                            self._leafs = OrderedDict()
+
+                            self.clock_class_mapping = YList(self)
+                            self._segment_path = lambda: "clock-class-mappings"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings, [], name, value)
+
+
+                        class ClockClassMapping(Entity):
+                            """
+                            Mapping for a given clock class value
+                            
+                            .. attribute:: clock_class_from  (key)
+                            
+                            	Clock Class to map from
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            .. attribute:: clock_class_to
+                            
+                            	Clock class to map to
+                            	**type**\: int
+                            
+                            	**range:** 0..255
+                            
+                            	**mandatory**\: True
+                            
+                            
+
+                            """
+
+                            _prefix = 'ptp-cfg'
+                            _revision = '2017-02-02'
+
+                            def __init__(self):
+                                super(Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings.ClockClassMapping, self).__init__()
+
+                                self.yang_name = "clock-class-mapping"
+                                self.yang_parent_name = "clock-class-mappings"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = ['clock_class_from']
+                                self._child_classes = OrderedDict([])
+                                self._leafs = OrderedDict([
+                                    ('clock_class_from', (YLeaf(YType.uint32, 'clock-class-from'), ['int'])),
+                                    ('clock_class_to', (YLeaf(YType.uint32, 'clock-class-to'), ['int'])),
+                                ])
+                                self.clock_class_from = None
+                                self.clock_class_to = None
+                                self._segment_path = lambda: "clock-class-mapping" + "[clock-class-from='" + str(self.clock_class_from) + "']"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Ptp.Profiles.Profile.Interop.IngressConversion.ClockClassMappings.ClockClassMapping, ['clock_class_from', 'clock_class_to'], name, value)
 
 
             class SourceIpv4Address(Entity):
@@ -769,15 +1235,16 @@ class Ptp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('enable', YLeaf(YType.boolean, 'enable')),
-                        ('source_ip', YLeaf(YType.str, 'source-ip')),
+                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                        ('source_ip', (YLeaf(YType.str, 'source-ip'), ['str'])),
                     ])
                     self.enable = None
                     self.source_ip = None
                     self._segment_path = lambda: "source-ipv4-address"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.SourceIpv4Address, [u'enable', u'source_ip'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.SourceIpv4Address, ['enable', 'source_ip'], name, value)
 
 
             class Slaves(Entity):
@@ -809,6 +1276,7 @@ class Ptp(Entity):
 
                     self.slave = YList(self)
                     self._segment_path = lambda: "slaves"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ptp.Profiles.Profile.Slaves, [], name, value)
@@ -850,16 +1318,17 @@ class Ptp(Entity):
                         self.ylist_key_names = ['transport']
                         self._child_classes = OrderedDict([("ethernet", ("ethernet", Ptp.Profiles.Profile.Slaves.Slave.Ethernet)), ("ipv4-or-ipv6", ("ipv4_or_ipv6", Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6))])
                         self._leafs = OrderedDict([
-                            ('transport', YLeaf(YType.enumeration, 'transport')),
+                            ('transport', (YLeaf(YType.enumeration, 'transport'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpEncap', '')])),
                         ])
                         self.transport = None
 
                         self.ethernet = YList(self)
                         self.ipv4_or_ipv6 = YList(self)
                         self._segment_path = lambda: "slave" + "[transport='" + str(self.transport) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave, [u'transport'], name, value)
+                        self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave, ['transport'], name, value)
 
 
                     class Ethernet(Entity):
@@ -895,15 +1364,16 @@ class Ptp(Entity):
                             self.ylist_key_names = ['slave_mac_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('slave_mac_address', YLeaf(YType.str, 'slave-mac-address')),
-                                ('non_negotiated', YLeaf(YType.boolean, 'non-negotiated')),
+                                ('slave_mac_address', (YLeaf(YType.str, 'slave-mac-address'), ['str'])),
+                                ('non_negotiated', (YLeaf(YType.boolean, 'non-negotiated'), ['bool'])),
                             ])
                             self.slave_mac_address = None
                             self.non_negotiated = None
                             self._segment_path = lambda: "ethernet" + "[slave-mac-address='" + str(self.slave_mac_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ethernet, [u'slave_mac_address', u'non_negotiated'], name, value)
+                            self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ethernet, ['slave_mac_address', 'non_negotiated'], name, value)
 
 
                     class Ipv4OrIpv6(Entity):
@@ -945,15 +1415,16 @@ class Ptp(Entity):
                             self.ylist_key_names = ['slave_ip_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('slave_ip_address', YLeaf(YType.str, 'slave-ip-address')),
-                                ('non_negotiated', YLeaf(YType.boolean, 'non-negotiated')),
+                                ('slave_ip_address', (YLeaf(YType.str, 'slave-ip-address'), ['str','str'])),
+                                ('non_negotiated', (YLeaf(YType.boolean, 'non-negotiated'), ['bool'])),
                             ])
                             self.slave_ip_address = None
                             self.non_negotiated = None
                             self._segment_path = lambda: "ipv4-or-ipv6" + "[slave-ip-address='" + str(self.slave_ip_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6, [u'slave_ip_address', u'non_negotiated'], name, value)
+                            self._perform_setattr(Ptp.Profiles.Profile.Slaves.Slave.Ipv4OrIpv6, ['slave_ip_address', 'non_negotiated'], name, value)
 
 
             class SyncInterval(Entity):
@@ -991,15 +1462,16 @@ class Ptp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('time_type', YLeaf(YType.enumeration, 'time-type')),
-                        ('time_period', YLeaf(YType.enumeration, 'time-period')),
+                        ('time_type', (YLeaf(YType.enumeration, 'time-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTime', '')])),
+                        ('time_period', (YLeaf(YType.enumeration, 'time-period'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTimePeriod', '')])),
                     ])
                     self.time_type = None
                     self.time_period = None
                     self._segment_path = lambda: "sync-interval"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.SyncInterval, [u'time_type', u'time_period'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.SyncInterval, ['time_type', 'time_period'], name, value)
 
 
             class Masters(Entity):
@@ -1031,6 +1503,7 @@ class Ptp(Entity):
 
                     self.master = YList(self)
                     self._segment_path = lambda: "masters"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ptp.Profiles.Profile.Masters, [], name, value)
@@ -1072,16 +1545,17 @@ class Ptp(Entity):
                         self.ylist_key_names = ['transport']
                         self._child_classes = OrderedDict([("ethernet", ("ethernet", Ptp.Profiles.Profile.Masters.Master.Ethernet)), ("ipv4-or-ipv6", ("ipv4_or_ipv6", Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6))])
                         self._leafs = OrderedDict([
-                            ('transport', YLeaf(YType.enumeration, 'transport')),
+                            ('transport', (YLeaf(YType.enumeration, 'transport'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpEncap', '')])),
                         ])
                         self.transport = None
 
                         self.ethernet = YList(self)
                         self.ipv4_or_ipv6 = YList(self)
                         self._segment_path = lambda: "master" + "[transport='" + str(self.transport) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ptp.Profiles.Profile.Masters.Master, [u'transport'], name, value)
+                        self._perform_setattr(Ptp.Profiles.Profile.Masters.Master, ['transport'], name, value)
 
 
                     class Ethernet(Entity):
@@ -1145,11 +1619,11 @@ class Ptp(Entity):
                             self.ylist_key_names = ['master_mac_address']
                             self._child_classes = OrderedDict([("delay-asymmetry", ("delay_asymmetry", Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry))])
                             self._leafs = OrderedDict([
-                                ('master_mac_address', YLeaf(YType.str, 'master-mac-address')),
-                                ('master_clock_class', YLeaf(YType.uint32, 'master-clock-class')),
-                                ('non_negotiated', YLeaf(YType.boolean, 'non-negotiated')),
-                                ('priority', YLeaf(YType.uint32, 'priority')),
-                                ('communication', YLeaf(YType.enumeration, 'communication')),
+                                ('master_mac_address', (YLeaf(YType.str, 'master-mac-address'), ['str'])),
+                                ('master_clock_class', (YLeaf(YType.uint32, 'master-clock-class'), ['int'])),
+                                ('non_negotiated', (YLeaf(YType.boolean, 'non-negotiated'), ['bool'])),
+                                ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                                ('communication', (YLeaf(YType.enumeration, 'communication'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTransport', '')])),
                             ])
                             self.master_mac_address = None
                             self.master_clock_class = None
@@ -1160,9 +1634,10 @@ class Ptp(Entity):
                             self.delay_asymmetry = None
                             self._children_name_map["delay_asymmetry"] = "delay-asymmetry"
                             self._segment_path = lambda: "ethernet" + "[master-mac-address='" + str(self.master_mac_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ethernet, [u'master_mac_address', u'master_clock_class', u'non_negotiated', u'priority', u'communication'], name, value)
+                            self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ethernet, ['master_mac_address', 'master_clock_class', 'non_negotiated', 'priority', 'communication'], name, value)
 
 
                         class DelayAsymmetry(Entity):
@@ -1205,15 +1680,16 @@ class Ptp(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('magnitude', YLeaf(YType.int32, 'magnitude')),
-                                    ('units', YLeaf(YType.enumeration, 'units')),
+                                    ('magnitude', (YLeaf(YType.int32, 'magnitude'), ['int'])),
+                                    ('units', (YLeaf(YType.enumeration, 'units'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpDelayAsymmetryUnits', '')])),
                                 ])
                                 self.magnitude = None
                                 self.units = None
                                 self._segment_path = lambda: "delay-asymmetry"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry, [u'magnitude', u'units'], name, value)
+                                self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ethernet.DelayAsymmetry, ['magnitude', 'units'], name, value)
 
 
                     class Ipv4OrIpv6(Entity):
@@ -1283,11 +1759,11 @@ class Ptp(Entity):
                             self.ylist_key_names = ['master_ip_address']
                             self._child_classes = OrderedDict([("delay-asymmetry", ("delay_asymmetry", Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry))])
                             self._leafs = OrderedDict([
-                                ('master_ip_address', YLeaf(YType.str, 'master-ip-address')),
-                                ('master_clock_class', YLeaf(YType.uint32, 'master-clock-class')),
-                                ('non_negotiated', YLeaf(YType.boolean, 'non-negotiated')),
-                                ('priority', YLeaf(YType.uint32, 'priority')),
-                                ('communication', YLeaf(YType.enumeration, 'communication')),
+                                ('master_ip_address', (YLeaf(YType.str, 'master-ip-address'), ['str','str'])),
+                                ('master_clock_class', (YLeaf(YType.uint32, 'master-clock-class'), ['int'])),
+                                ('non_negotiated', (YLeaf(YType.boolean, 'non-negotiated'), ['bool'])),
+                                ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                                ('communication', (YLeaf(YType.enumeration, 'communication'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTransport', '')])),
                             ])
                             self.master_ip_address = None
                             self.master_clock_class = None
@@ -1298,9 +1774,10 @@ class Ptp(Entity):
                             self.delay_asymmetry = None
                             self._children_name_map["delay_asymmetry"] = "delay-asymmetry"
                             self._segment_path = lambda: "ipv4-or-ipv6" + "[master-ip-address='" + str(self.master_ip_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6, [u'master_ip_address', u'master_clock_class', u'non_negotiated', u'priority', u'communication'], name, value)
+                            self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6, ['master_ip_address', 'master_clock_class', 'non_negotiated', 'priority', 'communication'], name, value)
 
 
                         class DelayAsymmetry(Entity):
@@ -1343,15 +1820,16 @@ class Ptp(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('magnitude', YLeaf(YType.int32, 'magnitude')),
-                                    ('units', YLeaf(YType.enumeration, 'units')),
+                                    ('magnitude', (YLeaf(YType.int32, 'magnitude'), ['int'])),
+                                    ('units', (YLeaf(YType.enumeration, 'units'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpDelayAsymmetryUnits', '')])),
                                 ])
                                 self.magnitude = None
                                 self.units = None
                                 self._segment_path = lambda: "delay-asymmetry"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry, [u'magnitude', u'units'], name, value)
+                                self._perform_setattr(Ptp.Profiles.Profile.Masters.Master.Ipv4OrIpv6.DelayAsymmetry, ['magnitude', 'units'], name, value)
 
 
             class Communication(Entity):
@@ -1394,17 +1872,18 @@ class Ptp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('model', YLeaf(YType.enumeration, 'model')),
-                        ('target_address_set', YLeaf(YType.boolean, 'target-address-set')),
-                        ('target_address', YLeaf(YType.str, 'target-address')),
+                        ('model', (YLeaf(YType.enumeration, 'model'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTransport', '')])),
+                        ('target_address_set', (YLeaf(YType.boolean, 'target-address-set'), ['bool'])),
+                        ('target_address', (YLeaf(YType.str, 'target-address'), ['str'])),
                     ])
                     self.model = None
                     self.target_address_set = None
                     self.target_address = None
                     self._segment_path = lambda: "communication"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.Communication, [u'model', u'target_address_set', u'target_address'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.Communication, ['model', 'target_address_set', 'target_address'], name, value)
 
 
             class DelayRequestMinimumInterval(Entity):
@@ -1442,15 +1921,16 @@ class Ptp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('time_type', YLeaf(YType.enumeration, 'time-type')),
-                        ('time_period', YLeaf(YType.enumeration, 'time-period')),
+                        ('time_type', (YLeaf(YType.enumeration, 'time-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTime', '')])),
+                        ('time_period', (YLeaf(YType.enumeration, 'time-period'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_datatypes', 'PtpTimePeriod', '')])),
                     ])
                     self.time_type = None
                     self.time_period = None
                     self._segment_path = lambda: "delay-request-minimum-interval"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.DelayRequestMinimumInterval, [u'time_type', u'time_period'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.DelayRequestMinimumInterval, ['time_type', 'time_period'], name, value)
 
 
             class SourceIpv6Address(Entity):
@@ -1486,15 +1966,16 @@ class Ptp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('enable', YLeaf(YType.boolean, 'enable')),
-                        ('source_ipv6', YLeaf(YType.str, 'source-ipv6')),
+                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                        ('source_ipv6', (YLeaf(YType.str, 'source-ipv6'), ['str'])),
                     ])
                     self.enable = None
                     self.source_ipv6 = None
                     self._segment_path = lambda: "source-ipv6-address"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.Profiles.Profile.SourceIpv6Address, [u'enable', u'source_ipv6'], name, value)
+                    self._perform_setattr(Ptp.Profiles.Profile.SourceIpv6Address, ['enable', 'source_ipv6'], name, value)
 
 
     class UtcOffset(Entity):
@@ -1539,7 +2020,7 @@ class Ptp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("leap-second-file", ("leap_second_file", Ptp.UtcOffset.LeapSecondFile)), ("scheduled-offsets", ("scheduled_offsets", Ptp.UtcOffset.ScheduledOffsets))])
             self._leafs = OrderedDict([
-                ('base_offset', YLeaf(YType.uint32, 'base-offset')),
+                ('base_offset', (YLeaf(YType.uint32, 'base-offset'), ['int'])),
             ])
             self.base_offset = None
 
@@ -1551,9 +2032,10 @@ class Ptp(Entity):
             self._children_name_map["scheduled_offsets"] = "scheduled-offsets"
             self._segment_path = lambda: "utc-offset"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Ptp.UtcOffset, [u'base_offset'], name, value)
+            self._perform_setattr(Ptp.UtcOffset, ['base_offset'], name, value)
 
 
         class LeapSecondFile(Entity):
@@ -1596,16 +2078,17 @@ class Ptp(Entity):
                 self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
-                    ('source_url', YLeaf(YType.str, 'source-url')),
-                    ('polling_frequency', YLeaf(YType.uint32, 'polling-frequency')),
+                    ('source_url', (YLeaf(YType.str, 'source-url'), ['str'])),
+                    ('polling_frequency', (YLeaf(YType.uint32, 'polling-frequency'), ['int'])),
                 ])
                 self.source_url = None
                 self.polling_frequency = None
                 self._segment_path = lambda: "leap-second-file"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/utc-offset/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.UtcOffset.LeapSecondFile, [u'source_url', u'polling_frequency'], name, value)
+                self._perform_setattr(Ptp.UtcOffset.LeapSecondFile, ['source_url', 'polling_frequency'], name, value)
 
 
         class ScheduledOffsets(Entity):
@@ -1638,6 +2121,7 @@ class Ptp(Entity):
                 self.scheduled_offset = YList(self)
                 self._segment_path = lambda: "scheduled-offsets"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/utc-offset/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ptp.UtcOffset.ScheduledOffsets, [], name, value)
@@ -1682,16 +2166,17 @@ class Ptp(Entity):
                     self.ylist_key_names = ['date']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('date', YLeaf(YType.str, 'date')),
-                        ('offset', YLeaf(YType.uint32, 'offset')),
+                        ('date', (YLeaf(YType.str, 'date'), ['str'])),
+                        ('offset', (YLeaf(YType.uint32, 'offset'), ['int'])),
                     ])
                     self.date = None
                     self.offset = None
                     self._segment_path = lambda: "scheduled-offset" + "[date='" + str(self.date) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/utc-offset/scheduled-offsets/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.UtcOffset.ScheduledOffsets.ScheduledOffset, [u'date', u'offset'], name, value)
+                    self._perform_setattr(Ptp.UtcOffset.ScheduledOffsets.ScheduledOffset, ['date', 'offset'], name, value)
 
 
     class Logging(Entity):
@@ -1702,11 +2187,6 @@ class Ptp(Entity):
         
         	PTP best master clock logging configuration
         	**type**\:  :py:class:`BestMasterClock <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Logging.BestMasterClock>`
-        
-        .. attribute:: servo
-        
-        	PTP PD Servo logging configuration
-        	**type**\:  :py:class:`Servo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ptp_cfg.Ptp.Logging.Servo>`
         
         
 
@@ -1723,18 +2203,15 @@ class Ptp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("best-master-clock", ("best_master_clock", Ptp.Logging.BestMasterClock)), ("Cisco-IOS-XR-asr9k-ptp-pd-cfg:servo", ("servo", Ptp.Logging.Servo))])
+            self._child_classes = OrderedDict([("best-master-clock", ("best_master_clock", Ptp.Logging.BestMasterClock))])
             self._leafs = OrderedDict()
 
             self.best_master_clock = Ptp.Logging.BestMasterClock()
             self.best_master_clock.parent = self
             self._children_name_map["best_master_clock"] = "best-master-clock"
-
-            self.servo = Ptp.Logging.Servo()
-            self.servo.parent = self
-            self._children_name_map["servo"] = "Cisco-IOS-XR-asr9k-ptp-pd-cfg:servo"
             self._segment_path = lambda: "logging"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ptp.Logging, [], name, value)
@@ -1766,50 +2243,67 @@ class Ptp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('changes', YLeaf(YType.empty, 'changes')),
+                    ('changes', (YLeaf(YType.empty, 'changes'), ['Empty'])),
                 ])
                 self.changes = None
                 self._segment_path = lambda: "best-master-clock"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/logging/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Logging.BestMasterClock, [u'changes'], name, value)
+                self._perform_setattr(Ptp.Logging.BestMasterClock, ['changes'], name, value)
 
 
-        class Servo(Entity):
-            """
-            PTP PD Servo logging configuration
-            
-            .. attribute:: events
-            
-            	Enable servo events logging
-            	**type**\: :py:class:`Empty<ydk.types.Empty>`
-            
-            
+    class UncalibratedClockClass2(Entity):
+        """
+        Clock class to be used while acquiring
+        phase\-lock to a parent clock.
+        
+        .. attribute:: clock_class
+        
+        	Clock Class
+        	**type**\: int
+        
+        	**range:** 0..255
+        
+        	**mandatory**\: True
+        
+        .. attribute:: unless_from_holdover
+        
+        	Unless from holdover flag
+        	**type**\: bool
+        
+        
 
-            """
+        This class is a :ref:`presence class<presence-class>`
 
-            _prefix = 'asr9k-ptp-pd-cfg'
-            _revision = '2017-05-20'
+        """
 
-            def __init__(self):
-                super(Ptp.Logging.Servo, self).__init__()
+        _prefix = 'ptp-cfg'
+        _revision = '2017-02-02'
 
-                self.yang_name = "servo"
-                self.yang_parent_name = "logging"
-                self.is_top_level_class = False
-                self.has_list_ancestor = False
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([])
-                self._leafs = OrderedDict([
-                    ('events', YLeaf(YType.empty, 'events')),
-                ])
-                self.events = None
-                self._segment_path = lambda: "Cisco-IOS-XR-asr9k-ptp-pd-cfg:servo"
-                self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/logging/%s" % self._segment_path()
+        def __init__(self):
+            super(Ptp.UncalibratedClockClass2, self).__init__()
 
-            def __setattr__(self, name, value):
-                self._perform_setattr(Ptp.Logging.Servo, ['events'], name, value)
+            self.yang_name = "uncalibrated-clock-class2"
+            self.yang_parent_name = "ptp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self.is_presence_container = True
+            self._leafs = OrderedDict([
+                ('clock_class', (YLeaf(YType.uint32, 'clock-class'), ['int'])),
+                ('unless_from_holdover', (YLeaf(YType.boolean, 'unless-from-holdover'), ['bool'])),
+            ])
+            self.clock_class = None
+            self.unless_from_holdover = None
+            self._segment_path = lambda: "uncalibrated-clock-class2"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ptp.UncalibratedClockClass2, ['clock_class', 'unless_from_holdover'], name, value)
 
 
     class TransparentClock(Entity):
@@ -1844,6 +2338,7 @@ class Ptp(Entity):
             self._children_name_map["domains"] = "domains"
             self._segment_path = lambda: "transparent-clock"
             self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ptp.TransparentClock, [], name, value)
@@ -1880,6 +2375,7 @@ class Ptp(Entity):
                 self.domain = YList(self)
                 self._segment_path = lambda: "domains"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/transparent-clock/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ptp.TransparentClock.Domains, [], name, value)
@@ -1913,14 +2409,106 @@ class Ptp(Entity):
                     self.ylist_key_names = ['domain']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('domain', YLeaf(YType.str, 'domain')),
+                        ('domain', (YLeaf(YType.str, 'domain'), ['str'])),
                     ])
                     self.domain = None
                     self._segment_path = lambda: "domain" + "[domain='" + str(self.domain) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/transparent-clock/domains/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Ptp.TransparentClock.Domains.Domain, [u'domain'], name, value)
+                    self._perform_setattr(Ptp.TransparentClock.Domains.Domain, ['domain'], name, value)
+
+
+    class VirtualPort(Entity):
+        """
+        PTP virtual port configuration
+        
+        .. attribute:: clock_accuracy
+        
+        	Virtual port clock accuracy
+        	**type**\: int
+        
+        	**range:** 0..254
+        
+        .. attribute:: enable
+        
+        	Enable the PTP Virtual Port
+        	**type**\: :py:class:`Empty<ydk.types.Empty>`
+        
+        .. attribute:: priority2
+        
+        	Virtual port priority2
+        	**type**\: int
+        
+        	**range:** 0..255
+        
+        .. attribute:: local_priority
+        
+        	Virtual port local priority
+        	**type**\: int
+        
+        	**range:** 1..255
+        
+        .. attribute:: offset_scaled_log_variance
+        
+        	Virtual port OSLV
+        	**type**\: int
+        
+        	**range:** 0..65535
+        
+        .. attribute:: priority1
+        
+        	Virtual port priority1
+        	**type**\: int
+        
+        	**range:** 0..255
+        
+        .. attribute:: clock_class
+        
+        	Virtual port clock class
+        	**type**\: int
+        
+        	**range:** 0..255
+        
+        
+
+        """
+
+        _prefix = 'ptp-cfg'
+        _revision = '2017-02-02'
+
+        def __init__(self):
+            super(Ptp.VirtualPort, self).__init__()
+
+            self.yang_name = "virtual-port"
+            self.yang_parent_name = "ptp"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('clock_accuracy', (YLeaf(YType.uint32, 'clock-accuracy'), ['int'])),
+                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ('priority2', (YLeaf(YType.uint32, 'priority2'), ['int'])),
+                ('local_priority', (YLeaf(YType.uint32, 'local-priority'), ['int'])),
+                ('offset_scaled_log_variance', (YLeaf(YType.uint32, 'offset-scaled-log-variance'), ['int'])),
+                ('priority1', (YLeaf(YType.uint32, 'priority1'), ['int'])),
+                ('clock_class', (YLeaf(YType.uint32, 'clock-class'), ['int'])),
+            ])
+            self.clock_accuracy = None
+            self.enable = None
+            self.priority2 = None
+            self.local_priority = None
+            self.offset_scaled_log_variance = None
+            self.priority1 = None
+            self.clock_class = None
+            self._segment_path = lambda: "virtual-port"
+            self._absolute_path = lambda: "Cisco-IOS-XR-ptp-cfg:ptp/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(Ptp.VirtualPort, ['clock_accuracy', 'enable', 'priority2', 'local_priority', 'offset_scaled_log_variance', 'priority1', 'clock_class'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ptp()

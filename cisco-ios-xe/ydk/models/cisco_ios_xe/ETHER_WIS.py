@@ -40,6 +40,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class ETHERWIS(Entity):
     """
     
@@ -99,6 +100,7 @@ class ETHERWIS(Entity):
         self.etherwisfarendpathcurrenttable.parent = self
         self._children_name_map["etherwisfarendpathcurrenttable"] = "etherWisFarEndPathCurrentTable"
         self._segment_path = lambda: "ETHER-WIS:ETHER-WIS"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ETHERWIS, [], name, value)
@@ -134,6 +136,7 @@ class ETHERWIS(Entity):
             self.etherwisdeviceentry = YList(self)
             self._segment_path = lambda: "etherWisDeviceTable"
             self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ETHERWIS.EtherWisDeviceTable, [], name, value)
@@ -188,10 +191,10 @@ class ETHERWIS(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('etherwisdevicetxtestpatternmode', YLeaf(YType.enumeration, 'etherWisDeviceTxTestPatternMode')),
-                    ('etherwisdevicerxtestpatternmode', YLeaf(YType.enumeration, 'etherWisDeviceRxTestPatternMode')),
-                    ('etherwisdevicerxtestpatternerrors', YLeaf(YType.uint32, 'etherWisDeviceRxTestPatternErrors')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('etherwisdevicetxtestpatternmode', (YLeaf(YType.enumeration, 'etherWisDeviceTxTestPatternMode'), [('ydk.models.cisco_ios_xe.ETHER_WIS', 'ETHERWIS', 'EtherWisDeviceTable.EtherWisDeviceEntry.EtherWisDeviceTxTestPatternMode')])),
+                    ('etherwisdevicerxtestpatternmode', (YLeaf(YType.enumeration, 'etherWisDeviceRxTestPatternMode'), [('ydk.models.cisco_ios_xe.ETHER_WIS', 'ETHERWIS', 'EtherWisDeviceTable.EtherWisDeviceEntry.EtherWisDeviceRxTestPatternMode')])),
+                    ('etherwisdevicerxtestpatternerrors', (YLeaf(YType.uint32, 'etherWisDeviceRxTestPatternErrors'), ['int'])),
                 ])
                 self.ifindex = None
                 self.etherwisdevicetxtestpatternmode = None
@@ -199,6 +202,7 @@ class ETHERWIS(Entity):
                 self.etherwisdevicerxtestpatternerrors = None
                 self._segment_path = lambda: "etherWisDeviceEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/etherWisDeviceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ETHERWIS.EtherWisDeviceTable.EtherWisDeviceEntry, ['ifindex', 'etherwisdevicetxtestpatternmode', 'etherwisdevicerxtestpatternmode', 'etherwisdevicerxtestpatternerrors'], name, value)
@@ -338,6 +342,7 @@ class ETHERWIS(Entity):
             self.etherwissectioncurrententry = YList(self)
             self._segment_path = lambda: "etherWisSectionCurrentTable"
             self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ETHERWIS.EtherWisSectionCurrentTable, [], name, value)
@@ -389,15 +394,16 @@ class ETHERWIS(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('etherwissectioncurrentj0transmitted', YLeaf(YType.str, 'etherWisSectionCurrentJ0Transmitted')),
-                    ('etherwissectioncurrentj0received', YLeaf(YType.str, 'etherWisSectionCurrentJ0Received')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('etherwissectioncurrentj0transmitted', (YLeaf(YType.str, 'etherWisSectionCurrentJ0Transmitted'), ['str'])),
+                    ('etherwissectioncurrentj0received', (YLeaf(YType.str, 'etherWisSectionCurrentJ0Received'), ['str'])),
                 ])
                 self.ifindex = None
                 self.etherwissectioncurrentj0transmitted = None
                 self.etherwissectioncurrentj0received = None
                 self._segment_path = lambda: "etherWisSectionCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/etherWisSectionCurrentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ETHERWIS.EtherWisSectionCurrentTable.EtherWisSectionCurrentEntry, ['ifindex', 'etherwissectioncurrentj0transmitted', 'etherwissectioncurrentj0received'], name, value)
@@ -433,6 +439,7 @@ class ETHERWIS(Entity):
             self.etherwispathcurrententry = YList(self)
             self._segment_path = lambda: "etherWisPathCurrentTable"
             self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ETHERWIS.EtherWisPathCurrentTable, [], name, value)
@@ -489,10 +496,10 @@ class ETHERWIS(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('etherwispathcurrentstatus', YLeaf(YType.bits, 'etherWisPathCurrentStatus')),
-                    ('etherwispathcurrentj1transmitted', YLeaf(YType.str, 'etherWisPathCurrentJ1Transmitted')),
-                    ('etherwispathcurrentj1received', YLeaf(YType.str, 'etherWisPathCurrentJ1Received')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('etherwispathcurrentstatus', (YLeaf(YType.bits, 'etherWisPathCurrentStatus'), ['Bits'])),
+                    ('etherwispathcurrentj1transmitted', (YLeaf(YType.str, 'etherWisPathCurrentJ1Transmitted'), ['str'])),
+                    ('etherwispathcurrentj1received', (YLeaf(YType.str, 'etherWisPathCurrentJ1Received'), ['str'])),
                 ])
                 self.ifindex = None
                 self.etherwispathcurrentstatus = Bits()
@@ -500,6 +507,7 @@ class ETHERWIS(Entity):
                 self.etherwispathcurrentj1received = None
                 self._segment_path = lambda: "etherWisPathCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/etherWisPathCurrentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ETHERWIS.EtherWisPathCurrentTable.EtherWisPathCurrentEntry, ['ifindex', 'etherwispathcurrentstatus', 'etherwispathcurrentj1transmitted', 'etherwispathcurrentj1received'], name, value)
@@ -536,6 +544,7 @@ class ETHERWIS(Entity):
             self.etherwisfarendpathcurrententry = YList(self)
             self._segment_path = lambda: "etherWisFarEndPathCurrentTable"
             self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ETHERWIS.EtherWisFarEndPathCurrentTable, [], name, value)
@@ -578,13 +587,14 @@ class ETHERWIS(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('etherwisfarendpathcurrentstatus', YLeaf(YType.bits, 'etherWisFarEndPathCurrentStatus')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('etherwisfarendpathcurrentstatus', (YLeaf(YType.bits, 'etherWisFarEndPathCurrentStatus'), ['Bits'])),
                 ])
                 self.ifindex = None
                 self.etherwisfarendpathcurrentstatus = Bits()
                 self._segment_path = lambda: "etherWisFarEndPathCurrentEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "ETHER-WIS:ETHER-WIS/etherWisFarEndPathCurrentTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ETHERWIS.EtherWisFarEndPathCurrentTable.EtherWisFarEndPathCurrentEntry, ['ifindex', 'etherwisfarendpathcurrentstatus'], name, value)

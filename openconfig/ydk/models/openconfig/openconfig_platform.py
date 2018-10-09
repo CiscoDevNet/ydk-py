@@ -46,6 +46,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class Components(Entity):
     """
     Enclosing container for the components in the system.
@@ -76,6 +77,7 @@ class Components(Entity):
 
         self.component = YList(self)
         self._segment_path = lambda: "openconfig-platform:components"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Components, [], name, value)
@@ -112,6 +114,11 @@ class Components(Entity):
         	Enclosing container for subcomponent references
         	**type**\:  :py:class:`Subcomponents <ydk.models.openconfig.openconfig_platform.Components.Component.Subcomponents>`
         
+        .. attribute:: optical_port
+        
+        	Top\-level container 
+        	**type**\:  :py:class:`OpticalPort <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort>`
+        
         .. attribute:: transceiver
         
         	Top\-level container for client port transceiver data
@@ -121,11 +128,6 @@ class Components(Entity):
         
         	Enclosing container for the list of optical channels
         	**type**\:  :py:class:`OpticalChannel <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalChannel>`
-        
-        .. attribute:: optical_port
-        
-        	Top\-level container 
-        	**type**\:  :py:class:`OpticalPort <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort>`
         
         
 
@@ -142,9 +144,9 @@ class Components(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = ['name']
-            self._child_classes = OrderedDict([("config", ("config", Components.Component.Config)), ("state", ("state", Components.Component.State)), ("properties", ("properties", Components.Component.Properties)), ("subcomponents", ("subcomponents", Components.Component.Subcomponents)), ("openconfig-platform-transceiver:transceiver", ("transceiver", Components.Component.Transceiver)), ("openconfig-terminal-device:optical-channel", ("optical_channel", Components.Component.OpticalChannel)), ("openconfig-transport-line-common:optical-port", ("optical_port", Components.Component.OpticalPort))])
+            self._child_classes = OrderedDict([("config", ("config", Components.Component.Config)), ("state", ("state", Components.Component.State)), ("properties", ("properties", Components.Component.Properties)), ("subcomponents", ("subcomponents", Components.Component.Subcomponents)), ("openconfig-transport-line-common:optical-port", ("optical_port", Components.Component.OpticalPort)), ("openconfig-platform-transceiver:transceiver", ("transceiver", Components.Component.Transceiver)), ("openconfig-terminal-device:optical-channel", ("optical_channel", Components.Component.OpticalChannel))])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
             ])
             self.name = None
 
@@ -164,6 +166,10 @@ class Components(Entity):
             self.subcomponents.parent = self
             self._children_name_map["subcomponents"] = "subcomponents"
 
+            self.optical_port = Components.Component.OpticalPort()
+            self.optical_port.parent = self
+            self._children_name_map["optical_port"] = "openconfig-transport-line-common:optical-port"
+
             self.transceiver = Components.Component.Transceiver()
             self.transceiver.parent = self
             self._children_name_map["transceiver"] = "openconfig-platform-transceiver:transceiver"
@@ -171,15 +177,12 @@ class Components(Entity):
             self.optical_channel = Components.Component.OpticalChannel()
             self.optical_channel.parent = self
             self._children_name_map["optical_channel"] = "openconfig-terminal-device:optical-channel"
-
-            self.optical_port = Components.Component.OpticalPort()
-            self.optical_port.parent = self
-            self._children_name_map["optical_port"] = "openconfig-transport-line-common:optical-port"
             self._segment_path = lambda: "component" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "openconfig-platform:components/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Components.Component, [u'name'], name, value)
+            self._perform_setattr(Components.Component, ['name'], name, value)
 
 
         class Config(Entity):
@@ -208,13 +211,14 @@ class Components(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
                 self._segment_path = lambda: "config"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Components.Component.Config, [u'name'], name, value)
+                self._perform_setattr(Components.Component.Config, ['name'], name, value)
 
 
         class State(Entity):
@@ -282,14 +286,14 @@ class Components(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('type', YLeaf(YType.str, 'type')),
-                    ('id', YLeaf(YType.str, 'id')),
-                    ('description', YLeaf(YType.str, 'description')),
-                    ('mfg_name', YLeaf(YType.str, 'mfg-name')),
-                    ('version', YLeaf(YType.str, 'version')),
-                    ('serial_no', YLeaf(YType.str, 'serial-no')),
-                    ('part_no', YLeaf(YType.str, 'part-no')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('type', (YLeaf(YType.str, 'type'), [('ydk.models.openconfig.openconfig_platform_types', 'OPENCONFIGHARDWARECOMPONENT'),('ydk.models.openconfig.openconfig_platform_types', 'OPENCONFIGSOFTWARECOMPONENT')])),
+                    ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                    ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                    ('mfg_name', (YLeaf(YType.str, 'mfg-name'), ['str'])),
+                    ('version', (YLeaf(YType.str, 'version'), ['str'])),
+                    ('serial_no', (YLeaf(YType.str, 'serial-no'), ['str'])),
+                    ('part_no', (YLeaf(YType.str, 'part-no'), ['str'])),
                 ])
                 self.name = None
                 self.type = None
@@ -300,9 +304,10 @@ class Components(Entity):
                 self.serial_no = None
                 self.part_no = None
                 self._segment_path = lambda: "state"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Components.Component.State, [u'name', u'type', u'id', u'description', u'mfg_name', u'version', u'serial_no', u'part_no'], name, value)
+                self._perform_setattr(Components.Component.State, ['name', 'type', 'id', 'description', 'mfg_name', 'version', 'serial_no', 'part_no'], name, value)
 
 
         class Properties(Entity):
@@ -334,6 +339,7 @@ class Components(Entity):
 
                 self.property = YList(self)
                 self._segment_path = lambda: "properties"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Components.Component.Properties, [], name, value)
@@ -377,7 +383,7 @@ class Components(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("config", ("config", Components.Component.Properties.Property.Config)), ("state", ("state", Components.Component.Properties.Property.State))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.name = None
 
@@ -389,9 +395,10 @@ class Components(Entity):
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._segment_path = lambda: "property" + "[name='" + str(self.name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Components.Component.Properties.Property, [u'name'], name, value)
+                    self._perform_setattr(Components.Component.Properties.Property, ['name'], name, value)
 
 
                 class Config(Entity):
@@ -441,15 +448,16 @@ class Components(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('value', YLeaf(YType.str, 'value')),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('value', (YLeaf(YType.str, 'value'), ['str','bool','int','int','Decimal64'])),
                         ])
                         self.name = None
                         self.value = None
                         self._segment_path = lambda: "config"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.Properties.Property.Config, [u'name', u'value'], name, value)
+                        self._perform_setattr(Components.Component.Properties.Property.Config, ['name', 'value'], name, value)
 
 
                 class State(Entity):
@@ -504,17 +512,18 @@ class Components(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('value', YLeaf(YType.str, 'value')),
-                            ('configurable', YLeaf(YType.boolean, 'configurable')),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('value', (YLeaf(YType.str, 'value'), ['str','bool','int','int','Decimal64'])),
+                            ('configurable', (YLeaf(YType.boolean, 'configurable'), ['bool'])),
                         ])
                         self.name = None
                         self.value = None
                         self.configurable = None
                         self._segment_path = lambda: "state"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.Properties.Property.State, [u'name', u'value', u'configurable'], name, value)
+                        self._perform_setattr(Components.Component.Properties.Property.State, ['name', 'value', 'configurable'], name, value)
 
 
         class Subcomponents(Entity):
@@ -546,6 +555,7 @@ class Components(Entity):
 
                 self.subcomponent = YList(self)
                 self._segment_path = lambda: "subcomponents"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Components.Component.Subcomponents, [], name, value)
@@ -589,7 +599,7 @@ class Components(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("config", ("config", Components.Component.Subcomponents.Subcomponent.Config)), ("state", ("state", Components.Component.Subcomponents.Subcomponent.State))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.name = None
 
@@ -601,9 +611,10 @@ class Components(Entity):
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._segment_path = lambda: "subcomponent" + "[name='" + str(self.name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Components.Component.Subcomponents.Subcomponent, [u'name'], name, value)
+                    self._perform_setattr(Components.Component.Subcomponents.Subcomponent, ['name'], name, value)
 
 
                 class Config(Entity):
@@ -634,13 +645,14 @@ class Components(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.name = None
                         self._segment_path = lambda: "config"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.Subcomponents.Subcomponent.Config, [u'name'], name, value)
+                        self._perform_setattr(Components.Component.Subcomponents.Subcomponent.Config, ['name'], name, value)
 
 
                 class State(Entity):
@@ -671,13 +683,307 @@ class Components(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.name = None
                         self._segment_path = lambda: "state"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.Subcomponents.Subcomponent.State, [u'name'], name, value)
+                        self._perform_setattr(Components.Component.Subcomponents.Subcomponent.State, ['name'], name, value)
+
+
+        class OpticalPort(Entity):
+            """
+            Top\-level container 
+            
+            .. attribute:: config
+            
+            	Operational config data for optical line ports
+            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.Config>`
+            
+            .. attribute:: state
+            
+            	Operational state data for optical line ports
+            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State>`
+            
+            
+
+            """
+
+            _prefix = 'oc-line-com'
+            _revision = '2017-07-08'
+
+            def __init__(self):
+                super(Components.Component.OpticalPort, self).__init__()
+
+                self.yang_name = "optical-port"
+                self.yang_parent_name = "component"
+                self.is_top_level_class = False
+                self.has_list_ancestor = True
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([("config", ("config", Components.Component.OpticalPort.Config)), ("state", ("state", Components.Component.OpticalPort.State))])
+                self._leafs = OrderedDict()
+
+                self.config = Components.Component.OpticalPort.Config()
+                self.config.parent = self
+                self._children_name_map["config"] = "config"
+
+                self.state = Components.Component.OpticalPort.State()
+                self.state.parent = self
+                self._children_name_map["state"] = "state"
+                self._segment_path = lambda: "openconfig-transport-line-common:optical-port"
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(Components.Component.OpticalPort, [], name, value)
+
+
+            class Config(Entity):
+                """
+                Operational config data for optical line ports
+                
+                .. attribute:: admin_state
+                
+                	Sets the admin state of the optical\-port
+                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
+                
+                
+
+                """
+
+                _prefix = 'oc-line-com'
+                _revision = '2017-07-08'
+
+                def __init__(self):
+                    super(Components.Component.OpticalPort.Config, self).__init__()
+
+                    self.yang_name = "config"
+                    self.yang_parent_name = "optical-port"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.openconfig.openconfig_transport_types', 'AdminStateType', '')])),
+                    ])
+                    self.admin_state = None
+                    self._segment_path = lambda: "config"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Components.Component.OpticalPort.Config, [u'admin_state'], name, value)
+
+
+            class State(Entity):
+                """
+                Operational state data for optical line ports
+                
+                .. attribute:: admin_state
+                
+                	Sets the admin state of the optical\-port
+                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
+                
+                .. attribute:: optical_port_type
+                
+                	Indicates the type of transport line port.  This is an informational field that should be made available by the device (e.g., in the openconfig\-platform model)
+                	**type**\:  :py:class:`OPTICALLINEPORTTYPE <ydk.models.openconfig.openconfig_transport_line_common.OPTICALLINEPORTTYPE>`
+                
+                .. attribute:: input_power
+                
+                	The total input optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
+                	**type**\:  :py:class:`InputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.InputPower>`
+                
+                .. attribute:: output_power
+                
+                	The total output optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
+                	**type**\:  :py:class:`OutputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.OutputPower>`
+                
+                
+
+                """
+
+                _prefix = 'oc-line-com'
+                _revision = '2017-07-08'
+
+                def __init__(self):
+                    super(Components.Component.OpticalPort.State, self).__init__()
+
+                    self.yang_name = "state"
+                    self.yang_parent_name = "optical-port"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([("input-power", ("input_power", Components.Component.OpticalPort.State.InputPower)), ("output-power", ("output_power", Components.Component.OpticalPort.State.OutputPower))])
+                    self._leafs = OrderedDict([
+                        ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.openconfig.openconfig_transport_types', 'AdminStateType', '')])),
+                        ('optical_port_type', (YLeaf(YType.identityref, 'optical-port-type'), [('ydk.models.openconfig.openconfig_transport_line_common', 'OPTICALLINEPORTTYPE')])),
+                    ])
+                    self.admin_state = None
+                    self.optical_port_type = None
+
+                    self.input_power = Components.Component.OpticalPort.State.InputPower()
+                    self.input_power.parent = self
+                    self._children_name_map["input_power"] = "input-power"
+
+                    self.output_power = Components.Component.OpticalPort.State.OutputPower()
+                    self.output_power.parent = self
+                    self._children_name_map["output_power"] = "output-power"
+                    self._segment_path = lambda: "state"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(Components.Component.OpticalPort.State, [u'admin_state', u'optical_port_type'], name, value)
+
+
+                class InputPower(Entity):
+                    """
+                    The total input optical power of this port in units
+                    of 0.01dBm. If avg/min/max statistics are not supported,
+                    just supply the instant value
+                    
+                    .. attribute:: instant
+                    
+                    	The instantaneous value of the statistic
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: avg
+                    
+                    	The arithmetic mean value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: min
+                    
+                    	The minimum value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: max
+                    
+                    	The maximum value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**units**\: dBm
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-line-com'
+                    _revision = '2017-07-08'
+
+                    def __init__(self):
+                        super(Components.Component.OpticalPort.State.InputPower, self).__init__()
+
+                        self.yang_name = "input-power"
+                        self.yang_parent_name = "state"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                        ])
+                        self.instant = None
+                        self.avg = None
+                        self.min = None
+                        self.max = None
+                        self._segment_path = lambda: "input-power"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Components.Component.OpticalPort.State.InputPower, ['instant', 'avg', 'min', 'max'], name, value)
+
+
+                class OutputPower(Entity):
+                    """
+                    The total output optical power of this port in units
+                    of 0.01dBm. If avg/min/max statistics are not supported,
+                    just supply the instant value
+                    
+                    .. attribute:: instant
+                    
+                    	The instantaneous value of the statistic
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: avg
+                    
+                    	The arithmetic mean value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: min
+                    
+                    	The minimum value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**units**\: dBm
+                    
+                    .. attribute:: max
+                    
+                    	The maximum value of the statistic over the sampling period
+                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
+                    
+                    	**range:** \-92233720368547758.08..92233720368547758.07
+                    
+                    	**units**\: dBm
+                    
+                    
+
+                    """
+
+                    _prefix = 'oc-line-com'
+                    _revision = '2017-07-08'
+
+                    def __init__(self):
+                        super(Components.Component.OpticalPort.State.OutputPower, self).__init__()
+
+                        self.yang_name = "output-power"
+                        self.yang_parent_name = "state"
+                        self.is_top_level_class = False
+                        self.has_list_ancestor = True
+                        self.ylist_key_names = []
+                        self._child_classes = OrderedDict([])
+                        self._leafs = OrderedDict([
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
+                        ])
+                        self.instant = None
+                        self.avg = None
+                        self.min = None
+                        self.max = None
+                        self._segment_path = lambda: "output-power"
+                        self._is_frozen = True
+
+                    def __setattr__(self, name, value):
+                        self._perform_setattr(Components.Component.OpticalPort.State.OutputPower, ['instant', 'avg', 'min', 'max'], name, value)
 
 
         class Transceiver(Entity):
@@ -729,6 +1035,7 @@ class Components(Entity):
                 self.physical_channels.parent = self
                 self._children_name_map["physical_channels"] = "physical-channels"
                 self._segment_path = lambda: "openconfig-platform-transceiver:transceiver"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Components.Component.Transceiver, [], name, value)
@@ -765,12 +1072,13 @@ class Components(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('enabled', YLeaf(YType.boolean, 'enabled')),
-                        ('form_factor', YLeaf(YType.identityref, 'form-factor')),
+                        ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                        ('form_factor', (YLeaf(YType.identityref, 'form-factor'), [('ydk.models.openconfig.openconfig_transport_types', 'TRANSCEIVERFORMFACTORTYPE')])),
                     ])
                     self.enabled = None
                     self.form_factor = None
                     self._segment_path = lambda: "config"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Components.Component.Transceiver.Config, [u'enabled', u'form_factor'], name, value)
@@ -879,20 +1187,20 @@ class Components(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('enabled', YLeaf(YType.boolean, 'enabled')),
-                        ('form_factor', YLeaf(YType.identityref, 'form-factor')),
-                        ('present', YLeaf(YType.enumeration, 'present')),
-                        ('connector_type', YLeaf(YType.identityref, 'connector-type')),
-                        ('internal_temp', YLeaf(YType.int16, 'internal-temp')),
-                        ('vendor', YLeaf(YType.str, 'vendor')),
-                        ('vendor_part', YLeaf(YType.str, 'vendor-part')),
-                        ('vendor_rev', YLeaf(YType.str, 'vendor-rev')),
-                        ('ethernet_compliance_code', YLeaf(YType.identityref, 'ethernet-compliance-code')),
-                        ('sonet_sdh_compliance_code', YLeaf(YType.identityref, 'sonet-sdh-compliance-code')),
-                        ('otn_compliance_code', YLeaf(YType.identityref, 'otn-compliance-code')),
-                        ('serial_no', YLeaf(YType.str, 'serial-no')),
-                        ('date_code', YLeaf(YType.str, 'date-code')),
-                        ('fault_condition', YLeaf(YType.boolean, 'fault-condition')),
+                        ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                        ('form_factor', (YLeaf(YType.identityref, 'form-factor'), [('ydk.models.openconfig.openconfig_transport_types', 'TRANSCEIVERFORMFACTORTYPE')])),
+                        ('present', (YLeaf(YType.enumeration, 'present'), [('ydk.models.openconfig.openconfig_platform', 'Components', 'Component.Transceiver.State.Present')])),
+                        ('connector_type', (YLeaf(YType.identityref, 'connector-type'), [('ydk.models.openconfig.openconfig_transport_types', 'FIBERCONNECTORTYPE')])),
+                        ('internal_temp', (YLeaf(YType.int16, 'internal-temp'), ['int'])),
+                        ('vendor', (YLeaf(YType.str, 'vendor'), ['str'])),
+                        ('vendor_part', (YLeaf(YType.str, 'vendor-part'), ['str'])),
+                        ('vendor_rev', (YLeaf(YType.str, 'vendor-rev'), ['str'])),
+                        ('ethernet_compliance_code', (YLeaf(YType.identityref, 'ethernet-compliance-code'), [('ydk.models.openconfig.openconfig_transport_types', 'ETHERNETPMDTYPE')])),
+                        ('sonet_sdh_compliance_code', (YLeaf(YType.identityref, 'sonet-sdh-compliance-code'), [('ydk.models.openconfig.openconfig_transport_types', 'SONETAPPLICATIONCODE')])),
+                        ('otn_compliance_code', (YLeaf(YType.identityref, 'otn-compliance-code'), [('ydk.models.openconfig.openconfig_transport_types', 'OTNAPPLICATIONCODE')])),
+                        ('serial_no', (YLeaf(YType.str, 'serial-no'), ['str'])),
+                        ('date_code', (YLeaf(YType.str, 'date-code'), ['str'])),
+                        ('fault_condition', (YLeaf(YType.boolean, 'fault-condition'), ['bool'])),
                     ])
                     self.enabled = None
                     self.form_factor = None
@@ -909,6 +1217,7 @@ class Components(Entity):
                     self.date_code = None
                     self.fault_condition = None
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Components.Component.Transceiver.State, [u'enabled', u'form_factor', u'present', u'connector_type', u'internal_temp', u'vendor', u'vendor_part', u'vendor_rev', u'ethernet_compliance_code', u'sonet_sdh_compliance_code', u'otn_compliance_code', u'serial_no', u'date_code', u'fault_condition'], name, value)
@@ -966,6 +1275,7 @@ class Components(Entity):
 
                     self.channel = YList(self)
                     self._segment_path = lambda: "physical-channels"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Components.Component.Transceiver.PhysicalChannels, [], name, value)
@@ -1013,7 +1323,7 @@ class Components(Entity):
                         self.ylist_key_names = ['index']
                         self._child_classes = OrderedDict([("config", ("config", Components.Component.Transceiver.PhysicalChannels.Channel.Config)), ("state", ("state", Components.Component.Transceiver.PhysicalChannels.Channel.State))])
                         self._leafs = OrderedDict([
-                            ('index', YLeaf(YType.str, 'index')),
+                            ('index', (YLeaf(YType.str, 'index'), ['int'])),
                         ])
                         self.index = None
 
@@ -1025,6 +1335,7 @@ class Components(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "channel" + "[index='" + str(self.index) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel, [u'index'], name, value)
@@ -1077,16 +1388,17 @@ class Components(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('index', YLeaf(YType.uint16, 'index')),
-                                ('description', YLeaf(YType.str, 'description')),
-                                ('tx_laser', YLeaf(YType.boolean, 'tx-laser')),
-                                ('target_output_power', YLeaf(YType.str, 'target-output-power')),
+                                ('index', (YLeaf(YType.uint16, 'index'), ['int'])),
+                                ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                                ('tx_laser', (YLeaf(YType.boolean, 'tx-laser'), ['bool'])),
+                                ('target_output_power', (YLeaf(YType.str, 'target-output-power'), ['Decimal64'])),
                             ])
                             self.index = None
                             self.description = None
                             self.tx_laser = None
                             self.target_output_power = None
                             self._segment_path = lambda: "config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel.Config, [u'index', u'description', u'tx_laser', u'target_output_power'], name, value)
@@ -1161,11 +1473,11 @@ class Components(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("output-power", ("output_power", Components.Component.Transceiver.PhysicalChannels.Channel.State.OutputPower)), ("input-power", ("input_power", Components.Component.Transceiver.PhysicalChannels.Channel.State.InputPower)), ("laser-bias-current", ("laser_bias_current", Components.Component.Transceiver.PhysicalChannels.Channel.State.LaserBiasCurrent))])
                             self._leafs = OrderedDict([
-                                ('index', YLeaf(YType.uint16, 'index')),
-                                ('description', YLeaf(YType.str, 'description')),
-                                ('tx_laser', YLeaf(YType.boolean, 'tx-laser')),
-                                ('target_output_power', YLeaf(YType.str, 'target-output-power')),
-                                ('output_frequency', YLeaf(YType.uint64, 'output-frequency')),
+                                ('index', (YLeaf(YType.uint16, 'index'), ['int'])),
+                                ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                                ('tx_laser', (YLeaf(YType.boolean, 'tx-laser'), ['bool'])),
+                                ('target_output_power', (YLeaf(YType.str, 'target-output-power'), ['Decimal64'])),
+                                ('output_frequency', (YLeaf(YType.uint64, 'output-frequency'), ['int'])),
                             ])
                             self.index = None
                             self.description = None
@@ -1185,6 +1497,7 @@ class Components(Entity):
                             self.laser_bias_current.parent = self
                             self._children_name_map["laser_bias_current"] = "laser-bias-current"
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel.State, [u'index', u'description', u'tx_laser', u'target_output_power', u'output_frequency'], name, value)
@@ -1243,19 +1556,20 @@ class Components(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('instant', YLeaf(YType.str, 'instant')),
-                                    ('avg', YLeaf(YType.str, 'avg')),
-                                    ('min', YLeaf(YType.str, 'min')),
-                                    ('max', YLeaf(YType.str, 'max')),
+                                    ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                                    ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                                    ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                                    ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                                 ])
                                 self.instant = None
                                 self.avg = None
                                 self.min = None
                                 self.max = None
                                 self._segment_path = lambda: "output-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel.State.OutputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+                                self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel.State.OutputPower, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                         class InputPower(Entity):
@@ -1311,19 +1625,20 @@ class Components(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('instant', YLeaf(YType.str, 'instant')),
-                                    ('avg', YLeaf(YType.str, 'avg')),
-                                    ('min', YLeaf(YType.str, 'min')),
-                                    ('max', YLeaf(YType.str, 'max')),
+                                    ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                                    ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                                    ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                                    ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                                 ])
                                 self.instant = None
                                 self.avg = None
                                 self.min = None
                                 self.max = None
                                 self._segment_path = lambda: "input-power"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel.State.InputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+                                self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel.State.InputPower, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                         class LaserBiasCurrent(Entity):
@@ -1379,19 +1694,20 @@ class Components(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('instant', YLeaf(YType.str, 'instant')),
-                                    ('avg', YLeaf(YType.str, 'avg')),
-                                    ('min', YLeaf(YType.str, 'min')),
-                                    ('max', YLeaf(YType.str, 'max')),
+                                    ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                                    ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                                    ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                                    ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                                 ])
                                 self.instant = None
                                 self.avg = None
                                 self.min = None
                                 self.max = None
                                 self._segment_path = lambda: "laser-bias-current"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel.State.LaserBiasCurrent, [u'instant', u'avg', u'min', u'max'], name, value)
+                                self._perform_setattr(Components.Component.Transceiver.PhysicalChannels.Channel.State.LaserBiasCurrent, ['instant', 'avg', 'min', 'max'], name, value)
 
 
         class OpticalChannel(Entity):
@@ -1434,6 +1750,7 @@ class Components(Entity):
                 self.state.parent = self
                 self._children_name_map["state"] = "state"
                 self._segment_path = lambda: "openconfig-terminal-device:optical-channel"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Components.Component.OpticalChannel, [], name, value)
@@ -1490,16 +1807,17 @@ class Components(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('frequency', YLeaf(YType.uint64, 'frequency')),
-                        ('target_output_power', YLeaf(YType.str, 'target-output-power')),
-                        ('operational_mode', YLeaf(YType.uint16, 'operational-mode')),
-                        ('line_port', YLeaf(YType.str, 'line-port')),
+                        ('frequency', (YLeaf(YType.uint64, 'frequency'), ['int'])),
+                        ('target_output_power', (YLeaf(YType.str, 'target-output-power'), ['Decimal64'])),
+                        ('operational_mode', (YLeaf(YType.uint16, 'operational-mode'), ['int'])),
+                        ('line_port', (YLeaf(YType.str, 'line-port'), ['str'])),
                     ])
                     self.frequency = None
                     self.target_output_power = None
                     self.operational_mode = None
                     self.line_port = None
                     self._segment_path = lambda: "config"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Components.Component.OpticalChannel.Config, ['frequency', 'target_output_power', 'operational_mode', 'line_port'], name, value)
@@ -1598,11 +1916,11 @@ class Components(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("output-power", ("output_power", Components.Component.OpticalChannel.State.OutputPower)), ("input-power", ("input_power", Components.Component.OpticalChannel.State.InputPower)), ("laser-bias-current", ("laser_bias_current", Components.Component.OpticalChannel.State.LaserBiasCurrent)), ("chromatic-dispersion", ("chromatic_dispersion", Components.Component.OpticalChannel.State.ChromaticDispersion)), ("polarization-mode-dispersion", ("polarization_mode_dispersion", Components.Component.OpticalChannel.State.PolarizationModeDispersion)), ("second-order-polarization-mode-dispersion", ("second_order_polarization_mode_dispersion", Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion)), ("polarization-dependent-loss", ("polarization_dependent_loss", Components.Component.OpticalChannel.State.PolarizationDependentLoss))])
                     self._leafs = OrderedDict([
-                        ('frequency', YLeaf(YType.uint64, 'frequency')),
-                        ('target_output_power', YLeaf(YType.str, 'target-output-power')),
-                        ('operational_mode', YLeaf(YType.uint16, 'operational-mode')),
-                        ('line_port', YLeaf(YType.str, 'line-port')),
-                        ('group_id', YLeaf(YType.uint32, 'group-id')),
+                        ('frequency', (YLeaf(YType.uint64, 'frequency'), ['int'])),
+                        ('target_output_power', (YLeaf(YType.str, 'target-output-power'), ['Decimal64'])),
+                        ('operational_mode', (YLeaf(YType.uint16, 'operational-mode'), ['int'])),
+                        ('line_port', (YLeaf(YType.str, 'line-port'), ['str'])),
+                        ('group_id', (YLeaf(YType.uint32, 'group-id'), ['int'])),
                     ])
                     self.frequency = None
                     self.target_output_power = None
@@ -1638,6 +1956,7 @@ class Components(Entity):
                     self.polarization_dependent_loss.parent = self
                     self._children_name_map["polarization_dependent_loss"] = "polarization-dependent-loss"
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Components.Component.OpticalChannel.State, ['frequency', 'target_output_power', 'operational_mode', 'line_port', 'group_id'], name, value)
@@ -1696,19 +2015,20 @@ class Components(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "output-power"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalChannel.State.OutputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(Components.Component.OpticalChannel.State.OutputPower, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class InputPower(Entity):
@@ -1764,19 +2084,20 @@ class Components(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "input-power"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalChannel.State.InputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(Components.Component.OpticalChannel.State.InputPower, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class LaserBiasCurrent(Entity):
@@ -1832,19 +2153,20 @@ class Components(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "laser-bias-current"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalChannel.State.LaserBiasCurrent, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(Components.Component.OpticalChannel.State.LaserBiasCurrent, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class ChromaticDispersion(Entity):
@@ -1897,19 +2219,20 @@ class Components(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "chromatic-dispersion"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalChannel.State.ChromaticDispersion, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(Components.Component.OpticalChannel.State.ChromaticDispersion, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class PolarizationModeDispersion(Entity):
@@ -1962,19 +2285,20 @@ class Components(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "polarization-mode-dispersion"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalChannel.State.PolarizationModeDispersion, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(Components.Component.OpticalChannel.State.PolarizationModeDispersion, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class SecondOrderPolarizationModeDispersion(Entity):
@@ -2027,19 +2351,20 @@ class Components(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "second-order-polarization-mode-dispersion"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(Components.Component.OpticalChannel.State.SecondOrderPolarizationModeDispersion, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                 class PolarizationDependentLoss(Entity):
@@ -2092,307 +2417,20 @@ class Components(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
+                            ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                            ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                            ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                            ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                         ])
                         self.instant = None
                         self.avg = None
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "polarization-dependent-loss"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalChannel.State.PolarizationDependentLoss, [u'instant', u'avg', u'min', u'max'], name, value)
-
-
-        class OpticalPort(Entity):
-            """
-            Top\-level container 
-            
-            .. attribute:: config
-            
-            	Operational config data for optical line ports
-            	**type**\:  :py:class:`Config <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.Config>`
-            
-            .. attribute:: state
-            
-            	Operational state data for optical line ports
-            	**type**\:  :py:class:`State <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State>`
-            
-            
-
-            """
-
-            _prefix = 'oc-line-com'
-            _revision = '2017-07-08'
-
-            def __init__(self):
-                super(Components.Component.OpticalPort, self).__init__()
-
-                self.yang_name = "optical-port"
-                self.yang_parent_name = "component"
-                self.is_top_level_class = False
-                self.has_list_ancestor = True
-                self.ylist_key_names = []
-                self._child_classes = OrderedDict([("config", ("config", Components.Component.OpticalPort.Config)), ("state", ("state", Components.Component.OpticalPort.State))])
-                self._leafs = OrderedDict()
-
-                self.config = Components.Component.OpticalPort.Config()
-                self.config.parent = self
-                self._children_name_map["config"] = "config"
-
-                self.state = Components.Component.OpticalPort.State()
-                self.state.parent = self
-                self._children_name_map["state"] = "state"
-                self._segment_path = lambda: "openconfig-transport-line-common:optical-port"
-
-            def __setattr__(self, name, value):
-                self._perform_setattr(Components.Component.OpticalPort, [], name, value)
-
-
-            class Config(Entity):
-                """
-                Operational config data for optical line ports
-                
-                .. attribute:: admin_state
-                
-                	Sets the admin state of the optical\-port
-                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
-                
-                
-
-                """
-
-                _prefix = 'oc-line-com'
-                _revision = '2017-07-08'
-
-                def __init__(self):
-                    super(Components.Component.OpticalPort.Config, self).__init__()
-
-                    self.yang_name = "config"
-                    self.yang_parent_name = "optical-port"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([])
-                    self._leafs = OrderedDict([
-                        ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
-                    ])
-                    self.admin_state = None
-                    self._segment_path = lambda: "config"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Components.Component.OpticalPort.Config, [u'admin_state'], name, value)
-
-
-            class State(Entity):
-                """
-                Operational state data for optical line ports
-                
-                .. attribute:: admin_state
-                
-                	Sets the admin state of the optical\-port
-                	**type**\:  :py:class:`AdminStateType <ydk.models.openconfig.openconfig_transport_types.AdminStateType>`
-                
-                .. attribute:: optical_port_type
-                
-                	Indicates the type of transport line port.  This is an informational field that should be made available by the device (e.g., in the openconfig\-platform model)
-                	**type**\:  :py:class:`OPTICALLINEPORTTYPE <ydk.models.openconfig.openconfig_transport_line_common.OPTICALLINEPORTTYPE>`
-                
-                .. attribute:: input_power
-                
-                	The total input optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:  :py:class:`InputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.InputPower>`
-                
-                .. attribute:: output_power
-                
-                	The total output optical power of this port in units of 0.01dBm. If avg/min/max statistics are not supported, just supply the instant value
-                	**type**\:  :py:class:`OutputPower <ydk.models.openconfig.openconfig_platform.Components.Component.OpticalPort.State.OutputPower>`
-                
-                
-
-                """
-
-                _prefix = 'oc-line-com'
-                _revision = '2017-07-08'
-
-                def __init__(self):
-                    super(Components.Component.OpticalPort.State, self).__init__()
-
-                    self.yang_name = "state"
-                    self.yang_parent_name = "optical-port"
-                    self.is_top_level_class = False
-                    self.has_list_ancestor = True
-                    self.ylist_key_names = []
-                    self._child_classes = OrderedDict([("input-power", ("input_power", Components.Component.OpticalPort.State.InputPower)), ("output-power", ("output_power", Components.Component.OpticalPort.State.OutputPower))])
-                    self._leafs = OrderedDict([
-                        ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
-                        ('optical_port_type', YLeaf(YType.identityref, 'optical-port-type')),
-                    ])
-                    self.admin_state = None
-                    self.optical_port_type = None
-
-                    self.input_power = Components.Component.OpticalPort.State.InputPower()
-                    self.input_power.parent = self
-                    self._children_name_map["input_power"] = "input-power"
-
-                    self.output_power = Components.Component.OpticalPort.State.OutputPower()
-                    self.output_power.parent = self
-                    self._children_name_map["output_power"] = "output-power"
-                    self._segment_path = lambda: "state"
-
-                def __setattr__(self, name, value):
-                    self._perform_setattr(Components.Component.OpticalPort.State, [u'admin_state', u'optical_port_type'], name, value)
-
-
-                class InputPower(Entity):
-                    """
-                    The total input optical power of this port in units
-                    of 0.01dBm. If avg/min/max statistics are not supported,
-                    just supply the instant value
-                    
-                    .. attribute:: instant
-                    
-                    	The instantaneous value of the statistic
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: avg
-                    
-                    	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: min
-                    
-                    	The minimum value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: max
-                    
-                    	The maximum value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    
-
-                    """
-
-                    _prefix = 'oc-line-com'
-                    _revision = '2017-07-08'
-
-                    def __init__(self):
-                        super(Components.Component.OpticalPort.State.InputPower, self).__init__()
-
-                        self.yang_name = "input-power"
-                        self.yang_parent_name = "state"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
-                        ])
-                        self.instant = None
-                        self.avg = None
-                        self.min = None
-                        self.max = None
-                        self._segment_path = lambda: "input-power"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalPort.State.InputPower, [u'instant', u'avg', u'min', u'max'], name, value)
-
-
-                class OutputPower(Entity):
-                    """
-                    The total output optical power of this port in units
-                    of 0.01dBm. If avg/min/max statistics are not supported,
-                    just supply the instant value
-                    
-                    .. attribute:: instant
-                    
-                    	The instantaneous value of the statistic
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: avg
-                    
-                    	The arithmetic mean value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: min
-                    
-                    	The minimum value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    .. attribute:: max
-                    
-                    	The maximum value of the statistic over the sampling period
-                    	**type**\: :py:class:`Decimal64<ydk.types.Decimal64>`
-                    
-                    	**range:** \-92233720368547758.08..92233720368547758.07
-                    
-                    	**units**\: dBm
-                    
-                    
-
-                    """
-
-                    _prefix = 'oc-line-com'
-                    _revision = '2017-07-08'
-
-                    def __init__(self):
-                        super(Components.Component.OpticalPort.State.OutputPower, self).__init__()
-
-                        self.yang_name = "output-power"
-                        self.yang_parent_name = "state"
-                        self.is_top_level_class = False
-                        self.has_list_ancestor = True
-                        self.ylist_key_names = []
-                        self._child_classes = OrderedDict([])
-                        self._leafs = OrderedDict([
-                            ('instant', YLeaf(YType.str, 'instant')),
-                            ('avg', YLeaf(YType.str, 'avg')),
-                            ('min', YLeaf(YType.str, 'min')),
-                            ('max', YLeaf(YType.str, 'max')),
-                        ])
-                        self.instant = None
-                        self.avg = None
-                        self.min = None
-                        self.max = None
-                        self._segment_path = lambda: "output-power"
-
-                    def __setattr__(self, name, value):
-                        self._perform_setattr(Components.Component.OpticalPort.State.OutputPower, [u'instant', u'avg', u'min', u'max'], name, value)
+                        self._perform_setattr(Components.Component.OpticalChannel.State.PolarizationDependentLoss, ['instant', 'avg', 'min', 'max'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Components()

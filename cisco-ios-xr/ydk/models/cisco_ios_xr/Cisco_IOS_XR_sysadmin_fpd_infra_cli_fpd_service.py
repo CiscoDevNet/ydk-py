@@ -11,6 +11,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class Location(Entity):
     """
     
@@ -43,12 +44,13 @@ class Location(Entity):
         self.ylist_key_names = ['loc']
         self._child_classes = OrderedDict([("fpd2", ("fpd2", Location.Fpd2))])
         self._leafs = OrderedDict([
-            ('loc', YLeaf(YType.str, 'loc')),
+            ('loc', (YLeaf(YType.str, 'loc'), ['str'])),
         ])
         self.loc = None
 
         self.fpd2 = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-fpd-infra-cli-fpd-service:location" + "[loc='" + str(self.loc) + "']"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Location, ['loc'], name, value)
@@ -80,10 +82,11 @@ class Location(Entity):
             self.ylist_key_names = ['name']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
             ])
             self.name = None
             self._segment_path = lambda: "fpd2" + "[name='" + str(self.name) + "']"
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Location.Fpd2, ['name'], name, value)

@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOIETFPWMPLSMIB(Entity):
     """
     
@@ -90,6 +91,7 @@ class CISCOIETFPWMPLSMIB(Entity):
         self.cpwvcmplstemappingtable.parent = self
         self._children_name_map["cpwvcmplstemappingtable"] = "cpwVcMplsTeMappingTable"
         self._segment_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIETFPWMPLSMIB, [], name, value)
@@ -130,13 +132,14 @@ class CISCOIETFPWMPLSMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cpwvcmplsoutboundindexnext', YLeaf(YType.uint32, 'cpwVcMplsOutboundIndexNext')),
-                ('cpwvcmplsinboundindexnext', YLeaf(YType.uint32, 'cpwVcMplsInboundIndexNext')),
+                ('cpwvcmplsoutboundindexnext', (YLeaf(YType.uint32, 'cpwVcMplsOutboundIndexNext'), ['int'])),
+                ('cpwvcmplsinboundindexnext', (YLeaf(YType.uint32, 'cpwVcMplsInboundIndexNext'), ['int'])),
             ])
             self.cpwvcmplsoutboundindexnext = None
             self.cpwvcmplsinboundindexnext = None
             self._segment_path = lambda: "cpwVcMplsObjects"
             self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsObjects, ['cpwvcmplsoutboundindexnext', 'cpwvcmplsinboundindexnext'], name, value)
@@ -173,6 +176,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             self.cpwvcmplsentry = YList(self)
             self._segment_path = lambda: "cpwVcMplsTable"
             self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsTable, [], name, value)
@@ -258,15 +262,15 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.ylist_key_names = ['cpwvcindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
-                    ('cpwvcmplsmplstype', YLeaf(YType.bits, 'cpwVcMplsMplsType')),
-                    ('cpwvcmplsexpbitsmode', YLeaf(YType.enumeration, 'cpwVcMplsExpBitsMode')),
-                    ('cpwvcmplsexpbits', YLeaf(YType.uint32, 'cpwVcMplsExpBits')),
-                    ('cpwvcmplsttl', YLeaf(YType.uint32, 'cpwVcMplsTtl')),
-                    ('cpwvcmplslocalldpid', YLeaf(YType.str, 'cpwVcMplsLocalLdpID')),
-                    ('cpwvcmplslocalldpentityid', YLeaf(YType.uint32, 'cpwVcMplsLocalLdpEntityID')),
-                    ('cpwvcmplspeerldpid', YLeaf(YType.str, 'cpwVcMplsPeerLdpID')),
-                    ('cpwvcmplsstoragetype', YLeaf(YType.enumeration, 'cpwVcMplsStorageType')),
+                    ('cpwvcindex', (YLeaf(YType.str, 'cpwVcIndex'), ['int'])),
+                    ('cpwvcmplsmplstype', (YLeaf(YType.bits, 'cpwVcMplsMplsType'), ['Bits'])),
+                    ('cpwvcmplsexpbitsmode', (YLeaf(YType.enumeration, 'cpwVcMplsExpBitsMode'), [('ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB', 'CISCOIETFPWMPLSMIB', 'CpwVcMplsTable.CpwVcMplsEntry.CpwVcMplsExpBitsMode')])),
+                    ('cpwvcmplsexpbits', (YLeaf(YType.uint32, 'cpwVcMplsExpBits'), ['int'])),
+                    ('cpwvcmplsttl', (YLeaf(YType.uint32, 'cpwVcMplsTtl'), ['int'])),
+                    ('cpwvcmplslocalldpid', (YLeaf(YType.str, 'cpwVcMplsLocalLdpID'), ['str'])),
+                    ('cpwvcmplslocalldpentityid', (YLeaf(YType.uint32, 'cpwVcMplsLocalLdpEntityID'), ['int'])),
+                    ('cpwvcmplspeerldpid', (YLeaf(YType.str, 'cpwVcMplsPeerLdpID'), ['str'])),
+                    ('cpwvcmplsstoragetype', (YLeaf(YType.enumeration, 'cpwVcMplsStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
                 ])
                 self.cpwvcindex = None
                 self.cpwvcmplsmplstype = Bits()
@@ -279,6 +283,7 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.cpwvcmplsstoragetype = None
                 self._segment_path = lambda: "cpwVcMplsEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsTable.CpwVcMplsEntry, ['cpwvcindex', 'cpwvcmplsmplstype', 'cpwvcmplsexpbitsmode', 'cpwvcmplsexpbits', 'cpwvcmplsttl', 'cpwvcmplslocalldpid', 'cpwvcmplslocalldpentityid', 'cpwvcmplspeerldpid', 'cpwvcmplsstoragetype'], name, value)
@@ -359,6 +364,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             self.cpwvcmplsoutboundentry = YList(self)
             self._segment_path = lambda: "cpwVcMplsOutboundTable"
             self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsOutboundTable, [], name, value)
@@ -479,16 +485,16 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.ylist_key_names = ['cpwvcindex','cpwvcmplsoutboundindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
-                    ('cpwvcmplsoutboundindex', YLeaf(YType.uint32, 'cpwVcMplsOutboundIndex')),
-                    ('cpwvcmplsoutboundlsrxcindex', YLeaf(YType.uint32, 'cpwVcMplsOutboundLsrXcIndex')),
-                    ('cpwvcmplsoutboundtunnelindex', YLeaf(YType.uint32, 'cpwVcMplsOutboundTunnelIndex')),
-                    ('cpwvcmplsoutboundtunnelinstance', YLeaf(YType.uint32, 'cpwVcMplsOutboundTunnelInstance')),
-                    ('cpwvcmplsoutboundtunnellcllsr', YLeaf(YType.str, 'cpwVcMplsOutboundTunnelLclLSR')),
-                    ('cpwvcmplsoutboundtunnelpeerlsr', YLeaf(YType.str, 'cpwVcMplsOutboundTunnelPeerLSR')),
-                    ('cpwvcmplsoutboundifindex', YLeaf(YType.int32, 'cpwVcMplsOutboundIfIndex')),
-                    ('cpwvcmplsoutboundrowstatus', YLeaf(YType.enumeration, 'cpwVcMplsOutboundRowStatus')),
-                    ('cpwvcmplsoutboundstoragetype', YLeaf(YType.enumeration, 'cpwVcMplsOutboundStorageType')),
+                    ('cpwvcindex', (YLeaf(YType.str, 'cpwVcIndex'), ['int'])),
+                    ('cpwvcmplsoutboundindex', (YLeaf(YType.uint32, 'cpwVcMplsOutboundIndex'), ['int'])),
+                    ('cpwvcmplsoutboundlsrxcindex', (YLeaf(YType.uint32, 'cpwVcMplsOutboundLsrXcIndex'), ['int'])),
+                    ('cpwvcmplsoutboundtunnelindex', (YLeaf(YType.uint32, 'cpwVcMplsOutboundTunnelIndex'), ['int'])),
+                    ('cpwvcmplsoutboundtunnelinstance', (YLeaf(YType.uint32, 'cpwVcMplsOutboundTunnelInstance'), ['int'])),
+                    ('cpwvcmplsoutboundtunnellcllsr', (YLeaf(YType.str, 'cpwVcMplsOutboundTunnelLclLSR'), ['str'])),
+                    ('cpwvcmplsoutboundtunnelpeerlsr', (YLeaf(YType.str, 'cpwVcMplsOutboundTunnelPeerLSR'), ['str'])),
+                    ('cpwvcmplsoutboundifindex', (YLeaf(YType.int32, 'cpwVcMplsOutboundIfIndex'), ['int'])),
+                    ('cpwvcmplsoutboundrowstatus', (YLeaf(YType.enumeration, 'cpwVcMplsOutboundRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('cpwvcmplsoutboundstoragetype', (YLeaf(YType.enumeration, 'cpwVcMplsOutboundStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
                 ])
                 self.cpwvcindex = None
                 self.cpwvcmplsoutboundindex = None
@@ -502,6 +508,7 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.cpwvcmplsoutboundstoragetype = None
                 self._segment_path = lambda: "cpwVcMplsOutboundEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']" + "[cpwVcMplsOutboundIndex='" + str(self.cpwvcmplsoutboundindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsOutboundTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsOutboundTable.CpwVcMplsOutboundEntry, ['cpwvcindex', 'cpwvcmplsoutboundindex', 'cpwvcmplsoutboundlsrxcindex', 'cpwvcmplsoutboundtunnelindex', 'cpwvcmplsoutboundtunnelinstance', 'cpwvcmplsoutboundtunnellcllsr', 'cpwvcmplsoutboundtunnelpeerlsr', 'cpwvcmplsoutboundifindex', 'cpwvcmplsoutboundrowstatus', 'cpwvcmplsoutboundstoragetype'], name, value)
@@ -540,6 +547,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             self.cpwvcmplsinboundentry = YList(self)
             self._segment_path = lambda: "cpwVcMplsInboundTable"
             self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsInboundTable, [], name, value)
@@ -665,16 +673,16 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.ylist_key_names = ['cpwvcindex','cpwvcmplsinboundindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpwvcindex', YLeaf(YType.str, 'cpwVcIndex')),
-                    ('cpwvcmplsinboundindex', YLeaf(YType.uint32, 'cpwVcMplsInboundIndex')),
-                    ('cpwvcmplsinboundlsrxcindex', YLeaf(YType.uint32, 'cpwVcMplsInboundLsrXcIndex')),
-                    ('cpwvcmplsinboundtunnelindex', YLeaf(YType.uint32, 'cpwVcMplsInboundTunnelIndex')),
-                    ('cpwvcmplsinboundtunnelinstance', YLeaf(YType.uint32, 'cpwVcMplsInboundTunnelInstance')),
-                    ('cpwvcmplsinboundtunnellcllsr', YLeaf(YType.str, 'cpwVcMplsInboundTunnelLclLSR')),
-                    ('cpwvcmplsinboundtunnelpeerlsr', YLeaf(YType.str, 'cpwVcMplsInboundTunnelPeerLSR')),
-                    ('cpwvcmplsinboundifindex', YLeaf(YType.int32, 'cpwVcMplsInboundIfIndex')),
-                    ('cpwvcmplsinboundrowstatus', YLeaf(YType.enumeration, 'cpwVcMplsInboundRowStatus')),
-                    ('cpwvcmplsinboundstoragetype', YLeaf(YType.enumeration, 'cpwVcMplsInboundStorageType')),
+                    ('cpwvcindex', (YLeaf(YType.str, 'cpwVcIndex'), ['int'])),
+                    ('cpwvcmplsinboundindex', (YLeaf(YType.uint32, 'cpwVcMplsInboundIndex'), ['int'])),
+                    ('cpwvcmplsinboundlsrxcindex', (YLeaf(YType.uint32, 'cpwVcMplsInboundLsrXcIndex'), ['int'])),
+                    ('cpwvcmplsinboundtunnelindex', (YLeaf(YType.uint32, 'cpwVcMplsInboundTunnelIndex'), ['int'])),
+                    ('cpwvcmplsinboundtunnelinstance', (YLeaf(YType.uint32, 'cpwVcMplsInboundTunnelInstance'), ['int'])),
+                    ('cpwvcmplsinboundtunnellcllsr', (YLeaf(YType.str, 'cpwVcMplsInboundTunnelLclLSR'), ['str'])),
+                    ('cpwvcmplsinboundtunnelpeerlsr', (YLeaf(YType.str, 'cpwVcMplsInboundTunnelPeerLSR'), ['str'])),
+                    ('cpwvcmplsinboundifindex', (YLeaf(YType.int32, 'cpwVcMplsInboundIfIndex'), ['int'])),
+                    ('cpwvcmplsinboundrowstatus', (YLeaf(YType.enumeration, 'cpwVcMplsInboundRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('cpwvcmplsinboundstoragetype', (YLeaf(YType.enumeration, 'cpwVcMplsInboundStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
                 ])
                 self.cpwvcindex = None
                 self.cpwvcmplsinboundindex = None
@@ -688,6 +696,7 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.cpwvcmplsinboundstoragetype = None
                 self._segment_path = lambda: "cpwVcMplsInboundEntry" + "[cpwVcIndex='" + str(self.cpwvcindex) + "']" + "[cpwVcMplsInboundIndex='" + str(self.cpwvcmplsinboundindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsInboundTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsInboundTable.CpwVcMplsInboundEntry, ['cpwvcindex', 'cpwvcmplsinboundindex', 'cpwvcmplsinboundlsrxcindex', 'cpwvcmplsinboundtunnelindex', 'cpwvcmplsinboundtunnelinstance', 'cpwvcmplsinboundtunnellcllsr', 'cpwvcmplsinboundtunnelpeerlsr', 'cpwvcmplsinboundifindex', 'cpwvcmplsinboundrowstatus', 'cpwvcmplsinboundstoragetype'], name, value)
@@ -724,6 +733,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             self.cpwvcmplsnontemappingentry = YList(self)
             self._segment_path = lambda: "cpwVcMplsNonTeMappingTable"
             self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsNonTeMappingTable, [], name, value)
@@ -795,10 +805,10 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.ylist_key_names = ['cpwvcmplsnontemappingtunneldirection','cpwvcmplsnontemappingxctunnelindex','cpwvcmplsnontemappingifindex','cpwvcmplsnontemappingvcindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpwvcmplsnontemappingtunneldirection', YLeaf(YType.enumeration, 'cpwVcMplsNonTeMappingTunnelDirection')),
-                    ('cpwvcmplsnontemappingxctunnelindex', YLeaf(YType.uint32, 'cpwVcMplsNonTeMappingXcTunnelIndex')),
-                    ('cpwvcmplsnontemappingifindex', YLeaf(YType.int32, 'cpwVcMplsNonTeMappingIfIndex')),
-                    ('cpwvcmplsnontemappingvcindex', YLeaf(YType.uint32, 'cpwVcMplsNonTeMappingVcIndex')),
+                    ('cpwvcmplsnontemappingtunneldirection', (YLeaf(YType.enumeration, 'cpwVcMplsNonTeMappingTunnelDirection'), [('ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB', 'CISCOIETFPWMPLSMIB', 'CpwVcMplsNonTeMappingTable.CpwVcMplsNonTeMappingEntry.CpwVcMplsNonTeMappingTunnelDirection')])),
+                    ('cpwvcmplsnontemappingxctunnelindex', (YLeaf(YType.uint32, 'cpwVcMplsNonTeMappingXcTunnelIndex'), ['int'])),
+                    ('cpwvcmplsnontemappingifindex', (YLeaf(YType.int32, 'cpwVcMplsNonTeMappingIfIndex'), ['int'])),
+                    ('cpwvcmplsnontemappingvcindex', (YLeaf(YType.uint32, 'cpwVcMplsNonTeMappingVcIndex'), ['int'])),
                 ])
                 self.cpwvcmplsnontemappingtunneldirection = None
                 self.cpwvcmplsnontemappingxctunnelindex = None
@@ -806,6 +816,7 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.cpwvcmplsnontemappingvcindex = None
                 self._segment_path = lambda: "cpwVcMplsNonTeMappingEntry" + "[cpwVcMplsNonTeMappingTunnelDirection='" + str(self.cpwvcmplsnontemappingtunneldirection) + "']" + "[cpwVcMplsNonTeMappingXcTunnelIndex='" + str(self.cpwvcmplsnontemappingxctunnelindex) + "']" + "[cpwVcMplsNonTeMappingIfIndex='" + str(self.cpwvcmplsnontemappingifindex) + "']" + "[cpwVcMplsNonTeMappingVcIndex='" + str(self.cpwvcmplsnontemappingvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsNonTeMappingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsNonTeMappingTable.CpwVcMplsNonTeMappingEntry, ['cpwvcmplsnontemappingtunneldirection', 'cpwvcmplsnontemappingxctunnelindex', 'cpwvcmplsnontemappingifindex', 'cpwvcmplsnontemappingvcindex'], name, value)
@@ -861,6 +872,7 @@ class CISCOIETFPWMPLSMIB(Entity):
             self.cpwvcmplstemappingentry = YList(self)
             self._segment_path = lambda: "cpwVcMplsTeMappingTable"
             self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsTeMappingTable, [], name, value)
@@ -942,12 +954,12 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.ylist_key_names = ['cpwvcmplstemappingtunneldirection','cpwvcmplstemappingtunnelindex','cpwvcmplstemappingtunnelinstance','cpwvcmplstemappingtunnelpeerlsrid','cpwvcmplstemappingtunnellocallsrid','cpwvcmplstemappingvcindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cpwvcmplstemappingtunneldirection', YLeaf(YType.enumeration, 'cpwVcMplsTeMappingTunnelDirection')),
-                    ('cpwvcmplstemappingtunnelindex', YLeaf(YType.uint32, 'cpwVcMplsTeMappingTunnelIndex')),
-                    ('cpwvcmplstemappingtunnelinstance', YLeaf(YType.uint32, 'cpwVcMplsTeMappingTunnelInstance')),
-                    ('cpwvcmplstemappingtunnelpeerlsrid', YLeaf(YType.str, 'cpwVcMplsTeMappingTunnelPeerLsrID')),
-                    ('cpwvcmplstemappingtunnellocallsrid', YLeaf(YType.str, 'cpwVcMplsTeMappingTunnelLocalLsrID')),
-                    ('cpwvcmplstemappingvcindex', YLeaf(YType.uint32, 'cpwVcMplsTeMappingVcIndex')),
+                    ('cpwvcmplstemappingtunneldirection', (YLeaf(YType.enumeration, 'cpwVcMplsTeMappingTunnelDirection'), [('ydk.models.cisco_ios_xe.CISCO_IETF_PW_MPLS_MIB', 'CISCOIETFPWMPLSMIB', 'CpwVcMplsTeMappingTable.CpwVcMplsTeMappingEntry.CpwVcMplsTeMappingTunnelDirection')])),
+                    ('cpwvcmplstemappingtunnelindex', (YLeaf(YType.uint32, 'cpwVcMplsTeMappingTunnelIndex'), ['int'])),
+                    ('cpwvcmplstemappingtunnelinstance', (YLeaf(YType.uint32, 'cpwVcMplsTeMappingTunnelInstance'), ['int'])),
+                    ('cpwvcmplstemappingtunnelpeerlsrid', (YLeaf(YType.str, 'cpwVcMplsTeMappingTunnelPeerLsrID'), ['str'])),
+                    ('cpwvcmplstemappingtunnellocallsrid', (YLeaf(YType.str, 'cpwVcMplsTeMappingTunnelLocalLsrID'), ['str'])),
+                    ('cpwvcmplstemappingvcindex', (YLeaf(YType.uint32, 'cpwVcMplsTeMappingVcIndex'), ['int'])),
                 ])
                 self.cpwvcmplstemappingtunneldirection = None
                 self.cpwvcmplstemappingtunnelindex = None
@@ -957,6 +969,7 @@ class CISCOIETFPWMPLSMIB(Entity):
                 self.cpwvcmplstemappingvcindex = None
                 self._segment_path = lambda: "cpwVcMplsTeMappingEntry" + "[cpwVcMplsTeMappingTunnelDirection='" + str(self.cpwvcmplstemappingtunneldirection) + "']" + "[cpwVcMplsTeMappingTunnelIndex='" + str(self.cpwvcmplstemappingtunnelindex) + "']" + "[cpwVcMplsTeMappingTunnelInstance='" + str(self.cpwvcmplstemappingtunnelinstance) + "']" + "[cpwVcMplsTeMappingTunnelPeerLsrID='" + str(self.cpwvcmplstemappingtunnelpeerlsrid) + "']" + "[cpwVcMplsTeMappingTunnelLocalLsrID='" + str(self.cpwvcmplstemappingtunnellocallsrid) + "']" + "[cpwVcMplsTeMappingVcIndex='" + str(self.cpwvcmplstemappingvcindex) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-PW-MPLS-MIB:CISCO-IETF-PW-MPLS-MIB/cpwVcMplsTeMappingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFPWMPLSMIB.CpwVcMplsTeMappingTable.CpwVcMplsTeMappingEntry, ['cpwvcmplstemappingtunneldirection', 'cpwvcmplstemappingtunnelindex', 'cpwvcmplstemappingtunnelinstance', 'cpwvcmplstemappingtunnelpeerlsrid', 'cpwvcmplstemappingtunnellocallsrid', 'cpwvcmplstemappingvcindex'], name, value)

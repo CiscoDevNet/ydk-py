@@ -17,6 +17,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOOSPFMIB(Entity):
     """
     
@@ -105,6 +106,7 @@ class CISCOOSPFMIB(Entity):
         self.cospfshamlinkstable.parent = self
         self._children_name_map["cospfshamlinkstable"] = "cospfShamLinksTable"
         self._segment_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOOSPFMIB, [], name, value)
@@ -160,11 +162,11 @@ class CISCOOSPFMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cospfrfc1583compatibility', YLeaf(YType.boolean, 'cospfRFC1583Compatibility')),
-                ('cospfopaquelsasupport', YLeaf(YType.boolean, 'cospfOpaqueLsaSupport')),
-                ('cospftrafficengineeringsupport', YLeaf(YType.boolean, 'cospfTrafficEngineeringSupport')),
-                ('cospfopaqueaslsacount', YLeaf(YType.uint32, 'cospfOpaqueASLsaCount')),
-                ('cospfopaqueaslsacksumsum', YLeaf(YType.uint32, 'cospfOpaqueASLsaCksumSum')),
+                ('cospfrfc1583compatibility', (YLeaf(YType.boolean, 'cospfRFC1583Compatibility'), ['bool'])),
+                ('cospfopaquelsasupport', (YLeaf(YType.boolean, 'cospfOpaqueLsaSupport'), ['bool'])),
+                ('cospftrafficengineeringsupport', (YLeaf(YType.boolean, 'cospfTrafficEngineeringSupport'), ['bool'])),
+                ('cospfopaqueaslsacount', (YLeaf(YType.uint32, 'cospfOpaqueASLsaCount'), ['int'])),
+                ('cospfopaqueaslsacksumsum', (YLeaf(YType.uint32, 'cospfOpaqueASLsaCksumSum'), ['int'])),
             ])
             self.cospfrfc1583compatibility = None
             self.cospfopaquelsasupport = None
@@ -173,9 +175,10 @@ class CISCOOSPFMIB(Entity):
             self.cospfopaqueaslsacksumsum = None
             self._segment_path = lambda: "cospfGeneralGroup"
             self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(CISCOOSPFMIB.CospfGeneralGroup, ['cospfrfc1583compatibility', 'cospfopaquelsasupport', 'cospftrafficengineeringsupport', 'cospfopaqueaslsacount', 'cospfopaqueaslsacksumsum'], name, value)
+            self._perform_setattr(CISCOOSPFMIB.CospfGeneralGroup, [u'cospfrfc1583compatibility', u'cospfopaquelsasupport', u'cospftrafficengineeringsupport', u'cospfopaqueaslsacount', u'cospfopaqueaslsacksumsum'], name, value)
 
 
     class CospfLsdbTable(Entity):
@@ -209,6 +212,7 @@ class CISCOOSPFMIB(Entity):
             self.cospflsdbentry = YList(self)
             self._segment_path = lambda: "cospfLsdbTable"
             self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOOSPFMIB.CospfLsdbTable, [], name, value)
@@ -295,14 +299,14 @@ class CISCOOSPFMIB(Entity):
                 self.ylist_key_names = ['ospflsdbareaid','cospflsdbtype','ospflsdblsid','ospflsdbrouterid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ospflsdbareaid', YLeaf(YType.str, 'ospfLsdbAreaId')),
-                    ('cospflsdbtype', YLeaf(YType.enumeration, 'cospfLsdbType')),
-                    ('ospflsdblsid', YLeaf(YType.str, 'ospfLsdbLsid')),
-                    ('ospflsdbrouterid', YLeaf(YType.str, 'ospfLsdbRouterId')),
-                    ('cospflsdbsequence', YLeaf(YType.int32, 'cospfLsdbSequence')),
-                    ('cospflsdbage', YLeaf(YType.int32, 'cospfLsdbAge')),
-                    ('cospflsdbchecksum', YLeaf(YType.int32, 'cospfLsdbChecksum')),
-                    ('cospflsdbadvertisement', YLeaf(YType.str, 'cospfLsdbAdvertisement')),
+                    ('ospflsdbareaid', (YLeaf(YType.str, 'ospfLsdbAreaId'), ['str'])),
+                    ('cospflsdbtype', (YLeaf(YType.enumeration, 'cospfLsdbType'), [('ydk.models.cisco_ios_xe.CISCO_OSPF_MIB', 'CISCOOSPFMIB', 'CospfLsdbTable.CospfLsdbEntry.CospfLsdbType')])),
+                    ('ospflsdblsid', (YLeaf(YType.str, 'ospfLsdbLsid'), ['str'])),
+                    ('ospflsdbrouterid', (YLeaf(YType.str, 'ospfLsdbRouterId'), ['str'])),
+                    ('cospflsdbsequence', (YLeaf(YType.int32, 'cospfLsdbSequence'), ['int'])),
+                    ('cospflsdbage', (YLeaf(YType.int32, 'cospfLsdbAge'), ['int'])),
+                    ('cospflsdbchecksum', (YLeaf(YType.int32, 'cospfLsdbChecksum'), ['int'])),
+                    ('cospflsdbadvertisement', (YLeaf(YType.str, 'cospfLsdbAdvertisement'), ['str'])),
                 ])
                 self.ospflsdbareaid = None
                 self.cospflsdbtype = None
@@ -314,9 +318,10 @@ class CISCOOSPFMIB(Entity):
                 self.cospflsdbadvertisement = None
                 self._segment_path = lambda: "cospfLsdbEntry" + "[ospfLsdbAreaId='" + str(self.ospflsdbareaid) + "']" + "[cospfLsdbType='" + str(self.cospflsdbtype) + "']" + "[ospfLsdbLsid='" + str(self.ospflsdblsid) + "']" + "[ospfLsdbRouterId='" + str(self.ospflsdbrouterid) + "']"
                 self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfLsdbTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.CospfLsdbTable.CospfLsdbEntry, ['ospflsdbareaid', 'cospflsdbtype', 'ospflsdblsid', 'ospflsdbrouterid', 'cospflsdbsequence', 'cospflsdbage', 'cospflsdbchecksum', 'cospflsdbadvertisement'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfLsdbTable.CospfLsdbEntry, [u'ospflsdbareaid', u'cospflsdbtype', u'ospflsdblsid', u'ospflsdbrouterid', u'cospflsdbsequence', u'cospflsdbage', u'cospflsdbchecksum', u'cospflsdbadvertisement'], name, value)
 
             class CospfLsdbType(Enum):
                 """
@@ -370,6 +375,7 @@ class CISCOOSPFMIB(Entity):
             self.cospfshamlinkentry = YList(self)
             self._segment_path = lambda: "cospfShamLinkTable"
             self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOOSPFMIB.CospfShamLinkTable, [], name, value)
@@ -475,15 +481,15 @@ class CISCOOSPFMIB(Entity):
                 self.ylist_key_names = ['cospfshamlinkareaid','cospfshamlinklocalipaddress','cospfshamlinkneighborid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cospfshamlinkareaid', YLeaf(YType.str, 'cospfShamLinkAreaId')),
-                    ('cospfshamlinklocalipaddress', YLeaf(YType.str, 'cospfShamLinkLocalIpAddress')),
-                    ('cospfshamlinkneighborid', YLeaf(YType.str, 'cospfShamLinkNeighborId')),
-                    ('cospfshamlinkretransinterval', YLeaf(YType.int32, 'cospfShamLinkRetransInterval')),
-                    ('cospfshamlinkhellointerval', YLeaf(YType.int32, 'cospfShamLinkHelloInterval')),
-                    ('cospfshamlinkrtrdeadinterval', YLeaf(YType.int32, 'cospfShamLinkRtrDeadInterval')),
-                    ('cospfshamlinkstate', YLeaf(YType.enumeration, 'cospfShamLinkState')),
-                    ('cospfshamlinkevents', YLeaf(YType.uint32, 'cospfShamLinkEvents')),
-                    ('cospfshamlinkmetric', YLeaf(YType.int32, 'cospfShamLinkMetric')),
+                    ('cospfshamlinkareaid', (YLeaf(YType.str, 'cospfShamLinkAreaId'), ['str'])),
+                    ('cospfshamlinklocalipaddress', (YLeaf(YType.str, 'cospfShamLinkLocalIpAddress'), ['str'])),
+                    ('cospfshamlinkneighborid', (YLeaf(YType.str, 'cospfShamLinkNeighborId'), ['str'])),
+                    ('cospfshamlinkretransinterval', (YLeaf(YType.int32, 'cospfShamLinkRetransInterval'), ['int'])),
+                    ('cospfshamlinkhellointerval', (YLeaf(YType.int32, 'cospfShamLinkHelloInterval'), ['int'])),
+                    ('cospfshamlinkrtrdeadinterval', (YLeaf(YType.int32, 'cospfShamLinkRtrDeadInterval'), ['int'])),
+                    ('cospfshamlinkstate', (YLeaf(YType.enumeration, 'cospfShamLinkState'), [('ydk.models.cisco_ios_xe.CISCO_OSPF_MIB', 'CISCOOSPFMIB', 'CospfShamLinkTable.CospfShamLinkEntry.CospfShamLinkState')])),
+                    ('cospfshamlinkevents', (YLeaf(YType.uint32, 'cospfShamLinkEvents'), ['int'])),
+                    ('cospfshamlinkmetric', (YLeaf(YType.int32, 'cospfShamLinkMetric'), ['int'])),
                 ])
                 self.cospfshamlinkareaid = None
                 self.cospfshamlinklocalipaddress = None
@@ -496,9 +502,10 @@ class CISCOOSPFMIB(Entity):
                 self.cospfshamlinkmetric = None
                 self._segment_path = lambda: "cospfShamLinkEntry" + "[cospfShamLinkAreaId='" + str(self.cospfshamlinkareaid) + "']" + "[cospfShamLinkLocalIpAddress='" + str(self.cospfshamlinklocalipaddress) + "']" + "[cospfShamLinkNeighborId='" + str(self.cospfshamlinkneighborid) + "']"
                 self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfShamLinkTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.CospfShamLinkTable.CospfShamLinkEntry, ['cospfshamlinkareaid', 'cospfshamlinklocalipaddress', 'cospfshamlinkneighborid', 'cospfshamlinkretransinterval', 'cospfshamlinkhellointerval', 'cospfshamlinkrtrdeadinterval', 'cospfshamlinkstate', 'cospfshamlinkevents', 'cospfshamlinkmetric'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfShamLinkTable.CospfShamLinkEntry, [u'cospfshamlinkareaid', u'cospfshamlinklocalipaddress', u'cospfshamlinkneighborid', u'cospfshamlinkretransinterval', u'cospfshamlinkhellointerval', u'cospfshamlinkrtrdeadinterval', u'cospfshamlinkstate', u'cospfshamlinkevents', u'cospfshamlinkmetric'], name, value)
 
             class CospfShamLinkState(Enum):
                 """
@@ -549,6 +556,7 @@ class CISCOOSPFMIB(Entity):
             self.cospflocallsdbentry = YList(self)
             self._segment_path = lambda: "cospfLocalLsdbTable"
             self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOOSPFMIB.CospfLocalLsdbTable, [], name, value)
@@ -636,15 +644,15 @@ class CISCOOSPFMIB(Entity):
                 self.ylist_key_names = ['cospflocallsdbipaddress','cospflocallsdbaddresslessif','cospflocallsdbtype','cospflocallsdblsid','cospflocallsdbrouterid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cospflocallsdbipaddress', YLeaf(YType.str, 'cospfLocalLsdbIpAddress')),
-                    ('cospflocallsdbaddresslessif', YLeaf(YType.int32, 'cospfLocalLsdbAddressLessIf')),
-                    ('cospflocallsdbtype', YLeaf(YType.enumeration, 'cospfLocalLsdbType')),
-                    ('cospflocallsdblsid', YLeaf(YType.str, 'cospfLocalLsdbLsid')),
-                    ('cospflocallsdbrouterid', YLeaf(YType.str, 'cospfLocalLsdbRouterId')),
-                    ('cospflocallsdbsequence', YLeaf(YType.int32, 'cospfLocalLsdbSequence')),
-                    ('cospflocallsdbage', YLeaf(YType.int32, 'cospfLocalLsdbAge')),
-                    ('cospflocallsdbchecksum', YLeaf(YType.uint32, 'cospfLocalLsdbChecksum')),
-                    ('cospflocallsdbadvertisement', YLeaf(YType.str, 'cospfLocalLsdbAdvertisement')),
+                    ('cospflocallsdbipaddress', (YLeaf(YType.str, 'cospfLocalLsdbIpAddress'), ['str'])),
+                    ('cospflocallsdbaddresslessif', (YLeaf(YType.int32, 'cospfLocalLsdbAddressLessIf'), ['int'])),
+                    ('cospflocallsdbtype', (YLeaf(YType.enumeration, 'cospfLocalLsdbType'), [('ydk.models.cisco_ios_xe.CISCO_OSPF_MIB', 'CISCOOSPFMIB', 'CospfLocalLsdbTable.CospfLocalLsdbEntry.CospfLocalLsdbType')])),
+                    ('cospflocallsdblsid', (YLeaf(YType.str, 'cospfLocalLsdbLsid'), ['str'])),
+                    ('cospflocallsdbrouterid', (YLeaf(YType.str, 'cospfLocalLsdbRouterId'), ['str'])),
+                    ('cospflocallsdbsequence', (YLeaf(YType.int32, 'cospfLocalLsdbSequence'), ['int'])),
+                    ('cospflocallsdbage', (YLeaf(YType.int32, 'cospfLocalLsdbAge'), ['int'])),
+                    ('cospflocallsdbchecksum', (YLeaf(YType.uint32, 'cospfLocalLsdbChecksum'), ['int'])),
+                    ('cospflocallsdbadvertisement', (YLeaf(YType.str, 'cospfLocalLsdbAdvertisement'), ['str'])),
                 ])
                 self.cospflocallsdbipaddress = None
                 self.cospflocallsdbaddresslessif = None
@@ -657,9 +665,10 @@ class CISCOOSPFMIB(Entity):
                 self.cospflocallsdbadvertisement = None
                 self._segment_path = lambda: "cospfLocalLsdbEntry" + "[cospfLocalLsdbIpAddress='" + str(self.cospflocallsdbipaddress) + "']" + "[cospfLocalLsdbAddressLessIf='" + str(self.cospflocallsdbaddresslessif) + "']" + "[cospfLocalLsdbType='" + str(self.cospflocallsdbtype) + "']" + "[cospfLocalLsdbLsid='" + str(self.cospflocallsdblsid) + "']" + "[cospfLocalLsdbRouterId='" + str(self.cospflocallsdbrouterid) + "']"
                 self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfLocalLsdbTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.CospfLocalLsdbTable.CospfLocalLsdbEntry, ['cospflocallsdbipaddress', 'cospflocallsdbaddresslessif', 'cospflocallsdbtype', 'cospflocallsdblsid', 'cospflocallsdbrouterid', 'cospflocallsdbsequence', 'cospflocallsdbage', 'cospflocallsdbchecksum', 'cospflocallsdbadvertisement'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfLocalLsdbTable.CospfLocalLsdbEntry, [u'cospflocallsdbipaddress', u'cospflocallsdbaddresslessif', u'cospflocallsdbtype', u'cospflocallsdblsid', u'cospflocallsdbrouterid', u'cospflocallsdbsequence', u'cospflocallsdbage', u'cospflocallsdbchecksum', u'cospflocallsdbadvertisement'], name, value)
 
             class CospfLocalLsdbType(Enum):
                 """
@@ -708,6 +717,7 @@ class CISCOOSPFMIB(Entity):
             self.cospfvirtlocallsdbentry = YList(self)
             self._segment_path = lambda: "cospfVirtLocalLsdbTable"
             self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOOSPFMIB.CospfVirtLocalLsdbTable, [], name, value)
@@ -795,15 +805,15 @@ class CISCOOSPFMIB(Entity):
                 self.ylist_key_names = ['cospfvirtlocallsdbtransitarea','cospfvirtlocallsdbneighbor','cospfvirtlocallsdbtype','cospfvirtlocallsdblsid','cospfvirtlocallsdbrouterid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cospfvirtlocallsdbtransitarea', YLeaf(YType.str, 'cospfVirtLocalLsdbTransitArea')),
-                    ('cospfvirtlocallsdbneighbor', YLeaf(YType.str, 'cospfVirtLocalLsdbNeighbor')),
-                    ('cospfvirtlocallsdbtype', YLeaf(YType.enumeration, 'cospfVirtLocalLsdbType')),
-                    ('cospfvirtlocallsdblsid', YLeaf(YType.str, 'cospfVirtLocalLsdbLsid')),
-                    ('cospfvirtlocallsdbrouterid', YLeaf(YType.str, 'cospfVirtLocalLsdbRouterId')),
-                    ('cospfvirtlocallsdbsequence', YLeaf(YType.int32, 'cospfVirtLocalLsdbSequence')),
-                    ('cospfvirtlocallsdbage', YLeaf(YType.int32, 'cospfVirtLocalLsdbAge')),
-                    ('cospfvirtlocallsdbchecksum', YLeaf(YType.uint32, 'cospfVirtLocalLsdbChecksum')),
-                    ('cospfvirtlocallsdbadvertisement', YLeaf(YType.str, 'cospfVirtLocalLsdbAdvertisement')),
+                    ('cospfvirtlocallsdbtransitarea', (YLeaf(YType.str, 'cospfVirtLocalLsdbTransitArea'), ['str'])),
+                    ('cospfvirtlocallsdbneighbor', (YLeaf(YType.str, 'cospfVirtLocalLsdbNeighbor'), ['str'])),
+                    ('cospfvirtlocallsdbtype', (YLeaf(YType.enumeration, 'cospfVirtLocalLsdbType'), [('ydk.models.cisco_ios_xe.CISCO_OSPF_MIB', 'CISCOOSPFMIB', 'CospfVirtLocalLsdbTable.CospfVirtLocalLsdbEntry.CospfVirtLocalLsdbType')])),
+                    ('cospfvirtlocallsdblsid', (YLeaf(YType.str, 'cospfVirtLocalLsdbLsid'), ['str'])),
+                    ('cospfvirtlocallsdbrouterid', (YLeaf(YType.str, 'cospfVirtLocalLsdbRouterId'), ['str'])),
+                    ('cospfvirtlocallsdbsequence', (YLeaf(YType.int32, 'cospfVirtLocalLsdbSequence'), ['int'])),
+                    ('cospfvirtlocallsdbage', (YLeaf(YType.int32, 'cospfVirtLocalLsdbAge'), ['int'])),
+                    ('cospfvirtlocallsdbchecksum', (YLeaf(YType.uint32, 'cospfVirtLocalLsdbChecksum'), ['int'])),
+                    ('cospfvirtlocallsdbadvertisement', (YLeaf(YType.str, 'cospfVirtLocalLsdbAdvertisement'), ['str'])),
                 ])
                 self.cospfvirtlocallsdbtransitarea = None
                 self.cospfvirtlocallsdbneighbor = None
@@ -816,9 +826,10 @@ class CISCOOSPFMIB(Entity):
                 self.cospfvirtlocallsdbadvertisement = None
                 self._segment_path = lambda: "cospfVirtLocalLsdbEntry" + "[cospfVirtLocalLsdbTransitArea='" + str(self.cospfvirtlocallsdbtransitarea) + "']" + "[cospfVirtLocalLsdbNeighbor='" + str(self.cospfvirtlocallsdbneighbor) + "']" + "[cospfVirtLocalLsdbType='" + str(self.cospfvirtlocallsdbtype) + "']" + "[cospfVirtLocalLsdbLsid='" + str(self.cospfvirtlocallsdblsid) + "']" + "[cospfVirtLocalLsdbRouterId='" + str(self.cospfvirtlocallsdbrouterid) + "']"
                 self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfVirtLocalLsdbTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.CospfVirtLocalLsdbTable.CospfVirtLocalLsdbEntry, ['cospfvirtlocallsdbtransitarea', 'cospfvirtlocallsdbneighbor', 'cospfvirtlocallsdbtype', 'cospfvirtlocallsdblsid', 'cospfvirtlocallsdbrouterid', 'cospfvirtlocallsdbsequence', 'cospfvirtlocallsdbage', 'cospfvirtlocallsdbchecksum', 'cospfvirtlocallsdbadvertisement'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfVirtLocalLsdbTable.CospfVirtLocalLsdbEntry, [u'cospfvirtlocallsdbtransitarea', u'cospfvirtlocallsdbneighbor', u'cospfvirtlocallsdbtype', u'cospfvirtlocallsdblsid', u'cospfvirtlocallsdbrouterid', u'cospfvirtlocallsdbsequence', u'cospfvirtlocallsdbage', u'cospfvirtlocallsdbchecksum', u'cospfvirtlocallsdbadvertisement'], name, value)
 
             class CospfVirtLocalLsdbType(Enum):
                 """
@@ -866,6 +877,7 @@ class CISCOOSPFMIB(Entity):
             self.cospfshamlinknbrentry = YList(self)
             self._segment_path = lambda: "cospfShamLinkNbrTable"
             self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOOSPFMIB.CospfShamLinkNbrTable, [], name, value)
@@ -963,17 +975,17 @@ class CISCOOSPFMIB(Entity):
                 self.ylist_key_names = ['cospfshamlinkslocalipaddrtype','cospfshamlinkslocalipaddr','cospfshamlinknbrarea','cospfshamlinknbripaddrtype','cospfshamlinknbripaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cospfshamlinkslocalipaddrtype', YLeaf(YType.enumeration, 'cospfShamLinksLocalIpAddrType')),
-                    ('cospfshamlinkslocalipaddr', YLeaf(YType.str, 'cospfShamLinksLocalIpAddr')),
-                    ('cospfshamlinknbrarea', YLeaf(YType.str, 'cospfShamLinkNbrArea')),
-                    ('cospfshamlinknbripaddrtype', YLeaf(YType.enumeration, 'cospfShamLinkNbrIpAddrType')),
-                    ('cospfshamlinknbripaddr', YLeaf(YType.str, 'cospfShamLinkNbrIpAddr')),
-                    ('cospfshamlinknbrrtrid', YLeaf(YType.str, 'cospfShamLinkNbrRtrId')),
-                    ('cospfshamlinknbroptions', YLeaf(YType.int32, 'cospfShamLinkNbrOptions')),
-                    ('cospfshamlinknbrstate', YLeaf(YType.enumeration, 'cospfShamLinkNbrState')),
-                    ('cospfshamlinknbrevents', YLeaf(YType.uint32, 'cospfShamLinkNbrEvents')),
-                    ('cospfshamlinknbrlsretransqlen', YLeaf(YType.uint32, 'cospfShamLinkNbrLsRetransQLen')),
-                    ('cospfshamlinknbrhellosuppressed', YLeaf(YType.boolean, 'cospfShamLinkNbrHelloSuppressed')),
+                    ('cospfshamlinkslocalipaddrtype', (YLeaf(YType.enumeration, 'cospfShamLinksLocalIpAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cospfshamlinkslocalipaddr', (YLeaf(YType.str, 'cospfShamLinksLocalIpAddr'), ['str'])),
+                    ('cospfshamlinknbrarea', (YLeaf(YType.str, 'cospfShamLinkNbrArea'), ['str'])),
+                    ('cospfshamlinknbripaddrtype', (YLeaf(YType.enumeration, 'cospfShamLinkNbrIpAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cospfshamlinknbripaddr', (YLeaf(YType.str, 'cospfShamLinkNbrIpAddr'), ['str'])),
+                    ('cospfshamlinknbrrtrid', (YLeaf(YType.str, 'cospfShamLinkNbrRtrId'), ['str'])),
+                    ('cospfshamlinknbroptions', (YLeaf(YType.int32, 'cospfShamLinkNbrOptions'), ['int'])),
+                    ('cospfshamlinknbrstate', (YLeaf(YType.enumeration, 'cospfShamLinkNbrState'), [('ydk.models.cisco_ios_xe.CISCO_OSPF_MIB', 'CISCOOSPFMIB', 'CospfShamLinkNbrTable.CospfShamLinkNbrEntry.CospfShamLinkNbrState')])),
+                    ('cospfshamlinknbrevents', (YLeaf(YType.uint32, 'cospfShamLinkNbrEvents'), ['int'])),
+                    ('cospfshamlinknbrlsretransqlen', (YLeaf(YType.uint32, 'cospfShamLinkNbrLsRetransQLen'), ['int'])),
+                    ('cospfshamlinknbrhellosuppressed', (YLeaf(YType.boolean, 'cospfShamLinkNbrHelloSuppressed'), ['bool'])),
                 ])
                 self.cospfshamlinkslocalipaddrtype = None
                 self.cospfshamlinkslocalipaddr = None
@@ -988,9 +1000,10 @@ class CISCOOSPFMIB(Entity):
                 self.cospfshamlinknbrhellosuppressed = None
                 self._segment_path = lambda: "cospfShamLinkNbrEntry" + "[cospfShamLinksLocalIpAddrType='" + str(self.cospfshamlinkslocalipaddrtype) + "']" + "[cospfShamLinksLocalIpAddr='" + str(self.cospfshamlinkslocalipaddr) + "']" + "[cospfShamLinkNbrArea='" + str(self.cospfshamlinknbrarea) + "']" + "[cospfShamLinkNbrIpAddrType='" + str(self.cospfshamlinknbripaddrtype) + "']" + "[cospfShamLinkNbrIpAddr='" + str(self.cospfshamlinknbripaddr) + "']"
                 self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfShamLinkNbrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.CospfShamLinkNbrTable.CospfShamLinkNbrEntry, ['cospfshamlinkslocalipaddrtype', 'cospfshamlinkslocalipaddr', 'cospfshamlinknbrarea', 'cospfshamlinknbripaddrtype', 'cospfshamlinknbripaddr', 'cospfshamlinknbrrtrid', 'cospfshamlinknbroptions', 'cospfshamlinknbrstate', 'cospfshamlinknbrevents', 'cospfshamlinknbrlsretransqlen', 'cospfshamlinknbrhellosuppressed'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfShamLinkNbrTable.CospfShamLinkNbrEntry, [u'cospfshamlinkslocalipaddrtype', u'cospfshamlinkslocalipaddr', u'cospfshamlinknbrarea', u'cospfshamlinknbripaddrtype', u'cospfshamlinknbripaddr', u'cospfshamlinknbrrtrid', u'cospfshamlinknbroptions', u'cospfshamlinknbrstate', u'cospfshamlinknbrevents', u'cospfshamlinknbrlsretransqlen', u'cospfshamlinknbrhellosuppressed'], name, value)
 
             class CospfShamLinkNbrState(Enum):
                 """
@@ -1066,6 +1079,7 @@ class CISCOOSPFMIB(Entity):
             self.cospfshamlinksentry = YList(self)
             self._segment_path = lambda: "cospfShamLinksTable"
             self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOOSPFMIB.CospfShamLinksTable, [], name, value)
@@ -1163,17 +1177,17 @@ class CISCOOSPFMIB(Entity):
                 self.ylist_key_names = ['cospfshamlinksareaid','cospfshamlinkslocalipaddrtype','cospfshamlinkslocalipaddr','cospfshamlinksremoteipaddrtype','cospfshamlinksremoteipaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('cospfshamlinksareaid', YLeaf(YType.str, 'cospfShamLinksAreaId')),
-                    ('cospfshamlinkslocalipaddrtype', YLeaf(YType.enumeration, 'cospfShamLinksLocalIpAddrType')),
-                    ('cospfshamlinkslocalipaddr', YLeaf(YType.str, 'cospfShamLinksLocalIpAddr')),
-                    ('cospfshamlinksremoteipaddrtype', YLeaf(YType.enumeration, 'cospfShamLinksRemoteIpAddrType')),
-                    ('cospfshamlinksremoteipaddr', YLeaf(YType.str, 'cospfShamLinksRemoteIpAddr')),
-                    ('cospfshamlinksretransinterval', YLeaf(YType.int32, 'cospfShamLinksRetransInterval')),
-                    ('cospfshamlinkshellointerval', YLeaf(YType.int32, 'cospfShamLinksHelloInterval')),
-                    ('cospfshamlinksrtrdeadinterval', YLeaf(YType.int32, 'cospfShamLinksRtrDeadInterval')),
-                    ('cospfshamlinksstate', YLeaf(YType.enumeration, 'cospfShamLinksState')),
-                    ('cospfshamlinksevents', YLeaf(YType.uint32, 'cospfShamLinksEvents')),
-                    ('cospfshamlinksmetric', YLeaf(YType.int32, 'cospfShamLinksMetric')),
+                    ('cospfshamlinksareaid', (YLeaf(YType.str, 'cospfShamLinksAreaId'), ['str'])),
+                    ('cospfshamlinkslocalipaddrtype', (YLeaf(YType.enumeration, 'cospfShamLinksLocalIpAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cospfshamlinkslocalipaddr', (YLeaf(YType.str, 'cospfShamLinksLocalIpAddr'), ['str'])),
+                    ('cospfshamlinksremoteipaddrtype', (YLeaf(YType.enumeration, 'cospfShamLinksRemoteIpAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('cospfshamlinksremoteipaddr', (YLeaf(YType.str, 'cospfShamLinksRemoteIpAddr'), ['str'])),
+                    ('cospfshamlinksretransinterval', (YLeaf(YType.int32, 'cospfShamLinksRetransInterval'), ['int'])),
+                    ('cospfshamlinkshellointerval', (YLeaf(YType.int32, 'cospfShamLinksHelloInterval'), ['int'])),
+                    ('cospfshamlinksrtrdeadinterval', (YLeaf(YType.int32, 'cospfShamLinksRtrDeadInterval'), ['int'])),
+                    ('cospfshamlinksstate', (YLeaf(YType.enumeration, 'cospfShamLinksState'), [('ydk.models.cisco_ios_xe.CISCO_OSPF_MIB', 'CISCOOSPFMIB', 'CospfShamLinksTable.CospfShamLinksEntry.CospfShamLinksState')])),
+                    ('cospfshamlinksevents', (YLeaf(YType.uint32, 'cospfShamLinksEvents'), ['int'])),
+                    ('cospfshamlinksmetric', (YLeaf(YType.int32, 'cospfShamLinksMetric'), ['int'])),
                 ])
                 self.cospfshamlinksareaid = None
                 self.cospfshamlinkslocalipaddrtype = None
@@ -1188,9 +1202,10 @@ class CISCOOSPFMIB(Entity):
                 self.cospfshamlinksmetric = None
                 self._segment_path = lambda: "cospfShamLinksEntry" + "[cospfShamLinksAreaId='" + str(self.cospfshamlinksareaid) + "']" + "[cospfShamLinksLocalIpAddrType='" + str(self.cospfshamlinkslocalipaddrtype) + "']" + "[cospfShamLinksLocalIpAddr='" + str(self.cospfshamlinkslocalipaddr) + "']" + "[cospfShamLinksRemoteIpAddrType='" + str(self.cospfshamlinksremoteipaddrtype) + "']" + "[cospfShamLinksRemoteIpAddr='" + str(self.cospfshamlinksremoteipaddr) + "']"
                 self._absolute_path = lambda: "CISCO-OSPF-MIB:CISCO-OSPF-MIB/cospfShamLinksTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(CISCOOSPFMIB.CospfShamLinksTable.CospfShamLinksEntry, ['cospfshamlinksareaid', 'cospfshamlinkslocalipaddrtype', 'cospfshamlinkslocalipaddr', 'cospfshamlinksremoteipaddrtype', 'cospfshamlinksremoteipaddr', 'cospfshamlinksretransinterval', 'cospfshamlinkshellointerval', 'cospfshamlinksrtrdeadinterval', 'cospfshamlinksstate', 'cospfshamlinksevents', 'cospfshamlinksmetric'], name, value)
+                self._perform_setattr(CISCOOSPFMIB.CospfShamLinksTable.CospfShamLinksEntry, [u'cospfshamlinksareaid', u'cospfshamlinkslocalipaddrtype', u'cospfshamlinkslocalipaddr', u'cospfshamlinksremoteipaddrtype', u'cospfshamlinksremoteipaddr', u'cospfshamlinksretransinterval', u'cospfshamlinkshellointerval', u'cospfshamlinksrtrdeadinterval', u'cospfshamlinksstate', u'cospfshamlinksevents', u'cospfshamlinksmetric'], name, value)
 
             class CospfShamLinksState(Enum):
                 """

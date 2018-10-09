@@ -9,7 +9,7 @@ for the following management objects\:
   vlan\: vlan
   ethernet\-encapsulation\: ethernet encapsulation
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -19,6 +19,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class EfpPayloadEtype(Enum):
@@ -434,6 +435,33 @@ class VlanService(Enum):
     vlan_service_l3 = Enum.YLeaf(2, "vlan-service-l3")
 
 
+class VlanSwitchedMode(Enum):
+    """
+    VlanSwitchedMode (Enum Class)
+
+    VLAN\-Switched mode
+
+    .. data:: none = 0
+
+    	Disabled
+
+    .. data:: trunk_port = 1
+
+    	Trunk port
+
+    .. data:: access_port = 2
+
+    	Access port
+
+    """
+
+    none = Enum.YLeaf(0, "none")
+
+    trunk_port = Enum.YLeaf(1, "trunk-port")
+
+    access_port = Enum.YLeaf(2, "access-port")
+
+
 
 class MacAccounting(Entity):
     """
@@ -467,6 +495,7 @@ class MacAccounting(Entity):
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
         self._segment_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MacAccounting, [], name, value)
@@ -503,6 +532,7 @@ class MacAccounting(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MacAccounting.Interfaces, [], name, value)
@@ -519,7 +549,7 @@ class MacAccounting(Entity):
             	The interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: state
             
@@ -553,7 +583,7 @@ class MacAccounting(Entity):
                 self.ylist_key_names = ['interface_name']
                 self._child_classes = OrderedDict([("state", ("state", MacAccounting.Interfaces.Interface.State)), ("ingress-statistic", ("ingress_statistic", MacAccounting.Interfaces.Interface.IngressStatistic)), ("egress-statistic", ("egress_statistic", MacAccounting.Interfaces.Interface.EgressStatistic))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                 ])
                 self.interface_name = None
 
@@ -565,6 +595,7 @@ class MacAccounting(Entity):
                 self.egress_statistic = YList(self)
                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:mac-accounting/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MacAccounting.Interfaces.Interface, ['interface_name'], name, value)
@@ -622,11 +653,11 @@ class MacAccounting(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('is_ingress_enabled', YLeaf(YType.boolean, 'is-ingress-enabled')),
-                        ('is_egress_enabled', YLeaf(YType.boolean, 'is-egress-enabled')),
-                        ('number_available_ingress', YLeaf(YType.uint32, 'number-available-ingress')),
-                        ('number_available_egress', YLeaf(YType.uint32, 'number-available-egress')),
-                        ('number_available_on_node', YLeaf(YType.uint32, 'number-available-on-node')),
+                        ('is_ingress_enabled', (YLeaf(YType.boolean, 'is-ingress-enabled'), ['bool'])),
+                        ('is_egress_enabled', (YLeaf(YType.boolean, 'is-egress-enabled'), ['bool'])),
+                        ('number_available_ingress', (YLeaf(YType.uint32, 'number-available-ingress'), ['int'])),
+                        ('number_available_egress', (YLeaf(YType.uint32, 'number-available-egress'), ['int'])),
+                        ('number_available_on_node', (YLeaf(YType.uint32, 'number-available-on-node'), ['int'])),
                     ])
                     self.is_ingress_enabled = None
                     self.is_egress_enabled = None
@@ -634,6 +665,7 @@ class MacAccounting(Entity):
                     self.number_available_egress = None
                     self.number_available_on_node = None
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MacAccounting.Interfaces.Interface.State, [u'is_ingress_enabled', u'is_egress_enabled', u'number_available_ingress', u'number_available_egress', u'number_available_on_node'], name, value)
@@ -683,14 +715,15 @@ class MacAccounting(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('mac_address', YLeaf(YType.str, 'mac-address')),
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.mac_address = None
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "ingress-statistic"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MacAccounting.Interfaces.Interface.IngressStatistic, [u'mac_address', u'packets', u'bytes'], name, value)
@@ -740,14 +773,15 @@ class MacAccounting(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('mac_address', YLeaf(YType.str, 'mac-address')),
-                        ('packets', YLeaf(YType.uint64, 'packets')),
-                        ('bytes', YLeaf(YType.uint64, 'bytes')),
+                        ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                        ('packets', (YLeaf(YType.uint64, 'packets'), ['int'])),
+                        ('bytes', (YLeaf(YType.uint64, 'bytes'), ['int'])),
                     ])
                     self.mac_address = None
                     self.packets = None
                     self.bytes = None
                     self._segment_path = lambda: "egress-statistic"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MacAccounting.Interfaces.Interface.EgressStatistic, [u'mac_address', u'packets', u'bytes'], name, value)
@@ -788,6 +822,7 @@ class Vlan(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:vlan"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Vlan, [], name, value)
@@ -823,6 +858,7 @@ class Vlan(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:vlan/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vlan.Nodes, [], name, value)
@@ -871,7 +907,7 @@ class Vlan(Entity):
                 self.ylist_key_names = ['node_id']
                 self._child_classes = OrderedDict([("trunks", ("trunks", Vlan.Nodes.Node.Trunks)), ("interfaces", ("interfaces", Vlan.Nodes.Node.Interfaces)), ("tag-allocations", ("tag_allocations", Vlan.Nodes.Node.TagAllocations))])
                 self._leafs = OrderedDict([
-                    ('node_id', YLeaf(YType.str, 'node-id')),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
                 ])
                 self.node_id = None
 
@@ -888,6 +924,7 @@ class Vlan(Entity):
                 self._children_name_map["tag_allocations"] = "tag-allocations"
                 self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:vlan/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vlan.Nodes.Node, ['node_id'], name, value)
@@ -922,6 +959,7 @@ class Vlan(Entity):
 
                     self.trunk = YList(self)
                     self._segment_path = lambda: "trunks"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vlan.Nodes.Node.Trunks, [], name, value)
@@ -937,7 +975,7 @@ class Vlan(Entity):
                     	The interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: layer2_sub_interfaces
                     
@@ -949,12 +987,17 @@ class Vlan(Entity):
                     	Layer 3 Terminated Subinterfaces
                     	**type**\:  :py:class:`Layer3SubInterfaces <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces>`
                     
+                    .. attribute:: vlan_switched
+                    
+                    	VLAN\-Switched information
+                    	**type**\:  :py:class:`VlanSwitched <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched>`
+                    
                     .. attribute:: interface_xr
                     
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: state
                     
@@ -985,7 +1028,7 @@ class Vlan(Entity):
                     	Interface/Sub\-interface handling untagged frames
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: mac_filtering
                     
@@ -1007,16 +1050,16 @@ class Vlan(Entity):
                         self.is_top_level_class = False
                         self.has_list_ancestor = True
                         self.ylist_key_names = ['interface']
-                        self._child_classes = OrderedDict([("layer2-sub-interfaces", ("layer2_sub_interfaces", Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces)), ("layer3-sub-interfaces", ("layer3_sub_interfaces", Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces))])
+                        self._child_classes = OrderedDict([("layer2-sub-interfaces", ("layer2_sub_interfaces", Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces)), ("layer3-sub-interfaces", ("layer3_sub_interfaces", Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces)), ("vlan-switched", ("vlan_switched", Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched))])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('interface_xr', YLeaf(YType.str, 'interface-xr')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('mtu', YLeaf(YType.uint16, 'mtu')),
-                            ('qinq_outer_ether_type', YLeaf(YType.enumeration, 'qinq-outer-ether-type')),
-                            ('dot1ad_count', YLeaf(YType.uint32, 'dot1ad-count')),
-                            ('untagged_interface', YLeaf(YType.str, 'untagged-interface')),
-                            ('mac_filtering', YLeaf(YType.enumeration, 'mac-filtering')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('interface_xr', (YLeaf(YType.str, 'interface-xr'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'ImStateEnum', '')])),
+                            ('mtu', (YLeaf(YType.uint16, 'mtu'), ['int'])),
+                            ('qinq_outer_ether_type', (YLeaf(YType.enumeration, 'qinq-outer-ether-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanQinqOuterEtype', '')])),
+                            ('dot1ad_count', (YLeaf(YType.uint32, 'dot1ad-count'), ['int'])),
+                            ('untagged_interface', (YLeaf(YType.str, 'untagged-interface'), ['str'])),
+                            ('mac_filtering', (YLeaf(YType.enumeration, 'mac-filtering'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EthFiltering', '')])),
                         ])
                         self.interface = None
                         self.interface_xr = None
@@ -1034,10 +1077,15 @@ class Vlan(Entity):
                         self.layer3_sub_interfaces = Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces()
                         self.layer3_sub_interfaces.parent = self
                         self._children_name_map["layer3_sub_interfaces"] = "layer3-sub-interfaces"
+
+                        self.vlan_switched = Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched()
+                        self.vlan_switched.parent = self
+                        self._children_name_map["vlan_switched"] = "vlan-switched"
                         self._segment_path = lambda: "trunk" + "[interface='" + str(self.interface) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk, ['interface', u'interface_xr', u'state', u'mtu', u'qinq_outer_ether_type', u'dot1ad_count', u'untagged_interface', u'mac_filtering'], name, value)
+                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk, ['interface', 'interface_xr', 'state', 'mtu', 'qinq_outer_ether_type', 'dot1ad_count', 'untagged_interface', 'mac_filtering'], name, value)
 
 
                     class Layer2SubInterfaces(Entity):
@@ -1101,11 +1149,11 @@ class Vlan(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("state-counters", ("state_counters", Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters))])
                             self._leafs = OrderedDict([
-                                ('total_count', YLeaf(YType.uint32, 'total-count')),
-                                ('dot1q_count', YLeaf(YType.uint32, 'dot1q-count')),
-                                ('qin_q_count', YLeaf(YType.uint32, 'qin-q-count')),
-                                ('qin_any_count', YLeaf(YType.uint32, 'qin-any-count')),
-                                ('untagged_count', YLeaf(YType.uint32, 'untagged-count')),
+                                ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                                ('dot1q_count', (YLeaf(YType.uint32, 'dot1q-count'), ['int'])),
+                                ('qin_q_count', (YLeaf(YType.uint32, 'qin-q-count'), ['int'])),
+                                ('qin_any_count', (YLeaf(YType.uint32, 'qin-any-count'), ['int'])),
+                                ('untagged_count', (YLeaf(YType.uint32, 'untagged-count'), ['int'])),
                             ])
                             self.total_count = None
                             self.dot1q_count = None
@@ -1117,9 +1165,10 @@ class Vlan(Entity):
                             self.state_counters.parent = self
                             self._children_name_map["state_counters"] = "state-counters"
                             self._segment_path = lambda: "layer2-sub-interfaces"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces, [u'total_count', u'dot1q_count', u'qin_q_count', u'qin_any_count', u'untagged_count'], name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces, ['total_count', 'dot1q_count', 'qin_q_count', 'qin_any_count', 'untagged_count'], name, value)
 
 
                         class StateCounters(Entity):
@@ -1165,17 +1214,18 @@ class Vlan(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('up', YLeaf(YType.uint32, 'up')),
-                                    ('down', YLeaf(YType.uint32, 'down')),
-                                    ('admin_down', YLeaf(YType.uint32, 'admin-down')),
+                                    ('up', (YLeaf(YType.uint32, 'up'), ['int'])),
+                                    ('down', (YLeaf(YType.uint32, 'down'), ['int'])),
+                                    ('admin_down', (YLeaf(YType.uint32, 'admin-down'), ['int'])),
                                 ])
                                 self.up = None
                                 self.down = None
                                 self.admin_down = None
                                 self._segment_path = lambda: "state-counters"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters, [u'up', u'down', u'admin_down'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer2SubInterfaces.StateCounters, ['up', 'down', 'admin_down'], name, value)
 
 
                     class Layer3SubInterfaces(Entity):
@@ -1239,11 +1289,11 @@ class Vlan(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("state-counters", ("state_counters", Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters))])
                             self._leafs = OrderedDict([
-                                ('total_count', YLeaf(YType.uint32, 'total-count')),
-                                ('dot1q_count', YLeaf(YType.uint32, 'dot1q-count')),
-                                ('qin_q_count', YLeaf(YType.uint32, 'qin-q-count')),
-                                ('untagged_count', YLeaf(YType.uint32, 'untagged-count')),
-                                ('native_vlan', YLeaf(YType.uint16, 'native-vlan')),
+                                ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                                ('dot1q_count', (YLeaf(YType.uint32, 'dot1q-count'), ['int'])),
+                                ('qin_q_count', (YLeaf(YType.uint32, 'qin-q-count'), ['int'])),
+                                ('untagged_count', (YLeaf(YType.uint32, 'untagged-count'), ['int'])),
+                                ('native_vlan', (YLeaf(YType.uint16, 'native-vlan'), ['int'])),
                             ])
                             self.total_count = None
                             self.dot1q_count = None
@@ -1255,9 +1305,10 @@ class Vlan(Entity):
                             self.state_counters.parent = self
                             self._children_name_map["state_counters"] = "state-counters"
                             self._segment_path = lambda: "layer3-sub-interfaces"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces, [u'total_count', u'dot1q_count', u'qin_q_count', u'untagged_count', u'native_vlan'], name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces, ['total_count', 'dot1q_count', 'qin_q_count', 'untagged_count', 'native_vlan'], name, value)
 
 
                         class StateCounters(Entity):
@@ -1303,17 +1354,400 @@ class Vlan(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('up', YLeaf(YType.uint32, 'up')),
-                                    ('down', YLeaf(YType.uint32, 'down')),
-                                    ('admin_down', YLeaf(YType.uint32, 'admin-down')),
+                                    ('up', (YLeaf(YType.uint32, 'up'), ['int'])),
+                                    ('down', (YLeaf(YType.uint32, 'down'), ['int'])),
+                                    ('admin_down', (YLeaf(YType.uint32, 'admin-down'), ['int'])),
                                 ])
                                 self.up = None
                                 self.down = None
                                 self.admin_down = None
                                 self._segment_path = lambda: "state-counters"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters, [u'up', u'down', u'admin_down'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.Layer3SubInterfaces.StateCounters, ['up', 'down', 'admin_down'], name, value)
+
+
+                    class VlanSwitched(Entity):
+                        """
+                        VLAN\-Switched information
+                        
+                        .. attribute:: trunk_vlan_ranges
+                        
+                        	VLAN\-Switched Trunk VLAN ranges
+                        	**type**\:  :py:class:`TrunkVlanRanges <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges>`
+                        
+                        .. attribute:: mode
+                        
+                        	VLAN\-Switched mode
+                        	**type**\:  :py:class:`VlanSwitchedMode <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.VlanSwitchedMode>`
+                        
+                        .. attribute:: access_vlan
+                        
+                        	VLAN\-Switched Access VLAN
+                        	**type**\: int
+                        
+                        	**range:** 0..65535
+                        
+                        
+
+                        """
+
+                        _prefix = 'l2-eth-infra-oper'
+                        _revision = '2015-11-09'
+
+                        def __init__(self):
+                            super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched, self).__init__()
+
+                            self.yang_name = "vlan-switched"
+                            self.yang_parent_name = "trunk"
+                            self.is_top_level_class = False
+                            self.has_list_ancestor = True
+                            self.ylist_key_names = []
+                            self._child_classes = OrderedDict([("trunk-vlan-ranges", ("trunk_vlan_ranges", Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges))])
+                            self._leafs = OrderedDict([
+                                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanSwitchedMode', '')])),
+                                ('access_vlan', (YLeaf(YType.uint16, 'access-vlan'), ['int'])),
+                            ])
+                            self.mode = None
+                            self.access_vlan = None
+
+                            self.trunk_vlan_ranges = Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges()
+                            self.trunk_vlan_ranges.parent = self
+                            self._children_name_map["trunk_vlan_ranges"] = "trunk-vlan-ranges"
+                            self._segment_path = lambda: "vlan-switched"
+                            self._is_frozen = True
+
+                        def __setattr__(self, name, value):
+                            self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched, ['mode', 'access_vlan'], name, value)
+
+
+                        class TrunkVlanRanges(Entity):
+                            """
+                            VLAN\-Switched Trunk VLAN ranges
+                            
+                            .. attribute:: local_traffic_stack
+                            
+                            	VLAN tags for locally\-sourced traffic
+                            	**type**\:  :py:class:`LocalTrafficStack <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack>`
+                            
+                            .. attribute:: payload_ethertype
+                            
+                            	Payload Ethertype to match
+                            	**type**\:  :py:class:`EfpPayloadEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpPayloadEtype>`
+                            
+                            .. attribute:: tags_popped
+                            
+                            	Number of tags popped on ingress
+                            	**type**\: int
+                            
+                            	**range:** 0..65535
+                            
+                            .. attribute:: is_exact_match
+                            
+                            	Whether the packet must match the encapsulation exactly, with no further inner tags
+                            	**type**\: bool
+                            
+                            .. attribute:: is_native_vlan
+                            
+                            	Whether this represents the native VLAN on the port
+                            	**type**\: bool
+                            
+                            .. attribute:: is_native_preserving
+                            
+                            	Whether the native VLAN is customer\-tag preserving
+                            	**type**\: bool
+                            
+                            .. attribute:: source_mac_match
+                            
+                            	The source MAC address to match on ingress
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: destination_mac_match
+                            
+                            	The destination MAC address to match on ingress
+                            	**type**\: str
+                            
+                            	**pattern:** [0\-9a\-fA\-F]{2}(\:[0\-9a\-fA\-F]{2}){5}
+                            
+                            .. attribute:: tags_to_match
+                            
+                            	Tags to match on ingress packets
+                            	**type**\: list of  		 :py:class:`TagsToMatch <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch>`
+                            
+                            .. attribute:: pushe
+                            
+                            	VLAN tags pushed on egress
+                            	**type**\: list of  		 :py:class:`Pushe <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.Pushe>`
+                            
+                            
+
+                            """
+
+                            _prefix = 'l2-eth-infra-oper'
+                            _revision = '2015-11-09'
+
+                            def __init__(self):
+                                super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges, self).__init__()
+
+                                self.yang_name = "trunk-vlan-ranges"
+                                self.yang_parent_name = "vlan-switched"
+                                self.is_top_level_class = False
+                                self.has_list_ancestor = True
+                                self.ylist_key_names = []
+                                self._child_classes = OrderedDict([("local-traffic-stack", ("local_traffic_stack", Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack)), ("tags-to-match", ("tags_to_match", Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch)), ("pushe", ("pushe", Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.Pushe))])
+                                self._leafs = OrderedDict([
+                                    ('payload_ethertype', (YLeaf(YType.enumeration, 'payload-ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpPayloadEtype', '')])),
+                                    ('tags_popped', (YLeaf(YType.uint16, 'tags-popped'), ['int'])),
+                                    ('is_exact_match', (YLeaf(YType.boolean, 'is-exact-match'), ['bool'])),
+                                    ('is_native_vlan', (YLeaf(YType.boolean, 'is-native-vlan'), ['bool'])),
+                                    ('is_native_preserving', (YLeaf(YType.boolean, 'is-native-preserving'), ['bool'])),
+                                    ('source_mac_match', (YLeaf(YType.str, 'source-mac-match'), ['str'])),
+                                    ('destination_mac_match', (YLeaf(YType.str, 'destination-mac-match'), ['str'])),
+                                ])
+                                self.payload_ethertype = None
+                                self.tags_popped = None
+                                self.is_exact_match = None
+                                self.is_native_vlan = None
+                                self.is_native_preserving = None
+                                self.source_mac_match = None
+                                self.destination_mac_match = None
+
+                                self.local_traffic_stack = Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack()
+                                self.local_traffic_stack.parent = self
+                                self._children_name_map["local_traffic_stack"] = "local-traffic-stack"
+
+                                self.tags_to_match = YList(self)
+                                self.pushe = YList(self)
+                                self._segment_path = lambda: "trunk-vlan-ranges"
+                                self._is_frozen = True
+
+                            def __setattr__(self, name, value):
+                                self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
+
+
+                            class LocalTrafficStack(Entity):
+                                """
+                                VLAN tags for locally\-sourced traffic
+                                
+                                .. attribute:: local_traffic_tag
+                                
+                                	VLAN tags for locally\-sourced traffic
+                                	**type**\: list of  		 :py:class:`LocalTrafficTag <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2-eth-infra-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack, self).__init__()
+
+                                    self.yang_name = "local-traffic-stack"
+                                    self.yang_parent_name = "trunk-vlan-ranges"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("local-traffic-tag", ("local_traffic_tag", Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag))])
+                                    self._leafs = OrderedDict()
+
+                                    self.local_traffic_tag = YList(self)
+                                    self._segment_path = lambda: "local-traffic-stack"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack, [], name, value)
+
+
+                                class LocalTrafficTag(Entity):
+                                    """
+                                    VLAN tags for locally\-sourced traffic
+                                    
+                                    .. attribute:: ethertype
+                                    
+                                    	Ethertype of tag
+                                    	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
+                                    
+                                    .. attribute:: vlan_id
+                                    
+                                    	VLAN Id
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2-eth-infra-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, self).__init__()
+
+                                        self.yang_name = "local-traffic-tag"
+                                        self.yang_parent_name = "local-traffic-stack"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('ethertype', (YLeaf(YType.enumeration, 'ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtype', '')])),
+                                            ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
+                                        ])
+                                        self.ethertype = None
+                                        self.vlan_id = None
+                                        self._segment_path = lambda: "local-traffic-tag"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
+
+
+                            class TagsToMatch(Entity):
+                                """
+                                Tags to match on ingress packets
+                                
+                                .. attribute:: ethertype
+                                
+                                	Ethertype of tag to match
+                                	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
+                                
+                                .. attribute:: priority
+                                
+                                	Priority to match
+                                	**type**\:  :py:class:`EfpTagPriority <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagPriority>`
+                                
+                                .. attribute:: vlan_range
+                                
+                                	VLAN Ids to match
+                                	**type**\: list of  		 :py:class:`VlanRange <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange>`
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2-eth-infra-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch, self).__init__()
+
+                                    self.yang_name = "tags-to-match"
+                                    self.yang_parent_name = "trunk-vlan-ranges"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([("vlan-range", ("vlan_range", Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange))])
+                                    self._leafs = OrderedDict([
+                                        ('ethertype', (YLeaf(YType.enumeration, 'ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtype', '')])),
+                                        ('priority', (YLeaf(YType.enumeration, 'priority'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagPriority', '')])),
+                                    ])
+                                    self.ethertype = None
+                                    self.priority = None
+
+                                    self.vlan_range = YList(self)
+                                    self._segment_path = lambda: "tags-to-match"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch, ['ethertype', 'priority'], name, value)
+
+
+                                class VlanRange(Entity):
+                                    """
+                                    VLAN Ids to match
+                                    
+                                    .. attribute:: vlan_id_low
+                                    
+                                    	VLAN ID Low
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    .. attribute:: vlan_id_high
+                                    
+                                    	VLAN ID High
+                                    	**type**\: int
+                                    
+                                    	**range:** 0..65535
+                                    
+                                    
+
+                                    """
+
+                                    _prefix = 'l2-eth-infra-oper'
+                                    _revision = '2015-11-09'
+
+                                    def __init__(self):
+                                        super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, self).__init__()
+
+                                        self.yang_name = "vlan-range"
+                                        self.yang_parent_name = "tags-to-match"
+                                        self.is_top_level_class = False
+                                        self.has_list_ancestor = True
+                                        self.ylist_key_names = []
+                                        self._child_classes = OrderedDict([])
+                                        self._leafs = OrderedDict([
+                                            ('vlan_id_low', (YLeaf(YType.uint16, 'vlan-id-low'), ['int'])),
+                                            ('vlan_id_high', (YLeaf(YType.uint16, 'vlan-id-high'), ['int'])),
+                                        ])
+                                        self.vlan_id_low = None
+                                        self.vlan_id_high = None
+                                        self._segment_path = lambda: "vlan-range"
+                                        self._is_frozen = True
+
+                                    def __setattr__(self, name, value):
+                                        self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
+
+
+                            class Pushe(Entity):
+                                """
+                                VLAN tags pushed on egress
+                                
+                                .. attribute:: ethertype
+                                
+                                	Ethertype of tag
+                                	**type**\:  :py:class:`EfpTagEtype <ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper.EfpTagEtype>`
+                                
+                                .. attribute:: vlan_id
+                                
+                                	VLAN Id
+                                	**type**\: int
+                                
+                                	**range:** 0..65535
+                                
+                                
+
+                                """
+
+                                _prefix = 'l2-eth-infra-oper'
+                                _revision = '2015-11-09'
+
+                                def __init__(self):
+                                    super(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.Pushe, self).__init__()
+
+                                    self.yang_name = "pushe"
+                                    self.yang_parent_name = "trunk-vlan-ranges"
+                                    self.is_top_level_class = False
+                                    self.has_list_ancestor = True
+                                    self.ylist_key_names = []
+                                    self._child_classes = OrderedDict([])
+                                    self._leafs = OrderedDict([
+                                        ('ethertype', (YLeaf(YType.enumeration, 'ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtype', '')])),
+                                        ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
+                                    ])
+                                    self.ethertype = None
+                                    self.vlan_id = None
+                                    self._segment_path = lambda: "pushe"
+                                    self._is_frozen = True
+
+                                def __setattr__(self, name, value):
+                                    self._perform_setattr(Vlan.Nodes.Node.Trunks.Trunk.VlanSwitched.TrunkVlanRanges.Pushe, ['ethertype', 'vlan_id'], name, value)
 
 
             class Interfaces(Entity):
@@ -1345,6 +1779,7 @@ class Vlan(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vlan.Nodes.Node.Interfaces, [], name, value)
@@ -1360,7 +1795,7 @@ class Vlan(Entity):
                     	The interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: encapsulation_details
                     
@@ -1372,14 +1807,14 @@ class Vlan(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: parent_interface
                     
                     	Parent interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: service
                     
@@ -1422,13 +1857,13 @@ class Vlan(Entity):
                         self.ylist_key_names = ['interface']
                         self._child_classes = OrderedDict([("encapsulation-details", ("encapsulation_details", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails))])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('interface_xr', YLeaf(YType.str, 'interface-xr')),
-                            ('parent_interface', YLeaf(YType.str, 'parent-interface')),
-                            ('service', YLeaf(YType.enumeration, 'service')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('mtu', YLeaf(YType.uint16, 'mtu')),
-                            ('switched_mtu', YLeaf(YType.uint16, 'switched-mtu')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('interface_xr', (YLeaf(YType.str, 'interface-xr'), ['str'])),
+                            ('parent_interface', (YLeaf(YType.str, 'parent-interface'), ['str'])),
+                            ('service', (YLeaf(YType.enumeration, 'service'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanService', '')])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'ImStateEnum', '')])),
+                            ('mtu', (YLeaf(YType.uint16, 'mtu'), ['int'])),
+                            ('switched_mtu', (YLeaf(YType.uint16, 'switched-mtu'), ['int'])),
                         ])
                         self.interface = None
                         self.interface_xr = None
@@ -1442,9 +1877,10 @@ class Vlan(Entity):
                         self.encapsulation_details.parent = self
                         self._children_name_map["encapsulation_details"] = "encapsulation-details"
                         self._segment_path = lambda: "interface" + "[interface='" + str(self.interface) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface, ['interface', u'interface_xr', u'parent_interface', u'service', u'state', u'mtu', u'switched_mtu'], name, value)
+                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface, ['interface', 'interface_xr', 'parent_interface', 'service', 'state', 'mtu', 'switched_mtu'], name, value)
 
 
                     class EncapsulationDetails(Entity):
@@ -1530,13 +1966,13 @@ class Vlan(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("stack", ("stack", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack)), ("service-instance-details", ("service_instance_details", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails)), ("dot1ad-dot1q-stack", ("dot1ad_dot1q_stack", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack))])
                             self._leafs = OrderedDict([
-                                ('vlan_encapsulation', YLeaf(YType.enumeration, 'vlan-encapsulation')),
-                                ('tag', YLeaf(YType.uint16, 'tag')),
-                                ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
-                                ('native_tag', YLeaf(YType.uint16, 'native-tag')),
-                                ('dot1ad_tag', YLeaf(YType.uint16, 'dot1ad-tag')),
-                                ('dot1ad_native_tag', YLeaf(YType.uint16, 'dot1ad-native-tag')),
-                                ('dot1ad_outer_tag', YLeaf(YType.uint16, 'dot1ad-outer-tag')),
+                                ('vlan_encapsulation', (YLeaf(YType.enumeration, 'vlan-encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanEncaps', '')])),
+                                ('tag', (YLeaf(YType.uint16, 'tag'), ['int'])),
+                                ('outer_tag', (YLeaf(YType.uint16, 'outer-tag'), ['int'])),
+                                ('native_tag', (YLeaf(YType.uint16, 'native-tag'), ['int'])),
+                                ('dot1ad_tag', (YLeaf(YType.uint16, 'dot1ad-tag'), ['int'])),
+                                ('dot1ad_native_tag', (YLeaf(YType.uint16, 'dot1ad-native-tag'), ['int'])),
+                                ('dot1ad_outer_tag', (YLeaf(YType.uint16, 'dot1ad-outer-tag'), ['int'])),
                             ])
                             self.vlan_encapsulation = None
                             self.tag = None
@@ -1558,9 +1994,10 @@ class Vlan(Entity):
                             self.dot1ad_dot1q_stack.parent = self
                             self._children_name_map["dot1ad_dot1q_stack"] = "dot1ad-dot1q-stack"
                             self._segment_path = lambda: "encapsulation-details"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails, [u'vlan_encapsulation', u'tag', u'outer_tag', u'native_tag', u'dot1ad_tag', u'dot1ad_native_tag', u'dot1ad_outer_tag'], name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails, ['vlan_encapsulation', 'tag', 'outer_tag', 'native_tag', 'dot1ad_tag', 'dot1ad_native_tag', 'dot1ad_outer_tag'], name, value)
 
 
                         class Stack(Entity):
@@ -1598,15 +2035,16 @@ class Vlan(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
-                                    ('second_tag', YLeaf(YType.uint16, 'second-tag')),
+                                    ('outer_tag', (YLeaf(YType.uint16, 'outer-tag'), ['int'])),
+                                    ('second_tag', (YLeaf(YType.uint16, 'second-tag'), ['int'])),
                                 ])
                                 self.outer_tag = None
                                 self.second_tag = None
                                 self._segment_path = lambda: "stack"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack, [u'outer_tag', u'second_tag'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
 
 
                         class ServiceInstanceDetails(Entity):
@@ -1686,13 +2124,13 @@ class Vlan(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("local-traffic-stack", ("local_traffic_stack", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack)), ("tags-to-match", ("tags_to_match", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch)), ("pushe", ("pushe", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe))])
                                 self._leafs = OrderedDict([
-                                    ('payload_ethertype', YLeaf(YType.enumeration, 'payload-ethertype')),
-                                    ('tags_popped', YLeaf(YType.uint16, 'tags-popped')),
-                                    ('is_exact_match', YLeaf(YType.boolean, 'is-exact-match')),
-                                    ('is_native_vlan', YLeaf(YType.boolean, 'is-native-vlan')),
-                                    ('is_native_preserving', YLeaf(YType.boolean, 'is-native-preserving')),
-                                    ('source_mac_match', YLeaf(YType.str, 'source-mac-match')),
-                                    ('destination_mac_match', YLeaf(YType.str, 'destination-mac-match')),
+                                    ('payload_ethertype', (YLeaf(YType.enumeration, 'payload-ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpPayloadEtype', '')])),
+                                    ('tags_popped', (YLeaf(YType.uint16, 'tags-popped'), ['int'])),
+                                    ('is_exact_match', (YLeaf(YType.boolean, 'is-exact-match'), ['bool'])),
+                                    ('is_native_vlan', (YLeaf(YType.boolean, 'is-native-vlan'), ['bool'])),
+                                    ('is_native_preserving', (YLeaf(YType.boolean, 'is-native-preserving'), ['bool'])),
+                                    ('source_mac_match', (YLeaf(YType.str, 'source-mac-match'), ['str'])),
+                                    ('destination_mac_match', (YLeaf(YType.str, 'destination-mac-match'), ['str'])),
                                 ])
                                 self.payload_ethertype = None
                                 self.tags_popped = None
@@ -1709,9 +2147,10 @@ class Vlan(Entity):
                                 self.tags_to_match = YList(self)
                                 self.pushe = YList(self)
                                 self._segment_path = lambda: "service-instance-details"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails, [u'payload_ethertype', u'tags_popped', u'is_exact_match', u'is_native_vlan', u'is_native_preserving', u'source_mac_match', u'destination_mac_match'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
 
 
                             class LocalTrafficStack(Entity):
@@ -1743,6 +2182,7 @@ class Vlan(Entity):
 
                                     self.local_traffic_tag = YList(self)
                                     self._segment_path = lambda: "local-traffic-stack"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, [], name, value)
@@ -1781,15 +2221,16 @@ class Vlan(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
-                                            ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
+                                            ('ethertype', (YLeaf(YType.enumeration, 'ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtype', '')])),
+                                            ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
                                         ])
                                         self.ethertype = None
                                         self.vlan_id = None
                                         self._segment_path = lambda: "local-traffic-tag"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, [u'ethertype', u'vlan_id'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
 
                             class TagsToMatch(Entity):
@@ -1828,17 +2269,18 @@ class Vlan(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("vlan-range", ("vlan_range", Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange))])
                                     self._leafs = OrderedDict([
-                                        ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
-                                        ('priority', YLeaf(YType.enumeration, 'priority')),
+                                        ('ethertype', (YLeaf(YType.enumeration, 'ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtype', '')])),
+                                        ('priority', (YLeaf(YType.enumeration, 'priority'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagPriority', '')])),
                                     ])
                                     self.ethertype = None
                                     self.priority = None
 
                                     self.vlan_range = YList(self)
                                     self._segment_path = lambda: "tags-to-match"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, [u'ethertype', u'priority'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, ['ethertype', 'priority'], name, value)
 
 
                                 class VlanRange(Entity):
@@ -1876,15 +2318,16 @@ class Vlan(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('vlan_id_low', YLeaf(YType.uint16, 'vlan-id-low')),
-                                            ('vlan_id_high', YLeaf(YType.uint16, 'vlan-id-high')),
+                                            ('vlan_id_low', (YLeaf(YType.uint16, 'vlan-id-low'), ['int'])),
+                                            ('vlan_id_high', (YLeaf(YType.uint16, 'vlan-id-high'), ['int'])),
                                         ])
                                         self.vlan_id_low = None
                                         self.vlan_id_high = None
                                         self._segment_path = lambda: "vlan-range"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, [u'vlan_id_low', u'vlan_id_high'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
 
 
                             class Pushe(Entity):
@@ -1920,15 +2363,16 @@ class Vlan(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
-                                        ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
+                                        ('ethertype', (YLeaf(YType.enumeration, 'ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtype', '')])),
+                                        ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
                                     ])
                                     self.ethertype = None
                                     self.vlan_id = None
                                     self._segment_path = lambda: "pushe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe, [u'ethertype', u'vlan_id'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
 
 
                         class Dot1adDot1qStack(Entity):
@@ -1966,15 +2410,16 @@ class Vlan(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
-                                    ('second_tag', YLeaf(YType.uint16, 'second-tag')),
+                                    ('outer_tag', (YLeaf(YType.uint16, 'outer-tag'), ['int'])),
+                                    ('second_tag', (YLeaf(YType.uint16, 'second-tag'), ['int'])),
                                 ])
                                 self.outer_tag = None
                                 self.second_tag = None
                                 self._segment_path = lambda: "dot1ad-dot1q-stack"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack, [u'outer_tag', u'second_tag'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.Interfaces.Interface.EncapsulationDetails.Dot1adDot1qStack, ['outer_tag', 'second_tag'], name, value)
 
 
             class TagAllocations(Entity):
@@ -2007,6 +2452,7 @@ class Vlan(Entity):
 
                     self.tag_allocation = YList(self)
                     self._segment_path = lambda: "tag-allocations"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Vlan.Nodes.Node.TagAllocations, [], name, value)
@@ -2022,7 +2468,7 @@ class Vlan(Entity):
                     	The interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: first_tag
                     
@@ -2052,14 +2498,14 @@ class Vlan(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: parent_interface
                     
                     	Parent interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: service
                     
@@ -2102,15 +2548,15 @@ class Vlan(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("encapsulation-details", ("encapsulation_details", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails))])
                         self._leafs = OrderedDict([
-                            ('interface', YLeaf(YType.str, 'interface')),
-                            ('first_tag', YLeaf(YType.uint32, 'first-tag')),
-                            ('second_tag', YLeaf(YType.str, 'second-tag')),
-                            ('interface_xr', YLeaf(YType.str, 'interface-xr')),
-                            ('parent_interface', YLeaf(YType.str, 'parent-interface')),
-                            ('service', YLeaf(YType.enumeration, 'service')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('mtu', YLeaf(YType.uint16, 'mtu')),
-                            ('switched_mtu', YLeaf(YType.uint16, 'switched-mtu')),
+                            ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                            ('first_tag', (YLeaf(YType.uint32, 'first-tag'), ['int'])),
+                            ('second_tag', (YLeaf(YType.str, 'second-tag'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_datatypes', 'VlanTagOrAny', ''),'int'])),
+                            ('interface_xr', (YLeaf(YType.str, 'interface-xr'), ['str'])),
+                            ('parent_interface', (YLeaf(YType.str, 'parent-interface'), ['str'])),
+                            ('service', (YLeaf(YType.enumeration, 'service'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanService', '')])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'ImStateEnum', '')])),
+                            ('mtu', (YLeaf(YType.uint16, 'mtu'), ['int'])),
+                            ('switched_mtu', (YLeaf(YType.uint16, 'switched-mtu'), ['int'])),
                         ])
                         self.interface = None
                         self.first_tag = None
@@ -2126,9 +2572,10 @@ class Vlan(Entity):
                         self.encapsulation_details.parent = self
                         self._children_name_map["encapsulation_details"] = "encapsulation-details"
                         self._segment_path = lambda: "tag-allocation"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation, ['interface', 'first_tag', 'second_tag', u'interface_xr', u'parent_interface', u'service', u'state', u'mtu', u'switched_mtu'], name, value)
+                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation, ['interface', 'first_tag', 'second_tag', 'interface_xr', 'parent_interface', 'service', 'state', 'mtu', 'switched_mtu'], name, value)
 
 
                     class EncapsulationDetails(Entity):
@@ -2214,13 +2661,13 @@ class Vlan(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("stack", ("stack", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack)), ("service-instance-details", ("service_instance_details", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails)), ("dot1ad-dot1q-stack", ("dot1ad_dot1q_stack", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack))])
                             self._leafs = OrderedDict([
-                                ('vlan_encapsulation', YLeaf(YType.enumeration, 'vlan-encapsulation')),
-                                ('tag', YLeaf(YType.uint16, 'tag')),
-                                ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
-                                ('native_tag', YLeaf(YType.uint16, 'native-tag')),
-                                ('dot1ad_tag', YLeaf(YType.uint16, 'dot1ad-tag')),
-                                ('dot1ad_native_tag', YLeaf(YType.uint16, 'dot1ad-native-tag')),
-                                ('dot1ad_outer_tag', YLeaf(YType.uint16, 'dot1ad-outer-tag')),
+                                ('vlan_encapsulation', (YLeaf(YType.enumeration, 'vlan-encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'VlanEncaps', '')])),
+                                ('tag', (YLeaf(YType.uint16, 'tag'), ['int'])),
+                                ('outer_tag', (YLeaf(YType.uint16, 'outer-tag'), ['int'])),
+                                ('native_tag', (YLeaf(YType.uint16, 'native-tag'), ['int'])),
+                                ('dot1ad_tag', (YLeaf(YType.uint16, 'dot1ad-tag'), ['int'])),
+                                ('dot1ad_native_tag', (YLeaf(YType.uint16, 'dot1ad-native-tag'), ['int'])),
+                                ('dot1ad_outer_tag', (YLeaf(YType.uint16, 'dot1ad-outer-tag'), ['int'])),
                             ])
                             self.vlan_encapsulation = None
                             self.tag = None
@@ -2242,9 +2689,10 @@ class Vlan(Entity):
                             self.dot1ad_dot1q_stack.parent = self
                             self._children_name_map["dot1ad_dot1q_stack"] = "dot1ad-dot1q-stack"
                             self._segment_path = lambda: "encapsulation-details"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails, [u'vlan_encapsulation', u'tag', u'outer_tag', u'native_tag', u'dot1ad_tag', u'dot1ad_native_tag', u'dot1ad_outer_tag'], name, value)
+                            self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails, ['vlan_encapsulation', 'tag', 'outer_tag', 'native_tag', 'dot1ad_tag', 'dot1ad_native_tag', 'dot1ad_outer_tag'], name, value)
 
 
                         class Stack(Entity):
@@ -2282,15 +2730,16 @@ class Vlan(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
-                                    ('second_tag', YLeaf(YType.uint16, 'second-tag')),
+                                    ('outer_tag', (YLeaf(YType.uint16, 'outer-tag'), ['int'])),
+                                    ('second_tag', (YLeaf(YType.uint16, 'second-tag'), ['int'])),
                                 ])
                                 self.outer_tag = None
                                 self.second_tag = None
                                 self._segment_path = lambda: "stack"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack, [u'outer_tag', u'second_tag'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Stack, ['outer_tag', 'second_tag'], name, value)
 
 
                         class ServiceInstanceDetails(Entity):
@@ -2370,13 +2819,13 @@ class Vlan(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("local-traffic-stack", ("local_traffic_stack", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack)), ("tags-to-match", ("tags_to_match", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch)), ("pushe", ("pushe", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe))])
                                 self._leafs = OrderedDict([
-                                    ('payload_ethertype', YLeaf(YType.enumeration, 'payload-ethertype')),
-                                    ('tags_popped', YLeaf(YType.uint16, 'tags-popped')),
-                                    ('is_exact_match', YLeaf(YType.boolean, 'is-exact-match')),
-                                    ('is_native_vlan', YLeaf(YType.boolean, 'is-native-vlan')),
-                                    ('is_native_preserving', YLeaf(YType.boolean, 'is-native-preserving')),
-                                    ('source_mac_match', YLeaf(YType.str, 'source-mac-match')),
-                                    ('destination_mac_match', YLeaf(YType.str, 'destination-mac-match')),
+                                    ('payload_ethertype', (YLeaf(YType.enumeration, 'payload-ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpPayloadEtype', '')])),
+                                    ('tags_popped', (YLeaf(YType.uint16, 'tags-popped'), ['int'])),
+                                    ('is_exact_match', (YLeaf(YType.boolean, 'is-exact-match'), ['bool'])),
+                                    ('is_native_vlan', (YLeaf(YType.boolean, 'is-native-vlan'), ['bool'])),
+                                    ('is_native_preserving', (YLeaf(YType.boolean, 'is-native-preserving'), ['bool'])),
+                                    ('source_mac_match', (YLeaf(YType.str, 'source-mac-match'), ['str'])),
+                                    ('destination_mac_match', (YLeaf(YType.str, 'destination-mac-match'), ['str'])),
                                 ])
                                 self.payload_ethertype = None
                                 self.tags_popped = None
@@ -2393,9 +2842,10 @@ class Vlan(Entity):
                                 self.tags_to_match = YList(self)
                                 self.pushe = YList(self)
                                 self._segment_path = lambda: "service-instance-details"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails, [u'payload_ethertype', u'tags_popped', u'is_exact_match', u'is_native_vlan', u'is_native_preserving', u'source_mac_match', u'destination_mac_match'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails, ['payload_ethertype', 'tags_popped', 'is_exact_match', 'is_native_vlan', 'is_native_preserving', 'source_mac_match', 'destination_mac_match'], name, value)
 
 
                             class LocalTrafficStack(Entity):
@@ -2427,6 +2877,7 @@ class Vlan(Entity):
 
                                     self.local_traffic_tag = YList(self)
                                     self._segment_path = lambda: "local-traffic-stack"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack, [], name, value)
@@ -2465,15 +2916,16 @@ class Vlan(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
-                                            ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
+                                            ('ethertype', (YLeaf(YType.enumeration, 'ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtype', '')])),
+                                            ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
                                         ])
                                         self.ethertype = None
                                         self.vlan_id = None
                                         self._segment_path = lambda: "local-traffic-tag"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, [u'ethertype', u'vlan_id'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.LocalTrafficStack.LocalTrafficTag, ['ethertype', 'vlan_id'], name, value)
 
 
                             class TagsToMatch(Entity):
@@ -2512,17 +2964,18 @@ class Vlan(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("vlan-range", ("vlan_range", Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange))])
                                     self._leafs = OrderedDict([
-                                        ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
-                                        ('priority', YLeaf(YType.enumeration, 'priority')),
+                                        ('ethertype', (YLeaf(YType.enumeration, 'ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtype', '')])),
+                                        ('priority', (YLeaf(YType.enumeration, 'priority'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagPriority', '')])),
                                     ])
                                     self.ethertype = None
                                     self.priority = None
 
                                     self.vlan_range = YList(self)
                                     self._segment_path = lambda: "tags-to-match"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, [u'ethertype', u'priority'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch, ['ethertype', 'priority'], name, value)
 
 
                                 class VlanRange(Entity):
@@ -2560,15 +3013,16 @@ class Vlan(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('vlan_id_low', YLeaf(YType.uint16, 'vlan-id-low')),
-                                            ('vlan_id_high', YLeaf(YType.uint16, 'vlan-id-high')),
+                                            ('vlan_id_low', (YLeaf(YType.uint16, 'vlan-id-low'), ['int'])),
+                                            ('vlan_id_high', (YLeaf(YType.uint16, 'vlan-id-high'), ['int'])),
                                         ])
                                         self.vlan_id_low = None
                                         self.vlan_id_high = None
                                         self._segment_path = lambda: "vlan-range"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, [u'vlan_id_low', u'vlan_id_high'], name, value)
+                                        self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.TagsToMatch.VlanRange, ['vlan_id_low', 'vlan_id_high'], name, value)
 
 
                             class Pushe(Entity):
@@ -2604,15 +3058,16 @@ class Vlan(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('ethertype', YLeaf(YType.enumeration, 'ethertype')),
-                                        ('vlan_id', YLeaf(YType.uint16, 'vlan-id')),
+                                        ('ethertype', (YLeaf(YType.enumeration, 'ethertype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EfpTagEtype', '')])),
+                                        ('vlan_id', (YLeaf(YType.uint16, 'vlan-id'), ['int'])),
                                     ])
                                     self.ethertype = None
                                     self.vlan_id = None
                                     self._segment_path = lambda: "pushe"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe, [u'ethertype', u'vlan_id'], name, value)
+                                    self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.ServiceInstanceDetails.Pushe, ['ethertype', 'vlan_id'], name, value)
 
 
                         class Dot1adDot1qStack(Entity):
@@ -2650,15 +3105,16 @@ class Vlan(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('outer_tag', YLeaf(YType.uint16, 'outer-tag')),
-                                    ('second_tag', YLeaf(YType.uint16, 'second-tag')),
+                                    ('outer_tag', (YLeaf(YType.uint16, 'outer-tag'), ['int'])),
+                                    ('second_tag', (YLeaf(YType.uint16, 'second-tag'), ['int'])),
                                 ])
                                 self.outer_tag = None
                                 self.second_tag = None
                                 self._segment_path = lambda: "dot1ad-dot1q-stack"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack, [u'outer_tag', u'second_tag'], name, value)
+                                self._perform_setattr(Vlan.Nodes.Node.TagAllocations.TagAllocation.EncapsulationDetails.Dot1adDot1qStack, ['outer_tag', 'second_tag'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Vlan()
@@ -2696,6 +3152,7 @@ class EthernetEncapsulation(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(EthernetEncapsulation, [], name, value)
@@ -2731,6 +3188,7 @@ class EthernetEncapsulation(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EthernetEncapsulation.Nodes, [], name, value)
@@ -2770,7 +3228,7 @@ class EthernetEncapsulation(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("unicast-mac-filters", ("unicast_mac_filters", EthernetEncapsulation.Nodes.Node.UnicastMacFilters))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -2779,6 +3237,7 @@ class EthernetEncapsulation(Entity):
                 self._children_name_map["unicast_mac_filters"] = "unicast-mac-filters"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-l2-eth-infra-oper:ethernet-encapsulation/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EthernetEncapsulation.Nodes.Node, ['node_name'], name, value)
@@ -2814,6 +3273,7 @@ class EthernetEncapsulation(Entity):
 
                     self.unicast_mac_filter = YList(self)
                     self._segment_path = lambda: "unicast-mac-filters"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(EthernetEncapsulation.Nodes.Node.UnicastMacFilters, [], name, value)
@@ -2829,7 +3289,7 @@ class EthernetEncapsulation(Entity):
                     	The interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: unicast_filter
                     
@@ -2853,12 +3313,13 @@ class EthernetEncapsulation(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("unicast-filter", ("unicast_filter", EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
 
                         self.unicast_filter = YList(self)
                         self._segment_path = lambda: "unicast-mac-filter" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter, ['interface_name'], name, value)
@@ -2897,12 +3358,13 @@ class EthernetEncapsulation(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('mac_address', YLeaf(YType.str, 'mac-address')),
-                                ('mode', YLeaf(YType.enumeration, 'mode')),
+                                ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_l2_eth_infra_oper', 'EthCapsUcastMacMode', '')])),
                             ])
                             self.mac_address = None
                             self.mode = None
                             self._segment_path = lambda: "unicast-filter"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EthernetEncapsulation.Nodes.Node.UnicastMacFilters.UnicastMacFilter.UnicastFilter, [u'mac_address', u'mode'], name, value)

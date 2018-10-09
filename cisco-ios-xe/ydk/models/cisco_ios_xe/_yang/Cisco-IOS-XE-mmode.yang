@@ -16,6 +16,11 @@ module Cisco-IOS-XE-mmode {
    // REVISION
    // ===========================================================
 
+  revision 2017-11-29 {
+    description
+      "Adding FHRP protocols under maintenance-template";
+  }
+
   revision 2017-06-15 {
     description
       "Changing model to cover maintenance-template ipmulticast vrf change";
@@ -101,6 +106,58 @@ module Cisco-IOS-XE-mmode {
               type uint16 {
                 range "1..65535";
               }
+            }
+          }
+        }
+        list hsrp {
+          description "HSRP protocol instance";
+          ordered-by user;
+          key "interface group-number";
+          leaf interface {
+            description "full interface name and number (Note: the device will accept both full and short interface names, but the names in running config will be shown in full form)";
+            type string;
+          }
+          leaf group-number {
+            description "HSRP group number";
+            type uint16 {
+              range "0..255";
+            }
+          } 
+        }
+        list vrrp {
+          description "VRRP protocol instance";
+          ordered-by user;
+          key "interface group-number";
+          leaf interface {
+            description "full interface name and number (Note: the device will accept both full and short interface names, but the names in running config will be shown in full form)";
+            type string; 
+          }
+          leaf group-number {
+            description "VRRP group number";
+            type uint16 {
+              range "0..255";
+            }
+          }
+        } 
+        list vrrpv3 {
+          description "VRRPv3 protocol";
+          ordered-by user;
+          key "interface group-number address-family";
+          leaf interface {
+            description "full interface name and number (Note: the device will accept both full and short interface names, but the names in running config will be shown in full form)";
+            type string; 
+          }
+          leaf group-number {
+            description "VRRP group number";
+            type uint16 {
+              range "0..255";
+            }
+          }
+          leaf address-family {
+            description "address family";
+            type enumeration {
+              enum "ipv4";
+              enum "ipv6";
             }
           }
         }

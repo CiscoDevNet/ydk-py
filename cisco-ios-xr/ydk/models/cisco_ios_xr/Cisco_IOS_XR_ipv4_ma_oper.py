@@ -7,7 +7,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ipv4\-io\-oper
 module with state data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,34 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
+
+
+class Ipv4MaOperConfig(Enum):
+    """
+    Ipv4MaOperConfig (Enum Class)
+
+    ipv4 client type
+
+    .. data:: ipv4_ma_oper_client_none = 0
+
+    	ipv4 ma oper client none
+
+    .. data:: ipv4_ma_oper_non_oc_client = 1
+
+    	ipv4 ma oper non oc client
+
+    .. data:: ipv4_ma_oper_oc_client = 2
+
+    	ipv4 ma oper oc client
+
+    """
+
+    ipv4_ma_oper_client_none = Enum.YLeaf(0, "ipv4-ma-oper-client-none")
+
+    ipv4_ma_oper_non_oc_client = Enum.YLeaf(1, "ipv4-ma-oper-non-oc-client")
+
+    ipv4_ma_oper_oc_client = Enum.YLeaf(2, "ipv4-ma-oper-oc-client")
 
 
 class Ipv4MaOperLineState(Enum):

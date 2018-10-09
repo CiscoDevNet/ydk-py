@@ -23,6 +23,15 @@ module Cisco-IOS-XE-platform-software-oper {
     "This module contains a collection of YANG definitions
      for monitoring platform software in a Network Element";
 
+  revision 2018-03-09 {
+    description
+      "New data types for process stats added. 
+       Process system usage type is added to denote 
+       the per-process system usage. System usage type
+       is added which denotes the per-process system usage in 
+       each FRU.";
+    reference "2.2.0";
+  }
   revision 2017-10-10 {
     description
       "New data types. Leaf name changes";
@@ -368,10 +377,71 @@ module Cisco-IOS-XE-platform-software-oper {
     }
   }
 
+  grouping process-system-usage {
+    description
+      "Per-process usage information";
+    leaf pid {
+      type uint32;
+      description
+        "The pid of the process";
+    }
+    leaf name {
+      type string;
+      description
+        "Process name";
+    }
+    leaf total-run-time {
+      type uint64;
+      description
+        "Total run time in seconds";
+    }
+    leaf five-seconds {
+      type uint64;
+      description
+        "Busy percentage in last 5-seconds";
+    }
+    leaf allocated-memory {
+      type uint64;
+      description
+        "Memory allocated to this process in kB";
+    }
+    leaf allocated-memory-percent {
+      type uint32;
+      description
+        "Percentage of memory allocated to this process";
+    }
+  }
+
+  grouping system-usage {
+    description
+      "Process system usage information";
+    container process-system-usages {
+      description
+        "List of process system usage";
+      list process-system-usage {
+        key "pid";
+        description
+          "Per-process system usage";
+        uses platform-sw-ios-xe-oper:process-system-usage;
+      }
+    }
+  }
+
   container cisco-platform-software {
     config false;
     description
       "Cisco platform software information";
+    container system-usages {
+      description
+        "Platform system usage information";
+      list system-usage {
+        key "fru slotnum baynum chassisnum";
+        description
+          "The list of process system usage";
+        uses platform-sw-ios-xe-oper:svc-loc;
+        uses platform-sw-ios-xe-oper:system-usage;
+      }
+    }
     container control-processes {
       description
         "Information about control processes";

@@ -60,6 +60,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class TerminalDevice(Entity):
     """
     Top\-level container for the terminal device
@@ -119,6 +120,7 @@ class TerminalDevice(Entity):
         self.operational_modes.parent = self
         self._children_name_map["operational_modes"] = "operational-modes"
         self._segment_path = lambda: "openconfig-terminal-device:terminal-device"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(TerminalDevice, [], name, value)
@@ -147,6 +149,7 @@ class TerminalDevice(Entity):
             self._leafs = OrderedDict()
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/%s" % self._segment_path()
+            self._is_frozen = True
 
 
     class State(Entity):
@@ -172,6 +175,7 @@ class TerminalDevice(Entity):
             self._leafs = OrderedDict()
             self._segment_path = lambda: "state"
             self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/%s" % self._segment_path()
+            self._is_frozen = True
 
 
     class LogicalChannels(Entity):
@@ -204,6 +208,7 @@ class TerminalDevice(Entity):
             self.channel = YList(self)
             self._segment_path = lambda: "logical-channels"
             self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TerminalDevice.LogicalChannels, [], name, value)
@@ -269,7 +274,7 @@ class TerminalDevice(Entity):
                 self.ylist_key_names = ['index']
                 self._child_classes = OrderedDict([("config", ("config", TerminalDevice.LogicalChannels.Channel.Config)), ("state", ("state", TerminalDevice.LogicalChannels.Channel.State)), ("otn", ("otn", TerminalDevice.LogicalChannels.Channel.Otn)), ("ethernet", ("ethernet", TerminalDevice.LogicalChannels.Channel.Ethernet)), ("ingress", ("ingress", TerminalDevice.LogicalChannels.Channel.Ingress)), ("logical-channel-assignments", ("logical_channel_assignments", TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments))])
                 self._leafs = OrderedDict([
-                    ('index', YLeaf(YType.str, 'index')),
+                    ('index', (YLeaf(YType.str, 'index'), ['int'])),
                 ])
                 self.index = None
 
@@ -298,6 +303,7 @@ class TerminalDevice(Entity):
                 self._children_name_map["logical_channel_assignments"] = "logical-channel-assignments"
                 self._segment_path = lambda: "channel" + "[index='" + str(self.index) + "']"
                 self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/logical-channels/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TerminalDevice.LogicalChannels.Channel, ['index'], name, value)
@@ -361,13 +367,13 @@ class TerminalDevice(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('index', YLeaf(YType.uint32, 'index')),
-                        ('description', YLeaf(YType.str, 'description')),
-                        ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
-                        ('rate_class', YLeaf(YType.identityref, 'rate-class')),
-                        ('trib_protocol', YLeaf(YType.identityref, 'trib-protocol')),
-                        ('logical_channel_type', YLeaf(YType.identityref, 'logical-channel-type')),
-                        ('loopback_mode', YLeaf(YType.enumeration, 'loopback-mode')),
+                        ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                        ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.openconfig.openconfig_transport_types', 'AdminStateType', '')])),
+                        ('rate_class', (YLeaf(YType.identityref, 'rate-class'), [('ydk.models.openconfig.openconfig_transport_types', 'TRIBUTARYRATECLASSTYPE')])),
+                        ('trib_protocol', (YLeaf(YType.identityref, 'trib-protocol'), [('ydk.models.openconfig.openconfig_transport_types', 'TRIBUTARYPROTOCOLTYPE')])),
+                        ('logical_channel_type', (YLeaf(YType.identityref, 'logical-channel-type'), [('ydk.models.openconfig.openconfig_transport_types', 'LOGICALELEMENTPROTOCOLTYPE')])),
+                        ('loopback_mode', (YLeaf(YType.enumeration, 'loopback-mode'), [('ydk.models.openconfig.openconfig_transport_types', 'LoopbackModeType', '')])),
                     ])
                     self.index = None
                     self.description = None
@@ -377,6 +383,7 @@ class TerminalDevice(Entity):
                     self.logical_channel_type = None
                     self.loopback_mode = None
                     self._segment_path = lambda: "config"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Config, ['index', 'description', 'admin_state', 'rate_class', 'trib_protocol', 'logical_channel_type', 'loopback_mode'], name, value)
@@ -445,14 +452,14 @@ class TerminalDevice(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('index', YLeaf(YType.uint32, 'index')),
-                        ('description', YLeaf(YType.str, 'description')),
-                        ('admin_state', YLeaf(YType.enumeration, 'admin-state')),
-                        ('rate_class', YLeaf(YType.identityref, 'rate-class')),
-                        ('trib_protocol', YLeaf(YType.identityref, 'trib-protocol')),
-                        ('logical_channel_type', YLeaf(YType.identityref, 'logical-channel-type')),
-                        ('loopback_mode', YLeaf(YType.enumeration, 'loopback-mode')),
-                        ('link_state', YLeaf(YType.enumeration, 'link-state')),
+                        ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                        ('admin_state', (YLeaf(YType.enumeration, 'admin-state'), [('ydk.models.openconfig.openconfig_transport_types', 'AdminStateType', '')])),
+                        ('rate_class', (YLeaf(YType.identityref, 'rate-class'), [('ydk.models.openconfig.openconfig_transport_types', 'TRIBUTARYRATECLASSTYPE')])),
+                        ('trib_protocol', (YLeaf(YType.identityref, 'trib-protocol'), [('ydk.models.openconfig.openconfig_transport_types', 'TRIBUTARYPROTOCOLTYPE')])),
+                        ('logical_channel_type', (YLeaf(YType.identityref, 'logical-channel-type'), [('ydk.models.openconfig.openconfig_transport_types', 'LOGICALELEMENTPROTOCOLTYPE')])),
+                        ('loopback_mode', (YLeaf(YType.enumeration, 'loopback-mode'), [('ydk.models.openconfig.openconfig_transport_types', 'LoopbackModeType', '')])),
+                        ('link_state', (YLeaf(YType.enumeration, 'link-state'), [('ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice', 'LogicalChannels.Channel.State.LinkState')])),
                     ])
                     self.index = None
                     self.description = None
@@ -463,6 +470,7 @@ class TerminalDevice(Entity):
                     self.loopback_mode = None
                     self.link_state = None
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TerminalDevice.LogicalChannels.Channel.State, ['index', 'description', 'admin_state', 'rate_class', 'trib_protocol', 'logical_channel_type', 'loopback_mode', 'link_state'], name, value)
@@ -533,6 +541,7 @@ class TerminalDevice(Entity):
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._segment_path = lambda: "otn"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn, [], name, value)
@@ -574,14 +583,15 @@ class TerminalDevice(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('tti_msg_transmit', YLeaf(YType.str, 'tti-msg-transmit')),
-                            ('tti_msg_expected', YLeaf(YType.str, 'tti-msg-expected')),
-                            ('tti_msg_auto', YLeaf(YType.boolean, 'tti-msg-auto')),
+                            ('tti_msg_transmit', (YLeaf(YType.str, 'tti-msg-transmit'), ['str'])),
+                            ('tti_msg_expected', (YLeaf(YType.str, 'tti-msg-expected'), ['str'])),
+                            ('tti_msg_auto', (YLeaf(YType.boolean, 'tti-msg-auto'), ['bool'])),
                         ])
                         self.tti_msg_transmit = None
                         self.tti_msg_expected = None
                         self.tti_msg_auto = None
                         self._segment_path = lambda: "config"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.Config, ['tti_msg_transmit', 'tti_msg_expected', 'tti_msg_auto'], name, value)
@@ -710,19 +720,19 @@ class TerminalDevice(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("pre-fec-ber", ("pre_fec_ber", TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer)), ("post-fec-ber", ("post_fec_ber", TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer)), ("q-value", ("q_value", TerminalDevice.LogicalChannels.Channel.Otn.State.QValue)), ("esnr", ("esnr", TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr))])
                         self._leafs = OrderedDict([
-                            ('tti_msg_transmit', YLeaf(YType.str, 'tti-msg-transmit')),
-                            ('tti_msg_expected', YLeaf(YType.str, 'tti-msg-expected')),
-                            ('tti_msg_auto', YLeaf(YType.boolean, 'tti-msg-auto')),
-                            ('tti_msg_recv', YLeaf(YType.str, 'tti-msg-recv')),
-                            ('rdi_msg', YLeaf(YType.str, 'rdi-msg')),
-                            ('errored_seconds', YLeaf(YType.uint64, 'errored-seconds')),
-                            ('severely_errored_seconds', YLeaf(YType.uint64, 'severely-errored-seconds')),
-                            ('unavailable_seconds', YLeaf(YType.uint64, 'unavailable-seconds')),
-                            ('code_violations', YLeaf(YType.uint64, 'code-violations')),
-                            ('fec_uncorrectable_words', YLeaf(YType.uint64, 'fec-uncorrectable-words')),
-                            ('fec_corrected_bytes', YLeaf(YType.uint64, 'fec-corrected-bytes')),
-                            ('fec_corrected_bits', YLeaf(YType.uint64, 'fec-corrected-bits')),
-                            ('background_block_errors', YLeaf(YType.uint64, 'background-block-errors')),
+                            ('tti_msg_transmit', (YLeaf(YType.str, 'tti-msg-transmit'), ['str'])),
+                            ('tti_msg_expected', (YLeaf(YType.str, 'tti-msg-expected'), ['str'])),
+                            ('tti_msg_auto', (YLeaf(YType.boolean, 'tti-msg-auto'), ['bool'])),
+                            ('tti_msg_recv', (YLeaf(YType.str, 'tti-msg-recv'), ['str'])),
+                            ('rdi_msg', (YLeaf(YType.str, 'rdi-msg'), ['str'])),
+                            ('errored_seconds', (YLeaf(YType.uint64, 'errored-seconds'), ['int'])),
+                            ('severely_errored_seconds', (YLeaf(YType.uint64, 'severely-errored-seconds'), ['int'])),
+                            ('unavailable_seconds', (YLeaf(YType.uint64, 'unavailable-seconds'), ['int'])),
+                            ('code_violations', (YLeaf(YType.uint64, 'code-violations'), ['int'])),
+                            ('fec_uncorrectable_words', (YLeaf(YType.uint64, 'fec-uncorrectable-words'), ['int'])),
+                            ('fec_corrected_bytes', (YLeaf(YType.uint64, 'fec-corrected-bytes'), ['int'])),
+                            ('fec_corrected_bits', (YLeaf(YType.uint64, 'fec-corrected-bits'), ['int'])),
+                            ('background_block_errors', (YLeaf(YType.uint64, 'background-block-errors'), ['int'])),
                         ])
                         self.tti_msg_transmit = None
                         self.tti_msg_expected = None
@@ -754,6 +764,7 @@ class TerminalDevice(Entity):
                         self.esnr.parent = self
                         self._children_name_map["esnr"] = "esnr"
                         self._segment_path = lambda: "state"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State, ['tti_msg_transmit', 'tti_msg_expected', 'tti_msg_auto', 'tti_msg_recv', 'rdi_msg', 'errored_seconds', 'severely_errored_seconds', 'unavailable_seconds', 'code_violations', 'fec_uncorrectable_words', 'fec_corrected_bytes', 'fec_corrected_bits', 'background_block_errors'], name, value)
@@ -809,19 +820,20 @@ class TerminalDevice(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('instant', YLeaf(YType.str, 'instant')),
-                                ('avg', YLeaf(YType.str, 'avg')),
-                                ('min', YLeaf(YType.str, 'min')),
-                                ('max', YLeaf(YType.str, 'max')),
+                                ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                                ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                                ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                                ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                             ])
                             self.instant = None
                             self.avg = None
                             self.min = None
                             self.max = None
                             self._segment_path = lambda: "pre-fec-ber"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer, [u'instant', u'avg', u'min', u'max'], name, value)
+                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.PreFecBer, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                     class PostFecBer(Entity):
@@ -874,19 +886,20 @@ class TerminalDevice(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('instant', YLeaf(YType.str, 'instant')),
-                                ('avg', YLeaf(YType.str, 'avg')),
-                                ('min', YLeaf(YType.str, 'min')),
-                                ('max', YLeaf(YType.str, 'max')),
+                                ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                                ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                                ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                                ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                             ])
                             self.instant = None
                             self.avg = None
                             self.min = None
                             self.max = None
                             self._segment_path = lambda: "post-fec-ber"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer, [u'instant', u'avg', u'min', u'max'], name, value)
+                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.PostFecBer, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                     class QValue(Entity):
@@ -938,19 +951,20 @@ class TerminalDevice(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('instant', YLeaf(YType.str, 'instant')),
-                                ('avg', YLeaf(YType.str, 'avg')),
-                                ('min', YLeaf(YType.str, 'min')),
-                                ('max', YLeaf(YType.str, 'max')),
+                                ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                                ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                                ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                                ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                             ])
                             self.instant = None
                             self.avg = None
                             self.min = None
                             self.max = None
                             self._segment_path = lambda: "q-value"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.QValue, [u'instant', u'avg', u'min', u'max'], name, value)
+                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.QValue, ['instant', 'avg', 'min', 'max'], name, value)
 
 
                     class Esnr(Entity):
@@ -1004,19 +1018,20 @@ class TerminalDevice(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('instant', YLeaf(YType.str, 'instant')),
-                                ('avg', YLeaf(YType.str, 'avg')),
-                                ('min', YLeaf(YType.str, 'min')),
-                                ('max', YLeaf(YType.str, 'max')),
+                                ('instant', (YLeaf(YType.str, 'instant'), ['Decimal64'])),
+                                ('avg', (YLeaf(YType.str, 'avg'), ['Decimal64'])),
+                                ('min', (YLeaf(YType.str, 'min'), ['Decimal64'])),
+                                ('max', (YLeaf(YType.str, 'max'), ['Decimal64'])),
                             ])
                             self.instant = None
                             self.avg = None
                             self.min = None
                             self.max = None
                             self._segment_path = lambda: "esnr"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr, [u'instant', u'avg', u'min', u'max'], name, value)
+                            self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Otn.State.Esnr, ['instant', 'avg', 'min', 'max'], name, value)
 
 
             class Ethernet(Entity):
@@ -1060,6 +1075,7 @@ class TerminalDevice(Entity):
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._segment_path = lambda: "ethernet"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ethernet, [], name, value)
@@ -1088,6 +1104,7 @@ class TerminalDevice(Entity):
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict()
                         self._segment_path = lambda: "config"
+                        self._is_frozen = True
 
 
                 class State(Entity):
@@ -1182,16 +1199,16 @@ class TerminalDevice(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('in_mac_control_frames', YLeaf(YType.uint64, 'in-mac-control-frames')),
-                            ('in_mac_pause_frames', YLeaf(YType.uint64, 'in-mac-pause-frames')),
-                            ('in_oversize_frames', YLeaf(YType.uint64, 'in-oversize-frames')),
-                            ('in_jabber_frames', YLeaf(YType.uint64, 'in-jabber-frames')),
-                            ('in_fragment_frames', YLeaf(YType.uint64, 'in-fragment-frames')),
-                            ('in_8021q_frames', YLeaf(YType.uint64, 'in-8021q-frames')),
-                            ('in_crc_errors', YLeaf(YType.uint64, 'in-crc-errors')),
-                            ('out_mac_control_frames', YLeaf(YType.uint64, 'out-mac-control-frames')),
-                            ('out_mac_pause_frames', YLeaf(YType.uint64, 'out-mac-pause-frames')),
-                            ('out_8021q_frames', YLeaf(YType.uint64, 'out-8021q-frames')),
+                            ('in_mac_control_frames', (YLeaf(YType.uint64, 'in-mac-control-frames'), ['int'])),
+                            ('in_mac_pause_frames', (YLeaf(YType.uint64, 'in-mac-pause-frames'), ['int'])),
+                            ('in_oversize_frames', (YLeaf(YType.uint64, 'in-oversize-frames'), ['int'])),
+                            ('in_jabber_frames', (YLeaf(YType.uint64, 'in-jabber-frames'), ['int'])),
+                            ('in_fragment_frames', (YLeaf(YType.uint64, 'in-fragment-frames'), ['int'])),
+                            ('in_8021q_frames', (YLeaf(YType.uint64, 'in-8021q-frames'), ['int'])),
+                            ('in_crc_errors', (YLeaf(YType.uint64, 'in-crc-errors'), ['int'])),
+                            ('out_mac_control_frames', (YLeaf(YType.uint64, 'out-mac-control-frames'), ['int'])),
+                            ('out_mac_pause_frames', (YLeaf(YType.uint64, 'out-mac-pause-frames'), ['int'])),
+                            ('out_8021q_frames', (YLeaf(YType.uint64, 'out-8021q-frames'), ['int'])),
                         ])
                         self.in_mac_control_frames = None
                         self.in_mac_pause_frames = None
@@ -1204,6 +1221,7 @@ class TerminalDevice(Entity):
                         self.out_mac_pause_frames = None
                         self.out_8021q_frames = None
                         self._segment_path = lambda: "state"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ethernet.State, [u'in_mac_control_frames', u'in_mac_pause_frames', u'in_oversize_frames', u'in_jabber_frames', u'in_fragment_frames', u'in_8021q_frames', u'in_crc_errors', u'out_mac_control_frames', u'out_mac_pause_frames', u'out_8021q_frames'], name, value)
@@ -1251,6 +1269,7 @@ class TerminalDevice(Entity):
                     self.state.parent = self
                     self._children_name_map["state"] = "state"
                     self._segment_path = lambda: "ingress"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ingress, [], name, value)
@@ -1294,12 +1313,13 @@ class TerminalDevice(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('transceiver', YLeaf(YType.str, 'transceiver')),
-                            ('physical_channel', YLeafList(YType.str, 'physical-channel')),
+                            ('transceiver', (YLeaf(YType.str, 'transceiver'), ['str'])),
+                            ('physical_channel', (YLeafList(YType.str, 'physical-channel'), ['int'])),
                         ])
                         self.transceiver = None
                         self.physical_channel = []
                         self._segment_path = lambda: "config"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ingress.Config, ['transceiver', 'physical_channel'], name, value)
@@ -1343,12 +1363,13 @@ class TerminalDevice(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('transceiver', YLeaf(YType.str, 'transceiver')),
-                            ('physical_channel', YLeafList(YType.str, 'physical-channel')),
+                            ('transceiver', (YLeaf(YType.str, 'transceiver'), ['str'])),
+                            ('physical_channel', (YLeafList(YType.str, 'physical-channel'), ['int'])),
                         ])
                         self.transceiver = None
                         self.physical_channel = []
                         self._segment_path = lambda: "state"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TerminalDevice.LogicalChannels.Channel.Ingress.State, ['transceiver', 'physical_channel'], name, value)
@@ -1383,6 +1404,7 @@ class TerminalDevice(Entity):
 
                     self.assignment = YList(self)
                     self._segment_path = lambda: "logical-channel-assignments"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments, [], name, value)
@@ -1446,7 +1468,7 @@ class TerminalDevice(Entity):
                         self.ylist_key_names = ['index']
                         self._child_classes = OrderedDict([("config", ("config", TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config)), ("state", ("state", TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State))])
                         self._leafs = OrderedDict([
-                            ('index', YLeaf(YType.str, 'index')),
+                            ('index', (YLeaf(YType.str, 'index'), ['int'])),
                         ])
                         self.index = None
 
@@ -1458,6 +1480,7 @@ class TerminalDevice(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "assignment" + "[index='" + str(self.index) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment, ['index'], name, value)
@@ -1526,12 +1549,12 @@ class TerminalDevice(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('index', YLeaf(YType.uint32, 'index')),
-                                ('description', YLeaf(YType.str, 'description')),
-                                ('assignment_type', YLeaf(YType.enumeration, 'assignment-type')),
-                                ('logical_channel', YLeaf(YType.str, 'logical-channel')),
-                                ('optical_channel', YLeaf(YType.str, 'optical-channel')),
-                                ('allocation', YLeaf(YType.str, 'allocation')),
+                                ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                                ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                                ('assignment_type', (YLeaf(YType.enumeration, 'assignment-type'), [('ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice', 'LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config.AssignmentType')])),
+                                ('logical_channel', (YLeaf(YType.str, 'logical-channel'), ['int'])),
+                                ('optical_channel', (YLeaf(YType.str, 'optical-channel'), ['str'])),
+                                ('allocation', (YLeaf(YType.str, 'allocation'), ['Decimal64'])),
                             ])
                             self.index = None
                             self.description = None
@@ -1540,6 +1563,7 @@ class TerminalDevice(Entity):
                             self.optical_channel = None
                             self.allocation = None
                             self._segment_path = lambda: "config"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.Config, ['index', 'description', 'assignment_type', 'logical_channel', 'optical_channel', 'allocation'], name, value)
@@ -1637,12 +1661,12 @@ class TerminalDevice(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('index', YLeaf(YType.uint32, 'index')),
-                                ('description', YLeaf(YType.str, 'description')),
-                                ('assignment_type', YLeaf(YType.enumeration, 'assignment-type')),
-                                ('logical_channel', YLeaf(YType.str, 'logical-channel')),
-                                ('optical_channel', YLeaf(YType.str, 'optical-channel')),
-                                ('allocation', YLeaf(YType.str, 'allocation')),
+                                ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                                ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                                ('assignment_type', (YLeaf(YType.enumeration, 'assignment-type'), [('ydk.models.openconfig.openconfig_terminal_device', 'TerminalDevice', 'LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State.AssignmentType')])),
+                                ('logical_channel', (YLeaf(YType.str, 'logical-channel'), ['int'])),
+                                ('optical_channel', (YLeaf(YType.str, 'optical-channel'), ['str'])),
+                                ('allocation', (YLeaf(YType.str, 'allocation'), ['Decimal64'])),
                             ])
                             self.index = None
                             self.description = None
@@ -1651,6 +1675,7 @@ class TerminalDevice(Entity):
                             self.optical_channel = None
                             self.allocation = None
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TerminalDevice.LogicalChannels.Channel.LogicalChannelAssignments.Assignment.State, ['index', 'description', 'assignment_type', 'logical_channel', 'optical_channel', 'allocation'], name, value)
@@ -1715,6 +1740,7 @@ class TerminalDevice(Entity):
             self.mode = YList(self)
             self._segment_path = lambda: "operational-modes"
             self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TerminalDevice.OperationalModes, [], name, value)
@@ -1763,7 +1789,7 @@ class TerminalDevice(Entity):
                 self.ylist_key_names = ['mode_id']
                 self._child_classes = OrderedDict([("config", ("config", TerminalDevice.OperationalModes.Mode.Config)), ("state", ("state", TerminalDevice.OperationalModes.Mode.State))])
                 self._leafs = OrderedDict([
-                    ('mode_id', YLeaf(YType.str, 'mode-id')),
+                    ('mode_id', (YLeaf(YType.str, 'mode-id'), ['int'])),
                 ])
                 self.mode_id = None
 
@@ -1776,6 +1802,7 @@ class TerminalDevice(Entity):
                 self._children_name_map["state"] = "state"
                 self._segment_path = lambda: "mode" + "[mode-id='" + str(self.mode_id) + "']"
                 self._absolute_path = lambda: "openconfig-terminal-device:terminal-device/operational-modes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TerminalDevice.OperationalModes.Mode, ['mode_id'], name, value)
@@ -1803,6 +1830,7 @@ class TerminalDevice(Entity):
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict()
                     self._segment_path = lambda: "config"
+                    self._is_frozen = True
 
 
             class State(Entity):
@@ -1844,14 +1872,15 @@ class TerminalDevice(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('mode_id', YLeaf(YType.uint16, 'mode-id')),
-                        ('description', YLeaf(YType.str, 'description')),
-                        ('vendor_id', YLeaf(YType.str, 'vendor-id')),
+                        ('mode_id', (YLeaf(YType.uint16, 'mode-id'), ['int'])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                        ('vendor_id', (YLeaf(YType.str, 'vendor-id'), ['str'])),
                     ])
                     self.mode_id = None
                     self.description = None
                     self.vendor_id = None
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TerminalDevice.OperationalModes.Mode.State, ['mode_id', 'description', 'vendor_id'], name, value)

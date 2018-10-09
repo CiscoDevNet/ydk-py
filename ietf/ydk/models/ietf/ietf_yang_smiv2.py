@@ -26,6 +26,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class ObjectIdentity(Identity):
     """
     Base identity for all SMIv2 OBJECT\-IDENTITYs.
@@ -37,7 +38,7 @@ class ObjectIdentity(Identity):
     _prefix = 'smiv2'
     _revision = '2012-06-22'
 
-    def __init__(self):
-        super(ObjectIdentity, self).__init__("urn:ietf:params:xml:ns:yang:ietf-yang-smiv2", "ietf-yang-smiv2", "ietf-yang-smiv2:object-identity")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-yang-smiv2", pref="ietf-yang-smiv2", tag="ietf-yang-smiv2:object-identity"):
+        super(ObjectIdentity, self).__init__(ns, pref, tag)
 
 

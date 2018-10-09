@@ -8,7 +8,7 @@ for the following management objects\:
   ipv4\-network\-global\: IPv4 network global configuration data
   subscriber\-pta\: subscriber pta
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class Ipv4Qppb(Enum):
@@ -113,9 +114,9 @@ class Ipv4NetworkGlobal(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("unnumbered", ("unnumbered", Ipv4NetworkGlobal.Unnumbered)), ("qppb", ("qppb", Ipv4NetworkGlobal.Qppb))])
         self._leafs = OrderedDict([
-            ('source_route', YLeaf(YType.boolean, 'source-route')),
-            ('reassemble_max_packets', YLeaf(YType.uint32, 'reassemble-max-packets')),
-            ('reassemble_time_out', YLeaf(YType.uint32, 'reassemble-time-out')),
+            ('source_route', (YLeaf(YType.boolean, 'source-route'), ['bool'])),
+            ('reassemble_max_packets', (YLeaf(YType.uint32, 'reassemble-max-packets'), ['int'])),
+            ('reassemble_time_out', (YLeaf(YType.uint32, 'reassemble-time-out'), ['int'])),
         ])
         self.source_route = None
         self.reassemble_max_packets = None
@@ -129,6 +130,7 @@ class Ipv4NetworkGlobal(Entity):
         self.qppb.parent = self
         self._children_name_map["qppb"] = "qppb"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ipv4NetworkGlobal, ['source_route', 'reassemble_max_packets', 'reassemble_time_out'], name, value)
@@ -167,6 +169,7 @@ class Ipv4NetworkGlobal(Entity):
             self._children_name_map["mpls"] = "mpls"
             self._segment_path = lambda: "unnumbered"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4NetworkGlobal.Unnumbered, [], name, value)
@@ -204,6 +207,7 @@ class Ipv4NetworkGlobal(Entity):
                 self._children_name_map["te"] = "te"
                 self._segment_path = lambda: "mpls"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/unnumbered/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv4NetworkGlobal.Unnumbered.Mpls, [], name, value)
@@ -235,11 +239,12 @@ class Ipv4NetworkGlobal(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface', YLeaf(YType.str, 'interface')),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                     ])
                     self.interface = None
                     self._segment_path = lambda: "te"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/unnumbered/mpls/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv4NetworkGlobal.Unnumbered.Mpls.Te, ['interface'], name, value)
@@ -276,13 +281,14 @@ class Ipv4NetworkGlobal(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('source', YLeaf(YType.enumeration, 'source')),
-                ('destination', YLeaf(YType.enumeration, 'destination')),
+                ('source', (YLeaf(YType.enumeration, 'source'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg', 'Ipv4Qppb', '')])),
+                ('destination', (YLeaf(YType.enumeration, 'destination'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_ma_cfg', 'Ipv4Qppb', '')])),
             ])
             self.source = None
             self.destination = None
             self._segment_path = lambda: "qppb"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:ipv4-network-global/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv4NetworkGlobal.Qppb, ['source', 'destination'], name, value)
@@ -322,10 +328,11 @@ class SubscriberPta(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
-            ('tcp_mss_adjust', YLeaf(YType.uint32, 'tcp-mss-adjust')),
+            ('tcp_mss_adjust', (YLeaf(YType.uint32, 'tcp-mss-adjust'), ['int'])),
         ])
         self.tcp_mss_adjust = None
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-ma-cfg:subscriber-pta"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SubscriberPta, ['tcp_mss_adjust'], name, value)

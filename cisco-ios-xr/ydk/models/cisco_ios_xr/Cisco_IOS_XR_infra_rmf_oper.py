@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   redundancy\: Redundancy show information
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -61,6 +62,7 @@ class Redundancy(Entity):
         self.summary.parent = self
         self._children_name_map["summary"] = "summary"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Redundancy, [], name, value)
@@ -96,6 +98,7 @@ class Redundancy(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Redundancy.Nodes, [], name, value)
@@ -154,11 +157,11 @@ class Redundancy(Entity):
                 self.ylist_key_names = ['node_id']
                 self._child_classes = OrderedDict([("redundancy", ("redundancy", Redundancy.Nodes.Node.Redundancy_))])
                 self._leafs = OrderedDict([
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('log', YLeaf(YType.str, 'log')),
-                    ('active_reboot_reason', YLeaf(YType.str, 'active-reboot-reason')),
-                    ('standby_reboot_reason', YLeaf(YType.str, 'standby-reboot-reason')),
-                    ('err_log', YLeaf(YType.str, 'err-log')),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('log', (YLeaf(YType.str, 'log'), ['str'])),
+                    ('active_reboot_reason', (YLeaf(YType.str, 'active-reboot-reason'), ['str'])),
+                    ('standby_reboot_reason', (YLeaf(YType.str, 'standby-reboot-reason'), ['str'])),
+                    ('err_log', (YLeaf(YType.str, 'err-log'), ['str'])),
                 ])
                 self.node_id = None
                 self.log = None
@@ -171,9 +174,10 @@ class Redundancy(Entity):
                 self._children_name_map["redundancy"] = "redundancy"
                 self._segment_path = lambda: "node" + "[node-id='" + str(self.node_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Redundancy.Nodes.Node, ['node_id', 'log', 'active_reboot_reason', 'standby_reboot_reason', 'err_log'], name, value)
+                self._perform_setattr(Redundancy.Nodes.Node, ['node_id', u'log', u'active_reboot_reason', u'standby_reboot_reason', u'err_log'], name, value)
 
 
             class Redundancy_(Entity):
@@ -222,10 +226,10 @@ class Redundancy(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("groupinfo", ("groupinfo", Redundancy.Nodes.Node.Redundancy_.Groupinfo))])
                     self._leafs = OrderedDict([
-                        ('active', YLeaf(YType.str, 'active')),
-                        ('standby', YLeaf(YType.str, 'standby')),
-                        ('ha_state', YLeaf(YType.str, 'ha-state')),
-                        ('nsr_state', YLeaf(YType.str, 'nsr-state')),
+                        ('active', (YLeaf(YType.str, 'active'), ['str'])),
+                        ('standby', (YLeaf(YType.str, 'standby'), ['str'])),
+                        ('ha_state', (YLeaf(YType.str, 'ha-state'), ['str'])),
+                        ('nsr_state', (YLeaf(YType.str, 'nsr-state'), ['str'])),
                     ])
                     self.active = None
                     self.standby = None
@@ -234,9 +238,10 @@ class Redundancy(Entity):
 
                     self.groupinfo = YList(self)
                     self._segment_path = lambda: "redundancy"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Redundancy.Nodes.Node.Redundancy_, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
+                    self._perform_setattr(Redundancy.Nodes.Node.Redundancy_, [u'active', u'standby', u'ha_state', u'nsr_state'], name, value)
 
 
                 class Groupinfo(Entity):
@@ -280,19 +285,20 @@ class Redundancy(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('active', YLeaf(YType.str, 'active')),
-                            ('standby', YLeaf(YType.str, 'standby')),
-                            ('ha_state', YLeaf(YType.str, 'ha-state')),
-                            ('nsr_state', YLeaf(YType.str, 'nsr-state')),
+                            ('active', (YLeaf(YType.str, 'active'), ['str'])),
+                            ('standby', (YLeaf(YType.str, 'standby'), ['str'])),
+                            ('ha_state', (YLeaf(YType.str, 'ha-state'), ['str'])),
+                            ('nsr_state', (YLeaf(YType.str, 'nsr-state'), ['str'])),
                         ])
                         self.active = None
                         self.standby = None
                         self.ha_state = None
                         self.nsr_state = None
                         self._segment_path = lambda: "groupinfo"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Redundancy.Nodes.Node.Redundancy_.Groupinfo, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
+                        self._perform_setattr(Redundancy.Nodes.Node.Redundancy_.Groupinfo, [u'active', u'standby', u'ha_state', u'nsr_state'], name, value)
 
 
     class Summary(Entity):
@@ -326,16 +332,17 @@ class Redundancy(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("red-pair", ("red_pair", Redundancy.Summary.RedPair))])
             self._leafs = OrderedDict([
-                ('err_log', YLeaf(YType.str, 'err-log')),
+                ('err_log', (YLeaf(YType.str, 'err-log'), ['str'])),
             ])
             self.err_log = None
 
             self.red_pair = YList(self)
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Redundancy.Summary, ['err_log'], name, value)
+            self._perform_setattr(Redundancy.Summary, [u'err_log'], name, value)
 
 
         class RedPair(Entity):
@@ -384,10 +391,10 @@ class Redundancy(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("groupinfo", ("groupinfo", Redundancy.Summary.RedPair.Groupinfo))])
                 self._leafs = OrderedDict([
-                    ('active', YLeaf(YType.str, 'active')),
-                    ('standby', YLeaf(YType.str, 'standby')),
-                    ('ha_state', YLeaf(YType.str, 'ha-state')),
-                    ('nsr_state', YLeaf(YType.str, 'nsr-state')),
+                    ('active', (YLeaf(YType.str, 'active'), ['str'])),
+                    ('standby', (YLeaf(YType.str, 'standby'), ['str'])),
+                    ('ha_state', (YLeaf(YType.str, 'ha-state'), ['str'])),
+                    ('nsr_state', (YLeaf(YType.str, 'nsr-state'), ['str'])),
                 ])
                 self.active = None
                 self.standby = None
@@ -397,9 +404,10 @@ class Redundancy(Entity):
                 self.groupinfo = YList(self)
                 self._segment_path = lambda: "red-pair"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy/summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(Redundancy.Summary.RedPair, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
+                self._perform_setattr(Redundancy.Summary.RedPair, [u'active', u'standby', u'ha_state', u'nsr_state'], name, value)
 
 
             class Groupinfo(Entity):
@@ -443,10 +451,10 @@ class Redundancy(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('active', YLeaf(YType.str, 'active')),
-                        ('standby', YLeaf(YType.str, 'standby')),
-                        ('ha_state', YLeaf(YType.str, 'ha-state')),
-                        ('nsr_state', YLeaf(YType.str, 'nsr-state')),
+                        ('active', (YLeaf(YType.str, 'active'), ['str'])),
+                        ('standby', (YLeaf(YType.str, 'standby'), ['str'])),
+                        ('ha_state', (YLeaf(YType.str, 'ha-state'), ['str'])),
+                        ('nsr_state', (YLeaf(YType.str, 'nsr-state'), ['str'])),
                     ])
                     self.active = None
                     self.standby = None
@@ -454,9 +462,10 @@ class Redundancy(Entity):
                     self.nsr_state = None
                     self._segment_path = lambda: "groupinfo"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-rmf-oper:redundancy/summary/red-pair/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Redundancy.Summary.RedPair.Groupinfo, ['active', 'standby', 'ha_state', 'nsr_state'], name, value)
+                    self._perform_setattr(Redundancy.Summary.RedPair.Groupinfo, [u'active', u'standby', u'ha_state', u'nsr_state'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Redundancy()

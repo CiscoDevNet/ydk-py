@@ -8,7 +8,7 @@ for the following management objects\:
   platform\-qos\: QoS Skywarp platform operational data 
   platform\-qos\-ea\: platform qos ea
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class Action(Enum):
@@ -625,6 +626,7 @@ class PlatformQos(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-skp-qos-oper:platform-qos"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(PlatformQos, [], name, value)
@@ -661,6 +663,7 @@ class PlatformQos(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-skp-qos-oper:platform-qos/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PlatformQos.Nodes, [], name, value)
@@ -709,7 +712,7 @@ class PlatformQos(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("bundle-interfaces", ("bundle_interfaces", PlatformQos.Nodes.Node.BundleInterfaces)), ("capability", ("capability", PlatformQos.Nodes.Node.Capability)), ("interfaces", ("interfaces", PlatformQos.Nodes.Node.Interfaces))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -726,6 +729,7 @@ class PlatformQos(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-skp-qos-oper:platform-qos/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PlatformQos.Nodes.Node, ['node_name'], name, value)
@@ -760,6 +764,7 @@ class PlatformQos(Entity):
 
                     self.bundle_interface = YList(self)
                     self._segment_path = lambda: "bundle-interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces, [], name, value)
@@ -774,7 +779,7 @@ class PlatformQos(Entity):
                     	Bundle interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: member_interfaces
                     
@@ -798,7 +803,7 @@ class PlatformQos(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("member-interfaces", ("member_interfaces", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
 
@@ -806,6 +811,7 @@ class PlatformQos(Entity):
                         self.member_interfaces.parent = self
                         self._children_name_map["member_interfaces"] = "member-interfaces"
                         self._segment_path = lambda: "bundle-interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface, ['interface_name'], name, value)
@@ -840,6 +846,7 @@ class PlatformQos(Entity):
 
                             self.member_interface = YList(self)
                             self._segment_path = lambda: "member-interfaces"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces, [], name, value)
@@ -854,7 +861,7 @@ class PlatformQos(Entity):
                             	Memeber interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: bundle_input
                             
@@ -883,7 +890,7 @@ class PlatformQos(Entity):
                                 self.ylist_key_names = ['interface_name']
                                 self._child_classes = OrderedDict([("bundle-input", ("bundle_input", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput)), ("bundle-output", ("bundle_output", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput))])
                                 self._leafs = OrderedDict([
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                 ])
                                 self.interface_name = None
 
@@ -895,6 +902,7 @@ class PlatformQos(Entity):
                                 self.bundle_output.parent = self
                                 self._children_name_map["bundle_output"] = "bundle-output"
                                 self._segment_path = lambda: "member-interface" + "[interface-name='" + str(self.interface_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface, ['interface_name'], name, value)
@@ -949,6 +957,7 @@ class PlatformQos(Entity):
                                     self.skywarp_qos_policy_class.parent = self
                                     self._children_name_map["skywarp_qos_policy_class"] = "skywarp-qos-policy-class"
                                     self._segment_path = lambda: "bundle-input"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput, [], name, value)
@@ -1003,16 +1012,17 @@ class PlatformQos(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                            ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                            ('direction', YLeaf(YType.str, 'direction')),
-                                            ('classes', YLeaf(YType.uint16, 'classes')),
+                                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                            ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                            ('direction', (YLeaf(YType.str, 'direction'), ['str'])),
+                                            ('classes', (YLeaf(YType.uint16, 'classes'), ['int'])),
                                         ])
                                         self.interface_name = None
                                         self.policy_name = None
                                         self.direction = None
                                         self.classes = None
                                         self._segment_path = lambda: "header"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
@@ -1067,6 +1077,7 @@ class PlatformQos(Entity):
                                         self.port_shaper_rate.parent = self
                                         self._children_name_map["port_shaper_rate"] = "port-shaper-rate"
                                         self._segment_path = lambda: "interface-parameters"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters, [], name, value)
@@ -1105,12 +1116,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "interface-config-rate"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
@@ -1149,12 +1161,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "interface-program-rate"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
@@ -1193,12 +1206,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "port-shaper-rate"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
@@ -1233,6 +1247,7 @@ class PlatformQos(Entity):
 
                                         self.qos_show_pclass_st = YList(self)
                                         self._segment_path = lambda: "skywarp-qos-policy-class"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass, [], name, value)
@@ -1298,8 +1313,8 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("queue", ("queue", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue)), ("shape", ("shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape)), ("wfq", ("wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq)), ("police", ("police", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police)), ("marking", ("marking", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking))])
                                             self._leafs = OrderedDict([
-                                                ('class_level', YLeaf(YType.uint8, 'class-level')),
-                                                ('class_name', YLeaf(YType.str, 'class-name')),
+                                                ('class_level', (YLeaf(YType.uint8, 'class-level'), ['int'])),
+                                                ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
                                             ])
                                             self.class_level = None
                                             self.class_name = None
@@ -1324,6 +1339,7 @@ class PlatformQos(Entity):
                                             self.marking.parent = self
                                             self._children_name_map["marking"] = "marking"
                                             self._segment_path = lambda: "qos-show-pclass-st"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
@@ -1364,12 +1380,13 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('queue_id', YLeaf(YType.uint32, 'queue-id')),
-                                                    ('queue_type', YLeaf(YType.str, 'queue-type')),
+                                                    ('queue_id', (YLeaf(YType.uint32, 'queue-id'), ['int'])),
+                                                    ('queue_type', (YLeaf(YType.str, 'queue-type'), ['str'])),
                                                 ])
                                                 self.queue_id = None
                                                 self.queue_type = None
                                                 self._segment_path = lambda: "queue"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
@@ -1415,6 +1432,7 @@ class PlatformQos(Entity):
                                                 self.pbs.parent = self
                                                 self._children_name_map["pbs"] = "pbs"
                                                 self._segment_path = lambda: "shape"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape, [], name, value)
@@ -1453,12 +1471,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "pir"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
@@ -1497,12 +1516,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "pbs"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
@@ -1546,7 +1566,7 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("committed-weight", ("committed_weight", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight)), ("programmed-wfq", ("programmed_wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq))])
                                                 self._leafs = OrderedDict([
-                                                    ('excess_weight', YLeaf(YType.uint16, 'excess-weight')),
+                                                    ('excess_weight', (YLeaf(YType.uint16, 'excess-weight'), ['int'])),
                                                 ])
                                                 self.excess_weight = None
 
@@ -1558,6 +1578,7 @@ class PlatformQos(Entity):
                                                 self.programmed_wfq.parent = self
                                                 self._children_name_map["programmed_wfq"] = "programmed-wfq"
                                                 self._segment_path = lambda: "wfq"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
@@ -1596,12 +1617,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "committed-weight"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
@@ -1645,7 +1667,7 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("bandwidth", ("bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth)), ("sum-of-bandwidth", ("sum_of_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth))])
                                                     self._leafs = OrderedDict([
-                                                        ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                        ('excess_ratio', (YLeaf(YType.uint16, 'excess-ratio'), ['int'])),
                                                     ])
                                                     self.excess_ratio = None
 
@@ -1657,6 +1679,7 @@ class PlatformQos(Entity):
                                                     self.sum_of_bandwidth.parent = self
                                                     self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
                                                     self._segment_path = lambda: "programmed-wfq"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
@@ -1695,12 +1718,13 @@ class PlatformQos(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('value', YLeaf(YType.uint32, 'value')),
-                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                            ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                         ])
                                                         self.value = None
                                                         self.unit = None
                                                         self._segment_path = lambda: "bandwidth"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
@@ -1739,12 +1763,13 @@ class PlatformQos(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('value', YLeaf(YType.uint32, 'value')),
-                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                            ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                         ])
                                                         self.value = None
                                                         self.unit = None
                                                         self._segment_path = lambda: "sum-of-bandwidth"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
@@ -1793,8 +1818,8 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir)), ("cbs", ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs))])
                                                 self._leafs = OrderedDict([
-                                                    ('policer_id', YLeaf(YType.uint32, 'policer-id')),
-                                                    ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                                    ('policer_id', (YLeaf(YType.uint32, 'policer-id'), ['int'])),
+                                                    ('policer_type', (YLeaf(YType.enumeration, 'policer-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'TbAlgorithm', '')])),
                                                 ])
                                                 self.policer_id = None
                                                 self.policer_type = None
@@ -1807,6 +1832,7 @@ class PlatformQos(Entity):
                                                 self.cbs.parent = self
                                                 self._children_name_map["cbs"] = "cbs"
                                                 self._segment_path = lambda: "police"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
@@ -1845,12 +1871,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "cir"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
@@ -1889,12 +1916,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "cbs"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
@@ -1949,6 +1977,7 @@ class PlatformQos(Entity):
                                                 self.police_exceed.parent = self
                                                 self._children_name_map["police_exceed"] = "police-exceed"
                                                 self._segment_path = lambda: "marking"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking, [], name, value)
@@ -1985,12 +2014,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail))])
                                                     self._leafs = OrderedDict([
-                                                        ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ('action_type', (YLeaf(YType.enumeration, 'action-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'Action', '')])),
                                                     ])
                                                     self.action_type = None
 
                                                     self.mark_detail = YList(self)
                                                     self._segment_path = lambda: "mark-only"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
@@ -2029,12 +2059,13 @@ class PlatformQos(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('mark_value', YLeaf(YType.uint8, 'mark-value')),
-                                                            ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ('mark_value', (YLeaf(YType.uint8, 'mark-value'), ['int'])),
+                                                            ('action_opcode', (YLeaf(YType.enumeration, 'action-opcode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'ActionOpcode', '')])),
                                                         ])
                                                         self.mark_value = None
                                                         self.action_opcode = None
                                                         self._segment_path = lambda: "mark-detail"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
@@ -2071,12 +2102,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail))])
                                                     self._leafs = OrderedDict([
-                                                        ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ('action_type', (YLeaf(YType.enumeration, 'action-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'Action', '')])),
                                                     ])
                                                     self.action_type = None
 
                                                     self.mark_detail = YList(self)
                                                     self._segment_path = lambda: "police-conform"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
@@ -2115,12 +2147,13 @@ class PlatformQos(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('mark_value', YLeaf(YType.uint8, 'mark-value')),
-                                                            ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ('mark_value', (YLeaf(YType.uint8, 'mark-value'), ['int'])),
+                                                            ('action_opcode', (YLeaf(YType.enumeration, 'action-opcode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'ActionOpcode', '')])),
                                                         ])
                                                         self.mark_value = None
                                                         self.action_opcode = None
                                                         self._segment_path = lambda: "mark-detail"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
@@ -2157,12 +2190,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail))])
                                                     self._leafs = OrderedDict([
-                                                        ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ('action_type', (YLeaf(YType.enumeration, 'action-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'Action', '')])),
                                                     ])
                                                     self.action_type = None
 
                                                     self.mark_detail = YList(self)
                                                     self._segment_path = lambda: "police-exceed"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
@@ -2201,12 +2235,13 @@ class PlatformQos(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('mark_value', YLeaf(YType.uint8, 'mark-value')),
-                                                            ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ('mark_value', (YLeaf(YType.uint8, 'mark-value'), ['int'])),
+                                                            ('action_opcode', (YLeaf(YType.enumeration, 'action-opcode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'ActionOpcode', '')])),
                                                         ])
                                                         self.mark_value = None
                                                         self.action_opcode = None
                                                         self._segment_path = lambda: "mark-detail"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
@@ -2261,6 +2296,7 @@ class PlatformQos(Entity):
                                     self.skywarp_qos_policy_class.parent = self
                                     self._children_name_map["skywarp_qos_policy_class"] = "skywarp-qos-policy-class"
                                     self._segment_path = lambda: "bundle-output"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput, [], name, value)
@@ -2315,16 +2351,17 @@ class PlatformQos(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                            ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                            ('direction', YLeaf(YType.str, 'direction')),
-                                            ('classes', YLeaf(YType.uint16, 'classes')),
+                                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                            ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                            ('direction', (YLeaf(YType.str, 'direction'), ['str'])),
+                                            ('classes', (YLeaf(YType.uint16, 'classes'), ['int'])),
                                         ])
                                         self.interface_name = None
                                         self.policy_name = None
                                         self.direction = None
                                         self.classes = None
                                         self._segment_path = lambda: "header"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
@@ -2379,6 +2416,7 @@ class PlatformQos(Entity):
                                         self.port_shaper_rate.parent = self
                                         self._children_name_map["port_shaper_rate"] = "port-shaper-rate"
                                         self._segment_path = lambda: "interface-parameters"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters, [], name, value)
@@ -2417,12 +2455,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "interface-config-rate"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
@@ -2461,12 +2500,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "interface-program-rate"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
@@ -2505,12 +2545,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "port-shaper-rate"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
@@ -2545,6 +2586,7 @@ class PlatformQos(Entity):
 
                                         self.qos_show_pclass_st = YList(self)
                                         self._segment_path = lambda: "skywarp-qos-policy-class"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass, [], name, value)
@@ -2610,8 +2652,8 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("queue", ("queue", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue)), ("shape", ("shape", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape)), ("wfq", ("wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq)), ("police", ("police", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police)), ("marking", ("marking", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking))])
                                             self._leafs = OrderedDict([
-                                                ('class_level', YLeaf(YType.uint8, 'class-level')),
-                                                ('class_name', YLeaf(YType.str, 'class-name')),
+                                                ('class_level', (YLeaf(YType.uint8, 'class-level'), ['int'])),
+                                                ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
                                             ])
                                             self.class_level = None
                                             self.class_name = None
@@ -2636,6 +2678,7 @@ class PlatformQos(Entity):
                                             self.marking.parent = self
                                             self._children_name_map["marking"] = "marking"
                                             self._segment_path = lambda: "qos-show-pclass-st"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
@@ -2676,12 +2719,13 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('queue_id', YLeaf(YType.uint32, 'queue-id')),
-                                                    ('queue_type', YLeaf(YType.str, 'queue-type')),
+                                                    ('queue_id', (YLeaf(YType.uint32, 'queue-id'), ['int'])),
+                                                    ('queue_type', (YLeaf(YType.str, 'queue-type'), ['str'])),
                                                 ])
                                                 self.queue_id = None
                                                 self.queue_type = None
                                                 self._segment_path = lambda: "queue"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
@@ -2727,6 +2771,7 @@ class PlatformQos(Entity):
                                                 self.pbs.parent = self
                                                 self._children_name_map["pbs"] = "pbs"
                                                 self._segment_path = lambda: "shape"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape, [], name, value)
@@ -2765,12 +2810,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "pir"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
@@ -2809,12 +2855,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "pbs"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
@@ -2858,7 +2905,7 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("committed-weight", ("committed_weight", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight)), ("programmed-wfq", ("programmed_wfq", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq))])
                                                 self._leafs = OrderedDict([
-                                                    ('excess_weight', YLeaf(YType.uint16, 'excess-weight')),
+                                                    ('excess_weight', (YLeaf(YType.uint16, 'excess-weight'), ['int'])),
                                                 ])
                                                 self.excess_weight = None
 
@@ -2870,6 +2917,7 @@ class PlatformQos(Entity):
                                                 self.programmed_wfq.parent = self
                                                 self._children_name_map["programmed_wfq"] = "programmed-wfq"
                                                 self._segment_path = lambda: "wfq"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
@@ -2908,12 +2956,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "committed-weight"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
@@ -2957,7 +3006,7 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("bandwidth", ("bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth)), ("sum-of-bandwidth", ("sum_of_bandwidth", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth))])
                                                     self._leafs = OrderedDict([
-                                                        ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                        ('excess_ratio', (YLeaf(YType.uint16, 'excess-ratio'), ['int'])),
                                                     ])
                                                     self.excess_ratio = None
 
@@ -2969,6 +3018,7 @@ class PlatformQos(Entity):
                                                     self.sum_of_bandwidth.parent = self
                                                     self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
                                                     self._segment_path = lambda: "programmed-wfq"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
@@ -3007,12 +3057,13 @@ class PlatformQos(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('value', YLeaf(YType.uint32, 'value')),
-                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                            ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                         ])
                                                         self.value = None
                                                         self.unit = None
                                                         self._segment_path = lambda: "bandwidth"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
@@ -3051,12 +3102,13 @@ class PlatformQos(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('value', YLeaf(YType.uint32, 'value')),
-                                                            ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                            ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                            ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                         ])
                                                         self.value = None
                                                         self.unit = None
                                                         self._segment_path = lambda: "sum-of-bandwidth"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
@@ -3105,8 +3157,8 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir)), ("cbs", ("cbs", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs))])
                                                 self._leafs = OrderedDict([
-                                                    ('policer_id', YLeaf(YType.uint32, 'policer-id')),
-                                                    ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                                    ('policer_id', (YLeaf(YType.uint32, 'policer-id'), ['int'])),
+                                                    ('policer_type', (YLeaf(YType.enumeration, 'policer-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'TbAlgorithm', '')])),
                                                 ])
                                                 self.policer_id = None
                                                 self.policer_type = None
@@ -3119,6 +3171,7 @@ class PlatformQos(Entity):
                                                 self.cbs.parent = self
                                                 self._children_name_map["cbs"] = "cbs"
                                                 self._segment_path = lambda: "police"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
@@ -3157,12 +3210,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "cir"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
@@ -3201,12 +3255,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "cbs"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
@@ -3261,6 +3316,7 @@ class PlatformQos(Entity):
                                                 self.police_exceed.parent = self
                                                 self._children_name_map["police_exceed"] = "police-exceed"
                                                 self._segment_path = lambda: "marking"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking, [], name, value)
@@ -3297,12 +3353,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail))])
                                                     self._leafs = OrderedDict([
-                                                        ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ('action_type', (YLeaf(YType.enumeration, 'action-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'Action', '')])),
                                                     ])
                                                     self.action_type = None
 
                                                     self.mark_detail = YList(self)
                                                     self._segment_path = lambda: "mark-only"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
@@ -3341,12 +3398,13 @@ class PlatformQos(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('mark_value', YLeaf(YType.uint8, 'mark-value')),
-                                                            ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ('mark_value', (YLeaf(YType.uint8, 'mark-value'), ['int'])),
+                                                            ('action_opcode', (YLeaf(YType.enumeration, 'action-opcode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'ActionOpcode', '')])),
                                                         ])
                                                         self.mark_value = None
                                                         self.action_opcode = None
                                                         self._segment_path = lambda: "mark-detail"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
@@ -3383,12 +3441,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail))])
                                                     self._leafs = OrderedDict([
-                                                        ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ('action_type', (YLeaf(YType.enumeration, 'action-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'Action', '')])),
                                                     ])
                                                     self.action_type = None
 
                                                     self.mark_detail = YList(self)
                                                     self._segment_path = lambda: "police-conform"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
@@ -3427,12 +3486,13 @@ class PlatformQos(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('mark_value', YLeaf(YType.uint8, 'mark-value')),
-                                                            ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ('mark_value', (YLeaf(YType.uint8, 'mark-value'), ['int'])),
+                                                            ('action_opcode', (YLeaf(YType.enumeration, 'action-opcode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'ActionOpcode', '')])),
                                                         ])
                                                         self.mark_value = None
                                                         self.action_opcode = None
                                                         self._segment_path = lambda: "mark-detail"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
@@ -3469,12 +3529,13 @@ class PlatformQos(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail))])
                                                     self._leafs = OrderedDict([
-                                                        ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                        ('action_type', (YLeaf(YType.enumeration, 'action-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'Action', '')])),
                                                     ])
                                                     self.action_type = None
 
                                                     self.mark_detail = YList(self)
                                                     self._segment_path = lambda: "police-exceed"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
@@ -3513,12 +3574,13 @@ class PlatformQos(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('mark_value', YLeaf(YType.uint8, 'mark-value')),
-                                                            ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                            ('mark_value', (YLeaf(YType.uint8, 'mark-value'), ['int'])),
+                                                            ('action_opcode', (YLeaf(YType.enumeration, 'action-opcode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'ActionOpcode', '')])),
                                                         ])
                                                         self.mark_value = None
                                                         self.action_opcode = None
                                                         self._segment_path = lambda: "mark-detail"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQos.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
@@ -3608,15 +3670,15 @@ class PlatformQos(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('max_policy_maps', YLeaf(YType.uint32, 'max-policy-maps')),
-                        ('max_policy_hierarchy', YLeaf(YType.uint32, 'max-policy-hierarchy')),
-                        ('max_policy_name_length', YLeaf(YType.uint32, 'max-policy-name-length')),
-                        ('max_classes_per_policy', YLeaf(YType.uint32, 'max-classes-per-policy')),
-                        ('max_police_actions_per_class', YLeaf(YType.uint32, 'max-police-actions-per-class')),
-                        ('max_marking_actions_per_class', YLeaf(YType.uint32, 'max-marking-actions-per-class')),
-                        ('max_matches_per_class', YLeaf(YType.uint32, 'max-matches-per-class')),
-                        ('max_classmap_name_length', YLeaf(YType.uint32, 'max-classmap-name-length')),
-                        ('max_bundle_members', YLeaf(YType.uint32, 'max-bundle-members')),
+                        ('max_policy_maps', (YLeaf(YType.uint32, 'max-policy-maps'), ['int'])),
+                        ('max_policy_hierarchy', (YLeaf(YType.uint32, 'max-policy-hierarchy'), ['int'])),
+                        ('max_policy_name_length', (YLeaf(YType.uint32, 'max-policy-name-length'), ['int'])),
+                        ('max_classes_per_policy', (YLeaf(YType.uint32, 'max-classes-per-policy'), ['int'])),
+                        ('max_police_actions_per_class', (YLeaf(YType.uint32, 'max-police-actions-per-class'), ['int'])),
+                        ('max_marking_actions_per_class', (YLeaf(YType.uint32, 'max-marking-actions-per-class'), ['int'])),
+                        ('max_matches_per_class', (YLeaf(YType.uint32, 'max-matches-per-class'), ['int'])),
+                        ('max_classmap_name_length', (YLeaf(YType.uint32, 'max-classmap-name-length'), ['int'])),
+                        ('max_bundle_members', (YLeaf(YType.uint32, 'max-bundle-members'), ['int'])),
                     ])
                     self.max_policy_maps = None
                     self.max_policy_hierarchy = None
@@ -3628,6 +3690,7 @@ class PlatformQos(Entity):
                     self.max_classmap_name_length = None
                     self.max_bundle_members = None
                     self._segment_path = lambda: "capability"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PlatformQos.Nodes.Node.Capability, ['max_policy_maps', 'max_policy_hierarchy', 'max_policy_name_length', 'max_classes_per_policy', 'max_police_actions_per_class', 'max_marking_actions_per_class', 'max_matches_per_class', 'max_classmap_name_length', 'max_bundle_members'], name, value)
@@ -3662,6 +3725,7 @@ class PlatformQos(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces, [], name, value)
@@ -3676,7 +3740,7 @@ class PlatformQos(Entity):
                     	The name of the interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: output
                     
@@ -3705,7 +3769,7 @@ class PlatformQos(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("output", ("output", PlatformQos.Nodes.Node.Interfaces.Interface.Output)), ("input", ("input", PlatformQos.Nodes.Node.Interfaces.Interface.Input))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
 
@@ -3717,6 +3781,7 @@ class PlatformQos(Entity):
                         self.input.parent = self
                         self._children_name_map["input"] = "input"
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface, ['interface_name'], name, value)
@@ -3771,6 +3836,7 @@ class PlatformQos(Entity):
                             self.skywarp_qos_policy_class.parent = self
                             self._children_name_map["skywarp_qos_policy_class"] = "skywarp-qos-policy-class"
                             self._segment_path = lambda: "output"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output, [], name, value)
@@ -3825,16 +3891,17 @@ class PlatformQos(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                    ('direction', YLeaf(YType.str, 'direction')),
-                                    ('classes', YLeaf(YType.uint16, 'classes')),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                    ('direction', (YLeaf(YType.str, 'direction'), ['str'])),
+                                    ('classes', (YLeaf(YType.uint16, 'classes'), ['int'])),
                                 ])
                                 self.interface_name = None
                                 self.policy_name = None
                                 self.direction = None
                                 self.classes = None
                                 self._segment_path = lambda: "header"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
@@ -3889,6 +3956,7 @@ class PlatformQos(Entity):
                                 self.port_shaper_rate.parent = self
                                 self._children_name_map["port_shaper_rate"] = "port-shaper-rate"
                                 self._segment_path = lambda: "interface-parameters"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters, [], name, value)
@@ -3927,12 +3995,13 @@ class PlatformQos(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('value', YLeaf(YType.uint32, 'value')),
-                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                     ])
                                     self.value = None
                                     self.unit = None
                                     self._segment_path = lambda: "interface-config-rate"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
@@ -3971,12 +4040,13 @@ class PlatformQos(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('value', YLeaf(YType.uint32, 'value')),
-                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                     ])
                                     self.value = None
                                     self.unit = None
                                     self._segment_path = lambda: "interface-program-rate"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
@@ -4015,12 +4085,13 @@ class PlatformQos(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('value', YLeaf(YType.uint32, 'value')),
-                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                     ])
                                     self.value = None
                                     self.unit = None
                                     self._segment_path = lambda: "port-shaper-rate"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
@@ -4055,6 +4126,7 @@ class PlatformQos(Entity):
 
                                 self.qos_show_pclass_st = YList(self)
                                 self._segment_path = lambda: "skywarp-qos-policy-class"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass, [], name, value)
@@ -4120,8 +4192,8 @@ class PlatformQos(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("queue", ("queue", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue)), ("shape", ("shape", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape)), ("wfq", ("wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq)), ("police", ("police", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police)), ("marking", ("marking", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking))])
                                     self._leafs = OrderedDict([
-                                        ('class_level', YLeaf(YType.uint8, 'class-level')),
-                                        ('class_name', YLeaf(YType.str, 'class-name')),
+                                        ('class_level', (YLeaf(YType.uint8, 'class-level'), ['int'])),
+                                        ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
                                     ])
                                     self.class_level = None
                                     self.class_name = None
@@ -4146,6 +4218,7 @@ class PlatformQos(Entity):
                                     self.marking.parent = self
                                     self._children_name_map["marking"] = "marking"
                                     self._segment_path = lambda: "qos-show-pclass-st"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
@@ -4186,12 +4259,13 @@ class PlatformQos(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('queue_id', YLeaf(YType.uint32, 'queue-id')),
-                                            ('queue_type', YLeaf(YType.str, 'queue-type')),
+                                            ('queue_id', (YLeaf(YType.uint32, 'queue-id'), ['int'])),
+                                            ('queue_type', (YLeaf(YType.str, 'queue-type'), ['str'])),
                                         ])
                                         self.queue_id = None
                                         self.queue_type = None
                                         self._segment_path = lambda: "queue"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
@@ -4237,6 +4311,7 @@ class PlatformQos(Entity):
                                         self.pbs.parent = self
                                         self._children_name_map["pbs"] = "pbs"
                                         self._segment_path = lambda: "shape"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape, [], name, value)
@@ -4275,12 +4350,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "pir"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
@@ -4319,12 +4395,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "pbs"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
@@ -4368,7 +4445,7 @@ class PlatformQos(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("committed-weight", ("committed_weight", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight)), ("programmed-wfq", ("programmed_wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq))])
                                         self._leafs = OrderedDict([
-                                            ('excess_weight', YLeaf(YType.uint16, 'excess-weight')),
+                                            ('excess_weight', (YLeaf(YType.uint16, 'excess-weight'), ['int'])),
                                         ])
                                         self.excess_weight = None
 
@@ -4380,6 +4457,7 @@ class PlatformQos(Entity):
                                         self.programmed_wfq.parent = self
                                         self._children_name_map["programmed_wfq"] = "programmed-wfq"
                                         self._segment_path = lambda: "wfq"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
@@ -4418,12 +4496,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "committed-weight"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
@@ -4467,7 +4546,7 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("bandwidth", ("bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth)), ("sum-of-bandwidth", ("sum_of_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth))])
                                             self._leafs = OrderedDict([
-                                                ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                ('excess_ratio', (YLeaf(YType.uint16, 'excess-ratio'), ['int'])),
                                             ])
                                             self.excess_ratio = None
 
@@ -4479,6 +4558,7 @@ class PlatformQos(Entity):
                                             self.sum_of_bandwidth.parent = self
                                             self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
                                             self._segment_path = lambda: "programmed-wfq"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
@@ -4517,12 +4597,13 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('value', YLeaf(YType.uint32, 'value')),
-                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                    ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                 ])
                                                 self.value = None
                                                 self.unit = None
                                                 self._segment_path = lambda: "bandwidth"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
@@ -4561,12 +4642,13 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('value', YLeaf(YType.uint32, 'value')),
-                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                    ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                 ])
                                                 self.value = None
                                                 self.unit = None
                                                 self._segment_path = lambda: "sum-of-bandwidth"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
@@ -4615,8 +4697,8 @@ class PlatformQos(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir)), ("cbs", ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs))])
                                         self._leafs = OrderedDict([
-                                            ('policer_id', YLeaf(YType.uint32, 'policer-id')),
-                                            ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                            ('policer_id', (YLeaf(YType.uint32, 'policer-id'), ['int'])),
+                                            ('policer_type', (YLeaf(YType.enumeration, 'policer-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'TbAlgorithm', '')])),
                                         ])
                                         self.policer_id = None
                                         self.policer_type = None
@@ -4629,6 +4711,7 @@ class PlatformQos(Entity):
                                         self.cbs.parent = self
                                         self._children_name_map["cbs"] = "cbs"
                                         self._segment_path = lambda: "police"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
@@ -4667,12 +4750,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "cir"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
@@ -4711,12 +4795,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "cbs"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
@@ -4771,6 +4856,7 @@ class PlatformQos(Entity):
                                         self.police_exceed.parent = self
                                         self._children_name_map["police_exceed"] = "police-exceed"
                                         self._segment_path = lambda: "marking"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking, [], name, value)
@@ -4807,12 +4893,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail))])
                                             self._leafs = OrderedDict([
-                                                ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ('action_type', (YLeaf(YType.enumeration, 'action-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'Action', '')])),
                                             ])
                                             self.action_type = None
 
                                             self.mark_detail = YList(self)
                                             self._segment_path = lambda: "mark-only"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
@@ -4851,12 +4938,13 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('mark_value', YLeaf(YType.uint8, 'mark-value')),
-                                                    ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ('mark_value', (YLeaf(YType.uint8, 'mark-value'), ['int'])),
+                                                    ('action_opcode', (YLeaf(YType.enumeration, 'action-opcode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'ActionOpcode', '')])),
                                                 ])
                                                 self.mark_value = None
                                                 self.action_opcode = None
                                                 self._segment_path = lambda: "mark-detail"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
@@ -4893,12 +4981,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail))])
                                             self._leafs = OrderedDict([
-                                                ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ('action_type', (YLeaf(YType.enumeration, 'action-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'Action', '')])),
                                             ])
                                             self.action_type = None
 
                                             self.mark_detail = YList(self)
                                             self._segment_path = lambda: "police-conform"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
@@ -4937,12 +5026,13 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('mark_value', YLeaf(YType.uint8, 'mark-value')),
-                                                    ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ('mark_value', (YLeaf(YType.uint8, 'mark-value'), ['int'])),
+                                                    ('action_opcode', (YLeaf(YType.enumeration, 'action-opcode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'ActionOpcode', '')])),
                                                 ])
                                                 self.mark_value = None
                                                 self.action_opcode = None
                                                 self._segment_path = lambda: "mark-detail"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
@@ -4979,12 +5069,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail))])
                                             self._leafs = OrderedDict([
-                                                ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ('action_type', (YLeaf(YType.enumeration, 'action-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'Action', '')])),
                                             ])
                                             self.action_type = None
 
                                             self.mark_detail = YList(self)
                                             self._segment_path = lambda: "police-exceed"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
@@ -5023,12 +5114,13 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('mark_value', YLeaf(YType.uint8, 'mark-value')),
-                                                    ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ('mark_value', (YLeaf(YType.uint8, 'mark-value'), ['int'])),
+                                                    ('action_opcode', (YLeaf(YType.enumeration, 'action-opcode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'ActionOpcode', '')])),
                                                 ])
                                                 self.mark_value = None
                                                 self.action_opcode = None
                                                 self._segment_path = lambda: "mark-detail"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Output.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
@@ -5083,6 +5175,7 @@ class PlatformQos(Entity):
                             self.skywarp_qos_policy_class.parent = self
                             self._children_name_map["skywarp_qos_policy_class"] = "skywarp-qos-policy-class"
                             self._segment_path = lambda: "input"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input, [], name, value)
@@ -5137,16 +5230,17 @@ class PlatformQos(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                    ('direction', YLeaf(YType.str, 'direction')),
-                                    ('classes', YLeaf(YType.uint16, 'classes')),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                    ('direction', (YLeaf(YType.str, 'direction'), ['str'])),
+                                    ('classes', (YLeaf(YType.uint16, 'classes'), ['int'])),
                                 ])
                                 self.interface_name = None
                                 self.policy_name = None
                                 self.direction = None
                                 self.classes = None
                                 self._segment_path = lambda: "header"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
@@ -5201,6 +5295,7 @@ class PlatformQos(Entity):
                                 self.port_shaper_rate.parent = self
                                 self._children_name_map["port_shaper_rate"] = "port-shaper-rate"
                                 self._segment_path = lambda: "interface-parameters"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters, [], name, value)
@@ -5239,12 +5334,13 @@ class PlatformQos(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('value', YLeaf(YType.uint32, 'value')),
-                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                     ])
                                     self.value = None
                                     self.unit = None
                                     self._segment_path = lambda: "interface-config-rate"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceConfigRate, ['value', 'unit'], name, value)
@@ -5283,12 +5379,13 @@ class PlatformQos(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('value', YLeaf(YType.uint32, 'value')),
-                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                     ])
                                     self.value = None
                                     self.unit = None
                                     self._segment_path = lambda: "interface-program-rate"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.InterfaceProgramRate, ['value', 'unit'], name, value)
@@ -5327,12 +5424,13 @@ class PlatformQos(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('value', YLeaf(YType.uint32, 'value')),
-                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                     ])
                                     self.value = None
                                     self.unit = None
                                     self._segment_path = lambda: "port-shaper-rate"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.InterfaceParameters.PortShaperRate, ['value', 'unit'], name, value)
@@ -5367,6 +5465,7 @@ class PlatformQos(Entity):
 
                                 self.qos_show_pclass_st = YList(self)
                                 self._segment_path = lambda: "skywarp-qos-policy-class"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass, [], name, value)
@@ -5432,8 +5531,8 @@ class PlatformQos(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("queue", ("queue", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue)), ("shape", ("shape", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape)), ("wfq", ("wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq)), ("police", ("police", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police)), ("marking", ("marking", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking))])
                                     self._leafs = OrderedDict([
-                                        ('class_level', YLeaf(YType.uint8, 'class-level')),
-                                        ('class_name', YLeaf(YType.str, 'class-name')),
+                                        ('class_level', (YLeaf(YType.uint8, 'class-level'), ['int'])),
+                                        ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
                                     ])
                                     self.class_level = None
                                     self.class_name = None
@@ -5458,6 +5557,7 @@ class PlatformQos(Entity):
                                     self.marking.parent = self
                                     self._children_name_map["marking"] = "marking"
                                     self._segment_path = lambda: "qos-show-pclass-st"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt, ['class_level', 'class_name'], name, value)
@@ -5498,12 +5598,13 @@ class PlatformQos(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('queue_id', YLeaf(YType.uint32, 'queue-id')),
-                                            ('queue_type', YLeaf(YType.str, 'queue-type')),
+                                            ('queue_id', (YLeaf(YType.uint32, 'queue-id'), ['int'])),
+                                            ('queue_type', (YLeaf(YType.str, 'queue-type'), ['str'])),
                                         ])
                                         self.queue_id = None
                                         self.queue_type = None
                                         self._segment_path = lambda: "queue"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Queue, ['queue_id', 'queue_type'], name, value)
@@ -5549,6 +5650,7 @@ class PlatformQos(Entity):
                                         self.pbs.parent = self
                                         self._children_name_map["pbs"] = "pbs"
                                         self._segment_path = lambda: "shape"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape, [], name, value)
@@ -5587,12 +5689,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "pir"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pir, ['value', 'unit'], name, value)
@@ -5631,12 +5734,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "pbs"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Shape.Pbs, ['value', 'unit'], name, value)
@@ -5680,7 +5784,7 @@ class PlatformQos(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("committed-weight", ("committed_weight", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight)), ("programmed-wfq", ("programmed_wfq", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq))])
                                         self._leafs = OrderedDict([
-                                            ('excess_weight', YLeaf(YType.uint16, 'excess-weight')),
+                                            ('excess_weight', (YLeaf(YType.uint16, 'excess-weight'), ['int'])),
                                         ])
                                         self.excess_weight = None
 
@@ -5692,6 +5796,7 @@ class PlatformQos(Entity):
                                         self.programmed_wfq.parent = self
                                         self._children_name_map["programmed_wfq"] = "programmed-wfq"
                                         self._segment_path = lambda: "wfq"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq, ['excess_weight'], name, value)
@@ -5730,12 +5835,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "committed-weight"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.CommittedWeight, ['value', 'unit'], name, value)
@@ -5779,7 +5885,7 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("bandwidth", ("bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth)), ("sum-of-bandwidth", ("sum_of_bandwidth", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth))])
                                             self._leafs = OrderedDict([
-                                                ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                ('excess_ratio', (YLeaf(YType.uint16, 'excess-ratio'), ['int'])),
                                             ])
                                             self.excess_ratio = None
 
@@ -5791,6 +5897,7 @@ class PlatformQos(Entity):
                                             self.sum_of_bandwidth.parent = self
                                             self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
                                             self._segment_path = lambda: "programmed-wfq"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq, ['excess_ratio'], name, value)
@@ -5829,12 +5936,13 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('value', YLeaf(YType.uint32, 'value')),
-                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                    ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                 ])
                                                 self.value = None
                                                 self.unit = None
                                                 self._segment_path = lambda: "bandwidth"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.Bandwidth, ['value', 'unit'], name, value)
@@ -5873,12 +5981,13 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('value', YLeaf(YType.uint32, 'value')),
-                                                    ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                    ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                    ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                 ])
                                                 self.value = None
                                                 self.unit = None
                                                 self._segment_path = lambda: "sum-of-bandwidth"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Wfq.ProgrammedWfq.SumOfBandwidth, ['value', 'unit'], name, value)
@@ -5927,8 +6036,8 @@ class PlatformQos(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("cir", ("cir", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir)), ("cbs", ("cbs", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs))])
                                         self._leafs = OrderedDict([
-                                            ('policer_id', YLeaf(YType.uint32, 'policer-id')),
-                                            ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                            ('policer_id', (YLeaf(YType.uint32, 'policer-id'), ['int'])),
+                                            ('policer_type', (YLeaf(YType.enumeration, 'policer-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'TbAlgorithm', '')])),
                                         ])
                                         self.policer_id = None
                                         self.policer_type = None
@@ -5941,6 +6050,7 @@ class PlatformQos(Entity):
                                         self.cbs.parent = self
                                         self._children_name_map["cbs"] = "cbs"
                                         self._segment_path = lambda: "police"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police, ['policer_id', 'policer_type'], name, value)
@@ -5979,12 +6089,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "cir"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cir, ['value', 'unit'], name, value)
@@ -6023,12 +6134,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                             ])
                                             self.value = None
                                             self.unit = None
                                             self._segment_path = lambda: "cbs"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Police.Cbs, ['value', 'unit'], name, value)
@@ -6083,6 +6195,7 @@ class PlatformQos(Entity):
                                         self.police_exceed.parent = self
                                         self._children_name_map["police_exceed"] = "police-exceed"
                                         self._segment_path = lambda: "marking"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking, [], name, value)
@@ -6119,12 +6232,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail))])
                                             self._leafs = OrderedDict([
-                                                ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ('action_type', (YLeaf(YType.enumeration, 'action-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'Action', '')])),
                                             ])
                                             self.action_type = None
 
                                             self.mark_detail = YList(self)
                                             self._segment_path = lambda: "mark-only"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly, ['action_type'], name, value)
@@ -6163,12 +6277,13 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('mark_value', YLeaf(YType.uint8, 'mark-value')),
-                                                    ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ('mark_value', (YLeaf(YType.uint8, 'mark-value'), ['int'])),
+                                                    ('action_opcode', (YLeaf(YType.enumeration, 'action-opcode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'ActionOpcode', '')])),
                                                 ])
                                                 self.mark_value = None
                                                 self.action_opcode = None
                                                 self._segment_path = lambda: "mark-detail"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.MarkOnly.MarkDetail, ['mark_value', 'action_opcode'], name, value)
@@ -6205,12 +6320,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail))])
                                             self._leafs = OrderedDict([
-                                                ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ('action_type', (YLeaf(YType.enumeration, 'action-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'Action', '')])),
                                             ])
                                             self.action_type = None
 
                                             self.mark_detail = YList(self)
                                             self._segment_path = lambda: "police-conform"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform, ['action_type'], name, value)
@@ -6249,12 +6365,13 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('mark_value', YLeaf(YType.uint8, 'mark-value')),
-                                                    ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ('mark_value', (YLeaf(YType.uint8, 'mark-value'), ['int'])),
+                                                    ('action_opcode', (YLeaf(YType.enumeration, 'action-opcode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'ActionOpcode', '')])),
                                                 ])
                                                 self.mark_value = None
                                                 self.action_opcode = None
                                                 self._segment_path = lambda: "mark-detail"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceConform.MarkDetail, ['mark_value', 'action_opcode'], name, value)
@@ -6291,12 +6408,13 @@ class PlatformQos(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("mark-detail", ("mark_detail", PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail))])
                                             self._leafs = OrderedDict([
-                                                ('action_type', YLeaf(YType.enumeration, 'action-type')),
+                                                ('action_type', (YLeaf(YType.enumeration, 'action-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'Action', '')])),
                                             ])
                                             self.action_type = None
 
                                             self.mark_detail = YList(self)
                                             self._segment_path = lambda: "police-exceed"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed, ['action_type'], name, value)
@@ -6335,12 +6453,13 @@ class PlatformQos(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('mark_value', YLeaf(YType.uint8, 'mark-value')),
-                                                    ('action_opcode', YLeaf(YType.enumeration, 'action-opcode')),
+                                                    ('mark_value', (YLeaf(YType.uint8, 'mark-value'), ['int'])),
+                                                    ('action_opcode', (YLeaf(YType.enumeration, 'action-opcode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'ActionOpcode', '')])),
                                                 ])
                                                 self.mark_value = None
                                                 self.action_opcode = None
                                                 self._segment_path = lambda: "mark-detail"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQos.Nodes.Node.Interfaces.Interface.Input.SkywarpQosPolicyClass.QosShowPclassSt.Marking.PoliceExceed.MarkDetail, ['mark_value', 'action_opcode'], name, value)
@@ -6381,6 +6500,7 @@ class PlatformQosEa(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(PlatformQosEa, [], name, value)
@@ -6417,6 +6537,7 @@ class PlatformQosEa(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PlatformQosEa.Nodes, [], name, value)
@@ -6461,7 +6582,7 @@ class PlatformQosEa(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("bundle-interfaces", ("bundle_interfaces", PlatformQosEa.Nodes.Node.BundleInterfaces)), ("interfaces", ("interfaces", PlatformQosEa.Nodes.Node.Interfaces))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -6474,6 +6595,7 @@ class PlatformQosEa(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-skp-qos-oper:platform-qos-ea/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PlatformQosEa.Nodes.Node, ['node_name'], name, value)
@@ -6508,6 +6630,7 @@ class PlatformQosEa(Entity):
 
                     self.bundle_interface = YList(self)
                     self._segment_path = lambda: "bundle-interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces, [], name, value)
@@ -6522,7 +6645,7 @@ class PlatformQosEa(Entity):
                     	Bundle interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: member_interfaces
                     
@@ -6546,7 +6669,7 @@ class PlatformQosEa(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("member-interfaces", ("member_interfaces", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
 
@@ -6554,6 +6677,7 @@ class PlatformQosEa(Entity):
                         self.member_interfaces.parent = self
                         self._children_name_map["member_interfaces"] = "member-interfaces"
                         self._segment_path = lambda: "bundle-interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface, ['interface_name'], name, value)
@@ -6588,6 +6712,7 @@ class PlatformQosEa(Entity):
 
                             self.member_interface = YList(self)
                             self._segment_path = lambda: "member-interfaces"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces, [], name, value)
@@ -6602,7 +6727,7 @@ class PlatformQosEa(Entity):
                             	Memeber interface
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: bundle_output
                             
@@ -6631,7 +6756,7 @@ class PlatformQosEa(Entity):
                                 self.ylist_key_names = ['interface_name']
                                 self._child_classes = OrderedDict([("bundle-output", ("bundle_output", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput)), ("bundle-input", ("bundle_input", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput))])
                                 self._leafs = OrderedDict([
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                                 ])
                                 self.interface_name = None
 
@@ -6643,6 +6768,7 @@ class PlatformQosEa(Entity):
                                 self.bundle_input.parent = self
                                 self._children_name_map["bundle_input"] = "bundle-input"
                                 self._segment_path = lambda: "member-interface" + "[interface-name='" + str(self.interface_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface, ['interface_name'], name, value)
@@ -6679,6 +6805,7 @@ class PlatformQosEa(Entity):
                                     self.details.parent = self
                                     self._children_name_map["details"] = "details"
                                     self._segment_path = lambda: "bundle-output"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput, [], name, value)
@@ -6733,6 +6860,7 @@ class PlatformQosEa(Entity):
                                         self.skywarp_qos_policy_class.parent = self
                                         self._children_name_map["skywarp_qos_policy_class"] = "skywarp-qos-policy-class"
                                         self._segment_path = lambda: "details"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details, [], name, value)
@@ -6787,16 +6915,17 @@ class PlatformQosEa(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                                ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                                ('direction', YLeaf(YType.str, 'direction')),
-                                                ('classes', YLeaf(YType.uint16, 'classes')),
+                                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                                ('direction', (YLeaf(YType.str, 'direction'), ['str'])),
+                                                ('classes', (YLeaf(YType.uint16, 'classes'), ['int'])),
                                             ])
                                             self.interface_name = None
                                             self.policy_name = None
                                             self.direction = None
                                             self.classes = None
                                             self._segment_path = lambda: "header"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
@@ -6846,14 +6975,14 @@ class PlatformQosEa(Entity):
                                         	Interface Handle
                                         	**type**\: str
                                         
-                                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                         
                                         .. attribute:: under_line_interface_handle
                                         
                                         	UnderLineInterface Handle
                                         	**type**\: str
                                         
-                                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                         
                                         .. attribute:: bundle_id
                                         
@@ -6907,18 +7036,18 @@ class PlatformQosEa(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                                ('hierarchical_depth', YLeaf(YType.uint8, 'hierarchical-depth')),
-                                                ('interface_type', YLeaf(YType.str, 'interface-type')),
-                                                ('interface_rate', YLeaf(YType.uint32, 'interface-rate')),
-                                                ('port_shaper_rate', YLeaf(YType.uint32, 'port-shaper-rate')),
-                                                ('interface_handle', YLeaf(YType.str, 'interface-handle')),
-                                                ('under_line_interface_handle', YLeaf(YType.str, 'under-line-interface-handle')),
-                                                ('bundle_id', YLeaf(YType.uint16, 'bundle-id')),
-                                                ('uidb_index', YLeaf(YType.uint16, 'uidb-index')),
-                                                ('qos_interface_handle', YLeaf(YType.uint64, 'qos-interface-handle')),
-                                                ('port', YLeaf(YType.uint32, 'port')),
-                                                ('policy_map_id', YLeaf(YType.uint16, 'policy-map-id')),
+                                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                                ('hierarchical_depth', (YLeaf(YType.uint8, 'hierarchical-depth'), ['int'])),
+                                                ('interface_type', (YLeaf(YType.str, 'interface-type'), ['str'])),
+                                                ('interface_rate', (YLeaf(YType.uint32, 'interface-rate'), ['int'])),
+                                                ('port_shaper_rate', (YLeaf(YType.uint32, 'port-shaper-rate'), ['int'])),
+                                                ('interface_handle', (YLeaf(YType.str, 'interface-handle'), ['str'])),
+                                                ('under_line_interface_handle', (YLeaf(YType.str, 'under-line-interface-handle'), ['str'])),
+                                                ('bundle_id', (YLeaf(YType.uint16, 'bundle-id'), ['int'])),
+                                                ('uidb_index', (YLeaf(YType.uint16, 'uidb-index'), ['int'])),
+                                                ('qos_interface_handle', (YLeaf(YType.uint64, 'qos-interface-handle'), ['int'])),
+                                                ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
+                                                ('policy_map_id', (YLeaf(YType.uint16, 'policy-map-id'), ['int'])),
                                             ])
                                             self.policy_name = None
                                             self.hierarchical_depth = None
@@ -6933,6 +7062,7 @@ class PlatformQosEa(Entity):
                                             self.port = None
                                             self.policy_map_id = None
                                             self._segment_path = lambda: "interface-parameters"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
@@ -6967,6 +7097,7 @@ class PlatformQosEa(Entity):
 
                                             self.qos_show_ea_pclass_st = YList(self)
                                             self._segment_path = lambda: "skywarp-qos-policy-class"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass, [], name, value)
@@ -7045,12 +7176,12 @@ class PlatformQosEa(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("config", ("config", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config)), ("result", ("result", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result))])
                                                 self._leafs = OrderedDict([
-                                                    ('index', YLeaf(YType.uint16, 'index')),
-                                                    ('class_level', YLeaf(YType.uint8, 'class-level')),
-                                                    ('class_name', YLeaf(YType.str, 'class-name')),
-                                                    ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                                    ('node_flags', YLeaf(YType.str, 'node-flags')),
-                                                    ('stats_flags', YLeaf(YType.str, 'stats-flags')),
+                                                    ('index', (YLeaf(YType.uint16, 'index'), ['int'])),
+                                                    ('class_level', (YLeaf(YType.uint8, 'class-level'), ['int'])),
+                                                    ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                                                    ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                                    ('node_flags', (YLeaf(YType.str, 'node-flags'), ['str'])),
+                                                    ('stats_flags', (YLeaf(YType.str, 'stats-flags'), ['str'])),
                                                 ])
                                                 self.index = None
                                                 self.class_level = None
@@ -7067,6 +7198,7 @@ class PlatformQosEa(Entity):
                                                 self.result.parent = self
                                                 self._children_name_map["result"] = "result"
                                                 self._segment_path = lambda: "qos-show-ea-pclass-st"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
@@ -7115,7 +7247,7 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("police", ("police", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police)), ("shape", ("shape", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape)), ("wfq", ("wfq", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq))])
                                                     self._leafs = OrderedDict([
-                                                        ('node_config', YLeaf(YType.str, 'node-config')),
+                                                        ('node_config', (YLeaf(YType.str, 'node-config'), ['str'])),
                                                     ])
                                                     self.node_config = None
 
@@ -7131,6 +7263,7 @@ class PlatformQosEa(Entity):
                                                     self.wfq.parent = self
                                                     self._children_name_map["wfq"] = "wfq"
                                                     self._segment_path = lambda: "config"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
@@ -7177,8 +7310,8 @@ class PlatformQosEa(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([("cir", ("cir", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir)), ("cbs", ("cbs", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs))])
                                                         self._leafs = OrderedDict([
-                                                            ('color_aware', YLeaf(YType.boolean, 'color-aware')),
-                                                            ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                                            ('color_aware', (YLeaf(YType.boolean, 'color-aware'), ['bool'])),
+                                                            ('policer_type', (YLeaf(YType.enumeration, 'policer-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'TbAlgorithm', '')])),
                                                         ])
                                                         self.color_aware = None
                                                         self.policer_type = None
@@ -7191,6 +7324,7 @@ class PlatformQosEa(Entity):
                                                         self.cbs.parent = self
                                                         self._children_name_map["cbs"] = "cbs"
                                                         self._segment_path = lambda: "police"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
@@ -7229,12 +7363,13 @@ class PlatformQosEa(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                             ])
                                                             self.value = None
                                                             self.unit = None
                                                             self._segment_path = lambda: "cir"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
@@ -7273,12 +7408,13 @@ class PlatformQosEa(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                             ])
                                                             self.value = None
                                                             self.unit = None
                                                             self._segment_path = lambda: "cbs"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
@@ -7324,6 +7460,7 @@ class PlatformQosEa(Entity):
                                                         self.pbs.parent = self
                                                         self._children_name_map["pbs"] = "pbs"
                                                         self._segment_path = lambda: "shape"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, [], name, value)
@@ -7362,12 +7499,13 @@ class PlatformQosEa(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                             ])
                                                             self.value = None
                                                             self.unit = None
                                                             self._segment_path = lambda: "pir"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
@@ -7406,12 +7544,13 @@ class PlatformQosEa(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                             ])
                                                             self.value = None
                                                             self.unit = None
                                                             self._segment_path = lambda: "pbs"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
@@ -7455,7 +7594,7 @@ class PlatformQosEa(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([("bandwidth", ("bandwidth", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth)), ("sum-of-bandwidth", ("sum_of_bandwidth", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth))])
                                                         self._leafs = OrderedDict([
-                                                            ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                            ('excess_ratio', (YLeaf(YType.uint16, 'excess-ratio'), ['int'])),
                                                         ])
                                                         self.excess_ratio = None
 
@@ -7467,6 +7606,7 @@ class PlatformQosEa(Entity):
                                                         self.sum_of_bandwidth.parent = self
                                                         self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
                                                         self._segment_path = lambda: "wfq"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
@@ -7505,12 +7645,13 @@ class PlatformQosEa(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                             ])
                                                             self.value = None
                                                             self.unit = None
                                                             self._segment_path = lambda: "bandwidth"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
@@ -7549,12 +7690,13 @@ class PlatformQosEa(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                             ])
                                                             self.value = None
                                                             self.unit = None
                                                             self._segment_path = lambda: "sum-of-bandwidth"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
@@ -7598,7 +7740,7 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("queue", ("queue", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue)), ("police", ("police", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police))])
                                                     self._leafs = OrderedDict([
-                                                        ('stats_id', YLeaf(YType.uint32, 'stats-id')),
+                                                        ('stats_id', (YLeaf(YType.uint32, 'stats-id'), ['int'])),
                                                     ])
                                                     self.stats_id = None
 
@@ -7610,6 +7752,7 @@ class PlatformQosEa(Entity):
                                                     self.police.parent = self
                                                     self._children_name_map["police"] = "police"
                                                     self._segment_path = lambda: "result"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
@@ -7664,16 +7807,17 @@ class PlatformQosEa(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('queue_id', YLeaf(YType.uint32, 'queue-id')),
-                                                            ('commit_tx', YLeaf(YType.uint32, 'commit-tx')),
-                                                            ('excess_tx', YLeaf(YType.uint32, 'excess-tx')),
-                                                            ('drop', YLeaf(YType.uint32, 'drop')),
+                                                            ('queue_id', (YLeaf(YType.uint32, 'queue-id'), ['int'])),
+                                                            ('commit_tx', (YLeaf(YType.uint32, 'commit-tx'), ['int'])),
+                                                            ('excess_tx', (YLeaf(YType.uint32, 'excess-tx'), ['int'])),
+                                                            ('drop', (YLeaf(YType.uint32, 'drop'), ['int'])),
                                                         ])
                                                         self.queue_id = None
                                                         self.commit_tx = None
                                                         self.excess_tx = None
                                                         self.drop = None
                                                         self._segment_path = lambda: "queue"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
@@ -7728,16 +7872,17 @@ class PlatformQosEa(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('token_bucket_id', YLeaf(YType.uint32, 'token-bucket-id')),
-                                                            ('conform', YLeaf(YType.uint32, 'conform')),
-                                                            ('exceed', YLeaf(YType.uint32, 'exceed')),
-                                                            ('violate', YLeaf(YType.uint32, 'violate')),
+                                                            ('token_bucket_id', (YLeaf(YType.uint32, 'token-bucket-id'), ['int'])),
+                                                            ('conform', (YLeaf(YType.uint32, 'conform'), ['int'])),
+                                                            ('exceed', (YLeaf(YType.uint32, 'exceed'), ['int'])),
+                                                            ('violate', (YLeaf(YType.uint32, 'violate'), ['int'])),
                                                         ])
                                                         self.token_bucket_id = None
                                                         self.conform = None
                                                         self.exceed = None
                                                         self.violate = None
                                                         self._segment_path = lambda: "police"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleOutput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
@@ -7774,6 +7919,7 @@ class PlatformQosEa(Entity):
                                     self.details.parent = self
                                     self._children_name_map["details"] = "details"
                                     self._segment_path = lambda: "bundle-input"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput, [], name, value)
@@ -7828,6 +7974,7 @@ class PlatformQosEa(Entity):
                                         self.skywarp_qos_policy_class.parent = self
                                         self._children_name_map["skywarp_qos_policy_class"] = "skywarp-qos-policy-class"
                                         self._segment_path = lambda: "details"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details, [], name, value)
@@ -7882,16 +8029,17 @@ class PlatformQosEa(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                                ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                                ('direction', YLeaf(YType.str, 'direction')),
-                                                ('classes', YLeaf(YType.uint16, 'classes')),
+                                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                                ('direction', (YLeaf(YType.str, 'direction'), ['str'])),
+                                                ('classes', (YLeaf(YType.uint16, 'classes'), ['int'])),
                                             ])
                                             self.interface_name = None
                                             self.policy_name = None
                                             self.direction = None
                                             self.classes = None
                                             self._segment_path = lambda: "header"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
@@ -7941,14 +8089,14 @@ class PlatformQosEa(Entity):
                                         	Interface Handle
                                         	**type**\: str
                                         
-                                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                         
                                         .. attribute:: under_line_interface_handle
                                         
                                         	UnderLineInterface Handle
                                         	**type**\: str
                                         
-                                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                         
                                         .. attribute:: bundle_id
                                         
@@ -8002,18 +8150,18 @@ class PlatformQosEa(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                                ('hierarchical_depth', YLeaf(YType.uint8, 'hierarchical-depth')),
-                                                ('interface_type', YLeaf(YType.str, 'interface-type')),
-                                                ('interface_rate', YLeaf(YType.uint32, 'interface-rate')),
-                                                ('port_shaper_rate', YLeaf(YType.uint32, 'port-shaper-rate')),
-                                                ('interface_handle', YLeaf(YType.str, 'interface-handle')),
-                                                ('under_line_interface_handle', YLeaf(YType.str, 'under-line-interface-handle')),
-                                                ('bundle_id', YLeaf(YType.uint16, 'bundle-id')),
-                                                ('uidb_index', YLeaf(YType.uint16, 'uidb-index')),
-                                                ('qos_interface_handle', YLeaf(YType.uint64, 'qos-interface-handle')),
-                                                ('port', YLeaf(YType.uint32, 'port')),
-                                                ('policy_map_id', YLeaf(YType.uint16, 'policy-map-id')),
+                                                ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                                ('hierarchical_depth', (YLeaf(YType.uint8, 'hierarchical-depth'), ['int'])),
+                                                ('interface_type', (YLeaf(YType.str, 'interface-type'), ['str'])),
+                                                ('interface_rate', (YLeaf(YType.uint32, 'interface-rate'), ['int'])),
+                                                ('port_shaper_rate', (YLeaf(YType.uint32, 'port-shaper-rate'), ['int'])),
+                                                ('interface_handle', (YLeaf(YType.str, 'interface-handle'), ['str'])),
+                                                ('under_line_interface_handle', (YLeaf(YType.str, 'under-line-interface-handle'), ['str'])),
+                                                ('bundle_id', (YLeaf(YType.uint16, 'bundle-id'), ['int'])),
+                                                ('uidb_index', (YLeaf(YType.uint16, 'uidb-index'), ['int'])),
+                                                ('qos_interface_handle', (YLeaf(YType.uint64, 'qos-interface-handle'), ['int'])),
+                                                ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
+                                                ('policy_map_id', (YLeaf(YType.uint16, 'policy-map-id'), ['int'])),
                                             ])
                                             self.policy_name = None
                                             self.hierarchical_depth = None
@@ -8028,6 +8176,7 @@ class PlatformQosEa(Entity):
                                             self.port = None
                                             self.policy_map_id = None
                                             self._segment_path = lambda: "interface-parameters"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
@@ -8062,6 +8211,7 @@ class PlatformQosEa(Entity):
 
                                             self.qos_show_ea_pclass_st = YList(self)
                                             self._segment_path = lambda: "skywarp-qos-policy-class"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass, [], name, value)
@@ -8140,12 +8290,12 @@ class PlatformQosEa(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("config", ("config", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config)), ("result", ("result", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result))])
                                                 self._leafs = OrderedDict([
-                                                    ('index', YLeaf(YType.uint16, 'index')),
-                                                    ('class_level', YLeaf(YType.uint8, 'class-level')),
-                                                    ('class_name', YLeaf(YType.str, 'class-name')),
-                                                    ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                                    ('node_flags', YLeaf(YType.str, 'node-flags')),
-                                                    ('stats_flags', YLeaf(YType.str, 'stats-flags')),
+                                                    ('index', (YLeaf(YType.uint16, 'index'), ['int'])),
+                                                    ('class_level', (YLeaf(YType.uint8, 'class-level'), ['int'])),
+                                                    ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                                                    ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                                    ('node_flags', (YLeaf(YType.str, 'node-flags'), ['str'])),
+                                                    ('stats_flags', (YLeaf(YType.str, 'stats-flags'), ['str'])),
                                                 ])
                                                 self.index = None
                                                 self.class_level = None
@@ -8162,6 +8312,7 @@ class PlatformQosEa(Entity):
                                                 self.result.parent = self
                                                 self._children_name_map["result"] = "result"
                                                 self._segment_path = lambda: "qos-show-ea-pclass-st"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
@@ -8210,7 +8361,7 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("police", ("police", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police)), ("shape", ("shape", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape)), ("wfq", ("wfq", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq))])
                                                     self._leafs = OrderedDict([
-                                                        ('node_config', YLeaf(YType.str, 'node-config')),
+                                                        ('node_config', (YLeaf(YType.str, 'node-config'), ['str'])),
                                                     ])
                                                     self.node_config = None
 
@@ -8226,6 +8377,7 @@ class PlatformQosEa(Entity):
                                                     self.wfq.parent = self
                                                     self._children_name_map["wfq"] = "wfq"
                                                     self._segment_path = lambda: "config"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
@@ -8272,8 +8424,8 @@ class PlatformQosEa(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([("cir", ("cir", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir)), ("cbs", ("cbs", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs))])
                                                         self._leafs = OrderedDict([
-                                                            ('color_aware', YLeaf(YType.boolean, 'color-aware')),
-                                                            ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                                            ('color_aware', (YLeaf(YType.boolean, 'color-aware'), ['bool'])),
+                                                            ('policer_type', (YLeaf(YType.enumeration, 'policer-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'TbAlgorithm', '')])),
                                                         ])
                                                         self.color_aware = None
                                                         self.policer_type = None
@@ -8286,6 +8438,7 @@ class PlatformQosEa(Entity):
                                                         self.cbs.parent = self
                                                         self._children_name_map["cbs"] = "cbs"
                                                         self._segment_path = lambda: "police"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
@@ -8324,12 +8477,13 @@ class PlatformQosEa(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                             ])
                                                             self.value = None
                                                             self.unit = None
                                                             self._segment_path = lambda: "cir"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
@@ -8368,12 +8522,13 @@ class PlatformQosEa(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                             ])
                                                             self.value = None
                                                             self.unit = None
                                                             self._segment_path = lambda: "cbs"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
@@ -8419,6 +8574,7 @@ class PlatformQosEa(Entity):
                                                         self.pbs.parent = self
                                                         self._children_name_map["pbs"] = "pbs"
                                                         self._segment_path = lambda: "shape"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, [], name, value)
@@ -8457,12 +8613,13 @@ class PlatformQosEa(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                             ])
                                                             self.value = None
                                                             self.unit = None
                                                             self._segment_path = lambda: "pir"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
@@ -8501,12 +8658,13 @@ class PlatformQosEa(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                             ])
                                                             self.value = None
                                                             self.unit = None
                                                             self._segment_path = lambda: "pbs"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
@@ -8550,7 +8708,7 @@ class PlatformQosEa(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([("bandwidth", ("bandwidth", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth)), ("sum-of-bandwidth", ("sum_of_bandwidth", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth))])
                                                         self._leafs = OrderedDict([
-                                                            ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                            ('excess_ratio', (YLeaf(YType.uint16, 'excess-ratio'), ['int'])),
                                                         ])
                                                         self.excess_ratio = None
 
@@ -8562,6 +8720,7 @@ class PlatformQosEa(Entity):
                                                         self.sum_of_bandwidth.parent = self
                                                         self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
                                                         self._segment_path = lambda: "wfq"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
@@ -8600,12 +8759,13 @@ class PlatformQosEa(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                             ])
                                                             self.value = None
                                                             self.unit = None
                                                             self._segment_path = lambda: "bandwidth"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
@@ -8644,12 +8804,13 @@ class PlatformQosEa(Entity):
                                                             self.ylist_key_names = []
                                                             self._child_classes = OrderedDict([])
                                                             self._leafs = OrderedDict([
-                                                                ('value', YLeaf(YType.uint32, 'value')),
-                                                                ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                                ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                                ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                             ])
                                                             self.value = None
                                                             self.unit = None
                                                             self._segment_path = lambda: "sum-of-bandwidth"
+                                                            self._is_frozen = True
 
                                                         def __setattr__(self, name, value):
                                                             self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
@@ -8693,7 +8854,7 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([("queue", ("queue", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue)), ("police", ("police", PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police))])
                                                     self._leafs = OrderedDict([
-                                                        ('stats_id', YLeaf(YType.uint32, 'stats-id')),
+                                                        ('stats_id', (YLeaf(YType.uint32, 'stats-id'), ['int'])),
                                                     ])
                                                     self.stats_id = None
 
@@ -8705,6 +8866,7 @@ class PlatformQosEa(Entity):
                                                     self.police.parent = self
                                                     self._children_name_map["police"] = "police"
                                                     self._segment_path = lambda: "result"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
@@ -8759,16 +8921,17 @@ class PlatformQosEa(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('queue_id', YLeaf(YType.uint32, 'queue-id')),
-                                                            ('commit_tx', YLeaf(YType.uint32, 'commit-tx')),
-                                                            ('excess_tx', YLeaf(YType.uint32, 'excess-tx')),
-                                                            ('drop', YLeaf(YType.uint32, 'drop')),
+                                                            ('queue_id', (YLeaf(YType.uint32, 'queue-id'), ['int'])),
+                                                            ('commit_tx', (YLeaf(YType.uint32, 'commit-tx'), ['int'])),
+                                                            ('excess_tx', (YLeaf(YType.uint32, 'excess-tx'), ['int'])),
+                                                            ('drop', (YLeaf(YType.uint32, 'drop'), ['int'])),
                                                         ])
                                                         self.queue_id = None
                                                         self.commit_tx = None
                                                         self.excess_tx = None
                                                         self.drop = None
                                                         self._segment_path = lambda: "queue"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
@@ -8823,16 +8986,17 @@ class PlatformQosEa(Entity):
                                                         self.ylist_key_names = []
                                                         self._child_classes = OrderedDict([])
                                                         self._leafs = OrderedDict([
-                                                            ('token_bucket_id', YLeaf(YType.uint32, 'token-bucket-id')),
-                                                            ('conform', YLeaf(YType.uint32, 'conform')),
-                                                            ('exceed', YLeaf(YType.uint32, 'exceed')),
-                                                            ('violate', YLeaf(YType.uint32, 'violate')),
+                                                            ('token_bucket_id', (YLeaf(YType.uint32, 'token-bucket-id'), ['int'])),
+                                                            ('conform', (YLeaf(YType.uint32, 'conform'), ['int'])),
+                                                            ('exceed', (YLeaf(YType.uint32, 'exceed'), ['int'])),
+                                                            ('violate', (YLeaf(YType.uint32, 'violate'), ['int'])),
                                                         ])
                                                         self.token_bucket_id = None
                                                         self.conform = None
                                                         self.exceed = None
                                                         self.violate = None
                                                         self._segment_path = lambda: "police"
+                                                        self._is_frozen = True
 
                                                     def __setattr__(self, name, value):
                                                         self._perform_setattr(PlatformQosEa.Nodes.Node.BundleInterfaces.BundleInterface.MemberInterfaces.MemberInterface.BundleInput.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
@@ -8867,6 +9031,7 @@ class PlatformQosEa(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces, [], name, value)
@@ -8881,7 +9046,7 @@ class PlatformQosEa(Entity):
                     	The name of the interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: output
                     
@@ -8910,7 +9075,7 @@ class PlatformQosEa(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("output", ("output", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output)), ("input", ("input", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.interface_name = None
 
@@ -8922,6 +9087,7 @@ class PlatformQosEa(Entity):
                         self.input.parent = self
                         self._children_name_map["input"] = "input"
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface, ['interface_name'], name, value)
@@ -8958,6 +9124,7 @@ class PlatformQosEa(Entity):
                             self.details.parent = self
                             self._children_name_map["details"] = "details"
                             self._segment_path = lambda: "output"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output, [], name, value)
@@ -9012,6 +9179,7 @@ class PlatformQosEa(Entity):
                                 self.skywarp_qos_policy_class.parent = self
                                 self._children_name_map["skywarp_qos_policy_class"] = "skywarp-qos-policy-class"
                                 self._segment_path = lambda: "details"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details, [], name, value)
@@ -9066,16 +9234,17 @@ class PlatformQosEa(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                        ('direction', YLeaf(YType.str, 'direction')),
-                                        ('classes', YLeaf(YType.uint16, 'classes')),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                        ('direction', (YLeaf(YType.str, 'direction'), ['str'])),
+                                        ('classes', (YLeaf(YType.uint16, 'classes'), ['int'])),
                                     ])
                                     self.interface_name = None
                                     self.policy_name = None
                                     self.direction = None
                                     self.classes = None
                                     self._segment_path = lambda: "header"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
@@ -9125,14 +9294,14 @@ class PlatformQosEa(Entity):
                                 	Interface Handle
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: under_line_interface_handle
                                 
                                 	UnderLineInterface Handle
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: bundle_id
                                 
@@ -9186,18 +9355,18 @@ class PlatformQosEa(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                        ('hierarchical_depth', YLeaf(YType.uint8, 'hierarchical-depth')),
-                                        ('interface_type', YLeaf(YType.str, 'interface-type')),
-                                        ('interface_rate', YLeaf(YType.uint32, 'interface-rate')),
-                                        ('port_shaper_rate', YLeaf(YType.uint32, 'port-shaper-rate')),
-                                        ('interface_handle', YLeaf(YType.str, 'interface-handle')),
-                                        ('under_line_interface_handle', YLeaf(YType.str, 'under-line-interface-handle')),
-                                        ('bundle_id', YLeaf(YType.uint16, 'bundle-id')),
-                                        ('uidb_index', YLeaf(YType.uint16, 'uidb-index')),
-                                        ('qos_interface_handle', YLeaf(YType.uint64, 'qos-interface-handle')),
-                                        ('port', YLeaf(YType.uint32, 'port')),
-                                        ('policy_map_id', YLeaf(YType.uint16, 'policy-map-id')),
+                                        ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                        ('hierarchical_depth', (YLeaf(YType.uint8, 'hierarchical-depth'), ['int'])),
+                                        ('interface_type', (YLeaf(YType.str, 'interface-type'), ['str'])),
+                                        ('interface_rate', (YLeaf(YType.uint32, 'interface-rate'), ['int'])),
+                                        ('port_shaper_rate', (YLeaf(YType.uint32, 'port-shaper-rate'), ['int'])),
+                                        ('interface_handle', (YLeaf(YType.str, 'interface-handle'), ['str'])),
+                                        ('under_line_interface_handle', (YLeaf(YType.str, 'under-line-interface-handle'), ['str'])),
+                                        ('bundle_id', (YLeaf(YType.uint16, 'bundle-id'), ['int'])),
+                                        ('uidb_index', (YLeaf(YType.uint16, 'uidb-index'), ['int'])),
+                                        ('qos_interface_handle', (YLeaf(YType.uint64, 'qos-interface-handle'), ['int'])),
+                                        ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
+                                        ('policy_map_id', (YLeaf(YType.uint16, 'policy-map-id'), ['int'])),
                                     ])
                                     self.policy_name = None
                                     self.hierarchical_depth = None
@@ -9212,6 +9381,7 @@ class PlatformQosEa(Entity):
                                     self.port = None
                                     self.policy_map_id = None
                                     self._segment_path = lambda: "interface-parameters"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
@@ -9246,6 +9416,7 @@ class PlatformQosEa(Entity):
 
                                     self.qos_show_ea_pclass_st = YList(self)
                                     self._segment_path = lambda: "skywarp-qos-policy-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass, [], name, value)
@@ -9324,12 +9495,12 @@ class PlatformQosEa(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("config", ("config", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config)), ("result", ("result", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result))])
                                         self._leafs = OrderedDict([
-                                            ('index', YLeaf(YType.uint16, 'index')),
-                                            ('class_level', YLeaf(YType.uint8, 'class-level')),
-                                            ('class_name', YLeaf(YType.str, 'class-name')),
-                                            ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                            ('node_flags', YLeaf(YType.str, 'node-flags')),
-                                            ('stats_flags', YLeaf(YType.str, 'stats-flags')),
+                                            ('index', (YLeaf(YType.uint16, 'index'), ['int'])),
+                                            ('class_level', (YLeaf(YType.uint8, 'class-level'), ['int'])),
+                                            ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                                            ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                            ('node_flags', (YLeaf(YType.str, 'node-flags'), ['str'])),
+                                            ('stats_flags', (YLeaf(YType.str, 'stats-flags'), ['str'])),
                                         ])
                                         self.index = None
                                         self.class_level = None
@@ -9346,6 +9517,7 @@ class PlatformQosEa(Entity):
                                         self.result.parent = self
                                         self._children_name_map["result"] = "result"
                                         self._segment_path = lambda: "qos-show-ea-pclass-st"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
@@ -9394,7 +9566,7 @@ class PlatformQosEa(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("police", ("police", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police)), ("shape", ("shape", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape)), ("wfq", ("wfq", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq))])
                                             self._leafs = OrderedDict([
-                                                ('node_config', YLeaf(YType.str, 'node-config')),
+                                                ('node_config', (YLeaf(YType.str, 'node-config'), ['str'])),
                                             ])
                                             self.node_config = None
 
@@ -9410,6 +9582,7 @@ class PlatformQosEa(Entity):
                                             self.wfq.parent = self
                                             self._children_name_map["wfq"] = "wfq"
                                             self._segment_path = lambda: "config"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
@@ -9456,8 +9629,8 @@ class PlatformQosEa(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("cir", ("cir", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir)), ("cbs", ("cbs", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs))])
                                                 self._leafs = OrderedDict([
-                                                    ('color_aware', YLeaf(YType.boolean, 'color-aware')),
-                                                    ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                                    ('color_aware', (YLeaf(YType.boolean, 'color-aware'), ['bool'])),
+                                                    ('policer_type', (YLeaf(YType.enumeration, 'policer-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'TbAlgorithm', '')])),
                                                 ])
                                                 self.color_aware = None
                                                 self.policer_type = None
@@ -9470,6 +9643,7 @@ class PlatformQosEa(Entity):
                                                 self.cbs.parent = self
                                                 self._children_name_map["cbs"] = "cbs"
                                                 self._segment_path = lambda: "police"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
@@ -9508,12 +9682,13 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "cir"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
@@ -9552,12 +9727,13 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "cbs"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
@@ -9603,6 +9779,7 @@ class PlatformQosEa(Entity):
                                                 self.pbs.parent = self
                                                 self._children_name_map["pbs"] = "pbs"
                                                 self._segment_path = lambda: "shape"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, [], name, value)
@@ -9641,12 +9818,13 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "pir"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
@@ -9685,12 +9863,13 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "pbs"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
@@ -9734,7 +9913,7 @@ class PlatformQosEa(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("bandwidth", ("bandwidth", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth)), ("sum-of-bandwidth", ("sum_of_bandwidth", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth))])
                                                 self._leafs = OrderedDict([
-                                                    ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                    ('excess_ratio', (YLeaf(YType.uint16, 'excess-ratio'), ['int'])),
                                                 ])
                                                 self.excess_ratio = None
 
@@ -9746,6 +9925,7 @@ class PlatformQosEa(Entity):
                                                 self.sum_of_bandwidth.parent = self
                                                 self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
                                                 self._segment_path = lambda: "wfq"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
@@ -9784,12 +9964,13 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "bandwidth"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
@@ -9828,12 +10009,13 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "sum-of-bandwidth"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
@@ -9877,7 +10059,7 @@ class PlatformQosEa(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("queue", ("queue", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue)), ("police", ("police", PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police))])
                                             self._leafs = OrderedDict([
-                                                ('stats_id', YLeaf(YType.uint32, 'stats-id')),
+                                                ('stats_id', (YLeaf(YType.uint32, 'stats-id'), ['int'])),
                                             ])
                                             self.stats_id = None
 
@@ -9889,6 +10071,7 @@ class PlatformQosEa(Entity):
                                             self.police.parent = self
                                             self._children_name_map["police"] = "police"
                                             self._segment_path = lambda: "result"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
@@ -9943,16 +10126,17 @@ class PlatformQosEa(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('queue_id', YLeaf(YType.uint32, 'queue-id')),
-                                                    ('commit_tx', YLeaf(YType.uint32, 'commit-tx')),
-                                                    ('excess_tx', YLeaf(YType.uint32, 'excess-tx')),
-                                                    ('drop', YLeaf(YType.uint32, 'drop')),
+                                                    ('queue_id', (YLeaf(YType.uint32, 'queue-id'), ['int'])),
+                                                    ('commit_tx', (YLeaf(YType.uint32, 'commit-tx'), ['int'])),
+                                                    ('excess_tx', (YLeaf(YType.uint32, 'excess-tx'), ['int'])),
+                                                    ('drop', (YLeaf(YType.uint32, 'drop'), ['int'])),
                                                 ])
                                                 self.queue_id = None
                                                 self.commit_tx = None
                                                 self.excess_tx = None
                                                 self.drop = None
                                                 self._segment_path = lambda: "queue"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
@@ -10007,16 +10191,17 @@ class PlatformQosEa(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('token_bucket_id', YLeaf(YType.uint32, 'token-bucket-id')),
-                                                    ('conform', YLeaf(YType.uint32, 'conform')),
-                                                    ('exceed', YLeaf(YType.uint32, 'exceed')),
-                                                    ('violate', YLeaf(YType.uint32, 'violate')),
+                                                    ('token_bucket_id', (YLeaf(YType.uint32, 'token-bucket-id'), ['int'])),
+                                                    ('conform', (YLeaf(YType.uint32, 'conform'), ['int'])),
+                                                    ('exceed', (YLeaf(YType.uint32, 'exceed'), ['int'])),
+                                                    ('violate', (YLeaf(YType.uint32, 'violate'), ['int'])),
                                                 ])
                                                 self.token_bucket_id = None
                                                 self.conform = None
                                                 self.exceed = None
                                                 self.violate = None
                                                 self._segment_path = lambda: "police"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Output.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)
@@ -10053,6 +10238,7 @@ class PlatformQosEa(Entity):
                             self.details.parent = self
                             self._children_name_map["details"] = "details"
                             self._segment_path = lambda: "input"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input, [], name, value)
@@ -10107,6 +10293,7 @@ class PlatformQosEa(Entity):
                                 self.skywarp_qos_policy_class.parent = self
                                 self._children_name_map["skywarp_qos_policy_class"] = "skywarp-qos-policy-class"
                                 self._segment_path = lambda: "details"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details, [], name, value)
@@ -10161,16 +10348,17 @@ class PlatformQosEa(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                        ('direction', YLeaf(YType.str, 'direction')),
-                                        ('classes', YLeaf(YType.uint16, 'classes')),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                        ('direction', (YLeaf(YType.str, 'direction'), ['str'])),
+                                        ('classes', (YLeaf(YType.uint16, 'classes'), ['int'])),
                                     ])
                                     self.interface_name = None
                                     self.policy_name = None
                                     self.direction = None
                                     self.classes = None
                                     self._segment_path = lambda: "header"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.Header, ['interface_name', 'policy_name', 'direction', 'classes'], name, value)
@@ -10220,14 +10408,14 @@ class PlatformQosEa(Entity):
                                 	Interface Handle
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: under_line_interface_handle
                                 
                                 	UnderLineInterface Handle
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: bundle_id
                                 
@@ -10281,18 +10469,18 @@ class PlatformQosEa(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                        ('hierarchical_depth', YLeaf(YType.uint8, 'hierarchical-depth')),
-                                        ('interface_type', YLeaf(YType.str, 'interface-type')),
-                                        ('interface_rate', YLeaf(YType.uint32, 'interface-rate')),
-                                        ('port_shaper_rate', YLeaf(YType.uint32, 'port-shaper-rate')),
-                                        ('interface_handle', YLeaf(YType.str, 'interface-handle')),
-                                        ('under_line_interface_handle', YLeaf(YType.str, 'under-line-interface-handle')),
-                                        ('bundle_id', YLeaf(YType.uint16, 'bundle-id')),
-                                        ('uidb_index', YLeaf(YType.uint16, 'uidb-index')),
-                                        ('qos_interface_handle', YLeaf(YType.uint64, 'qos-interface-handle')),
-                                        ('port', YLeaf(YType.uint32, 'port')),
-                                        ('policy_map_id', YLeaf(YType.uint16, 'policy-map-id')),
+                                        ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                        ('hierarchical_depth', (YLeaf(YType.uint8, 'hierarchical-depth'), ['int'])),
+                                        ('interface_type', (YLeaf(YType.str, 'interface-type'), ['str'])),
+                                        ('interface_rate', (YLeaf(YType.uint32, 'interface-rate'), ['int'])),
+                                        ('port_shaper_rate', (YLeaf(YType.uint32, 'port-shaper-rate'), ['int'])),
+                                        ('interface_handle', (YLeaf(YType.str, 'interface-handle'), ['str'])),
+                                        ('under_line_interface_handle', (YLeaf(YType.str, 'under-line-interface-handle'), ['str'])),
+                                        ('bundle_id', (YLeaf(YType.uint16, 'bundle-id'), ['int'])),
+                                        ('uidb_index', (YLeaf(YType.uint16, 'uidb-index'), ['int'])),
+                                        ('qos_interface_handle', (YLeaf(YType.uint64, 'qos-interface-handle'), ['int'])),
+                                        ('port', (YLeaf(YType.uint32, 'port'), ['int'])),
+                                        ('policy_map_id', (YLeaf(YType.uint16, 'policy-map-id'), ['int'])),
                                     ])
                                     self.policy_name = None
                                     self.hierarchical_depth = None
@@ -10307,6 +10495,7 @@ class PlatformQosEa(Entity):
                                     self.port = None
                                     self.policy_map_id = None
                                     self._segment_path = lambda: "interface-parameters"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.InterfaceParameters, ['policy_name', 'hierarchical_depth', 'interface_type', 'interface_rate', 'port_shaper_rate', 'interface_handle', 'under_line_interface_handle', 'bundle_id', 'uidb_index', 'qos_interface_handle', 'port', 'policy_map_id'], name, value)
@@ -10341,6 +10530,7 @@ class PlatformQosEa(Entity):
 
                                     self.qos_show_ea_pclass_st = YList(self)
                                     self._segment_path = lambda: "skywarp-qos-policy-class"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass, [], name, value)
@@ -10419,12 +10609,12 @@ class PlatformQosEa(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([("config", ("config", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config)), ("result", ("result", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result))])
                                         self._leafs = OrderedDict([
-                                            ('index', YLeaf(YType.uint16, 'index')),
-                                            ('class_level', YLeaf(YType.uint8, 'class-level')),
-                                            ('class_name', YLeaf(YType.str, 'class-name')),
-                                            ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                            ('node_flags', YLeaf(YType.str, 'node-flags')),
-                                            ('stats_flags', YLeaf(YType.str, 'stats-flags')),
+                                            ('index', (YLeaf(YType.uint16, 'index'), ['int'])),
+                                            ('class_level', (YLeaf(YType.uint8, 'class-level'), ['int'])),
+                                            ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                                            ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                            ('node_flags', (YLeaf(YType.str, 'node-flags'), ['str'])),
+                                            ('stats_flags', (YLeaf(YType.str, 'stats-flags'), ['str'])),
                                         ])
                                         self.index = None
                                         self.class_level = None
@@ -10441,6 +10631,7 @@ class PlatformQosEa(Entity):
                                         self.result.parent = self
                                         self._children_name_map["result"] = "result"
                                         self._segment_path = lambda: "qos-show-ea-pclass-st"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt, ['index', 'class_level', 'class_name', 'policy_name', 'node_flags', 'stats_flags'], name, value)
@@ -10489,7 +10680,7 @@ class PlatformQosEa(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("police", ("police", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police)), ("shape", ("shape", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape)), ("wfq", ("wfq", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq))])
                                             self._leafs = OrderedDict([
-                                                ('node_config', YLeaf(YType.str, 'node-config')),
+                                                ('node_config', (YLeaf(YType.str, 'node-config'), ['str'])),
                                             ])
                                             self.node_config = None
 
@@ -10505,6 +10696,7 @@ class PlatformQosEa(Entity):
                                             self.wfq.parent = self
                                             self._children_name_map["wfq"] = "wfq"
                                             self._segment_path = lambda: "config"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config, ['node_config'], name, value)
@@ -10551,8 +10743,8 @@ class PlatformQosEa(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("cir", ("cir", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir)), ("cbs", ("cbs", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs))])
                                                 self._leafs = OrderedDict([
-                                                    ('color_aware', YLeaf(YType.boolean, 'color-aware')),
-                                                    ('policer_type', YLeaf(YType.enumeration, 'policer-type')),
+                                                    ('color_aware', (YLeaf(YType.boolean, 'color-aware'), ['bool'])),
+                                                    ('policer_type', (YLeaf(YType.enumeration, 'policer-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'TbAlgorithm', '')])),
                                                 ])
                                                 self.color_aware = None
                                                 self.policer_type = None
@@ -10565,6 +10757,7 @@ class PlatformQosEa(Entity):
                                                 self.cbs.parent = self
                                                 self._children_name_map["cbs"] = "cbs"
                                                 self._segment_path = lambda: "police"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police, ['color_aware', 'policer_type'], name, value)
@@ -10603,12 +10796,13 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "cir"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cir, ['value', 'unit'], name, value)
@@ -10647,12 +10841,13 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "cbs"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Police.Cbs, ['value', 'unit'], name, value)
@@ -10698,6 +10893,7 @@ class PlatformQosEa(Entity):
                                                 self.pbs.parent = self
                                                 self._children_name_map["pbs"] = "pbs"
                                                 self._segment_path = lambda: "shape"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape, [], name, value)
@@ -10736,12 +10932,13 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "pir"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pir, ['value', 'unit'], name, value)
@@ -10780,12 +10977,13 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "pbs"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Shape.Pbs, ['value', 'unit'], name, value)
@@ -10829,7 +11027,7 @@ class PlatformQosEa(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([("bandwidth", ("bandwidth", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth)), ("sum-of-bandwidth", ("sum_of_bandwidth", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth))])
                                                 self._leafs = OrderedDict([
-                                                    ('excess_ratio', YLeaf(YType.uint16, 'excess-ratio')),
+                                                    ('excess_ratio', (YLeaf(YType.uint16, 'excess-ratio'), ['int'])),
                                                 ])
                                                 self.excess_ratio = None
 
@@ -10841,6 +11039,7 @@ class PlatformQosEa(Entity):
                                                 self.sum_of_bandwidth.parent = self
                                                 self._children_name_map["sum_of_bandwidth"] = "sum-of-bandwidth"
                                                 self._segment_path = lambda: "wfq"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq, ['excess_ratio'], name, value)
@@ -10879,12 +11078,13 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "bandwidth"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.Bandwidth, ['value', 'unit'], name, value)
@@ -10923,12 +11123,13 @@ class PlatformQosEa(Entity):
                                                     self.ylist_key_names = []
                                                     self._child_classes = OrderedDict([])
                                                     self._leafs = OrderedDict([
-                                                        ('value', YLeaf(YType.uint32, 'value')),
-                                                        ('unit', YLeaf(YType.enumeration, 'unit')),
+                                                        ('value', (YLeaf(YType.uint32, 'value'), ['int'])),
+                                                        ('unit', (YLeaf(YType.enumeration, 'unit'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_skp_qos_oper', 'QosUnit', '')])),
                                                     ])
                                                     self.value = None
                                                     self.unit = None
                                                     self._segment_path = lambda: "sum-of-bandwidth"
+                                                    self._is_frozen = True
 
                                                 def __setattr__(self, name, value):
                                                     self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Config.Wfq.SumOfBandwidth, ['value', 'unit'], name, value)
@@ -10972,7 +11173,7 @@ class PlatformQosEa(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("queue", ("queue", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue)), ("police", ("police", PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police))])
                                             self._leafs = OrderedDict([
-                                                ('stats_id', YLeaf(YType.uint32, 'stats-id')),
+                                                ('stats_id', (YLeaf(YType.uint32, 'stats-id'), ['int'])),
                                             ])
                                             self.stats_id = None
 
@@ -10984,6 +11185,7 @@ class PlatformQosEa(Entity):
                                             self.police.parent = self
                                             self._children_name_map["police"] = "police"
                                             self._segment_path = lambda: "result"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result, ['stats_id'], name, value)
@@ -11038,16 +11240,17 @@ class PlatformQosEa(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('queue_id', YLeaf(YType.uint32, 'queue-id')),
-                                                    ('commit_tx', YLeaf(YType.uint32, 'commit-tx')),
-                                                    ('excess_tx', YLeaf(YType.uint32, 'excess-tx')),
-                                                    ('drop', YLeaf(YType.uint32, 'drop')),
+                                                    ('queue_id', (YLeaf(YType.uint32, 'queue-id'), ['int'])),
+                                                    ('commit_tx', (YLeaf(YType.uint32, 'commit-tx'), ['int'])),
+                                                    ('excess_tx', (YLeaf(YType.uint32, 'excess-tx'), ['int'])),
+                                                    ('drop', (YLeaf(YType.uint32, 'drop'), ['int'])),
                                                 ])
                                                 self.queue_id = None
                                                 self.commit_tx = None
                                                 self.excess_tx = None
                                                 self.drop = None
                                                 self._segment_path = lambda: "queue"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Queue, ['queue_id', 'commit_tx', 'excess_tx', 'drop'], name, value)
@@ -11102,16 +11305,17 @@ class PlatformQosEa(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('token_bucket_id', YLeaf(YType.uint32, 'token-bucket-id')),
-                                                    ('conform', YLeaf(YType.uint32, 'conform')),
-                                                    ('exceed', YLeaf(YType.uint32, 'exceed')),
-                                                    ('violate', YLeaf(YType.uint32, 'violate')),
+                                                    ('token_bucket_id', (YLeaf(YType.uint32, 'token-bucket-id'), ['int'])),
+                                                    ('conform', (YLeaf(YType.uint32, 'conform'), ['int'])),
+                                                    ('exceed', (YLeaf(YType.uint32, 'exceed'), ['int'])),
+                                                    ('violate', (YLeaf(YType.uint32, 'violate'), ['int'])),
                                                 ])
                                                 self.token_bucket_id = None
                                                 self.conform = None
                                                 self.exceed = None
                                                 self.violate = None
                                                 self._segment_path = lambda: "police"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(PlatformQosEa.Nodes.Node.Interfaces.Interface.Input.Details.SkywarpQosPolicyClass.QosShowEaPclassSt.Result.Police, ['token_bucket_id', 'conform', 'exceed', 'violate'], name, value)

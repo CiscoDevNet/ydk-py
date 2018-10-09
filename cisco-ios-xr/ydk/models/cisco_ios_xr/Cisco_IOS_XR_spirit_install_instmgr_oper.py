@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   software\-install\: Install operations info
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class CardTypeEt(Enum):
@@ -306,39 +307,43 @@ class IsdStateEt(Enum):
 
     	ISSU ST LOAD DONE
 
-    .. data:: run_prep = 8
+    .. data:: run_prep_isd = 8
 
-    	ISSU ST RUN PREP
+    	ISSU ST RUN PREP ISD
 
-    .. data:: big_bang = 9
+    .. data:: run_prep_ism = 9
+
+    	ISSU ST RUN PREP ISM
+
+    .. data:: big_bang = 10
 
     	ISSU ST RUN BIG BANG
 
-    .. data:: run_done = 10
+    .. data:: run_done = 11
 
     	ISSU ST RUN DONE
 
-    .. data:: cleanup = 11
+    .. data:: cleanup = 12
 
     	ISSU ST CLEANUP
 
-    .. data:: cleanup_done = 12
+    .. data:: cleanup_done = 13
 
     	ISSU ST CLEANUP DONE
 
-    .. data:: abort = 13
+    .. data:: abort = 14
 
     	ISSU ST ABORT
 
-    .. data:: abort_done = 14
+    .. data:: abort_done = 15
 
     	ISSU ST ABORT DONE
 
-    .. data:: abort_cleanup = 15
+    .. data:: abort_cleanup = 16
 
     	ISSU ST ABORT CLEANUP
 
-    .. data:: unknown_state = 16
+    .. data:: unknown_state = 17
 
     	ISSU UNKNOWN STATE
 
@@ -360,23 +365,25 @@ class IsdStateEt(Enum):
 
     load_done = Enum.YLeaf(7, "load-done")
 
-    run_prep = Enum.YLeaf(8, "run-prep")
+    run_prep_isd = Enum.YLeaf(8, "run-prep-isd")
 
-    big_bang = Enum.YLeaf(9, "big-bang")
+    run_prep_ism = Enum.YLeaf(9, "run-prep-ism")
 
-    run_done = Enum.YLeaf(10, "run-done")
+    big_bang = Enum.YLeaf(10, "big-bang")
 
-    cleanup = Enum.YLeaf(11, "cleanup")
+    run_done = Enum.YLeaf(11, "run-done")
 
-    cleanup_done = Enum.YLeaf(12, "cleanup-done")
+    cleanup = Enum.YLeaf(12, "cleanup")
 
-    abort = Enum.YLeaf(13, "abort")
+    cleanup_done = Enum.YLeaf(13, "cleanup-done")
 
-    abort_done = Enum.YLeaf(14, "abort-done")
+    abort = Enum.YLeaf(14, "abort")
 
-    abort_cleanup = Enum.YLeaf(15, "abort-cleanup")
+    abort_done = Enum.YLeaf(15, "abort-done")
 
-    unknown_state = Enum.YLeaf(16, "unknown-state")
+    abort_cleanup = Enum.YLeaf(16, "abort-cleanup")
+
+    unknown_state = Enum.YLeaf(17, "unknown-state")
 
 
 class IssuNodeRoleEt(Enum):
@@ -488,6 +495,21 @@ class SoftwareInstall(Entity):
     	Show superseded packages
     	**type**\:  :py:class:`Superseded <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Superseded>`
     
+    .. attribute:: committed_summary
+    
+    	Show Committed packages installed
+    	**type**\:  :py:class:`CommittedSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.CommittedSummary>`
+    
+    .. attribute:: active_summary
+    
+    	Show active packages installed
+    	**type**\:  :py:class:`ActiveSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.ActiveSummary>`
+    
+    .. attribute:: inactive_summary
+    
+    	Show XR inactive packages
+    	**type**\:  :py:class:`InactiveSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.InactiveSummary>`
+    
     .. attribute:: prepare
     
     	Show prepared packages ready for activation
@@ -512,6 +534,11 @@ class SoftwareInstall(Entity):
     
     	Show current request
     	**type**\:  :py:class:`Request <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Request>`
+    
+    .. attribute:: superseded_summary
+    
+    	Show superseded packages
+    	**type**\:  :py:class:`SupersededSummary <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.SupersededSummary>`
     
     .. attribute:: issu
     
@@ -559,12 +586,24 @@ class SoftwareInstall(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("superseded", ("superseded", SoftwareInstall.Superseded)), ("prepare", ("prepare", SoftwareInstall.Prepare)), ("active", ("active", SoftwareInstall.Active)), ("version", ("version", SoftwareInstall.Version)), ("inactive", ("inactive", SoftwareInstall.Inactive)), ("request", ("request", SoftwareInstall.Request)), ("issu", ("issu", SoftwareInstall.Issu)), ("committed", ("committed", SoftwareInstall.Committed)), ("all-operations-log", ("all_operations_log", SoftwareInstall.AllOperationsLog)), ("packages", ("packages", SoftwareInstall.Packages)), ("operation-logs", ("operation_logs", SoftwareInstall.OperationLogs)), ("repository", ("repository", SoftwareInstall.Repository))])
+        self._child_classes = OrderedDict([("superseded", ("superseded", SoftwareInstall.Superseded)), ("committed-summary", ("committed_summary", SoftwareInstall.CommittedSummary)), ("active-summary", ("active_summary", SoftwareInstall.ActiveSummary)), ("inactive-summary", ("inactive_summary", SoftwareInstall.InactiveSummary)), ("prepare", ("prepare", SoftwareInstall.Prepare)), ("active", ("active", SoftwareInstall.Active)), ("version", ("version", SoftwareInstall.Version)), ("inactive", ("inactive", SoftwareInstall.Inactive)), ("request", ("request", SoftwareInstall.Request)), ("superseded-summary", ("superseded_summary", SoftwareInstall.SupersededSummary)), ("issu", ("issu", SoftwareInstall.Issu)), ("committed", ("committed", SoftwareInstall.Committed)), ("all-operations-log", ("all_operations_log", SoftwareInstall.AllOperationsLog)), ("packages", ("packages", SoftwareInstall.Packages)), ("operation-logs", ("operation_logs", SoftwareInstall.OperationLogs)), ("repository", ("repository", SoftwareInstall.Repository))])
         self._leafs = OrderedDict()
 
         self.superseded = SoftwareInstall.Superseded()
         self.superseded.parent = self
         self._children_name_map["superseded"] = "superseded"
+
+        self.committed_summary = SoftwareInstall.CommittedSummary()
+        self.committed_summary.parent = self
+        self._children_name_map["committed_summary"] = "committed-summary"
+
+        self.active_summary = SoftwareInstall.ActiveSummary()
+        self.active_summary.parent = self
+        self._children_name_map["active_summary"] = "active-summary"
+
+        self.inactive_summary = SoftwareInstall.InactiveSummary()
+        self.inactive_summary.parent = self
+        self._children_name_map["inactive_summary"] = "inactive-summary"
 
         self.prepare = SoftwareInstall.Prepare()
         self.prepare.parent = self
@@ -585,6 +624,10 @@ class SoftwareInstall(Entity):
         self.request = SoftwareInstall.Request()
         self.request.parent = self
         self._children_name_map["request"] = "request"
+
+        self.superseded_summary = SoftwareInstall.SupersededSummary()
+        self.superseded_summary.parent = self
+        self._children_name_map["superseded_summary"] = "superseded-summary"
 
         self.issu = SoftwareInstall.Issu()
         self.issu.parent = self
@@ -610,6 +653,7 @@ class SoftwareInstall(Entity):
         self.repository.parent = self
         self._children_name_map["repository"] = "repository"
         self._segment_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SoftwareInstall, [], name, value)
@@ -645,6 +689,7 @@ class SoftwareInstall(Entity):
             self.superseded_package_info = YList(self)
             self._segment_path = lambda: "superseded"
             self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SoftwareInstall.Superseded, [], name, value)
@@ -696,11 +741,11 @@ class SoftwareInstall(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('error_message', YLeaf(YType.str, 'error-message')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('node_type', YLeaf(YType.str, 'node-type')),
-                    ('boot_partition_name', YLeaf(YType.str, 'boot-partition-name')),
-                    ('superseded_packages', YLeaf(YType.str, 'superseded-packages')),
+                    ('error_message', (YLeaf(YType.str, 'error-message'), ['str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('node_type', (YLeaf(YType.str, 'node-type'), ['str'])),
+                    ('boot_partition_name', (YLeaf(YType.str, 'boot-partition-name'), ['str'])),
+                    ('superseded_packages', (YLeaf(YType.str, 'superseded-packages'), ['str'])),
                 ])
                 self.error_message = None
                 self.location = None
@@ -709,9 +754,267 @@ class SoftwareInstall(Entity):
                 self.superseded_packages = None
                 self._segment_path = lambda: "superseded-package-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/superseded/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Superseded.SupersededPackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'superseded_packages'], name, value)
+
+
+    class CommittedSummary(Entity):
+        """
+        Show Committed packages installed
+        
+        .. attribute:: committed_package_info
+        
+        	committed package info
+        	**type**\: list of  		 :py:class:`CommittedPackageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.CommittedSummary.CommittedPackageInfo>`
+        
+        
+
+        """
+
+        _prefix = 'spirit-install-instmgr-oper'
+        _revision = '2017-09-07'
+
+        def __init__(self):
+            super(SoftwareInstall.CommittedSummary, self).__init__()
+
+            self.yang_name = "committed-summary"
+            self.yang_parent_name = "software-install"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("committed-package-info", ("committed_package_info", SoftwareInstall.CommittedSummary.CommittedPackageInfo))])
+            self._leafs = OrderedDict()
+
+            self.committed_package_info = YList(self)
+            self._segment_path = lambda: "committed-summary"
+            self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(SoftwareInstall.CommittedSummary, [], name, value)
+
+
+        class CommittedPackageInfo(Entity):
+            """
+            committed package info
+            
+            .. attribute:: error_message
+            
+            	ErrorMessage
+            	**type**\: str
+            
+            .. attribute:: location
+            
+            	Location
+            	**type**\: str
+            
+            .. attribute:: node_type
+            
+            	NodeType
+            	**type**\: str
+            
+            .. attribute:: boot_partition_name
+            
+            	BootPartitionName
+            	**type**\: str
+            
+            .. attribute:: number_of_committed_packages
+            
+            	NumberOfCommittedPackages
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: committed_packages
+            
+            	CommittedPackages
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'spirit-install-instmgr-oper'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                super(SoftwareInstall.CommittedSummary.CommittedPackageInfo, self).__init__()
+
+                self.yang_name = "committed-package-info"
+                self.yang_parent_name = "committed-summary"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('error_message', (YLeaf(YType.str, 'error-message'), ['str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('node_type', (YLeaf(YType.str, 'node-type'), ['str'])),
+                    ('boot_partition_name', (YLeaf(YType.str, 'boot-partition-name'), ['str'])),
+                    ('number_of_committed_packages', (YLeaf(YType.uint32, 'number-of-committed-packages'), ['int'])),
+                    ('committed_packages', (YLeaf(YType.str, 'committed-packages'), ['str'])),
+                ])
+                self.error_message = None
+                self.location = None
+                self.node_type = None
+                self.boot_partition_name = None
+                self.number_of_committed_packages = None
+                self.committed_packages = None
+                self._segment_path = lambda: "committed-package-info"
+                self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/committed-summary/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(SoftwareInstall.CommittedSummary.CommittedPackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_committed_packages', u'committed_packages'], name, value)
+
+
+    class ActiveSummary(Entity):
+        """
+        Show active packages installed
+        
+        .. attribute:: active_package_info
+        
+        	active package info
+        	**type**\: list of  		 :py:class:`ActivePackageInfo <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.ActiveSummary.ActivePackageInfo>`
+        
+        
+
+        """
+
+        _prefix = 'spirit-install-instmgr-oper'
+        _revision = '2017-09-07'
+
+        def __init__(self):
+            super(SoftwareInstall.ActiveSummary, self).__init__()
+
+            self.yang_name = "active-summary"
+            self.yang_parent_name = "software-install"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("active-package-info", ("active_package_info", SoftwareInstall.ActiveSummary.ActivePackageInfo))])
+            self._leafs = OrderedDict()
+
+            self.active_package_info = YList(self)
+            self._segment_path = lambda: "active-summary"
+            self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(SoftwareInstall.ActiveSummary, [], name, value)
+
+
+        class ActivePackageInfo(Entity):
+            """
+            active package info
+            
+            .. attribute:: error_message
+            
+            	ErrorMessage
+            	**type**\: str
+            
+            .. attribute:: location
+            
+            	Location
+            	**type**\: str
+            
+            .. attribute:: node_type
+            
+            	NodeType
+            	**type**\: str
+            
+            .. attribute:: boot_partition_name
+            
+            	BootPartitionName
+            	**type**\: str
+            
+            .. attribute:: number_of_active_packages
+            
+            	NumberOfActivePackages
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            .. attribute:: active_packages
+            
+            	ActivePackages
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'spirit-install-instmgr-oper'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                super(SoftwareInstall.ActiveSummary.ActivePackageInfo, self).__init__()
+
+                self.yang_name = "active-package-info"
+                self.yang_parent_name = "active-summary"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('error_message', (YLeaf(YType.str, 'error-message'), ['str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('node_type', (YLeaf(YType.str, 'node-type'), ['str'])),
+                    ('boot_partition_name', (YLeaf(YType.str, 'boot-partition-name'), ['str'])),
+                    ('number_of_active_packages', (YLeaf(YType.uint32, 'number-of-active-packages'), ['int'])),
+                    ('active_packages', (YLeaf(YType.str, 'active-packages'), ['str'])),
+                ])
+                self.error_message = None
+                self.location = None
+                self.node_type = None
+                self.boot_partition_name = None
+                self.number_of_active_packages = None
+                self.active_packages = None
+                self._segment_path = lambda: "active-package-info"
+                self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/active-summary/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(SoftwareInstall.ActiveSummary.ActivePackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_active_packages', u'active_packages'], name, value)
+
+
+    class InactiveSummary(Entity):
+        """
+        Show XR inactive packages
+        
+        .. attribute:: log
+        
+        	log
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'spirit-install-instmgr-oper'
+        _revision = '2017-09-07'
+
+        def __init__(self):
+            super(SoftwareInstall.InactiveSummary, self).__init__()
+
+            self.yang_name = "inactive-summary"
+            self.yang_parent_name = "software-install"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('log', (YLeaf(YType.str, 'log'), ['str'])),
+            ])
+            self.log = None
+            self._segment_path = lambda: "inactive-summary"
+            self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(SoftwareInstall.InactiveSummary, [u'log'], name, value)
 
 
     class Prepare(Entity):
@@ -775,12 +1078,12 @@ class SoftwareInstall(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("rpm", ("rpm", SoftwareInstall.Prepare.Rpm)), ("package", ("package", SoftwareInstall.Prepare.Package))])
             self._leafs = OrderedDict([
-                ('no_prepare_done', YLeaf(YType.str, 'no-prepare-done')),
-                ('prepared_boot_image', YLeaf(YType.str, 'prepared-boot-image')),
-                ('prepared_boot_partition', YLeaf(YType.str, 'prepared-boot-partition')),
-                ('restart_type', YLeaf(YType.str, 'restart-type')),
-                ('activate_message', YLeaf(YType.str, 'activate-message')),
-                ('prepare_clean_message', YLeaf(YType.str, 'prepare-clean-message')),
+                ('no_prepare_done', (YLeaf(YType.str, 'no-prepare-done'), ['str'])),
+                ('prepared_boot_image', (YLeaf(YType.str, 'prepared-boot-image'), ['str'])),
+                ('prepared_boot_partition', (YLeaf(YType.str, 'prepared-boot-partition'), ['str'])),
+                ('restart_type', (YLeaf(YType.str, 'restart-type'), ['str'])),
+                ('activate_message', (YLeaf(YType.str, 'activate-message'), ['str'])),
+                ('prepare_clean_message', (YLeaf(YType.str, 'prepare-clean-message'), ['str'])),
             ])
             self.no_prepare_done = None
             self.prepared_boot_image = None
@@ -793,6 +1096,7 @@ class SoftwareInstall(Entity):
             self.package = YList(self)
             self._segment_path = lambda: "prepare"
             self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SoftwareInstall.Prepare, [u'no_prepare_done', u'prepared_boot_image', u'prepared_boot_partition', u'restart_type', u'activate_message', u'prepare_clean_message'], name, value)
@@ -824,11 +1128,12 @@ class SoftwareInstall(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('package', YLeaf(YType.str, 'package')),
+                    ('package', (YLeaf(YType.str, 'package'), ['str'])),
                 ])
                 self.package = None
                 self._segment_path = lambda: "rpm"
                 self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/prepare/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Prepare.Rpm, [u'package'], name, value)
@@ -860,11 +1165,12 @@ class SoftwareInstall(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('package', YLeaf(YType.str, 'package')),
+                    ('package', (YLeaf(YType.str, 'package'), ['str'])),
                 ])
                 self.package = None
                 self._segment_path = lambda: "package"
                 self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/prepare/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Prepare.Package, [u'package'], name, value)
@@ -900,6 +1206,7 @@ class SoftwareInstall(Entity):
             self.active_package_info = YList(self)
             self._segment_path = lambda: "active"
             self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SoftwareInstall.Active, [], name, value)
@@ -958,12 +1265,12 @@ class SoftwareInstall(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('error_message', YLeaf(YType.str, 'error-message')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('node_type', YLeaf(YType.str, 'node-type')),
-                    ('boot_partition_name', YLeaf(YType.str, 'boot-partition-name')),
-                    ('number_of_active_packages', YLeaf(YType.uint32, 'number-of-active-packages')),
-                    ('active_packages', YLeaf(YType.str, 'active-packages')),
+                    ('error_message', (YLeaf(YType.str, 'error-message'), ['str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('node_type', (YLeaf(YType.str, 'node-type'), ['str'])),
+                    ('boot_partition_name', (YLeaf(YType.str, 'boot-partition-name'), ['str'])),
+                    ('number_of_active_packages', (YLeaf(YType.uint32, 'number-of-active-packages'), ['int'])),
+                    ('active_packages', (YLeaf(YType.str, 'active-packages'), ['str'])),
                 ])
                 self.error_message = None
                 self.location = None
@@ -973,6 +1280,7 @@ class SoftwareInstall(Entity):
                 self.active_packages = None
                 self._segment_path = lambda: "active-package-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/active/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Active.ActivePackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_active_packages', u'active_packages'], name, value)
@@ -982,10 +1290,35 @@ class SoftwareInstall(Entity):
         """
         Show install version
         
-        .. attribute:: img_info
+        .. attribute:: location
         
-        	ImgInfo
+        	Path where all cisco packages are installed
         	**type**\: str
+        
+        .. attribute:: label
+        
+        	label name
+        	**type**\: str
+        
+        .. attribute:: copyright_info
+        
+        	copyright info
+        	**type**\: str
+        
+        .. attribute:: hardware_info
+        
+        	hardware info of the router
+        	**type**\: str
+        
+        .. attribute:: system_uptime
+        
+        	duration since when system is up
+        	**type**\: str
+        
+        .. attribute:: package
+        
+        	package
+        	**type**\: list of  		 :py:class:`Package <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.Version.Package>`
         
         
 
@@ -1002,16 +1335,99 @@ class SoftwareInstall(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("package", ("package", SoftwareInstall.Version.Package))])
             self._leafs = OrderedDict([
-                ('img_info', YLeaf(YType.str, 'img-info')),
+                ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                ('label', (YLeaf(YType.str, 'label'), ['str'])),
+                ('copyright_info', (YLeaf(YType.str, 'copyright-info'), ['str'])),
+                ('hardware_info', (YLeaf(YType.str, 'hardware-info'), ['str'])),
+                ('system_uptime', (YLeaf(YType.str, 'system-uptime'), ['str'])),
             ])
-            self.img_info = None
+            self.location = None
+            self.label = None
+            self.copyright_info = None
+            self.hardware_info = None
+            self.system_uptime = None
+
+            self.package = YList(self)
             self._segment_path = lambda: "version"
             self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SoftwareInstall.Version, [u'img_info'], name, value)
+            self._perform_setattr(SoftwareInstall.Version, [u'location', u'label', u'copyright_info', u'hardware_info', u'system_uptime'], name, value)
+
+
+        class Package(Entity):
+            """
+            package
+            
+            .. attribute:: name
+            
+            	Name
+            	**type**\: str
+            
+            .. attribute:: version
+            
+            	Running version
+            	**type**\: str
+            
+            .. attribute:: built_by
+            
+            	User built by
+            	**type**\: str
+            
+            .. attribute:: built_on
+            
+            	Time built
+            	**type**\: str
+            
+            .. attribute:: build_host
+            
+            	Build host
+            	**type**\: str
+            
+            .. attribute:: workspace
+            
+            	Workspace built in
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'spirit-install-instmgr-oper'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                super(SoftwareInstall.Version.Package, self).__init__()
+
+                self.yang_name = "package"
+                self.yang_parent_name = "version"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('version', (YLeaf(YType.str, 'version'), ['str'])),
+                    ('built_by', (YLeaf(YType.str, 'built-by'), ['str'])),
+                    ('built_on', (YLeaf(YType.str, 'built-on'), ['str'])),
+                    ('build_host', (YLeaf(YType.str, 'build-host'), ['str'])),
+                    ('workspace', (YLeaf(YType.str, 'workspace'), ['str'])),
+                ])
+                self.name = None
+                self.version = None
+                self.built_by = None
+                self.built_on = None
+                self.build_host = None
+                self.workspace = None
+                self._segment_path = lambda: "package"
+                self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/version/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(SoftwareInstall.Version.Package, [u'name', u'version', u'built_by', u'built_on', u'build_host', u'workspace'], name, value)
 
 
     class Inactive(Entity):
@@ -1040,11 +1456,12 @@ class SoftwareInstall(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('log', YLeaf(YType.str, 'log')),
+                ('log', (YLeaf(YType.str, 'log'), ['str'])),
             ])
             self.log = None
             self._segment_path = lambda: "inactive"
             self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SoftwareInstall.Inactive, [u'log'], name, value)
@@ -1076,14 +1493,52 @@ class SoftwareInstall(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('curr_inst_oper', YLeaf(YType.str, 'curr-inst-oper')),
+                ('curr_inst_oper', (YLeaf(YType.str, 'curr-inst-oper'), ['str'])),
             ])
             self.curr_inst_oper = None
             self._segment_path = lambda: "request"
             self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SoftwareInstall.Request, [u'curr_inst_oper'], name, value)
+
+
+    class SupersededSummary(Entity):
+        """
+        Show superseded packages
+        
+        .. attribute:: log
+        
+        	log
+        	**type**\: str
+        
+        
+
+        """
+
+        _prefix = 'spirit-install-instmgr-oper'
+        _revision = '2017-09-07'
+
+        def __init__(self):
+            super(SoftwareInstall.SupersededSummary, self).__init__()
+
+            self.yang_name = "superseded-summary"
+            self.yang_parent_name = "software-install"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([])
+            self._leafs = OrderedDict([
+                ('log', (YLeaf(YType.str, 'log'), ['str'])),
+            ])
+            self.log = None
+            self._segment_path = lambda: "superseded-summary"
+            self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(SoftwareInstall.SupersededSummary, [u'log'], name, value)
 
 
     class Issu(Entity):
@@ -1127,6 +1582,7 @@ class SoftwareInstall(Entity):
             self._children_name_map["inventory"] = "inventory"
             self._segment_path = lambda: "issu"
             self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SoftwareInstall.Issu, [], name, value)
@@ -1191,12 +1647,12 @@ class SoftwareInstall(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('issu_node_cnt', YLeaf(YType.int32, 'issu-node-cnt')),
-                    ('issu_ready_node_cnt', YLeaf(YType.int32, 'issu-ready-node-cnt')),
-                    ('percentage', YLeaf(YType.int32, 'percentage')),
-                    ('issu_status', YLeaf(YType.enumeration, 'issu-status')),
-                    ('issu_error', YLeaf(YType.enumeration, 'issu-error')),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IsdStateEt', '')])),
+                    ('issu_node_cnt', (YLeaf(YType.int32, 'issu-node-cnt'), ['int'])),
+                    ('issu_ready_node_cnt', (YLeaf(YType.int32, 'issu-ready-node-cnt'), ['int'])),
+                    ('percentage', (YLeaf(YType.int32, 'percentage'), ['int'])),
+                    ('issu_status', (YLeaf(YType.enumeration, 'issu-status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IsdIssuStatusEt', '')])),
+                    ('issu_error', (YLeaf(YType.enumeration, 'issu-error'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IsdErrorEt', '')])),
                 ])
                 self.state = None
                 self.issu_node_cnt = None
@@ -1206,9 +1662,10 @@ class SoftwareInstall(Entity):
                 self.issu_error = None
                 self._segment_path = lambda: "stage"
                 self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/issu/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SoftwareInstall.Issu.Stage, ['state', 'issu_node_cnt', 'issu_ready_node_cnt', 'percentage', 'issu_status', 'issu_error'], name, value)
+                self._perform_setattr(SoftwareInstall.Issu.Stage, [u'state', u'issu_node_cnt', u'issu_ready_node_cnt', u'percentage', u'issu_status', u'issu_error'], name, value)
 
 
         class Inventory(Entity):
@@ -1241,6 +1698,7 @@ class SoftwareInstall(Entity):
                 self.invinfo = YList(self)
                 self._segment_path = lambda: "inventory"
                 self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/issu/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Issu.Inventory, [], name, value)
@@ -1294,11 +1752,11 @@ class SoftwareInstall(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('node_id', YLeaf(YType.int32, 'node-id')),
-                        ('node_type', YLeaf(YType.enumeration, 'node-type')),
-                        ('issu_node_role', YLeaf(YType.enumeration, 'issu-node-role')),
-                        ('node_state', YLeaf(YType.enumeration, 'node-state')),
-                        ('node_role', YLeaf(YType.enumeration, 'node-role')),
+                        ('node_id', (YLeaf(YType.int32, 'node-id'), ['int'])),
+                        ('node_type', (YLeaf(YType.enumeration, 'node-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper', 'CardTypeEt', '')])),
+                        ('issu_node_role', (YLeaf(YType.enumeration, 'issu-node-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IssuNodeRoleEt', '')])),
+                        ('node_state', (YLeaf(YType.enumeration, 'node-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper', 'IssudirNodeStatusEt', '')])),
+                        ('node_role', (YLeaf(YType.enumeration, 'node-role'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper', 'NodeRoleEt', '')])),
                     ])
                     self.node_id = None
                     self.node_type = None
@@ -1307,9 +1765,10 @@ class SoftwareInstall(Entity):
                     self.node_role = None
                     self._segment_path = lambda: "invinfo"
                     self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/issu/inventory/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(SoftwareInstall.Issu.Inventory.Invinfo, ['node_id', 'node_type', 'issu_node_role', 'node_state', 'node_role'], name, value)
+                    self._perform_setattr(SoftwareInstall.Issu.Inventory.Invinfo, [u'node_id', u'node_type', u'issu_node_role', u'node_state', u'node_role'], name, value)
 
 
     class Committed(Entity):
@@ -1342,6 +1801,7 @@ class SoftwareInstall(Entity):
             self.committed_package_info = YList(self)
             self._segment_path = lambda: "committed"
             self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SoftwareInstall.Committed, [], name, value)
@@ -1400,12 +1860,12 @@ class SoftwareInstall(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('error_message', YLeaf(YType.str, 'error-message')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('node_type', YLeaf(YType.str, 'node-type')),
-                    ('boot_partition_name', YLeaf(YType.str, 'boot-partition-name')),
-                    ('number_of_committed_packages', YLeaf(YType.uint32, 'number-of-committed-packages')),
-                    ('committed_packages', YLeaf(YType.str, 'committed-packages')),
+                    ('error_message', (YLeaf(YType.str, 'error-message'), ['str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('node_type', (YLeaf(YType.str, 'node-type'), ['str'])),
+                    ('boot_partition_name', (YLeaf(YType.str, 'boot-partition-name'), ['str'])),
+                    ('number_of_committed_packages', (YLeaf(YType.uint32, 'number-of-committed-packages'), ['int'])),
+                    ('committed_packages', (YLeaf(YType.str, 'committed-packages'), ['str'])),
                 ])
                 self.error_message = None
                 self.location = None
@@ -1415,6 +1875,7 @@ class SoftwareInstall(Entity):
                 self.committed_packages = None
                 self._segment_path = lambda: "committed-package-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/committed/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Committed.CommittedPackageInfo, [u'error_message', u'location', u'node_type', u'boot_partition_name', u'number_of_committed_packages', u'committed_packages'], name, value)
@@ -1423,6 +1884,16 @@ class SoftwareInstall(Entity):
     class AllOperationsLog(Entity):
         """
         Show log file for all operations
+        
+        .. attribute:: reverse_detail
+        
+        	Show detailed log file for all operations \- reverse
+        	**type**\:  :py:class:`ReverseDetail <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.ReverseDetail>`
+        
+        .. attribute:: reverse
+        
+        	Show log file for all operations \- reverse
+        	**type**\:  :py:class:`Reverse <ydk.models.cisco_ios_xr.Cisco_IOS_XR_spirit_install_instmgr_oper.SoftwareInstall.AllOperationsLog.Reverse>`
         
         .. attribute:: summary
         
@@ -1449,8 +1920,16 @@ class SoftwareInstall(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([("summary", ("summary", SoftwareInstall.AllOperationsLog.Summary)), ("detail", ("detail", SoftwareInstall.AllOperationsLog.Detail))])
+            self._child_classes = OrderedDict([("reverse-detail", ("reverse_detail", SoftwareInstall.AllOperationsLog.ReverseDetail)), ("reverse", ("reverse", SoftwareInstall.AllOperationsLog.Reverse)), ("summary", ("summary", SoftwareInstall.AllOperationsLog.Summary)), ("detail", ("detail", SoftwareInstall.AllOperationsLog.Detail))])
             self._leafs = OrderedDict()
+
+            self.reverse_detail = SoftwareInstall.AllOperationsLog.ReverseDetail()
+            self.reverse_detail.parent = self
+            self._children_name_map["reverse_detail"] = "reverse-detail"
+
+            self.reverse = SoftwareInstall.AllOperationsLog.Reverse()
+            self.reverse.parent = self
+            self._children_name_map["reverse"] = "reverse"
 
             self.summary = SoftwareInstall.AllOperationsLog.Summary()
             self.summary.parent = self
@@ -1461,9 +1940,85 @@ class SoftwareInstall(Entity):
             self._children_name_map["detail"] = "detail"
             self._segment_path = lambda: "all-operations-log"
             self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SoftwareInstall.AllOperationsLog, [], name, value)
+
+
+        class ReverseDetail(Entity):
+            """
+            Show detailed log file for all operations \-
+            reverse
+            
+            .. attribute:: log
+            
+            	log
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'spirit-install-instmgr-oper'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                super(SoftwareInstall.AllOperationsLog.ReverseDetail, self).__init__()
+
+                self.yang_name = "reverse-detail"
+                self.yang_parent_name = "all-operations-log"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('log', (YLeaf(YType.str, 'log'), ['str'])),
+                ])
+                self.log = None
+                self._segment_path = lambda: "reverse-detail"
+                self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/all-operations-log/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(SoftwareInstall.AllOperationsLog.ReverseDetail, [u'log'], name, value)
+
+
+        class Reverse(Entity):
+            """
+            Show log file for all operations \- reverse
+            
+            .. attribute:: log
+            
+            	log
+            	**type**\: str
+            
+            
+
+            """
+
+            _prefix = 'spirit-install-instmgr-oper'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                super(SoftwareInstall.AllOperationsLog.Reverse, self).__init__()
+
+                self.yang_name = "reverse"
+                self.yang_parent_name = "all-operations-log"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('log', (YLeaf(YType.str, 'log'), ['str'])),
+                ])
+                self.log = None
+                self._segment_path = lambda: "reverse"
+                self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/all-operations-log/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(SoftwareInstall.AllOperationsLog.Reverse, [u'log'], name, value)
 
 
         class Summary(Entity):
@@ -1492,11 +2047,12 @@ class SoftwareInstall(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('log', YLeaf(YType.str, 'log')),
+                    ('log', (YLeaf(YType.str, 'log'), ['str'])),
                 ])
                 self.log = None
                 self._segment_path = lambda: "summary"
                 self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/all-operations-log/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.AllOperationsLog.Summary, [u'log'], name, value)
@@ -1528,11 +2084,12 @@ class SoftwareInstall(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('log', YLeaf(YType.str, 'log')),
+                    ('log', (YLeaf(YType.str, 'log'), ['str'])),
                 ])
                 self.log = None
                 self._segment_path = lambda: "detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/all-operations-log/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.AllOperationsLog.Detail, [u'log'], name, value)
@@ -1568,6 +2125,7 @@ class SoftwareInstall(Entity):
             self.package = YList(self)
             self._segment_path = lambda: "packages"
             self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SoftwareInstall.Packages, [], name, value)
@@ -1614,7 +2172,7 @@ class SoftwareInstall(Entity):
                 self.ylist_key_names = ['package_name']
                 self._child_classes = OrderedDict([("verbose", ("verbose", SoftwareInstall.Packages.Package.Verbose)), ("brief", ("brief", SoftwareInstall.Packages.Package.Brief)), ("detail", ("detail", SoftwareInstall.Packages.Package.Detail))])
                 self._leafs = OrderedDict([
-                    ('package_name', YLeaf(YType.str, 'package-name')),
+                    ('package_name', (YLeaf(YType.str, 'package-name'), ['str'])),
                 ])
                 self.package_name = None
 
@@ -1631,6 +2189,7 @@ class SoftwareInstall(Entity):
                 self._children_name_map["detail"] = "detail"
                 self._segment_path = lambda: "package" + "[package-name='" + str(self.package_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/packages/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Packages.Package, ['package_name'], name, value)
@@ -1662,10 +2221,11 @@ class SoftwareInstall(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('log', YLeaf(YType.str, 'log')),
+                        ('log', (YLeaf(YType.str, 'log'), ['str'])),
                     ])
                     self.log = None
                     self._segment_path = lambda: "verbose"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SoftwareInstall.Packages.Package.Verbose, [u'log'], name, value)
@@ -1697,10 +2257,11 @@ class SoftwareInstall(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('log', YLeaf(YType.str, 'log')),
+                        ('log', (YLeaf(YType.str, 'log'), ['str'])),
                     ])
                     self.log = None
                     self._segment_path = lambda: "brief"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SoftwareInstall.Packages.Package.Brief, [u'log'], name, value)
@@ -1732,10 +2293,11 @@ class SoftwareInstall(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('log', YLeaf(YType.str, 'log')),
+                        ('log', (YLeaf(YType.str, 'log'), ['str'])),
                     ])
                     self.log = None
                     self._segment_path = lambda: "detail"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SoftwareInstall.Packages.Package.Detail, [u'log'], name, value)
@@ -1771,6 +2333,7 @@ class SoftwareInstall(Entity):
             self.operation_log = YList(self)
             self._segment_path = lambda: "operation-logs"
             self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SoftwareInstall.OperationLogs, [], name, value)
@@ -1814,7 +2377,7 @@ class SoftwareInstall(Entity):
                 self.ylist_key_names = ['log_id']
                 self._child_classes = OrderedDict([("summary", ("summary", SoftwareInstall.OperationLogs.OperationLog.Summary)), ("detail", ("detail", SoftwareInstall.OperationLogs.OperationLog.Detail))])
                 self._leafs = OrderedDict([
-                    ('log_id', YLeaf(YType.uint32, 'log-id')),
+                    ('log_id', (YLeaf(YType.uint32, 'log-id'), ['int'])),
                 ])
                 self.log_id = None
 
@@ -1827,6 +2390,7 @@ class SoftwareInstall(Entity):
                 self._children_name_map["detail"] = "detail"
                 self._segment_path = lambda: "operation-log" + "[log-id='" + str(self.log_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/operation-logs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog, ['log_id'], name, value)
@@ -1859,10 +2423,11 @@ class SoftwareInstall(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('log', YLeaf(YType.str, 'log')),
+                        ('log', (YLeaf(YType.str, 'log'), ['str'])),
                     ])
                     self.log = None
                     self._segment_path = lambda: "summary"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Summary, [u'log'], name, value)
@@ -1895,10 +2460,11 @@ class SoftwareInstall(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('log', YLeaf(YType.str, 'log')),
+                        ('log', (YLeaf(YType.str, 'log'), ['str'])),
                     ])
                     self.log = None
                     self._segment_path = lambda: "detail"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SoftwareInstall.OperationLogs.OperationLog.Detail, [u'log'], name, value)
@@ -1946,6 +2512,7 @@ class SoftwareInstall(Entity):
             self._children_name_map["all"] = "all"
             self._segment_path = lambda: "repository"
             self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SoftwareInstall.Repository, [], name, value)
@@ -1977,11 +2544,12 @@ class SoftwareInstall(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('log', YLeaf(YType.str, 'log')),
+                    ('log', (YLeaf(YType.str, 'log'), ['str'])),
                 ])
                 self.log = None
                 self._segment_path = lambda: "xr"
                 self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/repository/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Repository.Xr, [u'log'], name, value)
@@ -2014,11 +2582,12 @@ class SoftwareInstall(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('log', YLeaf(YType.str, 'log')),
+                    ('log', (YLeaf(YType.str, 'log'), ['str'])),
                 ])
                 self.log = None
                 self._segment_path = lambda: "all"
                 self._absolute_path = lambda: "Cisco-IOS-XR-spirit-install-instmgr-oper:software-install/repository/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SoftwareInstall.Repository.All, [u'log'], name, value)

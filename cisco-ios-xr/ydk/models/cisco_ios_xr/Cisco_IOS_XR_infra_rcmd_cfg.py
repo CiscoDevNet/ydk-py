@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   router\-convergence\: Configure Router Convergence Monitoring
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class ProtocolName(Enum):
@@ -88,10 +89,14 @@ class RouterConvergence(Entity):
     	Absolute directory path for saving the archive files. Example /disk0\:/rcmd/ or <tftp\-location>/rcmd/
     	**type**\:  :py:class:`StorageLocation <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.StorageLocation>`
     
+    	**presence node**\: True
+    
     .. attribute:: mpls_ldp
     
     	RCMD related configuration for MPLS\-LDP
     	**type**\:  :py:class:`MplsLdp <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.MplsLdp>`
+    
+    	**presence node**\: True
     
     .. attribute:: collect_diagnostics
     
@@ -161,12 +166,12 @@ class RouterConvergence(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("protocols", ("protocols", RouterConvergence.Protocols)), ("storage-location", ("storage_location", RouterConvergence.StorageLocation)), ("mpls-ldp", ("mpls_ldp", RouterConvergence.MplsLdp)), ("collect-diagnostics", ("collect_diagnostics", RouterConvergence.CollectDiagnostics)), ("nodes", ("nodes", RouterConvergence.Nodes))])
         self._leafs = OrderedDict([
-            ('event_buffer_size', YLeaf(YType.uint32, 'event-buffer-size')),
-            ('prefix_monitor_limit', YLeaf(YType.uint32, 'prefix-monitor-limit')),
-            ('disable', YLeaf(YType.empty, 'disable')),
-            ('enable', YLeaf(YType.empty, 'enable')),
-            ('max_events_stored', YLeaf(YType.uint32, 'max-events-stored')),
-            ('monitoring_interval', YLeaf(YType.uint32, 'monitoring-interval')),
+            ('event_buffer_size', (YLeaf(YType.uint32, 'event-buffer-size'), ['int'])),
+            ('prefix_monitor_limit', (YLeaf(YType.uint32, 'prefix-monitor-limit'), ['int'])),
+            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+            ('max_events_stored', (YLeaf(YType.uint32, 'max-events-stored'), ['int'])),
+            ('monitoring_interval', (YLeaf(YType.uint32, 'monitoring-interval'), ['int'])),
         ])
         self.event_buffer_size = None
         self.prefix_monitor_limit = None
@@ -179,12 +184,10 @@ class RouterConvergence(Entity):
         self.protocols.parent = self
         self._children_name_map["protocols"] = "protocols"
 
-        self.storage_location = RouterConvergence.StorageLocation()
-        self.storage_location.parent = self
+        self.storage_location = None
         self._children_name_map["storage_location"] = "storage-location"
 
-        self.mpls_ldp = RouterConvergence.MplsLdp()
-        self.mpls_ldp.parent = self
+        self.mpls_ldp = None
         self._children_name_map["mpls_ldp"] = "mpls-ldp"
 
         self.collect_diagnostics = RouterConvergence.CollectDiagnostics()
@@ -195,6 +198,7 @@ class RouterConvergence(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(RouterConvergence, ['event_buffer_size', 'prefix_monitor_limit', 'disable', 'enable', 'max_events_stored', 'monitoring_interval'], name, value)
@@ -230,6 +234,7 @@ class RouterConvergence(Entity):
             self.protocol = YList(self)
             self._segment_path = lambda: "protocols"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RouterConvergence.Protocols, [], name, value)
@@ -271,8 +276,8 @@ class RouterConvergence(Entity):
                 self.ylist_key_names = ['protocol_name']
                 self._child_classes = OrderedDict([("priorities", ("priorities", RouterConvergence.Protocols.Protocol.Priorities))])
                 self._leafs = OrderedDict([
-                    ('protocol_name', YLeaf(YType.enumeration, 'protocol-name')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('protocol_name', (YLeaf(YType.enumeration, 'protocol-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg', 'ProtocolName', '')])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.protocol_name = None
                 self.enable = None
@@ -282,6 +287,7 @@ class RouterConvergence(Entity):
                 self._children_name_map["priorities"] = "priorities"
                 self._segment_path = lambda: "protocol" + "[protocol-name='" + str(self.protocol_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/protocols/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RouterConvergence.Protocols.Protocol, ['protocol_name', 'enable'], name, value)
@@ -316,6 +322,7 @@ class RouterConvergence(Entity):
 
                     self.priority = YList(self)
                     self._segment_path = lambda: "priorities"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RouterConvergence.Protocols.Protocol.Priorities, [], name, value)
@@ -380,12 +387,12 @@ class RouterConvergence(Entity):
                         self.ylist_key_names = ['rcmd_priority']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('rcmd_priority', YLeaf(YType.enumeration, 'rcmd-priority')),
-                            ('threshold', YLeaf(YType.uint32, 'threshold')),
-                            ('leaf_networks', YLeaf(YType.uint32, 'leaf-networks')),
-                            ('disable', YLeaf(YType.empty, 'disable')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('frr_threshold', YLeaf(YType.uint32, 'frr-threshold')),
+                            ('rcmd_priority', (YLeaf(YType.enumeration, 'rcmd-priority'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg', 'RcmdPriority', '')])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                            ('leaf_networks', (YLeaf(YType.uint32, 'leaf-networks'), ['int'])),
+                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('frr_threshold', (YLeaf(YType.uint32, 'frr-threshold'), ['int'])),
                         ])
                         self.rcmd_priority = None
                         self.threshold = None
@@ -394,6 +401,7 @@ class RouterConvergence(Entity):
                         self.enable = None
                         self.frr_threshold = None
                         self._segment_path = lambda: "priority" + "[rcmd-priority='" + str(self.rcmd_priority) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(RouterConvergence.Protocols.Protocol.Priorities.Priority, ['rcmd_priority', 'threshold', 'leaf_networks', 'disable', 'enable', 'frr_threshold'], name, value)
@@ -431,6 +439,8 @@ class RouterConvergence(Entity):
         
         
 
+        This class is a :ref:`presence class<presence-class>`
+
         """
 
         _prefix = 'infra-rcmd-cfg'
@@ -445,11 +455,12 @@ class RouterConvergence(Entity):
             self.has_list_ancestor = False
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
+            self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('diagnostics', YLeaf(YType.str, 'diagnostics')),
-                ('diagnostics_size', YLeaf(YType.uint32, 'diagnostics-size')),
-                ('reports_size', YLeaf(YType.uint32, 'reports-size')),
-                ('reports', YLeaf(YType.str, 'reports')),
+                ('diagnostics', (YLeaf(YType.str, 'diagnostics'), ['str'])),
+                ('diagnostics_size', (YLeaf(YType.uint32, 'diagnostics-size'), ['int'])),
+                ('reports_size', (YLeaf(YType.uint32, 'reports-size'), ['int'])),
+                ('reports', (YLeaf(YType.str, 'reports'), ['str'])),
             ])
             self.diagnostics = None
             self.diagnostics_size = None
@@ -457,6 +468,7 @@ class RouterConvergence(Entity):
             self.reports = None
             self._segment_path = lambda: "storage-location"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RouterConvergence.StorageLocation, ['diagnostics', 'diagnostics_size', 'reports_size', 'reports'], name, value)
@@ -471,7 +483,11 @@ class RouterConvergence(Entity):
         	Monitoring configuration for Remote LFA
         	**type**\:  :py:class:`RemoteLfa <ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_rcmd_cfg.RouterConvergence.MplsLdp.RemoteLfa>`
         
+        	**presence node**\: True
         
+        
+
+        This class is a :ref:`presence class<presence-class>`
 
         """
 
@@ -487,13 +503,14 @@ class RouterConvergence(Entity):
             self.has_list_ancestor = False
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("remote-lfa", ("remote_lfa", RouterConvergence.MplsLdp.RemoteLfa))])
+            self.is_presence_container = True
             self._leafs = OrderedDict()
 
-            self.remote_lfa = RouterConvergence.MplsLdp.RemoteLfa()
-            self.remote_lfa.parent = self
+            self.remote_lfa = None
             self._children_name_map["remote_lfa"] = "remote-lfa"
             self._segment_path = lambda: "mpls-ldp"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RouterConvergence.MplsLdp, [], name, value)
@@ -514,6 +531,8 @@ class RouterConvergence(Entity):
             
             
 
+            This class is a :ref:`presence class<presence-class>`
+
             """
 
             _prefix = 'infra-rcmd-cfg'
@@ -528,12 +547,14 @@ class RouterConvergence(Entity):
                 self.has_list_ancestor = False
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
+                self.is_presence_container = True
                 self._leafs = OrderedDict([
-                    ('threshold', YLeaf(YType.uint32, 'threshold')),
+                    ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
                 ])
                 self.threshold = None
                 self._segment_path = lambda: "remote-lfa"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/mpls-ldp/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RouterConvergence.MplsLdp.RemoteLfa, ['threshold'], name, value)
@@ -569,6 +590,7 @@ class RouterConvergence(Entity):
             self.collect_diagnostic = YList(self)
             self._segment_path = lambda: "collect-diagnostics"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RouterConvergence.CollectDiagnostics, [], name, value)
@@ -607,13 +629,14 @@ class RouterConvergence(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.node_name = None
                 self.enable = None
                 self._segment_path = lambda: "collect-diagnostic" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/collect-diagnostics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RouterConvergence.CollectDiagnostics.CollectDiagnostic, ['node_name', 'enable'], name, value)
@@ -649,6 +672,7 @@ class RouterConvergence(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RouterConvergence.Nodes, [], name, value)
@@ -693,15 +717,16 @@ class RouterConvergence(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
-                    ('disable', YLeaf(YType.empty, 'disable')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                    ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.node_name = None
                 self.disable = None
                 self.enable = None
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-rcmd-cfg:router-convergence/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RouterConvergence.Nodes.Node, ['node_name', 'disable', 'enable'], name, value)

@@ -8,7 +8,7 @@ for the following management objects\:
   arp\-gmp\: ARP\-GMP global operational data
   arp\: arp
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class ArpGmpBagEncap(Enum):
@@ -523,6 +524,7 @@ class ArpGmp(Entity):
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ArpGmp, [], name, value)
@@ -558,6 +560,7 @@ class ArpGmp(Entity):
             self.vrf_info = YList(self)
             self._segment_path = lambda: "vrf-infos"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ArpGmp.VrfInfos, [], name, value)
@@ -624,12 +627,12 @@ class ArpGmp(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('vrf_name_xr', YLeaf(YType.str, 'vrf-name-xr')),
-                    ('vrf_id_number', YLeaf(YType.uint32, 'vrf-id-number')),
-                    ('table_id', YLeaf(YType.uint32, 'table-id')),
-                    ('rsi_handle', YLeaf(YType.uint32, 'rsi-handle')),
-                    ('rsi_handle_high', YLeaf(YType.uint32, 'rsi-handle-high')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('vrf_name_xr', (YLeaf(YType.str, 'vrf-name-xr'), ['str'])),
+                    ('vrf_id_number', (YLeaf(YType.uint32, 'vrf-id-number'), ['int'])),
+                    ('table_id', (YLeaf(YType.uint32, 'table-id'), ['int'])),
+                    ('rsi_handle', (YLeaf(YType.uint32, 'rsi-handle'), ['int'])),
+                    ('rsi_handle_high', (YLeaf(YType.uint32, 'rsi-handle-high'), ['int'])),
                 ])
                 self.vrf_name = None
                 self.vrf_name_xr = None
@@ -639,9 +642,10 @@ class ArpGmp(Entity):
                 self.rsi_handle_high = None
                 self._segment_path = lambda: "vrf-info" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/vrf-infos/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ArpGmp.VrfInfos.VrfInfo, ['vrf_name', 'vrf_name_xr', 'vrf_id_number', 'table_id', 'rsi_handle', 'rsi_handle_high'], name, value)
+                self._perform_setattr(ArpGmp.VrfInfos.VrfInfo, ['vrf_name', u'vrf_name_xr', u'vrf_id_number', u'table_id', u'rsi_handle', u'rsi_handle_high'], name, value)
 
 
     class Vrfs(Entity):
@@ -674,6 +678,7 @@ class ArpGmp(Entity):
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ArpGmp.Vrfs, [], name, value)
@@ -722,7 +727,7 @@ class ArpGmp(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("configured-ip-addresses", ("configured_ip_addresses", ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses)), ("routes", ("routes", ArpGmp.Vrfs.Vrf.Routes)), ("interface-configured-ips", ("interface_configured_ips", ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ])
                 self.vrf_name = None
 
@@ -739,6 +744,7 @@ class ArpGmp(Entity):
                 self._children_name_map["interface_configured_ips"] = "interface-configured-ips"
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-arp-oper:arp-gmp/vrfs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ArpGmp.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -774,6 +780,7 @@ class ArpGmp(Entity):
 
                     self.configured_ip_address = YList(self)
                     self._segment_path = lambda: "configured-ip-addresses"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses, [], name, value)
@@ -831,11 +838,11 @@ class ArpGmp(Entity):
                         self.ylist_key_names = ['address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('address', YLeaf(YType.str, 'address')),
-                            ('ip_address', YLeaf(YType.str, 'ip-address')),
-                            ('hardware_address', YLeaf(YType.str, 'hardware-address')),
-                            ('encapsulation_type', YLeaf(YType.enumeration, 'encapsulation-type')),
-                            ('entry_type', YLeaf(YType.enumeration, 'entry-type')),
+                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                            ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                            ('hardware_address', (YLeaf(YType.str, 'hardware-address'), ['str'])),
+                            ('encapsulation_type', (YLeaf(YType.enumeration, 'encapsulation-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper', 'ArpGmpBagEncap', '')])),
+                            ('entry_type', (YLeaf(YType.enumeration, 'entry-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper', 'ArpGmpBagEntry', '')])),
                         ])
                         self.address = None
                         self.ip_address = None
@@ -843,9 +850,10 @@ class ArpGmp(Entity):
                         self.encapsulation_type = None
                         self.entry_type = None
                         self._segment_path = lambda: "configured-ip-address" + "[address='" + str(self.address) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress, ['address', 'ip_address', 'hardware_address', 'encapsulation_type', 'entry_type'], name, value)
+                        self._perform_setattr(ArpGmp.Vrfs.Vrf.ConfiguredIpAddresses.ConfiguredIpAddress, ['address', u'ip_address', u'hardware_address', u'encapsulation_type', u'entry_type'], name, value)
 
 
             class Routes(Entity):
@@ -877,6 +885,7 @@ class ArpGmp(Entity):
 
                     self.route = YList(self)
                     self._segment_path = lambda: "routes"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ArpGmp.Vrfs.Vrf.Routes, [], name, value)
@@ -919,14 +928,14 @@ class ArpGmp(Entity):
                     	Interface name (first element of InterfaceNames array)
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: interface_name
                     
                     	Interface names
                     	**type**\: list of str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     
 
@@ -945,12 +954,12 @@ class ArpGmp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('address', YLeaf(YType.str, 'address')),
-                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                            ('ip_address', YLeaf(YType.str, 'ip-address')),
-                            ('prefix_length_xr', YLeaf(YType.uint8, 'prefix-length-xr')),
-                            ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
-                            ('interface_name', YLeafList(YType.str, 'interface-name')),
+                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                            ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                            ('prefix_length_xr', (YLeaf(YType.uint8, 'prefix-length-xr'), ['int'])),
+                            ('interface_name_xr', (YLeaf(YType.str, 'interface-name-xr'), ['str'])),
+                            ('interface_name', (YLeafList(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.address = None
                         self.prefix_length = None
@@ -959,9 +968,10 @@ class ArpGmp(Entity):
                         self.interface_name_xr = None
                         self.interface_name = []
                         self._segment_path = lambda: "route"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ArpGmp.Vrfs.Vrf.Routes.Route, ['address', 'prefix_length', 'ip_address', 'prefix_length_xr', 'interface_name_xr', 'interface_name'], name, value)
+                        self._perform_setattr(ArpGmp.Vrfs.Vrf.Routes.Route, ['address', 'prefix_length', u'ip_address', u'prefix_length_xr', u'interface_name_xr', u'interface_name'], name, value)
 
 
             class InterfaceConfiguredIps(Entity):
@@ -994,6 +1004,7 @@ class ArpGmp(Entity):
 
                     self.interface_configured_ip = YList(self)
                     self._segment_path = lambda: "interface-configured-ips"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps, [], name, value)
@@ -1009,7 +1020,7 @@ class ArpGmp(Entity):
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: address
                     
@@ -1028,7 +1039,7 @@ class ArpGmp(Entity):
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: reference_count
                     
@@ -1054,10 +1065,10 @@ class ArpGmp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("associated-configuration-entry", ("associated_configuration_entry", ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('address', YLeaf(YType.str, 'address')),
-                            ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
-                            ('reference_count', YLeaf(YType.uint32, 'reference-count')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                            ('interface_name_xr', (YLeaf(YType.str, 'interface-name-xr'), ['str'])),
+                            ('reference_count', (YLeaf(YType.uint32, 'reference-count'), ['int'])),
                         ])
                         self.interface_name = None
                         self.address = None
@@ -1068,9 +1079,10 @@ class ArpGmp(Entity):
                         self.associated_configuration_entry.parent = self
                         self._children_name_map["associated_configuration_entry"] = "associated-configuration-entry"
                         self._segment_path = lambda: "interface-configured-ip"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp, ['interface_name', 'address', 'interface_name_xr', 'reference_count'], name, value)
+                        self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp, ['interface_name', 'address', u'interface_name_xr', u'reference_count'], name, value)
 
 
                     class AssociatedConfigurationEntry(Entity):
@@ -1118,19 +1130,20 @@ class ArpGmp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ip_address', YLeaf(YType.str, 'ip-address')),
-                                ('hardware_address', YLeaf(YType.str, 'hardware-address')),
-                                ('encapsulation_type', YLeaf(YType.enumeration, 'encapsulation-type')),
-                                ('entry_type', YLeaf(YType.enumeration, 'entry-type')),
+                                ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                                ('hardware_address', (YLeaf(YType.str, 'hardware-address'), ['str'])),
+                                ('encapsulation_type', (YLeaf(YType.enumeration, 'encapsulation-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper', 'ArpGmpBagEncap', '')])),
+                                ('entry_type', (YLeaf(YType.enumeration, 'entry-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper', 'ArpGmpBagEntry', '')])),
                             ])
                             self.ip_address = None
                             self.hardware_address = None
                             self.encapsulation_type = None
                             self.entry_type = None
                             self._segment_path = lambda: "associated-configuration-entry"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry, ['ip_address', 'hardware_address', 'encapsulation_type', 'entry_type'], name, value)
+                            self._perform_setattr(ArpGmp.Vrfs.Vrf.InterfaceConfiguredIps.InterfaceConfiguredIp.AssociatedConfigurationEntry, [u'ip_address', u'hardware_address', u'encapsulation_type', u'entry_type'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ArpGmp()
@@ -1168,6 +1181,7 @@ class Arp(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-arp-oper:arp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Arp, [], name, value)
@@ -1203,6 +1217,7 @@ class Arp(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-arp-oper:arp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Arp.Nodes, [], name, value)
@@ -1266,7 +1281,7 @@ class Arp(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("resolution-history-dynamic", ("resolution_history_dynamic", Arp.Nodes.Node.ResolutionHistoryDynamic)), ("traffic-vrfs", ("traffic_vrfs", Arp.Nodes.Node.TrafficVrfs)), ("traffic-node", ("traffic_node", Arp.Nodes.Node.TrafficNode)), ("resolution-history-client", ("resolution_history_client", Arp.Nodes.Node.ResolutionHistoryClient)), ("entries", ("entries", Arp.Nodes.Node.Entries)), ("traffic-interfaces", ("traffic_interfaces", Arp.Nodes.Node.TrafficInterfaces))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -1295,6 +1310,7 @@ class Arp(Entity):
                 self._children_name_map["traffic_interfaces"] = "traffic-interfaces"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-arp-oper:arp/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Arp.Nodes.Node, ['node_name'], name, value)
@@ -1330,6 +1346,7 @@ class Arp(Entity):
 
                     self.arp_entry = YList(self)
                     self._segment_path = lambda: "resolution-history-dynamic"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Arp.Nodes.Node.ResolutionHistoryDynamic, [], name, value)
@@ -1353,7 +1370,7 @@ class Arp(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: ipv4_address
                     
@@ -1412,14 +1429,14 @@ class Arp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('nsec_timestamp', YLeaf(YType.uint64, 'nsec-timestamp')),
-                            ('idb_interface_name', YLeaf(YType.str, 'idb-interface-name')),
-                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                            ('mac_address', YLeaf(YType.str, 'mac-address')),
-                            ('status', YLeaf(YType.enumeration, 'status')),
-                            ('client_id', YLeaf(YType.int32, 'client-id')),
-                            ('entry_state', YLeaf(YType.int32, 'entry-state')),
-                            ('resolution_request_count', YLeaf(YType.uint32, 'resolution-request-count')),
+                            ('nsec_timestamp', (YLeaf(YType.uint64, 'nsec-timestamp'), ['int'])),
+                            ('idb_interface_name', (YLeaf(YType.str, 'idb-interface-name'), ['str'])),
+                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                            ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                            ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper', 'ArpResolutionHistoryStatus', '')])),
+                            ('client_id', (YLeaf(YType.int32, 'client-id'), ['int'])),
+                            ('entry_state', (YLeaf(YType.int32, 'entry-state'), ['int'])),
+                            ('resolution_request_count', (YLeaf(YType.uint32, 'resolution-request-count'), ['int'])),
                         ])
                         self.nsec_timestamp = None
                         self.idb_interface_name = None
@@ -1430,9 +1447,10 @@ class Arp(Entity):
                         self.entry_state = None
                         self.resolution_request_count = None
                         self._segment_path = lambda: "arp-entry"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Arp.Nodes.Node.ResolutionHistoryDynamic.ArpEntry, [u'nsec_timestamp', u'idb_interface_name', u'ipv4_address', u'mac_address', u'status', u'client_id', u'entry_state', u'resolution_request_count'], name, value)
+                        self._perform_setattr(Arp.Nodes.Node.ResolutionHistoryDynamic.ArpEntry, ['nsec_timestamp', 'idb_interface_name', 'ipv4_address', 'mac_address', 'status', 'client_id', 'entry_state', 'resolution_request_count'], name, value)
 
 
             class TrafficVrfs(Entity):
@@ -1464,6 +1482,7 @@ class Arp(Entity):
 
                     self.traffic_vrf = YList(self)
                     self._segment_path = lambda: "traffic-vrfs"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Arp.Nodes.Node.TrafficVrfs, [], name, value)
@@ -1698,36 +1717,36 @@ class Arp(Entity):
                         self.ylist_key_names = ['vrf_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                            ('requests_received', YLeaf(YType.uint32, 'requests-received')),
-                            ('replies_received', YLeaf(YType.uint32, 'replies-received')),
-                            ('requests_sent', YLeaf(YType.uint32, 'requests-sent')),
-                            ('replies_sent', YLeaf(YType.uint32, 'replies-sent')),
-                            ('proxy_replies_sent', YLeaf(YType.uint32, 'proxy-replies-sent')),
-                            ('subscr_requests_received', YLeaf(YType.uint32, 'subscr-requests-received')),
-                            ('subscr_replies_sent', YLeaf(YType.uint32, 'subscr-replies-sent')),
-                            ('subscr_replies_gratg_sent', YLeaf(YType.uint32, 'subscr-replies-gratg-sent')),
-                            ('local_proxy_replies_sent', YLeaf(YType.uint32, 'local-proxy-replies-sent')),
-                            ('gratuitous_replies_sent', YLeaf(YType.uint32, 'gratuitous-replies-sent')),
-                            ('resolution_requests_received', YLeaf(YType.uint32, 'resolution-requests-received')),
-                            ('resolution_replies_received', YLeaf(YType.uint32, 'resolution-replies-received')),
-                            ('resolution_requests_dropped', YLeaf(YType.uint32, 'resolution-requests-dropped')),
-                            ('out_of_memory_errors', YLeaf(YType.uint32, 'out-of-memory-errors')),
-                            ('no_buffer_errors', YLeaf(YType.uint32, 'no-buffer-errors')),
-                            ('total_entries', YLeaf(YType.uint32, 'total-entries')),
-                            ('dynamic_entries', YLeaf(YType.uint32, 'dynamic-entries')),
-                            ('static_entries', YLeaf(YType.uint32, 'static-entries')),
-                            ('alias_entries', YLeaf(YType.uint32, 'alias-entries')),
-                            ('interface_entries', YLeaf(YType.uint32, 'interface-entries')),
-                            ('standby_entries', YLeaf(YType.uint32, 'standby-entries')),
-                            ('dhcp_entries', YLeaf(YType.uint32, 'dhcp-entries')),
-                            ('vxlan_entries', YLeaf(YType.uint32, 'vxlan-entries')),
-                            ('ip_packets_dropped_node', YLeaf(YType.uint32, 'ip-packets-dropped-node')),
-                            ('arp_packet_node_out_of_subnet', YLeaf(YType.uint32, 'arp-packet-node-out-of-subnet')),
-                            ('ip_packets_dropped_interface', YLeaf(YType.uint32, 'ip-packets-dropped-interface')),
-                            ('arp_packet_interface_out_of_subnet', YLeaf(YType.uint32, 'arp-packet-interface-out-of-subnet')),
-                            ('arp_packet_unsolicited_packet', YLeaf(YType.uint32, 'arp-packet-unsolicited-packet')),
-                            ('idb_structures', YLeaf(YType.uint32, 'idb-structures')),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                            ('requests_received', (YLeaf(YType.uint32, 'requests-received'), ['int'])),
+                            ('replies_received', (YLeaf(YType.uint32, 'replies-received'), ['int'])),
+                            ('requests_sent', (YLeaf(YType.uint32, 'requests-sent'), ['int'])),
+                            ('replies_sent', (YLeaf(YType.uint32, 'replies-sent'), ['int'])),
+                            ('proxy_replies_sent', (YLeaf(YType.uint32, 'proxy-replies-sent'), ['int'])),
+                            ('subscr_requests_received', (YLeaf(YType.uint32, 'subscr-requests-received'), ['int'])),
+                            ('subscr_replies_sent', (YLeaf(YType.uint32, 'subscr-replies-sent'), ['int'])),
+                            ('subscr_replies_gratg_sent', (YLeaf(YType.uint32, 'subscr-replies-gratg-sent'), ['int'])),
+                            ('local_proxy_replies_sent', (YLeaf(YType.uint32, 'local-proxy-replies-sent'), ['int'])),
+                            ('gratuitous_replies_sent', (YLeaf(YType.uint32, 'gratuitous-replies-sent'), ['int'])),
+                            ('resolution_requests_received', (YLeaf(YType.uint32, 'resolution-requests-received'), ['int'])),
+                            ('resolution_replies_received', (YLeaf(YType.uint32, 'resolution-replies-received'), ['int'])),
+                            ('resolution_requests_dropped', (YLeaf(YType.uint32, 'resolution-requests-dropped'), ['int'])),
+                            ('out_of_memory_errors', (YLeaf(YType.uint32, 'out-of-memory-errors'), ['int'])),
+                            ('no_buffer_errors', (YLeaf(YType.uint32, 'no-buffer-errors'), ['int'])),
+                            ('total_entries', (YLeaf(YType.uint32, 'total-entries'), ['int'])),
+                            ('dynamic_entries', (YLeaf(YType.uint32, 'dynamic-entries'), ['int'])),
+                            ('static_entries', (YLeaf(YType.uint32, 'static-entries'), ['int'])),
+                            ('alias_entries', (YLeaf(YType.uint32, 'alias-entries'), ['int'])),
+                            ('interface_entries', (YLeaf(YType.uint32, 'interface-entries'), ['int'])),
+                            ('standby_entries', (YLeaf(YType.uint32, 'standby-entries'), ['int'])),
+                            ('dhcp_entries', (YLeaf(YType.uint32, 'dhcp-entries'), ['int'])),
+                            ('vxlan_entries', (YLeaf(YType.uint32, 'vxlan-entries'), ['int'])),
+                            ('ip_packets_dropped_node', (YLeaf(YType.uint32, 'ip-packets-dropped-node'), ['int'])),
+                            ('arp_packet_node_out_of_subnet', (YLeaf(YType.uint32, 'arp-packet-node-out-of-subnet'), ['int'])),
+                            ('ip_packets_dropped_interface', (YLeaf(YType.uint32, 'ip-packets-dropped-interface'), ['int'])),
+                            ('arp_packet_interface_out_of_subnet', (YLeaf(YType.uint32, 'arp-packet-interface-out-of-subnet'), ['int'])),
+                            ('arp_packet_unsolicited_packet', (YLeaf(YType.uint32, 'arp-packet-unsolicited-packet'), ['int'])),
+                            ('idb_structures', (YLeaf(YType.uint32, 'idb-structures'), ['int'])),
                         ])
                         self.vrf_name = None
                         self.requests_received = None
@@ -1760,9 +1779,10 @@ class Arp(Entity):
                         self.arp_packet_unsolicited_packet = None
                         self.idb_structures = None
                         self._segment_path = lambda: "traffic-vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Arp.Nodes.Node.TrafficVrfs.TrafficVrf, ['vrf_name', u'requests_received', u'replies_received', u'requests_sent', u'replies_sent', u'proxy_replies_sent', u'subscr_requests_received', u'subscr_replies_sent', u'subscr_replies_gratg_sent', u'local_proxy_replies_sent', u'gratuitous_replies_sent', u'resolution_requests_received', u'resolution_replies_received', u'resolution_requests_dropped', u'out_of_memory_errors', u'no_buffer_errors', u'total_entries', u'dynamic_entries', u'static_entries', u'alias_entries', u'interface_entries', u'standby_entries', u'dhcp_entries', u'vxlan_entries', u'ip_packets_dropped_node', u'arp_packet_node_out_of_subnet', u'ip_packets_dropped_interface', u'arp_packet_interface_out_of_subnet', u'arp_packet_unsolicited_packet', u'idb_structures'], name, value)
+                        self._perform_setattr(Arp.Nodes.Node.TrafficVrfs.TrafficVrf, ['vrf_name', 'requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
 
 
             class TrafficNode(Entity):
@@ -1989,35 +2009,35 @@ class Arp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('requests_received', YLeaf(YType.uint32, 'requests-received')),
-                        ('replies_received', YLeaf(YType.uint32, 'replies-received')),
-                        ('requests_sent', YLeaf(YType.uint32, 'requests-sent')),
-                        ('replies_sent', YLeaf(YType.uint32, 'replies-sent')),
-                        ('proxy_replies_sent', YLeaf(YType.uint32, 'proxy-replies-sent')),
-                        ('subscr_requests_received', YLeaf(YType.uint32, 'subscr-requests-received')),
-                        ('subscr_replies_sent', YLeaf(YType.uint32, 'subscr-replies-sent')),
-                        ('subscr_replies_gratg_sent', YLeaf(YType.uint32, 'subscr-replies-gratg-sent')),
-                        ('local_proxy_replies_sent', YLeaf(YType.uint32, 'local-proxy-replies-sent')),
-                        ('gratuitous_replies_sent', YLeaf(YType.uint32, 'gratuitous-replies-sent')),
-                        ('resolution_requests_received', YLeaf(YType.uint32, 'resolution-requests-received')),
-                        ('resolution_replies_received', YLeaf(YType.uint32, 'resolution-replies-received')),
-                        ('resolution_requests_dropped', YLeaf(YType.uint32, 'resolution-requests-dropped')),
-                        ('out_of_memory_errors', YLeaf(YType.uint32, 'out-of-memory-errors')),
-                        ('no_buffer_errors', YLeaf(YType.uint32, 'no-buffer-errors')),
-                        ('total_entries', YLeaf(YType.uint32, 'total-entries')),
-                        ('dynamic_entries', YLeaf(YType.uint32, 'dynamic-entries')),
-                        ('static_entries', YLeaf(YType.uint32, 'static-entries')),
-                        ('alias_entries', YLeaf(YType.uint32, 'alias-entries')),
-                        ('interface_entries', YLeaf(YType.uint32, 'interface-entries')),
-                        ('standby_entries', YLeaf(YType.uint32, 'standby-entries')),
-                        ('dhcp_entries', YLeaf(YType.uint32, 'dhcp-entries')),
-                        ('vxlan_entries', YLeaf(YType.uint32, 'vxlan-entries')),
-                        ('ip_packets_dropped_node', YLeaf(YType.uint32, 'ip-packets-dropped-node')),
-                        ('arp_packet_node_out_of_subnet', YLeaf(YType.uint32, 'arp-packet-node-out-of-subnet')),
-                        ('ip_packets_dropped_interface', YLeaf(YType.uint32, 'ip-packets-dropped-interface')),
-                        ('arp_packet_interface_out_of_subnet', YLeaf(YType.uint32, 'arp-packet-interface-out-of-subnet')),
-                        ('arp_packet_unsolicited_packet', YLeaf(YType.uint32, 'arp-packet-unsolicited-packet')),
-                        ('idb_structures', YLeaf(YType.uint32, 'idb-structures')),
+                        ('requests_received', (YLeaf(YType.uint32, 'requests-received'), ['int'])),
+                        ('replies_received', (YLeaf(YType.uint32, 'replies-received'), ['int'])),
+                        ('requests_sent', (YLeaf(YType.uint32, 'requests-sent'), ['int'])),
+                        ('replies_sent', (YLeaf(YType.uint32, 'replies-sent'), ['int'])),
+                        ('proxy_replies_sent', (YLeaf(YType.uint32, 'proxy-replies-sent'), ['int'])),
+                        ('subscr_requests_received', (YLeaf(YType.uint32, 'subscr-requests-received'), ['int'])),
+                        ('subscr_replies_sent', (YLeaf(YType.uint32, 'subscr-replies-sent'), ['int'])),
+                        ('subscr_replies_gratg_sent', (YLeaf(YType.uint32, 'subscr-replies-gratg-sent'), ['int'])),
+                        ('local_proxy_replies_sent', (YLeaf(YType.uint32, 'local-proxy-replies-sent'), ['int'])),
+                        ('gratuitous_replies_sent', (YLeaf(YType.uint32, 'gratuitous-replies-sent'), ['int'])),
+                        ('resolution_requests_received', (YLeaf(YType.uint32, 'resolution-requests-received'), ['int'])),
+                        ('resolution_replies_received', (YLeaf(YType.uint32, 'resolution-replies-received'), ['int'])),
+                        ('resolution_requests_dropped', (YLeaf(YType.uint32, 'resolution-requests-dropped'), ['int'])),
+                        ('out_of_memory_errors', (YLeaf(YType.uint32, 'out-of-memory-errors'), ['int'])),
+                        ('no_buffer_errors', (YLeaf(YType.uint32, 'no-buffer-errors'), ['int'])),
+                        ('total_entries', (YLeaf(YType.uint32, 'total-entries'), ['int'])),
+                        ('dynamic_entries', (YLeaf(YType.uint32, 'dynamic-entries'), ['int'])),
+                        ('static_entries', (YLeaf(YType.uint32, 'static-entries'), ['int'])),
+                        ('alias_entries', (YLeaf(YType.uint32, 'alias-entries'), ['int'])),
+                        ('interface_entries', (YLeaf(YType.uint32, 'interface-entries'), ['int'])),
+                        ('standby_entries', (YLeaf(YType.uint32, 'standby-entries'), ['int'])),
+                        ('dhcp_entries', (YLeaf(YType.uint32, 'dhcp-entries'), ['int'])),
+                        ('vxlan_entries', (YLeaf(YType.uint32, 'vxlan-entries'), ['int'])),
+                        ('ip_packets_dropped_node', (YLeaf(YType.uint32, 'ip-packets-dropped-node'), ['int'])),
+                        ('arp_packet_node_out_of_subnet', (YLeaf(YType.uint32, 'arp-packet-node-out-of-subnet'), ['int'])),
+                        ('ip_packets_dropped_interface', (YLeaf(YType.uint32, 'ip-packets-dropped-interface'), ['int'])),
+                        ('arp_packet_interface_out_of_subnet', (YLeaf(YType.uint32, 'arp-packet-interface-out-of-subnet'), ['int'])),
+                        ('arp_packet_unsolicited_packet', (YLeaf(YType.uint32, 'arp-packet-unsolicited-packet'), ['int'])),
+                        ('idb_structures', (YLeaf(YType.uint32, 'idb-structures'), ['int'])),
                     ])
                     self.requests_received = None
                     self.replies_received = None
@@ -2049,9 +2069,10 @@ class Arp(Entity):
                     self.arp_packet_unsolicited_packet = None
                     self.idb_structures = None
                     self._segment_path = lambda: "traffic-node"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Arp.Nodes.Node.TrafficNode, [u'requests_received', u'replies_received', u'requests_sent', u'replies_sent', u'proxy_replies_sent', u'subscr_requests_received', u'subscr_replies_sent', u'subscr_replies_gratg_sent', u'local_proxy_replies_sent', u'gratuitous_replies_sent', u'resolution_requests_received', u'resolution_replies_received', u'resolution_requests_dropped', u'out_of_memory_errors', u'no_buffer_errors', u'total_entries', u'dynamic_entries', u'static_entries', u'alias_entries', u'interface_entries', u'standby_entries', u'dhcp_entries', u'vxlan_entries', u'ip_packets_dropped_node', u'arp_packet_node_out_of_subnet', u'ip_packets_dropped_interface', u'arp_packet_interface_out_of_subnet', u'arp_packet_unsolicited_packet', u'idb_structures'], name, value)
+                    self._perform_setattr(Arp.Nodes.Node.TrafficNode, ['requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
 
 
             class ResolutionHistoryClient(Entity):
@@ -2084,6 +2105,7 @@ class Arp(Entity):
 
                     self.arp_entry = YList(self)
                     self._segment_path = lambda: "resolution-history-client"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Arp.Nodes.Node.ResolutionHistoryClient, [], name, value)
@@ -2107,7 +2129,7 @@ class Arp(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: ipv4_address
                     
@@ -2166,14 +2188,14 @@ class Arp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('nsec_timestamp', YLeaf(YType.uint64, 'nsec-timestamp')),
-                            ('idb_interface_name', YLeaf(YType.str, 'idb-interface-name')),
-                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                            ('mac_address', YLeaf(YType.str, 'mac-address')),
-                            ('status', YLeaf(YType.enumeration, 'status')),
-                            ('client_id', YLeaf(YType.int32, 'client-id')),
-                            ('entry_state', YLeaf(YType.int32, 'entry-state')),
-                            ('resolution_request_count', YLeaf(YType.uint32, 'resolution-request-count')),
+                            ('nsec_timestamp', (YLeaf(YType.uint64, 'nsec-timestamp'), ['int'])),
+                            ('idb_interface_name', (YLeaf(YType.str, 'idb-interface-name'), ['str'])),
+                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                            ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                            ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper', 'ArpResolutionHistoryStatus', '')])),
+                            ('client_id', (YLeaf(YType.int32, 'client-id'), ['int'])),
+                            ('entry_state', (YLeaf(YType.int32, 'entry-state'), ['int'])),
+                            ('resolution_request_count', (YLeaf(YType.uint32, 'resolution-request-count'), ['int'])),
                         ])
                         self.nsec_timestamp = None
                         self.idb_interface_name = None
@@ -2184,9 +2206,10 @@ class Arp(Entity):
                         self.entry_state = None
                         self.resolution_request_count = None
                         self._segment_path = lambda: "arp-entry"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Arp.Nodes.Node.ResolutionHistoryClient.ArpEntry, [u'nsec_timestamp', u'idb_interface_name', u'ipv4_address', u'mac_address', u'status', u'client_id', u'entry_state', u'resolution_request_count'], name, value)
+                        self._perform_setattr(Arp.Nodes.Node.ResolutionHistoryClient.ArpEntry, ['nsec_timestamp', 'idb_interface_name', 'ipv4_address', 'mac_address', 'status', 'client_id', 'entry_state', 'resolution_request_count'], name, value)
 
 
             class Entries(Entity):
@@ -2218,6 +2241,7 @@ class Arp(Entity):
 
                     self.entry = YList(self)
                     self._segment_path = lambda: "entries"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Arp.Nodes.Node.Entries, [], name, value)
@@ -2239,7 +2263,7 @@ class Arp(Entity):
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: media_type
                     
@@ -2299,15 +2323,15 @@ class Arp(Entity):
                         self.ylist_key_names = ['address','interface_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('address', YLeaf(YType.str, 'address')),
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('media_type', YLeaf(YType.enumeration, 'media-type')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('flag', YLeaf(YType.enumeration, 'flag')),
-                            ('age', YLeaf(YType.uint64, 'age')),
-                            ('encapsulation_type', YLeaf(YType.enumeration, 'encapsulation-type')),
-                            ('hardware_length', YLeaf(YType.uint8, 'hardware-length')),
-                            ('hardware_address', YLeaf(YType.str, 'hardware-address')),
+                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('media_type', (YLeaf(YType.enumeration, 'media-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper', 'IpArpBagMedia', '')])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper', 'IpArpBagState', '')])),
+                            ('flag', (YLeaf(YType.enumeration, 'flag'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper', 'IpArpBagFlags', '')])),
+                            ('age', (YLeaf(YType.uint64, 'age'), ['int'])),
+                            ('encapsulation_type', (YLeaf(YType.enumeration, 'encapsulation-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_oper', 'IpArpBagEncap', '')])),
+                            ('hardware_length', (YLeaf(YType.uint8, 'hardware-length'), ['int'])),
+                            ('hardware_address', (YLeaf(YType.str, 'hardware-address'), ['str'])),
                         ])
                         self.address = None
                         self.interface_name = None
@@ -2319,9 +2343,10 @@ class Arp(Entity):
                         self.hardware_length = None
                         self.hardware_address = None
                         self._segment_path = lambda: "entry" + "[address='" + str(self.address) + "']" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Arp.Nodes.Node.Entries.Entry, ['address', 'interface_name', u'media_type', u'state', u'flag', u'age', u'encapsulation_type', u'hardware_length', u'hardware_address'], name, value)
+                        self._perform_setattr(Arp.Nodes.Node.Entries.Entry, ['address', 'interface_name', 'media_type', 'state', 'flag', 'age', 'encapsulation_type', 'hardware_length', 'hardware_address'], name, value)
 
 
             class TrafficInterfaces(Entity):
@@ -2353,6 +2378,7 @@ class Arp(Entity):
 
                     self.traffic_interface = YList(self)
                     self._segment_path = lambda: "traffic-interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Arp.Nodes.Node.TrafficInterfaces, [], name, value)
@@ -2367,7 +2393,7 @@ class Arp(Entity):
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: requests_received
                     
@@ -2589,36 +2615,36 @@ class Arp(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('requests_received', YLeaf(YType.uint32, 'requests-received')),
-                            ('replies_received', YLeaf(YType.uint32, 'replies-received')),
-                            ('requests_sent', YLeaf(YType.uint32, 'requests-sent')),
-                            ('replies_sent', YLeaf(YType.uint32, 'replies-sent')),
-                            ('proxy_replies_sent', YLeaf(YType.uint32, 'proxy-replies-sent')),
-                            ('subscr_requests_received', YLeaf(YType.uint32, 'subscr-requests-received')),
-                            ('subscr_replies_sent', YLeaf(YType.uint32, 'subscr-replies-sent')),
-                            ('subscr_replies_gratg_sent', YLeaf(YType.uint32, 'subscr-replies-gratg-sent')),
-                            ('local_proxy_replies_sent', YLeaf(YType.uint32, 'local-proxy-replies-sent')),
-                            ('gratuitous_replies_sent', YLeaf(YType.uint32, 'gratuitous-replies-sent')),
-                            ('resolution_requests_received', YLeaf(YType.uint32, 'resolution-requests-received')),
-                            ('resolution_replies_received', YLeaf(YType.uint32, 'resolution-replies-received')),
-                            ('resolution_requests_dropped', YLeaf(YType.uint32, 'resolution-requests-dropped')),
-                            ('out_of_memory_errors', YLeaf(YType.uint32, 'out-of-memory-errors')),
-                            ('no_buffer_errors', YLeaf(YType.uint32, 'no-buffer-errors')),
-                            ('total_entries', YLeaf(YType.uint32, 'total-entries')),
-                            ('dynamic_entries', YLeaf(YType.uint32, 'dynamic-entries')),
-                            ('static_entries', YLeaf(YType.uint32, 'static-entries')),
-                            ('alias_entries', YLeaf(YType.uint32, 'alias-entries')),
-                            ('interface_entries', YLeaf(YType.uint32, 'interface-entries')),
-                            ('standby_entries', YLeaf(YType.uint32, 'standby-entries')),
-                            ('dhcp_entries', YLeaf(YType.uint32, 'dhcp-entries')),
-                            ('vxlan_entries', YLeaf(YType.uint32, 'vxlan-entries')),
-                            ('ip_packets_dropped_node', YLeaf(YType.uint32, 'ip-packets-dropped-node')),
-                            ('arp_packet_node_out_of_subnet', YLeaf(YType.uint32, 'arp-packet-node-out-of-subnet')),
-                            ('ip_packets_dropped_interface', YLeaf(YType.uint32, 'ip-packets-dropped-interface')),
-                            ('arp_packet_interface_out_of_subnet', YLeaf(YType.uint32, 'arp-packet-interface-out-of-subnet')),
-                            ('arp_packet_unsolicited_packet', YLeaf(YType.uint32, 'arp-packet-unsolicited-packet')),
-                            ('idb_structures', YLeaf(YType.uint32, 'idb-structures')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('requests_received', (YLeaf(YType.uint32, 'requests-received'), ['int'])),
+                            ('replies_received', (YLeaf(YType.uint32, 'replies-received'), ['int'])),
+                            ('requests_sent', (YLeaf(YType.uint32, 'requests-sent'), ['int'])),
+                            ('replies_sent', (YLeaf(YType.uint32, 'replies-sent'), ['int'])),
+                            ('proxy_replies_sent', (YLeaf(YType.uint32, 'proxy-replies-sent'), ['int'])),
+                            ('subscr_requests_received', (YLeaf(YType.uint32, 'subscr-requests-received'), ['int'])),
+                            ('subscr_replies_sent', (YLeaf(YType.uint32, 'subscr-replies-sent'), ['int'])),
+                            ('subscr_replies_gratg_sent', (YLeaf(YType.uint32, 'subscr-replies-gratg-sent'), ['int'])),
+                            ('local_proxy_replies_sent', (YLeaf(YType.uint32, 'local-proxy-replies-sent'), ['int'])),
+                            ('gratuitous_replies_sent', (YLeaf(YType.uint32, 'gratuitous-replies-sent'), ['int'])),
+                            ('resolution_requests_received', (YLeaf(YType.uint32, 'resolution-requests-received'), ['int'])),
+                            ('resolution_replies_received', (YLeaf(YType.uint32, 'resolution-replies-received'), ['int'])),
+                            ('resolution_requests_dropped', (YLeaf(YType.uint32, 'resolution-requests-dropped'), ['int'])),
+                            ('out_of_memory_errors', (YLeaf(YType.uint32, 'out-of-memory-errors'), ['int'])),
+                            ('no_buffer_errors', (YLeaf(YType.uint32, 'no-buffer-errors'), ['int'])),
+                            ('total_entries', (YLeaf(YType.uint32, 'total-entries'), ['int'])),
+                            ('dynamic_entries', (YLeaf(YType.uint32, 'dynamic-entries'), ['int'])),
+                            ('static_entries', (YLeaf(YType.uint32, 'static-entries'), ['int'])),
+                            ('alias_entries', (YLeaf(YType.uint32, 'alias-entries'), ['int'])),
+                            ('interface_entries', (YLeaf(YType.uint32, 'interface-entries'), ['int'])),
+                            ('standby_entries', (YLeaf(YType.uint32, 'standby-entries'), ['int'])),
+                            ('dhcp_entries', (YLeaf(YType.uint32, 'dhcp-entries'), ['int'])),
+                            ('vxlan_entries', (YLeaf(YType.uint32, 'vxlan-entries'), ['int'])),
+                            ('ip_packets_dropped_node', (YLeaf(YType.uint32, 'ip-packets-dropped-node'), ['int'])),
+                            ('arp_packet_node_out_of_subnet', (YLeaf(YType.uint32, 'arp-packet-node-out-of-subnet'), ['int'])),
+                            ('ip_packets_dropped_interface', (YLeaf(YType.uint32, 'ip-packets-dropped-interface'), ['int'])),
+                            ('arp_packet_interface_out_of_subnet', (YLeaf(YType.uint32, 'arp-packet-interface-out-of-subnet'), ['int'])),
+                            ('arp_packet_unsolicited_packet', (YLeaf(YType.uint32, 'arp-packet-unsolicited-packet'), ['int'])),
+                            ('idb_structures', (YLeaf(YType.uint32, 'idb-structures'), ['int'])),
                         ])
                         self.interface_name = None
                         self.requests_received = None
@@ -2651,9 +2677,10 @@ class Arp(Entity):
                         self.arp_packet_unsolicited_packet = None
                         self.idb_structures = None
                         self._segment_path = lambda: "traffic-interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Arp.Nodes.Node.TrafficInterfaces.TrafficInterface, ['interface_name', u'requests_received', u'replies_received', u'requests_sent', u'replies_sent', u'proxy_replies_sent', u'subscr_requests_received', u'subscr_replies_sent', u'subscr_replies_gratg_sent', u'local_proxy_replies_sent', u'gratuitous_replies_sent', u'resolution_requests_received', u'resolution_replies_received', u'resolution_requests_dropped', u'out_of_memory_errors', u'no_buffer_errors', u'total_entries', u'dynamic_entries', u'static_entries', u'alias_entries', u'interface_entries', u'standby_entries', u'dhcp_entries', u'vxlan_entries', u'ip_packets_dropped_node', u'arp_packet_node_out_of_subnet', u'ip_packets_dropped_interface', u'arp_packet_interface_out_of_subnet', u'arp_packet_unsolicited_packet', u'idb_structures'], name, value)
+                        self._perform_setattr(Arp.Nodes.Node.TrafficInterfaces.TrafficInterface, ['interface_name', 'requests_received', 'replies_received', 'requests_sent', 'replies_sent', 'proxy_replies_sent', 'subscr_requests_received', 'subscr_replies_sent', 'subscr_replies_gratg_sent', 'local_proxy_replies_sent', 'gratuitous_replies_sent', 'resolution_requests_received', 'resolution_replies_received', 'resolution_requests_dropped', 'out_of_memory_errors', 'no_buffer_errors', 'total_entries', 'dynamic_entries', 'static_entries', 'alias_entries', 'interface_entries', 'standby_entries', 'dhcp_entries', 'vxlan_entries', 'ip_packets_dropped_node', 'arp_packet_node_out_of_subnet', 'ip_packets_dropped_interface', 'arp_packet_interface_out_of_subnet', 'arp_packet_unsolicited_packet', 'idb_structures'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Arp()

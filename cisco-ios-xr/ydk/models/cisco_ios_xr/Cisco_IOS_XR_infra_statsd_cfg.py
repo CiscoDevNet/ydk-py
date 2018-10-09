@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -56,6 +57,7 @@ class Statistics(Entity):
         self.period.parent = self
         self._children_name_map["period"] = "period"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-statsd-cfg:statistics"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Statistics, [], name, value)
@@ -93,6 +95,7 @@ class Statistics(Entity):
             self._children_name_map["service_accounting"] = "service-accounting"
             self._segment_path = lambda: "period"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-statsd-cfg:statistics/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Statistics.Period, [], name, value)
@@ -109,8 +112,6 @@ class Statistics(Entity):
             	**type**\: int
             
             	**range:** 30..3600
-            
-            	**default value**\: 900
             
             .. attribute:: polling_disable
             
@@ -134,13 +135,14 @@ class Statistics(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('polling_period', YLeaf(YType.uint32, 'polling-period')),
-                    ('polling_disable', YLeaf(YType.empty, 'polling-disable')),
+                    ('polling_period', (YLeaf(YType.uint32, 'polling-period'), ['int'])),
+                    ('polling_disable', (YLeaf(YType.empty, 'polling-disable'), ['Empty'])),
                 ])
                 self.polling_period = None
                 self.polling_disable = None
                 self._segment_path = lambda: "service-accounting"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-statsd-cfg:statistics/period/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Statistics.Period.ServiceAccounting, ['polling_period', 'polling_disable'], name, value)

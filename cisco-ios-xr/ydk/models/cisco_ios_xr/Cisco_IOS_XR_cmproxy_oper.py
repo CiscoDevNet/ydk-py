@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   sdr\-inventory\-vm\: Platform VM information
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class SdrInventoryVm(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-cmproxy-oper:sdr-inventory-vm"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SdrInventoryVm, [], name, value)
@@ -87,6 +89,7 @@ class SdrInventoryVm(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-cmproxy-oper:sdr-inventory-vm/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SdrInventoryVm.Nodes, [], name, value)
@@ -125,7 +128,7 @@ class SdrInventoryVm(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("node-entries", ("node_entries", SdrInventoryVm.Nodes.Node.NodeEntries))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
 
@@ -134,6 +137,7 @@ class SdrInventoryVm(Entity):
                 self._children_name_map["node_entries"] = "node-entries"
                 self._segment_path = lambda: "node" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-cmproxy-oper:sdr-inventory-vm/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SdrInventoryVm.Nodes.Node, ['name'], name, value)
@@ -168,6 +172,7 @@ class SdrInventoryVm(Entity):
 
                     self.node_entry = YList(self)
                     self._segment_path = lambda: "node-entries"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(SdrInventoryVm.Nodes.Node.NodeEntries, [], name, value)
@@ -306,22 +311,22 @@ class SdrInventoryVm(Entity):
                         self.ylist_key_names = ['name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('valid', YLeaf(YType.uint32, 'valid')),
-                            ('card_type', YLeaf(YType.uint32, 'card-type')),
-                            ('card_type_string', YLeaf(YType.str, 'card-type-string')),
-                            ('nodeid', YLeaf(YType.int32, 'nodeid')),
-                            ('node_name', YLeaf(YType.str, 'node-name')),
-                            ('partner_id', YLeaf(YType.int32, 'partner-id')),
-                            ('partner_name', YLeaf(YType.str, 'partner-name')),
-                            ('red_state', YLeaf(YType.uint32, 'red-state')),
-                            ('red_state_string', YLeaf(YType.str, 'red-state-string')),
-                            ('node_sw_state', YLeaf(YType.uint32, 'node-sw-state')),
-                            ('node_sw_state_string', YLeaf(YType.str, 'node-sw-state-string')),
-                            ('prev_sw_state', YLeaf(YType.uint32, 'prev-sw-state')),
-                            ('prev_sw_state_string', YLeaf(YType.str, 'prev-sw-state-string')),
-                            ('node_ip', YLeaf(YType.uint32, 'node-ip')),
-                            ('node_ipv4_string', YLeaf(YType.str, 'node-ipv4-string')),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('valid', (YLeaf(YType.uint32, 'valid'), ['int'])),
+                            ('card_type', (YLeaf(YType.uint32, 'card-type'), ['int'])),
+                            ('card_type_string', (YLeaf(YType.str, 'card-type-string'), ['str'])),
+                            ('nodeid', (YLeaf(YType.int32, 'nodeid'), ['int'])),
+                            ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                            ('partner_id', (YLeaf(YType.int32, 'partner-id'), ['int'])),
+                            ('partner_name', (YLeaf(YType.str, 'partner-name'), ['str'])),
+                            ('red_state', (YLeaf(YType.uint32, 'red-state'), ['int'])),
+                            ('red_state_string', (YLeaf(YType.str, 'red-state-string'), ['str'])),
+                            ('node_sw_state', (YLeaf(YType.uint32, 'node-sw-state'), ['int'])),
+                            ('node_sw_state_string', (YLeaf(YType.str, 'node-sw-state-string'), ['str'])),
+                            ('prev_sw_state', (YLeaf(YType.uint32, 'prev-sw-state'), ['int'])),
+                            ('prev_sw_state_string', (YLeaf(YType.str, 'prev-sw-state-string'), ['str'])),
+                            ('node_ip', (YLeaf(YType.uint32, 'node-ip'), ['int'])),
+                            ('node_ipv4_string', (YLeaf(YType.str, 'node-ipv4-string'), ['str'])),
                         ])
                         self.name = None
                         self.valid = None
@@ -340,9 +345,10 @@ class SdrInventoryVm(Entity):
                         self.node_ip = None
                         self.node_ipv4_string = None
                         self._segment_path = lambda: "node-entry" + "[name='" + str(self.name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry, ['name', u'valid', u'card_type', u'card_type_string', u'nodeid', u'node_name', u'partner_id', u'partner_name', u'red_state', u'red_state_string', u'node_sw_state', u'node_sw_state_string', u'prev_sw_state', u'prev_sw_state_string', u'node_ip', u'node_ipv4_string'], name, value)
+                        self._perform_setattr(SdrInventoryVm.Nodes.Node.NodeEntries.NodeEntry, ['name', 'valid', 'card_type', 'card_type_string', 'nodeid', 'node_name', 'partner_id', 'partner_name', 'red_state', 'red_state_string', 'node_sw_state', 'node_sw_state_string', 'prev_sw_state', 'prev_sw_state_string', 'node_ip', 'node_ipv4_string'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SdrInventoryVm()

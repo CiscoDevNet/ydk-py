@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ipv6\-configuration\: IPv6 Configuration Data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -84,10 +85,10 @@ class Ipv6Configuration(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("ipv6-assembler", ("ipv6_assembler", Ipv6Configuration.Ipv6Assembler)), ("ipv6icmp", ("ipv6icmp", Ipv6Configuration.Ipv6icmp))])
         self._leafs = OrderedDict([
-            ('ipv6_pmtu_time_out', YLeaf(YType.uint32, 'ipv6-pmtu-time-out')),
-            ('ipv6_source_route', YLeaf(YType.boolean, 'ipv6-source-route')),
-            ('ipv6_pmtu_enable', YLeaf(YType.boolean, 'ipv6-pmtu-enable')),
-            ('ipv6_hop_limit', YLeaf(YType.uint32, 'ipv6-hop-limit')),
+            ('ipv6_pmtu_time_out', (YLeaf(YType.uint32, 'ipv6-pmtu-time-out'), ['int'])),
+            ('ipv6_source_route', (YLeaf(YType.boolean, 'ipv6-source-route'), ['bool'])),
+            ('ipv6_pmtu_enable', (YLeaf(YType.boolean, 'ipv6-pmtu-enable'), ['bool'])),
+            ('ipv6_hop_limit', (YLeaf(YType.uint32, 'ipv6-hop-limit'), ['int'])),
         ])
         self.ipv6_pmtu_time_out = None
         self.ipv6_source_route = None
@@ -101,6 +102,7 @@ class Ipv6Configuration(Entity):
         self.ipv6icmp = None
         self._children_name_map["ipv6icmp"] = "ipv6icmp"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-io-cfg:ipv6-configuration"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ipv6Configuration, ['ipv6_pmtu_time_out', 'ipv6_source_route', 'ipv6_pmtu_enable', 'ipv6_hop_limit'], name, value)
@@ -145,13 +147,14 @@ class Ipv6Configuration(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('timeout', YLeaf(YType.uint32, 'timeout')),
-                ('max_packets', YLeaf(YType.uint32, 'max-packets')),
+                ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                ('max_packets', (YLeaf(YType.uint32, 'max-packets'), ['int'])),
             ])
             self.timeout = None
             self.max_packets = None
             self._segment_path = lambda: "ipv6-assembler"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-io-cfg:ipv6-configuration/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv6Configuration.Ipv6Assembler, ['timeout', 'max_packets'], name, value)
@@ -201,13 +204,14 @@ class Ipv6Configuration(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('error_interval', YLeaf(YType.uint32, 'error-interval')),
-                ('bucket_size', YLeaf(YType.uint32, 'bucket-size')),
+                ('error_interval', (YLeaf(YType.uint32, 'error-interval'), ['int'])),
+                ('bucket_size', (YLeaf(YType.uint32, 'bucket-size'), ['int'])),
             ])
             self.error_interval = None
             self.bucket_size = None
             self._segment_path = lambda: "ipv6icmp"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-io-cfg:ipv6-configuration/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv6Configuration.Ipv6icmp, ['error_interval', 'bucket_size'], name, value)

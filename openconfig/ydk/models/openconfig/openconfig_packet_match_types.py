@@ -12,6 +12,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class PortNumRange(Enum):
     """
     PortNumRange (Enum Class)
@@ -44,8 +45,8 @@ class IPPROTOCOL(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(IPPROTOCOL, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:IP_PROTOCOL")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_PROTOCOL"):
+        super(IPPROTOCOL, self).__init__(ns, pref, tag)
 
 
 class TCPFLAGS(Identity):
@@ -59,8 +60,8 @@ class TCPFLAGS(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(TCPFLAGS, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:TCP_FLAGS")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_FLAGS"):
+        super(TCPFLAGS, self).__init__(ns, pref, tag)
 
 
 class ETHERTYPE(Identity):
@@ -77,11 +78,11 @@ class ETHERTYPE(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(ETHERTYPE, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:ETHERTYPE")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE"):
+        super(ETHERTYPE, self).__init__(ns, pref, tag)
 
 
-class TCPACK(Identity):
+class TCPACK(TCPFLAGS):
     """
     TCP ACK flag
     
@@ -92,11 +93,11 @@ class TCPACK(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(TCPACK, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:TCP_ACK")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_ACK"):
+        super(TCPACK, self).__init__(ns, pref, tag)
 
 
-class IPUDP(Identity):
+class IPUDP(IPPROTOCOL):
     """
     User Datagram Protocol (17)
     
@@ -107,11 +108,11 @@ class IPUDP(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(IPUDP, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:IP_UDP")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_UDP"):
+        super(IPUDP, self).__init__(ns, pref, tag)
 
 
-class ETHERTYPEARP(Identity):
+class ETHERTYPEARP(ETHERTYPE):
     """
     Address resolution protocol (0x0806)
     
@@ -122,11 +123,11 @@ class ETHERTYPEARP(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(ETHERTYPEARP, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:ETHERTYPE_ARP")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE_ARP"):
+        super(ETHERTYPEARP, self).__init__(ns, pref, tag)
 
 
-class TCPSYN(Identity):
+class TCPSYN(TCPFLAGS):
     """
     TCP SYN flag
     
@@ -137,11 +138,11 @@ class TCPSYN(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(TCPSYN, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:TCP_SYN")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_SYN"):
+        super(TCPSYN, self).__init__(ns, pref, tag)
 
 
-class ETHERTYPEVLAN(Identity):
+class ETHERTYPEVLAN(ETHERTYPE):
     """
     VLAN\-tagged frame (as defined by IEEE 802.1q) (0x8100). Note
     that this value is also used to represent Shortest Path
@@ -154,11 +155,11 @@ class ETHERTYPEVLAN(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(ETHERTYPEVLAN, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:ETHERTYPE_VLAN")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE_VLAN"):
+        super(ETHERTYPEVLAN, self).__init__(ns, pref, tag)
 
 
-class TCPECE(Identity):
+class TCPECE(TCPFLAGS):
     """
     TCP ECN\-Echo flag.  If the SYN flag is set, indicates that
     the TCP peer is ECN\-capable, otherwise indicates that a
@@ -172,11 +173,11 @@ class TCPECE(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(TCPECE, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:TCP_ECE")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_ECE"):
+        super(TCPECE, self).__init__(ns, pref, tag)
 
 
-class IPICMP(Identity):
+class IPICMP(IPPROTOCOL):
     """
     Internet Control Message Protocol (1)
     
@@ -187,11 +188,11 @@ class IPICMP(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(IPICMP, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:IP_ICMP")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_ICMP"):
+        super(IPICMP, self).__init__(ns, pref, tag)
 
 
-class TCPFIN(Identity):
+class TCPFIN(TCPFLAGS):
     """
     TCP FIN flag
     
@@ -202,11 +203,11 @@ class TCPFIN(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(TCPFIN, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:TCP_FIN")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_FIN"):
+        super(TCPFIN, self).__init__(ns, pref, tag)
 
 
-class ETHERTYPEROCE(Identity):
+class ETHERTYPEROCE(ETHERTYPE):
     """
     RDMA over Converged Ethernet (0x8915)
     
@@ -217,11 +218,11 @@ class ETHERTYPEROCE(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(ETHERTYPEROCE, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:ETHERTYPE_ROCE")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE_ROCE"):
+        super(ETHERTYPEROCE, self).__init__(ns, pref, tag)
 
 
-class IPPIM(Identity):
+class IPPIM(IPPROTOCOL):
     """
     Protocol Independent Multicast (103)
     
@@ -232,11 +233,11 @@ class IPPIM(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(IPPIM, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:IP_PIM")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_PIM"):
+        super(IPPIM, self).__init__(ns, pref, tag)
 
 
-class TCPRST(Identity):
+class TCPRST(TCPFLAGS):
     """
     TCP RST flag
     
@@ -247,11 +248,11 @@ class TCPRST(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(TCPRST, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:TCP_RST")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_RST"):
+        super(TCPRST, self).__init__(ns, pref, tag)
 
 
-class ETHERTYPEIPV4(Identity):
+class ETHERTYPEIPV4(ETHERTYPE):
     """
     IPv4 protocol (0x0800)
     
@@ -262,11 +263,11 @@ class ETHERTYPEIPV4(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(ETHERTYPEIPV4, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:ETHERTYPE_IPV4")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE_IPV4"):
+        super(ETHERTYPEIPV4, self).__init__(ns, pref, tag)
 
 
-class IPTCP(Identity):
+class IPTCP(IPPROTOCOL):
     """
     Transmission Control Protocol (6)
     
@@ -277,11 +278,11 @@ class IPTCP(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(IPTCP, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:IP_TCP")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_TCP"):
+        super(IPTCP, self).__init__(ns, pref, tag)
 
 
-class ETHERTYPEIPV6(Identity):
+class ETHERTYPEIPV6(ETHERTYPE):
     """
     IPv6 protocol (0x86DD)
     
@@ -292,11 +293,11 @@ class ETHERTYPEIPV6(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(ETHERTYPEIPV6, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:ETHERTYPE_IPV6")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE_IPV6"):
+        super(ETHERTYPEIPV6, self).__init__(ns, pref, tag)
 
 
-class TCPURG(Identity):
+class TCPURG(TCPFLAGS):
     """
     TCP urgent flag
     
@@ -307,11 +308,11 @@ class TCPURG(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(TCPURG, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:TCP_URG")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_URG"):
+        super(TCPURG, self).__init__(ns, pref, tag)
 
 
-class IPRSVP(Identity):
+class IPRSVP(IPPROTOCOL):
     """
     Resource Reservation Protocol (46)
     
@@ -322,11 +323,11 @@ class IPRSVP(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(IPRSVP, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:IP_RSVP")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_RSVP"):
+        super(IPRSVP, self).__init__(ns, pref, tag)
 
 
-class ETHERTYPEMPLS(Identity):
+class ETHERTYPEMPLS(ETHERTYPE):
     """
     MPLS unicast (0x8847)
     
@@ -337,11 +338,11 @@ class ETHERTYPEMPLS(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(ETHERTYPEMPLS, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:ETHERTYPE_MPLS")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE_MPLS"):
+        super(ETHERTYPEMPLS, self).__init__(ns, pref, tag)
 
 
-class TCPPSH(Identity):
+class TCPPSH(TCPFLAGS):
     """
     TCP push flag
     
@@ -352,11 +353,11 @@ class TCPPSH(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(TCPPSH, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:TCP_PSH")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_PSH"):
+        super(TCPPSH, self).__init__(ns, pref, tag)
 
 
-class IPAUTH(Identity):
+class IPAUTH(IPPROTOCOL):
     """
     Authentication header, e.g., for IPSEC (51)
     
@@ -367,11 +368,11 @@ class IPAUTH(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(IPAUTH, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:IP_AUTH")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_AUTH"):
+        super(IPAUTH, self).__init__(ns, pref, tag)
 
 
-class IPGRE(Identity):
+class IPGRE(IPPROTOCOL):
     """
     Generic Routing Encapsulation (47)
     
@@ -382,11 +383,11 @@ class IPGRE(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(IPGRE, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:IP_GRE")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_GRE"):
+        super(IPGRE, self).__init__(ns, pref, tag)
 
 
-class IPIGMP(Identity):
+class IPIGMP(IPPROTOCOL):
     """
     Internet Group Membership Protocol (2)
     
@@ -397,11 +398,11 @@ class IPIGMP(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(IPIGMP, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:IP_IGMP")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_IGMP"):
+        super(IPIGMP, self).__init__(ns, pref, tag)
 
 
-class ETHERTYPELLDP(Identity):
+class ETHERTYPELLDP(ETHERTYPE):
     """
     Link Layer Discovery Protocol (0x88CC)
     
@@ -412,11 +413,11 @@ class ETHERTYPELLDP(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(ETHERTYPELLDP, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:ETHERTYPE_LLDP")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:ETHERTYPE_LLDP"):
+        super(ETHERTYPELLDP, self).__init__(ns, pref, tag)
 
 
-class TCPCWR(Identity):
+class TCPCWR(TCPFLAGS):
     """
     TCP Congestion Window Reduced flag
     
@@ -427,11 +428,11 @@ class TCPCWR(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(TCPCWR, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:TCP_CWR")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:TCP_CWR"):
+        super(TCPCWR, self).__init__(ns, pref, tag)
 
 
-class IPL2TP(Identity):
+class IPL2TP(IPPROTOCOL):
     """
     Layer Two Tunneling Protocol v.3 (115)
     
@@ -442,7 +443,7 @@ class IPL2TP(Identity):
     _prefix = 'oc-pkt-match-types'
     _revision = '2017-05-26'
 
-    def __init__(self):
-        super(IPL2TP, self).__init__("http://openconfig.net/yang/packet-match-types", "openconfig-packet-match-types", "openconfig-packet-match-types:IP_L2TP")
+    def __init__(self, ns="http://openconfig.net/yang/packet-match-types", pref="openconfig-packet-match-types", tag="openconfig-packet-match-types:IP_L2TP"):
+        super(IPL2TP, self).__init__(ns, pref, tag)
 
 

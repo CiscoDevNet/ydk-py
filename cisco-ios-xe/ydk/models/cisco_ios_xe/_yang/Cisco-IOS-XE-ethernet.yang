@@ -37,9 +37,29 @@ module Cisco-IOS-XE-ethernet {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-04-09 {
+    description
+      "Add dependency for bridge-domain";
+  }
+  revision 2018-03-08 {
+    description
+      "allow speed change under interface";
+  }
+  revision 2018-03-06 {
+    description
+      "add dependency between speed and duplex";
+  }
+  revision 2018-02-22 {
+    description
+      "add encapsulation priority-tagged without parameter support";
+  }
   revision 2018-02-02 {
     description
       "Add model for port-channel mlacp";
+  }
+  revision 2018-01-15 {
+    description
+      "Added dot1ad nni support ";
   }
   revision 2018-01-04 {
      description
@@ -588,18 +608,37 @@ module Cisco-IOS-XE-ethernet {
           }
         }
       }
+
+      container dot1ad {
+        description
+          "ethernet dot1ad port";
+        choice dot1ad-choice {
+          leaf nni {
+            description
+              "dot1ad nni port";
+            type empty;
+          }
+
+          container uni {
+            description
+              "dot1ad uni";
+            choice uni-choice {
+              leaf c-port {
+                description
+                  "dot1ad uni customer bridge port";
+                type empty;
+              }
+              leaf s-port {
+                description
+                  "dot1ad uni s bridge port";
+                type empty;
+              }
+            }
+          }//uni
+       }
+      }//dot1ad
     }
 
-    // interface * / negotiation
-    container negotiation {
-      description
-        "Select autonegotiation mode";
-      leaf auto {
-        description
-          "Enable link autonegotiation";
-        type boolean;
-      }
-    }
 
     // interface * / eapol 
     container eapol {
@@ -627,6 +666,41 @@ module Cisco-IOS-XE-ethernet {
       }
     }
 
+    // interface * / speed
+    container speed {
+      description
+        "Configure speed operation";
+      choice speed-choice {
+        leaf auto {
+          description
+            "Enable AUTO speed configuration";
+          type empty;
+        }
+        leaf value-10 {
+          description
+            "10 Mbps operation";
+          type empty;
+        }
+        leaf value-100 {
+          description
+            "100 Mbps operation";
+          type empty;
+        }
+        leaf value-1000 {
+          description
+            "1000 Mbps operation";
+          type empty;
+        }
+        leaf value-10000 {
+          description
+            "10000 Mbps operation";
+          type empty;
+        }
+        leaf nonegotiate {
+          type empty;
+        }
+      }
+    }
     // interface * / duplex
     leaf duplex {
       description
@@ -641,37 +715,14 @@ module Cisco-IOS-XE-ethernet {
       }
     }
 
-    // interface * / speed
-    container speed {
+    // interface * / negotiation
+    container negotiation {
       description
-        "Configure speed operation";
+        "Select autonegotiation mode";
       leaf auto {
         description
-          "Enable AUTO speed configuration";
-        type empty;
-      }
-      leaf value-10 {
-        description
-          "10 Mbps operation";
-        type empty;
-      }
-      leaf value-100 {
-        description
-          "100 Mbps operation";
-        type empty;
-      }
-      leaf value-1000 {
-        description
-          "1000 Mbps operation";
-        type empty;
-      }
-      leaf value-10000 {
-        description
-          "10000 Mbps operation";
-        type empty;
-      }
-      leaf nonegotiate {
-        type empty;
+          "Enable link autonegotiation";
+        type boolean;
       }
     }
 
@@ -970,6 +1021,7 @@ module Cisco-IOS-XE-ethernet {
           container priority-tagged {
             description
               "Priority tagged EFP";
+            presence "true";
             container cos-container {
               leaf-list cos {
                 description
@@ -1322,6 +1374,10 @@ module Cisco-IOS-XE-ethernet {
           description
             "Bridge-domain";
           leaf bridge-id {
+            must "../../encapsulation/default or ../../encapsulation/dot1ad/id or ../../encapsulation/dot1q/id"
+                 + " or ../../encapsulation/priority-tagged or ../../encapsulation/untagged" {
+              error-message "bridge-domain depends on encapsulation configuration";
+            }
             type uint16;
           }
           container split-horizon {
@@ -2031,6 +2087,9 @@ module Cisco-IOS-XE-ethernet {
   }
 
   augment "/ios:native/ios:interface/ios:BDI" {
+    uses config-interface-ethernet-grouping;
+  }
+  augment "/ios:native/ios:interface/ios:Vlan" {
     uses config-interface-ethernet-grouping;
   }
 }

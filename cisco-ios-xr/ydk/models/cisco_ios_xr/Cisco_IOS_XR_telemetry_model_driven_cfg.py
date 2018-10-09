@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   telemetry\-model\-driven\: Model Driven Telemetry configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class EncodeType(Enum):
@@ -223,22 +224,53 @@ class TelemetryModelDriven(Entity):
     	Streaming Telemetry Subscription
     	**type**\:  :py:class:`Subscriptions <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Subscriptions>`
     
+    .. attribute:: include
+    
+    	Include fields with empty values in output
+    	**type**\:  :py:class:`Include <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Include>`
+    
     .. attribute:: destination_groups
     
     	Destination Group configuration
     	**type**\:  :py:class:`DestinationGroups <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.DestinationGroups>`
+    
+    .. attribute:: strict_timer
+    
+    	enable strict\-timer for all subscriptions, default is relative timer
+    	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
     .. attribute:: enable
     
     	Enable Model Driven Telemetry
     	**type**\: :py:class:`Empty<ydk.types.Empty>`
     
+    .. attribute:: max_sensor_paths
+    
+    	Maximum allowed sensor paths, default\: 1000
+    	**type**\: int
+    
+    	**range:** 0..4000
+    
+    .. attribute:: max_containers_per_path
+    
+    	Maximum containers allowed per path, 0 disables the check
+    	**type**\: int
+    
+    	**range:** 0..1024
+    
+    .. attribute:: tcp_send_timeout
+    
+    	TCP send timeout value, default\:30 sec,0 will disable the timeout
+    	**type**\: int
+    
+    	**range:** 0..30
+    
     
 
     """
 
     _prefix = 'telemetry-model-driven-cfg'
-    _revision = '2017-05-01'
+    _revision = '2018-05-29'
 
     def __init__(self):
         super(TelemetryModelDriven, self).__init__()
@@ -249,11 +281,19 @@ class TelemetryModelDriven(Entity):
         self.is_top_level_class = True
         self.has_list_ancestor = False
         self.ylist_key_names = []
-        self._child_classes = OrderedDict([("sensor-groups", ("sensor_groups", TelemetryModelDriven.SensorGroups)), ("subscriptions", ("subscriptions", TelemetryModelDriven.Subscriptions)), ("destination-groups", ("destination_groups", TelemetryModelDriven.DestinationGroups))])
+        self._child_classes = OrderedDict([("sensor-groups", ("sensor_groups", TelemetryModelDriven.SensorGroups)), ("subscriptions", ("subscriptions", TelemetryModelDriven.Subscriptions)), ("include", ("include", TelemetryModelDriven.Include)), ("destination-groups", ("destination_groups", TelemetryModelDriven.DestinationGroups))])
         self._leafs = OrderedDict([
-            ('enable', YLeaf(YType.empty, 'enable')),
+            ('strict_timer', (YLeaf(YType.empty, 'strict-timer'), ['Empty'])),
+            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+            ('max_sensor_paths', (YLeaf(YType.uint32, 'max-sensor-paths'), ['int'])),
+            ('max_containers_per_path', (YLeaf(YType.uint32, 'max-containers-per-path'), ['int'])),
+            ('tcp_send_timeout', (YLeaf(YType.uint32, 'tcp-send-timeout'), ['int'])),
         ])
+        self.strict_timer = None
         self.enable = None
+        self.max_sensor_paths = None
+        self.max_containers_per_path = None
+        self.tcp_send_timeout = None
 
         self.sensor_groups = TelemetryModelDriven.SensorGroups()
         self.sensor_groups.parent = self
@@ -263,13 +303,18 @@ class TelemetryModelDriven(Entity):
         self.subscriptions.parent = self
         self._children_name_map["subscriptions"] = "subscriptions"
 
+        self.include = TelemetryModelDriven.Include()
+        self.include.parent = self
+        self._children_name_map["include"] = "include"
+
         self.destination_groups = TelemetryModelDriven.DestinationGroups()
         self.destination_groups.parent = self
         self._children_name_map["destination_groups"] = "destination-groups"
         self._segment_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
-        self._perform_setattr(TelemetryModelDriven, ['enable'], name, value)
+        self._perform_setattr(TelemetryModelDriven, ['strict_timer', 'enable', 'max_sensor_paths', 'max_containers_per_path', 'tcp_send_timeout'], name, value)
 
 
     class SensorGroups(Entity):
@@ -286,7 +331,7 @@ class TelemetryModelDriven(Entity):
         """
 
         _prefix = 'telemetry-model-driven-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-05-29'
 
         def __init__(self):
             super(TelemetryModelDriven.SensorGroups, self).__init__()
@@ -302,6 +347,7 @@ class TelemetryModelDriven(Entity):
             self.sensor_group = YList(self)
             self._segment_path = lambda: "sensor-groups"
             self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TelemetryModelDriven.SensorGroups, [], name, value)
@@ -328,7 +374,7 @@ class TelemetryModelDriven(Entity):
             """
 
             _prefix = 'telemetry-model-driven-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-05-29'
 
             def __init__(self):
                 super(TelemetryModelDriven.SensorGroups.SensorGroup, self).__init__()
@@ -340,7 +386,7 @@ class TelemetryModelDriven(Entity):
                 self.ylist_key_names = ['sensor_group_identifier']
                 self._child_classes = OrderedDict([("sensor-paths", ("sensor_paths", TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths))])
                 self._leafs = OrderedDict([
-                    ('sensor_group_identifier', YLeaf(YType.str, 'sensor-group-identifier')),
+                    ('sensor_group_identifier', (YLeaf(YType.str, 'sensor-group-identifier'), ['str'])),
                 ])
                 self.sensor_group_identifier = None
 
@@ -349,6 +395,7 @@ class TelemetryModelDriven(Entity):
                 self._children_name_map["sensor_paths"] = "sensor-paths"
                 self._segment_path = lambda: "sensor-group" + "[sensor-group-identifier='" + str(self.sensor_group_identifier) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/sensor-groups/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup, ['sensor_group_identifier'], name, value)
@@ -368,7 +415,7 @@ class TelemetryModelDriven(Entity):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-05-29'
 
                 def __init__(self):
                     super(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths, self).__init__()
@@ -383,6 +430,7 @@ class TelemetryModelDriven(Entity):
 
                     self.sensor_path = YList(self)
                     self._segment_path = lambda: "sensor-paths"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths, [], name, value)
@@ -402,7 +450,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2018-05-29'
 
                     def __init__(self):
                         super(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths.SensorPath, self).__init__()
@@ -414,10 +462,11 @@ class TelemetryModelDriven(Entity):
                         self.ylist_key_names = ['telemetry_sensor_path']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('telemetry_sensor_path', YLeaf(YType.str, 'telemetry-sensor-path')),
+                            ('telemetry_sensor_path', (YLeaf(YType.str, 'telemetry-sensor-path'), ['str'])),
                         ])
                         self.telemetry_sensor_path = None
                         self._segment_path = lambda: "sensor-path" + "[telemetry-sensor-path='" + str(self.telemetry_sensor_path) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetryModelDriven.SensorGroups.SensorGroup.SensorPaths.SensorPath, ['telemetry_sensor_path'], name, value)
@@ -437,7 +486,7 @@ class TelemetryModelDriven(Entity):
         """
 
         _prefix = 'telemetry-model-driven-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-05-29'
 
         def __init__(self):
             super(TelemetryModelDriven.Subscriptions, self).__init__()
@@ -453,6 +502,7 @@ class TelemetryModelDriven(Entity):
             self.subscription = YList(self)
             self._segment_path = lambda: "subscriptions"
             self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TelemetryModelDriven.Subscriptions, [], name, value)
@@ -489,14 +539,14 @@ class TelemetryModelDriven(Entity):
             	Source address to use for streaming telemetry information
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             
 
             """
 
             _prefix = 'telemetry-model-driven-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-05-29'
 
             def __init__(self):
                 super(TelemetryModelDriven.Subscriptions.Subscription, self).__init__()
@@ -508,9 +558,9 @@ class TelemetryModelDriven(Entity):
                 self.ylist_key_names = ['subscription_identifier']
                 self._child_classes = OrderedDict([("sensor-profiles", ("sensor_profiles", TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles)), ("destination-profiles", ("destination_profiles", TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles))])
                 self._leafs = OrderedDict([
-                    ('subscription_identifier', YLeaf(YType.str, 'subscription-identifier')),
-                    ('source_qos_marking', YLeaf(YType.enumeration, 'source-qos-marking')),
-                    ('source_interface', YLeaf(YType.str, 'source-interface')),
+                    ('subscription_identifier', (YLeaf(YType.str, 'subscription-identifier'), ['str'])),
+                    ('source_qos_marking', (YLeaf(YType.enumeration, 'source-qos-marking'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'MdtDscpValue', '')])),
+                    ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
                 ])
                 self.subscription_identifier = None
                 self.source_qos_marking = None
@@ -525,6 +575,7 @@ class TelemetryModelDriven(Entity):
                 self._children_name_map["destination_profiles"] = "destination-profiles"
                 self._segment_path = lambda: "subscription" + "[subscription-identifier='" + str(self.subscription_identifier) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/subscriptions/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription, ['subscription_identifier', 'source_qos_marking', 'source_interface'], name, value)
@@ -544,7 +595,7 @@ class TelemetryModelDriven(Entity):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-05-29'
 
                 def __init__(self):
                     super(TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles, self).__init__()
@@ -559,6 +610,7 @@ class TelemetryModelDriven(Entity):
 
                     self.sensor_profile = YList(self)
                     self._segment_path = lambda: "sensor-profiles"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles, [], name, value)
@@ -587,6 +639,8 @@ class TelemetryModelDriven(Entity):
                     
                     	**range:** 0..4294967295
                     
+                    	**mandatory**\: True
+                    
                     	**units**\: millisecond
                     
                     
@@ -594,7 +648,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2018-05-29'
 
                     def __init__(self):
                         super(TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile, self).__init__()
@@ -606,14 +660,15 @@ class TelemetryModelDriven(Entity):
                         self.ylist_key_names = ['sensorgroupid']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('sensorgroupid', YLeaf(YType.str, 'sensorgroupid')),
-                            ('strict_timer', YLeaf(YType.empty, 'strict-timer')),
-                            ('sample_interval', YLeaf(YType.uint32, 'sample-interval')),
+                            ('sensorgroupid', (YLeaf(YType.str, 'sensorgroupid'), ['str'])),
+                            ('strict_timer', (YLeaf(YType.empty, 'strict-timer'), ['Empty'])),
+                            ('sample_interval', (YLeaf(YType.uint32, 'sample-interval'), ['int'])),
                         ])
                         self.sensorgroupid = None
                         self.strict_timer = None
                         self.sample_interval = None
                         self._segment_path = lambda: "sensor-profile" + "[sensorgroupid='" + str(self.sensorgroupid) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.SensorProfiles.SensorProfile, ['sensorgroupid', 'strict_timer', 'sample_interval'], name, value)
@@ -633,7 +688,7 @@ class TelemetryModelDriven(Entity):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-05-29'
 
                 def __init__(self):
                     super(TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles, self).__init__()
@@ -648,6 +703,7 @@ class TelemetryModelDriven(Entity):
 
                     self.destination_profile = YList(self)
                     self._segment_path = lambda: "destination-profiles"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles, [], name, value)
@@ -669,7 +725,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2018-05-29'
 
                     def __init__(self):
                         super(TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles.DestinationProfile, self).__init__()
@@ -681,13 +737,89 @@ class TelemetryModelDriven(Entity):
                         self.ylist_key_names = ['destination_id']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('destination_id', YLeaf(YType.str, 'destination-id')),
+                            ('destination_id', (YLeaf(YType.str, 'destination-id'), ['str'])),
                         ])
                         self.destination_id = None
                         self._segment_path = lambda: "destination-profile" + "[destination-id='" + str(self.destination_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetryModelDriven.Subscriptions.Subscription.DestinationProfiles.DestinationProfile, ['destination_id'], name, value)
+
+
+    class Include(Entity):
+        """
+        Include fields with empty values in output.
+        
+        .. attribute:: empty
+        
+        	Include fields with empty values in output
+        	**type**\:  :py:class:`Empty <ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg.TelemetryModelDriven.Include.Empty>`
+        
+        
+
+        """
+
+        _prefix = 'telemetry-model-driven-cfg'
+        _revision = '2018-05-29'
+
+        def __init__(self):
+            super(TelemetryModelDriven.Include, self).__init__()
+
+            self.yang_name = "include"
+            self.yang_parent_name = "telemetry-model-driven"
+            self.is_top_level_class = False
+            self.has_list_ancestor = False
+            self.ylist_key_names = []
+            self._child_classes = OrderedDict([("empty", ("empty", TelemetryModelDriven.Include.Empty))])
+            self._leafs = OrderedDict()
+
+            self.empty = TelemetryModelDriven.Include.Empty()
+            self.empty.parent = self
+            self._children_name_map["empty"] = "empty"
+            self._segment_path = lambda: "include"
+            self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/%s" % self._segment_path()
+            self._is_frozen = True
+
+        def __setattr__(self, name, value):
+            self._perform_setattr(TelemetryModelDriven.Include, [], name, value)
+
+
+        class Empty(Entity):
+            """
+            Include fields with empty values in output.
+            
+            .. attribute:: values
+            
+            	String type fields with empty string value, for example, are omitted by default. This provides an option to override this behavior and include them in the output
+            	**type**\: :py:class:`Empty<ydk.types.Empty>`
+            
+            
+
+            """
+
+            _prefix = 'telemetry-model-driven-cfg'
+            _revision = '2018-05-29'
+
+            def __init__(self):
+                super(TelemetryModelDriven.Include.Empty, self).__init__()
+
+                self.yang_name = "empty"
+                self.yang_parent_name = "include"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('values', (YLeaf(YType.empty, 'values'), ['Empty'])),
+                ])
+                self.values = None
+                self._segment_path = lambda: "empty"
+                self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/include/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(TelemetryModelDriven.Include.Empty, ['values'], name, value)
 
 
     class DestinationGroups(Entity):
@@ -704,7 +836,7 @@ class TelemetryModelDriven(Entity):
         """
 
         _prefix = 'telemetry-model-driven-cfg'
-        _revision = '2017-05-01'
+        _revision = '2018-05-29'
 
         def __init__(self):
             super(TelemetryModelDriven.DestinationGroups, self).__init__()
@@ -720,6 +852,7 @@ class TelemetryModelDriven(Entity):
             self.destination_group = YList(self)
             self._segment_path = lambda: "destination-groups"
             self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TelemetryModelDriven.DestinationGroups, [], name, value)
@@ -758,7 +891,7 @@ class TelemetryModelDriven(Entity):
             """
 
             _prefix = 'telemetry-model-driven-cfg'
-            _revision = '2017-05-01'
+            _revision = '2018-05-29'
 
             def __init__(self):
                 super(TelemetryModelDriven.DestinationGroups.DestinationGroup, self).__init__()
@@ -770,8 +903,8 @@ class TelemetryModelDriven(Entity):
                 self.ylist_key_names = ['destination_id']
                 self._child_classes = OrderedDict([("ipv6-destinations", ("ipv6_destinations", TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations)), ("ipv4-destinations", ("ipv4_destinations", TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations))])
                 self._leafs = OrderedDict([
-                    ('destination_id', YLeaf(YType.str, 'destination-id')),
-                    ('vrf', YLeaf(YType.str, 'vrf')),
+                    ('destination_id', (YLeaf(YType.str, 'destination-id'), ['str'])),
+                    ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
                 ])
                 self.destination_id = None
                 self.vrf = None
@@ -785,6 +918,7 @@ class TelemetryModelDriven(Entity):
                 self._children_name_map["ipv4_destinations"] = "ipv4-destinations"
                 self._segment_path = lambda: "destination-group" + "[destination-id='" + str(self.destination_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-telemetry-model-driven-cfg:telemetry-model-driven/destination-groups/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(TelemetryModelDriven.DestinationGroups.DestinationGroup, ['destination_id', 'vrf'], name, value)
@@ -804,7 +938,7 @@ class TelemetryModelDriven(Entity):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-05-29'
 
                 def __init__(self):
                     super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations, self).__init__()
@@ -819,6 +953,7 @@ class TelemetryModelDriven(Entity):
 
                     self.ipv6_destination = YList(self)
                     self._segment_path = lambda: "ipv6-destinations"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations, [], name, value)
@@ -859,7 +994,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2018-05-29'
 
                     def __init__(self):
                         super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination, self).__init__()
@@ -871,9 +1006,9 @@ class TelemetryModelDriven(Entity):
                         self.ylist_key_names = ['ipv6_address','destination_port']
                         self._child_classes = OrderedDict([("protocol", ("protocol", TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol))])
                         self._leafs = OrderedDict([
-                            ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
-                            ('destination_port', YLeaf(YType.uint16, 'destination-port')),
-                            ('encoding', YLeaf(YType.enumeration, 'encoding')),
+                            ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
+                            ('destination_port', (YLeaf(YType.uint16, 'destination-port'), ['int'])),
+                            ('encoding', (YLeaf(YType.enumeration, 'encoding'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'EncodeType', '')])),
                         ])
                         self.ipv6_address = None
                         self.destination_port = None
@@ -882,6 +1017,7 @@ class TelemetryModelDriven(Entity):
                         self.protocol = None
                         self._children_name_map["protocol"] = "protocol"
                         self._segment_path = lambda: "ipv6-destination" + "[ipv6-address='" + str(self.ipv6_address) + "']" + "[destination-port='" + str(self.destination_port) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination, ['ipv6_address', 'destination_port', 'encoding'], name, value)
@@ -909,7 +1045,7 @@ class TelemetryModelDriven(Entity):
                         	no tls
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         	**default value**\: 0
                         
@@ -929,7 +1065,7 @@ class TelemetryModelDriven(Entity):
                         """
 
                         _prefix = 'telemetry-model-driven-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2018-05-29'
 
                         def __init__(self):
                             super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol, self).__init__()
@@ -942,16 +1078,17 @@ class TelemetryModelDriven(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('protocol', YLeaf(YType.enumeration, 'protocol')),
-                                ('tls_hostname', YLeaf(YType.str, 'tls-hostname')),
-                                ('no_tls', YLeaf(YType.int32, 'no-tls')),
-                                ('packetsize', YLeaf(YType.uint32, 'packetsize')),
+                                ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'ProtoType', '')])),
+                                ('tls_hostname', (YLeaf(YType.str, 'tls-hostname'), ['str'])),
+                                ('no_tls', (YLeaf(YType.uint32, 'no-tls'), ['int'])),
+                                ('packetsize', (YLeaf(YType.uint32, 'packetsize'), ['int'])),
                             ])
                             self.protocol = None
                             self.tls_hostname = None
                             self.no_tls = None
                             self.packetsize = None
                             self._segment_path = lambda: "protocol"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv6Destinations.Ipv6Destination.Protocol, ['protocol', 'tls_hostname', 'no_tls', 'packetsize'], name, value)
@@ -971,7 +1108,7 @@ class TelemetryModelDriven(Entity):
                 """
 
                 _prefix = 'telemetry-model-driven-cfg'
-                _revision = '2017-05-01'
+                _revision = '2018-05-29'
 
                 def __init__(self):
                     super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations, self).__init__()
@@ -986,6 +1123,7 @@ class TelemetryModelDriven(Entity):
 
                     self.ipv4_destination = YList(self)
                     self._segment_path = lambda: "ipv4-destinations"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations, [], name, value)
@@ -1026,7 +1164,7 @@ class TelemetryModelDriven(Entity):
                     """
 
                     _prefix = 'telemetry-model-driven-cfg'
-                    _revision = '2017-05-01'
+                    _revision = '2018-05-29'
 
                     def __init__(self):
                         super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination, self).__init__()
@@ -1038,9 +1176,9 @@ class TelemetryModelDriven(Entity):
                         self.ylist_key_names = ['ipv4_address','destination_port']
                         self._child_classes = OrderedDict([("protocol", ("protocol", TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol))])
                         self._leafs = OrderedDict([
-                            ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                            ('destination_port', YLeaf(YType.uint16, 'destination-port')),
-                            ('encoding', YLeaf(YType.enumeration, 'encoding')),
+                            ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                            ('destination_port', (YLeaf(YType.uint16, 'destination-port'), ['int'])),
+                            ('encoding', (YLeaf(YType.enumeration, 'encoding'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'EncodeType', '')])),
                         ])
                         self.ipv4_address = None
                         self.destination_port = None
@@ -1049,6 +1187,7 @@ class TelemetryModelDriven(Entity):
                         self.protocol = None
                         self._children_name_map["protocol"] = "protocol"
                         self._segment_path = lambda: "ipv4-destination" + "[ipv4-address='" + str(self.ipv4_address) + "']" + "[destination-port='" + str(self.destination_port) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination, ['ipv4_address', 'destination_port', 'encoding'], name, value)
@@ -1076,7 +1215,7 @@ class TelemetryModelDriven(Entity):
                         	no tls
                         	**type**\: int
                         
-                        	**range:** \-2147483648..2147483647
+                        	**range:** 0..4294967295
                         
                         	**default value**\: 0
                         
@@ -1096,7 +1235,7 @@ class TelemetryModelDriven(Entity):
                         """
 
                         _prefix = 'telemetry-model-driven-cfg'
-                        _revision = '2017-05-01'
+                        _revision = '2018-05-29'
 
                         def __init__(self):
                             super(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol, self).__init__()
@@ -1109,16 +1248,17 @@ class TelemetryModelDriven(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('protocol', YLeaf(YType.enumeration, 'protocol')),
-                                ('tls_hostname', YLeaf(YType.str, 'tls-hostname')),
-                                ('no_tls', YLeaf(YType.int32, 'no-tls')),
-                                ('packetsize', YLeaf(YType.uint32, 'packetsize')),
+                                ('protocol', (YLeaf(YType.enumeration, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_telemetry_model_driven_cfg', 'ProtoType', '')])),
+                                ('tls_hostname', (YLeaf(YType.str, 'tls-hostname'), ['str'])),
+                                ('no_tls', (YLeaf(YType.uint32, 'no-tls'), ['int'])),
+                                ('packetsize', (YLeaf(YType.uint32, 'packetsize'), ['int'])),
                             ])
                             self.protocol = None
                             self.tls_hostname = None
                             self.no_tls = None
                             self.packetsize = None
                             self._segment_path = lambda: "protocol"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(TelemetryModelDriven.DestinationGroups.DestinationGroup.Ipv4Destinations.Ipv4Destination.Protocol, ['protocol', 'tls_hostname', 'no_tls', 'packetsize'], name, value)

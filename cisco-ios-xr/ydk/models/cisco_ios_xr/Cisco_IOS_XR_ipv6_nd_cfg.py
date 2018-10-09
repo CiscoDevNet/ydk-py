@@ -12,7 +12,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -22,6 +22,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class Ipv6NdRouterPref(Enum):
@@ -190,7 +191,7 @@ class Ipv6Neighbor(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("neighbors", ("neighbors", Ipv6Neighbor.Neighbors))])
         self._leafs = OrderedDict([
-            ('scavenge_timeout', YLeaf(YType.uint32, 'scavenge-timeout')),
+            ('scavenge_timeout', (YLeaf(YType.uint32, 'scavenge-timeout'), ['int'])),
         ])
         self.scavenge_timeout = None
 
@@ -198,6 +199,7 @@ class Ipv6Neighbor(Entity):
         self.neighbors.parent = self
         self._children_name_map["neighbors"] = "neighbors"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ipv6Neighbor, ['scavenge_timeout'], name, value)
@@ -233,6 +235,7 @@ class Ipv6Neighbor(Entity):
             self.neighbor = YList(self)
             self._segment_path = lambda: "neighbors"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv6Neighbor.Neighbors, [], name, value)
@@ -254,7 +257,7 @@ class Ipv6Neighbor(Entity):
             	Interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: zone
             
@@ -294,11 +297,11 @@ class Ipv6Neighbor(Entity):
                 self.ylist_key_names = ['neighbor_address','interface_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('neighbor_address', YLeaf(YType.str, 'neighbor-address')),
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('zone', YLeaf(YType.str, 'zone')),
-                    ('mac_address', YLeaf(YType.str, 'mac-address')),
-                    ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
+                    ('neighbor_address', (YLeaf(YType.str, 'neighbor-address'), ['str'])),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('zone', (YLeaf(YType.str, 'zone'), ['str'])),
+                    ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                    ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_nd_cfg', 'Ipv6srpEncapsulation', '')])),
                 ])
                 self.neighbor_address = None
                 self.interface_name = None
@@ -307,6 +310,7 @@ class Ipv6Neighbor(Entity):
                 self.encapsulation = None
                 self._segment_path = lambda: "neighbor" + "[neighbor-address='" + str(self.neighbor_address) + "']" + "[interface-name='" + str(self.interface_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-nd-cfg:ipv6-neighbor/neighbors/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv6Neighbor.Neighbors.Neighbor, ['neighbor_address', 'interface_name', 'zone', 'mac_address', 'encapsulation'], name, value)

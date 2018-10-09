@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   lmp\: Main common OLM/LMP configuration container
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class OlmAddr(Enum):
@@ -106,7 +107,7 @@ class Lmp(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("gmpls-uni", ("gmpls_uni", Lmp.GmplsUni))])
         self._leafs = OrderedDict([
-            ('enable', YLeaf(YType.empty, 'enable')),
+            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
         ])
         self.enable = None
 
@@ -114,6 +115,7 @@ class Lmp(Entity):
         self.gmpls_uni.parent = self
         self._children_name_map["gmpls_uni"] = "gmpls-uni"
         self._segment_path = lambda: "Cisco-IOS-XR-lmp-cfg:lmp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Lmp, ['enable'], name, value)
@@ -170,6 +172,7 @@ class Lmp(Entity):
             self._children_name_map["controllers"] = "controllers"
             self._segment_path = lambda: "gmpls-uni"
             self._absolute_path = lambda: "Cisco-IOS-XR-lmp-cfg:lmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Lmp.GmplsUni, [], name, value)
@@ -205,6 +208,7 @@ class Lmp(Entity):
                 self.neighbor = YList(self)
                 self._segment_path = lambda: "neighbors"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lmp.GmplsUni.Neighbors, [], name, value)
@@ -255,9 +259,9 @@ class Lmp(Entity):
                     self.ylist_key_names = ['neighbor_name']
                     self._child_classes = OrderedDict([("ipcc", ("ipcc", Lmp.GmplsUni.Neighbors.Neighbor.Ipcc))])
                     self._leafs = OrderedDict([
-                        ('neighbor_name', YLeaf(YType.str, 'neighbor-name')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
-                        ('neighbor_router_id', YLeaf(YType.str, 'neighbor-router-id')),
+                        ('neighbor_name', (YLeaf(YType.str, 'neighbor-name'), ['str'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ('neighbor_router_id', (YLeaf(YType.str, 'neighbor-router-id'), ['str'])),
                     ])
                     self.neighbor_name = None
                     self.enable = None
@@ -268,6 +272,7 @@ class Lmp(Entity):
                     self._children_name_map["ipcc"] = "ipcc"
                     self._segment_path = lambda: "neighbor" + "[neighbor-name='" + str(self.neighbor_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/neighbors/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor, ['neighbor_name', 'enable', 'neighbor_router_id'], name, value)
@@ -304,6 +309,7 @@ class Lmp(Entity):
                         self.routed.parent = self
                         self._children_name_map["routed"] = "routed"
                         self._segment_path = lambda: "ipcc"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc, [], name, value)
@@ -335,10 +341,11 @@ class Lmp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('enable', YLeaf(YType.empty, 'enable')),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                             ])
                             self.enable = None
                             self._segment_path = lambda: "routed"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.Neighbors.Neighbor.Ipcc.Routed, ['enable'], name, value)
@@ -353,7 +360,7 @@ class Lmp(Entity):
             	Name of interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: address
             
@@ -382,13 +389,14 @@ class Lmp(Entity):
                 self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('address', YLeaf(YType.str, 'address')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
                 ])
                 self.interface_name = None
                 self.address = None
                 self._segment_path = lambda: "router-id"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lmp.GmplsUni.RouterId, ['interface_name', 'address'], name, value)
@@ -424,6 +432,7 @@ class Lmp(Entity):
                 self.controller = YList(self)
                 self._segment_path = lambda: "controllers"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lmp.GmplsUni.Controllers, [], name, value)
@@ -438,7 +447,7 @@ class Lmp(Entity):
                 	Controller name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: local_link_id
                 
@@ -472,8 +481,8 @@ class Lmp(Entity):
                     self.ylist_key_names = ['controller_name']
                     self._child_classes = OrderedDict([("local-link-id", ("local_link_id", Lmp.GmplsUni.Controllers.Controller.LocalLinkId)), ("adjacency", ("adjacency", Lmp.GmplsUni.Controllers.Controller.Adjacency))])
                     self._leafs = OrderedDict([
-                        ('controller_name', YLeaf(YType.str, 'controller-name')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
+                        ('controller_name', (YLeaf(YType.str, 'controller-name'), ['str'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                     ])
                     self.controller_name = None
                     self.enable = None
@@ -487,6 +496,7 @@ class Lmp(Entity):
                     self._children_name_map["adjacency"] = "adjacency"
                     self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lmp-cfg:lmp/gmpls-uni/controllers/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Lmp.GmplsUni.Controllers.Controller, ['controller_name', 'enable'], name, value)
@@ -532,14 +542,15 @@ class Lmp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                            ('unnumbered', YLeaf(YType.uint32, 'unnumbered')),
-                            ('address', YLeaf(YType.str, 'address')),
+                            ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_cfg', 'OlmAddr', '')])),
+                            ('unnumbered', (YLeaf(YType.uint32, 'unnumbered'), ['int'])),
+                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
                         ])
                         self.address_type = None
                         self.unnumbered = None
                         self.address = None
                         self._segment_path = lambda: "local-link-id"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lmp.GmplsUni.Controllers.Controller.LocalLinkId, ['address_type', 'unnumbered', 'address'], name, value)
@@ -576,6 +587,7 @@ class Lmp(Entity):
                         self.remote_neighbor.parent = self
                         self._children_name_map["remote_neighbor"] = "remote-neighbor"
                         self._segment_path = lambda: "adjacency"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lmp.GmplsUni.Controllers.Controller.Adjacency, [], name, value)
@@ -633,9 +645,9 @@ class Lmp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("interface-id", ("interface_id", Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor.InterfaceId)), ("link-id", ("link_id", Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor.LinkId))])
                             self._leafs = OrderedDict([
-                                ('neighbor_association', YLeaf(YType.str, 'neighbor-association')),
-                                ('link_switching_capability', YLeaf(YType.enumeration, 'link-switching-capability')),
-                                ('flexi_grid_capable', YLeaf(YType.uint32, 'flexi-grid-capable')),
+                                ('neighbor_association', (YLeaf(YType.str, 'neighbor-association'), ['str'])),
+                                ('link_switching_capability', (YLeaf(YType.enumeration, 'link-switching-capability'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_cfg', 'OlmSwitchingCap', '')])),
+                                ('flexi_grid_capable', (YLeaf(YType.uint32, 'flexi-grid-capable'), ['int'])),
                             ])
                             self.neighbor_association = None
                             self.link_switching_capability = None
@@ -649,6 +661,7 @@ class Lmp(Entity):
                             self.link_id.parent = self
                             self._children_name_map["link_id"] = "link-id"
                             self._segment_path = lambda: "remote-neighbor"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor, ['neighbor_association', 'link_switching_capability', 'flexi_grid_capable'], name, value)
@@ -694,14 +707,15 @@ class Lmp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                    ('unnumbered', YLeaf(YType.uint32, 'unnumbered')),
-                                    ('address', YLeaf(YType.str, 'address')),
+                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_cfg', 'OlmAddr', '')])),
+                                    ('unnumbered', (YLeaf(YType.uint32, 'unnumbered'), ['int'])),
+                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                 ])
                                 self.address_type = None
                                 self.unnumbered = None
                                 self.address = None
                                 self._segment_path = lambda: "interface-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor.InterfaceId, ['address_type', 'unnumbered', 'address'], name, value)
@@ -747,14 +761,15 @@ class Lmp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                    ('unnumbered', YLeaf(YType.uint32, 'unnumbered')),
-                                    ('address', YLeaf(YType.str, 'address')),
+                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lmp_cfg', 'OlmAddr', '')])),
+                                    ('unnumbered', (YLeaf(YType.uint32, 'unnumbered'), ['int'])),
+                                    ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                 ])
                                 self.address_type = None
                                 self.unnumbered = None
                                 self.address = None
                                 self._segment_path = lambda: "link-id"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lmp.GmplsUni.Controllers.Controller.Adjacency.RemoteNeighbor.LinkId, ['address_type', 'unnumbered', 'address'], name, value)

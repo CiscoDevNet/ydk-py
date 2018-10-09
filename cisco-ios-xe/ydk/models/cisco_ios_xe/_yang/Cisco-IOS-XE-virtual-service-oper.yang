@@ -28,6 +28,11 @@ module Cisco-IOS-XE-virtual-service-oper {
      Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-02-01 {
+    description
+      "Add owner details to application";
+    reference "2.1.0";
+  }
   revision 2017-09-25 {
     description
       "Add process details and change network utilization and storage utilization lists";
@@ -61,6 +66,11 @@ module Cisco-IOS-XE-virtual-service-oper {
       type string;
       description
         "Application type";
+    }
+    leaf owner {
+      type string;
+      description
+        "Which process creates the application";
     }
   }
 

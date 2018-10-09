@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   lpts\-pa\: lpts pre\-ifib data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -61,6 +62,7 @@ class LptsPa(Entity):
         self.entries.parent = self
         self._children_name_map["entries"] = "entries"
         self._segment_path = lambda: "Cisco-IOS-XR-lpts-pa-oper:lpts-pa"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(LptsPa, [], name, value)
@@ -96,6 +98,7 @@ class LptsPa(Entity):
             self.entry = YList(self)
             self._segment_path = lambda: "entry-xr"
             self._absolute_path = lambda: "Cisco-IOS-XR-lpts-pa-oper:lpts-pa/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LptsPa.EntryXr, [], name, value)
@@ -286,28 +289,28 @@ class LptsPa(Entity):
                 self.ylist_key_names = ['entry']
                 self._child_classes = OrderedDict([("ctime", ("ctime", LptsPa.EntryXr.Entry.Ctime)), ("utime", ("utime", LptsPa.EntryXr.Entry.Utime))])
                 self._leafs = OrderedDict([
-                    ('entry', YLeaf(YType.str, 'entry')),
-                    ('location', YLeaf(YType.uint32, 'location')),
-                    ('client_id', YLeaf(YType.uint32, 'client-id')),
-                    ('vid', YLeaf(YType.uint32, 'vid')),
-                    ('cookie', YLeaf(YType.uint32, 'cookie')),
-                    ('l3protocol', YLeaf(YType.uint32, 'l3protocol')),
-                    ('l4protocol', YLeaf(YType.uint32, 'l4protocol')),
-                    ('smask', YLeaf(YType.uint32, 'smask')),
-                    ('ifs', YLeaf(YType.uint32, 'ifs')),
-                    ('ptype', YLeaf(YType.uint32, 'ptype')),
-                    ('local_ip', YLeaf(YType.str, 'local-ip')),
-                    ('remote_ip', YLeaf(YType.str, 'remote-ip')),
-                    ('local_len', YLeaf(YType.uint8, 'local-len')),
-                    ('remote_len', YLeaf(YType.uint8, 'remote-len')),
-                    ('local_port', YLeaf(YType.uint16, 'local-port')),
-                    ('remote_port', YLeaf(YType.uint16, 'remote-port')),
-                    ('packet_misc', YLeaf(YType.uint32, 'packet-misc')),
-                    ('scope', YLeaf(YType.uint32, 'scope')),
-                    ('client_flags', YLeaf(YType.uint32, 'client-flags')),
-                    ('min_ttl', YLeaf(YType.uint8, 'min-ttl')),
-                    ('lazy_bindq_delay', YLeaf(YType.uint32, 'lazy-bindq-delay')),
-                    ('ptq_delay', YLeaf(YType.uint32, 'ptq-delay')),
+                    ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
+                    ('location', (YLeaf(YType.uint32, 'location'), ['int'])),
+                    ('client_id', (YLeaf(YType.uint32, 'client-id'), ['int'])),
+                    ('vid', (YLeaf(YType.uint32, 'vid'), ['int'])),
+                    ('cookie', (YLeaf(YType.uint32, 'cookie'), ['int'])),
+                    ('l3protocol', (YLeaf(YType.uint32, 'l3protocol'), ['int'])),
+                    ('l4protocol', (YLeaf(YType.uint32, 'l4protocol'), ['int'])),
+                    ('smask', (YLeaf(YType.uint32, 'smask'), ['int'])),
+                    ('ifs', (YLeaf(YType.uint32, 'ifs'), ['int'])),
+                    ('ptype', (YLeaf(YType.uint32, 'ptype'), ['int'])),
+                    ('local_ip', (YLeaf(YType.str, 'local-ip'), ['str'])),
+                    ('remote_ip', (YLeaf(YType.str, 'remote-ip'), ['str'])),
+                    ('local_len', (YLeaf(YType.uint8, 'local-len'), ['int'])),
+                    ('remote_len', (YLeaf(YType.uint8, 'remote-len'), ['int'])),
+                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                    ('remote_port', (YLeaf(YType.uint16, 'remote-port'), ['int'])),
+                    ('packet_misc', (YLeaf(YType.uint32, 'packet-misc'), ['int'])),
+                    ('scope', (YLeaf(YType.uint32, 'scope'), ['int'])),
+                    ('client_flags', (YLeaf(YType.uint32, 'client-flags'), ['int'])),
+                    ('min_ttl', (YLeaf(YType.uint8, 'min-ttl'), ['int'])),
+                    ('lazy_bindq_delay', (YLeaf(YType.uint32, 'lazy-bindq-delay'), ['int'])),
+                    ('ptq_delay', (YLeaf(YType.uint32, 'ptq-delay'), ['int'])),
                 ])
                 self.entry = None
                 self.location = None
@@ -341,6 +344,7 @@ class LptsPa(Entity):
                 self._children_name_map["utime"] = "utime"
                 self._segment_path = lambda: "entry" + "[entry='" + str(self.entry) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lpts-pa-oper:lpts-pa/entry-xr/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LptsPa.EntryXr.Entry, ['entry', u'location', u'client_id', u'vid', u'cookie', u'l3protocol', u'l4protocol', u'smask', u'ifs', u'ptype', u'local_ip', u'remote_ip', u'local_len', u'remote_len', u'local_port', u'remote_port', u'packet_misc', u'scope', u'client_flags', u'min_ttl', u'lazy_bindq_delay', u'ptq_delay'], name, value)
@@ -381,12 +385,13 @@ class LptsPa(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('tv_sec', YLeaf(YType.uint32, 'tv-sec')),
-                        ('tv_nsec', YLeaf(YType.uint32, 'tv-nsec')),
+                        ('tv_sec', (YLeaf(YType.uint32, 'tv-sec'), ['int'])),
+                        ('tv_nsec', (YLeaf(YType.uint32, 'tv-nsec'), ['int'])),
                     ])
                     self.tv_sec = None
                     self.tv_nsec = None
                     self._segment_path = lambda: "ctime"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LptsPa.EntryXr.Entry.Ctime, [u'tv_sec', u'tv_nsec'], name, value)
@@ -427,12 +432,13 @@ class LptsPa(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('tv_sec', YLeaf(YType.uint32, 'tv-sec')),
-                        ('tv_nsec', YLeaf(YType.uint32, 'tv-nsec')),
+                        ('tv_sec', (YLeaf(YType.uint32, 'tv-sec'), ['int'])),
+                        ('tv_nsec', (YLeaf(YType.uint32, 'tv-nsec'), ['int'])),
                     ])
                     self.tv_sec = None
                     self.tv_nsec = None
                     self._segment_path = lambda: "utime"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LptsPa.EntryXr.Entry.Utime, [u'tv_sec', u'tv_nsec'], name, value)
@@ -468,6 +474,7 @@ class LptsPa(Entity):
             self.entry = YList(self)
             self._segment_path = lambda: "entries"
             self._absolute_path = lambda: "Cisco-IOS-XR-lpts-pa-oper:lpts-pa/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LptsPa.Entries, [], name, value)
@@ -536,12 +543,12 @@ class LptsPa(Entity):
                 self.ylist_key_names = ['entry']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('entry', YLeaf(YType.str, 'entry')),
-                    ('flags', YLeaf(YType.uint32, 'flags')),
-                    ('open_flags', YLeaf(YType.uint32, 'open-flags')),
-                    ('location', YLeaf(YType.uint32, 'location')),
-                    ('client_id', YLeaf(YType.uint32, 'client-id')),
-                    ('times', YLeaf(YType.str, 'times')),
+                    ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
+                    ('flags', (YLeaf(YType.uint32, 'flags'), ['int'])),
+                    ('open_flags', (YLeaf(YType.uint32, 'open-flags'), ['int'])),
+                    ('location', (YLeaf(YType.uint32, 'location'), ['int'])),
+                    ('client_id', (YLeaf(YType.uint32, 'client-id'), ['int'])),
+                    ('times', (YLeaf(YType.str, 'times'), ['str'])),
                 ])
                 self.entry = None
                 self.flags = None
@@ -551,6 +558,7 @@ class LptsPa(Entity):
                 self.times = None
                 self._segment_path = lambda: "entry" + "[entry='" + str(self.entry) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lpts-pa-oper:lpts-pa/entries/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LptsPa.Entries.Entry, ['entry', u'flags', u'open_flags', u'location', u'client_id', u'times'], name, value)

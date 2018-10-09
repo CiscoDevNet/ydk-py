@@ -19,6 +19,10 @@ module Cisco-IOS-XE-crypto {
     prefix ios-features;
   }
 
+  import Cisco-IOS-XE-interface-common {
+    prefix ios-ifc;
+  }
+
   import Cisco-IOS-XE-tunnel {
     prefix ios-tun;
   }
@@ -45,6 +49,21 @@ module Cisco-IOS-XE-crypto {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-06-28{
+    description
+        "Added must constraints for deleting vrf";
+  }
+
+  revision 2018-05-21 {
+    description
+      "Add 'cli-preformatted' to pre-shared-key";
+  }
+
+  revision 2018-02-14 {
+     description
+       "Fix Ordering isssue for crypto keyring and crypto isakmp profile";
+  }
+
   revision 2018-02-06 {
      description
        "Change 'crypto pki trustpool import url' to string";
@@ -226,6 +245,23 @@ module Cisco-IOS-XE-crypto {
         type empty;
       }
     }
+  }
+  grouping crypto-local-address-grouping {
+    container bind-ip-address {
+      description
+        "Specify an IP address to bind to";
+      leaf ip-address {
+        description
+          "Specify an IP address to bind to";
+	type inet:ip-address;
+      }
+      leaf vrf {
+        description
+          "F-VRF of the address"; 
+        type string;
+      }
+    }
+    uses ios-ifc:interface-grouping;
   }
   grouping crypto-pki-token-grouping {
     // max-retries  maximum number of consecutive login failures permitted
@@ -3554,10 +3590,10 @@ module Cisco-IOS-XE-crypto {
         }
       }
     }
-    leaf local-address {
+    container local-address {
       description
         "Interface to use for local address for this isakmp profile";
-      type string;
+      uses crypto-local-address-grouping;
     }
     container match {
       description
@@ -3570,8 +3606,11 @@ module Cisco-IOS-XE-crypto {
       container identity {
         description
           "Peer identity";
-        container ipv4-address {
-          leaf address {
+        list address {
+	  description
+	    "IP Address(es)";
+	  key "ip mask";
+          leaf ip {
             description
               "IP Address(es)";
             type inet:ipv4-address;
@@ -3583,9 +3622,10 @@ module Cisco-IOS-XE-crypto {
             type string;
           }
         }
-        container address {
+        list ipv6-address {
           description
             "IP Address(es)";
+	  key ipv6;
           leaf ipv6 {
             description
               "IPv6 Address(es)";
@@ -5146,10 +5186,10 @@ module Cisco-IOS-XE-crypto {
         "Specify a description about this keyring";
       type string;
     }
-    leaf local-address {
+    container local-address {
       description
         "Limit the keyring usage to a local address";
-      type string;
+      uses crypto-local-address-grouping;
     }
     container pre-shared-key {
       description
@@ -5819,12 +5859,6 @@ module Cisco-IOS-XE-crypto {
         "Configure IPSEC policy";
       uses crypto-ipsec-grouping;
     }
-    // crypto isakmp
-    container isakmp {
-      description
-        "Configure ISAKMP policy";
-      uses crypto-isakmp-grouping;
-    }
     // crypto key
     container key {
       description
@@ -5850,6 +5884,12 @@ module Cisco-IOS-XE-crypto {
         uses crypto-keyring-grouping;
       }
       uses crypto-keyring-grouping;
+    }
+    // crypto isakmp
+    container isakmp {
+      description
+        "Configure ISAKMP policy";
+      uses crypto-isakmp-grouping;
     }
     // crypto logging
     container logging {
@@ -6813,6 +6853,9 @@ Hex-data is not supported */
           leaf vrf {
             description
               "VRF name";
+	    must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+	      error-message "VRF must be created 1st, deleted last";
+            }
             type string;
           }
         }  

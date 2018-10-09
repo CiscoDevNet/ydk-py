@@ -11,6 +11,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class RFC1213MIB(Entity):
     """
     
@@ -179,6 +180,7 @@ class RFC1213MIB(Entity):
         self.egpneightable.parent = self
         self._children_name_map["egpneightable"] = "egpNeighTable"
         self._segment_path = lambda: "RFC1213-MIB:RFC1213-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(RFC1213MIB, [], name, value)
@@ -253,13 +255,13 @@ class RFC1213MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('sysdescr', YLeaf(YType.str, 'sysDescr')),
-                ('sysobjectid', YLeaf(YType.str, 'sysObjectID')),
-                ('sysuptime', YLeaf(YType.uint32, 'sysUpTime')),
-                ('syscontact', YLeaf(YType.str, 'sysContact')),
-                ('sysname', YLeaf(YType.str, 'sysName')),
-                ('syslocation', YLeaf(YType.str, 'sysLocation')),
-                ('sysservices', YLeaf(YType.int32, 'sysServices')),
+                ('sysdescr', (YLeaf(YType.str, 'sysDescr'), ['str'])),
+                ('sysobjectid', (YLeaf(YType.str, 'sysObjectID'), ['str'])),
+                ('sysuptime', (YLeaf(YType.uint32, 'sysUpTime'), ['int'])),
+                ('syscontact', (YLeaf(YType.str, 'sysContact'), ['str'])),
+                ('sysname', (YLeaf(YType.str, 'sysName'), ['str'])),
+                ('syslocation', (YLeaf(YType.str, 'sysLocation'), ['str'])),
+                ('sysservices', (YLeaf(YType.int32, 'sysServices'), ['int'])),
             ])
             self.sysdescr = None
             self.sysobjectid = None
@@ -270,6 +272,7 @@ class RFC1213MIB(Entity):
             self.sysservices = None
             self._segment_path = lambda: "system"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.System, [u'sysdescr', u'sysobjectid', u'sysuptime', u'syscontact', u'sysname', u'syslocation', u'sysservices'], name, value)
@@ -302,11 +305,12 @@ class RFC1213MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ifnumber', YLeaf(YType.int32, 'ifNumber')),
+                ('ifnumber', (YLeaf(YType.int32, 'ifNumber'), ['int'])),
             ])
             self.ifnumber = None
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.Interfaces, [u'ifnumber'], name, value)
@@ -470,26 +474,26 @@ class RFC1213MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ipforwarding', YLeaf(YType.enumeration, 'ipForwarding')),
-                ('ipdefaultttl', YLeaf(YType.int32, 'ipDefaultTTL')),
-                ('ipinreceives', YLeaf(YType.uint32, 'ipInReceives')),
-                ('ipinhdrerrors', YLeaf(YType.uint32, 'ipInHdrErrors')),
-                ('ipinaddrerrors', YLeaf(YType.uint32, 'ipInAddrErrors')),
-                ('ipforwdatagrams', YLeaf(YType.uint32, 'ipForwDatagrams')),
-                ('ipinunknownprotos', YLeaf(YType.uint32, 'ipInUnknownProtos')),
-                ('ipindiscards', YLeaf(YType.uint32, 'ipInDiscards')),
-                ('ipindelivers', YLeaf(YType.uint32, 'ipInDelivers')),
-                ('ipoutrequests', YLeaf(YType.uint32, 'ipOutRequests')),
-                ('ipoutdiscards', YLeaf(YType.uint32, 'ipOutDiscards')),
-                ('ipoutnoroutes', YLeaf(YType.uint32, 'ipOutNoRoutes')),
-                ('ipreasmtimeout', YLeaf(YType.int32, 'ipReasmTimeout')),
-                ('ipreasmreqds', YLeaf(YType.uint32, 'ipReasmReqds')),
-                ('ipreasmoks', YLeaf(YType.uint32, 'ipReasmOKs')),
-                ('ipreasmfails', YLeaf(YType.uint32, 'ipReasmFails')),
-                ('ipfragoks', YLeaf(YType.uint32, 'ipFragOKs')),
-                ('ipfragfails', YLeaf(YType.uint32, 'ipFragFails')),
-                ('ipfragcreates', YLeaf(YType.uint32, 'ipFragCreates')),
-                ('iproutingdiscards', YLeaf(YType.uint32, 'ipRoutingDiscards')),
+                ('ipforwarding', (YLeaf(YType.enumeration, 'ipForwarding'), [('ydk.models.cisco_ios_xe.RFC1213_MIB', 'RFC1213MIB', 'Ip.IpForwarding')])),
+                ('ipdefaultttl', (YLeaf(YType.int32, 'ipDefaultTTL'), ['int'])),
+                ('ipinreceives', (YLeaf(YType.uint32, 'ipInReceives'), ['int'])),
+                ('ipinhdrerrors', (YLeaf(YType.uint32, 'ipInHdrErrors'), ['int'])),
+                ('ipinaddrerrors', (YLeaf(YType.uint32, 'ipInAddrErrors'), ['int'])),
+                ('ipforwdatagrams', (YLeaf(YType.uint32, 'ipForwDatagrams'), ['int'])),
+                ('ipinunknownprotos', (YLeaf(YType.uint32, 'ipInUnknownProtos'), ['int'])),
+                ('ipindiscards', (YLeaf(YType.uint32, 'ipInDiscards'), ['int'])),
+                ('ipindelivers', (YLeaf(YType.uint32, 'ipInDelivers'), ['int'])),
+                ('ipoutrequests', (YLeaf(YType.uint32, 'ipOutRequests'), ['int'])),
+                ('ipoutdiscards', (YLeaf(YType.uint32, 'ipOutDiscards'), ['int'])),
+                ('ipoutnoroutes', (YLeaf(YType.uint32, 'ipOutNoRoutes'), ['int'])),
+                ('ipreasmtimeout', (YLeaf(YType.int32, 'ipReasmTimeout'), ['int'])),
+                ('ipreasmreqds', (YLeaf(YType.uint32, 'ipReasmReqds'), ['int'])),
+                ('ipreasmoks', (YLeaf(YType.uint32, 'ipReasmOKs'), ['int'])),
+                ('ipreasmfails', (YLeaf(YType.uint32, 'ipReasmFails'), ['int'])),
+                ('ipfragoks', (YLeaf(YType.uint32, 'ipFragOKs'), ['int'])),
+                ('ipfragfails', (YLeaf(YType.uint32, 'ipFragFails'), ['int'])),
+                ('ipfragcreates', (YLeaf(YType.uint32, 'ipFragCreates'), ['int'])),
+                ('iproutingdiscards', (YLeaf(YType.uint32, 'ipRoutingDiscards'), ['int'])),
             ])
             self.ipforwarding = None
             self.ipdefaultttl = None
@@ -513,6 +517,7 @@ class RFC1213MIB(Entity):
             self.iproutingdiscards = None
             self._segment_path = lambda: "ip"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.Ip, [u'ipforwarding', u'ipdefaultttl', u'ipinreceives', u'ipinhdrerrors', u'ipinaddrerrors', u'ipforwdatagrams', u'ipinunknownprotos', u'ipindiscards', u'ipindelivers', u'ipoutrequests', u'ipoutdiscards', u'ipoutnoroutes', u'ipreasmtimeout', u'ipreasmreqds', u'ipreasmoks', u'ipreasmfails', u'ipfragoks', u'ipfragfails', u'ipfragcreates', u'iproutingdiscards'], name, value)
@@ -757,32 +762,32 @@ class RFC1213MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('icmpinmsgs', YLeaf(YType.uint32, 'icmpInMsgs')),
-                ('icmpinerrors', YLeaf(YType.uint32, 'icmpInErrors')),
-                ('icmpindestunreachs', YLeaf(YType.uint32, 'icmpInDestUnreachs')),
-                ('icmpintimeexcds', YLeaf(YType.uint32, 'icmpInTimeExcds')),
-                ('icmpinparmprobs', YLeaf(YType.uint32, 'icmpInParmProbs')),
-                ('icmpinsrcquenchs', YLeaf(YType.uint32, 'icmpInSrcQuenchs')),
-                ('icmpinredirects', YLeaf(YType.uint32, 'icmpInRedirects')),
-                ('icmpinechos', YLeaf(YType.uint32, 'icmpInEchos')),
-                ('icmpinechoreps', YLeaf(YType.uint32, 'icmpInEchoReps')),
-                ('icmpintimestamps', YLeaf(YType.uint32, 'icmpInTimestamps')),
-                ('icmpintimestampreps', YLeaf(YType.uint32, 'icmpInTimestampReps')),
-                ('icmpinaddrmasks', YLeaf(YType.uint32, 'icmpInAddrMasks')),
-                ('icmpinaddrmaskreps', YLeaf(YType.uint32, 'icmpInAddrMaskReps')),
-                ('icmpoutmsgs', YLeaf(YType.uint32, 'icmpOutMsgs')),
-                ('icmpouterrors', YLeaf(YType.uint32, 'icmpOutErrors')),
-                ('icmpoutdestunreachs', YLeaf(YType.uint32, 'icmpOutDestUnreachs')),
-                ('icmpouttimeexcds', YLeaf(YType.uint32, 'icmpOutTimeExcds')),
-                ('icmpoutparmprobs', YLeaf(YType.uint32, 'icmpOutParmProbs')),
-                ('icmpoutsrcquenchs', YLeaf(YType.uint32, 'icmpOutSrcQuenchs')),
-                ('icmpoutredirects', YLeaf(YType.uint32, 'icmpOutRedirects')),
-                ('icmpoutechos', YLeaf(YType.uint32, 'icmpOutEchos')),
-                ('icmpoutechoreps', YLeaf(YType.uint32, 'icmpOutEchoReps')),
-                ('icmpouttimestamps', YLeaf(YType.uint32, 'icmpOutTimestamps')),
-                ('icmpouttimestampreps', YLeaf(YType.uint32, 'icmpOutTimestampReps')),
-                ('icmpoutaddrmasks', YLeaf(YType.uint32, 'icmpOutAddrMasks')),
-                ('icmpoutaddrmaskreps', YLeaf(YType.uint32, 'icmpOutAddrMaskReps')),
+                ('icmpinmsgs', (YLeaf(YType.uint32, 'icmpInMsgs'), ['int'])),
+                ('icmpinerrors', (YLeaf(YType.uint32, 'icmpInErrors'), ['int'])),
+                ('icmpindestunreachs', (YLeaf(YType.uint32, 'icmpInDestUnreachs'), ['int'])),
+                ('icmpintimeexcds', (YLeaf(YType.uint32, 'icmpInTimeExcds'), ['int'])),
+                ('icmpinparmprobs', (YLeaf(YType.uint32, 'icmpInParmProbs'), ['int'])),
+                ('icmpinsrcquenchs', (YLeaf(YType.uint32, 'icmpInSrcQuenchs'), ['int'])),
+                ('icmpinredirects', (YLeaf(YType.uint32, 'icmpInRedirects'), ['int'])),
+                ('icmpinechos', (YLeaf(YType.uint32, 'icmpInEchos'), ['int'])),
+                ('icmpinechoreps', (YLeaf(YType.uint32, 'icmpInEchoReps'), ['int'])),
+                ('icmpintimestamps', (YLeaf(YType.uint32, 'icmpInTimestamps'), ['int'])),
+                ('icmpintimestampreps', (YLeaf(YType.uint32, 'icmpInTimestampReps'), ['int'])),
+                ('icmpinaddrmasks', (YLeaf(YType.uint32, 'icmpInAddrMasks'), ['int'])),
+                ('icmpinaddrmaskreps', (YLeaf(YType.uint32, 'icmpInAddrMaskReps'), ['int'])),
+                ('icmpoutmsgs', (YLeaf(YType.uint32, 'icmpOutMsgs'), ['int'])),
+                ('icmpouterrors', (YLeaf(YType.uint32, 'icmpOutErrors'), ['int'])),
+                ('icmpoutdestunreachs', (YLeaf(YType.uint32, 'icmpOutDestUnreachs'), ['int'])),
+                ('icmpouttimeexcds', (YLeaf(YType.uint32, 'icmpOutTimeExcds'), ['int'])),
+                ('icmpoutparmprobs', (YLeaf(YType.uint32, 'icmpOutParmProbs'), ['int'])),
+                ('icmpoutsrcquenchs', (YLeaf(YType.uint32, 'icmpOutSrcQuenchs'), ['int'])),
+                ('icmpoutredirects', (YLeaf(YType.uint32, 'icmpOutRedirects'), ['int'])),
+                ('icmpoutechos', (YLeaf(YType.uint32, 'icmpOutEchos'), ['int'])),
+                ('icmpoutechoreps', (YLeaf(YType.uint32, 'icmpOutEchoReps'), ['int'])),
+                ('icmpouttimestamps', (YLeaf(YType.uint32, 'icmpOutTimestamps'), ['int'])),
+                ('icmpouttimestampreps', (YLeaf(YType.uint32, 'icmpOutTimestampReps'), ['int'])),
+                ('icmpoutaddrmasks', (YLeaf(YType.uint32, 'icmpOutAddrMasks'), ['int'])),
+                ('icmpoutaddrmaskreps', (YLeaf(YType.uint32, 'icmpOutAddrMaskReps'), ['int'])),
             ])
             self.icmpinmsgs = None
             self.icmpinerrors = None
@@ -812,6 +817,7 @@ class RFC1213MIB(Entity):
             self.icmpoutaddrmaskreps = None
             self._segment_path = lambda: "icmp"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.Icmp, [u'icmpinmsgs', u'icmpinerrors', u'icmpindestunreachs', u'icmpintimeexcds', u'icmpinparmprobs', u'icmpinsrcquenchs', u'icmpinredirects', u'icmpinechos', u'icmpinechoreps', u'icmpintimestamps', u'icmpintimestampreps', u'icmpinaddrmasks', u'icmpinaddrmaskreps', u'icmpoutmsgs', u'icmpouterrors', u'icmpoutdestunreachs', u'icmpouttimeexcds', u'icmpoutparmprobs', u'icmpoutsrcquenchs', u'icmpoutredirects', u'icmpoutechos', u'icmpoutechoreps', u'icmpouttimestamps', u'icmpouttimestampreps', u'icmpoutaddrmasks', u'icmpoutaddrmaskreps'], name, value)
@@ -933,20 +939,20 @@ class RFC1213MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('tcprtoalgorithm', YLeaf(YType.enumeration, 'tcpRtoAlgorithm')),
-                ('tcprtomin', YLeaf(YType.int32, 'tcpRtoMin')),
-                ('tcprtomax', YLeaf(YType.int32, 'tcpRtoMax')),
-                ('tcpmaxconn', YLeaf(YType.int32, 'tcpMaxConn')),
-                ('tcpactiveopens', YLeaf(YType.uint32, 'tcpActiveOpens')),
-                ('tcppassiveopens', YLeaf(YType.uint32, 'tcpPassiveOpens')),
-                ('tcpattemptfails', YLeaf(YType.uint32, 'tcpAttemptFails')),
-                ('tcpestabresets', YLeaf(YType.uint32, 'tcpEstabResets')),
-                ('tcpcurrestab', YLeaf(YType.uint32, 'tcpCurrEstab')),
-                ('tcpinsegs', YLeaf(YType.uint32, 'tcpInSegs')),
-                ('tcpoutsegs', YLeaf(YType.uint32, 'tcpOutSegs')),
-                ('tcpretranssegs', YLeaf(YType.uint32, 'tcpRetransSegs')),
-                ('tcpinerrs', YLeaf(YType.uint32, 'tcpInErrs')),
-                ('tcpoutrsts', YLeaf(YType.uint32, 'tcpOutRsts')),
+                ('tcprtoalgorithm', (YLeaf(YType.enumeration, 'tcpRtoAlgorithm'), [('ydk.models.cisco_ios_xe.RFC1213_MIB', 'RFC1213MIB', 'Tcp.TcpRtoAlgorithm')])),
+                ('tcprtomin', (YLeaf(YType.int32, 'tcpRtoMin'), ['int'])),
+                ('tcprtomax', (YLeaf(YType.int32, 'tcpRtoMax'), ['int'])),
+                ('tcpmaxconn', (YLeaf(YType.int32, 'tcpMaxConn'), ['int'])),
+                ('tcpactiveopens', (YLeaf(YType.uint32, 'tcpActiveOpens'), ['int'])),
+                ('tcppassiveopens', (YLeaf(YType.uint32, 'tcpPassiveOpens'), ['int'])),
+                ('tcpattemptfails', (YLeaf(YType.uint32, 'tcpAttemptFails'), ['int'])),
+                ('tcpestabresets', (YLeaf(YType.uint32, 'tcpEstabResets'), ['int'])),
+                ('tcpcurrestab', (YLeaf(YType.uint32, 'tcpCurrEstab'), ['int'])),
+                ('tcpinsegs', (YLeaf(YType.uint32, 'tcpInSegs'), ['int'])),
+                ('tcpoutsegs', (YLeaf(YType.uint32, 'tcpOutSegs'), ['int'])),
+                ('tcpretranssegs', (YLeaf(YType.uint32, 'tcpRetransSegs'), ['int'])),
+                ('tcpinerrs', (YLeaf(YType.uint32, 'tcpInErrs'), ['int'])),
+                ('tcpoutrsts', (YLeaf(YType.uint32, 'tcpOutRsts'), ['int'])),
             ])
             self.tcprtoalgorithm = None
             self.tcprtomin = None
@@ -964,6 +970,7 @@ class RFC1213MIB(Entity):
             self.tcpoutrsts = None
             self._segment_path = lambda: "tcp"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.Tcp, [u'tcprtoalgorithm', u'tcprtomin', u'tcprtomax', u'tcpmaxconn', u'tcpactiveopens', u'tcppassiveopens', u'tcpattemptfails', u'tcpestabresets', u'tcpcurrestab', u'tcpinsegs', u'tcpoutsegs', u'tcpretranssegs', u'tcpinerrs', u'tcpoutrsts'], name, value)
@@ -1048,10 +1055,10 @@ class RFC1213MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('udpindatagrams', YLeaf(YType.uint32, 'udpInDatagrams')),
-                ('udpnoports', YLeaf(YType.uint32, 'udpNoPorts')),
-                ('udpinerrors', YLeaf(YType.uint32, 'udpInErrors')),
-                ('udpoutdatagrams', YLeaf(YType.uint32, 'udpOutDatagrams')),
+                ('udpindatagrams', (YLeaf(YType.uint32, 'udpInDatagrams'), ['int'])),
+                ('udpnoports', (YLeaf(YType.uint32, 'udpNoPorts'), ['int'])),
+                ('udpinerrors', (YLeaf(YType.uint32, 'udpInErrors'), ['int'])),
+                ('udpoutdatagrams', (YLeaf(YType.uint32, 'udpOutDatagrams'), ['int'])),
             ])
             self.udpindatagrams = None
             self.udpnoports = None
@@ -1059,6 +1066,7 @@ class RFC1213MIB(Entity):
             self.udpoutdatagrams = None
             self._segment_path = lambda: "udp"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.Udp, [u'udpindatagrams', u'udpnoports', u'udpinerrors', u'udpoutdatagrams'], name, value)
@@ -1119,11 +1127,11 @@ class RFC1213MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('egpinmsgs', YLeaf(YType.uint32, 'egpInMsgs')),
-                ('egpinerrors', YLeaf(YType.uint32, 'egpInErrors')),
-                ('egpoutmsgs', YLeaf(YType.uint32, 'egpOutMsgs')),
-                ('egpouterrors', YLeaf(YType.uint32, 'egpOutErrors')),
-                ('egpas', YLeaf(YType.int32, 'egpAs')),
+                ('egpinmsgs', (YLeaf(YType.uint32, 'egpInMsgs'), ['int'])),
+                ('egpinerrors', (YLeaf(YType.uint32, 'egpInErrors'), ['int'])),
+                ('egpoutmsgs', (YLeaf(YType.uint32, 'egpOutMsgs'), ['int'])),
+                ('egpouterrors', (YLeaf(YType.uint32, 'egpOutErrors'), ['int'])),
+                ('egpas', (YLeaf(YType.int32, 'egpAs'), ['int'])),
             ])
             self.egpinmsgs = None
             self.egpinerrors = None
@@ -1132,6 +1140,7 @@ class RFC1213MIB(Entity):
             self.egpas = None
             self._segment_path = lambda: "egp"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.Egp, [u'egpinmsgs', u'egpinerrors', u'egpoutmsgs', u'egpouterrors', u'egpas'], name, value)
@@ -1351,34 +1360,34 @@ class RFC1213MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('snmpinpkts', YLeaf(YType.uint32, 'snmpInPkts')),
-                ('snmpoutpkts', YLeaf(YType.uint32, 'snmpOutPkts')),
-                ('snmpinbadversions', YLeaf(YType.uint32, 'snmpInBadVersions')),
-                ('snmpinbadcommunitynames', YLeaf(YType.uint32, 'snmpInBadCommunityNames')),
-                ('snmpinbadcommunityuses', YLeaf(YType.uint32, 'snmpInBadCommunityUses')),
-                ('snmpinasnparseerrs', YLeaf(YType.uint32, 'snmpInASNParseErrs')),
-                ('snmpintoobigs', YLeaf(YType.uint32, 'snmpInTooBigs')),
-                ('snmpinnosuchnames', YLeaf(YType.uint32, 'snmpInNoSuchNames')),
-                ('snmpinbadvalues', YLeaf(YType.uint32, 'snmpInBadValues')),
-                ('snmpinreadonlys', YLeaf(YType.uint32, 'snmpInReadOnlys')),
-                ('snmpingenerrs', YLeaf(YType.uint32, 'snmpInGenErrs')),
-                ('snmpintotalreqvars', YLeaf(YType.uint32, 'snmpInTotalReqVars')),
-                ('snmpintotalsetvars', YLeaf(YType.uint32, 'snmpInTotalSetVars')),
-                ('snmpingetrequests', YLeaf(YType.uint32, 'snmpInGetRequests')),
-                ('snmpingetnexts', YLeaf(YType.uint32, 'snmpInGetNexts')),
-                ('snmpinsetrequests', YLeaf(YType.uint32, 'snmpInSetRequests')),
-                ('snmpingetresponses', YLeaf(YType.uint32, 'snmpInGetResponses')),
-                ('snmpintraps', YLeaf(YType.uint32, 'snmpInTraps')),
-                ('snmpouttoobigs', YLeaf(YType.uint32, 'snmpOutTooBigs')),
-                ('snmpoutnosuchnames', YLeaf(YType.uint32, 'snmpOutNoSuchNames')),
-                ('snmpoutbadvalues', YLeaf(YType.uint32, 'snmpOutBadValues')),
-                ('snmpoutgenerrs', YLeaf(YType.uint32, 'snmpOutGenErrs')),
-                ('snmpoutgetrequests', YLeaf(YType.uint32, 'snmpOutGetRequests')),
-                ('snmpoutgetnexts', YLeaf(YType.uint32, 'snmpOutGetNexts')),
-                ('snmpoutsetrequests', YLeaf(YType.uint32, 'snmpOutSetRequests')),
-                ('snmpoutgetresponses', YLeaf(YType.uint32, 'snmpOutGetResponses')),
-                ('snmpouttraps', YLeaf(YType.uint32, 'snmpOutTraps')),
-                ('snmpenableauthentraps', YLeaf(YType.enumeration, 'snmpEnableAuthenTraps')),
+                ('snmpinpkts', (YLeaf(YType.uint32, 'snmpInPkts'), ['int'])),
+                ('snmpoutpkts', (YLeaf(YType.uint32, 'snmpOutPkts'), ['int'])),
+                ('snmpinbadversions', (YLeaf(YType.uint32, 'snmpInBadVersions'), ['int'])),
+                ('snmpinbadcommunitynames', (YLeaf(YType.uint32, 'snmpInBadCommunityNames'), ['int'])),
+                ('snmpinbadcommunityuses', (YLeaf(YType.uint32, 'snmpInBadCommunityUses'), ['int'])),
+                ('snmpinasnparseerrs', (YLeaf(YType.uint32, 'snmpInASNParseErrs'), ['int'])),
+                ('snmpintoobigs', (YLeaf(YType.uint32, 'snmpInTooBigs'), ['int'])),
+                ('snmpinnosuchnames', (YLeaf(YType.uint32, 'snmpInNoSuchNames'), ['int'])),
+                ('snmpinbadvalues', (YLeaf(YType.uint32, 'snmpInBadValues'), ['int'])),
+                ('snmpinreadonlys', (YLeaf(YType.uint32, 'snmpInReadOnlys'), ['int'])),
+                ('snmpingenerrs', (YLeaf(YType.uint32, 'snmpInGenErrs'), ['int'])),
+                ('snmpintotalreqvars', (YLeaf(YType.uint32, 'snmpInTotalReqVars'), ['int'])),
+                ('snmpintotalsetvars', (YLeaf(YType.uint32, 'snmpInTotalSetVars'), ['int'])),
+                ('snmpingetrequests', (YLeaf(YType.uint32, 'snmpInGetRequests'), ['int'])),
+                ('snmpingetnexts', (YLeaf(YType.uint32, 'snmpInGetNexts'), ['int'])),
+                ('snmpinsetrequests', (YLeaf(YType.uint32, 'snmpInSetRequests'), ['int'])),
+                ('snmpingetresponses', (YLeaf(YType.uint32, 'snmpInGetResponses'), ['int'])),
+                ('snmpintraps', (YLeaf(YType.uint32, 'snmpInTraps'), ['int'])),
+                ('snmpouttoobigs', (YLeaf(YType.uint32, 'snmpOutTooBigs'), ['int'])),
+                ('snmpoutnosuchnames', (YLeaf(YType.uint32, 'snmpOutNoSuchNames'), ['int'])),
+                ('snmpoutbadvalues', (YLeaf(YType.uint32, 'snmpOutBadValues'), ['int'])),
+                ('snmpoutgenerrs', (YLeaf(YType.uint32, 'snmpOutGenErrs'), ['int'])),
+                ('snmpoutgetrequests', (YLeaf(YType.uint32, 'snmpOutGetRequests'), ['int'])),
+                ('snmpoutgetnexts', (YLeaf(YType.uint32, 'snmpOutGetNexts'), ['int'])),
+                ('snmpoutsetrequests', (YLeaf(YType.uint32, 'snmpOutSetRequests'), ['int'])),
+                ('snmpoutgetresponses', (YLeaf(YType.uint32, 'snmpOutGetResponses'), ['int'])),
+                ('snmpouttraps', (YLeaf(YType.uint32, 'snmpOutTraps'), ['int'])),
+                ('snmpenableauthentraps', (YLeaf(YType.enumeration, 'snmpEnableAuthenTraps'), [('ydk.models.cisco_ios_xe.RFC1213_MIB', 'RFC1213MIB', 'Snmp.SnmpEnableAuthenTraps')])),
             ])
             self.snmpinpkts = None
             self.snmpoutpkts = None
@@ -1410,6 +1419,7 @@ class RFC1213MIB(Entity):
             self.snmpenableauthentraps = None
             self._segment_path = lambda: "snmp"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.Snmp, [u'snmpinpkts', u'snmpoutpkts', u'snmpinbadversions', u'snmpinbadcommunitynames', u'snmpinbadcommunityuses', u'snmpinasnparseerrs', u'snmpintoobigs', u'snmpinnosuchnames', u'snmpinbadvalues', u'snmpinreadonlys', u'snmpingenerrs', u'snmpintotalreqvars', u'snmpintotalsetvars', u'snmpingetrequests', u'snmpingetnexts', u'snmpinsetrequests', u'snmpingetresponses', u'snmpintraps', u'snmpouttoobigs', u'snmpoutnosuchnames', u'snmpoutbadvalues', u'snmpoutgenerrs', u'snmpoutgetrequests', u'snmpoutgetnexts', u'snmpoutsetrequests', u'snmpoutgetresponses', u'snmpouttraps', u'snmpenableauthentraps'], name, value)
@@ -1480,6 +1490,7 @@ class RFC1213MIB(Entity):
             self.ifentry = YList(self)
             self._segment_path = lambda: "ifTable"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.IfTable, [], name, value)
@@ -1653,28 +1664,28 @@ class RFC1213MIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.int32, 'ifIndex')),
-                    ('ifdescr', YLeaf(YType.str, 'ifDescr')),
-                    ('iftype', YLeaf(YType.enumeration, 'ifType')),
-                    ('ifmtu', YLeaf(YType.int32, 'ifMtu')),
-                    ('ifspeed', YLeaf(YType.uint32, 'ifSpeed')),
-                    ('ifphysaddress', YLeaf(YType.str, 'ifPhysAddress')),
-                    ('ifadminstatus', YLeaf(YType.enumeration, 'ifAdminStatus')),
-                    ('ifoperstatus', YLeaf(YType.enumeration, 'ifOperStatus')),
-                    ('iflastchange', YLeaf(YType.uint32, 'ifLastChange')),
-                    ('ifinoctets', YLeaf(YType.uint32, 'ifInOctets')),
-                    ('ifinucastpkts', YLeaf(YType.uint32, 'ifInUcastPkts')),
-                    ('ifinnucastpkts', YLeaf(YType.uint32, 'ifInNUcastPkts')),
-                    ('ifindiscards', YLeaf(YType.uint32, 'ifInDiscards')),
-                    ('ifinerrors', YLeaf(YType.uint32, 'ifInErrors')),
-                    ('ifinunknownprotos', YLeaf(YType.uint32, 'ifInUnknownProtos')),
-                    ('ifoutoctets', YLeaf(YType.uint32, 'ifOutOctets')),
-                    ('ifoutucastpkts', YLeaf(YType.uint32, 'ifOutUcastPkts')),
-                    ('ifoutnucastpkts', YLeaf(YType.uint32, 'ifOutNUcastPkts')),
-                    ('ifoutdiscards', YLeaf(YType.uint32, 'ifOutDiscards')),
-                    ('ifouterrors', YLeaf(YType.uint32, 'ifOutErrors')),
-                    ('ifoutqlen', YLeaf(YType.uint32, 'ifOutQLen')),
-                    ('ifspecific', YLeaf(YType.str, 'ifSpecific')),
+                    ('ifindex', (YLeaf(YType.int32, 'ifIndex'), ['int'])),
+                    ('ifdescr', (YLeaf(YType.str, 'ifDescr'), ['str'])),
+                    ('iftype', (YLeaf(YType.enumeration, 'ifType'), [('ydk.models.cisco_ios_xe.IANAifType_MIB', 'IANAifType', '')])),
+                    ('ifmtu', (YLeaf(YType.int32, 'ifMtu'), ['int'])),
+                    ('ifspeed', (YLeaf(YType.uint32, 'ifSpeed'), ['int'])),
+                    ('ifphysaddress', (YLeaf(YType.str, 'ifPhysAddress'), ['str'])),
+                    ('ifadminstatus', (YLeaf(YType.enumeration, 'ifAdminStatus'), [('ydk.models.cisco_ios_xe.RFC1213_MIB', 'RFC1213MIB', 'IfTable.IfEntry.IfAdminStatus')])),
+                    ('ifoperstatus', (YLeaf(YType.enumeration, 'ifOperStatus'), [('ydk.models.cisco_ios_xe.RFC1213_MIB', 'RFC1213MIB', 'IfTable.IfEntry.IfOperStatus')])),
+                    ('iflastchange', (YLeaf(YType.uint32, 'ifLastChange'), ['int'])),
+                    ('ifinoctets', (YLeaf(YType.uint32, 'ifInOctets'), ['int'])),
+                    ('ifinucastpkts', (YLeaf(YType.uint32, 'ifInUcastPkts'), ['int'])),
+                    ('ifinnucastpkts', (YLeaf(YType.uint32, 'ifInNUcastPkts'), ['int'])),
+                    ('ifindiscards', (YLeaf(YType.uint32, 'ifInDiscards'), ['int'])),
+                    ('ifinerrors', (YLeaf(YType.uint32, 'ifInErrors'), ['int'])),
+                    ('ifinunknownprotos', (YLeaf(YType.uint32, 'ifInUnknownProtos'), ['int'])),
+                    ('ifoutoctets', (YLeaf(YType.uint32, 'ifOutOctets'), ['int'])),
+                    ('ifoutucastpkts', (YLeaf(YType.uint32, 'ifOutUcastPkts'), ['int'])),
+                    ('ifoutnucastpkts', (YLeaf(YType.uint32, 'ifOutNUcastPkts'), ['int'])),
+                    ('ifoutdiscards', (YLeaf(YType.uint32, 'ifOutDiscards'), ['int'])),
+                    ('ifouterrors', (YLeaf(YType.uint32, 'ifOutErrors'), ['int'])),
+                    ('ifoutqlen', (YLeaf(YType.uint32, 'ifOutQLen'), ['int'])),
+                    ('ifspecific', (YLeaf(YType.str, 'ifSpecific'), ['str'])),
                 ])
                 self.ifindex = None
                 self.ifdescr = None
@@ -1700,6 +1711,7 @@ class RFC1213MIB(Entity):
                 self.ifspecific = None
                 self._segment_path = lambda: "ifEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/ifTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RFC1213MIB.IfTable.IfEntry, [u'ifindex', u'ifdescr', u'iftype', u'ifmtu', u'ifspeed', u'ifphysaddress', u'ifadminstatus', u'ifoperstatus', u'iflastchange', u'ifinoctets', u'ifinucastpkts', u'ifinnucastpkts', u'ifindiscards', u'ifinerrors', u'ifinunknownprotos', u'ifoutoctets', u'ifoutucastpkts', u'ifoutnucastpkts', u'ifoutdiscards', u'ifouterrors', u'ifoutqlen', u'ifspecific'], name, value)
@@ -1800,6 +1812,7 @@ class RFC1213MIB(Entity):
             self.atentry = YList(self)
             self._segment_path = lambda: "atTable"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.AtTable, [], name, value)
@@ -1860,10 +1873,10 @@ class RFC1213MIB(Entity):
                 self.ylist_key_names = ['atifindex','atifindex_2','atnetaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('atifindex', YLeaf(YType.int32, 'atIfIndex')),
-                    ('atifindex_2', YLeaf(YType.int32, 'atIfIndex_2')),
-                    ('atnetaddress', YLeaf(YType.str, 'atNetAddress')),
-                    ('atphysaddress', YLeaf(YType.str, 'atPhysAddress')),
+                    ('atifindex', (YLeaf(YType.int32, 'atIfIndex'), ['int'])),
+                    ('atifindex_2', (YLeaf(YType.int32, 'atIfIndex_2'), ['int'])),
+                    ('atnetaddress', (YLeaf(YType.str, 'atNetAddress'), ['str'])),
+                    ('atphysaddress', (YLeaf(YType.str, 'atPhysAddress'), ['str'])),
                 ])
                 self.atifindex = None
                 self.atifindex_2 = None
@@ -1871,6 +1884,7 @@ class RFC1213MIB(Entity):
                 self.atphysaddress = None
                 self._segment_path = lambda: "atEntry" + "[atIfIndex='" + str(self.atifindex) + "']" + "[atIfIndex_2='" + str(self.atifindex_2) + "']" + "[atNetAddress='" + str(self.atnetaddress) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/atTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RFC1213MIB.AtTable.AtEntry, [u'atifindex', u'atifindex_2', u'atnetaddress', u'atphysaddress'], name, value)
@@ -1906,6 +1920,7 @@ class RFC1213MIB(Entity):
             self.ipaddrentry = YList(self)
             self._segment_path = lambda: "ipAddrTable"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.IpAddrTable, [], name, value)
@@ -1967,11 +1982,11 @@ class RFC1213MIB(Entity):
                 self.ylist_key_names = ['ipadentaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipadentaddr', YLeaf(YType.str, 'ipAdEntAddr')),
-                    ('ipadentifindex', YLeaf(YType.int32, 'ipAdEntIfIndex')),
-                    ('ipadentnetmask', YLeaf(YType.str, 'ipAdEntNetMask')),
-                    ('ipadentbcastaddr', YLeaf(YType.int32, 'ipAdEntBcastAddr')),
-                    ('ipadentreasmmaxsize', YLeaf(YType.int32, 'ipAdEntReasmMaxSize')),
+                    ('ipadentaddr', (YLeaf(YType.str, 'ipAdEntAddr'), ['str'])),
+                    ('ipadentifindex', (YLeaf(YType.int32, 'ipAdEntIfIndex'), ['int'])),
+                    ('ipadentnetmask', (YLeaf(YType.str, 'ipAdEntNetMask'), ['str'])),
+                    ('ipadentbcastaddr', (YLeaf(YType.int32, 'ipAdEntBcastAddr'), ['int'])),
+                    ('ipadentreasmmaxsize', (YLeaf(YType.int32, 'ipAdEntReasmMaxSize'), ['int'])),
                 ])
                 self.ipadentaddr = None
                 self.ipadentifindex = None
@@ -1980,6 +1995,7 @@ class RFC1213MIB(Entity):
                 self.ipadentreasmmaxsize = None
                 self._segment_path = lambda: "ipAddrEntry" + "[ipAdEntAddr='" + str(self.ipadentaddr) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/ipAddrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RFC1213MIB.IpAddrTable.IpAddrEntry, [u'ipadentaddr', u'ipadentifindex', u'ipadentnetmask', u'ipadentbcastaddr', u'ipadentreasmmaxsize'], name, value)
@@ -2014,6 +2030,7 @@ class RFC1213MIB(Entity):
             self.iprouteentry = YList(self)
             self._segment_path = lambda: "ipRouteTable"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.IpRouteTable, [], name, value)
@@ -2126,19 +2143,19 @@ class RFC1213MIB(Entity):
                 self.ylist_key_names = ['iproutedest']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('iproutedest', YLeaf(YType.str, 'ipRouteDest')),
-                    ('iprouteifindex', YLeaf(YType.int32, 'ipRouteIfIndex')),
-                    ('iproutemetric1', YLeaf(YType.int32, 'ipRouteMetric1')),
-                    ('iproutemetric2', YLeaf(YType.int32, 'ipRouteMetric2')),
-                    ('iproutemetric3', YLeaf(YType.int32, 'ipRouteMetric3')),
-                    ('iproutemetric4', YLeaf(YType.int32, 'ipRouteMetric4')),
-                    ('iproutenexthop', YLeaf(YType.str, 'ipRouteNextHop')),
-                    ('iproutetype', YLeaf(YType.enumeration, 'ipRouteType')),
-                    ('iprouteproto', YLeaf(YType.enumeration, 'ipRouteProto')),
-                    ('iprouteage', YLeaf(YType.int32, 'ipRouteAge')),
-                    ('iproutemask', YLeaf(YType.str, 'ipRouteMask')),
-                    ('iproutemetric5', YLeaf(YType.int32, 'ipRouteMetric5')),
-                    ('iprouteinfo', YLeaf(YType.str, 'ipRouteInfo')),
+                    ('iproutedest', (YLeaf(YType.str, 'ipRouteDest'), ['str'])),
+                    ('iprouteifindex', (YLeaf(YType.int32, 'ipRouteIfIndex'), ['int'])),
+                    ('iproutemetric1', (YLeaf(YType.int32, 'ipRouteMetric1'), ['int'])),
+                    ('iproutemetric2', (YLeaf(YType.int32, 'ipRouteMetric2'), ['int'])),
+                    ('iproutemetric3', (YLeaf(YType.int32, 'ipRouteMetric3'), ['int'])),
+                    ('iproutemetric4', (YLeaf(YType.int32, 'ipRouteMetric4'), ['int'])),
+                    ('iproutenexthop', (YLeaf(YType.str, 'ipRouteNextHop'), ['str'])),
+                    ('iproutetype', (YLeaf(YType.enumeration, 'ipRouteType'), [('ydk.models.cisco_ios_xe.RFC1213_MIB', 'RFC1213MIB', 'IpRouteTable.IpRouteEntry.IpRouteType')])),
+                    ('iprouteproto', (YLeaf(YType.enumeration, 'ipRouteProto'), [('ydk.models.cisco_ios_xe.RFC1213_MIB', 'RFC1213MIB', 'IpRouteTable.IpRouteEntry.IpRouteProto')])),
+                    ('iprouteage', (YLeaf(YType.int32, 'ipRouteAge'), ['int'])),
+                    ('iproutemask', (YLeaf(YType.str, 'ipRouteMask'), ['str'])),
+                    ('iproutemetric5', (YLeaf(YType.int32, 'ipRouteMetric5'), ['int'])),
+                    ('iprouteinfo', (YLeaf(YType.str, 'ipRouteInfo'), ['str'])),
                 ])
                 self.iproutedest = None
                 self.iprouteifindex = None
@@ -2155,6 +2172,7 @@ class RFC1213MIB(Entity):
                 self.iprouteinfo = None
                 self._segment_path = lambda: "ipRouteEntry" + "[ipRouteDest='" + str(self.iproutedest) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/ipRouteTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RFC1213MIB.IpRouteTable.IpRouteEntry, [u'iproutedest', u'iprouteifindex', u'iproutemetric1', u'iproutemetric2', u'iproutemetric3', u'iproutemetric4', u'iproutenexthop', u'iproutetype', u'iprouteproto', u'iprouteage', u'iproutemask', u'iproutemetric5', u'iprouteinfo'], name, value)
@@ -2318,6 +2336,7 @@ class RFC1213MIB(Entity):
             self.ipnettomediaentry = YList(self)
             self._segment_path = lambda: "ipNetToMediaTable"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.IpNetToMediaTable, [], name, value)
@@ -2368,10 +2387,10 @@ class RFC1213MIB(Entity):
                 self.ylist_key_names = ['ipnettomediaifindex','ipnettomedianetaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipnettomediaifindex', YLeaf(YType.int32, 'ipNetToMediaIfIndex')),
-                    ('ipnettomedianetaddress', YLeaf(YType.str, 'ipNetToMediaNetAddress')),
-                    ('ipnettomediaphysaddress', YLeaf(YType.str, 'ipNetToMediaPhysAddress')),
-                    ('ipnettomediatype', YLeaf(YType.enumeration, 'ipNetToMediaType')),
+                    ('ipnettomediaifindex', (YLeaf(YType.int32, 'ipNetToMediaIfIndex'), ['int'])),
+                    ('ipnettomedianetaddress', (YLeaf(YType.str, 'ipNetToMediaNetAddress'), ['str'])),
+                    ('ipnettomediaphysaddress', (YLeaf(YType.str, 'ipNetToMediaPhysAddress'), ['str'])),
+                    ('ipnettomediatype', (YLeaf(YType.enumeration, 'ipNetToMediaType'), [('ydk.models.cisco_ios_xe.RFC1213_MIB', 'RFC1213MIB', 'IpNetToMediaTable.IpNetToMediaEntry.IpNetToMediaType')])),
                 ])
                 self.ipnettomediaifindex = None
                 self.ipnettomedianetaddress = None
@@ -2379,6 +2398,7 @@ class RFC1213MIB(Entity):
                 self.ipnettomediatype = None
                 self._segment_path = lambda: "ipNetToMediaEntry" + "[ipNetToMediaIfIndex='" + str(self.ipnettomediaifindex) + "']" + "[ipNetToMediaNetAddress='" + str(self.ipnettomedianetaddress) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/ipNetToMediaTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RFC1213MIB.IpNetToMediaTable.IpNetToMediaEntry, [u'ipnettomediaifindex', u'ipnettomedianetaddress', u'ipnettomediaphysaddress', u'ipnettomediatype'], name, value)
@@ -2465,6 +2485,7 @@ class RFC1213MIB(Entity):
             self.tcpconnentry = YList(self)
             self._segment_path = lambda: "tcpConnTable"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.TcpConnTable, [], name, value)
@@ -2527,11 +2548,11 @@ class RFC1213MIB(Entity):
                 self.ylist_key_names = ['tcpconnlocaladdress','tcpconnlocalport','tcpconnremaddress','tcpconnremport']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('tcpconnlocaladdress', YLeaf(YType.str, 'tcpConnLocalAddress')),
-                    ('tcpconnlocalport', YLeaf(YType.int32, 'tcpConnLocalPort')),
-                    ('tcpconnremaddress', YLeaf(YType.str, 'tcpConnRemAddress')),
-                    ('tcpconnremport', YLeaf(YType.int32, 'tcpConnRemPort')),
-                    ('tcpconnstate', YLeaf(YType.enumeration, 'tcpConnState')),
+                    ('tcpconnlocaladdress', (YLeaf(YType.str, 'tcpConnLocalAddress'), ['str'])),
+                    ('tcpconnlocalport', (YLeaf(YType.int32, 'tcpConnLocalPort'), ['int'])),
+                    ('tcpconnremaddress', (YLeaf(YType.str, 'tcpConnRemAddress'), ['str'])),
+                    ('tcpconnremport', (YLeaf(YType.int32, 'tcpConnRemPort'), ['int'])),
+                    ('tcpconnstate', (YLeaf(YType.enumeration, 'tcpConnState'), [('ydk.models.cisco_ios_xe.RFC1213_MIB', 'RFC1213MIB', 'TcpConnTable.TcpConnEntry.TcpConnState')])),
                 ])
                 self.tcpconnlocaladdress = None
                 self.tcpconnlocalport = None
@@ -2540,6 +2561,7 @@ class RFC1213MIB(Entity):
                 self.tcpconnstate = None
                 self._segment_path = lambda: "tcpConnEntry" + "[tcpConnLocalAddress='" + str(self.tcpconnlocaladdress) + "']" + "[tcpConnLocalPort='" + str(self.tcpconnlocalport) + "']" + "[tcpConnRemAddress='" + str(self.tcpconnremaddress) + "']" + "[tcpConnRemPort='" + str(self.tcpconnremport) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/tcpConnTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RFC1213MIB.TcpConnTable.TcpConnEntry, [u'tcpconnlocaladdress', u'tcpconnlocalport', u'tcpconnremaddress', u'tcpconnremport', u'tcpconnstate'], name, value)
@@ -2661,6 +2683,7 @@ class RFC1213MIB(Entity):
             self.udpentry = YList(self)
             self._segment_path = lambda: "udpTable"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.UdpTable, [], name, value)
@@ -2701,13 +2724,14 @@ class RFC1213MIB(Entity):
                 self.ylist_key_names = ['udplocaladdress','udplocalport']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('udplocaladdress', YLeaf(YType.str, 'udpLocalAddress')),
-                    ('udplocalport', YLeaf(YType.int32, 'udpLocalPort')),
+                    ('udplocaladdress', (YLeaf(YType.str, 'udpLocalAddress'), ['str'])),
+                    ('udplocalport', (YLeaf(YType.int32, 'udpLocalPort'), ['int'])),
                 ])
                 self.udplocaladdress = None
                 self.udplocalport = None
                 self._segment_path = lambda: "udpEntry" + "[udpLocalAddress='" + str(self.udplocaladdress) + "']" + "[udpLocalPort='" + str(self.udplocalport) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/udpTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RFC1213MIB.UdpTable.UdpEntry, [u'udplocaladdress', u'udplocalport'], name, value)
@@ -2742,6 +2766,7 @@ class RFC1213MIB(Entity):
             self.egpneighentry = YList(self)
             self._segment_path = lambda: "egpNeighTable"
             self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RFC1213MIB.EgpNeighTable, [], name, value)
@@ -2867,21 +2892,21 @@ class RFC1213MIB(Entity):
                 self.ylist_key_names = ['egpneighaddr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('egpneighaddr', YLeaf(YType.str, 'egpNeighAddr')),
-                    ('egpneighstate', YLeaf(YType.enumeration, 'egpNeighState')),
-                    ('egpneighas', YLeaf(YType.int32, 'egpNeighAs')),
-                    ('egpneighinmsgs', YLeaf(YType.uint32, 'egpNeighInMsgs')),
-                    ('egpneighinerrs', YLeaf(YType.uint32, 'egpNeighInErrs')),
-                    ('egpneighoutmsgs', YLeaf(YType.uint32, 'egpNeighOutMsgs')),
-                    ('egpneighouterrs', YLeaf(YType.uint32, 'egpNeighOutErrs')),
-                    ('egpneighinerrmsgs', YLeaf(YType.uint32, 'egpNeighInErrMsgs')),
-                    ('egpneighouterrmsgs', YLeaf(YType.uint32, 'egpNeighOutErrMsgs')),
-                    ('egpneighstateups', YLeaf(YType.uint32, 'egpNeighStateUps')),
-                    ('egpneighstatedowns', YLeaf(YType.uint32, 'egpNeighStateDowns')),
-                    ('egpneighintervalhello', YLeaf(YType.int32, 'egpNeighIntervalHello')),
-                    ('egpneighintervalpoll', YLeaf(YType.int32, 'egpNeighIntervalPoll')),
-                    ('egpneighmode', YLeaf(YType.enumeration, 'egpNeighMode')),
-                    ('egpneigheventtrigger', YLeaf(YType.enumeration, 'egpNeighEventTrigger')),
+                    ('egpneighaddr', (YLeaf(YType.str, 'egpNeighAddr'), ['str'])),
+                    ('egpneighstate', (YLeaf(YType.enumeration, 'egpNeighState'), [('ydk.models.cisco_ios_xe.RFC1213_MIB', 'RFC1213MIB', 'EgpNeighTable.EgpNeighEntry.EgpNeighState')])),
+                    ('egpneighas', (YLeaf(YType.int32, 'egpNeighAs'), ['int'])),
+                    ('egpneighinmsgs', (YLeaf(YType.uint32, 'egpNeighInMsgs'), ['int'])),
+                    ('egpneighinerrs', (YLeaf(YType.uint32, 'egpNeighInErrs'), ['int'])),
+                    ('egpneighoutmsgs', (YLeaf(YType.uint32, 'egpNeighOutMsgs'), ['int'])),
+                    ('egpneighouterrs', (YLeaf(YType.uint32, 'egpNeighOutErrs'), ['int'])),
+                    ('egpneighinerrmsgs', (YLeaf(YType.uint32, 'egpNeighInErrMsgs'), ['int'])),
+                    ('egpneighouterrmsgs', (YLeaf(YType.uint32, 'egpNeighOutErrMsgs'), ['int'])),
+                    ('egpneighstateups', (YLeaf(YType.uint32, 'egpNeighStateUps'), ['int'])),
+                    ('egpneighstatedowns', (YLeaf(YType.uint32, 'egpNeighStateDowns'), ['int'])),
+                    ('egpneighintervalhello', (YLeaf(YType.int32, 'egpNeighIntervalHello'), ['int'])),
+                    ('egpneighintervalpoll', (YLeaf(YType.int32, 'egpNeighIntervalPoll'), ['int'])),
+                    ('egpneighmode', (YLeaf(YType.enumeration, 'egpNeighMode'), [('ydk.models.cisco_ios_xe.RFC1213_MIB', 'RFC1213MIB', 'EgpNeighTable.EgpNeighEntry.EgpNeighMode')])),
+                    ('egpneigheventtrigger', (YLeaf(YType.enumeration, 'egpNeighEventTrigger'), [('ydk.models.cisco_ios_xe.RFC1213_MIB', 'RFC1213MIB', 'EgpNeighTable.EgpNeighEntry.EgpNeighEventTrigger')])),
                 ])
                 self.egpneighaddr = None
                 self.egpneighstate = None
@@ -2900,6 +2925,7 @@ class RFC1213MIB(Entity):
                 self.egpneigheventtrigger = None
                 self._segment_path = lambda: "egpNeighEntry" + "[egpNeighAddr='" + str(self.egpneighaddr) + "']"
                 self._absolute_path = lambda: "RFC1213-MIB:RFC1213-MIB/egpNeighTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RFC1213MIB.EgpNeighTable.EgpNeighEntry, [u'egpneighaddr', u'egpneighstate', u'egpneighas', u'egpneighinmsgs', u'egpneighinerrs', u'egpneighoutmsgs', u'egpneighouterrs', u'egpneighinerrmsgs', u'egpneighouterrmsgs', u'egpneighstateups', u'egpneighstatedowns', u'egpneighintervalhello', u'egpneighintervalpoll', u'egpneighmode', u'egpneigheventtrigger'], name, value)

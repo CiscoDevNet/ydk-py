@@ -48,6 +48,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOIPSECPOLICYMAPMIB(Entity):
     """
     
@@ -89,6 +90,7 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
         self.ipsecpolmaptable.parent = self
         self._children_name_map["ipsecpolmaptable"] = "ipSecPolMapTable"
         self._segment_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIPSECPOLICYMAPMIB, [], name, value)
@@ -127,6 +129,7 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
             self.ikepolmapentry = YList(self)
             self._segment_path = lambda: "ikePolMapTable"
             self._absolute_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPSECPOLICYMAPMIB.IkePolMapTable, [], name, value)
@@ -169,13 +172,14 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
                 self.ylist_key_names = ['ikepolmaptunindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ikepolmaptunindex', YLeaf(YType.int32, 'ikePolMapTunIndex')),
-                    ('ikepolmappolicynum', YLeaf(YType.int32, 'ikePolMapPolicyNum')),
+                    ('ikepolmaptunindex', (YLeaf(YType.int32, 'ikePolMapTunIndex'), ['int'])),
+                    ('ikepolmappolicynum', (YLeaf(YType.int32, 'ikePolMapPolicyNum'), ['int'])),
                 ])
                 self.ikepolmaptunindex = None
                 self.ikepolmappolicynum = None
                 self._segment_path = lambda: "ikePolMapEntry" + "[ikePolMapTunIndex='" + str(self.ikepolmaptunindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/ikePolMapTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPSECPOLICYMAPMIB.IkePolMapTable.IkePolMapEntry, ['ikepolmaptunindex', 'ikepolmappolicynum'], name, value)
@@ -213,6 +217,7 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
             self.ipsecpolmapentry = YList(self)
             self._segment_path = lambda: "ipSecPolMapTable"
             self._absolute_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIPSECPOLICYMAPMIB.IpSecPolMapTable, [], name, value)
@@ -270,11 +275,11 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
                 self.ylist_key_names = ['ipsecpolmaptunindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipsecpolmaptunindex', YLeaf(YType.int32, 'ipSecPolMapTunIndex')),
-                    ('ipsecpolmapcryptomapname', YLeaf(YType.str, 'ipSecPolMapCryptoMapName')),
-                    ('ipsecpolmapcryptomapnum', YLeaf(YType.int32, 'ipSecPolMapCryptoMapNum')),
-                    ('ipsecpolmapaclstring', YLeaf(YType.str, 'ipSecPolMapAclString')),
-                    ('ipsecpolmapacestring', YLeaf(YType.str, 'ipSecPolMapAceString')),
+                    ('ipsecpolmaptunindex', (YLeaf(YType.int32, 'ipSecPolMapTunIndex'), ['int'])),
+                    ('ipsecpolmapcryptomapname', (YLeaf(YType.str, 'ipSecPolMapCryptoMapName'), ['str'])),
+                    ('ipsecpolmapcryptomapnum', (YLeaf(YType.int32, 'ipSecPolMapCryptoMapNum'), ['int'])),
+                    ('ipsecpolmapaclstring', (YLeaf(YType.str, 'ipSecPolMapAclString'), ['str'])),
+                    ('ipsecpolmapacestring', (YLeaf(YType.str, 'ipSecPolMapAceString'), ['str'])),
                 ])
                 self.ipsecpolmaptunindex = None
                 self.ipsecpolmapcryptomapname = None
@@ -283,6 +288,7 @@ class CISCOIPSECPOLICYMAPMIB(Entity):
                 self.ipsecpolmapacestring = None
                 self._segment_path = lambda: "ipSecPolMapEntry" + "[ipSecPolMapTunIndex='" + str(self.ipsecpolmaptunindex) + "']"
                 self._absolute_path = lambda: "CISCO-IPSEC-POLICY-MAP-MIB:CISCO-IPSEC-POLICY-MAP-MIB/ipSecPolMapTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIPSECPOLICYMAPMIB.IpSecPolMapTable.IpSecPolMapEntry, ['ipsecpolmaptunindex', 'ipsecpolmapcryptomapname', 'ipsecpolmapcryptomapnum', 'ipsecpolmapaclstring', 'ipsecpolmapacestring'], name, value)

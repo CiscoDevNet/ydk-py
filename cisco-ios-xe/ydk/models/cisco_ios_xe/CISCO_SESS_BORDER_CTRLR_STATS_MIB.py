@@ -89,6 +89,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class CiscoSbcRadiusClientType(Enum):
     """
     CiscoSbcRadiusClientType (Enum Class)
@@ -249,6 +250,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
         self.csbsipmthdrchistorystatstable.parent = self
         self._children_name_map["csbsipmthdrchistorystatstable"] = "csbSIPMthdRCHistoryStatsTable"
         self._segment_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB, [], name, value)
@@ -290,6 +292,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             self.csbradiusstatsentry = YList(self)
             self._segment_path = lambda: "csbRadiusStatsTable"
             self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbRadiusStatsTable, [], name, value)
@@ -485,26 +488,26 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbradiusstatsentindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
-                    ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
-                    ('csbradiusstatsentindex', YLeaf(YType.uint32, 'csbRadiusStatsEntIndex')),
-                    ('csbradiusstatsclientname', YLeaf(YType.str, 'csbRadiusStatsClientName')),
-                    ('csbradiusstatsclienttype', YLeaf(YType.enumeration, 'csbRadiusStatsClientType')),
-                    ('csbradiusstatssrvrname', YLeaf(YType.str, 'csbRadiusStatsSrvrName')),
-                    ('csbradiusstatsacsreqs', YLeaf(YType.uint64, 'csbRadiusStatsAcsReqs')),
-                    ('csbradiusstatsacsrtrns', YLeaf(YType.uint64, 'csbRadiusStatsAcsRtrns')),
-                    ('csbradiusstatsacsaccpts', YLeaf(YType.uint64, 'csbRadiusStatsAcsAccpts')),
-                    ('csbradiusstatsacsrejects', YLeaf(YType.uint64, 'csbRadiusStatsAcsRejects')),
-                    ('csbradiusstatsacschalls', YLeaf(YType.uint64, 'csbRadiusStatsAcsChalls')),
-                    ('csbradiusstatsactreqs', YLeaf(YType.uint64, 'csbRadiusStatsActReqs')),
-                    ('csbradiusstatsactretrans', YLeaf(YType.uint64, 'csbRadiusStatsActRetrans')),
-                    ('csbradiusstatsactrsps', YLeaf(YType.uint64, 'csbRadiusStatsActRsps')),
-                    ('csbradiusstatsmalformedrsps', YLeaf(YType.uint64, 'csbRadiusStatsMalformedRsps')),
-                    ('csbradiusstatsbadauths', YLeaf(YType.uint64, 'csbRadiusStatsBadAuths')),
-                    ('csbradiusstatspending', YLeaf(YType.uint32, 'csbRadiusStatsPending')),
-                    ('csbradiusstatstimeouts', YLeaf(YType.uint64, 'csbRadiusStatsTimeouts')),
-                    ('csbradiusstatsunknowntype', YLeaf(YType.uint64, 'csbRadiusStatsUnknownType')),
-                    ('csbradiusstatsdropped', YLeaf(YType.uint64, 'csbRadiusStatsDropped')),
+                    ('csbcallstatsinstanceindex', (YLeaf(YType.str, 'csbCallStatsInstanceIndex'), ['int'])),
+                    ('csbcallstatsserviceindex', (YLeaf(YType.str, 'csbCallStatsServiceIndex'), ['int'])),
+                    ('csbradiusstatsentindex', (YLeaf(YType.uint32, 'csbRadiusStatsEntIndex'), ['int'])),
+                    ('csbradiusstatsclientname', (YLeaf(YType.str, 'csbRadiusStatsClientName'), ['str'])),
+                    ('csbradiusstatsclienttype', (YLeaf(YType.enumeration, 'csbRadiusStatsClientType'), [('ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB', 'CiscoSbcRadiusClientType', '')])),
+                    ('csbradiusstatssrvrname', (YLeaf(YType.str, 'csbRadiusStatsSrvrName'), ['str'])),
+                    ('csbradiusstatsacsreqs', (YLeaf(YType.uint64, 'csbRadiusStatsAcsReqs'), ['int'])),
+                    ('csbradiusstatsacsrtrns', (YLeaf(YType.uint64, 'csbRadiusStatsAcsRtrns'), ['int'])),
+                    ('csbradiusstatsacsaccpts', (YLeaf(YType.uint64, 'csbRadiusStatsAcsAccpts'), ['int'])),
+                    ('csbradiusstatsacsrejects', (YLeaf(YType.uint64, 'csbRadiusStatsAcsRejects'), ['int'])),
+                    ('csbradiusstatsacschalls', (YLeaf(YType.uint64, 'csbRadiusStatsAcsChalls'), ['int'])),
+                    ('csbradiusstatsactreqs', (YLeaf(YType.uint64, 'csbRadiusStatsActReqs'), ['int'])),
+                    ('csbradiusstatsactretrans', (YLeaf(YType.uint64, 'csbRadiusStatsActRetrans'), ['int'])),
+                    ('csbradiusstatsactrsps', (YLeaf(YType.uint64, 'csbRadiusStatsActRsps'), ['int'])),
+                    ('csbradiusstatsmalformedrsps', (YLeaf(YType.uint64, 'csbRadiusStatsMalformedRsps'), ['int'])),
+                    ('csbradiusstatsbadauths', (YLeaf(YType.uint64, 'csbRadiusStatsBadAuths'), ['int'])),
+                    ('csbradiusstatspending', (YLeaf(YType.uint32, 'csbRadiusStatsPending'), ['int'])),
+                    ('csbradiusstatstimeouts', (YLeaf(YType.uint64, 'csbRadiusStatsTimeouts'), ['int'])),
+                    ('csbradiusstatsunknowntype', (YLeaf(YType.uint64, 'csbRadiusStatsUnknownType'), ['int'])),
+                    ('csbradiusstatsdropped', (YLeaf(YType.uint64, 'csbRadiusStatsDropped'), ['int'])),
                 ])
                 self.csbcallstatsinstanceindex = None
                 self.csbcallstatsserviceindex = None
@@ -528,6 +531,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self.csbradiusstatsdropped = None
                 self._segment_path = lambda: "csbRadiusStatsEntry" + "[csbCallStatsInstanceIndex='" + str(self.csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + str(self.csbcallstatsserviceindex) + "']" + "[csbRadiusStatsEntIndex='" + str(self.csbradiusstatsentindex) + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbRadiusStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbRadiusStatsTable.CsbRadiusStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbradiusstatsentindex', 'csbradiusstatsclientname', 'csbradiusstatsclienttype', 'csbradiusstatssrvrname', 'csbradiusstatsacsreqs', 'csbradiusstatsacsrtrns', 'csbradiusstatsacsaccpts', 'csbradiusstatsacsrejects', 'csbradiusstatsacschalls', 'csbradiusstatsactreqs', 'csbradiusstatsactretrans', 'csbradiusstatsactrsps', 'csbradiusstatsmalformedrsps', 'csbradiusstatsbadauths', 'csbradiusstatspending', 'csbradiusstatstimeouts', 'csbradiusstatsunknowntype', 'csbradiusstatsdropped'], name, value)
@@ -581,6 +585,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             self.csbrfbillrealmstatsentry = YList(self)
             self._segment_path = lambda: "csbRfBillRealmStatsTable"
             self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbRfBillRealmStatsTable, [], name, value)
@@ -751,22 +756,22 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbrfbillrealmstatsindex','csbrfbillrealmstatsrealmname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
-                    ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
-                    ('csbrfbillrealmstatsindex', YLeaf(YType.uint32, 'csbRfBillRealmStatsIndex')),
-                    ('csbrfbillrealmstatsrealmname', YLeaf(YType.str, 'csbRfBillRealmStatsRealmName')),
-                    ('csbrfbillrealmstatstotalstartacrs', YLeaf(YType.uint32, 'csbRfBillRealmStatsTotalStartAcrs')),
-                    ('csbrfbillrealmstatstotalinterimacrs', YLeaf(YType.uint32, 'csbRfBillRealmStatsTotalInterimAcrs')),
-                    ('csbrfbillrealmstatstotalstopacrs', YLeaf(YType.uint32, 'csbRfBillRealmStatsTotalStopAcrs')),
-                    ('csbrfbillrealmstatstotaleventacrs', YLeaf(YType.uint32, 'csbRfBillRealmStatsTotalEventAcrs')),
-                    ('csbrfbillrealmstatssuccstartacrs', YLeaf(YType.uint32, 'csbRfBillRealmStatsSuccStartAcrs')),
-                    ('csbrfbillrealmstatssuccinterimacrs', YLeaf(YType.uint32, 'csbRfBillRealmStatsSuccInterimAcrs')),
-                    ('csbrfbillrealmstatssuccstopacrs', YLeaf(YType.uint32, 'csbRfBillRealmStatsSuccStopAcrs')),
-                    ('csbrfbillrealmstatssucceventacrs', YLeaf(YType.uint32, 'csbRfBillRealmStatsSuccEventAcrs')),
-                    ('csbrfbillrealmstatsfailstartacrs', YLeaf(YType.uint32, 'csbRfBillRealmStatsFailStartAcrs')),
-                    ('csbrfbillrealmstatsfailinterimacrs', YLeaf(YType.uint32, 'csbRfBillRealmStatsFailInterimAcrs')),
-                    ('csbrfbillrealmstatsfailstopacrs', YLeaf(YType.uint32, 'csbRfBillRealmStatsFailStopAcrs')),
-                    ('csbrfbillrealmstatsfaileventacrs', YLeaf(YType.uint32, 'csbRfBillRealmStatsFailEventAcrs')),
+                    ('csbcallstatsinstanceindex', (YLeaf(YType.str, 'csbCallStatsInstanceIndex'), ['int'])),
+                    ('csbcallstatsserviceindex', (YLeaf(YType.str, 'csbCallStatsServiceIndex'), ['int'])),
+                    ('csbrfbillrealmstatsindex', (YLeaf(YType.uint32, 'csbRfBillRealmStatsIndex'), ['int'])),
+                    ('csbrfbillrealmstatsrealmname', (YLeaf(YType.str, 'csbRfBillRealmStatsRealmName'), ['str'])),
+                    ('csbrfbillrealmstatstotalstartacrs', (YLeaf(YType.uint32, 'csbRfBillRealmStatsTotalStartAcrs'), ['int'])),
+                    ('csbrfbillrealmstatstotalinterimacrs', (YLeaf(YType.uint32, 'csbRfBillRealmStatsTotalInterimAcrs'), ['int'])),
+                    ('csbrfbillrealmstatstotalstopacrs', (YLeaf(YType.uint32, 'csbRfBillRealmStatsTotalStopAcrs'), ['int'])),
+                    ('csbrfbillrealmstatstotaleventacrs', (YLeaf(YType.uint32, 'csbRfBillRealmStatsTotalEventAcrs'), ['int'])),
+                    ('csbrfbillrealmstatssuccstartacrs', (YLeaf(YType.uint32, 'csbRfBillRealmStatsSuccStartAcrs'), ['int'])),
+                    ('csbrfbillrealmstatssuccinterimacrs', (YLeaf(YType.uint32, 'csbRfBillRealmStatsSuccInterimAcrs'), ['int'])),
+                    ('csbrfbillrealmstatssuccstopacrs', (YLeaf(YType.uint32, 'csbRfBillRealmStatsSuccStopAcrs'), ['int'])),
+                    ('csbrfbillrealmstatssucceventacrs', (YLeaf(YType.uint32, 'csbRfBillRealmStatsSuccEventAcrs'), ['int'])),
+                    ('csbrfbillrealmstatsfailstartacrs', (YLeaf(YType.uint32, 'csbRfBillRealmStatsFailStartAcrs'), ['int'])),
+                    ('csbrfbillrealmstatsfailinterimacrs', (YLeaf(YType.uint32, 'csbRfBillRealmStatsFailInterimAcrs'), ['int'])),
+                    ('csbrfbillrealmstatsfailstopacrs', (YLeaf(YType.uint32, 'csbRfBillRealmStatsFailStopAcrs'), ['int'])),
+                    ('csbrfbillrealmstatsfaileventacrs', (YLeaf(YType.uint32, 'csbRfBillRealmStatsFailEventAcrs'), ['int'])),
                 ])
                 self.csbcallstatsinstanceindex = None
                 self.csbcallstatsserviceindex = None
@@ -786,6 +791,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self.csbrfbillrealmstatsfaileventacrs = None
                 self._segment_path = lambda: "csbRfBillRealmStatsEntry" + "[csbCallStatsInstanceIndex='" + str(self.csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + str(self.csbcallstatsserviceindex) + "']" + "[csbRfBillRealmStatsIndex='" + str(self.csbrfbillrealmstatsindex) + "']" + "[csbRfBillRealmStatsRealmName='" + str(self.csbrfbillrealmstatsrealmname) + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbRfBillRealmStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbRfBillRealmStatsTable.CsbRfBillRealmStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbrfbillrealmstatsindex', 'csbrfbillrealmstatsrealmname', 'csbrfbillrealmstatstotalstartacrs', 'csbrfbillrealmstatstotalinterimacrs', 'csbrfbillrealmstatstotalstopacrs', 'csbrfbillrealmstatstotaleventacrs', 'csbrfbillrealmstatssuccstartacrs', 'csbrfbillrealmstatssuccinterimacrs', 'csbrfbillrealmstatssuccstopacrs', 'csbrfbillrealmstatssucceventacrs', 'csbrfbillrealmstatsfailstartacrs', 'csbrfbillrealmstatsfailinterimacrs', 'csbrfbillrealmstatsfailstopacrs', 'csbrfbillrealmstatsfaileventacrs'], name, value)
@@ -834,6 +840,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             self.csbsipmthdcurrentstatsentry = YList(self)
             self._segment_path = lambda: "csbSIPMthdCurrentStatsTable"
             self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdCurrentStatsTable, [], name, value)
@@ -1032,26 +1039,26 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbsipmthdcurrentstatsadjname','csbsipmthdcurrentstatsmethod','csbsipmthdcurrentstatsinterval']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
-                    ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
-                    ('csbsipmthdcurrentstatsadjname', YLeaf(YType.str, 'csbSIPMthdCurrentStatsAdjName')),
-                    ('csbsipmthdcurrentstatsmethod', YLeaf(YType.enumeration, 'csbSIPMthdCurrentStatsMethod')),
-                    ('csbsipmthdcurrentstatsinterval', YLeaf(YType.enumeration, 'csbSIPMthdCurrentStatsInterval')),
-                    ('csbsipmthdcurrentstatsmethodname', YLeaf(YType.str, 'csbSIPMthdCurrentStatsMethodName')),
-                    ('csbsipmthdcurrentstatsreqin', YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsReqIn')),
-                    ('csbsipmthdcurrentstatsreqout', YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsReqOut')),
-                    ('csbsipmthdcurrentstatsresp1xxin', YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp1xxIn')),
-                    ('csbsipmthdcurrentstatsresp1xxout', YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp1xxOut')),
-                    ('csbsipmthdcurrentstatsresp2xxin', YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp2xxIn')),
-                    ('csbsipmthdcurrentstatsresp2xxout', YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp2xxOut')),
-                    ('csbsipmthdcurrentstatsresp3xxin', YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp3xxIn')),
-                    ('csbsipmthdcurrentstatsresp3xxout', YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp3xxOut')),
-                    ('csbsipmthdcurrentstatsresp4xxin', YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp4xxIn')),
-                    ('csbsipmthdcurrentstatsresp4xxout', YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp4xxOut')),
-                    ('csbsipmthdcurrentstatsresp5xxin', YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp5xxIn')),
-                    ('csbsipmthdcurrentstatsresp5xxout', YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp5xxOut')),
-                    ('csbsipmthdcurrentstatsresp6xxin', YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp6xxIn')),
-                    ('csbsipmthdcurrentstatsresp6xxout', YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp6xxOut')),
+                    ('csbcallstatsinstanceindex', (YLeaf(YType.str, 'csbCallStatsInstanceIndex'), ['int'])),
+                    ('csbcallstatsserviceindex', (YLeaf(YType.str, 'csbCallStatsServiceIndex'), ['int'])),
+                    ('csbsipmthdcurrentstatsadjname', (YLeaf(YType.str, 'csbSIPMthdCurrentStatsAdjName'), ['str'])),
+                    ('csbsipmthdcurrentstatsmethod', (YLeaf(YType.enumeration, 'csbSIPMthdCurrentStatsMethod'), [('ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB', 'CiscoSbcSIPMethod', '')])),
+                    ('csbsipmthdcurrentstatsinterval', (YLeaf(YType.enumeration, 'csbSIPMthdCurrentStatsInterval'), [('ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB', 'CiscoSbcPeriodicStatsInterval', '')])),
+                    ('csbsipmthdcurrentstatsmethodname', (YLeaf(YType.str, 'csbSIPMthdCurrentStatsMethodName'), ['str'])),
+                    ('csbsipmthdcurrentstatsreqin', (YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsReqIn'), ['int'])),
+                    ('csbsipmthdcurrentstatsreqout', (YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsReqOut'), ['int'])),
+                    ('csbsipmthdcurrentstatsresp1xxin', (YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp1xxIn'), ['int'])),
+                    ('csbsipmthdcurrentstatsresp1xxout', (YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp1xxOut'), ['int'])),
+                    ('csbsipmthdcurrentstatsresp2xxin', (YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp2xxIn'), ['int'])),
+                    ('csbsipmthdcurrentstatsresp2xxout', (YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp2xxOut'), ['int'])),
+                    ('csbsipmthdcurrentstatsresp3xxin', (YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp3xxIn'), ['int'])),
+                    ('csbsipmthdcurrentstatsresp3xxout', (YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp3xxOut'), ['int'])),
+                    ('csbsipmthdcurrentstatsresp4xxin', (YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp4xxIn'), ['int'])),
+                    ('csbsipmthdcurrentstatsresp4xxout', (YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp4xxOut'), ['int'])),
+                    ('csbsipmthdcurrentstatsresp5xxin', (YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp5xxIn'), ['int'])),
+                    ('csbsipmthdcurrentstatsresp5xxout', (YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp5xxOut'), ['int'])),
+                    ('csbsipmthdcurrentstatsresp6xxin', (YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp6xxIn'), ['int'])),
+                    ('csbsipmthdcurrentstatsresp6xxout', (YLeaf(YType.uint32, 'csbSIPMthdCurrentStatsResp6xxOut'), ['int'])),
                 ])
                 self.csbcallstatsinstanceindex = None
                 self.csbcallstatsserviceindex = None
@@ -1075,6 +1082,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self.csbsipmthdcurrentstatsresp6xxout = None
                 self._segment_path = lambda: "csbSIPMthdCurrentStatsEntry" + "[csbCallStatsInstanceIndex='" + str(self.csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + str(self.csbcallstatsserviceindex) + "']" + "[csbSIPMthdCurrentStatsAdjName='" + str(self.csbsipmthdcurrentstatsadjname) + "']" + "[csbSIPMthdCurrentStatsMethod='" + str(self.csbsipmthdcurrentstatsmethod) + "']" + "[csbSIPMthdCurrentStatsInterval='" + str(self.csbsipmthdcurrentstatsinterval) + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdCurrentStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdCurrentStatsTable.CsbSIPMthdCurrentStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdcurrentstatsadjname', 'csbsipmthdcurrentstatsmethod', 'csbsipmthdcurrentstatsinterval', 'csbsipmthdcurrentstatsmethodname', 'csbsipmthdcurrentstatsreqin', 'csbsipmthdcurrentstatsreqout', 'csbsipmthdcurrentstatsresp1xxin', 'csbsipmthdcurrentstatsresp1xxout', 'csbsipmthdcurrentstatsresp2xxin', 'csbsipmthdcurrentstatsresp2xxout', 'csbsipmthdcurrentstatsresp3xxin', 'csbsipmthdcurrentstatsresp3xxout', 'csbsipmthdcurrentstatsresp4xxin', 'csbsipmthdcurrentstatsresp4xxout', 'csbsipmthdcurrentstatsresp5xxin', 'csbsipmthdcurrentstatsresp5xxout', 'csbsipmthdcurrentstatsresp6xxin', 'csbsipmthdcurrentstatsresp6xxout'], name, value)
@@ -1125,6 +1133,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             self.csbsipmthdhistorystatsentry = YList(self)
             self._segment_path = lambda: "csbSIPMthdHistoryStatsTable"
             self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdHistoryStatsTable, [], name, value)
@@ -1324,26 +1333,26 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbsipmthdhistorystatsadjname','csbsipmthdhistorystatsmethod','csbsipmthdhistorystatsinterval']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
-                    ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
-                    ('csbsipmthdhistorystatsadjname', YLeaf(YType.str, 'csbSIPMthdHistoryStatsAdjName')),
-                    ('csbsipmthdhistorystatsmethod', YLeaf(YType.enumeration, 'csbSIPMthdHistoryStatsMethod')),
-                    ('csbsipmthdhistorystatsinterval', YLeaf(YType.enumeration, 'csbSIPMthdHistoryStatsInterval')),
-                    ('csbsipmthdhistorystatsmethodname', YLeaf(YType.str, 'csbSIPMthdHistoryStatsMethodName')),
-                    ('csbsipmthdhistorystatsreqin', YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsReqIn')),
-                    ('csbsipmthdhistorystatsreqout', YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsReqOut')),
-                    ('csbsipmthdhistorystatsresp1xxin', YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp1xxIn')),
-                    ('csbsipmthdhistorystatsresp1xxout', YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp1xxOut')),
-                    ('csbsipmthdhistorystatsresp2xxin', YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp2xxIn')),
-                    ('csbsipmthdhistorystatsresp2xxout', YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp2xxOut')),
-                    ('csbsipmthdhistorystatsresp3xxin', YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp3xxIn')),
-                    ('csbsipmthdhistorystatsresp3xxout', YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp3xxOut')),
-                    ('csbsipmthdhistorystatsresp4xxin', YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp4xxIn')),
-                    ('csbsipmthdhistorystatsresp4xxout', YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp4xxOut')),
-                    ('csbsipmthdhistorystatsresp5xxin', YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp5xxIn')),
-                    ('csbsipmthdhistorystatsresp5xxout', YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp5xxOut')),
-                    ('csbsipmthdhistorystatsresp6xxin', YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp6xxIn')),
-                    ('csbsipmthdhistorystatsresp6xxout', YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp6xxOut')),
+                    ('csbcallstatsinstanceindex', (YLeaf(YType.str, 'csbCallStatsInstanceIndex'), ['int'])),
+                    ('csbcallstatsserviceindex', (YLeaf(YType.str, 'csbCallStatsServiceIndex'), ['int'])),
+                    ('csbsipmthdhistorystatsadjname', (YLeaf(YType.str, 'csbSIPMthdHistoryStatsAdjName'), ['str'])),
+                    ('csbsipmthdhistorystatsmethod', (YLeaf(YType.enumeration, 'csbSIPMthdHistoryStatsMethod'), [('ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB', 'CiscoSbcSIPMethod', '')])),
+                    ('csbsipmthdhistorystatsinterval', (YLeaf(YType.enumeration, 'csbSIPMthdHistoryStatsInterval'), [('ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB', 'CiscoSbcPeriodicStatsInterval', '')])),
+                    ('csbsipmthdhistorystatsmethodname', (YLeaf(YType.str, 'csbSIPMthdHistoryStatsMethodName'), ['str'])),
+                    ('csbsipmthdhistorystatsreqin', (YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsReqIn'), ['int'])),
+                    ('csbsipmthdhistorystatsreqout', (YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsReqOut'), ['int'])),
+                    ('csbsipmthdhistorystatsresp1xxin', (YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp1xxIn'), ['int'])),
+                    ('csbsipmthdhistorystatsresp1xxout', (YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp1xxOut'), ['int'])),
+                    ('csbsipmthdhistorystatsresp2xxin', (YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp2xxIn'), ['int'])),
+                    ('csbsipmthdhistorystatsresp2xxout', (YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp2xxOut'), ['int'])),
+                    ('csbsipmthdhistorystatsresp3xxin', (YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp3xxIn'), ['int'])),
+                    ('csbsipmthdhistorystatsresp3xxout', (YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp3xxOut'), ['int'])),
+                    ('csbsipmthdhistorystatsresp4xxin', (YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp4xxIn'), ['int'])),
+                    ('csbsipmthdhistorystatsresp4xxout', (YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp4xxOut'), ['int'])),
+                    ('csbsipmthdhistorystatsresp5xxin', (YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp5xxIn'), ['int'])),
+                    ('csbsipmthdhistorystatsresp5xxout', (YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp5xxOut'), ['int'])),
+                    ('csbsipmthdhistorystatsresp6xxin', (YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp6xxIn'), ['int'])),
+                    ('csbsipmthdhistorystatsresp6xxout', (YLeaf(YType.uint32, 'csbSIPMthdHistoryStatsResp6xxOut'), ['int'])),
                 ])
                 self.csbcallstatsinstanceindex = None
                 self.csbcallstatsserviceindex = None
@@ -1367,6 +1376,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self.csbsipmthdhistorystatsresp6xxout = None
                 self._segment_path = lambda: "csbSIPMthdHistoryStatsEntry" + "[csbCallStatsInstanceIndex='" + str(self.csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + str(self.csbcallstatsserviceindex) + "']" + "[csbSIPMthdHistoryStatsAdjName='" + str(self.csbsipmthdhistorystatsadjname) + "']" + "[csbSIPMthdHistoryStatsMethod='" + str(self.csbsipmthdhistorystatsmethod) + "']" + "[csbSIPMthdHistoryStatsInterval='" + str(self.csbsipmthdhistorystatsinterval) + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdHistoryStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdHistoryStatsTable.CsbSIPMthdHistoryStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdhistorystatsadjname', 'csbsipmthdhistorystatsmethod', 'csbsipmthdhistorystatsinterval', 'csbsipmthdhistorystatsmethodname', 'csbsipmthdhistorystatsreqin', 'csbsipmthdhistorystatsreqout', 'csbsipmthdhistorystatsresp1xxin', 'csbsipmthdhistorystatsresp1xxout', 'csbsipmthdhistorystatsresp2xxin', 'csbsipmthdhistorystatsresp2xxout', 'csbsipmthdhistorystatsresp3xxin', 'csbsipmthdhistorystatsresp3xxout', 'csbsipmthdhistorystatsresp4xxin', 'csbsipmthdhistorystatsresp4xxout', 'csbsipmthdhistorystatsresp5xxin', 'csbsipmthdhistorystatsresp5xxout', 'csbsipmthdhistorystatsresp6xxin', 'csbsipmthdhistorystatsresp6xxout'], name, value)
@@ -1413,6 +1423,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             self.csbsipmthdrccurrentstatsentry = YList(self)
             self._segment_path = lambda: "csbSIPMthdRCCurrentStatsTable"
             self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCCurrentStatsTable, [], name, value)
@@ -1511,15 +1522,15 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbsipmthdrccurrentstatsadjname','csbsipmthdrccurrentstatsmethod','csbsipmthdrccurrentstatsrespcode','csbsipmthdrccurrentstatsinterval']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
-                    ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
-                    ('csbsipmthdrccurrentstatsadjname', YLeaf(YType.str, 'csbSIPMthdRCCurrentStatsAdjName')),
-                    ('csbsipmthdrccurrentstatsmethod', YLeaf(YType.enumeration, 'csbSIPMthdRCCurrentStatsMethod')),
-                    ('csbsipmthdrccurrentstatsrespcode', YLeaf(YType.uint32, 'csbSIPMthdRCCurrentStatsRespCode')),
-                    ('csbsipmthdrccurrentstatsinterval', YLeaf(YType.enumeration, 'csbSIPMthdRCCurrentStatsInterval')),
-                    ('csbsipmthdrccurrentstatsmethodname', YLeaf(YType.str, 'csbSIPMthdRCCurrentStatsMethodName')),
-                    ('csbsipmthdrccurrentstatsrespin', YLeaf(YType.uint32, 'csbSIPMthdRCCurrentStatsRespIn')),
-                    ('csbsipmthdrccurrentstatsrespout', YLeaf(YType.uint32, 'csbSIPMthdRCCurrentStatsRespOut')),
+                    ('csbcallstatsinstanceindex', (YLeaf(YType.str, 'csbCallStatsInstanceIndex'), ['int'])),
+                    ('csbcallstatsserviceindex', (YLeaf(YType.str, 'csbCallStatsServiceIndex'), ['int'])),
+                    ('csbsipmthdrccurrentstatsadjname', (YLeaf(YType.str, 'csbSIPMthdRCCurrentStatsAdjName'), ['str'])),
+                    ('csbsipmthdrccurrentstatsmethod', (YLeaf(YType.enumeration, 'csbSIPMthdRCCurrentStatsMethod'), [('ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB', 'CiscoSbcSIPMethod', '')])),
+                    ('csbsipmthdrccurrentstatsrespcode', (YLeaf(YType.uint32, 'csbSIPMthdRCCurrentStatsRespCode'), ['int'])),
+                    ('csbsipmthdrccurrentstatsinterval', (YLeaf(YType.enumeration, 'csbSIPMthdRCCurrentStatsInterval'), [('ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB', 'CiscoSbcPeriodicStatsInterval', '')])),
+                    ('csbsipmthdrccurrentstatsmethodname', (YLeaf(YType.str, 'csbSIPMthdRCCurrentStatsMethodName'), ['str'])),
+                    ('csbsipmthdrccurrentstatsrespin', (YLeaf(YType.uint32, 'csbSIPMthdRCCurrentStatsRespIn'), ['int'])),
+                    ('csbsipmthdrccurrentstatsrespout', (YLeaf(YType.uint32, 'csbSIPMthdRCCurrentStatsRespOut'), ['int'])),
                 ])
                 self.csbcallstatsinstanceindex = None
                 self.csbcallstatsserviceindex = None
@@ -1532,6 +1543,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self.csbsipmthdrccurrentstatsrespout = None
                 self._segment_path = lambda: "csbSIPMthdRCCurrentStatsEntry" + "[csbCallStatsInstanceIndex='" + str(self.csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + str(self.csbcallstatsserviceindex) + "']" + "[csbSIPMthdRCCurrentStatsAdjName='" + str(self.csbsipmthdrccurrentstatsadjname) + "']" + "[csbSIPMthdRCCurrentStatsMethod='" + str(self.csbsipmthdrccurrentstatsmethod) + "']" + "[csbSIPMthdRCCurrentStatsRespCode='" + str(self.csbsipmthdrccurrentstatsrespcode) + "']" + "[csbSIPMthdRCCurrentStatsInterval='" + str(self.csbsipmthdrccurrentstatsinterval) + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdRCCurrentStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCCurrentStatsTable.CsbSIPMthdRCCurrentStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdrccurrentstatsadjname', 'csbsipmthdrccurrentstatsmethod', 'csbsipmthdrccurrentstatsrespcode', 'csbsipmthdrccurrentstatsinterval', 'csbsipmthdrccurrentstatsmethodname', 'csbsipmthdrccurrentstatsrespin', 'csbsipmthdrccurrentstatsrespout'], name, value)
@@ -1580,6 +1592,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
             self.csbsipmthdrchistorystatsentry = YList(self)
             self._segment_path = lambda: "csbSIPMthdRCHistoryStatsTable"
             self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCHistoryStatsTable, [], name, value)
@@ -1679,15 +1692,15 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self.ylist_key_names = ['csbcallstatsinstanceindex','csbcallstatsserviceindex','csbsipmthdrchistorystatsadjname','csbsipmthdrchistorystatsmethod','csbsipmthdrchistorystatsrespcode','csbsipmthdrchistorystatsinterval']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('csbcallstatsinstanceindex', YLeaf(YType.str, 'csbCallStatsInstanceIndex')),
-                    ('csbcallstatsserviceindex', YLeaf(YType.str, 'csbCallStatsServiceIndex')),
-                    ('csbsipmthdrchistorystatsadjname', YLeaf(YType.str, 'csbSIPMthdRCHistoryStatsAdjName')),
-                    ('csbsipmthdrchistorystatsmethod', YLeaf(YType.enumeration, 'csbSIPMthdRCHistoryStatsMethod')),
-                    ('csbsipmthdrchistorystatsrespcode', YLeaf(YType.uint32, 'csbSIPMthdRCHistoryStatsRespCode')),
-                    ('csbsipmthdrchistorystatsinterval', YLeaf(YType.enumeration, 'csbSIPMthdRCHistoryStatsInterval')),
-                    ('csbsipmthdrchistorystatsmethodname', YLeaf(YType.str, 'csbSIPMthdRCHistoryStatsMethodName')),
-                    ('csbsipmthdrchistorystatsrespin', YLeaf(YType.uint32, 'csbSIPMthdRCHistoryStatsRespIn')),
-                    ('csbsipmthdrchistorystatsrespout', YLeaf(YType.uint32, 'csbSIPMthdRCHistoryStatsRespOut')),
+                    ('csbcallstatsinstanceindex', (YLeaf(YType.str, 'csbCallStatsInstanceIndex'), ['int'])),
+                    ('csbcallstatsserviceindex', (YLeaf(YType.str, 'csbCallStatsServiceIndex'), ['int'])),
+                    ('csbsipmthdrchistorystatsadjname', (YLeaf(YType.str, 'csbSIPMthdRCHistoryStatsAdjName'), ['str'])),
+                    ('csbsipmthdrchistorystatsmethod', (YLeaf(YType.enumeration, 'csbSIPMthdRCHistoryStatsMethod'), [('ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_STATS_MIB', 'CiscoSbcSIPMethod', '')])),
+                    ('csbsipmthdrchistorystatsrespcode', (YLeaf(YType.uint32, 'csbSIPMthdRCHistoryStatsRespCode'), ['int'])),
+                    ('csbsipmthdrchistorystatsinterval', (YLeaf(YType.enumeration, 'csbSIPMthdRCHistoryStatsInterval'), [('ydk.models.cisco_ios_xe.CISCO_SESS_BORDER_CTRLR_CALL_STATS_MIB', 'CiscoSbcPeriodicStatsInterval', '')])),
+                    ('csbsipmthdrchistorystatsmethodname', (YLeaf(YType.str, 'csbSIPMthdRCHistoryStatsMethodName'), ['str'])),
+                    ('csbsipmthdrchistorystatsrespin', (YLeaf(YType.uint32, 'csbSIPMthdRCHistoryStatsRespIn'), ['int'])),
+                    ('csbsipmthdrchistorystatsrespout', (YLeaf(YType.uint32, 'csbSIPMthdRCHistoryStatsRespOut'), ['int'])),
                 ])
                 self.csbcallstatsinstanceindex = None
                 self.csbcallstatsserviceindex = None
@@ -1700,6 +1713,7 @@ class CISCOSESSBORDERCTRLRSTATSMIB(Entity):
                 self.csbsipmthdrchistorystatsrespout = None
                 self._segment_path = lambda: "csbSIPMthdRCHistoryStatsEntry" + "[csbCallStatsInstanceIndex='" + str(self.csbcallstatsinstanceindex) + "']" + "[csbCallStatsServiceIndex='" + str(self.csbcallstatsserviceindex) + "']" + "[csbSIPMthdRCHistoryStatsAdjName='" + str(self.csbsipmthdrchistorystatsadjname) + "']" + "[csbSIPMthdRCHistoryStatsMethod='" + str(self.csbsipmthdrchistorystatsmethod) + "']" + "[csbSIPMthdRCHistoryStatsRespCode='" + str(self.csbsipmthdrchistorystatsrespcode) + "']" + "[csbSIPMthdRCHistoryStatsInterval='" + str(self.csbsipmthdrchistorystatsinterval) + "']"
                 self._absolute_path = lambda: "CISCO-SESS-BORDER-CTRLR-STATS-MIB:CISCO-SESS-BORDER-CTRLR-STATS-MIB/csbSIPMthdRCHistoryStatsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSESSBORDERCTRLRSTATSMIB.CsbSIPMthdRCHistoryStatsTable.CsbSIPMthdRCHistoryStatsEntry, ['csbcallstatsinstanceindex', 'csbcallstatsserviceindex', 'csbsipmthdrchistorystatsadjname', 'csbsipmthdrchistorystatsmethod', 'csbsipmthdrchistorystatsrespcode', 'csbsipmthdrchistorystatsinterval', 'csbsipmthdrchistorystatsmethodname', 'csbsipmthdrchistorystatsrespin', 'csbsipmthdrchistorystatsrespout'], name, value)

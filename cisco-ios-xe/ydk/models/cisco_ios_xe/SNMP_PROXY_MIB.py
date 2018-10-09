@@ -18,6 +18,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class SNMPPROXYMIB(Entity):
     """
     
@@ -50,6 +51,7 @@ class SNMPPROXYMIB(Entity):
         self.snmpproxytable.parent = self
         self._children_name_map["snmpproxytable"] = "snmpProxyTable"
         self._segment_path = lambda: "SNMP-PROXY-MIB:SNMP-PROXY-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SNMPPROXYMIB, [], name, value)
@@ -86,6 +88,7 @@ class SNMPPROXYMIB(Entity):
             self.snmpproxyentry = YList(self)
             self._segment_path = lambda: "snmpProxyTable"
             self._absolute_path = lambda: "SNMP-PROXY-MIB:SNMP-PROXY-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SNMPPROXYMIB.SnmpProxyTable, [], name, value)
@@ -165,15 +168,15 @@ class SNMPPROXYMIB(Entity):
                 self.ylist_key_names = ['snmpproxyname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('snmpproxyname', YLeaf(YType.str, 'snmpProxyName')),
-                    ('snmpproxytype', YLeaf(YType.enumeration, 'snmpProxyType')),
-                    ('snmpproxycontextengineid', YLeaf(YType.str, 'snmpProxyContextEngineID')),
-                    ('snmpproxycontextname', YLeaf(YType.str, 'snmpProxyContextName')),
-                    ('snmpproxytargetparamsin', YLeaf(YType.str, 'snmpProxyTargetParamsIn')),
-                    ('snmpproxysingletargetout', YLeaf(YType.str, 'snmpProxySingleTargetOut')),
-                    ('snmpproxymultipletargetout', YLeaf(YType.str, 'snmpProxyMultipleTargetOut')),
-                    ('snmpproxystoragetype', YLeaf(YType.enumeration, 'snmpProxyStorageType')),
-                    ('snmpproxyrowstatus', YLeaf(YType.enumeration, 'snmpProxyRowStatus')),
+                    ('snmpproxyname', (YLeaf(YType.str, 'snmpProxyName'), ['str'])),
+                    ('snmpproxytype', (YLeaf(YType.enumeration, 'snmpProxyType'), [('ydk.models.cisco_ios_xe.SNMP_PROXY_MIB', 'SNMPPROXYMIB', 'SnmpProxyTable.SnmpProxyEntry.SnmpProxyType')])),
+                    ('snmpproxycontextengineid', (YLeaf(YType.str, 'snmpProxyContextEngineID'), ['str'])),
+                    ('snmpproxycontextname', (YLeaf(YType.str, 'snmpProxyContextName'), ['str'])),
+                    ('snmpproxytargetparamsin', (YLeaf(YType.str, 'snmpProxyTargetParamsIn'), ['str'])),
+                    ('snmpproxysingletargetout', (YLeaf(YType.str, 'snmpProxySingleTargetOut'), ['str'])),
+                    ('snmpproxymultipletargetout', (YLeaf(YType.str, 'snmpProxyMultipleTargetOut'), ['str'])),
+                    ('snmpproxystoragetype', (YLeaf(YType.enumeration, 'snmpProxyStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('snmpproxyrowstatus', (YLeaf(YType.enumeration, 'snmpProxyRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.snmpproxyname = None
                 self.snmpproxytype = None
@@ -186,6 +189,7 @@ class SNMPPROXYMIB(Entity):
                 self.snmpproxyrowstatus = None
                 self._segment_path = lambda: "snmpProxyEntry" + "[snmpProxyName='" + str(self.snmpproxyname) + "']"
                 self._absolute_path = lambda: "SNMP-PROXY-MIB:SNMP-PROXY-MIB/snmpProxyTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SNMPPROXYMIB.SnmpProxyTable.SnmpProxyEntry, ['snmpproxyname', 'snmpproxytype', 'snmpproxycontextengineid', 'snmpproxycontextname', 'snmpproxytargetparamsin', 'snmpproxysingletargetout', 'snmpproxymultipletargetout', 'snmpproxystoragetype', 'snmpproxyrowstatus'], name, value)

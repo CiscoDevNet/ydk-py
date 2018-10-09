@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ipv6\-acl\-and\-prefix\-list\: IPv6 ACL configuration data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -19,15 +19,12 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class NextHopType(Enum):
     """
     NextHopType (Enum Class)
 
     Next\-hop type.
-
-    .. data:: none_next_hop = 0
-
-    	None next-hop.
 
     .. data:: regular_next_hop = 1
 
@@ -38,8 +35,6 @@ class NextHopType(Enum):
     	Default next-hop.
 
     """
-
-    none_next_hop = Enum.YLeaf(0, "none-next-hop")
 
     regular_next_hop = Enum.YLeaf(1, "regular-next-hop")
 
@@ -71,7 +66,7 @@ class Ipv6AclAndPrefixList(Entity):
     """
 
     _prefix = 'ipv6-acl-cfg'
-    _revision = '2018-01-03'
+    _revision = '2018-04-03'
 
     def __init__(self):
         super(Ipv6AclAndPrefixList, self).__init__()
@@ -97,6 +92,7 @@ class Ipv6AclAndPrefixList(Entity):
         self.accesses.parent = self
         self._children_name_map["accesses"] = "accesses"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ipv6AclAndPrefixList, [], name, value)
@@ -116,7 +112,7 @@ class Ipv6AclAndPrefixList(Entity):
         """
 
         _prefix = 'ipv6-acl-cfg'
-        _revision = '2018-01-03'
+        _revision = '2018-04-03'
 
         def __init__(self):
             super(Ipv6AclAndPrefixList.Prefixes, self).__init__()
@@ -132,6 +128,7 @@ class Ipv6AclAndPrefixList(Entity):
             self.prefix = YList(self)
             self._segment_path = lambda: "prefixes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv6AclAndPrefixList.Prefixes, [], name, value)
@@ -158,7 +155,7 @@ class Ipv6AclAndPrefixList(Entity):
             """
 
             _prefix = 'ipv6-acl-cfg'
-            _revision = '2018-01-03'
+            _revision = '2018-04-03'
 
             def __init__(self):
                 super(Ipv6AclAndPrefixList.Prefixes.Prefix, self).__init__()
@@ -170,7 +167,7 @@ class Ipv6AclAndPrefixList(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("prefix-list-entries", ("prefix_list_entries", Ipv6AclAndPrefixList.Prefixes.Prefix.PrefixListEntries))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
 
@@ -179,6 +176,7 @@ class Ipv6AclAndPrefixList(Entity):
                 self._children_name_map["prefix_list_entries"] = "prefix-list-entries"
                 self._segment_path = lambda: "prefix" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/prefixes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv6AclAndPrefixList.Prefixes.Prefix, ['name'], name, value)
@@ -198,7 +196,7 @@ class Ipv6AclAndPrefixList(Entity):
                 """
 
                 _prefix = 'ipv6-acl-cfg'
-                _revision = '2018-01-03'
+                _revision = '2018-04-03'
 
                 def __init__(self):
                     super(Ipv6AclAndPrefixList.Prefixes.Prefix.PrefixListEntries, self).__init__()
@@ -213,6 +211,7 @@ class Ipv6AclAndPrefixList(Entity):
 
                     self.prefix_list_entry = YList(self)
                     self._segment_path = lambda: "prefix-list-entries"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv6AclAndPrefixList.Prefixes.Prefix.PrefixListEntries, [], name, value)
@@ -305,7 +304,7 @@ class Ipv6AclAndPrefixList(Entity):
                     """
 
                     _prefix = 'ipv6-acl-cfg'
-                    _revision = '2018-01-03'
+                    _revision = '2018-04-03'
 
                     def __init__(self):
                         super(Ipv6AclAndPrefixList.Prefixes.Prefix.PrefixListEntries.PrefixListEntry, self).__init__()
@@ -317,19 +316,19 @@ class Ipv6AclAndPrefixList(Entity):
                         self.ylist_key_names = ['sequence_number']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
-                            ('grant', YLeaf(YType.enumeration, 'grant')),
-                            ('ipv6_address_as_string', YLeaf(YType.str, 'ipv6-address-as-string')),
-                            ('zone', YLeaf(YType.str, 'zone')),
-                            ('prefix', YLeaf(YType.str, 'prefix')),
-                            ('prefix_mask', YLeaf(YType.uint8, 'prefix-mask')),
-                            ('match_exact_length', YLeaf(YType.enumeration, 'match-exact-length')),
-                            ('exact_prefix_length', YLeaf(YType.uint8, 'exact-prefix-length')),
-                            ('match_max_length', YLeaf(YType.enumeration, 'match-max-length')),
-                            ('max_prefix_length', YLeaf(YType.uint8, 'max-prefix-length')),
-                            ('match_min_length', YLeaf(YType.enumeration, 'match-min-length')),
-                            ('min_prefix_length', YLeaf(YType.uint8, 'min-prefix-length')),
-                            ('remark', YLeaf(YType.str, 'remark')),
+                            ('sequence_number', (YLeaf(YType.uint32, 'sequence-number'), ['int'])),
+                            ('grant', (YLeaf(YType.enumeration, 'grant'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclGrantEnum', '')])),
+                            ('ipv6_address_as_string', (YLeaf(YType.str, 'ipv6-address-as-string'), ['str'])),
+                            ('zone', (YLeaf(YType.str, 'zone'), ['str'])),
+                            ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                            ('prefix_mask', (YLeaf(YType.uint8, 'prefix-mask'), ['int'])),
+                            ('match_exact_length', (YLeaf(YType.enumeration, 'match-exact-length'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6PrefixMatchExactLength', '')])),
+                            ('exact_prefix_length', (YLeaf(YType.uint8, 'exact-prefix-length'), ['int'])),
+                            ('match_max_length', (YLeaf(YType.enumeration, 'match-max-length'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6PrefixMatchMaxLength', '')])),
+                            ('max_prefix_length', (YLeaf(YType.uint8, 'max-prefix-length'), ['int'])),
+                            ('match_min_length', (YLeaf(YType.enumeration, 'match-min-length'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6PrefixMatchMinLength', '')])),
+                            ('min_prefix_length', (YLeaf(YType.uint8, 'min-prefix-length'), ['int'])),
+                            ('remark', (YLeaf(YType.str, 'remark'), ['str'])),
                         ])
                         self.sequence_number = None
                         self.grant = None
@@ -345,6 +344,7 @@ class Ipv6AclAndPrefixList(Entity):
                         self.min_prefix_length = None
                         self.remark = None
                         self._segment_path = lambda: "prefix-list-entry" + "[sequence-number='" + str(self.sequence_number) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6AclAndPrefixList.Prefixes.Prefix.PrefixListEntries.PrefixListEntry, ['sequence_number', 'grant', 'ipv6_address_as_string', 'zone', 'prefix', 'prefix_mask', 'match_exact_length', 'exact_prefix_length', 'match_max_length', 'max_prefix_length', 'match_min_length', 'min_prefix_length', 'remark'], name, value)
@@ -373,7 +373,7 @@ class Ipv6AclAndPrefixList(Entity):
         """
 
         _prefix = 'ipv6-acl-cfg'
-        _revision = '2018-01-03'
+        _revision = '2018-04-03'
 
         def __init__(self):
             super(Ipv6AclAndPrefixList.LogUpdate, self).__init__()
@@ -385,13 +385,14 @@ class Ipv6AclAndPrefixList(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('threshold', YLeaf(YType.uint32, 'threshold')),
-                ('rate', YLeaf(YType.uint32, 'rate')),
+                ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
+                ('rate', (YLeaf(YType.uint32, 'rate'), ['int'])),
             ])
             self.threshold = None
             self.rate = None
             self._segment_path = lambda: "log-update"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv6AclAndPrefixList.LogUpdate, ['threshold', 'rate'], name, value)
@@ -411,7 +412,7 @@ class Ipv6AclAndPrefixList(Entity):
         """
 
         _prefix = 'ipv6-acl-cfg'
-        _revision = '2018-01-03'
+        _revision = '2018-04-03'
 
         def __init__(self):
             super(Ipv6AclAndPrefixList.Accesses, self).__init__()
@@ -427,6 +428,7 @@ class Ipv6AclAndPrefixList(Entity):
             self.access = YList(self)
             self._segment_path = lambda: "accesses"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv6AclAndPrefixList.Accesses, [], name, value)
@@ -453,7 +455,7 @@ class Ipv6AclAndPrefixList(Entity):
             """
 
             _prefix = 'ipv6-acl-cfg'
-            _revision = '2018-01-03'
+            _revision = '2018-04-03'
 
             def __init__(self):
                 super(Ipv6AclAndPrefixList.Accesses.Access, self).__init__()
@@ -465,7 +467,7 @@ class Ipv6AclAndPrefixList(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("access-list-entries", ("access_list_entries", Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
 
@@ -474,6 +476,7 @@ class Ipv6AclAndPrefixList(Entity):
                 self._children_name_map["access_list_entries"] = "access-list-entries"
                 self._segment_path = lambda: "access" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-acl-cfg:ipv6-acl-and-prefix-list/accesses/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access, ['name'], name, value)
@@ -494,7 +497,7 @@ class Ipv6AclAndPrefixList(Entity):
                 """
 
                 _prefix = 'ipv6-acl-cfg'
-                _revision = '2018-01-03'
+                _revision = '2018-04-03'
 
                 def __init__(self):
                     super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries, self).__init__()
@@ -509,6 +512,7 @@ class Ipv6AclAndPrefixList(Entity):
 
                     self.access_list_entry = YList(self)
                     self._segment_path = lambda: "access-list-entries"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries, [], name, value)
@@ -723,7 +727,7 @@ class Ipv6AclAndPrefixList(Entity):
                     """
 
                     _prefix = 'ipv6-acl-cfg'
-                    _revision = '2018-01-03'
+                    _revision = '2018-04-03'
 
                     def __init__(self):
                         super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry, self).__init__()
@@ -735,26 +739,26 @@ class Ipv6AclAndPrefixList(Entity):
                         self.ylist_key_names = ['sequence_number']
                         self._child_classes = OrderedDict([("source-network", ("source_network", Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork)), ("destination-network", ("destination_network", Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork)), ("source-port", ("source_port", Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort)), ("destination-port", ("destination_port", Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort)), ("icmp", ("icmp", Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp)), ("tcp", ("tcp", Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp)), ("packet-length", ("packet_length", Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength)), ("time-to-live", ("time_to_live", Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive)), ("DSCPValues", ("dscpvalues", Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DSCPValues)), ("next-hop", ("next_hop", Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop)), ("header-flags", ("header_flags", Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags))])
                         self._leafs = OrderedDict([
-                            ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
-                            ('grant', YLeaf(YType.enumeration, 'grant')),
-                            ('protocol_operator', YLeaf(YType.enumeration, 'protocol-operator')),
-                            ('protocol', YLeaf(YType.str, 'protocol')),
-                            ('protocol2', YLeaf(YType.str, 'protocol2')),
-                            ('dscp', YLeaf(YType.str, 'dscp')),
-                            ('precedence', YLeaf(YType.str, 'precedence')),
-                            ('counter_name', YLeaf(YType.str, 'counter-name')),
-                            ('log_option', YLeaf(YType.enumeration, 'log-option')),
-                            ('capture', YLeaf(YType.boolean, 'capture')),
-                            ('undetermined_transport', YLeaf(YType.boolean, 'undetermined-transport')),
-                            ('icmp_off', YLeaf(YType.empty, 'icmp-off')),
-                            ('qos_group', YLeaf(YType.uint32, 'qos-group')),
-                            ('set_ttl', YLeaf(YType.uint32, 'set-ttl')),
-                            ('remark', YLeaf(YType.str, 'remark')),
-                            ('source_prefix_group', YLeaf(YType.str, 'source-prefix-group')),
-                            ('destination_prefix_group', YLeaf(YType.str, 'destination-prefix-group')),
-                            ('source_port_group', YLeaf(YType.str, 'source-port-group')),
-                            ('destination_port_group', YLeaf(YType.str, 'destination-port-group')),
-                            ('sequence_str', YLeaf(YType.str, 'sequence-str')),
+                            ('sequence_number', (YLeaf(YType.uint32, 'sequence-number'), ['int'])),
+                            ('grant', (YLeaf(YType.enumeration, 'grant'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclGrantEnum', '')])),
+                            ('protocol_operator', (YLeaf(YType.enumeration, 'protocol-operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclOperatorEnum', '')])),
+                            ('protocol', (YLeaf(YType.str, 'protocol'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclProtocolNumber', ''),'int'])),
+                            ('protocol2', (YLeaf(YType.str, 'protocol2'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclProtocolNumber', ''),'int'])),
+                            ('dscp', (YLeaf(YType.str, 'dscp'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclDscpNumber', ''),'int'])),
+                            ('precedence', (YLeaf(YType.str, 'precedence'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclPrecedenceNumber', ''),'int'])),
+                            ('counter_name', (YLeaf(YType.str, 'counter-name'), ['str'])),
+                            ('log_option', (YLeaf(YType.enumeration, 'log-option'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclLoggingEnum', '')])),
+                            ('capture', (YLeaf(YType.boolean, 'capture'), ['bool'])),
+                            ('undetermined_transport', (YLeaf(YType.boolean, 'undetermined-transport'), ['bool'])),
+                            ('icmp_off', (YLeaf(YType.empty, 'icmp-off'), ['Empty'])),
+                            ('qos_group', (YLeaf(YType.uint32, 'qos-group'), ['int'])),
+                            ('set_ttl', (YLeaf(YType.uint32, 'set-ttl'), ['int'])),
+                            ('remark', (YLeaf(YType.str, 'remark'), ['str'])),
+                            ('source_prefix_group', (YLeaf(YType.str, 'source-prefix-group'), ['str'])),
+                            ('destination_prefix_group', (YLeaf(YType.str, 'destination-prefix-group'), ['str'])),
+                            ('source_port_group', (YLeaf(YType.str, 'source-port-group'), ['str'])),
+                            ('destination_port_group', (YLeaf(YType.str, 'destination-port-group'), ['str'])),
+                            ('sequence_str', (YLeaf(YType.str, 'sequence-str'), ['str'])),
                         ])
                         self.sequence_number = None
                         self.grant = None
@@ -821,9 +825,10 @@ class Ipv6AclAndPrefixList(Entity):
                         self.header_flags.parent = self
                         self._children_name_map["header_flags"] = "header-flags"
                         self._segment_path = lambda: "access-list-entry" + "[sequence-number='" + str(self.sequence_number) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry, ['sequence_number', 'grant', 'protocol_operator', 'protocol', 'protocol2', 'dscp', 'precedence', 'counter_name', 'log_option', 'capture', 'undetermined_transport', 'icmp_off', 'qos_group', 'set_ttl', 'remark', 'source_prefix_group', 'destination_prefix_group', 'source_port_group', 'destination_port_group', 'sequence_str'], name, value)
+                        self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry, ['sequence_number', u'grant', u'protocol_operator', u'protocol', u'protocol2', u'dscp', u'precedence', u'counter_name', u'log_option', u'capture', u'undetermined_transport', u'icmp_off', u'qos_group', u'set_ttl', u'remark', u'source_prefix_group', u'destination_prefix_group', u'source_port_group', u'destination_port_group', u'sequence_str'], name, value)
 
 
                     class SourceNetwork(Entity):
@@ -856,7 +861,7 @@ class Ipv6AclAndPrefixList(Entity):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2018-01-03'
+                        _revision = '2018-04-03'
 
                         def __init__(self):
                             super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, self).__init__()
@@ -868,17 +873,18 @@ class Ipv6AclAndPrefixList(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('source_wild_card_bits', YLeaf(YType.uint8, 'source-wild-card-bits')),
-                                ('source_mask', YLeaf(YType.str, 'source-mask')),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                ('source_wild_card_bits', (YLeaf(YType.uint8, 'source-wild-card-bits'), ['int'])),
+                                ('source_mask', (YLeaf(YType.str, 'source-mask'), ['str'])),
                             ])
                             self.source_address = None
                             self.source_wild_card_bits = None
                             self.source_mask = None
                             self._segment_path = lambda: "source-network"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, ['source_address', 'source_wild_card_bits', 'source_mask'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, [u'source_address', u'source_wild_card_bits', u'source_mask'], name, value)
 
 
                     class DestinationNetwork(Entity):
@@ -911,7 +917,7 @@ class Ipv6AclAndPrefixList(Entity):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2018-01-03'
+                        _revision = '2018-04-03'
 
                         def __init__(self):
                             super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, self).__init__()
@@ -923,17 +929,18 @@ class Ipv6AclAndPrefixList(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('destination_address', YLeaf(YType.str, 'destination-address')),
-                                ('destination_wild_card_bits', YLeaf(YType.uint8, 'destination-wild-card-bits')),
-                                ('destination_mask', YLeaf(YType.str, 'destination-mask')),
+                                ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                                ('destination_wild_card_bits', (YLeaf(YType.uint8, 'destination-wild-card-bits'), ['int'])),
+                                ('destination_mask', (YLeaf(YType.str, 'destination-mask'), ['str'])),
                             ])
                             self.destination_address = None
                             self.destination_wild_card_bits = None
                             self.destination_mask = None
                             self._segment_path = lambda: "destination-network"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, ['destination_address', 'destination_wild_card_bits', 'destination_mask'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, [u'destination_address', u'destination_wild_card_bits', u'destination_mask'], name, value)
 
 
                     class SourcePort(Entity):
@@ -972,7 +979,7 @@ class Ipv6AclAndPrefixList(Entity):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2018-01-03'
+                        _revision = '2018-04-03'
 
                         def __init__(self):
                             super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort, self).__init__()
@@ -984,17 +991,18 @@ class Ipv6AclAndPrefixList(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('source_operator', YLeaf(YType.enumeration, 'source-operator')),
-                                ('first_source_port', YLeaf(YType.str, 'first-source-port')),
-                                ('second_source_port', YLeaf(YType.str, 'second-source-port')),
+                                ('source_operator', (YLeaf(YType.enumeration, 'source-operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclOperatorEnum', '')])),
+                                ('first_source_port', (YLeaf(YType.str, 'first-source-port'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclPortNumber', ''),'int'])),
+                                ('second_source_port', (YLeaf(YType.str, 'second-source-port'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclPortNumber', ''),'int'])),
                             ])
                             self.source_operator = None
                             self.first_source_port = None
                             self.second_source_port = None
                             self._segment_path = lambda: "source-port"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort, ['source_operator', 'first_source_port', 'second_source_port'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.SourcePort, [u'source_operator', u'first_source_port', u'second_source_port'], name, value)
 
 
                     class DestinationPort(Entity):
@@ -1033,7 +1041,7 @@ class Ipv6AclAndPrefixList(Entity):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2018-01-03'
+                        _revision = '2018-04-03'
 
                         def __init__(self):
                             super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort, self).__init__()
@@ -1045,17 +1053,18 @@ class Ipv6AclAndPrefixList(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('destination_operator', YLeaf(YType.enumeration, 'destination-operator')),
-                                ('first_destination_port', YLeaf(YType.str, 'first-destination-port')),
-                                ('second_destination_port', YLeaf(YType.str, 'second-destination-port')),
+                                ('destination_operator', (YLeaf(YType.enumeration, 'destination-operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclOperatorEnum', '')])),
+                                ('first_destination_port', (YLeaf(YType.str, 'first-destination-port'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclPortNumber', ''),'int'])),
+                                ('second_destination_port', (YLeaf(YType.str, 'second-destination-port'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclPortNumber', ''),'int'])),
                             ])
                             self.destination_operator = None
                             self.first_destination_port = None
                             self.second_destination_port = None
                             self._segment_path = lambda: "destination-port"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort, ['destination_operator', 'first_destination_port', 'second_destination_port'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DestinationPort, [u'destination_operator', u'first_destination_port', u'second_destination_port'], name, value)
 
 
                     class Icmp(Entity):
@@ -1072,7 +1081,7 @@ class Ipv6AclAndPrefixList(Entity):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2018-01-03'
+                        _revision = '2018-04-03'
 
                         def __init__(self):
                             super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp, self).__init__()
@@ -1084,13 +1093,14 @@ class Ipv6AclAndPrefixList(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('icmp_type_code', YLeaf(YType.enumeration, 'icmp-type-code')),
+                                ('icmp_type_code', (YLeaf(YType.enumeration, 'icmp-type-code'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclIcmpTypeCodeEnum', '')])),
                             ])
                             self.icmp_type_code = None
                             self._segment_path = lambda: "icmp"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp, ['icmp_type_code'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Icmp, [u'icmp_type_code'], name, value)
 
 
                     class Tcp(Entity):
@@ -1105,31 +1115,19 @@ class Ipv6AclAndPrefixList(Entity):
                         .. attribute:: tcp_bits
                         
                         	TCP bits to match. Leave unspecified if  comparison of TCP bits is not required
-                        	**type**\: union of the below types:
-                        
-                        		**type**\:  :py:class:`Ipv6AclTcpBitsNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpBitsNumber>`
-                        
-                        		**type**\: int
-                        
-                        			**range:** 0..63
+                        	**type**\:  :py:class:`Ipv6AclTcpBitsNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpBitsNumber>`
                         
                         .. attribute:: tcp_bits_mask
                         
                         	TCP bits mask to use for flexible TCP matching. Leave unspecified if it is not required
-                        	**type**\: union of the below types:
-                        
-                        		**type**\:  :py:class:`Ipv6AclTcpBitsNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpBitsNumber>`
-                        
-                        		**type**\: int
-                        
-                        			**range:** 0..63
+                        	**type**\:  :py:class:`Ipv6AclTcpBitsNumber <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes.Ipv6AclTcpBitsNumber>`
                         
                         
 
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2018-01-03'
+                        _revision = '2018-04-03'
 
                         def __init__(self):
                             super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp, self).__init__()
@@ -1141,17 +1139,18 @@ class Ipv6AclAndPrefixList(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('tcp_bits_match_operator', YLeaf(YType.enumeration, 'tcp-bits-match-operator')),
-                                ('tcp_bits', YLeaf(YType.str, 'tcp-bits')),
-                                ('tcp_bits_mask', YLeaf(YType.str, 'tcp-bits-mask')),
+                                ('tcp_bits_match_operator', (YLeaf(YType.enumeration, 'tcp-bits-match-operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclTcpMatchOperatorEnum', '')])),
+                                ('tcp_bits', (YLeaf(YType.bits, 'tcp-bits'), ['Bits'])),
+                                ('tcp_bits_mask', (YLeaf(YType.bits, 'tcp-bits-mask'), ['Bits'])),
                             ])
                             self.tcp_bits_match_operator = None
-                            self.tcp_bits = None
-                            self.tcp_bits_mask = None
+                            self.tcp_bits = Bits()
+                            self.tcp_bits_mask = Bits()
                             self._segment_path = lambda: "tcp"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp, ['tcp_bits_match_operator', 'tcp_bits', 'tcp_bits_mask'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.Tcp, [u'tcp_bits_match_operator', u'tcp_bits', u'tcp_bits_mask'], name, value)
 
 
                     class PacketLength(Entity):
@@ -1182,7 +1181,7 @@ class Ipv6AclAndPrefixList(Entity):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2018-01-03'
+                        _revision = '2018-04-03'
 
                         def __init__(self):
                             super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength, self).__init__()
@@ -1194,17 +1193,18 @@ class Ipv6AclAndPrefixList(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('packet_length_operator', YLeaf(YType.enumeration, 'packet-length-operator')),
-                                ('packet_length_min', YLeaf(YType.uint32, 'packet-length-min')),
-                                ('packet_length_max', YLeaf(YType.uint32, 'packet-length-max')),
+                                ('packet_length_operator', (YLeaf(YType.enumeration, 'packet-length-operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclOperatorEnum', '')])),
+                                ('packet_length_min', (YLeaf(YType.uint32, 'packet-length-min'), ['int'])),
+                                ('packet_length_max', (YLeaf(YType.uint32, 'packet-length-max'), ['int'])),
                             ])
                             self.packet_length_operator = None
                             self.packet_length_min = None
                             self.packet_length_max = None
                             self._segment_path = lambda: "packet-length"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength, ['packet_length_operator', 'packet_length_min', 'packet_length_max'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.PacketLength, [u'packet_length_operator', u'packet_length_min', u'packet_length_max'], name, value)
 
 
                     class TimeToLive(Entity):
@@ -1235,7 +1235,7 @@ class Ipv6AclAndPrefixList(Entity):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2018-01-03'
+                        _revision = '2018-04-03'
 
                         def __init__(self):
                             super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive, self).__init__()
@@ -1247,17 +1247,18 @@ class Ipv6AclAndPrefixList(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('time_to_live_operator', YLeaf(YType.enumeration, 'time-to-live-operator')),
-                                ('time_to_live_min', YLeaf(YType.uint32, 'time-to-live-min')),
-                                ('time_to_live_max', YLeaf(YType.uint32, 'time-to-live-max')),
+                                ('time_to_live_operator', (YLeaf(YType.enumeration, 'time-to-live-operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclOperatorEnum', '')])),
+                                ('time_to_live_min', (YLeaf(YType.uint32, 'time-to-live-min'), ['int'])),
+                                ('time_to_live_max', (YLeaf(YType.uint32, 'time-to-live-max'), ['int'])),
                             ])
                             self.time_to_live_operator = None
                             self.time_to_live_min = None
                             self.time_to_live_max = None
                             self._segment_path = lambda: "time-to-live"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive, ['time_to_live_operator', 'time_to_live_min', 'time_to_live_max'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.TimeToLive, [u'time_to_live_operator', u'time_to_live_min', u'time_to_live_max'], name, value)
 
 
                     class DSCPValues(Entity):
@@ -1296,7 +1297,7 @@ class Ipv6AclAndPrefixList(Entity):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2018-01-03'
+                        _revision = '2018-04-03'
 
                         def __init__(self):
                             super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DSCPValues, self).__init__()
@@ -1308,17 +1309,18 @@ class Ipv6AclAndPrefixList(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('dscp_operator', YLeaf(YType.enumeration, 'dscp-operator')),
-                                ('dscp_lower', YLeaf(YType.str, 'dscp-lower')),
-                                ('dscp_upper', YLeaf(YType.str, 'dscp-upper')),
+                                ('dscp_operator', (YLeaf(YType.enumeration, 'dscp-operator'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclOperatorEnum', '')])),
+                                ('dscp_lower', (YLeaf(YType.str, 'dscp-lower'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclDscpNumber', ''),'int'])),
+                                ('dscp_upper', (YLeaf(YType.str, 'dscp-upper'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_datatypes', 'Ipv6AclDscpNumber', ''),'int'])),
                             ])
                             self.dscp_operator = None
                             self.dscp_lower = None
                             self.dscp_upper = None
                             self._segment_path = lambda: "DSCPValues"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DSCPValues, ['dscp_operator', 'dscp_lower', 'dscp_upper'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.DSCPValues, [u'dscp_operator', u'dscp_lower', u'dscp_upper'], name, value)
 
 
                     class NextHop(Entity):
@@ -1350,7 +1352,7 @@ class Ipv6AclAndPrefixList(Entity):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2018-01-03'
+                        _revision = '2018-04-03'
 
                         def __init__(self):
                             super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop, self).__init__()
@@ -1362,7 +1364,7 @@ class Ipv6AclAndPrefixList(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("next-hop-1", ("next_hop_1", Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1)), ("next-hop-2", ("next_hop_2", Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2)), ("next-hop-3", ("next_hop_3", Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3))])
                             self._leafs = OrderedDict([
-                                ('next_hop_type', YLeaf(YType.enumeration, 'next-hop-type')),
+                                ('next_hop_type', (YLeaf(YType.enumeration, 'next-hop-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_acl_cfg', 'NextHopType', '')])),
                             ])
                             self.next_hop_type = None
 
@@ -1378,9 +1380,10 @@ class Ipv6AclAndPrefixList(Entity):
                             self.next_hop_3.parent = self
                             self._children_name_map["next_hop_3"] = "next-hop-3"
                             self._segment_path = lambda: "next-hop"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop, ['next_hop_type'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop, [u'next_hop_type'], name, value)
 
 
                         class NextHop1(Entity):
@@ -1413,7 +1416,7 @@ class Ipv6AclAndPrefixList(Entity):
                             """
 
                             _prefix = 'ipv6-acl-cfg'
-                            _revision = '2018-01-03'
+                            _revision = '2018-04-03'
 
                             def __init__(self):
                                 super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1, self).__init__()
@@ -1425,17 +1428,18 @@ class Ipv6AclAndPrefixList(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('next_hop', YLeaf(YType.str, 'next-hop')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                    ('track_name', YLeaf(YType.str, 'track-name')),
+                                    ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                    ('track_name', (YLeaf(YType.str, 'track-name'), ['str'])),
                                 ])
                                 self.next_hop = None
                                 self.vrf_name = None
                                 self.track_name = None
                                 self._segment_path = lambda: "next-hop-1"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1, ['next_hop', 'vrf_name', 'track_name'], name, value)
+                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop1, [u'next_hop', u'vrf_name', u'track_name'], name, value)
 
 
                         class NextHop2(Entity):
@@ -1468,7 +1472,7 @@ class Ipv6AclAndPrefixList(Entity):
                             """
 
                             _prefix = 'ipv6-acl-cfg'
-                            _revision = '2018-01-03'
+                            _revision = '2018-04-03'
 
                             def __init__(self):
                                 super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2, self).__init__()
@@ -1480,17 +1484,18 @@ class Ipv6AclAndPrefixList(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('next_hop', YLeaf(YType.str, 'next-hop')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                    ('track_name', YLeaf(YType.str, 'track-name')),
+                                    ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                    ('track_name', (YLeaf(YType.str, 'track-name'), ['str'])),
                                 ])
                                 self.next_hop = None
                                 self.vrf_name = None
                                 self.track_name = None
                                 self._segment_path = lambda: "next-hop-2"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2, ['next_hop', 'vrf_name', 'track_name'], name, value)
+                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop2, [u'next_hop', u'vrf_name', u'track_name'], name, value)
 
 
                         class NextHop3(Entity):
@@ -1523,7 +1528,7 @@ class Ipv6AclAndPrefixList(Entity):
                             """
 
                             _prefix = 'ipv6-acl-cfg'
-                            _revision = '2018-01-03'
+                            _revision = '2018-04-03'
 
                             def __init__(self):
                                 super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3, self).__init__()
@@ -1535,17 +1540,18 @@ class Ipv6AclAndPrefixList(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('next_hop', YLeaf(YType.str, 'next-hop')),
-                                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                    ('track_name', YLeaf(YType.str, 'track-name')),
+                                    ('next_hop', (YLeaf(YType.str, 'next-hop'), ['str'])),
+                                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                    ('track_name', (YLeaf(YType.str, 'track-name'), ['str'])),
                                 ])
                                 self.next_hop = None
                                 self.vrf_name = None
                                 self.track_name = None
                                 self._segment_path = lambda: "next-hop-3"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
-                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3, ['next_hop', 'vrf_name', 'track_name'], name, value)
+                                self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.NextHop.NextHop3, [u'next_hop', u'vrf_name', u'track_name'], name, value)
 
 
                     class HeaderFlags(Entity):
@@ -1582,7 +1588,7 @@ class Ipv6AclAndPrefixList(Entity):
                         """
 
                         _prefix = 'ipv6-acl-cfg'
-                        _revision = '2018-01-03'
+                        _revision = '2018-04-03'
 
                         def __init__(self):
                             super(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags, self).__init__()
@@ -1594,11 +1600,11 @@ class Ipv6AclAndPrefixList(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('routing', YLeaf(YType.empty, 'routing')),
-                                ('destopts', YLeaf(YType.empty, 'destopts')),
-                                ('hop_by_hop', YLeaf(YType.empty, 'hop-by-hop')),
-                                ('fragments', YLeaf(YType.empty, 'fragments')),
-                                ('authen', YLeaf(YType.empty, 'authen')),
+                                ('routing', (YLeaf(YType.empty, 'routing'), ['Empty'])),
+                                ('destopts', (YLeaf(YType.empty, 'destopts'), ['Empty'])),
+                                ('hop_by_hop', (YLeaf(YType.empty, 'hop-by-hop'), ['Empty'])),
+                                ('fragments', (YLeaf(YType.empty, 'fragments'), ['Empty'])),
+                                ('authen', (YLeaf(YType.empty, 'authen'), ['Empty'])),
                             ])
                             self.routing = None
                             self.destopts = None
@@ -1606,9 +1612,10 @@ class Ipv6AclAndPrefixList(Entity):
                             self.fragments = None
                             self.authen = None
                             self._segment_path = lambda: "header-flags"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags, ['routing', 'destopts', 'hop_by_hop', 'fragments', 'authen'], name, value)
+                            self._perform_setattr(Ipv6AclAndPrefixList.Accesses.Access.AccessListEntries.AccessListEntry.HeaderFlags, [u'routing', u'destopts', u'hop_by_hop', u'fragments', u'authen'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipv6AclAndPrefixList()

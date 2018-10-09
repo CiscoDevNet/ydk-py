@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   reboot\-history\: Reboot History information
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -50,6 +51,7 @@ class RebootHistory(Entity):
 
         self.node = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-linux-os-reboot-history-oper:reboot-history"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(RebootHistory, [], name, value)
@@ -88,13 +90,14 @@ class RebootHistory(Entity):
             self.ylist_key_names = ['node_name']
             self._child_classes = OrderedDict([("reboot-history", ("reboot_history", RebootHistory.Node.RebootHistory_))])
             self._leafs = OrderedDict([
-                ('node_name', YLeaf(YType.str, 'node-name')),
+                ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
             ])
             self.node_name = None
 
             self.reboot_history = YList(self)
             self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-linux-os-reboot-history-oper:reboot-history/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RebootHistory.Node, ['node_name'], name, value)
@@ -145,19 +148,20 @@ class RebootHistory(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('no', YLeaf(YType.uint32, 'no')),
-                    ('time', YLeaf(YType.str, 'time')),
-                    ('cause_code', YLeaf(YType.uint32, 'cause-code')),
-                    ('reason', YLeaf(YType.str, 'reason')),
+                    ('no', (YLeaf(YType.uint32, 'no'), ['int'])),
+                    ('time', (YLeaf(YType.str, 'time'), ['str'])),
+                    ('cause_code', (YLeaf(YType.uint32, 'cause-code'), ['int'])),
+                    ('reason', (YLeaf(YType.str, 'reason'), ['str'])),
                 ])
                 self.no = None
                 self.time = None
                 self.cause_code = None
                 self.reason = None
                 self._segment_path = lambda: "reboot-history"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(RebootHistory.Node.RebootHistory_, [u'no', u'time', u'cause_code', u'reason'], name, value)
+                self._perform_setattr(RebootHistory.Node.RebootHistory_, ['no', 'time', 'cause_code', 'reason'], name, value)
 
     def clone_ptr(self):
         self._top_entity = RebootHistory()

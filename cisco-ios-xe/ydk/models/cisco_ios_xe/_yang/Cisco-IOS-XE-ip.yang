@@ -32,12 +32,46 @@ submodule Cisco-IOS-XE-ip {
 
   description
     "Cisco XE Native IP Yang Model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-05-09 {
+    description
+      "stitching leaf moved to the vrf group";
+  }
+  revision 2018-05-03 {
+    description
+      "stitching leaf added in vrf definition";
+  }
+ 
+  revision 2018-04-04 {
+    description
+      "add tailf:cli-remove-before-change for vrf definition rd";
+  }
+
+  revision 2018-03-12 {
+    description
+      "Add dependency to 'export map' on rd, in order to match CLI behavior";
+  }
+
+  revision 2018-02-09 {
+    description
+      "fix ip prefix-list deleting issue";
+  }
+
+  revision 2018-02-02 {
+    description
+      "Change ip domain to leaf-list to match IOS behavior";
+  }
+
+  revision 2018-01-11 {
+    description
+      "Support ip host and ip host vrf replacement";
+  }
+
   revision 2017-10-25 {
     description
       "Support ip host and ip host vrf with multiple ipv4/ipv6 address";
@@ -124,6 +158,61 @@ submodule Cisco-IOS-XE-ip {
     }
   }
 
+  grouping ip-prefix-lists-grouping {
+    list prefix-only-list {
+      key "prefix";
+      leaf prefix {
+        type inet:ipv4-prefix;
+      }
+    }
+    list prefix-ge-list {
+      key "prefix ge";
+      leaf prefix {
+        type inet:ipv4-prefix;
+      }
+      leaf ge {
+        description
+          "Minimum prefix length to be matched";
+        type uint8 {
+          range "1..32";
+        }
+      }
+    }
+    list prefix-le-list {
+      key "prefix le";
+      leaf prefix {
+        type inet:ipv4-prefix;
+      }
+      leaf le {
+        description
+          "Maximum prefix length to be matched";
+        type uint8 {
+          range "1..32";
+        }
+      }
+    }
+    list prefix-ge-le-list {
+      key "prefix ge le";
+      leaf prefix {
+        type inet:ipv4-prefix;
+      }
+      leaf ge {
+        description
+          "Minimum prefix length to be matched";
+        type uint8 {
+          range "1..32";
+        }
+      }
+      leaf le {
+        description
+          "Maximum prefix length to be matched";
+        type uint8 {
+          range "1..32";
+        }
+      }
+    }
+  }
+
   grouping vrf-route-target-grouping {
     list export {
       description
@@ -132,6 +221,11 @@ submodule Cisco-IOS-XE-ip {
       leaf asn-ip {
         type ios-types:asn-ip-type;
       }
+      leaf stitching {
+        description
+           "VXLAN route target set";
+           type empty;
+      }
     }
     list import {
       description
@@ -139,6 +233,11 @@ submodule Cisco-IOS-XE-ip {
       key "asn-ip";
       leaf asn-ip {
         type ios-types:asn-ip-type;
+      }
+      leaf stitching {
+        description
+           "VXLAN route target set";
+           type empty;
       }
     }
   }
@@ -242,6 +341,9 @@ submodule Cisco-IOS-XE-ip {
               leaf map {
                 description
                   "WORD;;Route-map reference";
+                must "../../../../rd" {
+                  error-message "%vrf does not have rd configured, please configure rd before configuring export route-map";
+                }
                 type string;
               }
             }
@@ -639,6 +741,16 @@ submodule Cisco-IOS-XE-ip {
         "Global IP configuration subcommands";
       // ip mroute
       // @mount Cisco-IOS-XE-multicast.yang
+
+       container ospf {
+         description
+           "Configure for ospf";
+         leaf name-lookup {
+           description
+             "Display OSPF router ids as DNS names";
+           type empty;
+         }
+       }
 
       //ip admission
       container admission { 
@@ -1121,7 +1233,7 @@ submodule Cisco-IOS-XE-ip {
         container list {
           description
             "Domain name to complete unqualified host names";
-          leaf domain-name {
+          leaf-list domain-name {
             type string;
           }
           container vrf {
@@ -1537,51 +1649,13 @@ submodule Cisco-IOS-XE-ip {
           container permit {
             description
               "Specify packets to forward";
-            list permit-list {
-              key "prefix";
-              leaf prefix {
-                type inet:ipv4-prefix;
-              }
-              leaf ge {
-                description
-                  "Minimum prefix length to be matched";
-                type uint8 {
-                  range "1..32";
-                }
-              }
-              leaf le {
-                description
-                  "Maximum prefix length to be matched";
-                type uint8 {
-                  range "1..32";
-                }
-              }
-            }
+            uses ip-prefix-lists-grouping;
           }
           // ip prefix-list * deny
           container deny {
             description
               "Specify packets to reject";
-            list deny-list {
-              key "prefix";
-              leaf prefix {
-                type inet:ipv4-prefix;
-              }
-              leaf ge {
-                description
-                  "Minimum prefix length to be matched";
-                type uint8 {
-                  range "1..32";
-                }
-              }
-              leaf le {
-                description
-                  "Maximum prefix length to be matched";
-                type uint8 {
-                  range "1..32";
-                }
-              }
-            }
+            uses ip-prefix-lists-grouping;
           }
           // ip prefix-list * seq *
           list seq {

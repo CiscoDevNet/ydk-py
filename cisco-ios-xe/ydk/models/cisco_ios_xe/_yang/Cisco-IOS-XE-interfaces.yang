@@ -36,12 +36,44 @@ submodule Cisco-IOS-XE-interfaces {
 
   description
     "Cisco XE Native Interfaces Yang model.
-     Copyright (c) 2016-2017 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-06-28 {
+    description
+      "added must constraints for deleting vrf, changing to switchport from no switchport";
+  }
+  revision 2018-06-10 {
+    description
+        "SDA source templates are missing models";
+  }
+  revision 2018-05-21 {
+    description
+      "Interface description: change cli-suppress-quotes to cli-preformatted";
+  }
+  revision 2018-05-11 {
+     description
+       "Add vxlan udp port under NVE interface";
+  }
+  revision 2018-03-18 {
+     description
+       "Added ip addess annotations for mapping of ipv4 secondary addresses";
+  }
+  revision 2018-03-15 {
+      description
+        "host-reachability protocol bgp is added under nve interface ";
+   }
+  revision 2018-03-06 {
+    description
+      "Added dependancies between mtu and ipv4/ipv6 mtu";
+  }
+  revision 2018-02-08 {
+     description
+       "Add a type of Interface: Ethernet";
+  }
   revision 2017-12-14 {
      description
        "Added Change interface Cellular name pattern";
@@ -220,6 +252,11 @@ submodule Cisco-IOS-XE-interfaces {
   }
   grouping ethernet-grouping {
     choice ethernet-choice {
+      leaf Ethernet {
+        description
+          "IEEE 802.3";
+        type string;
+      }
       leaf FastEthernet {
         description
           "FastEthernet IEEE 802.3";
@@ -398,7 +435,6 @@ submodule Cisco-IOS-XE-interfaces {
        leaf switchport {
          type boolean;
        }
-       if-feature ios-features:switching-platform;
     }
 
     container switchport {
@@ -924,6 +960,9 @@ submodule Cisco-IOS-XE-interfaces {
       // @mount Cisco-IOS-XE-mpls
     }
 
+    // interface * / evpn
+    // @mount Cisco-IOs-XE-l2vpn
+
     // interface * / vrf forwarding
 
     // interface * / ip vrf forwarding
@@ -935,6 +974,9 @@ submodule Cisco-IOS-XE-interfaces {
               description
                 "Configure forwarding table";
               type string;
+              // type leafref {
+              //   path "/ios:native/ios:ip/ios:vrf/ios:name";
+              // }
             }
           }
         }
@@ -946,6 +988,12 @@ submodule Cisco-IOS-XE-interfaces {
         leaf forwarding {
           description
             "Configure forwarding table";
+          must "/ios:native/ios:vrf/ios:definition[ios:name=current()]" { 
+	    error-message "VRF must be created 1st, deleted last";
+          }
+	  must "not (../../switchport-conf/switchport) or (../../switchport-conf/switchport = 'false')" {
+	    error-message "To configure vrf forwarding, set switchport to false 1st; To change switchport from false to true, delete vrf forwarding 1st";
+          }
           type string;
         }
       }
@@ -1112,14 +1160,6 @@ submodule Cisco-IOS-XE-interfaces {
             "Set the IP address of an interface";
           choice address-choice {
             case fixed-case {
-              container primary {
-                leaf address {
-                  type inet:ipv4-address;
-                }
-                leaf mask {
-                  type inet:ipv4-address;
-                }
-              }
               list secondary {
                 key "address";
                 leaf address {
@@ -1134,6 +1174,17 @@ submodule Cisco-IOS-XE-interfaces {
                     "Make this IP address a secondary address";
                   mandatory true;
                   type empty;
+                }
+              }
+              container primary {
+                leaf address {
+	          must "not (../../../../switchport-conf/switchport) or (../../../../switchport-conf/switchport = 'false')" {
+	            error-message "To configure ip address, set switchport to false 1st; To change switchport from false to true, delete ip address 1st";
+                  }
+                  type inet:ipv4-address;
+                }
+                leaf mask {
+                  type inet:ipv4-address;
                 }
               }
             }
@@ -1166,12 +1217,14 @@ submodule Cisco-IOS-XE-interfaces {
       }
 
       // interface * / ip directed-broadcast
-      leaf directed-broadcast {
+      container directed-broadcast {
         description
           "Enable forwarding of directed broadcasts";
-        type ios-types:exp-acl-type;
+        presence true;
+        leaf direct-broadcast {
+          type ios-types:exp-acl-type;
+        }
       }
-
 
       // interface * / ip flow
       // @mount Cisco-IOS-XE-flow
@@ -1259,6 +1312,9 @@ submodule Cisco-IOS-XE-interfaces {
           leaf vrf {
             description
               "VRF name for helper-address (if different from interface VRF)";
+	    must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+	      error-message "VRF must be created 1st, deleted last";
+            }
             type string;
           }
         }
@@ -1831,6 +1887,28 @@ submodule Cisco-IOS-XE-interfaces {
       }
     }
 
+    // interface * / source 
+    container source {
+     description
+       "Get config from another source";
+     container template {
+       description
+         "Get config from a template";
+       list template-name {
+         ordered-by user;
+         key "template-name";
+         leaf template-name {
+           type string;
+         }
+         leaf merge {
+           description
+             "merge option of binding";
+           type empty;
+         }
+       }
+     }
+    }
+
     // interface * / standby
     container standby {
       description
@@ -2153,6 +2231,13 @@ submodule Cisco-IOS-XE-interfaces {
           type empty;
         }
       }
+      container control-direction {
+        description "Set the control-direction on the interface";
+        leaf in {
+          description "Control inbound traffic only";
+          type empty;
+        }
+      }
       leaf host-mode {
         description
           "Set the Host mode for authentication on this interface";
@@ -2395,10 +2480,9 @@ submodule Cisco-IOS-XE-interfaces {
           "ATM interface";
         key "name";
         leaf name {
-          type string {
-            pattern "([0-9]/){2}([0-9]|(ima[0-9]))(:[0-9])?";
-          }
+          type string ;
         }
+        uses interface-common-grouping;
       }
 
       // subinterface ATM #.#
@@ -2406,10 +2490,9 @@ submodule Cisco-IOS-XE-interfaces {
         list ATM {
           key "name";
           leaf name {
-            type string {
-              pattern "([0-9]/){2}[0-9]\\.([0-9]/){3}[0-9]";
-            }
+            type string; 
           }
+        uses interface-common-grouping;
         }
       }
 
@@ -2476,6 +2559,17 @@ submodule Cisco-IOS-XE-interfaces {
       list Embedded-Service-Engine {
         description
           "cisco embedded service engine module";
+        key "name";
+        leaf name {
+          type string;
+        }
+        uses interface-common-grouping;
+      }
+
+      // interface Ethernet
+      list Ethernet {
+        description
+          "IEEE 802.3";
         key "name";
         leaf name {
           type string;
@@ -2556,6 +2650,7 @@ submodule Cisco-IOS-XE-interfaces {
           }
         }
         uses interface-common-grouping;
+        uses interface-switchport-grouping;
       }
 
       // interface TwoGigabitEthernet
@@ -2604,7 +2699,7 @@ submodule Cisco-IOS-XE-interfaces {
           type enumeration {
             enum "nni";
           }
-        }
+        }  
         uses interface-common-grouping;
       }
 
@@ -2753,6 +2848,24 @@ submodule Cisco-IOS-XE-interfaces {
             type empty;
           }
         }
+        container host-reachability {
+          container protocol {
+            leaf bgp {
+              type empty;
+            }
+          }
+        }
+        container vxlan {
+          container udp {
+            leaf port {
+              description
+                "VxLAN dataplane UDP destination port for this NVE interface";
+              type uint16 {
+                range "1024..65535";
+              }
+            }
+          }
+        }
         container source-interface {
           description
             "Specify source interface for NVE";
@@ -2765,11 +2878,16 @@ submodule Cisco-IOS-XE-interfaces {
                  "Configure VNI information";
                key "vni-range";
                leaf vni-range {
+                 description
+                   "VNI range or instance between 4096-16777215, example: 6010-6030 or 7115";
                  type string;
                }
                leaf vrf { 
                  description
                    "Specify a particular VRF";
+		 must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+		   error-message "VRF must be created 1st, deleted last";
+                 }
                  type string; 
                }
              }
@@ -2781,6 +2899,8 @@ submodule Cisco-IOS-XE-interfaces {
               "Configure VNI information";
             key "vni-range";
             leaf vni-range {
+              description
+                "VNI range or instance between 4096-16777215, example: 6010-6030 or 7115";
               type string;
             }
             container default {

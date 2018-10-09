@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   object\-group\: Object\-group operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class EndPort(Enum):
@@ -741,6 +742,7 @@ class ObjectGroup(Entity):
         self.network.parent = self
         self._children_name_map["network"] = "network"
         self._segment_path = lambda: "Cisco-IOS-XR-infra-objmgr-oper:object-group"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ObjectGroup, [], name, value)
@@ -778,6 +780,7 @@ class ObjectGroup(Entity):
             self._children_name_map["objects"] = "objects"
             self._segment_path = lambda: "port"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-oper:object-group/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ObjectGroup.Port, [], name, value)
@@ -813,6 +816,7 @@ class ObjectGroup(Entity):
                 self.object = YList(self)
                 self._segment_path = lambda: "objects"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-oper:object-group/port/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectGroup.Port.Objects, [], name, value)
@@ -866,7 +870,7 @@ class ObjectGroup(Entity):
                     self.ylist_key_names = ['object_name']
                     self._child_classes = OrderedDict([("nested-groups", ("nested_groups", ObjectGroup.Port.Objects.Object.NestedGroups)), ("operators", ("operators", ObjectGroup.Port.Objects.Object.Operators)), ("port-ranges", ("port_ranges", ObjectGroup.Port.Objects.Object.PortRanges)), ("parent-groups", ("parent_groups", ObjectGroup.Port.Objects.Object.ParentGroups))])
                     self._leafs = OrderedDict([
-                        ('object_name', YLeaf(YType.str, 'object-name')),
+                        ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
                     ])
                     self.object_name = None
 
@@ -887,6 +891,7 @@ class ObjectGroup(Entity):
                     self._children_name_map["parent_groups"] = "parent-groups"
                     self._segment_path = lambda: "object" + "[object-name='" + str(self.object_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-oper:object-group/port/objects/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectGroup.Port.Objects.Object, ['object_name'], name, value)
@@ -921,6 +926,7 @@ class ObjectGroup(Entity):
 
                         self.nested_group = YList(self)
                         self._segment_path = lambda: "nested-groups"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectGroup.Port.Objects.Object.NestedGroups, [], name, value)
@@ -959,12 +965,13 @@ class ObjectGroup(Entity):
                             self.ylist_key_names = ['nested_group_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('nested_group_name', YLeaf(YType.str, 'nested-group-name')),
-                                ('nested_group_name_xr', YLeaf(YType.str, 'nested-group-name-xr')),
+                                ('nested_group_name', (YLeaf(YType.str, 'nested-group-name'), ['str'])),
+                                ('nested_group_name_xr', (YLeaf(YType.str, 'nested-group-name-xr'), ['str'])),
                             ])
                             self.nested_group_name = None
                             self.nested_group_name_xr = None
                             self._segment_path = lambda: "nested-group" + "[nested-group-name='" + str(self.nested_group_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', 'nested_group_name_xr'], name, value)
@@ -999,6 +1006,7 @@ class ObjectGroup(Entity):
 
                         self.operator = YList(self)
                         self._segment_path = lambda: "operators"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectGroup.Port.Objects.Object.Operators, [], name, value)
@@ -1055,16 +1063,17 @@ class ObjectGroup(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('operator_type', YLeaf(YType.enumeration, 'operator-type')),
-                                ('port', YLeaf(YType.str, 'port')),
-                                ('operator_type_xr', YLeaf(YType.uint32, 'operator-type-xr')),
-                                ('port_xr', YLeaf(YType.uint32, 'port-xr')),
+                                ('operator_type', (YLeaf(YType.enumeration, 'operator-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper', 'PortOperator', '')])),
+                                ('port', (YLeaf(YType.str, 'port'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper', 'Port', ''),'int'])),
+                                ('operator_type_xr', (YLeaf(YType.uint32, 'operator-type-xr'), ['int'])),
+                                ('port_xr', (YLeaf(YType.uint32, 'port-xr'), ['int'])),
                             ])
                             self.operator_type = None
                             self.port = None
                             self.operator_type_xr = None
                             self.port_xr = None
                             self._segment_path = lambda: "operator"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.Objects.Object.Operators.Operator, ['operator_type', 'port', 'operator_type_xr', 'port_xr'], name, value)
@@ -1099,6 +1108,7 @@ class ObjectGroup(Entity):
 
                         self.port_range = YList(self)
                         self._segment_path = lambda: "port-ranges"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectGroup.Port.Objects.Object.PortRanges, [], name, value)
@@ -1161,16 +1171,17 @@ class ObjectGroup(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('start_port', YLeaf(YType.str, 'start-port')),
-                                ('end_port', YLeaf(YType.str, 'end-port')),
-                                ('start_port_xr', YLeaf(YType.uint32, 'start-port-xr')),
-                                ('end_port_xr', YLeaf(YType.uint32, 'end-port-xr')),
+                                ('start_port', (YLeaf(YType.str, 'start-port'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper', 'StartPort', ''),'int'])),
+                                ('end_port', (YLeaf(YType.str, 'end-port'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_objmgr_oper', 'EndPort', ''),'int'])),
+                                ('start_port_xr', (YLeaf(YType.uint32, 'start-port-xr'), ['int'])),
+                                ('end_port_xr', (YLeaf(YType.uint32, 'end-port-xr'), ['int'])),
                             ])
                             self.start_port = None
                             self.end_port = None
                             self.start_port_xr = None
                             self.end_port_xr = None
                             self._segment_path = lambda: "port-range"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.Objects.Object.PortRanges.PortRange, ['start_port', 'end_port', 'start_port_xr', 'end_port_xr'], name, value)
@@ -1205,6 +1216,7 @@ class ObjectGroup(Entity):
 
                         self.parent_group = YList(self)
                         self._segment_path = lambda: "parent-groups"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectGroup.Port.Objects.Object.ParentGroups, [], name, value)
@@ -1243,12 +1255,13 @@ class ObjectGroup(Entity):
                             self.ylist_key_names = ['parent_group_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('parent_group_name', YLeaf(YType.str, 'parent-group-name')),
-                                ('parent_name', YLeaf(YType.str, 'parent-name')),
+                                ('parent_group_name', (YLeaf(YType.str, 'parent-group-name'), ['str'])),
+                                ('parent_name', (YLeaf(YType.str, 'parent-name'), ['str'])),
                             ])
                             self.parent_group_name = None
                             self.parent_name = None
                             self._segment_path = lambda: "parent-group" + "[parent-group-name='" + str(self.parent_group_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Port.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', 'parent_name'], name, value)
@@ -1295,6 +1308,7 @@ class ObjectGroup(Entity):
             self._children_name_map["ipv4"] = "ipv4"
             self._segment_path = lambda: "network"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-oper:object-group/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ObjectGroup.Network, [], name, value)
@@ -1332,6 +1346,7 @@ class ObjectGroup(Entity):
                 self._children_name_map["objects"] = "objects"
                 self._segment_path = lambda: "ipv6"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-oper:object-group/network/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectGroup.Network.Ipv6, [], name, value)
@@ -1367,6 +1382,7 @@ class ObjectGroup(Entity):
                     self.object = YList(self)
                     self._segment_path = lambda: "objects"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-oper:object-group/network/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectGroup.Network.Ipv6.Objects, [], name, value)
@@ -1425,7 +1441,7 @@ class ObjectGroup(Entity):
                         self.ylist_key_names = ['object_name']
                         self._child_classes = OrderedDict([("nested-groups", ("nested_groups", ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups)), ("addresses", ("addresses", ObjectGroup.Network.Ipv6.Objects.Object.Addresses)), ("address-ranges", ("address_ranges", ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges)), ("parent-groups", ("parent_groups", ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups)), ("hosts", ("hosts", ObjectGroup.Network.Ipv6.Objects.Object.Hosts))])
                         self._leafs = OrderedDict([
-                            ('object_name', YLeaf(YType.str, 'object-name')),
+                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
                         ])
                         self.object_name = None
 
@@ -1450,6 +1466,7 @@ class ObjectGroup(Entity):
                         self._children_name_map["hosts"] = "hosts"
                         self._segment_path = lambda: "object" + "[object-name='" + str(self.object_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-oper:object-group/network/ipv6/objects/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object, ['object_name'], name, value)
@@ -1484,6 +1501,7 @@ class ObjectGroup(Entity):
 
                             self.nested_group = YList(self)
                             self._segment_path = lambda: "nested-groups"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups, [], name, value)
@@ -1522,12 +1540,13 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = ['nested_group_name']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('nested_group_name', YLeaf(YType.str, 'nested-group-name')),
-                                    ('nested_group_name_xr', YLeaf(YType.str, 'nested-group-name-xr')),
+                                    ('nested_group_name', (YLeaf(YType.str, 'nested-group-name'), ['str'])),
+                                    ('nested_group_name_xr', (YLeaf(YType.str, 'nested-group-name-xr'), ['str'])),
                                 ])
                                 self.nested_group_name = None
                                 self.nested_group_name_xr = None
                                 self._segment_path = lambda: "nested-group" + "[nested-group-name='" + str(self.nested_group_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', 'nested_group_name_xr'], name, value)
@@ -1562,6 +1581,7 @@ class ObjectGroup(Entity):
 
                             self.address = YList(self)
                             self._segment_path = lambda: "addresses"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Addresses, [], name, value)
@@ -1616,16 +1636,17 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('prefix', YLeaf(YType.str, 'prefix')),
-                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                                    ('prefix_xr', YLeaf(YType.str, 'prefix-xr')),
-                                    ('prefix_length_xr', YLeaf(YType.uint32, 'prefix-length-xr')),
+                                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                    ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                                    ('prefix_xr', (YLeaf(YType.str, 'prefix-xr'), ['str'])),
+                                    ('prefix_length_xr', (YLeaf(YType.uint32, 'prefix-length-xr'), ['int'])),
                                 ])
                                 self.prefix = None
                                 self.prefix_length = None
                                 self.prefix_xr = None
                                 self.prefix_length_xr = None
                                 self._segment_path = lambda: "address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Addresses.Address, ['prefix', 'prefix_length', 'prefix_xr', 'prefix_length_xr'], name, value)
@@ -1660,6 +1681,7 @@ class ObjectGroup(Entity):
 
                             self.address_range = YList(self)
                             self._segment_path = lambda: "address-ranges"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges, [], name, value)
@@ -1714,16 +1736,17 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('start_address', YLeaf(YType.str, 'start-address')),
-                                    ('end_address', YLeaf(YType.str, 'end-address')),
-                                    ('start_address_xr', YLeaf(YType.str, 'start-address-xr')),
-                                    ('end_address_xr', YLeaf(YType.str, 'end-address-xr')),
+                                    ('start_address', (YLeaf(YType.str, 'start-address'), ['str'])),
+                                    ('end_address', (YLeaf(YType.str, 'end-address'), ['str'])),
+                                    ('start_address_xr', (YLeaf(YType.str, 'start-address-xr'), ['str'])),
+                                    ('end_address_xr', (YLeaf(YType.str, 'end-address-xr'), ['str'])),
                                 ])
                                 self.start_address = None
                                 self.end_address = None
                                 self.start_address_xr = None
                                 self.end_address_xr = None
                                 self._segment_path = lambda: "address-range"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.AddressRanges.AddressRange, ['start_address', 'end_address', 'start_address_xr', 'end_address_xr'], name, value)
@@ -1758,6 +1781,7 @@ class ObjectGroup(Entity):
 
                             self.parent_group = YList(self)
                             self._segment_path = lambda: "parent-groups"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups, [], name, value)
@@ -1796,12 +1820,13 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = ['parent_group_name']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('parent_group_name', YLeaf(YType.str, 'parent-group-name')),
-                                    ('parent_name', YLeaf(YType.str, 'parent-name')),
+                                    ('parent_group_name', (YLeaf(YType.str, 'parent-group-name'), ['str'])),
+                                    ('parent_name', (YLeaf(YType.str, 'parent-name'), ['str'])),
                                 ])
                                 self.parent_group_name = None
                                 self.parent_name = None
                                 self._segment_path = lambda: "parent-group" + "[parent-group-name='" + str(self.parent_group_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', 'parent_name'], name, value)
@@ -1836,6 +1861,7 @@ class ObjectGroup(Entity):
 
                             self.host = YList(self)
                             self._segment_path = lambda: "hosts"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Hosts, [], name, value)
@@ -1876,12 +1902,13 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = ['host_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('host_address', YLeaf(YType.str, 'host-address')),
-                                    ('host_address_xr', YLeaf(YType.str, 'host-address-xr')),
+                                    ('host_address', (YLeaf(YType.str, 'host-address'), ['str'])),
+                                    ('host_address_xr', (YLeaf(YType.str, 'host-address-xr'), ['str'])),
                                 ])
                                 self.host_address = None
                                 self.host_address_xr = None
                                 self._segment_path = lambda: "host" + "[host-address='" + str(self.host_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv6.Objects.Object.Hosts.Host, ['host_address', 'host_address_xr'], name, value)
@@ -1919,6 +1946,7 @@ class ObjectGroup(Entity):
                 self._children_name_map["objects"] = "objects"
                 self._segment_path = lambda: "ipv4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-oper:object-group/network/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ObjectGroup.Network.Ipv4, [], name, value)
@@ -1954,6 +1982,7 @@ class ObjectGroup(Entity):
                     self.object = YList(self)
                     self._segment_path = lambda: "objects"
                     self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-oper:object-group/network/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ObjectGroup.Network.Ipv4.Objects, [], name, value)
@@ -2012,7 +2041,7 @@ class ObjectGroup(Entity):
                         self.ylist_key_names = ['object_name']
                         self._child_classes = OrderedDict([("nested-groups", ("nested_groups", ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups)), ("addresses", ("addresses", ObjectGroup.Network.Ipv4.Objects.Object.Addresses)), ("address-ranges", ("address_ranges", ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges)), ("parent-groups", ("parent_groups", ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups)), ("hosts", ("hosts", ObjectGroup.Network.Ipv4.Objects.Object.Hosts))])
                         self._leafs = OrderedDict([
-                            ('object_name', YLeaf(YType.str, 'object-name')),
+                            ('object_name', (YLeaf(YType.str, 'object-name'), ['str'])),
                         ])
                         self.object_name = None
 
@@ -2037,6 +2066,7 @@ class ObjectGroup(Entity):
                         self._children_name_map["hosts"] = "hosts"
                         self._segment_path = lambda: "object" + "[object-name='" + str(self.object_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-infra-objmgr-oper:object-group/network/ipv4/objects/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object, ['object_name'], name, value)
@@ -2071,6 +2101,7 @@ class ObjectGroup(Entity):
 
                             self.nested_group = YList(self)
                             self._segment_path = lambda: "nested-groups"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups, [], name, value)
@@ -2109,12 +2140,13 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = ['nested_group_name']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('nested_group_name', YLeaf(YType.str, 'nested-group-name')),
-                                    ('nested_group_name_xr', YLeaf(YType.str, 'nested-group-name-xr')),
+                                    ('nested_group_name', (YLeaf(YType.str, 'nested-group-name'), ['str'])),
+                                    ('nested_group_name_xr', (YLeaf(YType.str, 'nested-group-name-xr'), ['str'])),
                                 ])
                                 self.nested_group_name = None
                                 self.nested_group_name_xr = None
                                 self._segment_path = lambda: "nested-group" + "[nested-group-name='" + str(self.nested_group_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.NestedGroups.NestedGroup, ['nested_group_name', 'nested_group_name_xr'], name, value)
@@ -2149,6 +2181,7 @@ class ObjectGroup(Entity):
 
                             self.address = YList(self)
                             self._segment_path = lambda: "addresses"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Addresses, [], name, value)
@@ -2203,16 +2236,17 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('prefix', YLeaf(YType.str, 'prefix')),
-                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                                    ('prefix_xr', YLeaf(YType.str, 'prefix-xr')),
-                                    ('prefix_length_xr', YLeaf(YType.uint32, 'prefix-length-xr')),
+                                    ('prefix', (YLeaf(YType.str, 'prefix'), ['str'])),
+                                    ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                                    ('prefix_xr', (YLeaf(YType.str, 'prefix-xr'), ['str'])),
+                                    ('prefix_length_xr', (YLeaf(YType.uint32, 'prefix-length-xr'), ['int'])),
                                 ])
                                 self.prefix = None
                                 self.prefix_length = None
                                 self.prefix_xr = None
                                 self.prefix_length_xr = None
                                 self._segment_path = lambda: "address"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Addresses.Address, ['prefix', 'prefix_length', 'prefix_xr', 'prefix_length_xr'], name, value)
@@ -2247,6 +2281,7 @@ class ObjectGroup(Entity):
 
                             self.address_range = YList(self)
                             self._segment_path = lambda: "address-ranges"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges, [], name, value)
@@ -2301,16 +2336,17 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('start_address', YLeaf(YType.str, 'start-address')),
-                                    ('end_address', YLeaf(YType.str, 'end-address')),
-                                    ('start_address_xr', YLeaf(YType.str, 'start-address-xr')),
-                                    ('end_address_xr', YLeaf(YType.str, 'end-address-xr')),
+                                    ('start_address', (YLeaf(YType.str, 'start-address'), ['str'])),
+                                    ('end_address', (YLeaf(YType.str, 'end-address'), ['str'])),
+                                    ('start_address_xr', (YLeaf(YType.str, 'start-address-xr'), ['str'])),
+                                    ('end_address_xr', (YLeaf(YType.str, 'end-address-xr'), ['str'])),
                                 ])
                                 self.start_address = None
                                 self.end_address = None
                                 self.start_address_xr = None
                                 self.end_address_xr = None
                                 self._segment_path = lambda: "address-range"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.AddressRanges.AddressRange, ['start_address', 'end_address', 'start_address_xr', 'end_address_xr'], name, value)
@@ -2345,6 +2381,7 @@ class ObjectGroup(Entity):
 
                             self.parent_group = YList(self)
                             self._segment_path = lambda: "parent-groups"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups, [], name, value)
@@ -2383,12 +2420,13 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = ['parent_group_name']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('parent_group_name', YLeaf(YType.str, 'parent-group-name')),
-                                    ('parent_name', YLeaf(YType.str, 'parent-name')),
+                                    ('parent_group_name', (YLeaf(YType.str, 'parent-group-name'), ['str'])),
+                                    ('parent_name', (YLeaf(YType.str, 'parent-name'), ['str'])),
                                 ])
                                 self.parent_group_name = None
                                 self.parent_name = None
                                 self._segment_path = lambda: "parent-group" + "[parent-group-name='" + str(self.parent_group_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.ParentGroups.ParentGroup, ['parent_group_name', 'parent_name'], name, value)
@@ -2423,6 +2461,7 @@ class ObjectGroup(Entity):
 
                             self.host = YList(self)
                             self._segment_path = lambda: "hosts"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Hosts, [], name, value)
@@ -2463,12 +2502,13 @@ class ObjectGroup(Entity):
                                 self.ylist_key_names = ['host_address']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('host_address', YLeaf(YType.str, 'host-address')),
-                                    ('host_address_xr', YLeaf(YType.str, 'host-address-xr')),
+                                    ('host_address', (YLeaf(YType.str, 'host-address'), ['str'])),
+                                    ('host_address_xr', (YLeaf(YType.str, 'host-address-xr'), ['str'])),
                                 ])
                                 self.host_address = None
                                 self.host_address_xr = None
                                 self._segment_path = lambda: "host" + "[host-address='" + str(self.host_address) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ObjectGroup.Network.Ipv4.Objects.Object.Hosts.Host, ['host_address', 'host_address_xr'], name, value)

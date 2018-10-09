@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   es\-acl\: Root class of ES ACL Oper schema tree
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class AclAce1(Enum):
@@ -151,6 +152,7 @@ class EsAcl(Entity):
         self.active.parent = self
         self._children_name_map["active"] = "active"
         self._segment_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(EsAcl, [], name, value)
@@ -216,6 +218,7 @@ class EsAcl(Entity):
             self._children_name_map["usages"] = "usages"
             self._segment_path = lambda: "active"
             self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EsAcl.Active, [], name, value)
@@ -254,6 +257,7 @@ class EsAcl(Entity):
                 self._children_name_map["acl_summary"] = "acl-summary"
                 self._segment_path = lambda: "oor"
                 self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EsAcl.Active.Oor, [], name, value)
@@ -291,6 +295,7 @@ class EsAcl(Entity):
                     self._children_name_map["details"] = "details"
                     self._segment_path = lambda: "acl-summary"
                     self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/oor/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(EsAcl.Active.Oor.AclSummary, [], name, value)
@@ -346,10 +351,10 @@ class EsAcl(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('current_configured_ac_ls', YLeaf(YType.uint32, 'current-configured-ac-ls')),
-                            ('current_configured_ac_es', YLeaf(YType.uint32, 'current-configured-ac-es')),
-                            ('maximum_configurable_ac_ls', YLeaf(YType.uint32, 'maximum-configurable-ac-ls')),
-                            ('maximum_configurable_ac_es', YLeaf(YType.uint32, 'maximum-configurable-ac-es')),
+                            ('current_configured_ac_ls', (YLeaf(YType.uint32, 'current-configured-ac-ls'), ['int'])),
+                            ('current_configured_ac_es', (YLeaf(YType.uint32, 'current-configured-ac-es'), ['int'])),
+                            ('maximum_configurable_ac_ls', (YLeaf(YType.uint32, 'maximum-configurable-ac-ls'), ['int'])),
+                            ('maximum_configurable_ac_es', (YLeaf(YType.uint32, 'maximum-configurable-ac-es'), ['int'])),
                         ])
                         self.current_configured_ac_ls = None
                         self.current_configured_ac_es = None
@@ -357,6 +362,7 @@ class EsAcl(Entity):
                         self.maximum_configurable_ac_es = None
                         self._segment_path = lambda: "details"
                         self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/oor/acl-summary/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EsAcl.Active.Oor.AclSummary.Details, ['current_configured_ac_ls', 'current_configured_ac_es', 'maximum_configurable_ac_ls', 'maximum_configurable_ac_es'], name, value)
@@ -394,6 +400,7 @@ class EsAcl(Entity):
                 self._children_name_map["acls"] = "acls"
                 self._segment_path = lambda: "list"
                 self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EsAcl.Active.List, [], name, value)
@@ -429,6 +436,7 @@ class EsAcl(Entity):
                     self.acl = YList(self)
                     self._segment_path = lambda: "acls"
                     self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/list/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(EsAcl.Active.List.Acls, [], name, value)
@@ -467,7 +475,7 @@ class EsAcl(Entity):
                         self.ylist_key_names = ['name']
                         self._child_classes = OrderedDict([("acl-sequence-numbers", ("acl_sequence_numbers", EsAcl.Active.List.Acls.Acl.AclSequenceNumbers))])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.name = None
 
@@ -476,6 +484,7 @@ class EsAcl(Entity):
                         self._children_name_map["acl_sequence_numbers"] = "acl-sequence-numbers"
                         self._segment_path = lambda: "acl" + "[name='" + str(self.name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/list/acls/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EsAcl.Active.List.Acls.Acl, ['name'], name, value)
@@ -510,6 +519,7 @@ class EsAcl(Entity):
 
                             self.acl_sequence_number = YList(self)
                             self._segment_path = lambda: "acl-sequence-numbers"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EsAcl.Active.List.Acls.Acl.AclSequenceNumbers, [], name, value)
@@ -685,29 +695,29 @@ class EsAcl(Entity):
                                 self.ylist_key_names = ['sequence_number']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
-                                    ('ace_type', YLeaf(YType.enumeration, 'ace-type')),
-                                    ('ace_sequence_number', YLeaf(YType.uint32, 'ace-sequence-number')),
-                                    ('hits', YLeaf(YType.uint64, 'hits')),
-                                    ('grant', YLeaf(YType.enumeration, 'grant')),
-                                    ('source_address', YLeaf(YType.str, 'source-address')),
-                                    ('source_wild_card_bits', YLeaf(YType.str, 'source-wild-card-bits')),
-                                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                                    ('destination_wild_card_bits', YLeaf(YType.str, 'destination-wild-card-bits')),
-                                    ('ether_type_number', YLeaf(YType.uint16, 'ether-type-number')),
-                                    ('vlan1', YLeaf(YType.uint16, 'vlan1')),
-                                    ('vlan2', YLeaf(YType.uint16, 'vlan2')),
-                                    ('cos', YLeaf(YType.uint8, 'cos')),
-                                    ('dei', YLeaf(YType.uint8, 'dei')),
-                                    ('inner_header_vlan1', YLeaf(YType.uint16, 'inner-header-vlan1')),
-                                    ('inner_header_vlan2', YLeaf(YType.uint16, 'inner-header-vlan2')),
-                                    ('inner_header_cos', YLeaf(YType.uint8, 'inner-header-cos')),
-                                    ('inner_header_dei', YLeaf(YType.uint8, 'inner-header-dei')),
-                                    ('capture', YLeaf(YType.boolean, 'capture')),
-                                    ('log_option', YLeaf(YType.uint8, 'log-option')),
-                                    ('remark', YLeaf(YType.str, 'remark')),
-                                    ('acl_name', YLeaf(YType.str, 'acl-name')),
-                                    ('sequence_string', YLeaf(YType.str, 'sequence-string')),
+                                    ('sequence_number', (YLeaf(YType.uint32, 'sequence-number'), ['int'])),
+                                    ('ace_type', (YLeaf(YType.enumeration, 'ace-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper', 'AclAce1_', '')])),
+                                    ('ace_sequence_number', (YLeaf(YType.uint32, 'ace-sequence-number'), ['int'])),
+                                    ('hits', (YLeaf(YType.uint64, 'hits'), ['int'])),
+                                    ('grant', (YLeaf(YType.enumeration, 'grant'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_oper', 'AclAction', '')])),
+                                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                    ('source_wild_card_bits', (YLeaf(YType.str, 'source-wild-card-bits'), ['str'])),
+                                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                                    ('destination_wild_card_bits', (YLeaf(YType.str, 'destination-wild-card-bits'), ['str'])),
+                                    ('ether_type_number', (YLeaf(YType.uint16, 'ether-type-number'), ['int'])),
+                                    ('vlan1', (YLeaf(YType.uint16, 'vlan1'), ['int'])),
+                                    ('vlan2', (YLeaf(YType.uint16, 'vlan2'), ['int'])),
+                                    ('cos', (YLeaf(YType.uint8, 'cos'), ['int'])),
+                                    ('dei', (YLeaf(YType.uint8, 'dei'), ['int'])),
+                                    ('inner_header_vlan1', (YLeaf(YType.uint16, 'inner-header-vlan1'), ['int'])),
+                                    ('inner_header_vlan2', (YLeaf(YType.uint16, 'inner-header-vlan2'), ['int'])),
+                                    ('inner_header_cos', (YLeaf(YType.uint8, 'inner-header-cos'), ['int'])),
+                                    ('inner_header_dei', (YLeaf(YType.uint8, 'inner-header-dei'), ['int'])),
+                                    ('capture', (YLeaf(YType.boolean, 'capture'), ['bool'])),
+                                    ('log_option', (YLeaf(YType.uint8, 'log-option'), ['int'])),
+                                    ('remark', (YLeaf(YType.str, 'remark'), ['str'])),
+                                    ('acl_name', (YLeaf(YType.str, 'acl-name'), ['str'])),
+                                    ('sequence_string', (YLeaf(YType.str, 'sequence-string'), ['str'])),
                                 ])
                                 self.sequence_number = None
                                 self.ace_type = None
@@ -733,6 +743,7 @@ class EsAcl(Entity):
                                 self.acl_name = None
                                 self.sequence_string = None
                                 self._segment_path = lambda: "acl-sequence-number" + "[sequence-number='" + str(self.sequence_number) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(EsAcl.Active.List.Acls.Acl.AclSequenceNumbers.AclSequenceNumber, ['sequence_number', 'ace_type', 'ace_sequence_number', 'hits', 'grant', 'source_address', 'source_wild_card_bits', 'destination_address', 'destination_wild_card_bits', 'ether_type_number', 'vlan1', 'vlan2', 'cos', 'dei', 'inner_header_vlan1', 'inner_header_vlan2', 'inner_header_cos', 'inner_header_dei', 'capture', 'log_option', 'remark', 'acl_name', 'sequence_string'], name, value)
@@ -768,6 +779,7 @@ class EsAcl(Entity):
                 self.oor_acl = YList(self)
                 self._segment_path = lambda: "oor-acls"
                 self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EsAcl.Active.OorAcls, [], name, value)
@@ -830,11 +842,11 @@ class EsAcl(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('current_configured_ac_ls', YLeaf(YType.uint32, 'current-configured-ac-ls')),
-                        ('current_configured_ac_es', YLeaf(YType.uint32, 'current-configured-ac-es')),
-                        ('maximum_configurable_ac_ls', YLeaf(YType.uint32, 'maximum-configurable-ac-ls')),
-                        ('maximum_configurable_ac_es', YLeaf(YType.uint32, 'maximum-configurable-ac-es')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('current_configured_ac_ls', (YLeaf(YType.uint32, 'current-configured-ac-ls'), ['int'])),
+                        ('current_configured_ac_es', (YLeaf(YType.uint32, 'current-configured-ac-es'), ['int'])),
+                        ('maximum_configurable_ac_ls', (YLeaf(YType.uint32, 'maximum-configurable-ac-ls'), ['int'])),
+                        ('maximum_configurable_ac_es', (YLeaf(YType.uint32, 'maximum-configurable-ac-es'), ['int'])),
                     ])
                     self.name = None
                     self.current_configured_ac_ls = None
@@ -843,6 +855,7 @@ class EsAcl(Entity):
                     self.maximum_configurable_ac_es = None
                     self._segment_path = lambda: "oor-acl" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/oor-acls/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(EsAcl.Active.OorAcls.OorAcl, ['name', 'current_configured_ac_ls', 'current_configured_ac_es', 'maximum_configurable_ac_ls', 'maximum_configurable_ac_es'], name, value)
@@ -879,6 +892,7 @@ class EsAcl(Entity):
                 self.usage = YList(self)
                 self._segment_path = lambda: "usages"
                 self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EsAcl.Active.Usages, [], name, value)
@@ -931,10 +945,10 @@ class EsAcl(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('location', YLeaf(YType.str, 'location')),
-                        ('application_id', YLeaf(YType.enumeration, 'application-id')),
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('usage_details', YLeaf(YType.str, 'usage-details')),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                        ('application_id', (YLeaf(YType.enumeration, 'application-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_common_acl_datatypes', 'AclUsageAppIdEnum', '')])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('usage_details', (YLeaf(YType.str, 'usage-details'), ['str'])),
                     ])
                     self.location = None
                     self.application_id = None
@@ -942,6 +956,7 @@ class EsAcl(Entity):
                     self.usage_details = None
                     self._segment_path = lambda: "usage"
                     self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-oper:es-acl/active/usages/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(EsAcl.Active.Usages.Usage, ['location', 'application_id', 'name', 'usage_details'], name, value)

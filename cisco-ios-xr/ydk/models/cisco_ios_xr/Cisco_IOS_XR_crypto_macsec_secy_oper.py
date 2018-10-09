@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   macsec\: Macsec operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class Macsec(Entity):
         self.secy.parent = self
         self._children_name_map["secy"] = "secy"
         self._segment_path = lambda: "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Macsec, [], name, value)
@@ -89,6 +91,7 @@ class Macsec(Entity):
             self._children_name_map["interfaces"] = "interfaces"
             self._segment_path = lambda: "secy"
             self._absolute_path = lambda: "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Macsec.Secy, [], name, value)
@@ -124,6 +127,7 @@ class Macsec(Entity):
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
                 self._absolute_path = lambda: "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec/secy/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Macsec.Secy.Interfaces, [], name, value)
@@ -138,7 +142,7 @@ class Macsec(Entity):
                 	Interface Name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: stats
                 
@@ -162,7 +166,7 @@ class Macsec(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("stats", ("stats", Macsec.Secy.Interfaces.Interface.Stats))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.name = None
 
@@ -171,6 +175,7 @@ class Macsec(Entity):
                     self._children_name_map["stats"] = "stats"
                     self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-crypto-macsec-secy-oper:macsec/secy/interfaces/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Macsec.Secy.Interfaces.Interface, ['name'], name, value)
@@ -223,6 +228,7 @@ class Macsec(Entity):
 
                         self.rx_sc_stats = YList(self)
                         self._segment_path = lambda: "stats"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Macsec.Secy.Interfaces.Interface.Stats, [], name, value)
@@ -333,18 +339,18 @@ class Macsec(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('in_pkts_untagged', YLeaf(YType.uint64, 'in-pkts-untagged')),
-                                ('in_pkts_no_tag', YLeaf(YType.uint64, 'in-pkts-no-tag')),
-                                ('in_pkts_bad_tag', YLeaf(YType.uint64, 'in-pkts-bad-tag')),
-                                ('in_pkts_unknown_sci', YLeaf(YType.uint64, 'in-pkts-unknown-sci')),
-                                ('in_pkts_no_sci', YLeaf(YType.uint64, 'in-pkts-no-sci')),
-                                ('in_pkts_overrun', YLeaf(YType.uint64, 'in-pkts-overrun')),
-                                ('in_octets_validated', YLeaf(YType.uint64, 'in-octets-validated')),
-                                ('in_octets_decrypted', YLeaf(YType.uint64, 'in-octets-decrypted')),
-                                ('out_pkts_untagged', YLeaf(YType.uint64, 'out-pkts-untagged')),
-                                ('out_pkts_too_long', YLeaf(YType.uint64, 'out-pkts-too-long')),
-                                ('out_octets_protected', YLeaf(YType.uint64, 'out-octets-protected')),
-                                ('out_octets_encrypted', YLeaf(YType.uint64, 'out-octets-encrypted')),
+                                ('in_pkts_untagged', (YLeaf(YType.uint64, 'in-pkts-untagged'), ['int'])),
+                                ('in_pkts_no_tag', (YLeaf(YType.uint64, 'in-pkts-no-tag'), ['int'])),
+                                ('in_pkts_bad_tag', (YLeaf(YType.uint64, 'in-pkts-bad-tag'), ['int'])),
+                                ('in_pkts_unknown_sci', (YLeaf(YType.uint64, 'in-pkts-unknown-sci'), ['int'])),
+                                ('in_pkts_no_sci', (YLeaf(YType.uint64, 'in-pkts-no-sci'), ['int'])),
+                                ('in_pkts_overrun', (YLeaf(YType.uint64, 'in-pkts-overrun'), ['int'])),
+                                ('in_octets_validated', (YLeaf(YType.uint64, 'in-octets-validated'), ['int'])),
+                                ('in_octets_decrypted', (YLeaf(YType.uint64, 'in-octets-decrypted'), ['int'])),
+                                ('out_pkts_untagged', (YLeaf(YType.uint64, 'out-pkts-untagged'), ['int'])),
+                                ('out_pkts_too_long', (YLeaf(YType.uint64, 'out-pkts-too-long'), ['int'])),
+                                ('out_octets_protected', (YLeaf(YType.uint64, 'out-octets-protected'), ['int'])),
+                                ('out_octets_encrypted', (YLeaf(YType.uint64, 'out-octets-encrypted'), ['int'])),
                             ])
                             self.in_pkts_untagged = None
                             self.in_pkts_no_tag = None
@@ -359,6 +365,7 @@ class Macsec(Entity):
                             self.out_octets_protected = None
                             self.out_octets_encrypted = None
                             self._segment_path = lambda: "intf-stats"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Macsec.Secy.Interfaces.Interface.Stats.IntfStats, ['in_pkts_untagged', 'in_pkts_no_tag', 'in_pkts_bad_tag', 'in_pkts_unknown_sci', 'in_pkts_no_sci', 'in_pkts_overrun', 'in_octets_validated', 'in_octets_decrypted', 'out_pkts_untagged', 'out_pkts_too_long', 'out_octets_protected', 'out_octets_encrypted'], name, value)
@@ -432,12 +439,12 @@ class Macsec(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("txsa-stat", ("txsa_stat", Macsec.Secy.Interfaces.Interface.Stats.TxScStats.TxsaStat))])
                             self._leafs = OrderedDict([
-                                ('tx_sci', YLeaf(YType.uint64, 'tx-sci')),
-                                ('out_pkts_protected', YLeaf(YType.uint64, 'out-pkts-protected')),
-                                ('out_pkts_encrypted', YLeaf(YType.uint64, 'out-pkts-encrypted')),
-                                ('out_octets_protected', YLeaf(YType.uint64, 'out-octets-protected')),
-                                ('out_octets_encrypted', YLeaf(YType.uint64, 'out-octets-encrypted')),
-                                ('out_pkts_too_long', YLeaf(YType.uint64, 'out-pkts-too-long')),
+                                ('tx_sci', (YLeaf(YType.uint64, 'tx-sci'), ['int'])),
+                                ('out_pkts_protected', (YLeaf(YType.uint64, 'out-pkts-protected'), ['int'])),
+                                ('out_pkts_encrypted', (YLeaf(YType.uint64, 'out-pkts-encrypted'), ['int'])),
+                                ('out_octets_protected', (YLeaf(YType.uint64, 'out-octets-protected'), ['int'])),
+                                ('out_octets_encrypted', (YLeaf(YType.uint64, 'out-octets-encrypted'), ['int'])),
+                                ('out_pkts_too_long', (YLeaf(YType.uint64, 'out-pkts-too-long'), ['int'])),
                             ])
                             self.tx_sci = None
                             self.out_pkts_protected = None
@@ -448,6 +455,7 @@ class Macsec(Entity):
 
                             self.txsa_stat = YList(self)
                             self._segment_path = lambda: "tx-sc-stats"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Macsec.Secy.Interfaces.Interface.Stats.TxScStats, ['tx_sci', 'out_pkts_protected', 'out_pkts_encrypted', 'out_octets_protected', 'out_octets_encrypted', 'out_pkts_too_long'], name, value)
@@ -495,14 +503,15 @@ class Macsec(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('out_pkts_protected', YLeaf(YType.uint64, 'out-pkts-protected')),
-                                    ('out_pkts_encrypted', YLeaf(YType.uint64, 'out-pkts-encrypted')),
-                                    ('next_pn', YLeaf(YType.uint64, 'next-pn')),
+                                    ('out_pkts_protected', (YLeaf(YType.uint64, 'out-pkts-protected'), ['int'])),
+                                    ('out_pkts_encrypted', (YLeaf(YType.uint64, 'out-pkts-encrypted'), ['int'])),
+                                    ('next_pn', (YLeaf(YType.uint64, 'next-pn'), ['int'])),
                                 ])
                                 self.out_pkts_protected = None
                                 self.out_pkts_encrypted = None
                                 self.next_pn = None
                                 self._segment_path = lambda: "txsa-stat"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Macsec.Secy.Interfaces.Interface.Stats.TxScStats.TxsaStat, ['out_pkts_protected', 'out_pkts_encrypted', 'next_pn'], name, value)
@@ -618,18 +627,18 @@ class Macsec(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("rxsa-stat", ("rxsa_stat", Macsec.Secy.Interfaces.Interface.Stats.RxScStats.RxsaStat))])
                             self._leafs = OrderedDict([
-                                ('rx_sci', YLeaf(YType.uint64, 'rx-sci')),
-                                ('in_pkts_unchecked', YLeaf(YType.uint64, 'in-pkts-unchecked')),
-                                ('in_pkts_delayed', YLeaf(YType.uint64, 'in-pkts-delayed')),
-                                ('in_pkts_late', YLeaf(YType.uint64, 'in-pkts-late')),
-                                ('in_pkts_ok', YLeaf(YType.uint64, 'in-pkts-ok')),
-                                ('in_pkts_invalid', YLeaf(YType.uint64, 'in-pkts-invalid')),
-                                ('in_pkts_not_valid', YLeaf(YType.uint64, 'in-pkts-not-valid')),
-                                ('in_pkts_not_using_sa', YLeaf(YType.uint64, 'in-pkts-not-using-sa')),
-                                ('in_pkts_unused_sa', YLeaf(YType.uint64, 'in-pkts-unused-sa')),
-                                ('in_pkts_untagged_hit', YLeaf(YType.uint64, 'in-pkts-untagged-hit')),
-                                ('in_octets_validated', YLeaf(YType.uint64, 'in-octets-validated')),
-                                ('in_octets_decrypted', YLeaf(YType.uint64, 'in-octets-decrypted')),
+                                ('rx_sci', (YLeaf(YType.uint64, 'rx-sci'), ['int'])),
+                                ('in_pkts_unchecked', (YLeaf(YType.uint64, 'in-pkts-unchecked'), ['int'])),
+                                ('in_pkts_delayed', (YLeaf(YType.uint64, 'in-pkts-delayed'), ['int'])),
+                                ('in_pkts_late', (YLeaf(YType.uint64, 'in-pkts-late'), ['int'])),
+                                ('in_pkts_ok', (YLeaf(YType.uint64, 'in-pkts-ok'), ['int'])),
+                                ('in_pkts_invalid', (YLeaf(YType.uint64, 'in-pkts-invalid'), ['int'])),
+                                ('in_pkts_not_valid', (YLeaf(YType.uint64, 'in-pkts-not-valid'), ['int'])),
+                                ('in_pkts_not_using_sa', (YLeaf(YType.uint64, 'in-pkts-not-using-sa'), ['int'])),
+                                ('in_pkts_unused_sa', (YLeaf(YType.uint64, 'in-pkts-unused-sa'), ['int'])),
+                                ('in_pkts_untagged_hit', (YLeaf(YType.uint64, 'in-pkts-untagged-hit'), ['int'])),
+                                ('in_octets_validated', (YLeaf(YType.uint64, 'in-octets-validated'), ['int'])),
+                                ('in_octets_decrypted', (YLeaf(YType.uint64, 'in-octets-decrypted'), ['int'])),
                             ])
                             self.rx_sci = None
                             self.in_pkts_unchecked = None
@@ -646,6 +655,7 @@ class Macsec(Entity):
 
                             self.rxsa_stat = YList(self)
                             self._segment_path = lambda: "rx-sc-stats"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Macsec.Secy.Interfaces.Interface.Stats.RxScStats, ['rx_sci', 'in_pkts_unchecked', 'in_pkts_delayed', 'in_pkts_late', 'in_pkts_ok', 'in_pkts_invalid', 'in_pkts_not_valid', 'in_pkts_not_using_sa', 'in_pkts_unused_sa', 'in_pkts_untagged_hit', 'in_octets_validated', 'in_octets_decrypted'], name, value)
@@ -714,12 +724,12 @@ class Macsec(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('in_pkts_ok', YLeaf(YType.uint64, 'in-pkts-ok')),
-                                    ('in_pkts_invalid', YLeaf(YType.uint64, 'in-pkts-invalid')),
-                                    ('in_pkts_not_valid', YLeaf(YType.uint64, 'in-pkts-not-valid')),
-                                    ('in_pkts_not_using_sa', YLeaf(YType.uint64, 'in-pkts-not-using-sa')),
-                                    ('in_pkts_unused_sa', YLeaf(YType.uint64, 'in-pkts-unused-sa')),
-                                    ('next_pn', YLeaf(YType.uint64, 'next-pn')),
+                                    ('in_pkts_ok', (YLeaf(YType.uint64, 'in-pkts-ok'), ['int'])),
+                                    ('in_pkts_invalid', (YLeaf(YType.uint64, 'in-pkts-invalid'), ['int'])),
+                                    ('in_pkts_not_valid', (YLeaf(YType.uint64, 'in-pkts-not-valid'), ['int'])),
+                                    ('in_pkts_not_using_sa', (YLeaf(YType.uint64, 'in-pkts-not-using-sa'), ['int'])),
+                                    ('in_pkts_unused_sa', (YLeaf(YType.uint64, 'in-pkts-unused-sa'), ['int'])),
+                                    ('next_pn', (YLeaf(YType.uint64, 'next-pn'), ['int'])),
                                 ])
                                 self.in_pkts_ok = None
                                 self.in_pkts_invalid = None
@@ -728,6 +738,7 @@ class Macsec(Entity):
                                 self.in_pkts_unused_sa = None
                                 self.next_pn = None
                                 self._segment_path = lambda: "rxsa-stat"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Macsec.Secy.Interfaces.Interface.Stats.RxScStats.RxsaStat, ['in_pkts_ok', 'in_pkts_invalid', 'in_pkts_not_valid', 'in_pkts_not_using_sa', 'in_pkts_unused_sa', 'next_pn'], name, value)

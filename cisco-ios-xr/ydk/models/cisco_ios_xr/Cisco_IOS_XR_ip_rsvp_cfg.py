@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-snmp\-agent\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class RsvpBc0(Enum):
@@ -208,6 +209,7 @@ class Rsvp(Entity):
         self.authentication.parent = self
         self._children_name_map["authentication"] = "authentication"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Rsvp, [], name, value)
@@ -243,6 +245,7 @@ class Rsvp(Entity):
             self.neighbor = YList(self)
             self._segment_path = lambda: "neighbors"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Rsvp.Neighbors, [], name, value)
@@ -281,7 +284,7 @@ class Rsvp(Entity):
                 self.ylist_key_names = ['neighbor']
                 self._child_classes = OrderedDict([("authentication", ("authentication", Rsvp.Neighbors.Neighbor.Authentication))])
                 self._leafs = OrderedDict([
-                    ('neighbor', YLeaf(YType.str, 'neighbor')),
+                    ('neighbor', (YLeaf(YType.str, 'neighbor'), ['str'])),
                 ])
                 self.neighbor = None
 
@@ -290,6 +293,7 @@ class Rsvp(Entity):
                 self._children_name_map["authentication"] = "authentication"
                 self._segment_path = lambda: "neighbor" + "[neighbor='" + str(self.neighbor) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/neighbors/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rsvp.Neighbors.Neighbor, ['neighbor'], name, value)
@@ -344,16 +348,17 @@ class Rsvp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('life_time', YLeaf(YType.uint32, 'life-time')),
-                        ('enable', YLeaf(YType.boolean, 'enable')),
-                        ('window_size', YLeaf(YType.uint32, 'window-size')),
-                        ('key_chain', YLeaf(YType.str, 'key-chain')),
+                        ('life_time', (YLeaf(YType.uint32, 'life-time'), ['int'])),
+                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                        ('window_size', (YLeaf(YType.uint32, 'window-size'), ['int'])),
+                        ('key_chain', (YLeaf(YType.str, 'key-chain'), ['str'])),
                     ])
                     self.life_time = None
                     self.enable = None
                     self.window_size = None
                     self.key_chain = None
                     self._segment_path = lambda: "authentication"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.Neighbors.Neighbor.Authentication, ['life_time', 'enable', 'window_size', 'key_chain'], name, value)
@@ -389,6 +394,7 @@ class Rsvp(Entity):
             self.controller = YList(self)
             self._segment_path = lambda: "controllers"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Rsvp.Controllers, [], name, value)
@@ -403,7 +409,7 @@ class Rsvp(Entity):
             	Name of controller
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: cntl_signalling
             
@@ -432,8 +438,8 @@ class Rsvp(Entity):
                 self.ylist_key_names = ['controller_name']
                 self._child_classes = OrderedDict([("cntl-signalling", ("cntl_signalling", Rsvp.Controllers.Controller.CntlSignalling))])
                 self._leafs = OrderedDict([
-                    ('controller_name', YLeaf(YType.str, 'controller-name')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('controller_name', (YLeaf(YType.str, 'controller-name'), ['str'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.controller_name = None
                 self.enable = None
@@ -443,6 +449,7 @@ class Rsvp(Entity):
                 self._children_name_map["cntl_signalling"] = "cntl-signalling"
                 self._segment_path = lambda: "controller" + "[controller-name='" + str(self.controller_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/controllers/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rsvp.Controllers.Controller, ['controller_name', 'enable'], name, value)
@@ -479,6 +486,7 @@ class Rsvp(Entity):
                     self.out_of_band.parent = self
                     self._children_name_map["out_of_band"] = "out-of-band"
                     self._segment_path = lambda: "cntl-signalling"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.Controllers.Controller.CntlSignalling, [], name, value)
@@ -523,12 +531,13 @@ class Rsvp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('missed_messages', YLeaf(YType.uint32, 'missed-messages')),
-                            ('refresh_interval', YLeaf(YType.uint32, 'refresh-interval')),
+                            ('missed_messages', (YLeaf(YType.uint32, 'missed-messages'), ['int'])),
+                            ('refresh_interval', (YLeaf(YType.uint32, 'refresh-interval'), ['int'])),
                         ])
                         self.missed_messages = None
                         self.refresh_interval = None
                         self._segment_path = lambda: "out-of-band"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rsvp.Controllers.Controller.CntlSignalling.OutOfBand, ['missed_messages', 'refresh_interval'], name, value)
@@ -565,13 +574,14 @@ class Rsvp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('log_nsr_status', YLeaf(YType.empty, 'log-nsr-status')),
-                ('log_issu_status', YLeaf(YType.empty, 'log-issu-status')),
+                ('log_nsr_status', (YLeaf(YType.empty, 'log-nsr-status'), ['Empty'])),
+                ('log_issu_status', (YLeaf(YType.empty, 'log-issu-status'), ['Empty'])),
             ])
             self.log_nsr_status = None
             self.log_issu_status = None
             self._segment_path = lambda: "global-logging"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Rsvp.GlobalLogging, ['log_nsr_status', 'log_issu_status'], name, value)
@@ -609,6 +619,7 @@ class Rsvp(Entity):
             self._children_name_map["default_interface_percent"] = "default-interface-percent"
             self._segment_path = lambda: "global-bandwidth"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Rsvp.GlobalBandwidth, [], name, value)
@@ -655,6 +666,7 @@ class Rsvp(Entity):
                 self._children_name_map["rdm"] = "rdm"
                 self._segment_path = lambda: "default-interface-percent"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/global-bandwidth/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rsvp.GlobalBandwidth.DefaultInterfacePercent, [], name, value)
@@ -703,15 +715,16 @@ class Rsvp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('max_res_percent', YLeaf(YType.uint32, 'max-res-percent')),
-                        ('bc0_percent', YLeaf(YType.uint32, 'bc0-percent')),
-                        ('bc1_percent', YLeaf(YType.uint32, 'bc1-percent')),
+                        ('max_res_percent', (YLeaf(YType.uint32, 'max-res-percent'), ['int'])),
+                        ('bc0_percent', (YLeaf(YType.uint32, 'bc0-percent'), ['int'])),
+                        ('bc1_percent', (YLeaf(YType.uint32, 'bc1-percent'), ['int'])),
                     ])
                     self.max_res_percent = None
                     self.bc0_percent = None
                     self.bc1_percent = None
                     self._segment_path = lambda: "mam"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/global-bandwidth/default-interface-percent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Mam, ['max_res_percent', 'bc0_percent', 'bc1_percent'], name, value)
@@ -753,13 +766,14 @@ class Rsvp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('bc0_percent', YLeaf(YType.uint32, 'bc0-percent')),
-                        ('bc1_percent', YLeaf(YType.uint32, 'bc1-percent')),
+                        ('bc0_percent', (YLeaf(YType.uint32, 'bc0-percent'), ['int'])),
+                        ('bc1_percent', (YLeaf(YType.uint32, 'bc1-percent'), ['int'])),
                     ])
                     self.bc0_percent = None
                     self.bc1_percent = None
                     self._segment_path = lambda: "rdm"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/global-bandwidth/default-interface-percent/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.GlobalBandwidth.DefaultInterfacePercent.Rdm, ['bc0_percent', 'bc1_percent'], name, value)
@@ -795,6 +809,7 @@ class Rsvp(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Rsvp.Interfaces, [], name, value)
@@ -809,7 +824,7 @@ class Rsvp(Entity):
             	Name of interface
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: if_signalling
             
@@ -848,8 +863,8 @@ class Rsvp(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("if-signalling", ("if_signalling", Rsvp.Interfaces.Interface.IfSignalling)), ("bandwidth", ("bandwidth", Rsvp.Interfaces.Interface.Bandwidth)), ("authentication", ("authentication", Rsvp.Interfaces.Interface.Authentication))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                 ])
                 self.name = None
                 self.enable = None
@@ -867,6 +882,7 @@ class Rsvp(Entity):
                 self._children_name_map["authentication"] = "authentication"
                 self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rsvp.Interfaces.Interface, ['name', 'enable'], name, value)
@@ -945,11 +961,11 @@ class Rsvp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("refresh-reduction", ("refresh_reduction", Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction)), ("interval-rate", ("interval_rate", Rsvp.Interfaces.Interface.IfSignalling.IntervalRate)), ("out-of-band", ("out_of_band", Rsvp.Interfaces.Interface.IfSignalling.OutOfBand))])
                     self._leafs = OrderedDict([
-                        ('dscp', YLeaf(YType.uint32, 'dscp')),
-                        ('missed_messages', YLeaf(YType.uint32, 'missed-messages')),
-                        ('hello_graceful_restart_if_based', YLeaf(YType.empty, 'hello-graceful-restart-if-based')),
-                        ('pacing', YLeaf(YType.empty, 'pacing')),
-                        ('refresh_interval', YLeaf(YType.uint32, 'refresh-interval')),
+                        ('dscp', (YLeaf(YType.uint32, 'dscp'), ['int'])),
+                        ('missed_messages', (YLeaf(YType.uint32, 'missed-messages'), ['int'])),
+                        ('hello_graceful_restart_if_based', (YLeaf(YType.empty, 'hello-graceful-restart-if-based'), ['Empty'])),
+                        ('pacing', (YLeaf(YType.empty, 'pacing'), ['Empty'])),
+                        ('refresh_interval', (YLeaf(YType.uint32, 'refresh-interval'), ['int'])),
                     ])
                     self.dscp = None
                     self.missed_messages = None
@@ -969,6 +985,7 @@ class Rsvp(Entity):
                     self.out_of_band.parent = self
                     self._children_name_map["out_of_band"] = "out-of-band"
                     self._segment_path = lambda: "if-signalling"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling, ['dscp', 'missed_messages', 'hello_graceful_restart_if_based', 'pacing', 'refresh_interval'], name, value)
@@ -1060,13 +1077,13 @@ class Rsvp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('disable', YLeaf(YType.empty, 'disable')),
-                            ('reliable_ack_max_size', YLeaf(YType.uint32, 'reliable-ack-max-size')),
-                            ('reliable_ack_hold_time', YLeaf(YType.uint32, 'reliable-ack-hold-time')),
-                            ('reliable_retransmit_time', YLeaf(YType.uint32, 'reliable-retransmit-time')),
-                            ('reliable_s_refresh', YLeaf(YType.empty, 'reliable-s-refresh')),
-                            ('summary_max_size', YLeaf(YType.uint32, 'summary-max-size')),
-                            ('bundle_message_max_size', YLeaf(YType.uint32, 'bundle-message-max-size')),
+                            ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
+                            ('reliable_ack_max_size', (YLeaf(YType.uint32, 'reliable-ack-max-size'), ['int'])),
+                            ('reliable_ack_hold_time', (YLeaf(YType.uint32, 'reliable-ack-hold-time'), ['int'])),
+                            ('reliable_retransmit_time', (YLeaf(YType.uint32, 'reliable-retransmit-time'), ['int'])),
+                            ('reliable_s_refresh', (YLeaf(YType.empty, 'reliable-s-refresh'), ['Empty'])),
+                            ('summary_max_size', (YLeaf(YType.uint32, 'summary-max-size'), ['int'])),
+                            ('bundle_message_max_size', (YLeaf(YType.uint32, 'bundle-message-max-size'), ['int'])),
                         ])
                         self.disable = None
                         self.reliable_ack_max_size = None
@@ -1076,6 +1093,7 @@ class Rsvp(Entity):
                         self.summary_max_size = None
                         self.bundle_message_max_size = None
                         self._segment_path = lambda: "refresh-reduction"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling.RefreshReduction, ['disable', 'reliable_ack_max_size', 'reliable_ack_hold_time', 'reliable_retransmit_time', 'reliable_s_refresh', 'summary_max_size', 'bundle_message_max_size'], name, value)
@@ -1123,12 +1141,13 @@ class Rsvp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('messages_per_interval', YLeaf(YType.uint32, 'messages-per-interval')),
-                            ('interval_size', YLeaf(YType.uint32, 'interval-size')),
+                            ('messages_per_interval', (YLeaf(YType.uint32, 'messages-per-interval'), ['int'])),
+                            ('interval_size', (YLeaf(YType.uint32, 'interval-size'), ['int'])),
                         ])
                         self.messages_per_interval = None
                         self.interval_size = None
                         self._segment_path = lambda: "interval-rate"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling.IntervalRate, ['messages_per_interval', 'interval_size'], name, value)
@@ -1173,12 +1192,13 @@ class Rsvp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('missed_messages', YLeaf(YType.uint32, 'missed-messages')),
-                            ('refresh_interval', YLeaf(YType.uint32, 'refresh-interval')),
+                            ('missed_messages', (YLeaf(YType.uint32, 'missed-messages'), ['int'])),
+                            ('refresh_interval', (YLeaf(YType.uint32, 'refresh-interval'), ['int'])),
                         ])
                         self.missed_messages = None
                         self.refresh_interval = None
                         self._segment_path = lambda: "out-of-band"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rsvp.Interfaces.Interface.IfSignalling.OutOfBand, ['missed_messages', 'refresh_interval'], name, value)
@@ -1224,6 +1244,7 @@ class Rsvp(Entity):
                     self.rdm.parent = self
                     self._children_name_map["rdm"] = "rdm"
                     self._segment_path = lambda: "bandwidth"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.Interfaces.Interface.Bandwidth, [], name, value)
@@ -1285,11 +1306,11 @@ class Rsvp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('max_resv_bandwidth', YLeaf(YType.uint32, 'max-resv-bandwidth')),
-                            ('max_resv_flow', YLeaf(YType.uint32, 'max-resv-flow')),
-                            ('bc0_bandwidth', YLeaf(YType.uint32, 'bc0-bandwidth')),
-                            ('bc1_bandwidth', YLeaf(YType.uint32, 'bc1-bandwidth')),
-                            ('bandwidth_mode', YLeaf(YType.enumeration, 'bandwidth-mode')),
+                            ('max_resv_bandwidth', (YLeaf(YType.uint32, 'max-resv-bandwidth'), ['int'])),
+                            ('max_resv_flow', (YLeaf(YType.uint32, 'max-resv-flow'), ['int'])),
+                            ('bc0_bandwidth', (YLeaf(YType.uint32, 'bc0-bandwidth'), ['int'])),
+                            ('bc1_bandwidth', (YLeaf(YType.uint32, 'bc1-bandwidth'), ['int'])),
+                            ('bandwidth_mode', (YLeaf(YType.enumeration, 'bandwidth-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBwCfg', '')])),
                         ])
                         self.max_resv_bandwidth = None
                         self.max_resv_flow = None
@@ -1297,6 +1318,7 @@ class Rsvp(Entity):
                         self.bc1_bandwidth = None
                         self.bandwidth_mode = None
                         self._segment_path = lambda: "mam"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rsvp.Interfaces.Interface.Bandwidth.Mam, ['max_resv_bandwidth', 'max_resv_flow', 'bc0_bandwidth', 'bc1_bandwidth', 'bandwidth_mode'], name, value)
@@ -1366,13 +1388,13 @@ class Rsvp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('max_resv_flow', YLeaf(YType.uint32, 'max-resv-flow')),
-                            ('bc0_bandwidth', YLeaf(YType.uint32, 'bc0-bandwidth')),
-                            ('bc1_bandwidth', YLeaf(YType.uint32, 'bc1-bandwidth')),
-                            ('rdm_keyword', YLeaf(YType.enumeration, 'rdm-keyword')),
-                            ('bc0_keyword', YLeaf(YType.enumeration, 'bc0-keyword')),
-                            ('bc1_keyword', YLeaf(YType.enumeration, 'bc1-keyword')),
-                            ('bandwidth_mode', YLeaf(YType.enumeration, 'bandwidth-mode')),
+                            ('max_resv_flow', (YLeaf(YType.uint32, 'max-resv-flow'), ['int'])),
+                            ('bc0_bandwidth', (YLeaf(YType.uint32, 'bc0-bandwidth'), ['int'])),
+                            ('bc1_bandwidth', (YLeaf(YType.uint32, 'bc1-bandwidth'), ['int'])),
+                            ('rdm_keyword', (YLeaf(YType.enumeration, 'rdm-keyword'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpRdm', '')])),
+                            ('bc0_keyword', (YLeaf(YType.enumeration, 'bc0-keyword'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBc0', '')])),
+                            ('bc1_keyword', (YLeaf(YType.enumeration, 'bc1-keyword'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBc1', '')])),
+                            ('bandwidth_mode', (YLeaf(YType.enumeration, 'bandwidth-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_rsvp_cfg', 'RsvpBwCfg', '')])),
                         ])
                         self.max_resv_flow = None
                         self.bc0_bandwidth = None
@@ -1382,6 +1404,7 @@ class Rsvp(Entity):
                         self.bc1_keyword = None
                         self.bandwidth_mode = None
                         self._segment_path = lambda: "rdm"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rsvp.Interfaces.Interface.Bandwidth.Rdm, ['max_resv_flow', 'bc0_bandwidth', 'bc1_bandwidth', 'rdm_keyword', 'bc0_keyword', 'bc1_keyword', 'bandwidth_mode'], name, value)
@@ -1436,16 +1459,17 @@ class Rsvp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('life_time', YLeaf(YType.uint32, 'life-time')),
-                        ('enable', YLeaf(YType.boolean, 'enable')),
-                        ('window_size', YLeaf(YType.uint32, 'window-size')),
-                        ('key_chain', YLeaf(YType.str, 'key-chain')),
+                        ('life_time', (YLeaf(YType.uint32, 'life-time'), ['int'])),
+                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                        ('window_size', (YLeaf(YType.uint32, 'window-size'), ['int'])),
+                        ('key_chain', (YLeaf(YType.str, 'key-chain'), ['str'])),
                     ])
                     self.life_time = None
                     self.enable = None
                     self.window_size = None
                     self.key_chain = None
                     self._segment_path = lambda: "authentication"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.Interfaces.Interface.Authentication, ['life_time', 'enable', 'window_size', 'key_chain'], name, value)
@@ -1517,8 +1541,8 @@ class Rsvp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("global-out-of-band", ("global_out_of_band", Rsvp.Signalling.GlobalOutOfBand)), ("graceful-restart", ("graceful_restart", Rsvp.Signalling.GracefulRestart)), ("prefix-filtering", ("prefix_filtering", Rsvp.Signalling.PrefixFiltering)), ("pesr", ("pesr", Rsvp.Signalling.Pesr)), ("checksum", ("checksum", Rsvp.Signalling.Checksum))])
             self._leafs = OrderedDict([
-                ('hello_graceful_restart_misses', YLeaf(YType.uint32, 'hello-graceful-restart-misses')),
-                ('hello_graceful_restart_interval', YLeaf(YType.uint32, 'hello-graceful-restart-interval')),
+                ('hello_graceful_restart_misses', (YLeaf(YType.uint32, 'hello-graceful-restart-misses'), ['int'])),
+                ('hello_graceful_restart_interval', (YLeaf(YType.uint32, 'hello-graceful-restart-interval'), ['int'])),
             ])
             self.hello_graceful_restart_misses = None
             self.hello_graceful_restart_interval = None
@@ -1544,6 +1568,7 @@ class Rsvp(Entity):
             self._children_name_map["checksum"] = "checksum"
             self._segment_path = lambda: "signalling"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Rsvp.Signalling, ['hello_graceful_restart_misses', 'hello_graceful_restart_interval'], name, value)
@@ -1577,11 +1602,12 @@ class Rsvp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('vrf', YLeaf(YType.str, 'vrf')),
+                    ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
                 ])
                 self.vrf = None
                 self._segment_path = lambda: "global-out-of-band"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rsvp.Signalling.GlobalOutOfBand, ['vrf'], name, value)
@@ -1640,9 +1666,9 @@ class Rsvp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("lsp-class-type", ("lsp_class_type", Rsvp.Signalling.GracefulRestart.LspClassType))])
                 self._leafs = OrderedDict([
-                    ('enable', YLeaf(YType.boolean, 'enable')),
-                    ('restart_time', YLeaf(YType.uint32, 'restart-time')),
-                    ('recovery_time', YLeaf(YType.uint32, 'recovery-time')),
+                    ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                    ('restart_time', (YLeaf(YType.uint32, 'restart-time'), ['int'])),
+                    ('recovery_time', (YLeaf(YType.uint32, 'recovery-time'), ['int'])),
                 ])
                 self.enable = None
                 self.restart_time = None
@@ -1653,6 +1679,7 @@ class Rsvp(Entity):
                 self._children_name_map["lsp_class_type"] = "lsp-class-type"
                 self._segment_path = lambda: "graceful-restart"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rsvp.Signalling.GracefulRestart, ['enable', 'restart_time', 'recovery_time'], name, value)
@@ -1685,11 +1712,12 @@ class Rsvp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('enable', YLeaf(YType.boolean, 'enable')),
+                        ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                     ])
                     self.enable = None
                     self._segment_path = lambda: "lsp-class-type"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/graceful-restart/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.Signalling.GracefulRestart.LspClassType, ['enable'], name, value)
@@ -1728,7 +1756,7 @@ class Rsvp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("default-deny-action", ("default_deny_action", Rsvp.Signalling.PrefixFiltering.DefaultDenyAction))])
                 self._leafs = OrderedDict([
-                    ('acl', YLeaf(YType.str, 'acl')),
+                    ('acl', (YLeaf(YType.str, 'acl'), ['str'])),
                 ])
                 self.acl = None
 
@@ -1737,6 +1765,7 @@ class Rsvp(Entity):
                 self._children_name_map["default_deny_action"] = "default-deny-action"
                 self._segment_path = lambda: "prefix-filtering"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rsvp.Signalling.PrefixFiltering, ['acl'], name, value)
@@ -1769,11 +1798,12 @@ class Rsvp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('drop', YLeaf(YType.empty, 'drop')),
+                        ('drop', (YLeaf(YType.empty, 'drop'), ['Empty'])),
                     ])
                     self.drop = None
                     self._segment_path = lambda: "default-deny-action"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/prefix-filtering/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rsvp.Signalling.PrefixFiltering.DefaultDenyAction, ['drop'], name, value)
@@ -1805,11 +1835,12 @@ class Rsvp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('disable', YLeaf(YType.empty, 'disable')),
+                    ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                 ])
                 self.disable = None
                 self._segment_path = lambda: "pesr"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rsvp.Signalling.Pesr, ['disable'], name, value)
@@ -1841,11 +1872,12 @@ class Rsvp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('disable', YLeaf(YType.empty, 'disable')),
+                    ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                 ])
                 self.disable = None
                 self._segment_path = lambda: "checksum"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/signalling/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rsvp.Signalling.Checksum, ['disable'], name, value)
@@ -1900,10 +1932,10 @@ class Rsvp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('life_time', YLeaf(YType.uint32, 'life-time')),
-                ('enable', YLeaf(YType.boolean, 'enable')),
-                ('window_size', YLeaf(YType.uint32, 'window-size')),
-                ('key_chain', YLeaf(YType.str, 'key-chain')),
+                ('life_time', (YLeaf(YType.uint32, 'life-time'), ['int'])),
+                ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                ('window_size', (YLeaf(YType.uint32, 'window-size'), ['int'])),
+                ('key_chain', (YLeaf(YType.str, 'key-chain'), ['str'])),
             ])
             self.life_time = None
             self.enable = None
@@ -1911,6 +1943,7 @@ class Rsvp(Entity):
             self.key_chain = None
             self._segment_path = lambda: "authentication"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rsvp-cfg:rsvp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Rsvp.Authentication, ['life_time', 'enable', 'window_size', 'key_chain'], name, value)

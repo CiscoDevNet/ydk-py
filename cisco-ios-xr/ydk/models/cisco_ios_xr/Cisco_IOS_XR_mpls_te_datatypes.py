@@ -3,7 +3,7 @@
 This module contains a collection of generally useful
 derived YANG data types.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -13,6 +13,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class BfdReversePath(Enum):
@@ -541,7 +542,7 @@ class MplsTePathOption(Enum):
 
     .. data:: sr = 6
 
-    	Segment routing
+    	Deprecated
 
     """
 
@@ -655,11 +656,17 @@ class MplsTePathSelectionMetric(Enum):
 
     	TE Metric
 
+    .. data:: delay = 4
+
+    	DELAY Metric
+
     """
 
     igp = Enum.YLeaf(1, "igp")
 
     te = Enum.YLeaf(2, "te")
+
+    delay = Enum.YLeaf(4, "delay")
 
 
 class MplsTePathSelectionSegmentRoutingAdjacencyProtection(Enum):

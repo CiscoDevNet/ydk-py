@@ -20,12 +20,20 @@ submodule Cisco-IOS-XE-parser {
 
   description
     "Cisco XE Native Parser Yang model.
-     Copyright (c) 2016 by Cisco Systems, Inc.
+     Copyright (c) 2016-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-03-01 {
+    description
+      "Add Parser view secret extensions";
+  }
+  revision 2018-01-16 {
+    description
+      "Add privilege modes";
+  }
   revision 2017-11-29 {
     description
       "Add parser view";
@@ -70,23 +78,24 @@ submodule Cisco-IOS-XE-parser {
   }
 
   grouping parser-view-common-options-grouping {
-          // default   Set a command to its defaults
-          // password  Set a password associated with CLI views
-          container secret {
-            description
-              "Set a secret for the current view";
-            leaf type {
-              // Note: on the router, "show running" always shows secret type "5"
-              // even "0" or no type is specified.
-              type enumeration {
-                // enum "0";
-                enum "5";
-              }
-            }
-            leaf secret {
-              type string;
-            }
-          }
+    // default   Set a command to its defaults
+    // password  Set a password associated with CLI views
+    container secret {
+      description
+        "Set a secret for the current view";
+      leaf type {
+        // Note: on the router, "show running" always shows secret type "5"
+        // even "0" or no type is specified. This CLI Side effect is handled
+        // through Intelligent sync.
+        type enumeration {
+          enum "0";
+          enum "5";
+        }
+      }
+      leaf secret {
+        type string;
+      }
+    }
   }
   grouping config-parser-grouping {
     container parser { //40048
@@ -167,33 +176,50 @@ submodule Cisco-IOS-XE-parser {
     }
   }
 
+  grouping privilege-mode-common {
+    // privilege <mode> level
+    list level {
+      description
+        "Set privilege level of command";
+      key "privilege";
+      leaf privilege {
+        type uint8;
+      }
+      list command-list {
+        key "command";
+        leaf command {
+	  description
+	    "There are side effects";
+          type string;
+        }
+      }
+    }
+    list reset {
+      key "command";
+      leaf command {
+        type string;
+      }
+    }
+  }
+
   grouping config-privilege-grouping {
     container privilege { //55368
       description
         "Command privilege parameters";
-      // privilege exec
-      container exec {
-        description
-          "Exec mode";
-        // privilege exec level
-        list level {
-          description
-            "Set privilege level of command";
-          key "privilege";
-          leaf privilege {
-            type uint8;
-          }
-          list command-list {
-            key "command";
-            leaf command {
-	      description
-	        "There are side effects";
-              type string {
-                pattern "(show.*)|(write.*)";
-              }
-            }
+      list mode {
+        key name;
+        leaf name {
+          type enumeration {
+            enum "configure";
+            enum "exec";
+            enum "interface";
+            enum "router";
           }
         }
+        container all {
+          uses privilege-mode-common;
+        }
+        uses privilege-mode-common;
       }
     }
   }

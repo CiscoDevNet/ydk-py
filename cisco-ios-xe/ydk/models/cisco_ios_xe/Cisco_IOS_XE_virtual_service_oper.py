@@ -15,6 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class VirtualServices(Entity):
     """
     Information on all virtual services
@@ -29,7 +30,7 @@ class VirtualServices(Entity):
     """
 
     _prefix = 'virtual-service-ios-xe-oper'
-    _revision = '2017-09-25'
+    _revision = '2018-02-01'
 
     def __init__(self):
         super(VirtualServices, self).__init__()
@@ -45,6 +46,7 @@ class VirtualServices(Entity):
 
         self.virtual_service = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-virtual-service-oper:virtual-services"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(VirtualServices, [], name, value)
@@ -104,7 +106,7 @@ class VirtualServices(Entity):
         """
 
         _prefix = 'virtual-service-ios-xe-oper'
-        _revision = '2017-09-25'
+        _revision = '2018-02-01'
 
         def __init__(self):
             super(VirtualServices.VirtualService, self).__init__()
@@ -116,7 +118,7 @@ class VirtualServices(Entity):
             self.ylist_key_names = ['name']
             self._child_classes = OrderedDict([("details", ("details", VirtualServices.VirtualService.Details)), ("utilization", ("utilization", VirtualServices.VirtualService.Utilization)), ("network-utils", ("network_utils", VirtualServices.VirtualService.NetworkUtils)), ("storage-utils", ("storage_utils", VirtualServices.VirtualService.StorageUtils)), ("processes", ("processes", VirtualServices.VirtualService.Processes)), ("attached-devices", ("attached_devices", VirtualServices.VirtualService.AttachedDevices)), ("network-interfaces", ("network_interfaces", VirtualServices.VirtualService.NetworkInterfaces)), ("guest-routes", ("guest_routes", VirtualServices.VirtualService.GuestRoutes))])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
             ])
             self.name = None
 
@@ -153,6 +155,7 @@ class VirtualServices(Entity):
             self._children_name_map["guest_routes"] = "guest-routes"
             self._segment_path = lambda: "virtual-service" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-virtual-service-oper:virtual-services/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(VirtualServices.VirtualService, ['name'], name, value)
@@ -202,7 +205,7 @@ class VirtualServices(Entity):
             """
 
             _prefix = 'virtual-service-ios-xe-oper'
-            _revision = '2017-09-25'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(VirtualServices.VirtualService.Details, self).__init__()
@@ -214,9 +217,9 @@ class VirtualServices(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("package-information", ("package_information", VirtualServices.VirtualService.Details.PackageInformation)), ("detailed-guest-status", ("detailed_guest_status", VirtualServices.VirtualService.Details.DetailedGuestStatus)), ("resource-reservation", ("resource_reservation", VirtualServices.VirtualService.Details.ResourceReservation)), ("resource-admission", ("resource_admission", VirtualServices.VirtualService.Details.ResourceAdmission))])
                 self._leafs = OrderedDict([
-                    ('state', YLeaf(YType.str, 'state')),
-                    ('activated_profile_name', YLeaf(YType.str, 'activated-profile-name')),
-                    ('guest_interface', YLeaf(YType.str, 'guest-interface')),
+                    ('state', (YLeaf(YType.str, 'state'), ['str'])),
+                    ('activated_profile_name', (YLeaf(YType.str, 'activated-profile-name'), ['str'])),
+                    ('guest_interface', (YLeaf(YType.str, 'guest-interface'), ['str'])),
                 ])
                 self.state = None
                 self.activated_profile_name = None
@@ -238,6 +241,7 @@ class VirtualServices(Entity):
                 self.resource_admission.parent = self
                 self._children_name_map["resource_admission"] = "resource-admission"
                 self._segment_path = lambda: "details"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(VirtualServices.VirtualService.Details, ['state', 'activated_profile_name', 'guest_interface'], name, value)
@@ -277,7 +281,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-09-25'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.Details.PackageInformation, self).__init__()
@@ -289,8 +293,8 @@ class VirtualServices(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("application", ("application", VirtualServices.VirtualService.Details.PackageInformation.Application)), ("signing", ("signing", VirtualServices.VirtualService.Details.PackageInformation.Signing)), ("licensing", ("licensing", VirtualServices.VirtualService.Details.PackageInformation.Licensing))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('path', YLeaf(YType.str, 'path')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('path', (YLeaf(YType.str, 'path'), ['str'])),
                     ])
                     self.name = None
                     self.path = None
@@ -307,6 +311,7 @@ class VirtualServices(Entity):
                     self.licensing.parent = self
                     self._children_name_map["licensing"] = "licensing"
                     self._segment_path = lambda: "package-information"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.Details.PackageInformation, ['name', 'path'], name, value)
@@ -336,12 +341,17 @@ class VirtualServices(Entity):
                     	Application type
                     	**type**\: str
                     
+                    .. attribute:: owner
+                    
+                    	Which process creates the application
+                    	**type**\: str
+                    
                     
 
                     """
 
                     _prefix = 'virtual-service-ios-xe-oper'
-                    _revision = '2017-09-25'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(VirtualServices.VirtualService.Details.PackageInformation.Application, self).__init__()
@@ -353,19 +363,22 @@ class VirtualServices(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('installed_version', YLeaf(YType.str, 'installed-version')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('type', YLeaf(YType.str, 'type')),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('installed_version', (YLeaf(YType.str, 'installed-version'), ['str'])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('type', (YLeaf(YType.str, 'type'), ['str'])),
+                            ('owner', (YLeaf(YType.str, 'owner'), ['str'])),
                         ])
                         self.name = None
                         self.installed_version = None
                         self.description = None
                         self.type = None
+                        self.owner = None
                         self._segment_path = lambda: "application"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(VirtualServices.VirtualService.Details.PackageInformation.Application, ['name', 'installed_version', 'description', 'type'], name, value)
+                        self._perform_setattr(VirtualServices.VirtualService.Details.PackageInformation.Application, ['name', 'installed_version', 'description', 'type', 'owner'], name, value)
 
 
                 class Signing(Entity):
@@ -387,7 +400,7 @@ class VirtualServices(Entity):
                     """
 
                     _prefix = 'virtual-service-ios-xe-oper'
-                    _revision = '2017-09-25'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(VirtualServices.VirtualService.Details.PackageInformation.Signing, self).__init__()
@@ -399,12 +412,13 @@ class VirtualServices(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('key_type', YLeaf(YType.str, 'key-type')),
-                            ('method', YLeaf(YType.str, 'method')),
+                            ('key_type', (YLeaf(YType.str, 'key-type'), ['str'])),
+                            ('method', (YLeaf(YType.str, 'method'), ['str'])),
                         ])
                         self.key_type = None
                         self.method = None
                         self._segment_path = lambda: "signing"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(VirtualServices.VirtualService.Details.PackageInformation.Signing, ['key_type', 'method'], name, value)
@@ -429,7 +443,7 @@ class VirtualServices(Entity):
                     """
 
                     _prefix = 'virtual-service-ios-xe-oper'
-                    _revision = '2017-09-25'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(VirtualServices.VirtualService.Details.PackageInformation.Licensing, self).__init__()
@@ -441,12 +455,13 @@ class VirtualServices(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('version', YLeaf(YType.str, 'version')),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('version', (YLeaf(YType.str, 'version'), ['str'])),
                         ])
                         self.name = None
                         self.version = None
                         self._segment_path = lambda: "licensing"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(VirtualServices.VirtualService.Details.PackageInformation.Licensing, ['name', 'version'], name, value)
@@ -466,7 +481,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-09-25'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.Details.DetailedGuestStatus, self).__init__()
@@ -483,6 +498,7 @@ class VirtualServices(Entity):
                     self.processes.parent = self
                     self._children_name_map["processes"] = "processes"
                     self._segment_path = lambda: "detailed-guest-status"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.Details.DetailedGuestStatus, [], name, value)
@@ -522,7 +538,7 @@ class VirtualServices(Entity):
                     """
 
                     _prefix = 'virtual-service-ios-xe-oper'
-                    _revision = '2017-09-25'
+                    _revision = '2018-02-01'
 
                     def __init__(self):
                         super(VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes, self).__init__()
@@ -534,11 +550,11 @@ class VirtualServices(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
-                            ('status', YLeaf(YType.str, 'status')),
-                            ('pid', YLeaf(YType.str, 'pid')),
-                            ('uptime', YLeaf(YType.str, 'uptime')),
-                            ('memory', YLeaf(YType.str, 'memory')),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                            ('status', (YLeaf(YType.str, 'status'), ['str'])),
+                            ('pid', (YLeaf(YType.str, 'pid'), ['str'])),
+                            ('uptime', (YLeaf(YType.str, 'uptime'), ['str'])),
+                            ('memory', (YLeaf(YType.str, 'memory'), ['str'])),
                         ])
                         self.name = None
                         self.status = None
@@ -546,6 +562,7 @@ class VirtualServices(Entity):
                         self.uptime = None
                         self.memory = None
                         self._segment_path = lambda: "processes"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(VirtualServices.VirtualService.Details.DetailedGuestStatus.Processes, ['name', 'status', 'pid', 'uptime', 'memory'], name, value)
@@ -581,7 +598,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-09-25'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.Details.ResourceReservation, self).__init__()
@@ -593,14 +610,15 @@ class VirtualServices(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('disk', YLeaf(YType.uint64, 'disk')),
-                        ('memory', YLeaf(YType.uint64, 'memory')),
-                        ('cpu', YLeaf(YType.uint64, 'cpu')),
+                        ('disk', (YLeaf(YType.uint64, 'disk'), ['int'])),
+                        ('memory', (YLeaf(YType.uint64, 'memory'), ['int'])),
+                        ('cpu', (YLeaf(YType.uint64, 'cpu'), ['int'])),
                     ])
                     self.disk = None
                     self.memory = None
                     self.cpu = None
                     self._segment_path = lambda: "resource-reservation"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.Details.ResourceReservation, ['disk', 'memory', 'cpu'], name, value)
@@ -642,7 +660,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-09-25'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.Details.ResourceAdmission, self).__init__()
@@ -654,11 +672,11 @@ class VirtualServices(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('state', YLeaf(YType.str, 'state')),
-                        ('disk_space', YLeaf(YType.str, 'disk-space')),
-                        ('memory', YLeaf(YType.str, 'memory')),
-                        ('cpu', YLeaf(YType.uint64, 'cpu')),
-                        ('vcpus', YLeaf(YType.str, 'vcpus')),
+                        ('state', (YLeaf(YType.str, 'state'), ['str'])),
+                        ('disk_space', (YLeaf(YType.str, 'disk-space'), ['str'])),
+                        ('memory', (YLeaf(YType.str, 'memory'), ['str'])),
+                        ('cpu', (YLeaf(YType.uint64, 'cpu'), ['int'])),
+                        ('vcpus', (YLeaf(YType.str, 'vcpus'), ['str'])),
                     ])
                     self.state = None
                     self.disk_space = None
@@ -666,6 +684,7 @@ class VirtualServices(Entity):
                     self.cpu = None
                     self.vcpus = None
                     self._segment_path = lambda: "resource-admission"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.Details.ResourceAdmission, ['state', 'disk_space', 'memory', 'cpu', 'vcpus'], name, value)
@@ -695,7 +714,7 @@ class VirtualServices(Entity):
             """
 
             _prefix = 'virtual-service-ios-xe-oper'
-            _revision = '2017-09-25'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(VirtualServices.VirtualService.Utilization, self).__init__()
@@ -707,7 +726,7 @@ class VirtualServices(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("cpu-util", ("cpu_util", VirtualServices.VirtualService.Utilization.CpuUtil)), ("memory-util", ("memory_util", VirtualServices.VirtualService.Utilization.MemoryUtil))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
 
@@ -719,6 +738,7 @@ class VirtualServices(Entity):
                 self.memory_util.parent = self
                 self._children_name_map["memory_util"] = "memory-util"
                 self._segment_path = lambda: "utilization"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(VirtualServices.VirtualService.Utilization, ['name'], name, value)
@@ -752,7 +772,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-09-25'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.Utilization.CpuUtil, self).__init__()
@@ -764,14 +784,15 @@ class VirtualServices(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('requested_application_util', YLeaf(YType.uint64, 'requested-application-util')),
-                        ('actual_application_util', YLeaf(YType.uint64, 'actual-application-util')),
-                        ('cpu_state', YLeaf(YType.str, 'cpu-state')),
+                        ('requested_application_util', (YLeaf(YType.uint64, 'requested-application-util'), ['int'])),
+                        ('actual_application_util', (YLeaf(YType.uint64, 'actual-application-util'), ['int'])),
+                        ('cpu_state', (YLeaf(YType.str, 'cpu-state'), ['str'])),
                     ])
                     self.requested_application_util = None
                     self.actual_application_util = None
                     self.cpu_state = None
                     self._segment_path = lambda: "cpu-util"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.Utilization.CpuUtil, ['requested_application_util', 'actual_application_util', 'cpu_state'], name, value)
@@ -796,7 +817,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-09-25'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.Utilization.MemoryUtil, self).__init__()
@@ -808,12 +829,13 @@ class VirtualServices(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('memory_allocation', YLeaf(YType.str, 'memory-allocation')),
-                        ('memory_used', YLeaf(YType.str, 'memory-used')),
+                        ('memory_allocation', (YLeaf(YType.str, 'memory-allocation'), ['str'])),
+                        ('memory_used', (YLeaf(YType.str, 'memory-used'), ['str'])),
                     ])
                     self.memory_allocation = None
                     self.memory_used = None
                     self._segment_path = lambda: "memory-util"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.Utilization.MemoryUtil, ['memory_allocation', 'memory_used'], name, value)
@@ -833,7 +855,7 @@ class VirtualServices(Entity):
             """
 
             _prefix = 'virtual-service-ios-xe-oper'
-            _revision = '2017-09-25'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(VirtualServices.VirtualService.NetworkUtils, self).__init__()
@@ -848,6 +870,7 @@ class VirtualServices(Entity):
 
                 self.network_util = YList(self)
                 self._segment_path = lambda: "network-utils"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(VirtualServices.VirtualService.NetworkUtils, [], name, value)
@@ -914,7 +937,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-09-25'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.NetworkUtils.NetworkUtil, self).__init__()
@@ -926,14 +949,14 @@ class VirtualServices(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('alias', YLeaf(YType.str, 'alias')),
-                        ('rx_packets', YLeaf(YType.uint64, 'rx-packets')),
-                        ('rx_bytes', YLeaf(YType.uint64, 'rx-bytes')),
-                        ('rx_errors', YLeaf(YType.uint64, 'rx-errors')),
-                        ('tx_packets', YLeaf(YType.uint64, 'tx-packets')),
-                        ('tx_bytes', YLeaf(YType.uint64, 'tx-bytes')),
-                        ('tx_errors', YLeaf(YType.uint64, 'tx-errors')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('alias', (YLeaf(YType.str, 'alias'), ['str'])),
+                        ('rx_packets', (YLeaf(YType.uint64, 'rx-packets'), ['int'])),
+                        ('rx_bytes', (YLeaf(YType.uint64, 'rx-bytes'), ['int'])),
+                        ('rx_errors', (YLeaf(YType.uint64, 'rx-errors'), ['int'])),
+                        ('tx_packets', (YLeaf(YType.uint64, 'tx-packets'), ['int'])),
+                        ('tx_bytes', (YLeaf(YType.uint64, 'tx-bytes'), ['int'])),
+                        ('tx_errors', (YLeaf(YType.uint64, 'tx-errors'), ['int'])),
                     ])
                     self.name = None
                     self.alias = None
@@ -944,6 +967,7 @@ class VirtualServices(Entity):
                     self.tx_bytes = None
                     self.tx_errors = None
                     self._segment_path = lambda: "network-util" + "[name='" + str(self.name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.NetworkUtils.NetworkUtil, ['name', 'alias', 'rx_packets', 'rx_bytes', 'rx_errors', 'tx_packets', 'tx_bytes', 'tx_errors'], name, value)
@@ -963,7 +987,7 @@ class VirtualServices(Entity):
             """
 
             _prefix = 'virtual-service-ios-xe-oper'
-            _revision = '2017-09-25'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(VirtualServices.VirtualService.StorageUtils, self).__init__()
@@ -978,6 +1002,7 @@ class VirtualServices(Entity):
 
                 self.storage_util = YList(self)
                 self._segment_path = lambda: "storage-utils"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(VirtualServices.VirtualService.StorageUtils, [], name, value)
@@ -1061,7 +1086,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-09-25'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.StorageUtils.StorageUtil, self).__init__()
@@ -1073,17 +1098,17 @@ class VirtualServices(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('alias', YLeaf(YType.str, 'alias')),
-                        ('rd_bytes', YLeaf(YType.uint64, 'rd-bytes')),
-                        ('rd_requests', YLeaf(YType.uint64, 'rd-requests')),
-                        ('errors', YLeaf(YType.uint64, 'errors')),
-                        ('wr_bytes', YLeaf(YType.uint64, 'wr-bytes')),
-                        ('wr_requests', YLeaf(YType.uint64, 'wr-requests')),
-                        ('capacity', YLeaf(YType.uint64, 'capacity')),
-                        ('available', YLeaf(YType.str, 'available')),
-                        ('used', YLeaf(YType.uint64, 'used')),
-                        ('usage', YLeaf(YType.str, 'usage')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('alias', (YLeaf(YType.str, 'alias'), ['str'])),
+                        ('rd_bytes', (YLeaf(YType.uint64, 'rd-bytes'), ['int'])),
+                        ('rd_requests', (YLeaf(YType.uint64, 'rd-requests'), ['int'])),
+                        ('errors', (YLeaf(YType.uint64, 'errors'), ['int'])),
+                        ('wr_bytes', (YLeaf(YType.uint64, 'wr-bytes'), ['int'])),
+                        ('wr_requests', (YLeaf(YType.uint64, 'wr-requests'), ['int'])),
+                        ('capacity', (YLeaf(YType.uint64, 'capacity'), ['int'])),
+                        ('available', (YLeaf(YType.str, 'available'), ['str'])),
+                        ('used', (YLeaf(YType.uint64, 'used'), ['int'])),
+                        ('usage', (YLeaf(YType.str, 'usage'), ['str'])),
                     ])
                     self.name = None
                     self.alias = None
@@ -1097,6 +1122,7 @@ class VirtualServices(Entity):
                     self.used = None
                     self.usage = None
                     self._segment_path = lambda: "storage-util" + "[name='" + str(self.name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.StorageUtils.StorageUtil, ['name', 'alias', 'rd_bytes', 'rd_requests', 'errors', 'wr_bytes', 'wr_requests', 'capacity', 'available', 'used', 'usage'], name, value)
@@ -1116,7 +1142,7 @@ class VirtualServices(Entity):
             """
 
             _prefix = 'virtual-service-ios-xe-oper'
-            _revision = '2017-09-25'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(VirtualServices.VirtualService.Processes, self).__init__()
@@ -1131,6 +1157,7 @@ class VirtualServices(Entity):
 
                 self.process = YList(self)
                 self._segment_path = lambda: "processes"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(VirtualServices.VirtualService.Processes, [], name, value)
@@ -1170,7 +1197,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-09-25'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.Processes.Process, self).__init__()
@@ -1182,11 +1209,11 @@ class VirtualServices(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('status', YLeaf(YType.str, 'status')),
-                        ('pid', YLeaf(YType.str, 'pid')),
-                        ('uptime', YLeaf(YType.str, 'uptime')),
-                        ('memory', YLeaf(YType.str, 'memory')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('status', (YLeaf(YType.str, 'status'), ['str'])),
+                        ('pid', (YLeaf(YType.str, 'pid'), ['str'])),
+                        ('uptime', (YLeaf(YType.str, 'uptime'), ['str'])),
+                        ('memory', (YLeaf(YType.str, 'memory'), ['str'])),
                     ])
                     self.name = None
                     self.status = None
@@ -1194,6 +1221,7 @@ class VirtualServices(Entity):
                     self.uptime = None
                     self.memory = None
                     self._segment_path = lambda: "process" + "[name='" + str(self.name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.Processes.Process, ['name', 'status', 'pid', 'uptime', 'memory'], name, value)
@@ -1213,7 +1241,7 @@ class VirtualServices(Entity):
             """
 
             _prefix = 'virtual-service-ios-xe-oper'
-            _revision = '2017-09-25'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(VirtualServices.VirtualService.AttachedDevices, self).__init__()
@@ -1228,6 +1256,7 @@ class VirtualServices(Entity):
 
                 self.attached_device = YList(self)
                 self._segment_path = lambda: "attached-devices"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(VirtualServices.VirtualService.AttachedDevices, [], name, value)
@@ -1257,7 +1286,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-09-25'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.AttachedDevices.AttachedDevice, self).__init__()
@@ -1269,14 +1298,15 @@ class VirtualServices(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('type', YLeaf(YType.str, 'type')),
-                        ('alias', YLeaf(YType.str, 'alias')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('type', (YLeaf(YType.str, 'type'), ['str'])),
+                        ('alias', (YLeaf(YType.str, 'alias'), ['str'])),
                     ])
                     self.name = None
                     self.type = None
                     self.alias = None
                     self._segment_path = lambda: "attached-device" + "[name='" + str(self.name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.AttachedDevices.AttachedDevice, ['name', 'type', 'alias'], name, value)
@@ -1296,7 +1326,7 @@ class VirtualServices(Entity):
             """
 
             _prefix = 'virtual-service-ios-xe-oper'
-            _revision = '2017-09-25'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(VirtualServices.VirtualService.NetworkInterfaces, self).__init__()
@@ -1311,6 +1341,7 @@ class VirtualServices(Entity):
 
                 self.network_interface = YList(self)
                 self._segment_path = lambda: "network-interfaces"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(VirtualServices.VirtualService.NetworkInterfaces, [], name, value)
@@ -1344,7 +1375,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-09-25'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface, self).__init__()
@@ -1356,14 +1387,15 @@ class VirtualServices(Entity):
                     self.ylist_key_names = ['mac_address']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('mac_address', YLeaf(YType.str, 'mac-address')),
-                        ('attached_interface', YLeaf(YType.str, 'attached-interface')),
-                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
+                        ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                        ('attached_interface', (YLeaf(YType.str, 'attached-interface'), ['str'])),
+                        ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
                     ])
                     self.mac_address = None
                     self.attached_interface = None
                     self.ipv4_address = None
                     self._segment_path = lambda: "network-interface" + "[mac-address='" + str(self.mac_address) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.NetworkInterfaces.NetworkInterface, ['mac_address', 'attached_interface', 'ipv4_address'], name, value)
@@ -1383,7 +1415,7 @@ class VirtualServices(Entity):
             """
 
             _prefix = 'virtual-service-ios-xe-oper'
-            _revision = '2017-09-25'
+            _revision = '2018-02-01'
 
             def __init__(self):
                 super(VirtualServices.VirtualService.GuestRoutes, self).__init__()
@@ -1398,6 +1430,7 @@ class VirtualServices(Entity):
 
                 self.guest_route = YList(self)
                 self._segment_path = lambda: "guest-routes"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(VirtualServices.VirtualService.GuestRoutes, [], name, value)
@@ -1417,7 +1450,7 @@ class VirtualServices(Entity):
                 """
 
                 _prefix = 'virtual-service-ios-xe-oper'
-                _revision = '2017-09-25'
+                _revision = '2018-02-01'
 
                 def __init__(self):
                     super(VirtualServices.VirtualService.GuestRoutes.GuestRoute, self).__init__()
@@ -1429,10 +1462,11 @@ class VirtualServices(Entity):
                     self.ylist_key_names = ['route']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('route', YLeaf(YType.str, 'route')),
+                        ('route', (YLeaf(YType.str, 'route'), ['str'])),
                     ])
                     self.route = None
                     self._segment_path = lambda: "guest-route" + "[route='" + str(self.route) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(VirtualServices.VirtualService.GuestRoutes.GuestRoute, ['route'], name, value)

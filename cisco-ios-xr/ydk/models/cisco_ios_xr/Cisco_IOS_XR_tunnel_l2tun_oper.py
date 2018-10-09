@@ -8,7 +8,7 @@ for the following management objects\:
   l2tp\: L2TP operational data
   l2tpv2\: l2tpv2
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class DigestHash(Enum):
@@ -128,6 +129,7 @@ class L2tp(Entity):
         self.session.parent = self
         self._children_name_map["session"] = "session"
         self._segment_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(L2tp, [], name, value)
@@ -165,6 +167,7 @@ class L2tp(Entity):
             self._children_name_map["control"] = "control"
             self._segment_path = lambda: "counters"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2tp.Counters, [], name, value)
@@ -211,6 +214,7 @@ class L2tp(Entity):
                 self._children_name_map["tunnels"] = "tunnels"
                 self._segment_path = lambda: "control"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2tp.Counters.Control, [], name, value)
@@ -257,6 +261,7 @@ class L2tp(Entity):
                     self._children_name_map["global_"] = "global"
                     self._segment_path = lambda: "tunnel-xr"
                     self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tp.Counters.Control.TunnelXr, [], name, value)
@@ -366,6 +371,7 @@ class L2tp(Entity):
                         self._children_name_map["overall_statistics"] = "overall-statistics"
                         self._segment_path = lambda: "authentication"
                         self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication, [], name, value)
@@ -469,17 +475,17 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -494,6 +500,7 @@ class L2tp(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "nonce-avp"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.NonceAvp, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -597,17 +604,17 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -622,6 +629,7 @@ class L2tp(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "common-digest"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.CommonDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -725,17 +733,17 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -750,6 +758,7 @@ class L2tp(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "primary-digest"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.PrimaryDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -853,17 +862,17 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -878,6 +887,7 @@ class L2tp(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "secondary-digest"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.SecondaryDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -981,17 +991,17 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -1006,6 +1016,7 @@ class L2tp(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "integrity-check"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.IntegrityCheck, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -1109,17 +1120,17 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -1134,6 +1145,7 @@ class L2tp(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "local-secret"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.LocalSecret, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -1237,17 +1249,17 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -1262,6 +1274,7 @@ class L2tp(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "challenge-avp"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.ChallengeAvp, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -1365,17 +1378,17 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -1390,6 +1403,7 @@ class L2tp(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "challenge-reponse"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.ChallengeReponse, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -1493,17 +1507,17 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -1518,6 +1532,7 @@ class L2tp(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "overall-statistics"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Authentication.OverallStatistics, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -1592,10 +1607,10 @@ class L2tp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("transmit", ("transmit", L2tp.Counters.Control.TunnelXr.Global.Transmit)), ("retransmit", ("retransmit", L2tp.Counters.Control.TunnelXr.Global.Retransmit)), ("received", ("received", L2tp.Counters.Control.TunnelXr.Global.Received)), ("drop", ("drop", L2tp.Counters.Control.TunnelXr.Global.Drop))])
                         self._leafs = OrderedDict([
-                            ('total_transmit', YLeaf(YType.uint32, 'total-transmit')),
-                            ('total_retransmit', YLeaf(YType.uint32, 'total-retransmit')),
-                            ('total_received', YLeaf(YType.uint32, 'total-received')),
-                            ('total_drop', YLeaf(YType.uint32, 'total-drop')),
+                            ('total_transmit', (YLeaf(YType.uint32, 'total-transmit'), ['int'])),
+                            ('total_retransmit', (YLeaf(YType.uint32, 'total-retransmit'), ['int'])),
+                            ('total_received', (YLeaf(YType.uint32, 'total-received'), ['int'])),
+                            ('total_drop', (YLeaf(YType.uint32, 'total-drop'), ['int'])),
                         ])
                         self.total_transmit = None
                         self.total_retransmit = None
@@ -1619,6 +1634,7 @@ class L2tp(Entity):
                         self._children_name_map["drop"] = "drop"
                         self._segment_path = lambda: "global"
                         self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Counters.Control.TunnelXr.Global, [u'total_transmit', u'total_retransmit', u'total_received', u'total_drop'], name, value)
@@ -1778,25 +1794,25 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                             ])
                             self.unknown_packets = None
                             self.zero_length_body_packets = None
@@ -1819,6 +1835,7 @@ class L2tp(Entity):
                             self.acknowledgement_packets = None
                             self._segment_path = lambda: "transmit"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Global.Transmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -1978,25 +1995,25 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                             ])
                             self.unknown_packets = None
                             self.zero_length_body_packets = None
@@ -2019,6 +2036,7 @@ class L2tp(Entity):
                             self.acknowledgement_packets = None
                             self._segment_path = lambda: "retransmit"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Global.Retransmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -2178,25 +2196,25 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                             ])
                             self.unknown_packets = None
                             self.zero_length_body_packets = None
@@ -2219,6 +2237,7 @@ class L2tp(Entity):
                             self.acknowledgement_packets = None
                             self._segment_path = lambda: "received"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Global.Received, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -2378,25 +2397,25 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                             ])
                             self.unknown_packets = None
                             self.zero_length_body_packets = None
@@ -2419,6 +2438,7 @@ class L2tp(Entity):
                             self.acknowledgement_packets = None
                             self._segment_path = lambda: "drop"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnel-xr/global/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Counters.Control.TunnelXr.Global.Drop, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -2454,6 +2474,7 @@ class L2tp(Entity):
                     self.tunnel = YList(self)
                     self._segment_path = lambda: "tunnels"
                     self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tp.Counters.Control.Tunnels, [], name, value)
@@ -2497,7 +2518,7 @@ class L2tp(Entity):
                         self.ylist_key_names = ['tunnel_id']
                         self._child_classes = OrderedDict([("brief", ("brief", L2tp.Counters.Control.Tunnels.Tunnel.Brief)), ("global", ("global_", L2tp.Counters.Control.Tunnels.Tunnel.Global))])
                         self._leafs = OrderedDict([
-                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                            ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
                         ])
                         self.tunnel_id = None
 
@@ -2510,6 +2531,7 @@ class L2tp(Entity):
                         self._children_name_map["global_"] = "global"
                         self._segment_path = lambda: "tunnel" + "[tunnel-id='" + str(self.tunnel_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counters/control/tunnels/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel, ['tunnel_id'], name, value)
@@ -2557,14 +2579,15 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('remote_tunnel_id', YLeaf(YType.uint32, 'remote-tunnel-id')),
-                                ('local_address', YLeaf(YType.str, 'local-address')),
-                                ('remote_address', YLeaf(YType.str, 'remote-address')),
+                                ('remote_tunnel_id', (YLeaf(YType.uint32, 'remote-tunnel-id'), ['int'])),
+                                ('local_address', (YLeaf(YType.str, 'local-address'), ['str'])),
+                                ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str'])),
                             ])
                             self.remote_tunnel_id = None
                             self.local_address = None
                             self.remote_address = None
                             self._segment_path = lambda: "brief"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Brief, [u'remote_tunnel_id', u'local_address', u'remote_address'], name, value)
@@ -2639,10 +2662,10 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("transmit", ("transmit", L2tp.Counters.Control.Tunnels.Tunnel.Global.Transmit)), ("retransmit", ("retransmit", L2tp.Counters.Control.Tunnels.Tunnel.Global.Retransmit)), ("received", ("received", L2tp.Counters.Control.Tunnels.Tunnel.Global.Received)), ("drop", ("drop", L2tp.Counters.Control.Tunnels.Tunnel.Global.Drop))])
                             self._leafs = OrderedDict([
-                                ('total_transmit', YLeaf(YType.uint32, 'total-transmit')),
-                                ('total_retransmit', YLeaf(YType.uint32, 'total-retransmit')),
-                                ('total_received', YLeaf(YType.uint32, 'total-received')),
-                                ('total_drop', YLeaf(YType.uint32, 'total-drop')),
+                                ('total_transmit', (YLeaf(YType.uint32, 'total-transmit'), ['int'])),
+                                ('total_retransmit', (YLeaf(YType.uint32, 'total-retransmit'), ['int'])),
+                                ('total_received', (YLeaf(YType.uint32, 'total-received'), ['int'])),
+                                ('total_drop', (YLeaf(YType.uint32, 'total-drop'), ['int'])),
                             ])
                             self.total_transmit = None
                             self.total_retransmit = None
@@ -2665,6 +2688,7 @@ class L2tp(Entity):
                             self.drop.parent = self
                             self._children_name_map["drop"] = "drop"
                             self._segment_path = lambda: "global"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Global, [u'total_transmit', u'total_retransmit', u'total_received', u'total_drop'], name, value)
@@ -2824,25 +2848,25 @@ class L2tp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                    ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                    ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                    ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                    ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                    ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                    ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                    ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                    ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                    ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                    ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                    ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                    ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                    ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                    ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                    ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                    ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                    ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                    ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                    ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                    ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                    ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                    ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                    ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                    ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                    ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                    ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                    ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                    ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                    ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                    ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                    ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                    ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                    ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                    ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                    ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                    ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                    ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                                 ])
                                 self.unknown_packets = None
                                 self.zero_length_body_packets = None
@@ -2864,6 +2888,7 @@ class L2tp(Entity):
                                 self.service_relay_replies = None
                                 self.acknowledgement_packets = None
                                 self._segment_path = lambda: "transmit"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Global.Transmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -3023,25 +3048,25 @@ class L2tp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                    ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                    ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                    ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                    ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                    ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                    ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                    ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                    ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                    ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                    ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                    ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                    ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                    ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                    ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                    ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                    ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                    ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                    ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                    ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                    ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                    ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                    ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                    ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                    ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                    ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                    ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                    ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                    ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                    ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                    ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                    ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                    ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                    ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                    ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                    ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                    ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                    ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                                 ])
                                 self.unknown_packets = None
                                 self.zero_length_body_packets = None
@@ -3063,6 +3088,7 @@ class L2tp(Entity):
                                 self.service_relay_replies = None
                                 self.acknowledgement_packets = None
                                 self._segment_path = lambda: "retransmit"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Global.Retransmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -3222,25 +3248,25 @@ class L2tp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                    ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                    ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                    ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                    ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                    ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                    ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                    ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                    ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                    ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                    ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                    ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                    ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                    ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                    ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                    ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                    ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                    ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                    ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                    ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                    ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                    ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                    ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                    ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                    ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                    ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                    ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                    ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                    ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                    ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                    ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                    ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                    ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                    ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                    ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                    ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                    ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                    ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                                 ])
                                 self.unknown_packets = None
                                 self.zero_length_body_packets = None
@@ -3262,6 +3288,7 @@ class L2tp(Entity):
                                 self.service_relay_replies = None
                                 self.acknowledgement_packets = None
                                 self._segment_path = lambda: "received"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Global.Received, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -3421,25 +3448,25 @@ class L2tp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                    ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                    ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                    ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                    ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                    ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                    ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                    ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                    ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                    ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                    ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                    ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                    ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                    ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                    ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                    ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                    ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                    ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                    ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                    ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                    ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                    ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                    ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                    ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                    ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                    ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                    ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                    ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                    ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                    ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                    ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                    ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                    ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                    ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                    ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                    ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                    ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                    ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                                 ])
                                 self.unknown_packets = None
                                 self.zero_length_body_packets = None
@@ -3461,6 +3488,7 @@ class L2tp(Entity):
                                 self.service_relay_replies = None
                                 self.acknowledgement_packets = None
                                 self._segment_path = lambda: "drop"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2tp.Counters.Control.Tunnels.Tunnel.Global.Drop, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -3496,6 +3524,7 @@ class L2tp(Entity):
             self.tunnel_configuration = YList(self)
             self._segment_path = lambda: "tunnel-configurations"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2tp.TunnelConfigurations, [], name, value)
@@ -3541,8 +3570,8 @@ class L2tp(Entity):
                 self.ylist_key_names = ['local_tunnel_id']
                 self._child_classes = OrderedDict([("l2tp-class", ("l2tp_class", L2tp.TunnelConfigurations.TunnelConfiguration.L2tpClass))])
                 self._leafs = OrderedDict([
-                    ('local_tunnel_id', YLeaf(YType.uint32, 'local-tunnel-id')),
-                    ('remote_tunnel_id', YLeaf(YType.uint32, 'remote-tunnel-id')),
+                    ('local_tunnel_id', (YLeaf(YType.uint32, 'local-tunnel-id'), ['int'])),
+                    ('remote_tunnel_id', (YLeaf(YType.uint32, 'remote-tunnel-id'), ['int'])),
                 ])
                 self.local_tunnel_id = None
                 self.remote_tunnel_id = None
@@ -3552,6 +3581,7 @@ class L2tp(Entity):
                 self._children_name_map["l2tp_class"] = "l2tp-class"
                 self._segment_path = lambda: "tunnel-configuration" + "[local-tunnel-id='" + str(self.local_tunnel_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/tunnel-configurations/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2tp.TunnelConfigurations.TunnelConfiguration, ['local_tunnel_id', u'remote_tunnel_id'], name, value)
@@ -3744,30 +3774,30 @@ class L2tp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip_tos', YLeaf(YType.uint8, 'ip-tos')),
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                        ('receive_window_size', YLeaf(YType.uint16, 'receive-window-size')),
-                        ('class_name_xr', YLeaf(YType.str, 'class-name-xr')),
-                        ('digest_hash', YLeaf(YType.enumeration, 'digest-hash')),
-                        ('password', YLeaf(YType.str, 'password')),
-                        ('encoded_password', YLeaf(YType.str, 'encoded-password')),
-                        ('host_name', YLeaf(YType.str, 'host-name')),
-                        ('accounting_method_list', YLeaf(YType.str, 'accounting-method-list')),
-                        ('hello_timeout', YLeaf(YType.uint32, 'hello-timeout')),
-                        ('setup_timeout', YLeaf(YType.uint32, 'setup-timeout')),
-                        ('retransmit_minimum_timeout', YLeaf(YType.uint32, 'retransmit-minimum-timeout')),
-                        ('retransmit_maximum_timeout', YLeaf(YType.uint32, 'retransmit-maximum-timeout')),
-                        ('initial_retransmit_minimum_timeout', YLeaf(YType.uint32, 'initial-retransmit-minimum-timeout')),
-                        ('initial_retransmit_maximum_timeout', YLeaf(YType.uint32, 'initial-retransmit-maximum-timeout')),
-                        ('timeout_no_user', YLeaf(YType.uint32, 'timeout-no-user')),
-                        ('retransmit_retries', YLeaf(YType.uint32, 'retransmit-retries')),
-                        ('initial_retransmit_retries', YLeaf(YType.uint32, 'initial-retransmit-retries')),
-                        ('is_authentication_enabled', YLeaf(YType.boolean, 'is-authentication-enabled')),
-                        ('is_hidden', YLeaf(YType.boolean, 'is-hidden')),
-                        ('is_digest_enabled', YLeaf(YType.boolean, 'is-digest-enabled')),
-                        ('is_digest_check_enabled', YLeaf(YType.boolean, 'is-digest-check-enabled')),
-                        ('is_congestion_control_enabled', YLeaf(YType.boolean, 'is-congestion-control-enabled')),
-                        ('is_peer_address_checked', YLeaf(YType.boolean, 'is-peer-address-checked')),
+                        ('ip_tos', (YLeaf(YType.uint8, 'ip-tos'), ['int'])),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                        ('receive_window_size', (YLeaf(YType.uint16, 'receive-window-size'), ['int'])),
+                        ('class_name_xr', (YLeaf(YType.str, 'class-name-xr'), ['str'])),
+                        ('digest_hash', (YLeaf(YType.enumeration, 'digest-hash'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper', 'DigestHash', '')])),
+                        ('password', (YLeaf(YType.str, 'password'), ['str'])),
+                        ('encoded_password', (YLeaf(YType.str, 'encoded-password'), ['str'])),
+                        ('host_name', (YLeaf(YType.str, 'host-name'), ['str'])),
+                        ('accounting_method_list', (YLeaf(YType.str, 'accounting-method-list'), ['str'])),
+                        ('hello_timeout', (YLeaf(YType.uint32, 'hello-timeout'), ['int'])),
+                        ('setup_timeout', (YLeaf(YType.uint32, 'setup-timeout'), ['int'])),
+                        ('retransmit_minimum_timeout', (YLeaf(YType.uint32, 'retransmit-minimum-timeout'), ['int'])),
+                        ('retransmit_maximum_timeout', (YLeaf(YType.uint32, 'retransmit-maximum-timeout'), ['int'])),
+                        ('initial_retransmit_minimum_timeout', (YLeaf(YType.uint32, 'initial-retransmit-minimum-timeout'), ['int'])),
+                        ('initial_retransmit_maximum_timeout', (YLeaf(YType.uint32, 'initial-retransmit-maximum-timeout'), ['int'])),
+                        ('timeout_no_user', (YLeaf(YType.uint32, 'timeout-no-user'), ['int'])),
+                        ('retransmit_retries', (YLeaf(YType.uint32, 'retransmit-retries'), ['int'])),
+                        ('initial_retransmit_retries', (YLeaf(YType.uint32, 'initial-retransmit-retries'), ['int'])),
+                        ('is_authentication_enabled', (YLeaf(YType.boolean, 'is-authentication-enabled'), ['bool'])),
+                        ('is_hidden', (YLeaf(YType.boolean, 'is-hidden'), ['bool'])),
+                        ('is_digest_enabled', (YLeaf(YType.boolean, 'is-digest-enabled'), ['bool'])),
+                        ('is_digest_check_enabled', (YLeaf(YType.boolean, 'is-digest-check-enabled'), ['bool'])),
+                        ('is_congestion_control_enabled', (YLeaf(YType.boolean, 'is-congestion-control-enabled'), ['bool'])),
+                        ('is_peer_address_checked', (YLeaf(YType.boolean, 'is-peer-address-checked'), ['bool'])),
                     ])
                     self.ip_tos = None
                     self.vrf_name = None
@@ -3794,6 +3824,7 @@ class L2tp(Entity):
                     self.is_congestion_control_enabled = None
                     self.is_peer_address_checked = None
                     self._segment_path = lambda: "l2tp-class"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tp.TunnelConfigurations.TunnelConfiguration.L2tpClass, [u'ip_tos', u'vrf_name', u'receive_window_size', u'class_name_xr', u'digest_hash', u'password', u'encoded_password', u'host_name', u'accounting_method_list', u'hello_timeout', u'setup_timeout', u'retransmit_minimum_timeout', u'retransmit_maximum_timeout', u'initial_retransmit_minimum_timeout', u'initial_retransmit_maximum_timeout', u'timeout_no_user', u'retransmit_retries', u'initial_retransmit_retries', u'is_authentication_enabled', u'is_hidden', u'is_digest_enabled', u'is_digest_check_enabled', u'is_congestion_control_enabled', u'is_peer_address_checked'], name, value)
@@ -3827,9 +3858,7 @@ class L2tp(Entity):
         .. attribute:: pkt_timeout
         
         	timeout events by packet
-        	**type**\: list of int
-        
-        	**range:** 0..4294967295
+        	**type**\: list of  		 :py:class:`PktTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.CounterHistFail.PktTimeout>`
         
         
 
@@ -3846,22 +3875,62 @@ class L2tp(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("pkt-timeout", ("pkt_timeout", L2tp.CounterHistFail.PktTimeout))])
             self._leafs = OrderedDict([
-                ('sess_down_tmout', YLeaf(YType.uint32, 'sess-down-tmout')),
-                ('tx_counters', YLeaf(YType.str, 'tx-counters')),
-                ('rx_counters', YLeaf(YType.str, 'rx-counters')),
-                ('pkt_timeout', YLeafList(YType.uint32, 'pkt-timeout')),
+                ('sess_down_tmout', (YLeaf(YType.uint32, 'sess-down-tmout'), ['int'])),
+                ('tx_counters', (YLeaf(YType.str, 'tx-counters'), ['str'])),
+                ('rx_counters', (YLeaf(YType.str, 'rx-counters'), ['str'])),
             ])
             self.sess_down_tmout = None
             self.tx_counters = None
             self.rx_counters = None
-            self.pkt_timeout = []
+
+            self.pkt_timeout = YList(self)
             self._segment_path = lambda: "counter-hist-fail"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2tp.CounterHistFail, [u'sess_down_tmout', u'tx_counters', u'rx_counters', u'pkt_timeout'], name, value)
+            self._perform_setattr(L2tp.CounterHistFail, [u'sess_down_tmout', u'tx_counters', u'rx_counters'], name, value)
+
+
+        class PktTimeout(Entity):
+            """
+            timeout events by packet
+            
+            .. attribute:: entry
+            
+            	
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'tunnel-l2tun-oper'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                super(L2tp.CounterHistFail.PktTimeout, self).__init__()
+
+                self.yang_name = "pkt-timeout"
+                self.yang_parent_name = "counter-hist-fail"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entry', (YLeaf(YType.uint32, 'entry'), ['int'])),
+                ])
+                self.entry = None
+                self._segment_path = lambda: "pkt-timeout"
+                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/counter-hist-fail/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(L2tp.CounterHistFail.PktTimeout, [u'entry'], name, value)
 
 
     class Classes(Entity):
@@ -3894,6 +3963,7 @@ class L2tp(Entity):
             self.class_ = YList(self)
             self._segment_path = lambda: "classes"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2tp.Classes, [], name, value)
@@ -4093,31 +4163,31 @@ class L2tp(Entity):
                 self.ylist_key_names = ['class_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('class_name', YLeaf(YType.str, 'class-name')),
-                    ('ip_tos', YLeaf(YType.uint8, 'ip-tos')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('receive_window_size', YLeaf(YType.uint16, 'receive-window-size')),
-                    ('class_name_xr', YLeaf(YType.str, 'class-name-xr')),
-                    ('digest_hash', YLeaf(YType.enumeration, 'digest-hash')),
-                    ('password', YLeaf(YType.str, 'password')),
-                    ('encoded_password', YLeaf(YType.str, 'encoded-password')),
-                    ('host_name', YLeaf(YType.str, 'host-name')),
-                    ('accounting_method_list', YLeaf(YType.str, 'accounting-method-list')),
-                    ('hello_timeout', YLeaf(YType.uint32, 'hello-timeout')),
-                    ('setup_timeout', YLeaf(YType.uint32, 'setup-timeout')),
-                    ('retransmit_minimum_timeout', YLeaf(YType.uint32, 'retransmit-minimum-timeout')),
-                    ('retransmit_maximum_timeout', YLeaf(YType.uint32, 'retransmit-maximum-timeout')),
-                    ('initial_retransmit_minimum_timeout', YLeaf(YType.uint32, 'initial-retransmit-minimum-timeout')),
-                    ('initial_retransmit_maximum_timeout', YLeaf(YType.uint32, 'initial-retransmit-maximum-timeout')),
-                    ('timeout_no_user', YLeaf(YType.uint32, 'timeout-no-user')),
-                    ('retransmit_retries', YLeaf(YType.uint32, 'retransmit-retries')),
-                    ('initial_retransmit_retries', YLeaf(YType.uint32, 'initial-retransmit-retries')),
-                    ('is_authentication_enabled', YLeaf(YType.boolean, 'is-authentication-enabled')),
-                    ('is_hidden', YLeaf(YType.boolean, 'is-hidden')),
-                    ('is_digest_enabled', YLeaf(YType.boolean, 'is-digest-enabled')),
-                    ('is_digest_check_enabled', YLeaf(YType.boolean, 'is-digest-check-enabled')),
-                    ('is_congestion_control_enabled', YLeaf(YType.boolean, 'is-congestion-control-enabled')),
-                    ('is_peer_address_checked', YLeaf(YType.boolean, 'is-peer-address-checked')),
+                    ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                    ('ip_tos', (YLeaf(YType.uint8, 'ip-tos'), ['int'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('receive_window_size', (YLeaf(YType.uint16, 'receive-window-size'), ['int'])),
+                    ('class_name_xr', (YLeaf(YType.str, 'class-name-xr'), ['str'])),
+                    ('digest_hash', (YLeaf(YType.enumeration, 'digest-hash'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper', 'DigestHash', '')])),
+                    ('password', (YLeaf(YType.str, 'password'), ['str'])),
+                    ('encoded_password', (YLeaf(YType.str, 'encoded-password'), ['str'])),
+                    ('host_name', (YLeaf(YType.str, 'host-name'), ['str'])),
+                    ('accounting_method_list', (YLeaf(YType.str, 'accounting-method-list'), ['str'])),
+                    ('hello_timeout', (YLeaf(YType.uint32, 'hello-timeout'), ['int'])),
+                    ('setup_timeout', (YLeaf(YType.uint32, 'setup-timeout'), ['int'])),
+                    ('retransmit_minimum_timeout', (YLeaf(YType.uint32, 'retransmit-minimum-timeout'), ['int'])),
+                    ('retransmit_maximum_timeout', (YLeaf(YType.uint32, 'retransmit-maximum-timeout'), ['int'])),
+                    ('initial_retransmit_minimum_timeout', (YLeaf(YType.uint32, 'initial-retransmit-minimum-timeout'), ['int'])),
+                    ('initial_retransmit_maximum_timeout', (YLeaf(YType.uint32, 'initial-retransmit-maximum-timeout'), ['int'])),
+                    ('timeout_no_user', (YLeaf(YType.uint32, 'timeout-no-user'), ['int'])),
+                    ('retransmit_retries', (YLeaf(YType.uint32, 'retransmit-retries'), ['int'])),
+                    ('initial_retransmit_retries', (YLeaf(YType.uint32, 'initial-retransmit-retries'), ['int'])),
+                    ('is_authentication_enabled', (YLeaf(YType.boolean, 'is-authentication-enabled'), ['bool'])),
+                    ('is_hidden', (YLeaf(YType.boolean, 'is-hidden'), ['bool'])),
+                    ('is_digest_enabled', (YLeaf(YType.boolean, 'is-digest-enabled'), ['bool'])),
+                    ('is_digest_check_enabled', (YLeaf(YType.boolean, 'is-digest-check-enabled'), ['bool'])),
+                    ('is_congestion_control_enabled', (YLeaf(YType.boolean, 'is-congestion-control-enabled'), ['bool'])),
+                    ('is_peer_address_checked', (YLeaf(YType.boolean, 'is-peer-address-checked'), ['bool'])),
                 ])
                 self.class_name = None
                 self.ip_tos = None
@@ -4146,6 +4216,7 @@ class L2tp(Entity):
                 self.is_peer_address_checked = None
                 self._segment_path = lambda: "class" + "[class-name='" + str(self.class_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/classes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2tp.Classes.Class, ['class_name', u'ip_tos', u'vrf_name', u'receive_window_size', u'class_name_xr', u'digest_hash', u'password', u'encoded_password', u'host_name', u'accounting_method_list', u'hello_timeout', u'setup_timeout', u'retransmit_minimum_timeout', u'retransmit_maximum_timeout', u'initial_retransmit_minimum_timeout', u'initial_retransmit_maximum_timeout', u'timeout_no_user', u'retransmit_retries', u'initial_retransmit_retries', u'is_authentication_enabled', u'is_hidden', u'is_digest_enabled', u'is_digest_check_enabled', u'is_congestion_control_enabled', u'is_peer_address_checked'], name, value)
@@ -4181,6 +4252,7 @@ class L2tp(Entity):
             self.tunnel = YList(self)
             self._segment_path = lambda: "tunnels"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2tp.Tunnels, [], name, value)
@@ -4415,11 +4487,7 @@ class L2tp(Entity):
             .. attribute:: retransmit_time
             
             	Retransmit time distribution in seconds
-            	**type**\: list of int
-            
-            	**range:** 0..65535
-            
-            	**units**\: second
+            	**type**\: list of  		 :py:class:`RetransmitTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tp.Tunnels.Tunnel.RetransmitTime>`
             
             
 
@@ -4436,41 +4504,40 @@ class L2tp(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['local_tunnel_id']
-                self._child_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("retransmit-time", ("retransmit_time", L2tp.Tunnels.Tunnel.RetransmitTime))])
                 self._leafs = OrderedDict([
-                    ('local_tunnel_id', YLeaf(YType.uint32, 'local-tunnel-id')),
-                    ('local_address', YLeaf(YType.str, 'local-address')),
-                    ('remote_address', YLeaf(YType.str, 'remote-address')),
-                    ('local_port', YLeaf(YType.uint16, 'local-port')),
-                    ('remote_port', YLeaf(YType.uint16, 'remote-port')),
-                    ('protocol', YLeaf(YType.uint8, 'protocol')),
-                    ('is_pmtu_enabled', YLeaf(YType.boolean, 'is-pmtu-enabled')),
-                    ('remote_tunnel_id', YLeaf(YType.uint32, 'remote-tunnel-id')),
-                    ('local_tunnel_name', YLeaf(YType.str, 'local-tunnel-name')),
-                    ('remote_tunnel_name', YLeaf(YType.str, 'remote-tunnel-name')),
-                    ('class_name', YLeaf(YType.str, 'class-name')),
-                    ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
-                    ('sequence_ns', YLeaf(YType.uint16, 'sequence-ns')),
-                    ('sequence_nr', YLeaf(YType.uint16, 'sequence-nr')),
-                    ('local_window_size', YLeaf(YType.uint16, 'local-window-size')),
-                    ('remote_window_size', YLeaf(YType.uint16, 'remote-window-size')),
-                    ('retransmission_time', YLeaf(YType.uint16, 'retransmission-time')),
-                    ('maximum_retransmission_time', YLeaf(YType.uint16, 'maximum-retransmission-time')),
-                    ('unsent_queue_size', YLeaf(YType.uint16, 'unsent-queue-size')),
-                    ('unsent_maximum_queue_size', YLeaf(YType.uint16, 'unsent-maximum-queue-size')),
-                    ('resend_queue_size', YLeaf(YType.uint16, 'resend-queue-size')),
-                    ('resend_maximum_queue_size', YLeaf(YType.uint16, 'resend-maximum-queue-size')),
-                    ('order_queue_size', YLeaf(YType.uint16, 'order-queue-size')),
-                    ('packet_queue_check', YLeaf(YType.uint16, 'packet-queue-check')),
-                    ('digest_secrets', YLeaf(YType.uint16, 'digest-secrets')),
-                    ('resends', YLeaf(YType.uint32, 'resends')),
-                    ('zero_length_body_acknowledgement_sent', YLeaf(YType.uint32, 'zero-length-body-acknowledgement-sent')),
-                    ('total_out_of_order_drop_packets', YLeaf(YType.uint32, 'total-out-of-order-drop-packets')),
-                    ('total_out_of_order_reorder_packets', YLeaf(YType.uint32, 'total-out-of-order-reorder-packets')),
-                    ('total_peer_authentication_failures', YLeaf(YType.uint32, 'total-peer-authentication-failures')),
-                    ('is_tunnel_up', YLeaf(YType.boolean, 'is-tunnel-up')),
-                    ('is_congestion_control_enabled', YLeaf(YType.boolean, 'is-congestion-control-enabled')),
-                    ('retransmit_time', YLeafList(YType.uint16, 'retransmit-time')),
+                    ('local_tunnel_id', (YLeaf(YType.uint32, 'local-tunnel-id'), ['int'])),
+                    ('local_address', (YLeaf(YType.str, 'local-address'), ['str'])),
+                    ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str'])),
+                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                    ('remote_port', (YLeaf(YType.uint16, 'remote-port'), ['int'])),
+                    ('protocol', (YLeaf(YType.uint8, 'protocol'), ['int'])),
+                    ('is_pmtu_enabled', (YLeaf(YType.boolean, 'is-pmtu-enabled'), ['bool'])),
+                    ('remote_tunnel_id', (YLeaf(YType.uint32, 'remote-tunnel-id'), ['int'])),
+                    ('local_tunnel_name', (YLeaf(YType.str, 'local-tunnel-name'), ['str'])),
+                    ('remote_tunnel_name', (YLeaf(YType.str, 'remote-tunnel-name'), ['str'])),
+                    ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                    ('active_sessions', (YLeaf(YType.uint32, 'active-sessions'), ['int'])),
+                    ('sequence_ns', (YLeaf(YType.uint16, 'sequence-ns'), ['int'])),
+                    ('sequence_nr', (YLeaf(YType.uint16, 'sequence-nr'), ['int'])),
+                    ('local_window_size', (YLeaf(YType.uint16, 'local-window-size'), ['int'])),
+                    ('remote_window_size', (YLeaf(YType.uint16, 'remote-window-size'), ['int'])),
+                    ('retransmission_time', (YLeaf(YType.uint16, 'retransmission-time'), ['int'])),
+                    ('maximum_retransmission_time', (YLeaf(YType.uint16, 'maximum-retransmission-time'), ['int'])),
+                    ('unsent_queue_size', (YLeaf(YType.uint16, 'unsent-queue-size'), ['int'])),
+                    ('unsent_maximum_queue_size', (YLeaf(YType.uint16, 'unsent-maximum-queue-size'), ['int'])),
+                    ('resend_queue_size', (YLeaf(YType.uint16, 'resend-queue-size'), ['int'])),
+                    ('resend_maximum_queue_size', (YLeaf(YType.uint16, 'resend-maximum-queue-size'), ['int'])),
+                    ('order_queue_size', (YLeaf(YType.uint16, 'order-queue-size'), ['int'])),
+                    ('packet_queue_check', (YLeaf(YType.uint16, 'packet-queue-check'), ['int'])),
+                    ('digest_secrets', (YLeaf(YType.uint16, 'digest-secrets'), ['int'])),
+                    ('resends', (YLeaf(YType.uint32, 'resends'), ['int'])),
+                    ('zero_length_body_acknowledgement_sent', (YLeaf(YType.uint32, 'zero-length-body-acknowledgement-sent'), ['int'])),
+                    ('total_out_of_order_drop_packets', (YLeaf(YType.uint32, 'total-out-of-order-drop-packets'), ['int'])),
+                    ('total_out_of_order_reorder_packets', (YLeaf(YType.uint32, 'total-out-of-order-reorder-packets'), ['int'])),
+                    ('total_peer_authentication_failures', (YLeaf(YType.uint32, 'total-peer-authentication-failures'), ['int'])),
+                    ('is_tunnel_up', (YLeaf(YType.boolean, 'is-tunnel-up'), ['bool'])),
+                    ('is_congestion_control_enabled', (YLeaf(YType.boolean, 'is-congestion-control-enabled'), ['bool'])),
                 ])
                 self.local_tunnel_id = None
                 self.local_address = None
@@ -4504,12 +4571,54 @@ class L2tp(Entity):
                 self.total_peer_authentication_failures = None
                 self.is_tunnel_up = None
                 self.is_congestion_control_enabled = None
-                self.retransmit_time = []
+
+                self.retransmit_time = YList(self)
                 self._segment_path = lambda: "tunnel" + "[local-tunnel-id='" + str(self.local_tunnel_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/tunnels/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2tp.Tunnels.Tunnel, ['local_tunnel_id', u'local_address', u'remote_address', u'local_port', u'remote_port', u'protocol', u'is_pmtu_enabled', u'remote_tunnel_id', u'local_tunnel_name', u'remote_tunnel_name', u'class_name', u'active_sessions', u'sequence_ns', u'sequence_nr', u'local_window_size', u'remote_window_size', u'retransmission_time', u'maximum_retransmission_time', u'unsent_queue_size', u'unsent_maximum_queue_size', u'resend_queue_size', u'resend_maximum_queue_size', u'order_queue_size', u'packet_queue_check', u'digest_secrets', u'resends', u'zero_length_body_acknowledgement_sent', u'total_out_of_order_drop_packets', u'total_out_of_order_reorder_packets', u'total_peer_authentication_failures', u'is_tunnel_up', u'is_congestion_control_enabled', u'retransmit_time'], name, value)
+                self._perform_setattr(L2tp.Tunnels.Tunnel, ['local_tunnel_id', u'local_address', u'remote_address', u'local_port', u'remote_port', u'protocol', u'is_pmtu_enabled', u'remote_tunnel_id', u'local_tunnel_name', u'remote_tunnel_name', u'class_name', u'active_sessions', u'sequence_ns', u'sequence_nr', u'local_window_size', u'remote_window_size', u'retransmission_time', u'maximum_retransmission_time', u'unsent_queue_size', u'unsent_maximum_queue_size', u'resend_queue_size', u'resend_maximum_queue_size', u'order_queue_size', u'packet_queue_check', u'digest_secrets', u'resends', u'zero_length_body_acknowledgement_sent', u'total_out_of_order_drop_packets', u'total_out_of_order_reorder_packets', u'total_peer_authentication_failures', u'is_tunnel_up', u'is_congestion_control_enabled'], name, value)
+
+
+            class RetransmitTime(Entity):
+                """
+                Retransmit time distribution in seconds
+                
+                .. attribute:: entry
+                
+                	
+                	**type**\: int
+                
+                	**range:** 0..65535
+                
+                	**units**\: second
+                
+                
+
+                """
+
+                _prefix = 'tunnel-l2tun-oper'
+                _revision = '2017-09-07'
+
+                def __init__(self):
+                    super(L2tp.Tunnels.Tunnel.RetransmitTime, self).__init__()
+
+                    self.yang_name = "retransmit-time"
+                    self.yang_parent_name = "tunnel"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('entry', (YLeaf(YType.uint16, 'entry'), ['int'])),
+                    ])
+                    self.entry = None
+                    self._segment_path = lambda: "retransmit-time"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(L2tp.Tunnels.Tunnel.RetransmitTime, [u'entry'], name, value)
 
 
     class Sessions(Entity):
@@ -4542,6 +4651,7 @@ class L2tp(Entity):
             self.session = YList(self)
             self._segment_path = lambda: "sessions"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2tp.Sessions, [], name, value)
@@ -4720,29 +4830,29 @@ class L2tp(Entity):
                 self.ylist_key_names = ['local_tunnel_id','local_session_id']
                 self._child_classes = OrderedDict([("session-application-data", ("session_application_data", L2tp.Sessions.Session.SessionApplicationData))])
                 self._leafs = OrderedDict([
-                    ('local_tunnel_id', YLeaf(YType.uint32, 'local-tunnel-id')),
-                    ('local_session_id', YLeaf(YType.uint32, 'local-session-id')),
-                    ('local_ip_address', YLeaf(YType.str, 'local-ip-address')),
-                    ('remote_ip_address', YLeaf(YType.str, 'remote-ip-address')),
-                    ('l2tp_sh_sess_udp_lport', YLeaf(YType.uint16, 'l2tp-sh-sess-udp-lport')),
-                    ('l2tp_sh_sess_udp_rport', YLeaf(YType.uint16, 'l2tp-sh-sess-udp-rport')),
-                    ('protocol', YLeaf(YType.uint8, 'protocol')),
-                    ('remote_tunnel_id', YLeaf(YType.uint32, 'remote-tunnel-id')),
-                    ('call_serial_number', YLeaf(YType.uint32, 'call-serial-number')),
-                    ('local_tunnel_name', YLeaf(YType.str, 'local-tunnel-name')),
-                    ('remote_tunnel_name', YLeaf(YType.str, 'remote-tunnel-name')),
-                    ('remote_session_id', YLeaf(YType.uint32, 'remote-session-id')),
-                    ('l2tp_sh_sess_tie_breaker_enabled', YLeaf(YType.uint8, 'l2tp-sh-sess-tie-breaker-enabled')),
-                    ('l2tp_sh_sess_tie_breaker', YLeaf(YType.uint64, 'l2tp-sh-sess-tie-breaker')),
-                    ('is_session_manual', YLeaf(YType.boolean, 'is-session-manual')),
-                    ('is_session_up', YLeaf(YType.boolean, 'is-session-up')),
-                    ('is_udp_checksum_enabled', YLeaf(YType.boolean, 'is-udp-checksum-enabled')),
-                    ('is_sequencing_on', YLeaf(YType.boolean, 'is-sequencing-on')),
-                    ('is_session_state_established', YLeaf(YType.boolean, 'is-session-state-established')),
-                    ('is_session_locally_initiated', YLeaf(YType.boolean, 'is-session-locally-initiated')),
-                    ('is_conditional_debug_enabled', YLeaf(YType.boolean, 'is-conditional-debug-enabled')),
-                    ('unique_id', YLeaf(YType.uint32, 'unique-id')),
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('local_tunnel_id', (YLeaf(YType.uint32, 'local-tunnel-id'), ['int'])),
+                    ('local_session_id', (YLeaf(YType.uint32, 'local-session-id'), ['int'])),
+                    ('local_ip_address', (YLeaf(YType.str, 'local-ip-address'), ['str'])),
+                    ('remote_ip_address', (YLeaf(YType.str, 'remote-ip-address'), ['str'])),
+                    ('l2tp_sh_sess_udp_lport', (YLeaf(YType.uint16, 'l2tp-sh-sess-udp-lport'), ['int'])),
+                    ('l2tp_sh_sess_udp_rport', (YLeaf(YType.uint16, 'l2tp-sh-sess-udp-rport'), ['int'])),
+                    ('protocol', (YLeaf(YType.uint8, 'protocol'), ['int'])),
+                    ('remote_tunnel_id', (YLeaf(YType.uint32, 'remote-tunnel-id'), ['int'])),
+                    ('call_serial_number', (YLeaf(YType.uint32, 'call-serial-number'), ['int'])),
+                    ('local_tunnel_name', (YLeaf(YType.str, 'local-tunnel-name'), ['str'])),
+                    ('remote_tunnel_name', (YLeaf(YType.str, 'remote-tunnel-name'), ['str'])),
+                    ('remote_session_id', (YLeaf(YType.uint32, 'remote-session-id'), ['int'])),
+                    ('l2tp_sh_sess_tie_breaker_enabled', (YLeaf(YType.uint8, 'l2tp-sh-sess-tie-breaker-enabled'), ['int'])),
+                    ('l2tp_sh_sess_tie_breaker', (YLeaf(YType.uint64, 'l2tp-sh-sess-tie-breaker'), ['int'])),
+                    ('is_session_manual', (YLeaf(YType.boolean, 'is-session-manual'), ['bool'])),
+                    ('is_session_up', (YLeaf(YType.boolean, 'is-session-up'), ['bool'])),
+                    ('is_udp_checksum_enabled', (YLeaf(YType.boolean, 'is-udp-checksum-enabled'), ['bool'])),
+                    ('is_sequencing_on', (YLeaf(YType.boolean, 'is-sequencing-on'), ['bool'])),
+                    ('is_session_state_established', (YLeaf(YType.boolean, 'is-session-state-established'), ['bool'])),
+                    ('is_session_locally_initiated', (YLeaf(YType.boolean, 'is-session-locally-initiated'), ['bool'])),
+                    ('is_conditional_debug_enabled', (YLeaf(YType.boolean, 'is-conditional-debug-enabled'), ['bool'])),
+                    ('unique_id', (YLeaf(YType.uint32, 'unique-id'), ['int'])),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                 ])
                 self.local_tunnel_id = None
                 self.local_session_id = None
@@ -4773,6 +4883,7 @@ class L2tp(Entity):
                 self._children_name_map["session_application_data"] = "session-application-data"
                 self._segment_path = lambda: "session" + "[local-tunnel-id='" + str(self.local_tunnel_id) + "']" + "[local-session-id='" + str(self.local_session_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/sessions/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2tp.Sessions.Session, ['local_tunnel_id', 'local_session_id', u'local_ip_address', u'remote_ip_address', u'l2tp_sh_sess_udp_lport', u'l2tp_sh_sess_udp_rport', u'protocol', u'remote_tunnel_id', u'call_serial_number', u'local_tunnel_name', u'remote_tunnel_name', u'remote_session_id', u'l2tp_sh_sess_tie_breaker_enabled', u'l2tp_sh_sess_tie_breaker', u'is_session_manual', u'is_session_up', u'is_udp_checksum_enabled', u'is_sequencing_on', u'is_session_state_established', u'is_session_locally_initiated', u'is_conditional_debug_enabled', u'unique_id', u'interface_name'], name, value)
@@ -4816,7 +4927,7 @@ class L2tp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("xconnect", ("xconnect", L2tp.Sessions.Session.SessionApplicationData.Xconnect)), ("vpdn", ("vpdn", L2tp.Sessions.Session.SessionApplicationData.Vpdn))])
                     self._leafs = OrderedDict([
-                        ('l2tp_sh_sess_app_type', YLeaf(YType.uint32, 'l2tp-sh-sess-app-type')),
+                        ('l2tp_sh_sess_app_type', (YLeaf(YType.uint32, 'l2tp-sh-sess-app-type'), ['int'])),
                     ])
                     self.l2tp_sh_sess_app_type = None
 
@@ -4828,6 +4939,7 @@ class L2tp(Entity):
                     self.vpdn.parent = self
                     self._children_name_map["vpdn"] = "vpdn"
                     self._segment_path = lambda: "session-application-data"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tp.Sessions.Session.SessionApplicationData, [u'l2tp_sh_sess_app_type'], name, value)
@@ -4886,12 +4998,12 @@ class L2tp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('circuit_name', YLeaf(YType.str, 'circuit-name')),
-                            ('sessionvc_id', YLeaf(YType.uint32, 'sessionvc-id')),
-                            ('is_circuit_state_up', YLeaf(YType.boolean, 'is-circuit-state-up')),
-                            ('is_local_circuit_state_up', YLeaf(YType.boolean, 'is-local-circuit-state-up')),
-                            ('is_remote_circuit_state_up', YLeaf(YType.boolean, 'is-remote-circuit-state-up')),
-                            ('ipv6_protocol_tunneling', YLeaf(YType.boolean, 'ipv6-protocol-tunneling')),
+                            ('circuit_name', (YLeaf(YType.str, 'circuit-name'), ['str'])),
+                            ('sessionvc_id', (YLeaf(YType.uint32, 'sessionvc-id'), ['int'])),
+                            ('is_circuit_state_up', (YLeaf(YType.boolean, 'is-circuit-state-up'), ['bool'])),
+                            ('is_local_circuit_state_up', (YLeaf(YType.boolean, 'is-local-circuit-state-up'), ['bool'])),
+                            ('is_remote_circuit_state_up', (YLeaf(YType.boolean, 'is-remote-circuit-state-up'), ['bool'])),
+                            ('ipv6_protocol_tunneling', (YLeaf(YType.boolean, 'ipv6-protocol-tunneling'), ['bool'])),
                         ])
                         self.circuit_name = None
                         self.sessionvc_id = None
@@ -4900,6 +5012,7 @@ class L2tp(Entity):
                         self.is_remote_circuit_state_up = None
                         self.ipv6_protocol_tunneling = None
                         self._segment_path = lambda: "xconnect"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Sessions.Session.SessionApplicationData.Xconnect, [u'circuit_name', u'sessionvc_id', u'is_circuit_state_up', u'is_local_circuit_state_up', u'is_remote_circuit_state_up', u'ipv6_protocol_tunneling'], name, value)
@@ -4919,7 +5032,7 @@ class L2tp(Entity):
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     
 
@@ -4938,12 +5051,13 @@ class L2tp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('username', YLeaf(YType.str, 'username')),
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.username = None
                         self.interface_name = None
                         self._segment_path = lambda: "vpdn"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Sessions.Session.SessionApplicationData.Vpdn, [u'username', u'interface_name'], name, value)
@@ -4981,6 +5095,7 @@ class L2tp(Entity):
             self._children_name_map["unavailable"] = "unavailable"
             self._segment_path = lambda: "session"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2tp.Session, [], name, value)
@@ -5014,11 +5129,12 @@ class L2tp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('sessions_on_hold', YLeaf(YType.uint32, 'sessions-on-hold')),
+                    ('sessions_on_hold', (YLeaf(YType.uint32, 'sessions-on-hold'), ['int'])),
                 ])
                 self.sessions_on_hold = None
                 self._segment_path = lambda: "unavailable"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tp/session/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2tp.Session.Unavailable, [u'sessions_on_hold'], name, value)
@@ -5131,6 +5247,7 @@ class L2tpv2(Entity):
         self.session.parent = self
         self._children_name_map["session"] = "session"
         self._segment_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(L2tpv2, [], name, value)
@@ -5177,6 +5294,7 @@ class L2tpv2(Entity):
             self._children_name_map["control"] = "control"
             self._segment_path = lambda: "counters"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2tpv2.Counters, [], name, value)
@@ -5214,6 +5332,7 @@ class L2tpv2(Entity):
                 self._children_name_map["sessions"] = "sessions"
                 self._segment_path = lambda: "forwarding"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2tpv2.Counters.Forwarding, [], name, value)
@@ -5249,6 +5368,7 @@ class L2tpv2(Entity):
                     self.session = YList(self)
                     self._segment_path = lambda: "sessions"
                     self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/forwarding/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tpv2.Counters.Forwarding.Sessions, [], name, value)
@@ -5328,13 +5448,13 @@ class L2tpv2(Entity):
                         self.ylist_key_names = ['tunnel_id','session_id']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
-                            ('session_id', YLeaf(YType.uint32, 'session-id')),
-                            ('remote_session_id', YLeaf(YType.uint32, 'remote-session-id')),
-                            ('in_packets', YLeaf(YType.uint64, 'in-packets')),
-                            ('out_packets', YLeaf(YType.uint64, 'out-packets')),
-                            ('in_bytes', YLeaf(YType.uint64, 'in-bytes')),
-                            ('out_bytes', YLeaf(YType.uint64, 'out-bytes')),
+                            ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('remote_session_id', (YLeaf(YType.uint32, 'remote-session-id'), ['int'])),
+                            ('in_packets', (YLeaf(YType.uint64, 'in-packets'), ['int'])),
+                            ('out_packets', (YLeaf(YType.uint64, 'out-packets'), ['int'])),
+                            ('in_bytes', (YLeaf(YType.uint64, 'in-bytes'), ['int'])),
+                            ('out_bytes', (YLeaf(YType.uint64, 'out-bytes'), ['int'])),
                         ])
                         self.tunnel_id = None
                         self.session_id = None
@@ -5345,6 +5465,7 @@ class L2tpv2(Entity):
                         self.out_bytes = None
                         self._segment_path = lambda: "session" + "[tunnel-id='" + str(self.tunnel_id) + "']" + "[session-id='" + str(self.session_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/forwarding/sessions/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tpv2.Counters.Forwarding.Sessions.Session, ['tunnel_id', 'session_id', u'remote_session_id', u'in_packets', u'out_packets', u'in_bytes', u'out_bytes'], name, value)
@@ -5391,6 +5512,7 @@ class L2tpv2(Entity):
                 self._children_name_map["tunnels"] = "tunnels"
                 self._segment_path = lambda: "control"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2tpv2.Counters.Control, [], name, value)
@@ -5437,6 +5559,7 @@ class L2tpv2(Entity):
                     self._children_name_map["global_"] = "global"
                     self._segment_path = lambda: "tunnel-xr"
                     self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tpv2.Counters.Control.TunnelXr, [], name, value)
@@ -5546,6 +5669,7 @@ class L2tpv2(Entity):
                         self._children_name_map["overall_statistics"] = "overall-statistics"
                         self._segment_path = lambda: "authentication"
                         self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication, [], name, value)
@@ -5649,17 +5773,17 @@ class L2tpv2(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -5674,6 +5798,7 @@ class L2tpv2(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "nonce-avp"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.NonceAvp, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -5777,17 +5902,17 @@ class L2tpv2(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -5802,6 +5927,7 @@ class L2tpv2(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "common-digest"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.CommonDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -5905,17 +6031,17 @@ class L2tpv2(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -5930,6 +6056,7 @@ class L2tpv2(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "primary-digest"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.PrimaryDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -6033,17 +6160,17 @@ class L2tpv2(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -6058,6 +6185,7 @@ class L2tpv2(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "secondary-digest"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.SecondaryDigest, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -6161,17 +6289,17 @@ class L2tpv2(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -6186,6 +6314,7 @@ class L2tpv2(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "integrity-check"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.IntegrityCheck, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -6289,17 +6418,17 @@ class L2tpv2(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -6314,6 +6443,7 @@ class L2tpv2(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "local-secret"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.LocalSecret, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -6417,17 +6547,17 @@ class L2tpv2(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -6442,6 +6572,7 @@ class L2tpv2(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "challenge-avp"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeAvp, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -6545,17 +6676,17 @@ class L2tpv2(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -6570,6 +6701,7 @@ class L2tpv2(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "challenge-reponse"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.ChallengeReponse, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -6673,17 +6805,17 @@ class L2tpv2(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('validate', YLeaf(YType.uint32, 'validate')),
-                                ('bad_hash', YLeaf(YType.uint32, 'bad-hash')),
-                                ('bad_length', YLeaf(YType.uint32, 'bad-length')),
-                                ('ignored', YLeaf(YType.uint32, 'ignored')),
-                                ('missing', YLeaf(YType.uint32, 'missing')),
-                                ('passed', YLeaf(YType.uint32, 'passed')),
-                                ('failed', YLeaf(YType.uint32, 'failed')),
-                                ('skipped', YLeaf(YType.uint32, 'skipped')),
-                                ('generate_response_failures', YLeaf(YType.uint32, 'generate-response-failures')),
-                                ('unexpected', YLeaf(YType.uint32, 'unexpected')),
-                                ('unexpected_zlb', YLeaf(YType.uint32, 'unexpected-zlb')),
+                                ('validate', (YLeaf(YType.uint32, 'validate'), ['int'])),
+                                ('bad_hash', (YLeaf(YType.uint32, 'bad-hash'), ['int'])),
+                                ('bad_length', (YLeaf(YType.uint32, 'bad-length'), ['int'])),
+                                ('ignored', (YLeaf(YType.uint32, 'ignored'), ['int'])),
+                                ('missing', (YLeaf(YType.uint32, 'missing'), ['int'])),
+                                ('passed', (YLeaf(YType.uint32, 'passed'), ['int'])),
+                                ('failed', (YLeaf(YType.uint32, 'failed'), ['int'])),
+                                ('skipped', (YLeaf(YType.uint32, 'skipped'), ['int'])),
+                                ('generate_response_failures', (YLeaf(YType.uint32, 'generate-response-failures'), ['int'])),
+                                ('unexpected', (YLeaf(YType.uint32, 'unexpected'), ['int'])),
+                                ('unexpected_zlb', (YLeaf(YType.uint32, 'unexpected-zlb'), ['int'])),
                             ])
                             self.validate = None
                             self.bad_hash = None
@@ -6698,6 +6830,7 @@ class L2tpv2(Entity):
                             self.unexpected_zlb = None
                             self._segment_path = lambda: "overall-statistics"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/authentication/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Authentication.OverallStatistics, [u'validate', u'bad_hash', u'bad_length', u'ignored', u'missing', u'passed', u'failed', u'skipped', u'generate_response_failures', u'unexpected', u'unexpected_zlb'], name, value)
@@ -6772,10 +6905,10 @@ class L2tpv2(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("transmit", ("transmit", L2tpv2.Counters.Control.TunnelXr.Global.Transmit)), ("retransmit", ("retransmit", L2tpv2.Counters.Control.TunnelXr.Global.Retransmit)), ("received", ("received", L2tpv2.Counters.Control.TunnelXr.Global.Received)), ("drop", ("drop", L2tpv2.Counters.Control.TunnelXr.Global.Drop))])
                         self._leafs = OrderedDict([
-                            ('total_transmit', YLeaf(YType.uint32, 'total-transmit')),
-                            ('total_retransmit', YLeaf(YType.uint32, 'total-retransmit')),
-                            ('total_received', YLeaf(YType.uint32, 'total-received')),
-                            ('total_drop', YLeaf(YType.uint32, 'total-drop')),
+                            ('total_transmit', (YLeaf(YType.uint32, 'total-transmit'), ['int'])),
+                            ('total_retransmit', (YLeaf(YType.uint32, 'total-retransmit'), ['int'])),
+                            ('total_received', (YLeaf(YType.uint32, 'total-received'), ['int'])),
+                            ('total_drop', (YLeaf(YType.uint32, 'total-drop'), ['int'])),
                         ])
                         self.total_transmit = None
                         self.total_retransmit = None
@@ -6799,6 +6932,7 @@ class L2tpv2(Entity):
                         self._children_name_map["drop"] = "drop"
                         self._segment_path = lambda: "global"
                         self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Global, [u'total_transmit', u'total_retransmit', u'total_received', u'total_drop'], name, value)
@@ -6958,25 +7092,25 @@ class L2tpv2(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                             ])
                             self.unknown_packets = None
                             self.zero_length_body_packets = None
@@ -6999,6 +7133,7 @@ class L2tpv2(Entity):
                             self.acknowledgement_packets = None
                             self._segment_path = lambda: "transmit"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Global.Transmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -7158,25 +7293,25 @@ class L2tpv2(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                             ])
                             self.unknown_packets = None
                             self.zero_length_body_packets = None
@@ -7199,6 +7334,7 @@ class L2tpv2(Entity):
                             self.acknowledgement_packets = None
                             self._segment_path = lambda: "retransmit"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Global.Retransmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -7358,25 +7494,25 @@ class L2tpv2(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                             ])
                             self.unknown_packets = None
                             self.zero_length_body_packets = None
@@ -7399,6 +7535,7 @@ class L2tpv2(Entity):
                             self.acknowledgement_packets = None
                             self._segment_path = lambda: "received"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Global.Received, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -7558,25 +7695,25 @@ class L2tpv2(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                             ])
                             self.unknown_packets = None
                             self.zero_length_body_packets = None
@@ -7599,6 +7736,7 @@ class L2tpv2(Entity):
                             self.acknowledgement_packets = None
                             self._segment_path = lambda: "drop"
                             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnel-xr/global/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Counters.Control.TunnelXr.Global.Drop, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -7634,6 +7772,7 @@ class L2tpv2(Entity):
                     self.tunnel = YList(self)
                     self._segment_path = lambda: "tunnels"
                     self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tpv2.Counters.Control.Tunnels, [], name, value)
@@ -7677,7 +7816,7 @@ class L2tpv2(Entity):
                         self.ylist_key_names = ['tunnel_id']
                         self._child_classes = OrderedDict([("brief", ("brief", L2tpv2.Counters.Control.Tunnels.Tunnel.Brief)), ("global", ("global_", L2tpv2.Counters.Control.Tunnels.Tunnel.Global))])
                         self._leafs = OrderedDict([
-                            ('tunnel_id', YLeaf(YType.uint32, 'tunnel-id')),
+                            ('tunnel_id', (YLeaf(YType.uint32, 'tunnel-id'), ['int'])),
                         ])
                         self.tunnel_id = None
 
@@ -7690,6 +7829,7 @@ class L2tpv2(Entity):
                         self._children_name_map["global_"] = "global"
                         self._segment_path = lambda: "tunnel" + "[tunnel-id='" + str(self.tunnel_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counters/control/tunnels/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel, ['tunnel_id'], name, value)
@@ -7737,14 +7877,15 @@ class L2tpv2(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('remote_tunnel_id', YLeaf(YType.uint32, 'remote-tunnel-id')),
-                                ('local_address', YLeaf(YType.str, 'local-address')),
-                                ('remote_address', YLeaf(YType.str, 'remote-address')),
+                                ('remote_tunnel_id', (YLeaf(YType.uint32, 'remote-tunnel-id'), ['int'])),
+                                ('local_address', (YLeaf(YType.str, 'local-address'), ['str'])),
+                                ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str'])),
                             ])
                             self.remote_tunnel_id = None
                             self.local_address = None
                             self.remote_address = None
                             self._segment_path = lambda: "brief"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Brief, [u'remote_tunnel_id', u'local_address', u'remote_address'], name, value)
@@ -7819,10 +7960,10 @@ class L2tpv2(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("transmit", ("transmit", L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Transmit)), ("retransmit", ("retransmit", L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Retransmit)), ("received", ("received", L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Received)), ("drop", ("drop", L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Drop))])
                             self._leafs = OrderedDict([
-                                ('total_transmit', YLeaf(YType.uint32, 'total-transmit')),
-                                ('total_retransmit', YLeaf(YType.uint32, 'total-retransmit')),
-                                ('total_received', YLeaf(YType.uint32, 'total-received')),
-                                ('total_drop', YLeaf(YType.uint32, 'total-drop')),
+                                ('total_transmit', (YLeaf(YType.uint32, 'total-transmit'), ['int'])),
+                                ('total_retransmit', (YLeaf(YType.uint32, 'total-retransmit'), ['int'])),
+                                ('total_received', (YLeaf(YType.uint32, 'total-received'), ['int'])),
+                                ('total_drop', (YLeaf(YType.uint32, 'total-drop'), ['int'])),
                             ])
                             self.total_transmit = None
                             self.total_retransmit = None
@@ -7845,6 +7986,7 @@ class L2tpv2(Entity):
                             self.drop.parent = self
                             self._children_name_map["drop"] = "drop"
                             self._segment_path = lambda: "global"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Global, [u'total_transmit', u'total_retransmit', u'total_received', u'total_drop'], name, value)
@@ -8004,25 +8146,25 @@ class L2tpv2(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                    ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                    ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                    ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                    ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                    ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                    ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                    ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                    ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                    ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                    ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                    ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                    ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                    ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                    ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                    ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                    ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                    ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                    ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                    ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                    ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                    ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                    ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                    ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                    ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                    ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                    ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                    ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                    ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                    ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                    ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                    ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                    ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                    ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                    ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                    ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                    ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                    ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                                 ])
                                 self.unknown_packets = None
                                 self.zero_length_body_packets = None
@@ -8044,6 +8186,7 @@ class L2tpv2(Entity):
                                 self.service_relay_replies = None
                                 self.acknowledgement_packets = None
                                 self._segment_path = lambda: "transmit"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Transmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -8203,25 +8346,25 @@ class L2tpv2(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                    ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                    ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                    ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                    ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                    ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                    ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                    ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                    ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                    ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                    ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                    ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                    ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                    ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                    ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                    ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                    ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                    ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                    ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                    ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                    ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                    ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                    ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                    ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                    ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                    ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                    ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                    ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                    ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                    ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                    ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                    ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                    ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                    ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                    ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                    ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                    ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                    ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                                 ])
                                 self.unknown_packets = None
                                 self.zero_length_body_packets = None
@@ -8243,6 +8386,7 @@ class L2tpv2(Entity):
                                 self.service_relay_replies = None
                                 self.acknowledgement_packets = None
                                 self._segment_path = lambda: "retransmit"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Retransmit, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -8402,25 +8546,25 @@ class L2tpv2(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                    ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                    ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                    ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                    ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                    ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                    ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                    ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                    ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                    ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                    ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                    ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                    ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                    ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                    ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                    ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                    ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                    ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                    ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                    ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                    ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                    ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                    ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                    ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                    ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                    ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                    ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                    ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                    ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                    ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                    ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                    ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                    ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                    ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                    ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                    ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                    ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                    ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                                 ])
                                 self.unknown_packets = None
                                 self.zero_length_body_packets = None
@@ -8442,6 +8586,7 @@ class L2tpv2(Entity):
                                 self.service_relay_replies = None
                                 self.acknowledgement_packets = None
                                 self._segment_path = lambda: "received"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Received, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -8601,25 +8746,25 @@ class L2tpv2(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('unknown_packets', YLeaf(YType.uint32, 'unknown-packets')),
-                                    ('zero_length_body_packets', YLeaf(YType.uint32, 'zero-length-body-packets')),
-                                    ('start_control_connection_requests', YLeaf(YType.uint32, 'start-control-connection-requests')),
-                                    ('start_control_connection_replies', YLeaf(YType.uint32, 'start-control-connection-replies')),
-                                    ('start_control_connection_notifications', YLeaf(YType.uint32, 'start-control-connection-notifications')),
-                                    ('stop_control_connection_notifications', YLeaf(YType.uint32, 'stop-control-connection-notifications')),
-                                    ('hello_packets', YLeaf(YType.uint32, 'hello-packets')),
-                                    ('outgoing_call_requests', YLeaf(YType.uint32, 'outgoing-call-requests')),
-                                    ('outgoing_call_replies', YLeaf(YType.uint32, 'outgoing-call-replies')),
-                                    ('outgoing_call_connected_packets', YLeaf(YType.uint32, 'outgoing-call-connected-packets')),
-                                    ('incoming_call_requests', YLeaf(YType.uint32, 'incoming-call-requests')),
-                                    ('incoming_call_replies', YLeaf(YType.uint32, 'incoming-call-replies')),
-                                    ('incoming_call_connected_packets', YLeaf(YType.uint32, 'incoming-call-connected-packets')),
-                                    ('call_disconnect_notify_packets', YLeaf(YType.uint32, 'call-disconnect-notify-packets')),
-                                    ('wan_error_notify_packets', YLeaf(YType.uint32, 'wan-error-notify-packets')),
-                                    ('set_link_info_packets', YLeaf(YType.uint32, 'set-link-info-packets')),
-                                    ('service_relay_requests', YLeaf(YType.uint32, 'service-relay-requests')),
-                                    ('service_relay_replies', YLeaf(YType.uint32, 'service-relay-replies')),
-                                    ('acknowledgement_packets', YLeaf(YType.uint32, 'acknowledgement-packets')),
+                                    ('unknown_packets', (YLeaf(YType.uint32, 'unknown-packets'), ['int'])),
+                                    ('zero_length_body_packets', (YLeaf(YType.uint32, 'zero-length-body-packets'), ['int'])),
+                                    ('start_control_connection_requests', (YLeaf(YType.uint32, 'start-control-connection-requests'), ['int'])),
+                                    ('start_control_connection_replies', (YLeaf(YType.uint32, 'start-control-connection-replies'), ['int'])),
+                                    ('start_control_connection_notifications', (YLeaf(YType.uint32, 'start-control-connection-notifications'), ['int'])),
+                                    ('stop_control_connection_notifications', (YLeaf(YType.uint32, 'stop-control-connection-notifications'), ['int'])),
+                                    ('hello_packets', (YLeaf(YType.uint32, 'hello-packets'), ['int'])),
+                                    ('outgoing_call_requests', (YLeaf(YType.uint32, 'outgoing-call-requests'), ['int'])),
+                                    ('outgoing_call_replies', (YLeaf(YType.uint32, 'outgoing-call-replies'), ['int'])),
+                                    ('outgoing_call_connected_packets', (YLeaf(YType.uint32, 'outgoing-call-connected-packets'), ['int'])),
+                                    ('incoming_call_requests', (YLeaf(YType.uint32, 'incoming-call-requests'), ['int'])),
+                                    ('incoming_call_replies', (YLeaf(YType.uint32, 'incoming-call-replies'), ['int'])),
+                                    ('incoming_call_connected_packets', (YLeaf(YType.uint32, 'incoming-call-connected-packets'), ['int'])),
+                                    ('call_disconnect_notify_packets', (YLeaf(YType.uint32, 'call-disconnect-notify-packets'), ['int'])),
+                                    ('wan_error_notify_packets', (YLeaf(YType.uint32, 'wan-error-notify-packets'), ['int'])),
+                                    ('set_link_info_packets', (YLeaf(YType.uint32, 'set-link-info-packets'), ['int'])),
+                                    ('service_relay_requests', (YLeaf(YType.uint32, 'service-relay-requests'), ['int'])),
+                                    ('service_relay_replies', (YLeaf(YType.uint32, 'service-relay-replies'), ['int'])),
+                                    ('acknowledgement_packets', (YLeaf(YType.uint32, 'acknowledgement-packets'), ['int'])),
                                 ])
                                 self.unknown_packets = None
                                 self.zero_length_body_packets = None
@@ -8641,6 +8786,7 @@ class L2tpv2(Entity):
                                 self.service_relay_replies = None
                                 self.acknowledgement_packets = None
                                 self._segment_path = lambda: "drop"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(L2tpv2.Counters.Control.Tunnels.Tunnel.Global.Drop, [u'unknown_packets', u'zero_length_body_packets', u'start_control_connection_requests', u'start_control_connection_replies', u'start_control_connection_notifications', u'stop_control_connection_notifications', u'hello_packets', u'outgoing_call_requests', u'outgoing_call_replies', u'outgoing_call_connected_packets', u'incoming_call_requests', u'incoming_call_replies', u'incoming_call_connected_packets', u'call_disconnect_notify_packets', u'wan_error_notify_packets', u'set_link_info_packets', u'service_relay_requests', u'service_relay_replies', u'acknowledgement_packets'], name, value)
@@ -8746,17 +8892,17 @@ class L2tpv2(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('tunnels', YLeaf(YType.uint32, 'tunnels')),
-                ('sessions', YLeaf(YType.uint32, 'sessions')),
-                ('sent_packets', YLeaf(YType.uint32, 'sent-packets')),
-                ('received_packets', YLeaf(YType.uint32, 'received-packets')),
-                ('average_packet_processing_time', YLeaf(YType.uint32, 'average-packet-processing-time')),
-                ('received_out_of_order_packets', YLeaf(YType.uint32, 'received-out-of-order-packets')),
-                ('reorder_packets', YLeaf(YType.uint32, 'reorder-packets')),
-                ('reorder_deviation_packets', YLeaf(YType.uint32, 'reorder-deviation-packets')),
-                ('incoming_dropped_packets', YLeaf(YType.uint32, 'incoming-dropped-packets')),
-                ('buffered_packets', YLeaf(YType.uint32, 'buffered-packets')),
-                ('netio_packets', YLeaf(YType.uint32, 'netio-packets')),
+                ('tunnels', (YLeaf(YType.uint32, 'tunnels'), ['int'])),
+                ('sessions', (YLeaf(YType.uint32, 'sessions'), ['int'])),
+                ('sent_packets', (YLeaf(YType.uint32, 'sent-packets'), ['int'])),
+                ('received_packets', (YLeaf(YType.uint32, 'received-packets'), ['int'])),
+                ('average_packet_processing_time', (YLeaf(YType.uint32, 'average-packet-processing-time'), ['int'])),
+                ('received_out_of_order_packets', (YLeaf(YType.uint32, 'received-out-of-order-packets'), ['int'])),
+                ('reorder_packets', (YLeaf(YType.uint32, 'reorder-packets'), ['int'])),
+                ('reorder_deviation_packets', (YLeaf(YType.uint32, 'reorder-deviation-packets'), ['int'])),
+                ('incoming_dropped_packets', (YLeaf(YType.uint32, 'incoming-dropped-packets'), ['int'])),
+                ('buffered_packets', (YLeaf(YType.uint32, 'buffered-packets'), ['int'])),
+                ('netio_packets', (YLeaf(YType.uint32, 'netio-packets'), ['int'])),
             ])
             self.tunnels = None
             self.sessions = None
@@ -8771,6 +8917,7 @@ class L2tpv2(Entity):
             self.netio_packets = None
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2tpv2.Statistics, [u'tunnels', u'sessions', u'sent_packets', u'received_packets', u'average_packet_processing_time', u'received_out_of_order_packets', u'reorder_packets', u'reorder_deviation_packets', u'incoming_dropped_packets', u'buffered_packets', u'netio_packets'], name, value)
@@ -8808,6 +8955,7 @@ class L2tpv2(Entity):
             self._children_name_map["accounting"] = "accounting"
             self._segment_path = lambda: "tunnel"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2tpv2.Tunnel, [], name, value)
@@ -8845,6 +8993,7 @@ class L2tpv2(Entity):
                 self._children_name_map["statistics"] = "statistics"
                 self._segment_path = lambda: "accounting"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnel/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2tpv2.Tunnel.Accounting, [], name, value)
@@ -8976,21 +9125,21 @@ class L2tpv2(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('records_sent_successfully', YLeaf(YType.uint64, 'records-sent-successfully')),
-                        ('start', YLeaf(YType.uint64, 'start')),
-                        ('stop', YLeaf(YType.uint64, 'stop')),
-                        ('reject', YLeaf(YType.uint64, 'reject')),
-                        ('transport_failures', YLeaf(YType.uint64, 'transport-failures')),
-                        ('positive_acknowledgement', YLeaf(YType.uint64, 'positive-acknowledgement')),
-                        ('negative_acknowledgement', YLeaf(YType.uint64, 'negative-acknowledgement')),
-                        ('records_checkpointed', YLeaf(YType.uint64, 'records-checkpointed')),
-                        ('records_failed_to_checkpoint', YLeaf(YType.uint64, 'records-failed-to-checkpoint')),
-                        ('records_sent_from_queue', YLeaf(YType.uint64, 'records-sent-from-queue')),
-                        ('memory_failures', YLeaf(YType.uint32, 'memory-failures')),
-                        ('current_size', YLeaf(YType.uint32, 'current-size')),
-                        ('records_recovered_from_checkpoint', YLeaf(YType.uint32, 'records-recovered-from-checkpoint')),
-                        ('records_fail_to_recover', YLeaf(YType.uint32, 'records-fail-to-recover')),
-                        ('queue_statistics_size', YLeaf(YType.int32, 'queue-statistics-size')),
+                        ('records_sent_successfully', (YLeaf(YType.uint64, 'records-sent-successfully'), ['int'])),
+                        ('start', (YLeaf(YType.uint64, 'start'), ['int'])),
+                        ('stop', (YLeaf(YType.uint64, 'stop'), ['int'])),
+                        ('reject', (YLeaf(YType.uint64, 'reject'), ['int'])),
+                        ('transport_failures', (YLeaf(YType.uint64, 'transport-failures'), ['int'])),
+                        ('positive_acknowledgement', (YLeaf(YType.uint64, 'positive-acknowledgement'), ['int'])),
+                        ('negative_acknowledgement', (YLeaf(YType.uint64, 'negative-acknowledgement'), ['int'])),
+                        ('records_checkpointed', (YLeaf(YType.uint64, 'records-checkpointed'), ['int'])),
+                        ('records_failed_to_checkpoint', (YLeaf(YType.uint64, 'records-failed-to-checkpoint'), ['int'])),
+                        ('records_sent_from_queue', (YLeaf(YType.uint64, 'records-sent-from-queue'), ['int'])),
+                        ('memory_failures', (YLeaf(YType.uint32, 'memory-failures'), ['int'])),
+                        ('current_size', (YLeaf(YType.uint32, 'current-size'), ['int'])),
+                        ('records_recovered_from_checkpoint', (YLeaf(YType.uint32, 'records-recovered-from-checkpoint'), ['int'])),
+                        ('records_fail_to_recover', (YLeaf(YType.uint32, 'records-fail-to-recover'), ['int'])),
+                        ('queue_statistics_size', (YLeaf(YType.int32, 'queue-statistics-size'), ['int'])),
                     ])
                     self.records_sent_successfully = None
                     self.start = None
@@ -9009,6 +9158,7 @@ class L2tpv2(Entity):
                     self.queue_statistics_size = None
                     self._segment_path = lambda: "statistics"
                     self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnel/accounting/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tpv2.Tunnel.Accounting.Statistics, [u'records_sent_successfully', u'start', u'stop', u'reject', u'transport_failures', u'positive_acknowledgement', u'negative_acknowledgement', u'records_checkpointed', u'records_failed_to_checkpoint', u'records_sent_from_queue', u'memory_failures', u'current_size', u'records_recovered_from_checkpoint', u'records_fail_to_recover', u'queue_statistics_size'], name, value)
@@ -9044,6 +9194,7 @@ class L2tpv2(Entity):
             self.tunnel_configuration = YList(self)
             self._segment_path = lambda: "tunnel-configurations"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2tpv2.TunnelConfigurations, [], name, value)
@@ -9089,8 +9240,8 @@ class L2tpv2(Entity):
                 self.ylist_key_names = ['local_tunnel_id']
                 self._child_classes = OrderedDict([("l2tp-class", ("l2tp_class", L2tpv2.TunnelConfigurations.TunnelConfiguration.L2tpClass))])
                 self._leafs = OrderedDict([
-                    ('local_tunnel_id', YLeaf(YType.uint32, 'local-tunnel-id')),
-                    ('remote_tunnel_id', YLeaf(YType.uint32, 'remote-tunnel-id')),
+                    ('local_tunnel_id', (YLeaf(YType.uint32, 'local-tunnel-id'), ['int'])),
+                    ('remote_tunnel_id', (YLeaf(YType.uint32, 'remote-tunnel-id'), ['int'])),
                 ])
                 self.local_tunnel_id = None
                 self.remote_tunnel_id = None
@@ -9100,6 +9251,7 @@ class L2tpv2(Entity):
                 self._children_name_map["l2tp_class"] = "l2tp-class"
                 self._segment_path = lambda: "tunnel-configuration" + "[local-tunnel-id='" + str(self.local_tunnel_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnel-configurations/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2tpv2.TunnelConfigurations.TunnelConfiguration, ['local_tunnel_id', u'remote_tunnel_id'], name, value)
@@ -9292,30 +9444,30 @@ class L2tpv2(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip_tos', YLeaf(YType.uint8, 'ip-tos')),
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                        ('receive_window_size', YLeaf(YType.uint16, 'receive-window-size')),
-                        ('class_name_xr', YLeaf(YType.str, 'class-name-xr')),
-                        ('digest_hash', YLeaf(YType.enumeration, 'digest-hash')),
-                        ('password', YLeaf(YType.str, 'password')),
-                        ('encoded_password', YLeaf(YType.str, 'encoded-password')),
-                        ('host_name', YLeaf(YType.str, 'host-name')),
-                        ('accounting_method_list', YLeaf(YType.str, 'accounting-method-list')),
-                        ('hello_timeout', YLeaf(YType.uint32, 'hello-timeout')),
-                        ('setup_timeout', YLeaf(YType.uint32, 'setup-timeout')),
-                        ('retransmit_minimum_timeout', YLeaf(YType.uint32, 'retransmit-minimum-timeout')),
-                        ('retransmit_maximum_timeout', YLeaf(YType.uint32, 'retransmit-maximum-timeout')),
-                        ('initial_retransmit_minimum_timeout', YLeaf(YType.uint32, 'initial-retransmit-minimum-timeout')),
-                        ('initial_retransmit_maximum_timeout', YLeaf(YType.uint32, 'initial-retransmit-maximum-timeout')),
-                        ('timeout_no_user', YLeaf(YType.uint32, 'timeout-no-user')),
-                        ('retransmit_retries', YLeaf(YType.uint32, 'retransmit-retries')),
-                        ('initial_retransmit_retries', YLeaf(YType.uint32, 'initial-retransmit-retries')),
-                        ('is_authentication_enabled', YLeaf(YType.boolean, 'is-authentication-enabled')),
-                        ('is_hidden', YLeaf(YType.boolean, 'is-hidden')),
-                        ('is_digest_enabled', YLeaf(YType.boolean, 'is-digest-enabled')),
-                        ('is_digest_check_enabled', YLeaf(YType.boolean, 'is-digest-check-enabled')),
-                        ('is_congestion_control_enabled', YLeaf(YType.boolean, 'is-congestion-control-enabled')),
-                        ('is_peer_address_checked', YLeaf(YType.boolean, 'is-peer-address-checked')),
+                        ('ip_tos', (YLeaf(YType.uint8, 'ip-tos'), ['int'])),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                        ('receive_window_size', (YLeaf(YType.uint16, 'receive-window-size'), ['int'])),
+                        ('class_name_xr', (YLeaf(YType.str, 'class-name-xr'), ['str'])),
+                        ('digest_hash', (YLeaf(YType.enumeration, 'digest-hash'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper', 'DigestHash', '')])),
+                        ('password', (YLeaf(YType.str, 'password'), ['str'])),
+                        ('encoded_password', (YLeaf(YType.str, 'encoded-password'), ['str'])),
+                        ('host_name', (YLeaf(YType.str, 'host-name'), ['str'])),
+                        ('accounting_method_list', (YLeaf(YType.str, 'accounting-method-list'), ['str'])),
+                        ('hello_timeout', (YLeaf(YType.uint32, 'hello-timeout'), ['int'])),
+                        ('setup_timeout', (YLeaf(YType.uint32, 'setup-timeout'), ['int'])),
+                        ('retransmit_minimum_timeout', (YLeaf(YType.uint32, 'retransmit-minimum-timeout'), ['int'])),
+                        ('retransmit_maximum_timeout', (YLeaf(YType.uint32, 'retransmit-maximum-timeout'), ['int'])),
+                        ('initial_retransmit_minimum_timeout', (YLeaf(YType.uint32, 'initial-retransmit-minimum-timeout'), ['int'])),
+                        ('initial_retransmit_maximum_timeout', (YLeaf(YType.uint32, 'initial-retransmit-maximum-timeout'), ['int'])),
+                        ('timeout_no_user', (YLeaf(YType.uint32, 'timeout-no-user'), ['int'])),
+                        ('retransmit_retries', (YLeaf(YType.uint32, 'retransmit-retries'), ['int'])),
+                        ('initial_retransmit_retries', (YLeaf(YType.uint32, 'initial-retransmit-retries'), ['int'])),
+                        ('is_authentication_enabled', (YLeaf(YType.boolean, 'is-authentication-enabled'), ['bool'])),
+                        ('is_hidden', (YLeaf(YType.boolean, 'is-hidden'), ['bool'])),
+                        ('is_digest_enabled', (YLeaf(YType.boolean, 'is-digest-enabled'), ['bool'])),
+                        ('is_digest_check_enabled', (YLeaf(YType.boolean, 'is-digest-check-enabled'), ['bool'])),
+                        ('is_congestion_control_enabled', (YLeaf(YType.boolean, 'is-congestion-control-enabled'), ['bool'])),
+                        ('is_peer_address_checked', (YLeaf(YType.boolean, 'is-peer-address-checked'), ['bool'])),
                     ])
                     self.ip_tos = None
                     self.vrf_name = None
@@ -9342,6 +9494,7 @@ class L2tpv2(Entity):
                     self.is_congestion_control_enabled = None
                     self.is_peer_address_checked = None
                     self._segment_path = lambda: "l2tp-class"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tpv2.TunnelConfigurations.TunnelConfiguration.L2tpClass, [u'ip_tos', u'vrf_name', u'receive_window_size', u'class_name_xr', u'digest_hash', u'password', u'encoded_password', u'host_name', u'accounting_method_list', u'hello_timeout', u'setup_timeout', u'retransmit_minimum_timeout', u'retransmit_maximum_timeout', u'initial_retransmit_minimum_timeout', u'initial_retransmit_maximum_timeout', u'timeout_no_user', u'retransmit_retries', u'initial_retransmit_retries', u'is_authentication_enabled', u'is_hidden', u'is_digest_enabled', u'is_digest_check_enabled', u'is_congestion_control_enabled', u'is_peer_address_checked'], name, value)
@@ -9375,9 +9528,7 @@ class L2tpv2(Entity):
         .. attribute:: pkt_timeout
         
         	timeout events by packet
-        	**type**\: list of int
-        
-        	**range:** 0..4294967295
+        	**type**\: list of  		 :py:class:`PktTimeout <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.CounterHistFail.PktTimeout>`
         
         
 
@@ -9394,22 +9545,62 @@ class L2tpv2(Entity):
             self.is_top_level_class = False
             self.has_list_ancestor = False
             self.ylist_key_names = []
-            self._child_classes = OrderedDict([])
+            self._child_classes = OrderedDict([("pkt-timeout", ("pkt_timeout", L2tpv2.CounterHistFail.PktTimeout))])
             self._leafs = OrderedDict([
-                ('sess_down_tmout', YLeaf(YType.uint32, 'sess-down-tmout')),
-                ('tx_counters', YLeaf(YType.str, 'tx-counters')),
-                ('rx_counters', YLeaf(YType.str, 'rx-counters')),
-                ('pkt_timeout', YLeafList(YType.uint32, 'pkt-timeout')),
+                ('sess_down_tmout', (YLeaf(YType.uint32, 'sess-down-tmout'), ['int'])),
+                ('tx_counters', (YLeaf(YType.str, 'tx-counters'), ['str'])),
+                ('rx_counters', (YLeaf(YType.str, 'rx-counters'), ['str'])),
             ])
             self.sess_down_tmout = None
             self.tx_counters = None
             self.rx_counters = None
-            self.pkt_timeout = []
+
+            self.pkt_timeout = YList(self)
             self._segment_path = lambda: "counter-hist-fail"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(L2tpv2.CounterHistFail, [u'sess_down_tmout', u'tx_counters', u'rx_counters', u'pkt_timeout'], name, value)
+            self._perform_setattr(L2tpv2.CounterHistFail, [u'sess_down_tmout', u'tx_counters', u'rx_counters'], name, value)
+
+
+        class PktTimeout(Entity):
+            """
+            timeout events by packet
+            
+            .. attribute:: entry
+            
+            	
+            	**type**\: int
+            
+            	**range:** 0..4294967295
+            
+            
+
+            """
+
+            _prefix = 'tunnel-l2tun-oper'
+            _revision = '2017-09-07'
+
+            def __init__(self):
+                super(L2tpv2.CounterHistFail.PktTimeout, self).__init__()
+
+                self.yang_name = "pkt-timeout"
+                self.yang_parent_name = "counter-hist-fail"
+                self.is_top_level_class = False
+                self.has_list_ancestor = False
+                self.ylist_key_names = []
+                self._child_classes = OrderedDict([])
+                self._leafs = OrderedDict([
+                    ('entry', (YLeaf(YType.uint32, 'entry'), ['int'])),
+                ])
+                self.entry = None
+                self._segment_path = lambda: "pkt-timeout"
+                self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/counter-hist-fail/%s" % self._segment_path()
+                self._is_frozen = True
+
+            def __setattr__(self, name, value):
+                self._perform_setattr(L2tpv2.CounterHistFail.PktTimeout, [u'entry'], name, value)
 
 
     class Classes(Entity):
@@ -9442,6 +9633,7 @@ class L2tpv2(Entity):
             self.class_ = YList(self)
             self._segment_path = lambda: "classes"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2tpv2.Classes, [], name, value)
@@ -9641,31 +9833,31 @@ class L2tpv2(Entity):
                 self.ylist_key_names = ['class_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('class_name', YLeaf(YType.str, 'class-name')),
-                    ('ip_tos', YLeaf(YType.uint8, 'ip-tos')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('receive_window_size', YLeaf(YType.uint16, 'receive-window-size')),
-                    ('class_name_xr', YLeaf(YType.str, 'class-name-xr')),
-                    ('digest_hash', YLeaf(YType.enumeration, 'digest-hash')),
-                    ('password', YLeaf(YType.str, 'password')),
-                    ('encoded_password', YLeaf(YType.str, 'encoded-password')),
-                    ('host_name', YLeaf(YType.str, 'host-name')),
-                    ('accounting_method_list', YLeaf(YType.str, 'accounting-method-list')),
-                    ('hello_timeout', YLeaf(YType.uint32, 'hello-timeout')),
-                    ('setup_timeout', YLeaf(YType.uint32, 'setup-timeout')),
-                    ('retransmit_minimum_timeout', YLeaf(YType.uint32, 'retransmit-minimum-timeout')),
-                    ('retransmit_maximum_timeout', YLeaf(YType.uint32, 'retransmit-maximum-timeout')),
-                    ('initial_retransmit_minimum_timeout', YLeaf(YType.uint32, 'initial-retransmit-minimum-timeout')),
-                    ('initial_retransmit_maximum_timeout', YLeaf(YType.uint32, 'initial-retransmit-maximum-timeout')),
-                    ('timeout_no_user', YLeaf(YType.uint32, 'timeout-no-user')),
-                    ('retransmit_retries', YLeaf(YType.uint32, 'retransmit-retries')),
-                    ('initial_retransmit_retries', YLeaf(YType.uint32, 'initial-retransmit-retries')),
-                    ('is_authentication_enabled', YLeaf(YType.boolean, 'is-authentication-enabled')),
-                    ('is_hidden', YLeaf(YType.boolean, 'is-hidden')),
-                    ('is_digest_enabled', YLeaf(YType.boolean, 'is-digest-enabled')),
-                    ('is_digest_check_enabled', YLeaf(YType.boolean, 'is-digest-check-enabled')),
-                    ('is_congestion_control_enabled', YLeaf(YType.boolean, 'is-congestion-control-enabled')),
-                    ('is_peer_address_checked', YLeaf(YType.boolean, 'is-peer-address-checked')),
+                    ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                    ('ip_tos', (YLeaf(YType.uint8, 'ip-tos'), ['int'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('receive_window_size', (YLeaf(YType.uint16, 'receive-window-size'), ['int'])),
+                    ('class_name_xr', (YLeaf(YType.str, 'class-name-xr'), ['str'])),
+                    ('digest_hash', (YLeaf(YType.enumeration, 'digest-hash'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper', 'DigestHash', '')])),
+                    ('password', (YLeaf(YType.str, 'password'), ['str'])),
+                    ('encoded_password', (YLeaf(YType.str, 'encoded-password'), ['str'])),
+                    ('host_name', (YLeaf(YType.str, 'host-name'), ['str'])),
+                    ('accounting_method_list', (YLeaf(YType.str, 'accounting-method-list'), ['str'])),
+                    ('hello_timeout', (YLeaf(YType.uint32, 'hello-timeout'), ['int'])),
+                    ('setup_timeout', (YLeaf(YType.uint32, 'setup-timeout'), ['int'])),
+                    ('retransmit_minimum_timeout', (YLeaf(YType.uint32, 'retransmit-minimum-timeout'), ['int'])),
+                    ('retransmit_maximum_timeout', (YLeaf(YType.uint32, 'retransmit-maximum-timeout'), ['int'])),
+                    ('initial_retransmit_minimum_timeout', (YLeaf(YType.uint32, 'initial-retransmit-minimum-timeout'), ['int'])),
+                    ('initial_retransmit_maximum_timeout', (YLeaf(YType.uint32, 'initial-retransmit-maximum-timeout'), ['int'])),
+                    ('timeout_no_user', (YLeaf(YType.uint32, 'timeout-no-user'), ['int'])),
+                    ('retransmit_retries', (YLeaf(YType.uint32, 'retransmit-retries'), ['int'])),
+                    ('initial_retransmit_retries', (YLeaf(YType.uint32, 'initial-retransmit-retries'), ['int'])),
+                    ('is_authentication_enabled', (YLeaf(YType.boolean, 'is-authentication-enabled'), ['bool'])),
+                    ('is_hidden', (YLeaf(YType.boolean, 'is-hidden'), ['bool'])),
+                    ('is_digest_enabled', (YLeaf(YType.boolean, 'is-digest-enabled'), ['bool'])),
+                    ('is_digest_check_enabled', (YLeaf(YType.boolean, 'is-digest-check-enabled'), ['bool'])),
+                    ('is_congestion_control_enabled', (YLeaf(YType.boolean, 'is-congestion-control-enabled'), ['bool'])),
+                    ('is_peer_address_checked', (YLeaf(YType.boolean, 'is-peer-address-checked'), ['bool'])),
                 ])
                 self.class_name = None
                 self.ip_tos = None
@@ -9694,6 +9886,7 @@ class L2tpv2(Entity):
                 self.is_peer_address_checked = None
                 self._segment_path = lambda: "class" + "[class-name='" + str(self.class_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/classes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2tpv2.Classes.Class, ['class_name', u'ip_tos', u'vrf_name', u'receive_window_size', u'class_name_xr', u'digest_hash', u'password', u'encoded_password', u'host_name', u'accounting_method_list', u'hello_timeout', u'setup_timeout', u'retransmit_minimum_timeout', u'retransmit_maximum_timeout', u'initial_retransmit_minimum_timeout', u'initial_retransmit_maximum_timeout', u'timeout_no_user', u'retransmit_retries', u'initial_retransmit_retries', u'is_authentication_enabled', u'is_hidden', u'is_digest_enabled', u'is_digest_check_enabled', u'is_congestion_control_enabled', u'is_peer_address_checked'], name, value)
@@ -9729,6 +9922,7 @@ class L2tpv2(Entity):
             self.tunnel = YList(self)
             self._segment_path = lambda: "tunnels"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2tpv2.Tunnels, [], name, value)
@@ -9963,11 +10157,7 @@ class L2tpv2(Entity):
             .. attribute:: retransmit_time
             
             	Retransmit time distribution in seconds
-            	**type**\: list of int
-            
-            	**range:** 0..65535
-            
-            	**units**\: second
+            	**type**\: list of  		 :py:class:`RetransmitTime <ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_oper.L2tpv2.Tunnels.Tunnel.RetransmitTime>`
             
             
 
@@ -9984,41 +10174,40 @@ class L2tpv2(Entity):
                 self.is_top_level_class = False
                 self.has_list_ancestor = False
                 self.ylist_key_names = ['local_tunnel_id']
-                self._child_classes = OrderedDict([])
+                self._child_classes = OrderedDict([("retransmit-time", ("retransmit_time", L2tpv2.Tunnels.Tunnel.RetransmitTime))])
                 self._leafs = OrderedDict([
-                    ('local_tunnel_id', YLeaf(YType.uint32, 'local-tunnel-id')),
-                    ('local_address', YLeaf(YType.str, 'local-address')),
-                    ('remote_address', YLeaf(YType.str, 'remote-address')),
-                    ('local_port', YLeaf(YType.uint16, 'local-port')),
-                    ('remote_port', YLeaf(YType.uint16, 'remote-port')),
-                    ('protocol', YLeaf(YType.uint8, 'protocol')),
-                    ('is_pmtu_enabled', YLeaf(YType.boolean, 'is-pmtu-enabled')),
-                    ('remote_tunnel_id', YLeaf(YType.uint32, 'remote-tunnel-id')),
-                    ('local_tunnel_name', YLeaf(YType.str, 'local-tunnel-name')),
-                    ('remote_tunnel_name', YLeaf(YType.str, 'remote-tunnel-name')),
-                    ('class_name', YLeaf(YType.str, 'class-name')),
-                    ('active_sessions', YLeaf(YType.uint32, 'active-sessions')),
-                    ('sequence_ns', YLeaf(YType.uint16, 'sequence-ns')),
-                    ('sequence_nr', YLeaf(YType.uint16, 'sequence-nr')),
-                    ('local_window_size', YLeaf(YType.uint16, 'local-window-size')),
-                    ('remote_window_size', YLeaf(YType.uint16, 'remote-window-size')),
-                    ('retransmission_time', YLeaf(YType.uint16, 'retransmission-time')),
-                    ('maximum_retransmission_time', YLeaf(YType.uint16, 'maximum-retransmission-time')),
-                    ('unsent_queue_size', YLeaf(YType.uint16, 'unsent-queue-size')),
-                    ('unsent_maximum_queue_size', YLeaf(YType.uint16, 'unsent-maximum-queue-size')),
-                    ('resend_queue_size', YLeaf(YType.uint16, 'resend-queue-size')),
-                    ('resend_maximum_queue_size', YLeaf(YType.uint16, 'resend-maximum-queue-size')),
-                    ('order_queue_size', YLeaf(YType.uint16, 'order-queue-size')),
-                    ('packet_queue_check', YLeaf(YType.uint16, 'packet-queue-check')),
-                    ('digest_secrets', YLeaf(YType.uint16, 'digest-secrets')),
-                    ('resends', YLeaf(YType.uint32, 'resends')),
-                    ('zero_length_body_acknowledgement_sent', YLeaf(YType.uint32, 'zero-length-body-acknowledgement-sent')),
-                    ('total_out_of_order_drop_packets', YLeaf(YType.uint32, 'total-out-of-order-drop-packets')),
-                    ('total_out_of_order_reorder_packets', YLeaf(YType.uint32, 'total-out-of-order-reorder-packets')),
-                    ('total_peer_authentication_failures', YLeaf(YType.uint32, 'total-peer-authentication-failures')),
-                    ('is_tunnel_up', YLeaf(YType.boolean, 'is-tunnel-up')),
-                    ('is_congestion_control_enabled', YLeaf(YType.boolean, 'is-congestion-control-enabled')),
-                    ('retransmit_time', YLeafList(YType.uint16, 'retransmit-time')),
+                    ('local_tunnel_id', (YLeaf(YType.uint32, 'local-tunnel-id'), ['int'])),
+                    ('local_address', (YLeaf(YType.str, 'local-address'), ['str'])),
+                    ('remote_address', (YLeaf(YType.str, 'remote-address'), ['str'])),
+                    ('local_port', (YLeaf(YType.uint16, 'local-port'), ['int'])),
+                    ('remote_port', (YLeaf(YType.uint16, 'remote-port'), ['int'])),
+                    ('protocol', (YLeaf(YType.uint8, 'protocol'), ['int'])),
+                    ('is_pmtu_enabled', (YLeaf(YType.boolean, 'is-pmtu-enabled'), ['bool'])),
+                    ('remote_tunnel_id', (YLeaf(YType.uint32, 'remote-tunnel-id'), ['int'])),
+                    ('local_tunnel_name', (YLeaf(YType.str, 'local-tunnel-name'), ['str'])),
+                    ('remote_tunnel_name', (YLeaf(YType.str, 'remote-tunnel-name'), ['str'])),
+                    ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                    ('active_sessions', (YLeaf(YType.uint32, 'active-sessions'), ['int'])),
+                    ('sequence_ns', (YLeaf(YType.uint16, 'sequence-ns'), ['int'])),
+                    ('sequence_nr', (YLeaf(YType.uint16, 'sequence-nr'), ['int'])),
+                    ('local_window_size', (YLeaf(YType.uint16, 'local-window-size'), ['int'])),
+                    ('remote_window_size', (YLeaf(YType.uint16, 'remote-window-size'), ['int'])),
+                    ('retransmission_time', (YLeaf(YType.uint16, 'retransmission-time'), ['int'])),
+                    ('maximum_retransmission_time', (YLeaf(YType.uint16, 'maximum-retransmission-time'), ['int'])),
+                    ('unsent_queue_size', (YLeaf(YType.uint16, 'unsent-queue-size'), ['int'])),
+                    ('unsent_maximum_queue_size', (YLeaf(YType.uint16, 'unsent-maximum-queue-size'), ['int'])),
+                    ('resend_queue_size', (YLeaf(YType.uint16, 'resend-queue-size'), ['int'])),
+                    ('resend_maximum_queue_size', (YLeaf(YType.uint16, 'resend-maximum-queue-size'), ['int'])),
+                    ('order_queue_size', (YLeaf(YType.uint16, 'order-queue-size'), ['int'])),
+                    ('packet_queue_check', (YLeaf(YType.uint16, 'packet-queue-check'), ['int'])),
+                    ('digest_secrets', (YLeaf(YType.uint16, 'digest-secrets'), ['int'])),
+                    ('resends', (YLeaf(YType.uint32, 'resends'), ['int'])),
+                    ('zero_length_body_acknowledgement_sent', (YLeaf(YType.uint32, 'zero-length-body-acknowledgement-sent'), ['int'])),
+                    ('total_out_of_order_drop_packets', (YLeaf(YType.uint32, 'total-out-of-order-drop-packets'), ['int'])),
+                    ('total_out_of_order_reorder_packets', (YLeaf(YType.uint32, 'total-out-of-order-reorder-packets'), ['int'])),
+                    ('total_peer_authentication_failures', (YLeaf(YType.uint32, 'total-peer-authentication-failures'), ['int'])),
+                    ('is_tunnel_up', (YLeaf(YType.boolean, 'is-tunnel-up'), ['bool'])),
+                    ('is_congestion_control_enabled', (YLeaf(YType.boolean, 'is-congestion-control-enabled'), ['bool'])),
                 ])
                 self.local_tunnel_id = None
                 self.local_address = None
@@ -10052,12 +10241,54 @@ class L2tpv2(Entity):
                 self.total_peer_authentication_failures = None
                 self.is_tunnel_up = None
                 self.is_congestion_control_enabled = None
-                self.retransmit_time = []
+
+                self.retransmit_time = YList(self)
                 self._segment_path = lambda: "tunnel" + "[local-tunnel-id='" + str(self.local_tunnel_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/tunnels/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(L2tpv2.Tunnels.Tunnel, ['local_tunnel_id', u'local_address', u'remote_address', u'local_port', u'remote_port', u'protocol', u'is_pmtu_enabled', u'remote_tunnel_id', u'local_tunnel_name', u'remote_tunnel_name', u'class_name', u'active_sessions', u'sequence_ns', u'sequence_nr', u'local_window_size', u'remote_window_size', u'retransmission_time', u'maximum_retransmission_time', u'unsent_queue_size', u'unsent_maximum_queue_size', u'resend_queue_size', u'resend_maximum_queue_size', u'order_queue_size', u'packet_queue_check', u'digest_secrets', u'resends', u'zero_length_body_acknowledgement_sent', u'total_out_of_order_drop_packets', u'total_out_of_order_reorder_packets', u'total_peer_authentication_failures', u'is_tunnel_up', u'is_congestion_control_enabled', u'retransmit_time'], name, value)
+                self._perform_setattr(L2tpv2.Tunnels.Tunnel, ['local_tunnel_id', u'local_address', u'remote_address', u'local_port', u'remote_port', u'protocol', u'is_pmtu_enabled', u'remote_tunnel_id', u'local_tunnel_name', u'remote_tunnel_name', u'class_name', u'active_sessions', u'sequence_ns', u'sequence_nr', u'local_window_size', u'remote_window_size', u'retransmission_time', u'maximum_retransmission_time', u'unsent_queue_size', u'unsent_maximum_queue_size', u'resend_queue_size', u'resend_maximum_queue_size', u'order_queue_size', u'packet_queue_check', u'digest_secrets', u'resends', u'zero_length_body_acknowledgement_sent', u'total_out_of_order_drop_packets', u'total_out_of_order_reorder_packets', u'total_peer_authentication_failures', u'is_tunnel_up', u'is_congestion_control_enabled'], name, value)
+
+
+            class RetransmitTime(Entity):
+                """
+                Retransmit time distribution in seconds
+                
+                .. attribute:: entry
+                
+                	
+                	**type**\: int
+                
+                	**range:** 0..65535
+                
+                	**units**\: second
+                
+                
+
+                """
+
+                _prefix = 'tunnel-l2tun-oper'
+                _revision = '2017-09-07'
+
+                def __init__(self):
+                    super(L2tpv2.Tunnels.Tunnel.RetransmitTime, self).__init__()
+
+                    self.yang_name = "retransmit-time"
+                    self.yang_parent_name = "tunnel"
+                    self.is_top_level_class = False
+                    self.has_list_ancestor = True
+                    self.ylist_key_names = []
+                    self._child_classes = OrderedDict([])
+                    self._leafs = OrderedDict([
+                        ('entry', (YLeaf(YType.uint16, 'entry'), ['int'])),
+                    ])
+                    self.entry = None
+                    self._segment_path = lambda: "retransmit-time"
+                    self._is_frozen = True
+
+                def __setattr__(self, name, value):
+                    self._perform_setattr(L2tpv2.Tunnels.Tunnel.RetransmitTime, [u'entry'], name, value)
 
 
     class Sessions(Entity):
@@ -10090,6 +10321,7 @@ class L2tpv2(Entity):
             self.session = YList(self)
             self._segment_path = lambda: "sessions"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2tpv2.Sessions, [], name, value)
@@ -10268,29 +10500,29 @@ class L2tpv2(Entity):
                 self.ylist_key_names = ['local_tunnel_id','local_session_id']
                 self._child_classes = OrderedDict([("session-application-data", ("session_application_data", L2tpv2.Sessions.Session.SessionApplicationData))])
                 self._leafs = OrderedDict([
-                    ('local_tunnel_id', YLeaf(YType.uint32, 'local-tunnel-id')),
-                    ('local_session_id', YLeaf(YType.uint32, 'local-session-id')),
-                    ('local_ip_address', YLeaf(YType.str, 'local-ip-address')),
-                    ('remote_ip_address', YLeaf(YType.str, 'remote-ip-address')),
-                    ('l2tp_sh_sess_udp_lport', YLeaf(YType.uint16, 'l2tp-sh-sess-udp-lport')),
-                    ('l2tp_sh_sess_udp_rport', YLeaf(YType.uint16, 'l2tp-sh-sess-udp-rport')),
-                    ('protocol', YLeaf(YType.uint8, 'protocol')),
-                    ('remote_tunnel_id', YLeaf(YType.uint32, 'remote-tunnel-id')),
-                    ('call_serial_number', YLeaf(YType.uint32, 'call-serial-number')),
-                    ('local_tunnel_name', YLeaf(YType.str, 'local-tunnel-name')),
-                    ('remote_tunnel_name', YLeaf(YType.str, 'remote-tunnel-name')),
-                    ('remote_session_id', YLeaf(YType.uint32, 'remote-session-id')),
-                    ('l2tp_sh_sess_tie_breaker_enabled', YLeaf(YType.uint8, 'l2tp-sh-sess-tie-breaker-enabled')),
-                    ('l2tp_sh_sess_tie_breaker', YLeaf(YType.uint64, 'l2tp-sh-sess-tie-breaker')),
-                    ('is_session_manual', YLeaf(YType.boolean, 'is-session-manual')),
-                    ('is_session_up', YLeaf(YType.boolean, 'is-session-up')),
-                    ('is_udp_checksum_enabled', YLeaf(YType.boolean, 'is-udp-checksum-enabled')),
-                    ('is_sequencing_on', YLeaf(YType.boolean, 'is-sequencing-on')),
-                    ('is_session_state_established', YLeaf(YType.boolean, 'is-session-state-established')),
-                    ('is_session_locally_initiated', YLeaf(YType.boolean, 'is-session-locally-initiated')),
-                    ('is_conditional_debug_enabled', YLeaf(YType.boolean, 'is-conditional-debug-enabled')),
-                    ('unique_id', YLeaf(YType.uint32, 'unique-id')),
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
+                    ('local_tunnel_id', (YLeaf(YType.uint32, 'local-tunnel-id'), ['int'])),
+                    ('local_session_id', (YLeaf(YType.uint32, 'local-session-id'), ['int'])),
+                    ('local_ip_address', (YLeaf(YType.str, 'local-ip-address'), ['str'])),
+                    ('remote_ip_address', (YLeaf(YType.str, 'remote-ip-address'), ['str'])),
+                    ('l2tp_sh_sess_udp_lport', (YLeaf(YType.uint16, 'l2tp-sh-sess-udp-lport'), ['int'])),
+                    ('l2tp_sh_sess_udp_rport', (YLeaf(YType.uint16, 'l2tp-sh-sess-udp-rport'), ['int'])),
+                    ('protocol', (YLeaf(YType.uint8, 'protocol'), ['int'])),
+                    ('remote_tunnel_id', (YLeaf(YType.uint32, 'remote-tunnel-id'), ['int'])),
+                    ('call_serial_number', (YLeaf(YType.uint32, 'call-serial-number'), ['int'])),
+                    ('local_tunnel_name', (YLeaf(YType.str, 'local-tunnel-name'), ['str'])),
+                    ('remote_tunnel_name', (YLeaf(YType.str, 'remote-tunnel-name'), ['str'])),
+                    ('remote_session_id', (YLeaf(YType.uint32, 'remote-session-id'), ['int'])),
+                    ('l2tp_sh_sess_tie_breaker_enabled', (YLeaf(YType.uint8, 'l2tp-sh-sess-tie-breaker-enabled'), ['int'])),
+                    ('l2tp_sh_sess_tie_breaker', (YLeaf(YType.uint64, 'l2tp-sh-sess-tie-breaker'), ['int'])),
+                    ('is_session_manual', (YLeaf(YType.boolean, 'is-session-manual'), ['bool'])),
+                    ('is_session_up', (YLeaf(YType.boolean, 'is-session-up'), ['bool'])),
+                    ('is_udp_checksum_enabled', (YLeaf(YType.boolean, 'is-udp-checksum-enabled'), ['bool'])),
+                    ('is_sequencing_on', (YLeaf(YType.boolean, 'is-sequencing-on'), ['bool'])),
+                    ('is_session_state_established', (YLeaf(YType.boolean, 'is-session-state-established'), ['bool'])),
+                    ('is_session_locally_initiated', (YLeaf(YType.boolean, 'is-session-locally-initiated'), ['bool'])),
+                    ('is_conditional_debug_enabled', (YLeaf(YType.boolean, 'is-conditional-debug-enabled'), ['bool'])),
+                    ('unique_id', (YLeaf(YType.uint32, 'unique-id'), ['int'])),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                 ])
                 self.local_tunnel_id = None
                 self.local_session_id = None
@@ -10321,6 +10553,7 @@ class L2tpv2(Entity):
                 self._children_name_map["session_application_data"] = "session-application-data"
                 self._segment_path = lambda: "session" + "[local-tunnel-id='" + str(self.local_tunnel_id) + "']" + "[local-session-id='" + str(self.local_session_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/sessions/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2tpv2.Sessions.Session, ['local_tunnel_id', 'local_session_id', u'local_ip_address', u'remote_ip_address', u'l2tp_sh_sess_udp_lport', u'l2tp_sh_sess_udp_rport', u'protocol', u'remote_tunnel_id', u'call_serial_number', u'local_tunnel_name', u'remote_tunnel_name', u'remote_session_id', u'l2tp_sh_sess_tie_breaker_enabled', u'l2tp_sh_sess_tie_breaker', u'is_session_manual', u'is_session_up', u'is_udp_checksum_enabled', u'is_sequencing_on', u'is_session_state_established', u'is_session_locally_initiated', u'is_conditional_debug_enabled', u'unique_id', u'interface_name'], name, value)
@@ -10364,7 +10597,7 @@ class L2tpv2(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("xconnect", ("xconnect", L2tpv2.Sessions.Session.SessionApplicationData.Xconnect)), ("vpdn", ("vpdn", L2tpv2.Sessions.Session.SessionApplicationData.Vpdn))])
                     self._leafs = OrderedDict([
-                        ('l2tp_sh_sess_app_type', YLeaf(YType.uint32, 'l2tp-sh-sess-app-type')),
+                        ('l2tp_sh_sess_app_type', (YLeaf(YType.uint32, 'l2tp-sh-sess-app-type'), ['int'])),
                     ])
                     self.l2tp_sh_sess_app_type = None
 
@@ -10376,6 +10609,7 @@ class L2tpv2(Entity):
                     self.vpdn.parent = self
                     self._children_name_map["vpdn"] = "vpdn"
                     self._segment_path = lambda: "session-application-data"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tpv2.Sessions.Session.SessionApplicationData, [u'l2tp_sh_sess_app_type'], name, value)
@@ -10434,12 +10668,12 @@ class L2tpv2(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('circuit_name', YLeaf(YType.str, 'circuit-name')),
-                            ('sessionvc_id', YLeaf(YType.uint32, 'sessionvc-id')),
-                            ('is_circuit_state_up', YLeaf(YType.boolean, 'is-circuit-state-up')),
-                            ('is_local_circuit_state_up', YLeaf(YType.boolean, 'is-local-circuit-state-up')),
-                            ('is_remote_circuit_state_up', YLeaf(YType.boolean, 'is-remote-circuit-state-up')),
-                            ('ipv6_protocol_tunneling', YLeaf(YType.boolean, 'ipv6-protocol-tunneling')),
+                            ('circuit_name', (YLeaf(YType.str, 'circuit-name'), ['str'])),
+                            ('sessionvc_id', (YLeaf(YType.uint32, 'sessionvc-id'), ['int'])),
+                            ('is_circuit_state_up', (YLeaf(YType.boolean, 'is-circuit-state-up'), ['bool'])),
+                            ('is_local_circuit_state_up', (YLeaf(YType.boolean, 'is-local-circuit-state-up'), ['bool'])),
+                            ('is_remote_circuit_state_up', (YLeaf(YType.boolean, 'is-remote-circuit-state-up'), ['bool'])),
+                            ('ipv6_protocol_tunneling', (YLeaf(YType.boolean, 'ipv6-protocol-tunneling'), ['bool'])),
                         ])
                         self.circuit_name = None
                         self.sessionvc_id = None
@@ -10448,6 +10682,7 @@ class L2tpv2(Entity):
                         self.is_remote_circuit_state_up = None
                         self.ipv6_protocol_tunneling = None
                         self._segment_path = lambda: "xconnect"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tpv2.Sessions.Session.SessionApplicationData.Xconnect, [u'circuit_name', u'sessionvc_id', u'is_circuit_state_up', u'is_local_circuit_state_up', u'is_remote_circuit_state_up', u'ipv6_protocol_tunneling'], name, value)
@@ -10467,7 +10702,7 @@ class L2tpv2(Entity):
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     
 
@@ -10486,12 +10721,13 @@ class L2tpv2(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('username', YLeaf(YType.str, 'username')),
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
+                            ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                         ])
                         self.username = None
                         self.interface_name = None
                         self._segment_path = lambda: "vpdn"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tpv2.Sessions.Session.SessionApplicationData.Vpdn, [u'username', u'interface_name'], name, value)
@@ -10529,6 +10765,7 @@ class L2tpv2(Entity):
             self._children_name_map["unavailable"] = "unavailable"
             self._segment_path = lambda: "session"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2tpv2.Session, [], name, value)
@@ -10562,11 +10799,12 @@ class L2tpv2(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('sessions_on_hold', YLeaf(YType.uint32, 'sessions-on-hold')),
+                    ('sessions_on_hold', (YLeaf(YType.uint32, 'sessions-on-hold'), ['int'])),
                 ])
                 self.sessions_on_hold = None
                 self._segment_path = lambda: "unavailable"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-oper:l2tpv2/session/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2tpv2.Session.Unavailable, [u'sessions_on_hold'], name, value)

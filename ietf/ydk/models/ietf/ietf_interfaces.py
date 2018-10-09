@@ -26,6 +26,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class InterfaceType(Identity):
     """
     Base identity from which specific interface types are
@@ -38,8 +39,8 @@ class InterfaceType(Identity):
     _prefix = 'if'
     _revision = '2014-05-08'
 
-    def __init__(self):
-        super(InterfaceType, self).__init__("urn:ietf:params:xml:ns:yang:ietf-interfaces", "ietf-interfaces", "ietf-interfaces:interface-type")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-interfaces", pref="ietf-interfaces", tag="ietf-interfaces:interface-type"):
+        super(InterfaceType, self).__init__(ns, pref, tag)
 
 
 class Interfaces(Entity):
@@ -72,6 +73,7 @@ class Interfaces(Entity):
 
         self.interface = YList(self)
         self._segment_path = lambda: "ietf-interfaces:interfaces"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Interfaces, [], name, value)
@@ -157,11 +159,11 @@ class Interfaces(Entity):
             self.ylist_key_names = ['name']
             self._child_classes = OrderedDict([("ietf-ip:ipv4", ("ipv4", Interfaces.Interface.Ipv4)), ("ietf-ip:ipv6", ("ipv6", Interfaces.Interface.Ipv6)), ("ietf-diffserv-target:diffserv-target-entry", ("diffserv_target_entry", Interfaces.Interface.DiffservTargetEntry))])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
-                ('description', YLeaf(YType.str, 'description')),
-                ('type', YLeaf(YType.identityref, 'type')),
-                ('enabled', YLeaf(YType.boolean, 'enabled')),
-                ('link_up_down_trap_enable', YLeaf(YType.enumeration, 'link-up-down-trap-enable')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.ietf.ietf_interfaces', 'InterfaceType')])),
+                ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                ('link_up_down_trap_enable', (YLeaf(YType.enumeration, 'link-up-down-trap-enable'), [('ydk.models.ietf.ietf_interfaces', 'Interfaces', 'Interface.LinkUpDownTrapEnable')])),
             ])
             self.name = None
             self.description = None
@@ -178,6 +180,7 @@ class Interfaces(Entity):
             self.diffserv_target_entry = YList(self)
             self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "ietf-interfaces:interfaces/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Interfaces.Interface, [u'name', u'description', u'type', u'enabled', u'link_up_down_trap_enable'], name, value)
@@ -267,9 +270,9 @@ class Interfaces(Entity):
                 self._child_classes = OrderedDict([("address", ("address", Interfaces.Interface.Ipv4.Address)), ("neighbor", ("neighbor", Interfaces.Interface.Ipv4.Neighbor))])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
-                    ('enabled', YLeaf(YType.boolean, 'enabled')),
-                    ('forwarding', YLeaf(YType.boolean, 'forwarding')),
-                    ('mtu', YLeaf(YType.uint16, 'mtu')),
+                    ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                    ('forwarding', (YLeaf(YType.boolean, 'forwarding'), ['bool'])),
+                    ('mtu', (YLeaf(YType.uint16, 'mtu'), ['int'])),
                 ])
                 self.enabled = None
                 self.forwarding = None
@@ -278,6 +281,7 @@ class Interfaces(Entity):
                 self.address = YList(self)
                 self.neighbor = YList(self)
                 self._segment_path = lambda: "ietf-ip:ipv4"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.Interface.Ipv4, [u'enabled', u'forwarding', u'mtu'], name, value)
@@ -325,14 +329,15 @@ class Interfaces(Entity):
                     self.ylist_key_names = ['ip']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                        ('netmask', YLeaf(YType.str, 'netmask')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str'])),
+                        ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                        ('netmask', (YLeaf(YType.str, 'netmask'), ['str'])),
                     ])
                     self.ip = None
                     self.prefix_length = None
                     self.netmask = None
                     self._segment_path = lambda: "address" + "[ip='" + str(self.ip) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.Interface.Ipv4.Address, [u'ip', u'prefix_length', u'netmask'], name, value)
@@ -378,12 +383,13 @@ class Interfaces(Entity):
                     self.ylist_key_names = ['ip']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str'])),
+                        ('link_layer_address', (YLeaf(YType.str, 'link-layer-address'), ['str'])),
                     ])
                     self.ip = None
                     self.link_layer_address = None
                     self._segment_path = lambda: "neighbor" + "[ip='" + str(self.ip) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.Interface.Ipv4.Neighbor, [u'ip', u'link_layer_address'], name, value)
@@ -465,10 +471,10 @@ class Interfaces(Entity):
                 self._child_classes = OrderedDict([("address", ("address", Interfaces.Interface.Ipv6.Address)), ("neighbor", ("neighbor", Interfaces.Interface.Ipv6.Neighbor)), ("autoconf", ("autoconf", Interfaces.Interface.Ipv6.Autoconf)), ("ietf-ipv6-unicast-routing:ipv6-router-advertisements", ("ipv6_router_advertisements", Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements))])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
-                    ('enabled', YLeaf(YType.boolean, 'enabled')),
-                    ('forwarding', YLeaf(YType.boolean, 'forwarding')),
-                    ('mtu', YLeaf(YType.uint32, 'mtu')),
-                    ('dup_addr_detect_transmits', YLeaf(YType.uint32, 'dup-addr-detect-transmits')),
+                    ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                    ('forwarding', (YLeaf(YType.boolean, 'forwarding'), ['bool'])),
+                    ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                    ('dup_addr_detect_transmits', (YLeaf(YType.uint32, 'dup-addr-detect-transmits'), ['int'])),
                 ])
                 self.enabled = None
                 self.forwarding = None
@@ -486,6 +492,7 @@ class Interfaces(Entity):
                 self.address = YList(self)
                 self.neighbor = YList(self)
                 self._segment_path = lambda: "ietf-ip:ipv6"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.Interface.Ipv6, [u'enabled', u'forwarding', u'mtu', u'dup_addr_detect_transmits'], name, value)
@@ -528,12 +535,13 @@ class Interfaces(Entity):
                     self.ylist_key_names = ['ip']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str'])),
+                        ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                     ])
                     self.ip = None
                     self.prefix_length = None
                     self._segment_path = lambda: "address" + "[ip='" + str(self.ip) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.Interface.Ipv6.Address, [u'ip', u'prefix_length'], name, value)
@@ -579,12 +587,13 @@ class Interfaces(Entity):
                     self.ylist_key_names = ['ip']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str'])),
+                        ('link_layer_address', (YLeaf(YType.str, 'link-layer-address'), ['str'])),
                     ])
                     self.ip = None
                     self.link_layer_address = None
                     self._segment_path = lambda: "neighbor" + "[ip='" + str(self.ip) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.Interface.Ipv6.Neighbor, [u'ip', u'link_layer_address'], name, value)
@@ -648,16 +657,17 @@ class Interfaces(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('create_global_addresses', YLeaf(YType.boolean, 'create-global-addresses')),
-                        ('create_temporary_addresses', YLeaf(YType.boolean, 'create-temporary-addresses')),
-                        ('temporary_valid_lifetime', YLeaf(YType.uint32, 'temporary-valid-lifetime')),
-                        ('temporary_preferred_lifetime', YLeaf(YType.uint32, 'temporary-preferred-lifetime')),
+                        ('create_global_addresses', (YLeaf(YType.boolean, 'create-global-addresses'), ['bool'])),
+                        ('create_temporary_addresses', (YLeaf(YType.boolean, 'create-temporary-addresses'), ['bool'])),
+                        ('temporary_valid_lifetime', (YLeaf(YType.uint32, 'temporary-valid-lifetime'), ['int'])),
+                        ('temporary_preferred_lifetime', (YLeaf(YType.uint32, 'temporary-preferred-lifetime'), ['int'])),
                     ])
                     self.create_global_addresses = None
                     self.create_temporary_addresses = None
                     self.temporary_valid_lifetime = None
                     self.temporary_preferred_lifetime = None
                     self._segment_path = lambda: "autoconf"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.Interface.Ipv6.Autoconf, [u'create_global_addresses', u'create_temporary_addresses', u'temporary_valid_lifetime', u'temporary_preferred_lifetime'], name, value)
@@ -777,16 +787,16 @@ class Interfaces(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("prefix-list", ("prefix_list", Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements.PrefixList))])
                     self._leafs = OrderedDict([
-                        ('send_advertisements', YLeaf(YType.boolean, 'send-advertisements')),
-                        ('max_rtr_adv_interval', YLeaf(YType.uint16, 'max-rtr-adv-interval')),
-                        ('min_rtr_adv_interval', YLeaf(YType.uint16, 'min-rtr-adv-interval')),
-                        ('managed_flag', YLeaf(YType.boolean, 'managed-flag')),
-                        ('other_config_flag', YLeaf(YType.boolean, 'other-config-flag')),
-                        ('link_mtu', YLeaf(YType.uint32, 'link-mtu')),
-                        ('reachable_time', YLeaf(YType.uint32, 'reachable-time')),
-                        ('retrans_timer', YLeaf(YType.uint32, 'retrans-timer')),
-                        ('cur_hop_limit', YLeaf(YType.uint8, 'cur-hop-limit')),
-                        ('default_lifetime', YLeaf(YType.uint16, 'default-lifetime')),
+                        ('send_advertisements', (YLeaf(YType.boolean, 'send-advertisements'), ['bool'])),
+                        ('max_rtr_adv_interval', (YLeaf(YType.uint16, 'max-rtr-adv-interval'), ['int'])),
+                        ('min_rtr_adv_interval', (YLeaf(YType.uint16, 'min-rtr-adv-interval'), ['int'])),
+                        ('managed_flag', (YLeaf(YType.boolean, 'managed-flag'), ['bool'])),
+                        ('other_config_flag', (YLeaf(YType.boolean, 'other-config-flag'), ['bool'])),
+                        ('link_mtu', (YLeaf(YType.uint32, 'link-mtu'), ['int'])),
+                        ('reachable_time', (YLeaf(YType.uint32, 'reachable-time'), ['int'])),
+                        ('retrans_timer', (YLeaf(YType.uint32, 'retrans-timer'), ['int'])),
+                        ('cur_hop_limit', (YLeaf(YType.uint8, 'cur-hop-limit'), ['int'])),
+                        ('default_lifetime', (YLeaf(YType.uint16, 'default-lifetime'), ['int'])),
                     ])
                     self.send_advertisements = None
                     self.max_rtr_adv_interval = None
@@ -803,6 +813,7 @@ class Interfaces(Entity):
                     self.prefix_list.parent = self
                     self._children_name_map["prefix_list"] = "prefix-list"
                     self._segment_path = lambda: "ietf-ipv6-unicast-routing:ipv6-router-advertisements"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements, ['send_advertisements', 'max_rtr_adv_interval', 'min_rtr_adv_interval', 'managed_flag', 'other_config_flag', 'link_mtu', 'reachable_time', 'retrans_timer', 'cur_hop_limit', 'default_lifetime'], name, value)
@@ -846,6 +857,7 @@ class Interfaces(Entity):
 
                         self.prefix = YList(self)
                         self._segment_path = lambda: "prefix-list"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements.PrefixList, [], name, value)
@@ -920,12 +932,12 @@ class Interfaces(Entity):
                             self.ylist_key_names = ['prefix_spec']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('prefix_spec', YLeaf(YType.str, 'prefix-spec')),
-                                ('no_advertise', YLeaf(YType.empty, 'no-advertise')),
-                                ('valid_lifetime', YLeaf(YType.uint32, 'valid-lifetime')),
-                                ('on_link_flag', YLeaf(YType.boolean, 'on-link-flag')),
-                                ('preferred_lifetime', YLeaf(YType.uint32, 'preferred-lifetime')),
-                                ('autonomous_flag', YLeaf(YType.boolean, 'autonomous-flag')),
+                                ('prefix_spec', (YLeaf(YType.str, 'prefix-spec'), ['str'])),
+                                ('no_advertise', (YLeaf(YType.empty, 'no-advertise'), ['Empty'])),
+                                ('valid_lifetime', (YLeaf(YType.uint32, 'valid-lifetime'), ['int'])),
+                                ('on_link_flag', (YLeaf(YType.boolean, 'on-link-flag'), ['bool'])),
+                                ('preferred_lifetime', (YLeaf(YType.uint32, 'preferred-lifetime'), ['int'])),
+                                ('autonomous_flag', (YLeaf(YType.boolean, 'autonomous-flag'), ['bool'])),
                             ])
                             self.prefix_spec = None
                             self.no_advertise = None
@@ -934,6 +946,7 @@ class Interfaces(Entity):
                             self.preferred_lifetime = None
                             self.autonomous_flag = None
                             self._segment_path = lambda: "prefix" + "[prefix-spec='" + str(self.prefix_spec) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Interfaces.Interface.Ipv6.Ipv6RouterAdvertisements.PrefixList.Prefix, ['prefix_spec', 'no_advertise', 'valid_lifetime', 'on_link_flag', 'preferred_lifetime', 'autonomous_flag'], name, value)
@@ -970,12 +983,13 @@ class Interfaces(Entity):
                 self.ylist_key_names = ['direction','policy_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('direction', YLeaf(YType.identityref, 'direction')),
-                    ('policy_name', YLeaf(YType.str, 'policy-name')),
+                    ('direction', (YLeaf(YType.identityref, 'direction'), [('ydk.models.ietf.ietf_diffserv_target', 'Direction')])),
+                    ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
                 ])
                 self.direction = None
                 self.policy_name = None
                 self._segment_path = lambda: "ietf-diffserv-target:diffserv-target-entry" + "[direction='" + str(self.direction) + "']" + "[policy-name='" + str(self.policy_name) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Interfaces.Interface.DiffservTargetEntry, ['direction', 'policy_name'], name, value)
@@ -1014,6 +1028,7 @@ class InterfacesState(Entity):
 
         self.interface = YList(self)
         self._segment_path = lambda: "ietf-interfaces:interfaces-state"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(InterfacesState, [], name, value)
@@ -1145,17 +1160,17 @@ class InterfacesState(Entity):
             self.ylist_key_names = ['name']
             self._child_classes = OrderedDict([("statistics", ("statistics", InterfacesState.Interface.Statistics)), ("ietf-ip:ipv4", ("ipv4", InterfacesState.Interface.Ipv4)), ("ietf-ip:ipv6", ("ipv6", InterfacesState.Interface.Ipv6)), ("ietf-diffserv-target:diffserv-target-entry", ("diffserv_target_entry", InterfacesState.Interface.DiffservTargetEntry))])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
-                ('type', YLeaf(YType.identityref, 'type')),
-                ('admin_status', YLeaf(YType.enumeration, 'admin-status')),
-                ('oper_status', YLeaf(YType.enumeration, 'oper-status')),
-                ('last_change', YLeaf(YType.str, 'last-change')),
-                ('if_index', YLeaf(YType.int32, 'if-index')),
-                ('phys_address', YLeaf(YType.str, 'phys-address')),
-                ('higher_layer_if', YLeafList(YType.str, 'higher-layer-if')),
-                ('lower_layer_if', YLeafList(YType.str, 'lower-layer-if')),
-                ('speed', YLeaf(YType.uint64, 'speed')),
-                ('routing_instance', YLeaf(YType.str, 'ietf-routing:routing-instance')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('type', (YLeaf(YType.identityref, 'type'), [('ydk.models.ietf.ietf_interfaces', 'InterfaceType')])),
+                ('admin_status', (YLeaf(YType.enumeration, 'admin-status'), [('ydk.models.ietf.ietf_interfaces', 'InterfacesState', 'Interface.AdminStatus')])),
+                ('oper_status', (YLeaf(YType.enumeration, 'oper-status'), [('ydk.models.ietf.ietf_interfaces', 'InterfacesState', 'Interface.OperStatus')])),
+                ('last_change', (YLeaf(YType.str, 'last-change'), ['str'])),
+                ('if_index', (YLeaf(YType.int32, 'if-index'), ['int'])),
+                ('phys_address', (YLeaf(YType.str, 'phys-address'), ['str'])),
+                ('higher_layer_if', (YLeafList(YType.str, 'higher-layer-if'), ['str'])),
+                ('lower_layer_if', (YLeafList(YType.str, 'lower-layer-if'), ['str'])),
+                ('speed', (YLeaf(YType.uint64, 'speed'), ['int'])),
+                ('routing_instance', (YLeaf(YType.str, 'ietf-routing:routing-instance'), ['str'])),
             ])
             self.name = None
             self.type = None
@@ -1182,6 +1197,7 @@ class InterfacesState(Entity):
             self.diffserv_target_entry = YList(self)
             self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "ietf-interfaces:interfaces-state/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(InterfacesState.Interface, [u'name', u'type', u'admin_status', u'oper_status', u'last_change', u'if_index', u'phys_address', u'higher_layer_if', u'lower_layer_if', u'speed', u'routing_instance'], name, value)
@@ -1406,22 +1422,22 @@ class InterfacesState(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('discontinuity_time', YLeaf(YType.str, 'discontinuity-time')),
-                    ('in_octets', YLeaf(YType.uint64, 'in-octets')),
-                    ('in_unicast_pkts', YLeaf(YType.uint64, 'in-unicast-pkts')),
-                    ('in_broadcast_pkts', YLeaf(YType.uint64, 'in-broadcast-pkts')),
-                    ('in_multicast_pkts', YLeaf(YType.uint64, 'in-multicast-pkts')),
-                    ('in_discards', YLeaf(YType.uint32, 'in-discards')),
-                    ('in_errors', YLeaf(YType.uint32, 'in-errors')),
-                    ('in_unknown_protos', YLeaf(YType.uint32, 'in-unknown-protos')),
-                    ('out_octets', YLeaf(YType.uint64, 'out-octets')),
-                    ('out_unicast_pkts', YLeaf(YType.uint64, 'out-unicast-pkts')),
-                    ('out_broadcast_pkts', YLeaf(YType.uint64, 'out-broadcast-pkts')),
-                    ('out_multicast_pkts', YLeaf(YType.uint64, 'out-multicast-pkts')),
-                    ('out_discards', YLeaf(YType.uint32, 'out-discards')),
-                    ('out_errors', YLeaf(YType.uint32, 'out-errors')),
-                    ('in_pkts', YLeaf(YType.uint64, 'ietf-interfaces-ext:in-pkts')),
-                    ('out_pkts', YLeaf(YType.uint64, 'ietf-interfaces-ext:out-pkts')),
+                    ('discontinuity_time', (YLeaf(YType.str, 'discontinuity-time'), ['str'])),
+                    ('in_octets', (YLeaf(YType.uint64, 'in-octets'), ['int'])),
+                    ('in_unicast_pkts', (YLeaf(YType.uint64, 'in-unicast-pkts'), ['int'])),
+                    ('in_broadcast_pkts', (YLeaf(YType.uint64, 'in-broadcast-pkts'), ['int'])),
+                    ('in_multicast_pkts', (YLeaf(YType.uint64, 'in-multicast-pkts'), ['int'])),
+                    ('in_discards', (YLeaf(YType.uint32, 'in-discards'), ['int'])),
+                    ('in_errors', (YLeaf(YType.uint32, 'in-errors'), ['int'])),
+                    ('in_unknown_protos', (YLeaf(YType.uint32, 'in-unknown-protos'), ['int'])),
+                    ('out_octets', (YLeaf(YType.uint64, 'out-octets'), ['int'])),
+                    ('out_unicast_pkts', (YLeaf(YType.uint64, 'out-unicast-pkts'), ['int'])),
+                    ('out_broadcast_pkts', (YLeaf(YType.uint64, 'out-broadcast-pkts'), ['int'])),
+                    ('out_multicast_pkts', (YLeaf(YType.uint64, 'out-multicast-pkts'), ['int'])),
+                    ('out_discards', (YLeaf(YType.uint32, 'out-discards'), ['int'])),
+                    ('out_errors', (YLeaf(YType.uint32, 'out-errors'), ['int'])),
+                    ('in_pkts', (YLeaf(YType.uint64, 'ietf-interfaces-ext:in-pkts'), ['int'])),
+                    ('out_pkts', (YLeaf(YType.uint64, 'ietf-interfaces-ext:out-pkts'), ['int'])),
                 ])
                 self.discontinuity_time = None
                 self.in_octets = None
@@ -1440,6 +1456,7 @@ class InterfacesState(Entity):
                 self.in_pkts = None
                 self.out_pkts = None
                 self._segment_path = lambda: "statistics"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InterfacesState.Interface.Statistics, [u'discontinuity_time', u'in_octets', u'in_unicast_pkts', u'in_broadcast_pkts', u'in_multicast_pkts', u'in_discards', u'in_errors', u'in_unknown_protos', u'out_octets', u'out_unicast_pkts', u'out_broadcast_pkts', u'out_multicast_pkts', u'out_discards', u'out_errors', 'in_pkts', 'out_pkts'], name, value)
@@ -1493,8 +1510,8 @@ class InterfacesState(Entity):
                 self._child_classes = OrderedDict([("address", ("address", InterfacesState.Interface.Ipv4.Address)), ("neighbor", ("neighbor", InterfacesState.Interface.Ipv4.Neighbor))])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
-                    ('forwarding', YLeaf(YType.boolean, 'forwarding')),
-                    ('mtu', YLeaf(YType.uint16, 'mtu')),
+                    ('forwarding', (YLeaf(YType.boolean, 'forwarding'), ['bool'])),
+                    ('mtu', (YLeaf(YType.uint16, 'mtu'), ['int'])),
                 ])
                 self.forwarding = None
                 self.mtu = None
@@ -1502,6 +1519,7 @@ class InterfacesState(Entity):
                 self.address = YList(self)
                 self.neighbor = YList(self)
                 self._segment_path = lambda: "ietf-ip:ipv4"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InterfacesState.Interface.Ipv4, [u'forwarding', u'mtu'], name, value)
@@ -1554,16 +1572,17 @@ class InterfacesState(Entity):
                     self.ylist_key_names = ['ip']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                        ('netmask', YLeaf(YType.str, 'netmask')),
-                        ('origin', YLeaf(YType.enumeration, 'origin')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str'])),
+                        ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                        ('netmask', (YLeaf(YType.str, 'netmask'), ['str'])),
+                        ('origin', (YLeaf(YType.enumeration, 'origin'), [('ydk.models.ietf.ietf_ip', 'IpAddressOrigin', '')])),
                     ])
                     self.ip = None
                     self.prefix_length = None
                     self.netmask = None
                     self.origin = None
                     self._segment_path = lambda: "address" + "[ip='" + str(self.ip) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InterfacesState.Interface.Ipv4.Address, [u'ip', u'prefix_length', u'netmask', u'origin'], name, value)
@@ -1611,14 +1630,15 @@ class InterfacesState(Entity):
                     self.ylist_key_names = ['ip']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
-                        ('origin', YLeaf(YType.enumeration, 'origin')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str'])),
+                        ('link_layer_address', (YLeaf(YType.str, 'link-layer-address'), ['str'])),
+                        ('origin', (YLeaf(YType.enumeration, 'origin'), [('ydk.models.ietf.ietf_ip', 'NeighborOrigin', '')])),
                     ])
                     self.ip = None
                     self.link_layer_address = None
                     self.origin = None
                     self._segment_path = lambda: "neighbor" + "[ip='" + str(self.ip) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InterfacesState.Interface.Ipv4.Neighbor, [u'ip', u'link_layer_address', u'origin'], name, value)
@@ -1674,8 +1694,8 @@ class InterfacesState(Entity):
                 self._child_classes = OrderedDict([("address", ("address", InterfacesState.Interface.Ipv6.Address)), ("neighbor", ("neighbor", InterfacesState.Interface.Ipv6.Neighbor))])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
-                    ('forwarding', YLeaf(YType.boolean, 'forwarding')),
-                    ('mtu', YLeaf(YType.uint32, 'mtu')),
+                    ('forwarding', (YLeaf(YType.boolean, 'forwarding'), ['bool'])),
+                    ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
                 ])
                 self.forwarding = None
                 self.mtu = None
@@ -1683,6 +1703,7 @@ class InterfacesState(Entity):
                 self.address = YList(self)
                 self.neighbor = YList(self)
                 self._segment_path = lambda: "ietf-ip:ipv6"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InterfacesState.Interface.Ipv6, [u'forwarding', u'mtu'], name, value)
@@ -1735,16 +1756,17 @@ class InterfacesState(Entity):
                     self.ylist_key_names = ['ip']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                        ('origin', YLeaf(YType.enumeration, 'origin')),
-                        ('status', YLeaf(YType.enumeration, 'status')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str'])),
+                        ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                        ('origin', (YLeaf(YType.enumeration, 'origin'), [('ydk.models.ietf.ietf_ip', 'IpAddressOrigin', '')])),
+                        ('status', (YLeaf(YType.enumeration, 'status'), [('ydk.models.ietf.ietf_interfaces', 'InterfacesState', 'Interface.Ipv6.Address.Status')])),
                     ])
                     self.ip = None
                     self.prefix_length = None
                     self.origin = None
                     self.status = None
                     self._segment_path = lambda: "address" + "[ip='" + str(self.ip) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InterfacesState.Interface.Ipv6.Address, [u'ip', u'prefix_length', u'origin', u'status'], name, value)
@@ -1889,11 +1911,11 @@ class InterfacesState(Entity):
                     self.ylist_key_names = ['ip']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ip', YLeaf(YType.str, 'ip')),
-                        ('link_layer_address', YLeaf(YType.str, 'link-layer-address')),
-                        ('origin', YLeaf(YType.enumeration, 'origin')),
-                        ('is_router', YLeaf(YType.empty, 'is-router')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
+                        ('ip', (YLeaf(YType.str, 'ip'), ['str'])),
+                        ('link_layer_address', (YLeaf(YType.str, 'link-layer-address'), ['str'])),
+                        ('origin', (YLeaf(YType.enumeration, 'origin'), [('ydk.models.ietf.ietf_ip', 'NeighborOrigin', '')])),
+                        ('is_router', (YLeaf(YType.empty, 'is-router'), ['Empty'])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.ietf.ietf_interfaces', 'InterfacesState', 'Interface.Ipv6.Neighbor.State')])),
                     ])
                     self.ip = None
                     self.link_layer_address = None
@@ -1901,6 +1923,7 @@ class InterfacesState(Entity):
                     self.is_router = None
                     self.state = None
                     self._segment_path = lambda: "neighbor" + "[ip='" + str(self.ip) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InterfacesState.Interface.Ipv6.Neighbor, [u'ip', u'link_layer_address', u'origin', u'is_router', u'state'], name, value)
@@ -2007,14 +2030,15 @@ class InterfacesState(Entity):
                 self.ylist_key_names = ['direction','policy_name']
                 self._child_classes = OrderedDict([("diffserv-target-classifier-statistics", ("diffserv_target_classifier_statistics", InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics))])
                 self._leafs = OrderedDict([
-                    ('direction', YLeaf(YType.identityref, 'direction')),
-                    ('policy_name', YLeaf(YType.str, 'policy-name')),
+                    ('direction', (YLeaf(YType.identityref, 'direction'), [('ydk.models.ietf.ietf_diffserv_target', 'Direction')])),
+                    ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
                 ])
                 self.direction = None
                 self.policy_name = None
 
                 self.diffserv_target_classifier_statistics = YList(self)
                 self._segment_path = lambda: "ietf-diffserv-target:diffserv-target-entry" + "[direction='" + str(self.direction) + "']" + "[policy-name='" + str(self.policy_name) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry, ['direction', 'policy_name'], name, value)
@@ -2066,8 +2090,8 @@ class InterfacesState(Entity):
                     self.ylist_key_names = ['classifier_entry_name','parent_path']
                     self._child_classes = OrderedDict([("classifier-entry-statistics", ("classifier_entry_statistics", InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics)), ("meter-statistics", ("meter_statistics", InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics)), ("queuing-statistics", ("queuing_statistics", InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics))])
                     self._leafs = OrderedDict([
-                        ('classifier_entry_name', YLeaf(YType.str, 'classifier-entry-name')),
-                        ('parent_path', YLeaf(YType.str, 'parent-path')),
+                        ('classifier_entry_name', (YLeaf(YType.str, 'classifier-entry-name'), ['str'])),
+                        ('parent_path', (YLeaf(YType.str, 'parent-path'), ['str'])),
                     ])
                     self.classifier_entry_name = None
                     self.parent_path = None
@@ -2082,6 +2106,7 @@ class InterfacesState(Entity):
 
                     self.meter_statistics = YList(self)
                     self._segment_path = lambda: "diffserv-target-classifier-statistics" + "[classifier-entry-name='" + str(self.classifier_entry_name) + "']" + "[parent-path='" + str(self.parent_path) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics, ['classifier_entry_name', 'parent_path'], name, value)
@@ -2135,14 +2160,15 @@ class InterfacesState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('classified_pkts', YLeaf(YType.uint64, 'classified-pkts')),
-                            ('classified_bytes', YLeaf(YType.uint64, 'classified-bytes')),
-                            ('classified_rate', YLeaf(YType.uint64, 'classified-rate')),
+                            ('classified_pkts', (YLeaf(YType.uint64, 'classified-pkts'), ['int'])),
+                            ('classified_bytes', (YLeaf(YType.uint64, 'classified-bytes'), ['int'])),
+                            ('classified_rate', (YLeaf(YType.uint64, 'classified-rate'), ['int'])),
                         ])
                         self.classified_pkts = None
                         self.classified_bytes = None
                         self.classified_rate = None
                         self._segment_path = lambda: "classifier-entry-statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.ClassifierEntryStatistics, ['classified_pkts', 'classified_bytes', 'classified_rate'], name, value)
@@ -2204,11 +2230,11 @@ class InterfacesState(Entity):
                         self.ylist_key_names = ['meter_id']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('meter_id', YLeaf(YType.uint16, 'meter-id')),
-                            ('meter_succeed_pkts', YLeaf(YType.uint64, 'meter-succeed-pkts')),
-                            ('meter_succeed_bytes', YLeaf(YType.uint64, 'meter-succeed-bytes')),
-                            ('meter_failed_pkts', YLeaf(YType.uint64, 'meter-failed-pkts')),
-                            ('meter_failed_bytes', YLeaf(YType.uint64, 'meter-failed-bytes')),
+                            ('meter_id', (YLeaf(YType.uint16, 'meter-id'), ['int'])),
+                            ('meter_succeed_pkts', (YLeaf(YType.uint64, 'meter-succeed-pkts'), ['int'])),
+                            ('meter_succeed_bytes', (YLeaf(YType.uint64, 'meter-succeed-bytes'), ['int'])),
+                            ('meter_failed_pkts', (YLeaf(YType.uint64, 'meter-failed-pkts'), ['int'])),
+                            ('meter_failed_bytes', (YLeaf(YType.uint64, 'meter-failed-bytes'), ['int'])),
                         ])
                         self.meter_id = None
                         self.meter_succeed_pkts = None
@@ -2216,6 +2242,7 @@ class InterfacesState(Entity):
                         self.meter_failed_pkts = None
                         self.meter_failed_bytes = None
                         self._segment_path = lambda: "meter-statistics" + "[meter-id='" + str(self.meter_id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.MeterStatistics, ['meter_id', 'meter_succeed_pkts', 'meter_succeed_bytes', 'meter_failed_pkts', 'meter_failed_bytes'], name, value)
@@ -2289,12 +2316,12 @@ class InterfacesState(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("wred-stats", ("wred_stats", InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats))])
                         self._leafs = OrderedDict([
-                            ('output_pkts', YLeaf(YType.uint64, 'output-pkts')),
-                            ('output_bytes', YLeaf(YType.uint64, 'output-bytes')),
-                            ('queue_size_pkts', YLeaf(YType.uint64, 'queue-size-pkts')),
-                            ('queue_size_bytes', YLeaf(YType.uint64, 'queue-size-bytes')),
-                            ('drop_pkts', YLeaf(YType.uint64, 'drop-pkts')),
-                            ('drop_bytes', YLeaf(YType.uint64, 'drop-bytes')),
+                            ('output_pkts', (YLeaf(YType.uint64, 'output-pkts'), ['int'])),
+                            ('output_bytes', (YLeaf(YType.uint64, 'output-bytes'), ['int'])),
+                            ('queue_size_pkts', (YLeaf(YType.uint64, 'queue-size-pkts'), ['int'])),
+                            ('queue_size_bytes', (YLeaf(YType.uint64, 'queue-size-bytes'), ['int'])),
+                            ('drop_pkts', (YLeaf(YType.uint64, 'drop-pkts'), ['int'])),
+                            ('drop_bytes', (YLeaf(YType.uint64, 'drop-bytes'), ['int'])),
                         ])
                         self.output_pkts = None
                         self.output_bytes = None
@@ -2307,6 +2334,7 @@ class InterfacesState(Entity):
                         self.wred_stats.parent = self
                         self._children_name_map["wred_stats"] = "wred-stats"
                         self._segment_path = lambda: "queuing-statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics, ['output_pkts', 'output_bytes', 'queue_size_pkts', 'queue_size_bytes', 'drop_pkts', 'drop_bytes'], name, value)
@@ -2347,12 +2375,13 @@ class InterfacesState(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('early_drop_pkts', YLeaf(YType.uint64, 'early-drop-pkts')),
-                                ('early_drop_bytes', YLeaf(YType.uint64, 'early-drop-bytes')),
+                                ('early_drop_pkts', (YLeaf(YType.uint64, 'early-drop-pkts'), ['int'])),
+                                ('early_drop_bytes', (YLeaf(YType.uint64, 'early-drop-bytes'), ['int'])),
                             ])
                             self.early_drop_pkts = None
                             self.early_drop_bytes = None
                             self._segment_path = lambda: "wred-stats"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(InterfacesState.Interface.DiffservTargetEntry.DiffservTargetClassifierStatistics.QueuingStatistics.WredStats, ['early_drop_pkts', 'early_drop_bytes'], name, value)

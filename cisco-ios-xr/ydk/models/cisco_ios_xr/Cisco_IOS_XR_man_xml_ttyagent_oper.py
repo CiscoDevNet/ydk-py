@@ -8,7 +8,7 @@ for the following management objects\:
   netconf\: NETCONF operational information
   xr\-xml\: xr xml
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class XrXmlSessionAlarmRegister(Enum):
@@ -77,7 +78,7 @@ class Netconf(Entity):
     """
 
     _prefix = 'man-xml-ttyagent-oper'
-    _revision = '2015-07-30'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(Netconf, self).__init__()
@@ -95,6 +96,7 @@ class Netconf(Entity):
         self.agent.parent = self
         self._children_name_map["agent"] = "agent"
         self._segment_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Netconf, [], name, value)
@@ -114,7 +116,7 @@ class Netconf(Entity):
         """
 
         _prefix = 'man-xml-ttyagent-oper'
-        _revision = '2015-07-30'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(Netconf.Agent, self).__init__()
@@ -132,6 +134,7 @@ class Netconf(Entity):
             self._children_name_map["tty"] = "tty"
             self._segment_path = lambda: "agent"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Netconf.Agent, [], name, value)
@@ -151,7 +154,7 @@ class Netconf(Entity):
             """
 
             _prefix = 'man-xml-ttyagent-oper'
-            _revision = '2015-07-30'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(Netconf.Agent.Tty, self).__init__()
@@ -169,6 +172,7 @@ class Netconf(Entity):
                 self._children_name_map["sessions"] = "sessions"
                 self._segment_path = lambda: "tty"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/agent/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Netconf.Agent.Tty, [], name, value)
@@ -188,7 +192,7 @@ class Netconf(Entity):
                 """
 
                 _prefix = 'man-xml-ttyagent-oper'
-                _revision = '2015-07-30'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(Netconf.Agent.Tty.Sessions, self).__init__()
@@ -204,6 +208,7 @@ class Netconf(Entity):
                     self.session = YList(self)
                     self._segment_path = lambda: "sessions"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/agent/tty/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Netconf.Agent.Tty.Sessions, [], name, value)
@@ -218,7 +223,7 @@ class Netconf(Entity):
                     	Session ID
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: username
                     
@@ -294,7 +299,7 @@ class Netconf(Entity):
                     """
 
                     _prefix = 'man-xml-ttyagent-oper'
-                    _revision = '2015-07-30'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(Netconf.Agent.Tty.Sessions.Session, self).__init__()
@@ -306,18 +311,18 @@ class Netconf(Entity):
                         self.ylist_key_names = ['session_id']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('session_id', YLeaf(YType.int32, 'session-id')),
-                            ('username', YLeaf(YType.str, 'username')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('client_address', YLeaf(YType.str, 'client-address')),
-                            ('client_port', YLeaf(YType.uint32, 'client-port')),
-                            ('config_session_id', YLeaf(YType.str, 'config-session-id')),
-                            ('admin_config_session_id', YLeaf(YType.str, 'admin-config-session-id')),
-                            ('alarm_notification', YLeaf(YType.enumeration, 'alarm-notification')),
-                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                            ('start_time', YLeaf(YType.uint32, 'start-time')),
-                            ('elapsed_time', YLeaf(YType.uint32, 'elapsed-time')),
-                            ('last_state_change', YLeaf(YType.uint32, 'last-state-change')),
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionState', '')])),
+                            ('client_address', (YLeaf(YType.str, 'client-address'), ['str'])),
+                            ('client_port', (YLeaf(YType.uint32, 'client-port'), ['int'])),
+                            ('config_session_id', (YLeaf(YType.str, 'config-session-id'), ['str'])),
+                            ('admin_config_session_id', (YLeaf(YType.str, 'admin-config-session-id'), ['str'])),
+                            ('alarm_notification', (YLeaf(YType.enumeration, 'alarm-notification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionAlarmRegister', '')])),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                            ('start_time', (YLeaf(YType.uint32, 'start-time'), ['int'])),
+                            ('elapsed_time', (YLeaf(YType.uint32, 'elapsed-time'), ['int'])),
+                            ('last_state_change', (YLeaf(YType.uint32, 'last-state-change'), ['int'])),
                         ])
                         self.session_id = None
                         self.username = None
@@ -333,6 +338,7 @@ class Netconf(Entity):
                         self.last_state_change = None
                         self._segment_path = lambda: "session" + "[session-id='" + str(self.session_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:netconf/agent/tty/sessions/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Netconf.Agent.Tty.Sessions.Session, ['session_id', u'username', u'state', u'client_address', u'client_port', u'config_session_id', u'admin_config_session_id', u'alarm_notification', u'vrf_name', u'start_time', u'elapsed_time', u'last_state_change'], name, value)
@@ -355,7 +361,7 @@ class XrXml(Entity):
     """
 
     _prefix = 'man-xml-ttyagent-oper'
-    _revision = '2015-07-30'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(XrXml, self).__init__()
@@ -373,6 +379,7 @@ class XrXml(Entity):
         self.agent.parent = self
         self._children_name_map["agent"] = "agent"
         self._segment_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(XrXml, [], name, value)
@@ -402,7 +409,7 @@ class XrXml(Entity):
         """
 
         _prefix = 'man-xml-ttyagent-oper'
-        _revision = '2015-07-30'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(XrXml.Agent, self).__init__()
@@ -428,6 +435,7 @@ class XrXml(Entity):
             self._children_name_map["ssl"] = "ssl"
             self._segment_path = lambda: "agent"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(XrXml.Agent, [], name, value)
@@ -447,7 +455,7 @@ class XrXml(Entity):
             """
 
             _prefix = 'man-xml-ttyagent-oper'
-            _revision = '2015-07-30'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(XrXml.Agent.Tty, self).__init__()
@@ -465,6 +473,7 @@ class XrXml(Entity):
                 self._children_name_map["sessions"] = "sessions"
                 self._segment_path = lambda: "tty"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(XrXml.Agent.Tty, [], name, value)
@@ -484,7 +493,7 @@ class XrXml(Entity):
                 """
 
                 _prefix = 'man-xml-ttyagent-oper'
-                _revision = '2015-07-30'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(XrXml.Agent.Tty.Sessions, self).__init__()
@@ -500,6 +509,7 @@ class XrXml(Entity):
                     self.session = YList(self)
                     self._segment_path = lambda: "sessions"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/tty/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(XrXml.Agent.Tty.Sessions, [], name, value)
@@ -514,7 +524,7 @@ class XrXml(Entity):
                     	Session Id
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: username
                     
@@ -590,7 +600,7 @@ class XrXml(Entity):
                     """
 
                     _prefix = 'man-xml-ttyagent-oper'
-                    _revision = '2015-07-30'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(XrXml.Agent.Tty.Sessions.Session, self).__init__()
@@ -602,18 +612,18 @@ class XrXml(Entity):
                         self.ylist_key_names = ['session_id']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('session_id', YLeaf(YType.int32, 'session-id')),
-                            ('username', YLeaf(YType.str, 'username')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('client_address', YLeaf(YType.str, 'client-address')),
-                            ('client_port', YLeaf(YType.uint32, 'client-port')),
-                            ('config_session_id', YLeaf(YType.str, 'config-session-id')),
-                            ('admin_config_session_id', YLeaf(YType.str, 'admin-config-session-id')),
-                            ('alarm_notification', YLeaf(YType.enumeration, 'alarm-notification')),
-                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                            ('start_time', YLeaf(YType.uint32, 'start-time')),
-                            ('elapsed_time', YLeaf(YType.uint32, 'elapsed-time')),
-                            ('last_state_change', YLeaf(YType.uint32, 'last-state-change')),
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionState', '')])),
+                            ('client_address', (YLeaf(YType.str, 'client-address'), ['str'])),
+                            ('client_port', (YLeaf(YType.uint32, 'client-port'), ['int'])),
+                            ('config_session_id', (YLeaf(YType.str, 'config-session-id'), ['str'])),
+                            ('admin_config_session_id', (YLeaf(YType.str, 'admin-config-session-id'), ['str'])),
+                            ('alarm_notification', (YLeaf(YType.enumeration, 'alarm-notification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionAlarmRegister', '')])),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                            ('start_time', (YLeaf(YType.uint32, 'start-time'), ['int'])),
+                            ('elapsed_time', (YLeaf(YType.uint32, 'elapsed-time'), ['int'])),
+                            ('last_state_change', (YLeaf(YType.uint32, 'last-state-change'), ['int'])),
                         ])
                         self.session_id = None
                         self.username = None
@@ -629,6 +639,7 @@ class XrXml(Entity):
                         self.last_state_change = None
                         self._segment_path = lambda: "session" + "[session-id='" + str(self.session_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/tty/sessions/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(XrXml.Agent.Tty.Sessions.Session, ['session_id', u'username', u'state', u'client_address', u'client_port', u'config_session_id', u'admin_config_session_id', u'alarm_notification', u'vrf_name', u'start_time', u'elapsed_time', u'last_state_change'], name, value)
@@ -648,7 +659,7 @@ class XrXml(Entity):
             """
 
             _prefix = 'man-xml-ttyagent-oper'
-            _revision = '2015-07-30'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(XrXml.Agent.Default, self).__init__()
@@ -666,6 +677,7 @@ class XrXml(Entity):
                 self._children_name_map["sessions"] = "sessions"
                 self._segment_path = lambda: "default"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(XrXml.Agent.Default, [], name, value)
@@ -685,7 +697,7 @@ class XrXml(Entity):
                 """
 
                 _prefix = 'man-xml-ttyagent-oper'
-                _revision = '2015-07-30'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(XrXml.Agent.Default.Sessions, self).__init__()
@@ -701,6 +713,7 @@ class XrXml(Entity):
                     self.session = YList(self)
                     self._segment_path = lambda: "sessions"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/default/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(XrXml.Agent.Default.Sessions, [], name, value)
@@ -715,7 +728,7 @@ class XrXml(Entity):
                     	Session Id
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: username
                     
@@ -791,7 +804,7 @@ class XrXml(Entity):
                     """
 
                     _prefix = 'man-xml-ttyagent-oper'
-                    _revision = '2015-07-30'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(XrXml.Agent.Default.Sessions.Session, self).__init__()
@@ -803,18 +816,18 @@ class XrXml(Entity):
                         self.ylist_key_names = ['session_id']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('session_id', YLeaf(YType.int32, 'session-id')),
-                            ('username', YLeaf(YType.str, 'username')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('client_address', YLeaf(YType.str, 'client-address')),
-                            ('client_port', YLeaf(YType.uint32, 'client-port')),
-                            ('config_session_id', YLeaf(YType.str, 'config-session-id')),
-                            ('admin_config_session_id', YLeaf(YType.str, 'admin-config-session-id')),
-                            ('alarm_notification', YLeaf(YType.enumeration, 'alarm-notification')),
-                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                            ('start_time', YLeaf(YType.uint32, 'start-time')),
-                            ('elapsed_time', YLeaf(YType.uint32, 'elapsed-time')),
-                            ('last_state_change', YLeaf(YType.uint32, 'last-state-change')),
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionState', '')])),
+                            ('client_address', (YLeaf(YType.str, 'client-address'), ['str'])),
+                            ('client_port', (YLeaf(YType.uint32, 'client-port'), ['int'])),
+                            ('config_session_id', (YLeaf(YType.str, 'config-session-id'), ['str'])),
+                            ('admin_config_session_id', (YLeaf(YType.str, 'admin-config-session-id'), ['str'])),
+                            ('alarm_notification', (YLeaf(YType.enumeration, 'alarm-notification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionAlarmRegister', '')])),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                            ('start_time', (YLeaf(YType.uint32, 'start-time'), ['int'])),
+                            ('elapsed_time', (YLeaf(YType.uint32, 'elapsed-time'), ['int'])),
+                            ('last_state_change', (YLeaf(YType.uint32, 'last-state-change'), ['int'])),
                         ])
                         self.session_id = None
                         self.username = None
@@ -830,6 +843,7 @@ class XrXml(Entity):
                         self.last_state_change = None
                         self._segment_path = lambda: "session" + "[session-id='" + str(self.session_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/default/sessions/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(XrXml.Agent.Default.Sessions.Session, ['session_id', u'username', u'state', u'client_address', u'client_port', u'config_session_id', u'admin_config_session_id', u'alarm_notification', u'vrf_name', u'start_time', u'elapsed_time', u'last_state_change'], name, value)
@@ -849,7 +863,7 @@ class XrXml(Entity):
             """
 
             _prefix = 'man-xml-ttyagent-oper'
-            _revision = '2015-07-30'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(XrXml.Agent.Ssl, self).__init__()
@@ -867,6 +881,7 @@ class XrXml(Entity):
                 self._children_name_map["sessions"] = "sessions"
                 self._segment_path = lambda: "ssl"
                 self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(XrXml.Agent.Ssl, [], name, value)
@@ -886,7 +901,7 @@ class XrXml(Entity):
                 """
 
                 _prefix = 'man-xml-ttyagent-oper'
-                _revision = '2015-07-30'
+                _revision = '2017-09-07'
 
                 def __init__(self):
                     super(XrXml.Agent.Ssl.Sessions, self).__init__()
@@ -902,6 +917,7 @@ class XrXml(Entity):
                     self.session = YList(self)
                     self._segment_path = lambda: "sessions"
                     self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/ssl/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(XrXml.Agent.Ssl.Sessions, [], name, value)
@@ -916,7 +932,7 @@ class XrXml(Entity):
                     	Session Id
                     	**type**\: int
                     
-                    	**range:** \-2147483648..2147483647
+                    	**range:** 0..4294967295
                     
                     .. attribute:: username
                     
@@ -992,7 +1008,7 @@ class XrXml(Entity):
                     """
 
                     _prefix = 'man-xml-ttyagent-oper'
-                    _revision = '2015-07-30'
+                    _revision = '2017-09-07'
 
                     def __init__(self):
                         super(XrXml.Agent.Ssl.Sessions.Session, self).__init__()
@@ -1004,18 +1020,18 @@ class XrXml(Entity):
                         self.ylist_key_names = ['session_id']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('session_id', YLeaf(YType.int32, 'session-id')),
-                            ('username', YLeaf(YType.str, 'username')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('client_address', YLeaf(YType.str, 'client-address')),
-                            ('client_port', YLeaf(YType.uint32, 'client-port')),
-                            ('config_session_id', YLeaf(YType.str, 'config-session-id')),
-                            ('admin_config_session_id', YLeaf(YType.str, 'admin-config-session-id')),
-                            ('alarm_notification', YLeaf(YType.enumeration, 'alarm-notification')),
-                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                            ('start_time', YLeaf(YType.uint32, 'start-time')),
-                            ('elapsed_time', YLeaf(YType.uint32, 'elapsed-time')),
-                            ('last_state_change', YLeaf(YType.uint32, 'last-state-change')),
+                            ('session_id', (YLeaf(YType.uint32, 'session-id'), ['int'])),
+                            ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionState', '')])),
+                            ('client_address', (YLeaf(YType.str, 'client-address'), ['str'])),
+                            ('client_port', (YLeaf(YType.uint32, 'client-port'), ['int'])),
+                            ('config_session_id', (YLeaf(YType.str, 'config-session-id'), ['str'])),
+                            ('admin_config_session_id', (YLeaf(YType.str, 'admin-config-session-id'), ['str'])),
+                            ('alarm_notification', (YLeaf(YType.enumeration, 'alarm-notification'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_man_xml_ttyagent_oper', 'XrXmlSessionAlarmRegister', '')])),
+                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                            ('start_time', (YLeaf(YType.uint32, 'start-time'), ['int'])),
+                            ('elapsed_time', (YLeaf(YType.uint32, 'elapsed-time'), ['int'])),
+                            ('last_state_change', (YLeaf(YType.uint32, 'last-state-change'), ['int'])),
                         ])
                         self.session_id = None
                         self.username = None
@@ -1031,6 +1047,7 @@ class XrXml(Entity):
                         self.last_state_change = None
                         self._segment_path = lambda: "session" + "[session-id='" + str(self.session_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-man-xml-ttyagent-oper:xr-xml/agent/ssl/sessions/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(XrXml.Agent.Ssl.Sessions.Session, ['session_id', u'username', u'state', u'client_address', u'client_port', u'config_session_id', u'admin_config_session_id', u'alarm_notification', u'vrf_name', u'start_time', u'elapsed_time', u'last_state_change'], name, value)

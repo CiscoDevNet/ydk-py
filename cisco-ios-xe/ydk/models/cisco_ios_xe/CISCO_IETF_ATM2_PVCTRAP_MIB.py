@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOIETFATM2PVCTRAPMIB(Entity):
     """
     
@@ -45,6 +46,7 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
         self.atmcurrentlyfailingpvcltable.parent = self
         self._children_name_map["atmcurrentlyfailingpvcltable"] = "atmCurrentlyFailingPVclTable"
         self._segment_path = lambda: "CISCO-IETF-ATM2-PVCTRAP-MIB:CISCO-IETF-ATM2-PVCTRAP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIETFATM2PVCTRAPMIB, [], name, value)
@@ -83,6 +85,7 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
             self.atmcurrentlyfailingpvclentry = YList(self)
             self._segment_path = lambda: "atmCurrentlyFailingPVclTable"
             self._absolute_path = lambda: "CISCO-IETF-ATM2-PVCTRAP-MIB:CISCO-IETF-ATM2-PVCTRAP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFATM2PVCTRAPMIB.AtmCurrentlyFailingPVclTable, [], name, value)
@@ -152,11 +155,11 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','atmvclvci']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('atmvclvci', YLeaf(YType.str, 'atmVclVci')),
-                    ('atmcurrentlyfailingpvcltimestamp', YLeaf(YType.uint32, 'atmCurrentlyFailingPVclTimeStamp')),
-                    ('atmpreviouslyfailedpvcltimestamp', YLeaf(YType.uint32, 'atmPreviouslyFailedPVclTimeStamp')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('atmvclvci', (YLeaf(YType.str, 'atmVclVci'), ['int'])),
+                    ('atmcurrentlyfailingpvcltimestamp', (YLeaf(YType.uint32, 'atmCurrentlyFailingPVclTimeStamp'), ['int'])),
+                    ('atmpreviouslyfailedpvcltimestamp', (YLeaf(YType.uint32, 'atmPreviouslyFailedPVclTimeStamp'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -165,6 +168,7 @@ class CISCOIETFATM2PVCTRAPMIB(Entity):
                 self.atmpreviouslyfailedpvcltimestamp = None
                 self._segment_path = lambda: "atmCurrentlyFailingPVclEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[atmVclVci='" + str(self.atmvclvci) + "']"
                 self._absolute_path = lambda: "CISCO-IETF-ATM2-PVCTRAP-MIB:CISCO-IETF-ATM2-PVCTRAP-MIB/atmCurrentlyFailingPVclTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOIETFATM2PVCTRAPMIB.AtmCurrentlyFailingPVclTable.AtmCurrentlyFailingPVclEntry, [u'ifindex', u'atmvclvpi', u'atmvclvci', u'atmcurrentlyfailingpvcltimestamp', u'atmpreviouslyfailedpvcltimestamp'], name, value)

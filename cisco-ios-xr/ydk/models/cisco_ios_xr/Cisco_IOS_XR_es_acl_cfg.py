@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   es\-acl\: Layer 2 ACL configuration data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -19,11 +19,12 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class EsAclGrantEnum(Enum):
     """
     EsAclGrantEnum (Enum Class)
 
-    ES acl forwarding action.
+    ES ACL forwarding action.
 
     .. data:: deny = 0
 
@@ -55,7 +56,7 @@ class EsAcl(Entity):
     """
 
     _prefix = 'es-acl-cfg'
-    _revision = '2018-01-03'
+    _revision = '2018-02-26'
 
     def __init__(self):
         super(EsAcl, self).__init__()
@@ -73,6 +74,7 @@ class EsAcl(Entity):
         self.accesses.parent = self
         self._children_name_map["accesses"] = "accesses"
         self._segment_path = lambda: "Cisco-IOS-XR-es-acl-cfg:es-acl"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(EsAcl, [], name, value)
@@ -92,7 +94,7 @@ class EsAcl(Entity):
         """
 
         _prefix = 'es-acl-cfg'
-        _revision = '2018-01-03'
+        _revision = '2018-02-26'
 
         def __init__(self):
             super(EsAcl.Accesses, self).__init__()
@@ -108,6 +110,7 @@ class EsAcl(Entity):
             self.access = YList(self)
             self._segment_path = lambda: "accesses"
             self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-cfg:es-acl/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(EsAcl.Accesses, [], name, value)
@@ -134,7 +137,7 @@ class EsAcl(Entity):
             """
 
             _prefix = 'es-acl-cfg'
-            _revision = '2018-01-03'
+            _revision = '2018-02-26'
 
             def __init__(self):
                 super(EsAcl.Accesses.Access, self).__init__()
@@ -146,7 +149,7 @@ class EsAcl(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("access-list-entries", ("access_list_entries", EsAcl.Accesses.Access.AccessListEntries))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
 
@@ -155,6 +158,7 @@ class EsAcl(Entity):
                 self._children_name_map["access_list_entries"] = "access-list-entries"
                 self._segment_path = lambda: "access" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-es-acl-cfg:es-acl/accesses/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(EsAcl.Accesses.Access, ['name'], name, value)
@@ -175,7 +179,7 @@ class EsAcl(Entity):
                 """
 
                 _prefix = 'es-acl-cfg'
-                _revision = '2018-01-03'
+                _revision = '2018-02-26'
 
                 def __init__(self):
                     super(EsAcl.Accesses.Access.AccessListEntries, self).__init__()
@@ -190,6 +194,7 @@ class EsAcl(Entity):
 
                     self.access_list_entry = YList(self)
                     self._segment_path = lambda: "access-list-entries"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries, [], name, value)
@@ -227,56 +232,56 @@ class EsAcl(Entity):
                     	This 12\-bit VLAN\-ID in the VLAN Tag header uniquely identifies the VLAN. It can be used for the lower bound (in range) or single value. Any value not in the permissible range will be rejected
                     	**type**\: int
                     
-                    	**range:** 0..65535
+                    	**range:** 0..4095
                     
                     .. attribute:: vlan2
                     
                     	This 12 bit VLAN\-ID in the VLAN Tag header uniquely identifies the VLAN. It is used in the upper bound (in range). Any value not in the permissible range will be rejected
                     	**type**\: int
                     
-                    	**range:** 0..65535
+                    	**range:** 0..4095
                     
                     .. attribute:: cos
                     
                     	Class of Service value. Any value not in the permissible range will be rejected
                     	**type**\: int
                     
-                    	**range:** 0..255
+                    	**range:** 0..7
                     
                     .. attribute:: dei
                     
                     	Discard Eligibility Indication bit. User can specify 1 to indicate the bit is set. Leave unspecified otherwise
                     	**type**\: int
                     
-                    	**range:** 0..255
+                    	**range:** 0..1
                     
                     .. attribute:: inner_vlan1
                     
                     	This represents the QinQ vlan identifier. It can be used for the lower bound (in range) or single value. Any value not in the permissible range will be rejected
                     	**type**\: int
                     
-                    	**range:** 0..65535
+                    	**range:** 0..4095
                     
                     .. attribute:: inner_vlan2
                     
                     	This represents the QinQ vlan identifier. It is used in the upper bound (in range). Any value not in the permissible range will be rejected
                     	**type**\: int
                     
-                    	**range:** 0..65535
+                    	**range:** 0..4095
                     
                     .. attribute:: inner_cos
                     
                     	Class of Service of Inner Header. Range from 0 to 7. Any value beyond this range will be rejected by ACL verifier
                     	**type**\: int
                     
-                    	**range:** 0..255
+                    	**range:** 0..7
                     
                     .. attribute:: inner_dei
                     
                     	Class of Service of Inner Header. Any value not in the permissible range will be rejected
                     	**type**\: int
                     
-                    	**range:** 0..255
+                    	**range:** 0..1
                     
                     .. attribute:: remark
                     
@@ -288,9 +293,9 @@ class EsAcl(Entity):
                     .. attribute:: ether_type_number
                     
                     	Ethernet type Number in Hex. Any value not in the permissible range will be rejected
-                    	**type**\: int
+                    	**type**\: str
                     
-                    	**range:** 0..65535
+                    	**pattern:** [0\-9a\-fA\-F]{1,4}
                     
                     .. attribute:: capture
                     
@@ -302,7 +307,7 @@ class EsAcl(Entity):
                     	Log the packet on this access\-list\-entry/rule. User can specify 1 to enable logging the match, leave unspecified otherwise
                     	**type**\: int
                     
-                    	**range:** 0..255
+                    	**range:** 0..1
                     
                     .. attribute:: sequence_str
                     
@@ -316,7 +321,7 @@ class EsAcl(Entity):
                     """
 
                     _prefix = 'es-acl-cfg'
-                    _revision = '2018-01-03'
+                    _revision = '2018-02-26'
 
                     def __init__(self):
                         super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry, self).__init__()
@@ -328,21 +333,21 @@ class EsAcl(Entity):
                         self.ylist_key_names = ['sequence_number']
                         self._child_classes = OrderedDict([("source-network", ("source_network", EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork)), ("destination-network", ("destination_network", EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork))])
                         self._leafs = OrderedDict([
-                            ('sequence_number', YLeaf(YType.uint32, 'sequence-number')),
-                            ('grant', YLeaf(YType.enumeration, 'grant')),
-                            ('vlan1', YLeaf(YType.uint16, 'vlan1')),
-                            ('vlan2', YLeaf(YType.uint16, 'vlan2')),
-                            ('cos', YLeaf(YType.uint8, 'cos')),
-                            ('dei', YLeaf(YType.uint8, 'dei')),
-                            ('inner_vlan1', YLeaf(YType.uint16, 'inner-vlan1')),
-                            ('inner_vlan2', YLeaf(YType.uint16, 'inner-vlan2')),
-                            ('inner_cos', YLeaf(YType.uint8, 'inner-cos')),
-                            ('inner_dei', YLeaf(YType.uint8, 'inner-dei')),
-                            ('remark', YLeaf(YType.str, 'remark')),
-                            ('ether_type_number', YLeaf(YType.uint16, 'ether-type-number')),
-                            ('capture', YLeaf(YType.boolean, 'capture')),
-                            ('log_option', YLeaf(YType.uint8, 'log-option')),
-                            ('sequence_str', YLeaf(YType.str, 'sequence-str')),
+                            ('sequence_number', (YLeaf(YType.uint32, 'sequence-number'), ['int'])),
+                            ('grant', (YLeaf(YType.enumeration, 'grant'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_es_acl_cfg', 'EsAclGrantEnum', '')])),
+                            ('vlan1', (YLeaf(YType.uint32, 'vlan1'), ['int'])),
+                            ('vlan2', (YLeaf(YType.uint32, 'vlan2'), ['int'])),
+                            ('cos', (YLeaf(YType.uint32, 'cos'), ['int'])),
+                            ('dei', (YLeaf(YType.uint32, 'dei'), ['int'])),
+                            ('inner_vlan1', (YLeaf(YType.uint32, 'inner-vlan1'), ['int'])),
+                            ('inner_vlan2', (YLeaf(YType.uint32, 'inner-vlan2'), ['int'])),
+                            ('inner_cos', (YLeaf(YType.uint32, 'inner-cos'), ['int'])),
+                            ('inner_dei', (YLeaf(YType.uint32, 'inner-dei'), ['int'])),
+                            ('remark', (YLeaf(YType.str, 'remark'), ['str'])),
+                            ('ether_type_number', (YLeaf(YType.str, 'ether-type-number'), ['str'])),
+                            ('capture', (YLeaf(YType.boolean, 'capture'), ['bool'])),
+                            ('log_option', (YLeaf(YType.uint32, 'log-option'), ['int'])),
+                            ('sequence_str', (YLeaf(YType.str, 'sequence-str'), ['str'])),
                         ])
                         self.sequence_number = None
                         self.grant = None
@@ -368,6 +373,7 @@ class EsAcl(Entity):
                         self.destination_network.parent = self
                         self._children_name_map["destination_network"] = "destination-network"
                         self._segment_path = lambda: "access-list-entry" + "[sequence-number='" + str(self.sequence_number) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry, ['sequence_number', 'grant', 'vlan1', 'vlan2', 'cos', 'dei', 'inner_vlan1', 'inner_vlan2', 'inner_cos', 'inner_dei', 'remark', 'ether_type_number', 'capture', 'log_option', 'sequence_str'], name, value)
@@ -396,7 +402,7 @@ class EsAcl(Entity):
                         """
 
                         _prefix = 'es-acl-cfg'
-                        _revision = '2018-01-03'
+                        _revision = '2018-02-26'
 
                         def __init__(self):
                             super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, self).__init__()
@@ -408,12 +414,13 @@ class EsAcl(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('source_wild_card_bits', YLeaf(YType.str, 'source-wild-card-bits')),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                ('source_wild_card_bits', (YLeaf(YType.str, 'source-wild-card-bits'), ['str'])),
                             ])
                             self.source_address = None
                             self.source_wild_card_bits = None
                             self._segment_path = lambda: "source-network"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.SourceNetwork, ['source_address', 'source_wild_card_bits'], name, value)
@@ -442,7 +449,7 @@ class EsAcl(Entity):
                         """
 
                         _prefix = 'es-acl-cfg'
-                        _revision = '2018-01-03'
+                        _revision = '2018-02-26'
 
                         def __init__(self):
                             super(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, self).__init__()
@@ -454,12 +461,13 @@ class EsAcl(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('destination_address', YLeaf(YType.str, 'destination-address')),
-                                ('destination_wild_card_bits', YLeaf(YType.str, 'destination-wild-card-bits')),
+                                ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                                ('destination_wild_card_bits', (YLeaf(YType.str, 'destination-wild-card-bits'), ['str'])),
                             ])
                             self.destination_address = None
                             self.destination_wild_card_bits = None
                             self._segment_path = lambda: "destination-network"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(EsAcl.Accesses.Access.AccessListEntries.AccessListEntry.DestinationNetwork, ['destination_address', 'destination_wild_card_bits'], name, value)

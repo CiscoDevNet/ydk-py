@@ -19,6 +19,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOTAP2MIB(Entity):
     """
     
@@ -96,6 +97,7 @@ class CISCOTAP2MIB(Entity):
         self.ctap2debugusertable.parent = self
         self._children_name_map["ctap2debugusertable"] = "cTap2DebugUserTable"
         self._segment_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOTAP2MIB, [], name, value)
@@ -134,13 +136,14 @@ class CISCOTAP2MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ctap2mediationnewindex', YLeaf(YType.int32, 'cTap2MediationNewIndex')),
-                ('ctap2mediationcapabilities', YLeaf(YType.bits, 'cTap2MediationCapabilities')),
+                ('ctap2mediationnewindex', (YLeaf(YType.int32, 'cTap2MediationNewIndex'), ['int'])),
+                ('ctap2mediationcapabilities', (YLeaf(YType.bits, 'cTap2MediationCapabilities'), ['Bits'])),
             ])
             self.ctap2mediationnewindex = None
             self.ctap2mediationcapabilities = Bits()
             self._segment_path = lambda: "cTap2MediationGroup"
             self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOTAP2MIB.CTap2MediationGroup, ['ctap2mediationnewindex', 'ctap2mediationcapabilities'], name, value)
@@ -181,13 +184,14 @@ class CISCOTAP2MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ctap2debugage', YLeaf(YType.int32, 'cTap2DebugAge')),
-                ('ctap2debugmaxentries', YLeaf(YType.int32, 'cTap2DebugMaxEntries')),
+                ('ctap2debugage', (YLeaf(YType.int32, 'cTap2DebugAge'), ['int'])),
+                ('ctap2debugmaxentries', (YLeaf(YType.int32, 'cTap2DebugMaxEntries'), ['int'])),
             ])
             self.ctap2debugage = None
             self.ctap2debugmaxentries = None
             self._segment_path = lambda: "cTap2DebugGroup"
             self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOTAP2MIB.CTap2DebugGroup, ['ctap2debugage', 'ctap2debugmaxentries'], name, value)
@@ -233,6 +237,7 @@ class CISCOTAP2MIB(Entity):
             self.ctap2mediationentry = YList(self)
             self._segment_path = lambda: "cTap2MediationTable"
             self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOTAP2MIB.CTap2MediationTable, [], name, value)
@@ -348,20 +353,20 @@ class CISCOTAP2MIB(Entity):
                 self.ylist_key_names = ['ctap2mediationcontentid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ctap2mediationcontentid', YLeaf(YType.int32, 'cTap2MediationContentId')),
-                    ('ctap2mediationdestaddresstype', YLeaf(YType.enumeration, 'cTap2MediationDestAddressType')),
-                    ('ctap2mediationdestaddress', YLeaf(YType.str, 'cTap2MediationDestAddress')),
-                    ('ctap2mediationdestport', YLeaf(YType.uint16, 'cTap2MediationDestPort')),
-                    ('ctap2mediationsrcinterface', YLeaf(YType.int32, 'cTap2MediationSrcInterface')),
-                    ('ctap2mediationrtcpport', YLeaf(YType.uint16, 'cTap2MediationRtcpPort')),
-                    ('ctap2mediationdscp', YLeaf(YType.int32, 'cTap2MediationDscp')),
-                    ('ctap2mediationdatatype', YLeaf(YType.int32, 'cTap2MediationDataType')),
-                    ('ctap2mediationretransmittype', YLeaf(YType.int32, 'cTap2MediationRetransmitType')),
-                    ('ctap2mediationtimeout', YLeaf(YType.str, 'cTap2MediationTimeout')),
-                    ('ctap2mediationtransport', YLeaf(YType.enumeration, 'cTap2MediationTransport')),
-                    ('ctap2mediationnotificationenable', YLeaf(YType.boolean, 'cTap2MediationNotificationEnable')),
-                    ('ctap2mediationstatus', YLeaf(YType.enumeration, 'cTap2MediationStatus')),
-                    ('ctap2mediationradiuskey', YLeaf(YType.str, 'cTap2MediationRadiusKey')),
+                    ('ctap2mediationcontentid', (YLeaf(YType.int32, 'cTap2MediationContentId'), ['int'])),
+                    ('ctap2mediationdestaddresstype', (YLeaf(YType.enumeration, 'cTap2MediationDestAddressType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('ctap2mediationdestaddress', (YLeaf(YType.str, 'cTap2MediationDestAddress'), ['str'])),
+                    ('ctap2mediationdestport', (YLeaf(YType.uint16, 'cTap2MediationDestPort'), ['int'])),
+                    ('ctap2mediationsrcinterface', (YLeaf(YType.int32, 'cTap2MediationSrcInterface'), ['int'])),
+                    ('ctap2mediationrtcpport', (YLeaf(YType.uint16, 'cTap2MediationRtcpPort'), ['int'])),
+                    ('ctap2mediationdscp', (YLeaf(YType.int32, 'cTap2MediationDscp'), ['int'])),
+                    ('ctap2mediationdatatype', (YLeaf(YType.int32, 'cTap2MediationDataType'), ['int'])),
+                    ('ctap2mediationretransmittype', (YLeaf(YType.int32, 'cTap2MediationRetransmitType'), ['int'])),
+                    ('ctap2mediationtimeout', (YLeaf(YType.str, 'cTap2MediationTimeout'), ['str'])),
+                    ('ctap2mediationtransport', (YLeaf(YType.enumeration, 'cTap2MediationTransport'), [('ydk.models.cisco_ios_xe.CISCO_TAP2_MIB', 'CISCOTAP2MIB', 'CTap2MediationTable.CTap2MediationEntry.CTap2MediationTransport')])),
+                    ('ctap2mediationnotificationenable', (YLeaf(YType.boolean, 'cTap2MediationNotificationEnable'), ['bool'])),
+                    ('ctap2mediationstatus', (YLeaf(YType.enumeration, 'cTap2MediationStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('ctap2mediationradiuskey', (YLeaf(YType.str, 'cTap2MediationRadiusKey'), ['str'])),
                 ])
                 self.ctap2mediationcontentid = None
                 self.ctap2mediationdestaddresstype = None
@@ -379,6 +384,7 @@ class CISCOTAP2MIB(Entity):
                 self.ctap2mediationradiuskey = None
                 self._segment_path = lambda: "cTap2MediationEntry" + "[cTap2MediationContentId='" + str(self.ctap2mediationcontentid) + "']"
                 self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2MediationTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOTAP2MIB.CTap2MediationTable.CTap2MediationEntry, ['ctap2mediationcontentid', 'ctap2mediationdestaddresstype', 'ctap2mediationdestaddress', 'ctap2mediationdestport', 'ctap2mediationsrcinterface', 'ctap2mediationrtcpport', 'ctap2mediationdscp', 'ctap2mediationdatatype', 'ctap2mediationretransmittype', 'ctap2mediationtimeout', 'ctap2mediationtransport', 'ctap2mediationnotificationenable', 'ctap2mediationstatus', 'ctap2mediationradiuskey'], name, value)
@@ -492,6 +498,7 @@ class CISCOTAP2MIB(Entity):
             self.ctap2streamentry = YList(self)
             self._segment_path = lambda: "cTap2StreamTable"
             self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOTAP2MIB.CTap2StreamTable, [], name, value)
@@ -580,15 +587,15 @@ class CISCOTAP2MIB(Entity):
                 self.ylist_key_names = ['ctap2mediationcontentid','ctap2streamindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ctap2mediationcontentid', YLeaf(YType.str, 'cTap2MediationContentId')),
-                    ('ctap2streamindex', YLeaf(YType.int32, 'cTap2StreamIndex')),
-                    ('ctap2streamtype', YLeaf(YType.enumeration, 'cTap2StreamType')),
-                    ('ctap2streaminterceptenable', YLeaf(YType.boolean, 'cTap2StreamInterceptEnable')),
-                    ('ctap2streaminterceptedpackets', YLeaf(YType.uint32, 'cTap2StreamInterceptedPackets')),
-                    ('ctap2streaminterceptdrops', YLeaf(YType.uint32, 'cTap2StreamInterceptDrops')),
-                    ('ctap2streamstatus', YLeaf(YType.enumeration, 'cTap2StreamStatus')),
-                    ('ctap2streaminterceptedhcpackets', YLeaf(YType.uint64, 'cTap2StreamInterceptedHCPackets')),
-                    ('ctap2streamintercepthcdrops', YLeaf(YType.uint64, 'cTap2StreamInterceptHCDrops')),
+                    ('ctap2mediationcontentid', (YLeaf(YType.str, 'cTap2MediationContentId'), ['int'])),
+                    ('ctap2streamindex', (YLeaf(YType.int32, 'cTap2StreamIndex'), ['int'])),
+                    ('ctap2streamtype', (YLeaf(YType.enumeration, 'cTap2StreamType'), [('ydk.models.cisco_ios_xe.CISCO_TAP2_MIB', 'CISCOTAP2MIB', 'CTap2StreamTable.CTap2StreamEntry.CTap2StreamType')])),
+                    ('ctap2streaminterceptenable', (YLeaf(YType.boolean, 'cTap2StreamInterceptEnable'), ['bool'])),
+                    ('ctap2streaminterceptedpackets', (YLeaf(YType.uint32, 'cTap2StreamInterceptedPackets'), ['int'])),
+                    ('ctap2streaminterceptdrops', (YLeaf(YType.uint32, 'cTap2StreamInterceptDrops'), ['int'])),
+                    ('ctap2streamstatus', (YLeaf(YType.enumeration, 'cTap2StreamStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('ctap2streaminterceptedhcpackets', (YLeaf(YType.uint64, 'cTap2StreamInterceptedHCPackets'), ['int'])),
+                    ('ctap2streamintercepthcdrops', (YLeaf(YType.uint64, 'cTap2StreamInterceptHCDrops'), ['int'])),
                 ])
                 self.ctap2mediationcontentid = None
                 self.ctap2streamindex = None
@@ -601,6 +608,7 @@ class CISCOTAP2MIB(Entity):
                 self.ctap2streamintercepthcdrops = None
                 self._segment_path = lambda: "cTap2StreamEntry" + "[cTap2MediationContentId='" + str(self.ctap2mediationcontentid) + "']" + "[cTap2StreamIndex='" + str(self.ctap2streamindex) + "']"
                 self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2StreamTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOTAP2MIB.CTap2StreamTable.CTap2StreamEntry, ['ctap2mediationcontentid', 'ctap2streamindex', 'ctap2streamtype', 'ctap2streaminterceptenable', 'ctap2streaminterceptedpackets', 'ctap2streaminterceptdrops', 'ctap2streamstatus', 'ctap2streaminterceptedhcpackets', 'ctap2streamintercepthcdrops'], name, value)
@@ -747,6 +755,7 @@ class CISCOTAP2MIB(Entity):
             self.ctap2debugentry = YList(self)
             self._segment_path = lambda: "cTap2DebugTable"
             self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOTAP2MIB.CTap2DebugTable, [], name, value)
@@ -804,11 +813,11 @@ class CISCOTAP2MIB(Entity):
                 self.ylist_key_names = ['ctap2debugindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ctap2debugindex', YLeaf(YType.int32, 'cTap2DebugIndex')),
-                    ('ctap2debugmediationid', YLeaf(YType.uint32, 'cTap2DebugMediationId')),
-                    ('ctap2debugstreamid', YLeaf(YType.uint32, 'cTap2DebugStreamId')),
-                    ('ctap2debugmessage', YLeaf(YType.str, 'cTap2DebugMessage')),
-                    ('ctap2debugstatus', YLeaf(YType.enumeration, 'cTap2DebugStatus')),
+                    ('ctap2debugindex', (YLeaf(YType.int32, 'cTap2DebugIndex'), ['int'])),
+                    ('ctap2debugmediationid', (YLeaf(YType.uint32, 'cTap2DebugMediationId'), ['int'])),
+                    ('ctap2debugstreamid', (YLeaf(YType.uint32, 'cTap2DebugStreamId'), ['int'])),
+                    ('ctap2debugmessage', (YLeaf(YType.str, 'cTap2DebugMessage'), ['str'])),
+                    ('ctap2debugstatus', (YLeaf(YType.enumeration, 'cTap2DebugStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ctap2debugindex = None
                 self.ctap2debugmediationid = None
@@ -817,6 +826,7 @@ class CISCOTAP2MIB(Entity):
                 self.ctap2debugstatus = None
                 self._segment_path = lambda: "cTap2DebugEntry" + "[cTap2DebugIndex='" + str(self.ctap2debugindex) + "']"
                 self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2DebugTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOTAP2MIB.CTap2DebugTable.CTap2DebugEntry, ['ctap2debugindex', 'ctap2debugmediationid', 'ctap2debugstreamid', 'ctap2debugmessage', 'ctap2debugstatus'], name, value)
@@ -859,6 +869,7 @@ class CISCOTAP2MIB(Entity):
             self.ctap2debuguserentry = YList(self)
             self._segment_path = lambda: "cTap2DebugUserTable"
             self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOTAP2MIB.CTap2DebugUserTable, [], name, value)
@@ -920,11 +931,11 @@ class CISCOTAP2MIB(Entity):
                 self.ylist_key_names = ['ctap2mediationcontentid','ctap2debugusername']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ctap2mediationcontentid', YLeaf(YType.str, 'cTap2MediationContentId')),
-                    ('ctap2debugusername', YLeaf(YType.str, 'cTap2DebugUserName')),
-                    ('ctap2debugusertimeout', YLeaf(YType.str, 'cTap2DebugUserTimeout')),
-                    ('ctap2debuguserstoragetype', YLeaf(YType.enumeration, 'cTap2DebugUserStorageType')),
-                    ('ctap2debuguserstatus', YLeaf(YType.enumeration, 'cTap2DebugUserStatus')),
+                    ('ctap2mediationcontentid', (YLeaf(YType.str, 'cTap2MediationContentId'), ['int'])),
+                    ('ctap2debugusername', (YLeaf(YType.str, 'cTap2DebugUserName'), ['str'])),
+                    ('ctap2debugusertimeout', (YLeaf(YType.str, 'cTap2DebugUserTimeout'), ['str'])),
+                    ('ctap2debuguserstoragetype', (YLeaf(YType.enumeration, 'cTap2DebugUserStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('ctap2debuguserstatus', (YLeaf(YType.enumeration, 'cTap2DebugUserStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ctap2mediationcontentid = None
                 self.ctap2debugusername = None
@@ -933,6 +944,7 @@ class CISCOTAP2MIB(Entity):
                 self.ctap2debuguserstatus = None
                 self._segment_path = lambda: "cTap2DebugUserEntry" + "[cTap2MediationContentId='" + str(self.ctap2mediationcontentid) + "']" + "[cTap2DebugUserName='" + str(self.ctap2debugusername) + "']"
                 self._absolute_path = lambda: "CISCO-TAP2-MIB:CISCO-TAP2-MIB/cTap2DebugUserTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOTAP2MIB.CTap2DebugUserTable.CTap2DebugUserEntry, ['ctap2mediationcontentid', 'ctap2debugusername', 'ctap2debugusertimeout', 'ctap2debuguserstoragetype', 'ctap2debuguserstatus'], name, value)

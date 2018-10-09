@@ -8,7 +8,7 @@ for the following management objects\:
   process\-mandatory\: Process mandatory configuration
   process\-single\-crash\: process single crash
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -62,6 +63,7 @@ class ProcessMandatory(Entity):
         self.all.parent = self
         self._children_name_map["all"] = "all"
         self._segment_path = lambda: "Cisco-IOS-XR-sysmgr-cfg:process-mandatory"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ProcessMandatory, [], name, value)
@@ -97,6 +99,7 @@ class ProcessMandatory(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysmgr-cfg:process-mandatory/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ProcessMandatory.Nodes, [], name, value)
@@ -135,7 +138,7 @@ class ProcessMandatory(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("processes", ("processes", ProcessMandatory.Nodes.Node.Processes))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -144,6 +147,7 @@ class ProcessMandatory(Entity):
                 self._children_name_map["processes"] = "processes"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysmgr-cfg:process-mandatory/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ProcessMandatory.Nodes.Node, ['node_name'], name, value)
@@ -178,6 +182,7 @@ class ProcessMandatory(Entity):
 
                     self.process = YList(self)
                     self._segment_path = lambda: "processes"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ProcessMandatory.Nodes.Node.Processes, [], name, value)
@@ -211,10 +216,11 @@ class ProcessMandatory(Entity):
                         self.ylist_key_names = ['process_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('process_name', YLeaf(YType.str, 'process-name')),
+                            ('process_name', (YLeaf(YType.str, 'process-name'), ['str'])),
                         ])
                         self.process_name = None
                         self._segment_path = lambda: "process" + "[process-name='" + str(self.process_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ProcessMandatory.Nodes.Node.Processes.Process, ['process_name'], name, value)
@@ -252,6 +258,7 @@ class ProcessMandatory(Entity):
             self._children_name_map["processes"] = "processes"
             self._segment_path = lambda: "all"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysmgr-cfg:process-mandatory/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ProcessMandatory.All, [], name, value)
@@ -287,6 +294,7 @@ class ProcessMandatory(Entity):
                 self.process = YList(self)
                 self._segment_path = lambda: "processes"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysmgr-cfg:process-mandatory/all/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ProcessMandatory.All.Processes, [], name, value)
@@ -320,11 +328,12 @@ class ProcessMandatory(Entity):
                     self.ylist_key_names = ['process_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('process_name', YLeaf(YType.str, 'process-name')),
+                        ('process_name', (YLeaf(YType.str, 'process-name'), ['str'])),
                     ])
                     self.process_name = None
                     self._segment_path = lambda: "process" + "[process-name='" + str(self.process_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysmgr-cfg:process-mandatory/all/processes/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ProcessMandatory.All.Processes.Process, ['process_name'], name, value)
@@ -378,12 +387,13 @@ class ProcessSingleCrash(Entity):
         self._child_classes = OrderedDict([])
         self.is_presence_container = True
         self._leafs = OrderedDict([
-            ('crashes', YLeaf(YType.uint32, 'crashes')),
-            ('minimum_up_time', YLeaf(YType.uint32, 'minimum-up-time')),
+            ('crashes', (YLeaf(YType.uint32, 'crashes'), ['int'])),
+            ('minimum_up_time', (YLeaf(YType.uint32, 'minimum-up-time'), ['int'])),
         ])
         self.crashes = None
         self.minimum_up_time = None
         self._segment_path = lambda: "Cisco-IOS-XR-sysmgr-cfg:process-single-crash"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ProcessSingleCrash, ['crashes', 'minimum_up_time'], name, value)

@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class Lldp(Entity):
     """
     Top\-level container for LLDP configuration and state data
@@ -63,6 +64,7 @@ class Lldp(Entity):
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
         self._segment_path = lambda: "openconfig-lldp:lldp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Lldp, [], name, value)
@@ -134,13 +136,13 @@ class Lldp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('enabled', YLeaf(YType.boolean, 'enabled')),
-                ('hello_timer', YLeaf(YType.uint64, 'hello-timer')),
-                ('suppress_tlv_advertisement', YLeafList(YType.identityref, 'suppress-tlv-advertisement')),
-                ('system_name', YLeaf(YType.str, 'system-name')),
-                ('system_description', YLeaf(YType.str, 'system-description')),
-                ('chassis_id', YLeaf(YType.str, 'chassis-id')),
-                ('chassis_id_type', YLeaf(YType.enumeration, 'chassis-id-type')),
+                ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                ('hello_timer', (YLeaf(YType.uint64, 'hello-timer'), ['int'])),
+                ('suppress_tlv_advertisement', (YLeafList(YType.identityref, 'suppress-tlv-advertisement'), [('ydk.models.openconfig.openconfig_lldp_types', 'LLDPTLV')])),
+                ('system_name', (YLeaf(YType.str, 'system-name'), ['str'])),
+                ('system_description', (YLeaf(YType.str, 'system-description'), ['str'])),
+                ('chassis_id', (YLeaf(YType.str, 'chassis-id'), ['str'])),
+                ('chassis_id_type', (YLeaf(YType.enumeration, 'chassis-id-type'), [('ydk.models.openconfig.openconfig_lldp_types', 'ChassisIdType', '')])),
             ])
             self.enabled = None
             self.hello_timer = None
@@ -151,6 +153,7 @@ class Lldp(Entity):
             self.chassis_id_type = None
             self._segment_path = lambda: "config"
             self._absolute_path = lambda: "openconfig-lldp:lldp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Lldp.Config, ['enabled', 'hello_timer', 'suppress_tlv_advertisement', 'system_name', 'system_description', 'chassis_id', 'chassis_id_type'], name, value)
@@ -227,13 +230,13 @@ class Lldp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("counters", ("counters", Lldp.State.Counters))])
             self._leafs = OrderedDict([
-                ('enabled', YLeaf(YType.boolean, 'enabled')),
-                ('hello_timer', YLeaf(YType.uint64, 'hello-timer')),
-                ('suppress_tlv_advertisement', YLeafList(YType.identityref, 'suppress-tlv-advertisement')),
-                ('system_name', YLeaf(YType.str, 'system-name')),
-                ('system_description', YLeaf(YType.str, 'system-description')),
-                ('chassis_id', YLeaf(YType.str, 'chassis-id')),
-                ('chassis_id_type', YLeaf(YType.enumeration, 'chassis-id-type')),
+                ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
+                ('hello_timer', (YLeaf(YType.uint64, 'hello-timer'), ['int'])),
+                ('suppress_tlv_advertisement', (YLeafList(YType.identityref, 'suppress-tlv-advertisement'), [('ydk.models.openconfig.openconfig_lldp_types', 'LLDPTLV')])),
+                ('system_name', (YLeaf(YType.str, 'system-name'), ['str'])),
+                ('system_description', (YLeaf(YType.str, 'system-description'), ['str'])),
+                ('chassis_id', (YLeaf(YType.str, 'chassis-id'), ['str'])),
+                ('chassis_id_type', (YLeaf(YType.enumeration, 'chassis-id-type'), [('ydk.models.openconfig.openconfig_lldp_types', 'ChassisIdType', '')])),
             ])
             self.enabled = None
             self.hello_timer = None
@@ -248,6 +251,7 @@ class Lldp(Entity):
             self._children_name_map["counters"] = "counters"
             self._segment_path = lambda: "state"
             self._absolute_path = lambda: "openconfig-lldp:lldp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Lldp.State, ['enabled', 'hello_timer', 'suppress_tlv_advertisement', 'system_name', 'system_description', 'chassis_id', 'chassis_id_type'], name, value)
@@ -337,15 +341,15 @@ class Lldp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('frame_in', YLeaf(YType.uint64, 'frame-in')),
-                    ('frame_out', YLeaf(YType.uint64, 'frame-out')),
-                    ('frame_error_in', YLeaf(YType.uint64, 'frame-error-in')),
-                    ('frame_discard', YLeaf(YType.uint64, 'frame-discard')),
-                    ('tlv_discard', YLeaf(YType.uint64, 'tlv-discard')),
-                    ('tlv_unknown', YLeaf(YType.uint64, 'tlv-unknown')),
-                    ('last_clear', YLeaf(YType.str, 'last-clear')),
-                    ('tlv_accepted', YLeaf(YType.uint64, 'tlv-accepted')),
-                    ('entries_aged_out', YLeaf(YType.uint64, 'entries-aged-out')),
+                    ('frame_in', (YLeaf(YType.uint64, 'frame-in'), ['int'])),
+                    ('frame_out', (YLeaf(YType.uint64, 'frame-out'), ['int'])),
+                    ('frame_error_in', (YLeaf(YType.uint64, 'frame-error-in'), ['int'])),
+                    ('frame_discard', (YLeaf(YType.uint64, 'frame-discard'), ['int'])),
+                    ('tlv_discard', (YLeaf(YType.uint64, 'tlv-discard'), ['int'])),
+                    ('tlv_unknown', (YLeaf(YType.uint64, 'tlv-unknown'), ['int'])),
+                    ('last_clear', (YLeaf(YType.str, 'last-clear'), ['str'])),
+                    ('tlv_accepted', (YLeaf(YType.uint64, 'tlv-accepted'), ['int'])),
+                    ('entries_aged_out', (YLeaf(YType.uint64, 'entries-aged-out'), ['int'])),
                 ])
                 self.frame_in = None
                 self.frame_out = None
@@ -358,6 +362,7 @@ class Lldp(Entity):
                 self.entries_aged_out = None
                 self._segment_path = lambda: "counters"
                 self._absolute_path = lambda: "openconfig-lldp:lldp/state/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.State.Counters, ['frame_in', 'frame_out', 'frame_error_in', 'frame_discard', 'tlv_discard', 'tlv_unknown', 'last_clear', 'tlv_accepted', 'entries_aged_out'], name, value)
@@ -393,6 +398,7 @@ class Lldp(Entity):
             self.interface = YList(self)
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "openconfig-lldp:lldp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Lldp.Interfaces, [], name, value)
@@ -441,7 +447,7 @@ class Lldp(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("config", ("config", Lldp.Interfaces.Interface.Config)), ("state", ("state", Lldp.Interfaces.Interface.State)), ("neighbors", ("neighbors", Lldp.Interfaces.Interface.Neighbors))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
 
@@ -458,6 +464,7 @@ class Lldp(Entity):
                 self._children_name_map["neighbors"] = "neighbors"
                 self._segment_path = lambda: "interface" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "openconfig-lldp:lldp/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.Interfaces.Interface, ['name'], name, value)
@@ -498,12 +505,13 @@ class Lldp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                     ])
                     self.name = None
                     self.enabled = None
                     self._segment_path = lambda: "config"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Lldp.Interfaces.Interface.Config, ['name', 'enabled'], name, value)
@@ -549,8 +557,8 @@ class Lldp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("counters", ("counters", Lldp.Interfaces.Interface.State.Counters))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                     ])
                     self.name = None
                     self.enabled = None
@@ -559,6 +567,7 @@ class Lldp(Entity):
                     self.counters.parent = self
                     self._children_name_map["counters"] = "counters"
                     self._segment_path = lambda: "state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Lldp.Interfaces.Interface.State, ['name', 'enabled'], name, value)
@@ -641,14 +650,14 @@ class Lldp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('frame_in', YLeaf(YType.uint64, 'frame-in')),
-                            ('frame_out', YLeaf(YType.uint64, 'frame-out')),
-                            ('frame_error_in', YLeaf(YType.uint64, 'frame-error-in')),
-                            ('frame_discard', YLeaf(YType.uint64, 'frame-discard')),
-                            ('tlv_discard', YLeaf(YType.uint64, 'tlv-discard')),
-                            ('tlv_unknown', YLeaf(YType.uint64, 'tlv-unknown')),
-                            ('last_clear', YLeaf(YType.str, 'last-clear')),
-                            ('frame_error_out', YLeaf(YType.uint64, 'frame-error-out')),
+                            ('frame_in', (YLeaf(YType.uint64, 'frame-in'), ['int'])),
+                            ('frame_out', (YLeaf(YType.uint64, 'frame-out'), ['int'])),
+                            ('frame_error_in', (YLeaf(YType.uint64, 'frame-error-in'), ['int'])),
+                            ('frame_discard', (YLeaf(YType.uint64, 'frame-discard'), ['int'])),
+                            ('tlv_discard', (YLeaf(YType.uint64, 'tlv-discard'), ['int'])),
+                            ('tlv_unknown', (YLeaf(YType.uint64, 'tlv-unknown'), ['int'])),
+                            ('last_clear', (YLeaf(YType.str, 'last-clear'), ['str'])),
+                            ('frame_error_out', (YLeaf(YType.uint64, 'frame-error-out'), ['int'])),
                         ])
                         self.frame_in = None
                         self.frame_out = None
@@ -659,6 +668,7 @@ class Lldp(Entity):
                         self.last_clear = None
                         self.frame_error_out = None
                         self._segment_path = lambda: "counters"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lldp.Interfaces.Interface.State.Counters, ['frame_in', 'frame_out', 'frame_error_in', 'frame_discard', 'tlv_discard', 'tlv_unknown', 'last_clear', 'frame_error_out'], name, value)
@@ -694,6 +704,7 @@ class Lldp(Entity):
 
                     self.neighbor = YList(self)
                     self._segment_path = lambda: "neighbors"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Lldp.Interfaces.Interface.Neighbors, [], name, value)
@@ -747,7 +758,7 @@ class Lldp(Entity):
                         self.ylist_key_names = ['id']
                         self._child_classes = OrderedDict([("config", ("config", Lldp.Interfaces.Interface.Neighbors.Neighbor.Config)), ("state", ("state", Lldp.Interfaces.Interface.Neighbors.Neighbor.State)), ("custom-tlvs", ("custom_tlvs", Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs)), ("capabilities", ("capabilities", Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities))])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.str, 'id')),
+                            ('id', (YLeaf(YType.str, 'id'), ['str'])),
                         ])
                         self.id = None
 
@@ -767,6 +778,7 @@ class Lldp(Entity):
                         self.capabilities.parent = self
                         self._children_name_map["capabilities"] = "capabilities"
                         self._segment_path = lambda: "neighbor" + "[id='" + str(self.id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lldp.Interfaces.Interface.Neighbors.Neighbor, ['id'], name, value)
@@ -794,6 +806,7 @@ class Lldp(Entity):
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict()
                             self._segment_path = lambda: "config"
+                            self._is_frozen = True
 
 
                     class State(Entity):
@@ -887,18 +900,18 @@ class Lldp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('system_name', YLeaf(YType.str, 'system-name')),
-                                ('system_description', YLeaf(YType.str, 'system-description')),
-                                ('chassis_id', YLeaf(YType.str, 'chassis-id')),
-                                ('chassis_id_type', YLeaf(YType.enumeration, 'chassis-id-type')),
-                                ('id', YLeaf(YType.str, 'id')),
-                                ('age', YLeaf(YType.uint64, 'age')),
-                                ('last_update', YLeaf(YType.int64, 'last-update')),
-                                ('port_id', YLeaf(YType.str, 'port-id')),
-                                ('port_id_type', YLeaf(YType.enumeration, 'port-id-type')),
-                                ('port_description', YLeaf(YType.str, 'port-description')),
-                                ('management_address', YLeaf(YType.str, 'management-address')),
-                                ('management_address_type', YLeaf(YType.str, 'management-address-type')),
+                                ('system_name', (YLeaf(YType.str, 'system-name'), ['str'])),
+                                ('system_description', (YLeaf(YType.str, 'system-description'), ['str'])),
+                                ('chassis_id', (YLeaf(YType.str, 'chassis-id'), ['str'])),
+                                ('chassis_id_type', (YLeaf(YType.enumeration, 'chassis-id-type'), [('ydk.models.openconfig.openconfig_lldp_types', 'ChassisIdType', '')])),
+                                ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                                ('age', (YLeaf(YType.uint64, 'age'), ['int'])),
+                                ('last_update', (YLeaf(YType.int64, 'last-update'), ['int'])),
+                                ('port_id', (YLeaf(YType.str, 'port-id'), ['str'])),
+                                ('port_id_type', (YLeaf(YType.enumeration, 'port-id-type'), [('ydk.models.openconfig.openconfig_lldp_types', 'PortIdType', '')])),
+                                ('port_description', (YLeaf(YType.str, 'port-description'), ['str'])),
+                                ('management_address', (YLeaf(YType.str, 'management-address'), ['str'])),
+                                ('management_address_type', (YLeaf(YType.str, 'management-address-type'), ['str'])),
                             ])
                             self.system_name = None
                             self.system_description = None
@@ -913,6 +926,7 @@ class Lldp(Entity):
                             self.management_address = None
                             self.management_address_type = None
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lldp.Interfaces.Interface.Neighbors.Neighbor.State, ['system_name', 'system_description', 'chassis_id', 'chassis_id_type', 'id', 'age', 'last_update', 'port_id', 'port_id_type', 'port_description', 'management_address', 'management_address_type'], name, value)
@@ -948,6 +962,7 @@ class Lldp(Entity):
 
                             self.tlv = YList(self)
                             self._segment_path = lambda: "custom-tlvs"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs, [], name, value)
@@ -1007,9 +1022,9 @@ class Lldp(Entity):
                                 self.ylist_key_names = ['type','oui','oui_subtype']
                                 self._child_classes = OrderedDict([("config", ("config", Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv.Config)), ("state", ("state", Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv.State))])
                                 self._leafs = OrderedDict([
-                                    ('type', YLeaf(YType.str, 'type')),
-                                    ('oui', YLeaf(YType.str, 'oui')),
-                                    ('oui_subtype', YLeaf(YType.str, 'oui-subtype')),
+                                    ('type', (YLeaf(YType.str, 'type'), ['int'])),
+                                    ('oui', (YLeaf(YType.str, 'oui'), ['str'])),
+                                    ('oui_subtype', (YLeaf(YType.str, 'oui-subtype'), ['str'])),
                                 ])
                                 self.type = None
                                 self.oui = None
@@ -1023,6 +1038,7 @@ class Lldp(Entity):
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
                                 self._segment_path = lambda: "tlv" + "[type='" + str(self.type) + "']" + "[oui='" + str(self.oui) + "']" + "[oui-subtype='" + str(self.oui_subtype) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv, ['type', 'oui', 'oui_subtype'], name, value)
@@ -1050,6 +1066,7 @@ class Lldp(Entity):
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict()
                                     self._segment_path = lambda: "config"
+                                    self._is_frozen = True
 
 
                             class State(Entity):
@@ -1095,16 +1112,17 @@ class Lldp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('type', YLeaf(YType.int32, 'type')),
-                                        ('oui', YLeaf(YType.str, 'oui')),
-                                        ('oui_subtype', YLeaf(YType.str, 'oui-subtype')),
-                                        ('value', YLeaf(YType.str, 'value')),
+                                        ('type', (YLeaf(YType.int32, 'type'), ['int'])),
+                                        ('oui', (YLeaf(YType.str, 'oui'), ['str'])),
+                                        ('oui_subtype', (YLeaf(YType.str, 'oui-subtype'), ['str'])),
+                                        ('value', (YLeaf(YType.str, 'value'), ['str'])),
                                     ])
                                     self.type = None
                                     self.oui = None
                                     self.oui_subtype = None
                                     self.value = None
                                     self._segment_path = lambda: "state"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Lldp.Interfaces.Interface.Neighbors.Neighbor.CustomTlvs.Tlv.State, ['type', 'oui', 'oui_subtype', 'value'], name, value)
@@ -1139,6 +1157,7 @@ class Lldp(Entity):
 
                             self.capability = YList(self)
                             self._segment_path = lambda: "capabilities"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities, [], name, value)
@@ -1181,7 +1200,7 @@ class Lldp(Entity):
                                 self.ylist_key_names = ['name']
                                 self._child_classes = OrderedDict([("config", ("config", Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability.Config)), ("state", ("state", Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability.State))])
                                 self._leafs = OrderedDict([
-                                    ('name', YLeaf(YType.identityref, 'name')),
+                                    ('name', (YLeaf(YType.identityref, 'name'), [('ydk.models.openconfig.openconfig_lldp_types', 'LLDPSYSTEMCAPABILITY')])),
                                 ])
                                 self.name = None
 
@@ -1193,6 +1212,7 @@ class Lldp(Entity):
                                 self.state.parent = self
                                 self._children_name_map["state"] = "state"
                                 self._segment_path = lambda: "capability" + "[name='" + str(self.name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability, ['name'], name, value)
@@ -1220,6 +1240,7 @@ class Lldp(Entity):
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict()
                                     self._segment_path = lambda: "config"
+                                    self._is_frozen = True
 
 
                             class State(Entity):
@@ -1253,12 +1274,13 @@ class Lldp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('name', YLeaf(YType.identityref, 'name')),
-                                        ('enabled', YLeaf(YType.boolean, 'enabled')),
+                                        ('name', (YLeaf(YType.identityref, 'name'), [('ydk.models.openconfig.openconfig_lldp_types', 'LLDPSYSTEMCAPABILITY')])),
+                                        ('enabled', (YLeaf(YType.boolean, 'enabled'), ['bool'])),
                                     ])
                                     self.name = None
                                     self.enabled = None
                                     self._segment_path = lambda: "state"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Lldp.Interfaces.Interface.Neighbors.Neighbor.Capabilities.Capability.State, ['name', 'enabled'], name, value)

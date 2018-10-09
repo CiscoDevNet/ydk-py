@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   bfd\: Bidirectional Forwarding Detection(BFD) operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class BfdAfId(Enum):
@@ -318,7 +319,7 @@ class Bfd(Entity):
     
     .. attribute:: counters
     
-    	Counters
+    	IPv4 Counters
     	**type**\:  :py:class:`Counters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Counters>`
     
     .. attribute:: client_details
@@ -806,6 +807,7 @@ class Bfd(Entity):
         self.ipv4bf_do_mplste_head_summary.parent = self
         self._children_name_map["ipv4bf_do_mplste_head_summary"] = "ipv4bf-do-mplste-head-summary"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Bfd, [], name, value)
@@ -842,6 +844,7 @@ class Bfd(Entity):
             self.label_session_brief = YList(self)
             self._segment_path = lambda: "label-session-briefs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.LabelSessionBriefs, [], name, value)
@@ -857,7 +860,7 @@ class Bfd(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: incoming_label
             
@@ -924,14 +927,14 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-brief-information", ("status_brief_information", Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('incoming_label', YLeaf(YType.uint32, 'incoming-label')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('session_type', YLeaf(YType.enumeration, 'session-type')),
-                    ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                    ('session_flags', YLeaf(YType.uint32, 'session-flags')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('incoming_label', (YLeaf(YType.uint32, 'incoming-label'), ['int'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('session_type', (YLeaf(YType.enumeration, 'session-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                    ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                    ('session_flags', (YLeaf(YType.uint32, 'session-flags'), ['int'])),
                 ])
                 self.interface_name = None
                 self.incoming_label = None
@@ -947,6 +950,7 @@ class Bfd(Entity):
                 self._children_name_map["status_brief_information"] = "status-brief-information"
                 self._segment_path = lambda: "label-session-brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-briefs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief, ['interface_name', 'incoming_label', 'location', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
@@ -993,6 +997,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                     self._segment_path = lambda: "status-brief-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-briefs/label-session-brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation, [], name, value)
@@ -1053,10 +1058,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                            ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                            ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_remote_transmit_interval = None
                         self.negotiated_local_transmit_interval = None
@@ -1064,6 +1069,7 @@ class Bfd(Entity):
                         self.detection_multiplier = None
                         self._segment_path = lambda: "async-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-briefs/label-session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -1115,15 +1121,16 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_transmit_interval = None
                         self.detection_time = None
                         self.detection_multiplier = None
                         self._segment_path = lambda: "echo-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-briefs/label-session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionBriefs.LabelSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -1162,6 +1169,7 @@ class Bfd(Entity):
             self._children_name_map["session_state"] = "session-state"
             self._segment_path = lambda: "ipv4bf-do-mplste-tail-summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSummary, [], name, value)
@@ -1216,10 +1224,10 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('total_count', YLeaf(YType.uint32, 'total-count')),
-                    ('down_count', YLeaf(YType.uint32, 'down-count')),
-                    ('up_count', YLeaf(YType.uint32, 'up-count')),
-                    ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
+                    ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                    ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                    ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                    ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
                 ])
                 self.total_count = None
                 self.down_count = None
@@ -1227,6 +1235,7 @@ class Bfd(Entity):
                 self.unknown_count = None
                 self._segment_path = lambda: "session-state"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
@@ -1264,6 +1273,7 @@ class Bfd(Entity):
             self._children_name_map["ipv6_single_hop_packet_counters"] = "ipv6-single-hop-packet-counters"
             self._segment_path = lambda: "ipv6-single-hop-counters"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv6SingleHopCounters, [], name, value)
@@ -1299,6 +1309,7 @@ class Bfd(Entity):
                 self.ipv6_single_hop_packet_counter = YList(self)
                 self._segment_path = lambda: "ipv6-single-hop-packet-counters"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-counters/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters, [], name, value)
@@ -1308,12 +1319,19 @@ class Bfd(Entity):
                 """
                 Interface IPv6 single hop Packet counters
                 
-                .. attribute:: interface_name  (key)
+                .. attribute:: interface_name
                 
                 	Interface Name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                .. attribute:: location
+                
+                	Location
+                	**type**\: str
+                
+                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 .. attribute:: hello_transmit_count
                 
@@ -1362,36 +1380,39 @@ class Bfd(Entity):
                     self.yang_parent_name = "ipv6-single-hop-packet-counters"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self.ylist_key_names = ['interface_name']
+                    self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('hello_transmit_count', YLeaf(YType.uint32, 'hello-transmit-count')),
-                        ('hello_receive_count', YLeaf(YType.uint32, 'hello-receive-count')),
-                        ('echo_transmit_count', YLeaf(YType.uint32, 'echo-transmit-count')),
-                        ('echo_receive_count', YLeaf(YType.uint32, 'echo-receive-count')),
-                        ('display_type', YLeaf(YType.enumeration, 'display-type')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                        ('hello_transmit_count', (YLeaf(YType.uint32, 'hello-transmit-count'), ['int'])),
+                        ('hello_receive_count', (YLeaf(YType.uint32, 'hello-receive-count'), ['int'])),
+                        ('echo_transmit_count', (YLeaf(YType.uint32, 'echo-transmit-count'), ['int'])),
+                        ('echo_receive_count', (YLeaf(YType.uint32, 'echo-receive-count'), ['int'])),
+                        ('display_type', (YLeaf(YType.enumeration, 'display-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtPktDisplay', '')])),
                     ])
                     self.interface_name = None
+                    self.location = None
                     self.hello_transmit_count = None
                     self.hello_receive_count = None
                     self.echo_transmit_count = None
                     self.echo_receive_count = None
                     self.display_type = None
-                    self._segment_path = lambda: "ipv6-single-hop-packet-counter" + "[interface-name='" + str(self.interface_name) + "']"
+                    self._segment_path = lambda: "ipv6-single-hop-packet-counter"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-counters/ipv6-single-hop-packet-counters/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter, ['interface_name', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
+                    self._perform_setattr(Bfd.Ipv6SingleHopCounters.Ipv6SingleHopPacketCounters.Ipv6SingleHopPacketCounter, ['interface_name', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
 
 
     class Counters(Entity):
         """
-        Counters
+        IPv4 Counters
         
         .. attribute:: packet_counters
         
-        	Table of Packet counters
+        	Table of IPv4 Packet counters
         	**type**\:  :py:class:`PacketCounters <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Counters.PacketCounters>`
         
         
@@ -1417,6 +1438,7 @@ class Bfd(Entity):
             self._children_name_map["packet_counters"] = "packet-counters"
             self._segment_path = lambda: "counters"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Counters, [], name, value)
@@ -1424,11 +1446,11 @@ class Bfd(Entity):
 
         class PacketCounters(Entity):
             """
-            Table of Packet counters
+            Table of IPv4 Packet counters
             
             .. attribute:: packet_counter
             
-            	Interface Packet counters
+            	Interface IPv4 Packet counters
             	**type**\: list of  		 :py:class:`PacketCounter <ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper.Bfd.Counters.PacketCounters.PacketCounter>`
             
             
@@ -1452,6 +1474,7 @@ class Bfd(Entity):
                 self.packet_counter = YList(self)
                 self._segment_path = lambda: "packet-counters"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/counters/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Counters.PacketCounters, [], name, value)
@@ -1459,14 +1482,21 @@ class Bfd(Entity):
 
             class PacketCounter(Entity):
                 """
-                Interface Packet counters
+                Interface IPv4 Packet counters
                 
-                .. attribute:: interface_name  (key)
+                .. attribute:: interface_name
                 
                 	Interface Name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                .. attribute:: location
+                
+                	Location
+                	**type**\: str
+                
+                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 .. attribute:: hello_transmit_count
                 
@@ -1515,27 +1545,30 @@ class Bfd(Entity):
                     self.yang_parent_name = "packet-counters"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self.ylist_key_names = ['interface_name']
+                    self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('hello_transmit_count', YLeaf(YType.uint32, 'hello-transmit-count')),
-                        ('hello_receive_count', YLeaf(YType.uint32, 'hello-receive-count')),
-                        ('echo_transmit_count', YLeaf(YType.uint32, 'echo-transmit-count')),
-                        ('echo_receive_count', YLeaf(YType.uint32, 'echo-receive-count')),
-                        ('display_type', YLeaf(YType.enumeration, 'display-type')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                        ('hello_transmit_count', (YLeaf(YType.uint32, 'hello-transmit-count'), ['int'])),
+                        ('hello_receive_count', (YLeaf(YType.uint32, 'hello-receive-count'), ['int'])),
+                        ('echo_transmit_count', (YLeaf(YType.uint32, 'echo-transmit-count'), ['int'])),
+                        ('echo_receive_count', (YLeaf(YType.uint32, 'echo-receive-count'), ['int'])),
+                        ('display_type', (YLeaf(YType.enumeration, 'display-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtPktDisplay', '')])),
                     ])
                     self.interface_name = None
+                    self.location = None
                     self.hello_transmit_count = None
                     self.hello_receive_count = None
                     self.echo_transmit_count = None
                     self.echo_receive_count = None
                     self.display_type = None
-                    self._segment_path = lambda: "packet-counter" + "[interface-name='" + str(self.interface_name) + "']"
+                    self._segment_path = lambda: "packet-counter"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/counters/packet-counters/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Counters.PacketCounters.PacketCounter, ['interface_name', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
+                    self._perform_setattr(Bfd.Counters.PacketCounters.PacketCounter, ['interface_name', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
 
 
     class ClientDetails(Entity):
@@ -1568,6 +1601,7 @@ class Bfd(Entity):
             self.client_detail = YList(self)
             self._segment_path = lambda: "client-details"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.ClientDetails, [], name, value)
@@ -1620,8 +1654,8 @@ class Bfd(Entity):
                 self.ylist_key_names = ['client_name']
                 self._child_classes = OrderedDict([("brief", ("brief", Bfd.ClientDetails.ClientDetail.Brief)), ("flags", ("flags", Bfd.ClientDetails.ClientDetail.Flags))])
                 self._leafs = OrderedDict([
-                    ('client_name', YLeaf(YType.str, 'client-name')),
-                    ('recreate_time', YLeaf(YType.uint32, 'recreate-time')),
+                    ('client_name', (YLeaf(YType.str, 'client-name'), ['str'])),
+                    ('recreate_time', (YLeaf(YType.uint32, 'recreate-time'), ['int'])),
                 ])
                 self.client_name = None
                 self.recreate_time = None
@@ -1635,6 +1669,7 @@ class Bfd(Entity):
                 self._children_name_map["flags"] = "flags"
                 self._segment_path = lambda: "client-detail" + "[client-name='" + str(self.client_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/client-details/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.ClientDetails.ClientDetail, ['client_name', u'recreate_time'], name, value)
@@ -1682,14 +1717,15 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name_xr', YLeaf(YType.str, 'name-xr')),
-                        ('node_id', YLeaf(YType.str, 'node-id')),
-                        ('session_count', YLeaf(YType.uint32, 'session-count')),
+                        ('name_xr', (YLeaf(YType.str, 'name-xr'), ['str'])),
+                        ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                        ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
                     ])
                     self.name_xr = None
                     self.node_id = None
                     self.session_count = None
                     self._segment_path = lambda: "brief"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.ClientDetails.ClientDetail.Brief, [u'name_xr', u'node_id', u'session_count'], name, value)
@@ -1730,12 +1766,13 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('is_zombie_state', YLeaf(YType.int32, 'is-zombie-state')),
-                        ('is_recreate_state', YLeaf(YType.int32, 'is-recreate-state')),
+                        ('is_zombie_state', (YLeaf(YType.int32, 'is-zombie-state'), ['int'])),
+                        ('is_recreate_state', (YLeaf(YType.int32, 'is-recreate-state'), ['int'])),
                     ])
                     self.is_zombie_state = None
                     self.is_recreate_state = None
                     self._segment_path = lambda: "flags"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.ClientDetails.ClientDetail.Flags, [u'is_zombie_state', u'is_recreate_state'], name, value)
@@ -1774,6 +1811,7 @@ class Bfd(Entity):
             self._children_name_map["session_state"] = "session-state"
             self._segment_path = lambda: "ipv4-single-hop-summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4SingleHopSummary, [], name, value)
@@ -1828,10 +1866,10 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('total_count', YLeaf(YType.uint32, 'total-count')),
-                    ('down_count', YLeaf(YType.uint32, 'down-count')),
-                    ('up_count', YLeaf(YType.uint32, 'up-count')),
-                    ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
+                    ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                    ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                    ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                    ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
                 ])
                 self.total_count = None
                 self.down_count = None
@@ -1839,6 +1877,7 @@ class Bfd(Entity):
                 self.unknown_count = None
                 self._segment_path = lambda: "session-state"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4SingleHopSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
@@ -1877,6 +1916,7 @@ class Bfd(Entity):
             self._children_name_map["session_state"] = "session-state"
             self._segment_path = lambda: "ipv6-single-hop-summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv6SingleHopSummary, [], name, value)
@@ -1931,10 +1971,10 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('total_count', YLeaf(YType.uint32, 'total-count')),
-                    ('down_count', YLeaf(YType.uint32, 'down-count')),
-                    ('up_count', YLeaf(YType.uint32, 'up-count')),
-                    ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
+                    ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                    ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                    ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                    ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
                 ])
                 self.total_count = None
                 self.down_count = None
@@ -1942,6 +1982,7 @@ class Bfd(Entity):
                 self.unknown_count = None
                 self._segment_path = lambda: "session-state"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6SingleHopSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
@@ -1977,6 +2018,7 @@ class Bfd(Entity):
             self.label_multi_path = YList(self)
             self._segment_path = lambda: "label-multi-paths"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.LabelMultiPaths, [], name, value)
@@ -1991,7 +2033,7 @@ class Bfd(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: incoming_label
             
@@ -2043,7 +2085,7 @@ class Bfd(Entity):
             	Interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             
 
@@ -2062,15 +2104,15 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('incoming_label', YLeaf(YType.uint32, 'incoming-label')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('incoming_label_xr', YLeaf(YType.uint32, 'incoming-label-xr')),
-                    ('session_interface_name', YLeaf(YType.str, 'session-interface-name')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('incoming_label', (YLeaf(YType.uint32, 'incoming-label'), ['int'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('incoming_label_xr', (YLeaf(YType.uint32, 'incoming-label-xr'), ['int'])),
+                    ('session_interface_name', (YLeaf(YType.str, 'session-interface-name'), ['str'])),
                 ])
                 self.interface_name = None
                 self.incoming_label = None
@@ -2083,6 +2125,7 @@ class Bfd(Entity):
                 self.session_interface_name = None
                 self._segment_path = lambda: "label-multi-path"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-multi-paths/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.LabelMultiPaths.LabelMultiPath, ['interface_name', 'incoming_label', 'location', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
@@ -2119,6 +2162,7 @@ class Bfd(Entity):
             self.ipv4_multi_hop_session_detail = YList(self)
             self._segment_path = lambda: "ipv4-multi-hop-session-details"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails, [], name, value)
@@ -2211,10 +2255,10 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-information", ("status_information", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation)), ("mp-download-state", ("mp_download_state", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState)), ("lsp-ping-info", ("lsp_ping_info", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo)), ("owner-information", ("owner_information", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.OwnerInformation)), ("association-information", ("association_information", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation))])
                 self._leafs = OrderedDict([
-                    ('source_address', YLeaf(YType.str, 'source-address')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str','str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ])
                 self.source_address = None
                 self.destination_address = None
@@ -2237,6 +2281,7 @@ class Bfd(Entity):
                 self.association_information = YList(self)
                 self._segment_path = lambda: "ipv4-multi-hop-session-detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail, ['source_address', 'destination_address', 'location', 'vrf_name'], name, value)
@@ -2410,20 +2455,20 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("source-address", ("source_address", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.SourceAddress)), ("last-state-change", ("last_state_change", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.LastStateChange)), ("transmit-packet", ("transmit_packet", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.TransmitPacket)), ("receive-packet", ("receive_packet", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.ReceivePacket)), ("status-brief-information", ("status_brief_information", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation)), ("async-transmit-statistics", ("async_transmit_statistics", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics)), ("async-receive-statistics", ("async_receive_statistics", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics)), ("echo-transmit-statistics", ("echo_transmit_statistics", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics)), ("echo-received-statistics", ("echo_received_statistics", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics))])
                     self._leafs = OrderedDict([
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                        ('remote_discriminator', YLeaf(YType.uint32, 'remote-discriminator')),
-                        ('to_up_state_count', YLeaf(YType.uint32, 'to-up-state-count')),
-                        ('desired_minimum_echo_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval')),
-                        ('remote_negotiated_interval', YLeaf(YType.uint32, 'remote-negotiated-interval')),
-                        ('latency_number', YLeaf(YType.uint32, 'latency-number')),
-                        ('latency_minimum', YLeaf(YType.uint32, 'latency-minimum')),
-                        ('latency_maximum', YLeaf(YType.uint32, 'latency-maximum')),
-                        ('latency_average', YLeaf(YType.uint32, 'latency-average')),
-                        ('node_id', YLeaf(YType.str, 'node-id')),
-                        ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                        ('remote_discriminator', (YLeaf(YType.uint32, 'remote-discriminator'), ['int'])),
+                        ('to_up_state_count', (YLeaf(YType.uint32, 'to-up-state-count'), ['int'])),
+                        ('desired_minimum_echo_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval'), ['int'])),
+                        ('remote_negotiated_interval', (YLeaf(YType.uint32, 'remote-negotiated-interval'), ['int'])),
+                        ('latency_number', (YLeaf(YType.uint32, 'latency-number'), ['int'])),
+                        ('latency_minimum', (YLeaf(YType.uint32, 'latency-minimum'), ['int'])),
+                        ('latency_maximum', (YLeaf(YType.uint32, 'latency-maximum'), ['int'])),
+                        ('latency_average', (YLeaf(YType.uint32, 'latency-average'), ['int'])),
+                        ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                        ('internal_label', (YLeaf(YType.uint32, 'internal-label'), ['int'])),
                     ])
                     self.sessiontype = None
                     self.session_subtype = None
@@ -2477,6 +2522,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_received_statistics"] = "echo-received-statistics"
                     self._segment_path = lambda: "status-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
@@ -2529,10 +2575,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -2540,6 +2586,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "source-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -2602,10 +2649,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('days', YLeaf(YType.uint32, 'days')),
-                            ('hours', YLeaf(YType.uint8, 'hours')),
-                            ('minutes', YLeaf(YType.uint8, 'minutes')),
-                            ('seconds', YLeaf(YType.uint8, 'seconds')),
+                            ('days', (YLeaf(YType.uint32, 'days'), ['int'])),
+                            ('hours', (YLeaf(YType.uint8, 'hours'), ['int'])),
+                            ('minutes', (YLeaf(YType.uint8, 'minutes'), ['int'])),
+                            ('seconds', (YLeaf(YType.uint8, 'seconds'), ['int'])),
                         ])
                         self.days = None
                         self.hours = None
@@ -2613,6 +2660,7 @@ class Bfd(Entity):
                         self.seconds = None
                         self._segment_path = lambda: "last-state-change"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
@@ -2753,22 +2801,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -2788,6 +2836,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "transmit-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -2928,22 +2977,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -2963,6 +3012,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "receive-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -3009,6 +3059,7 @@ class Bfd(Entity):
                         self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                         self._segment_path = lambda: "status-brief-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
@@ -3069,10 +3120,10 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                                ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                                ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_remote_transmit_interval = None
                             self.negotiated_local_transmit_interval = None
@@ -3080,6 +3131,7 @@ class Bfd(Entity):
                             self.detection_multiplier = None
                             self._segment_path = lambda: "async-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -3131,15 +3183,16 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_transmit_interval = None
                             self.detection_time = None
                             self.detection_multiplier = None
                             self._segment_path = lambda: "echo-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -3210,11 +3263,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -3223,6 +3276,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -3293,11 +3347,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -3306,6 +3360,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-receive-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -3376,11 +3431,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -3389,6 +3444,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -3459,11 +3515,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -3472,6 +3528,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-received-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -3508,7 +3565,7 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("change-time", ("change_time", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState.ChangeTime))])
                     self._leafs = OrderedDict([
-                        ('mp_download_state', YLeaf(YType.enumeration, 'mp-download-state')),
+                        ('mp_download_state', (YLeaf(YType.enumeration, 'mp-download-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMpDownloadState', '')])),
                     ])
                     self.mp_download_state = None
 
@@ -3517,6 +3574,7 @@ class Bfd(Entity):
                     self._children_name_map["change_time"] = "change-time"
                     self._segment_path = lambda: "mp-download-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
@@ -3561,13 +3619,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "change-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/mp-download-state/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
@@ -3666,15 +3725,15 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("lsp-ping-tx-last-time", ("lsp_ping_tx_last_time", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime)), ("lsp-ping-tx-last-error-time", ("lsp_ping_tx_last_error_time", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime)), ("lsp-ping-rx-last-time", ("lsp_ping_rx_last_time", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime))])
                     self._leafs = OrderedDict([
-                        ('lsp_ping_tx_count', YLeaf(YType.uint32, 'lsp-ping-tx-count')),
-                        ('lsp_ping_tx_error_count', YLeaf(YType.uint32, 'lsp-ping-tx-error-count')),
-                        ('lsp_ping_tx_last_rc', YLeaf(YType.str, 'lsp-ping-tx-last-rc')),
-                        ('lsp_ping_tx_last_error_rc', YLeaf(YType.str, 'lsp-ping-tx-last-error-rc')),
-                        ('lsp_ping_rx_last_discr', YLeaf(YType.uint32, 'lsp-ping-rx-last-discr')),
-                        ('lsp_ping_rx_count', YLeaf(YType.uint32, 'lsp-ping-rx-count')),
-                        ('lsp_ping_rx_last_code', YLeaf(YType.uint8, 'lsp-ping-rx-last-code')),
-                        ('lsp_ping_rx_last_subcode', YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode')),
-                        ('lsp_ping_rx_last_output', YLeaf(YType.str, 'lsp-ping-rx-last-output')),
+                        ('lsp_ping_tx_count', (YLeaf(YType.uint32, 'lsp-ping-tx-count'), ['int'])),
+                        ('lsp_ping_tx_error_count', (YLeaf(YType.uint32, 'lsp-ping-tx-error-count'), ['int'])),
+                        ('lsp_ping_tx_last_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-rc'), ['str'])),
+                        ('lsp_ping_tx_last_error_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-error-rc'), ['str'])),
+                        ('lsp_ping_rx_last_discr', (YLeaf(YType.uint32, 'lsp-ping-rx-last-discr'), ['int'])),
+                        ('lsp_ping_rx_count', (YLeaf(YType.uint32, 'lsp-ping-rx-count'), ['int'])),
+                        ('lsp_ping_rx_last_code', (YLeaf(YType.uint8, 'lsp-ping-rx-last-code'), ['int'])),
+                        ('lsp_ping_rx_last_subcode', (YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode'), ['int'])),
+                        ('lsp_ping_rx_last_output', (YLeaf(YType.str, 'lsp-ping-rx-last-output'), ['str'])),
                     ])
                     self.lsp_ping_tx_count = None
                     self.lsp_ping_tx_error_count = None
@@ -3699,6 +3758,7 @@ class Bfd(Entity):
                     self._children_name_map["lsp_ping_rx_last_time"] = "lsp-ping-rx-last-time"
                     self._segment_path = lambda: "lsp-ping-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
@@ -3743,13 +3803,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -3794,13 +3855,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-error-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
@@ -3845,13 +3907,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-rx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -3917,11 +3980,11 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interval', YLeaf(YType.uint32, 'interval')),
-                        ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                        ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                        ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                        ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                        ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                        ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.interval = None
                     self.detection_multiplier = None
@@ -3930,6 +3993,7 @@ class Bfd(Entity):
                     self.name = None
                     self._segment_path = lambda: "owner-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -3985,9 +4049,9 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("ip-destination-address", ("ip_destination_address", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.IpDestinationAddress)), ("owner-information", ("owner_information", Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.OwnerInformation))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
                     ])
                     self.interface_name = None
                     self.sessiontype = None
@@ -4000,6 +4064,7 @@ class Bfd(Entity):
                     self.owner_information = YList(self)
                     self._segment_path = lambda: "association-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
@@ -4052,10 +4117,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -4063,6 +4128,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "ip-destination-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -4128,11 +4194,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interval', YLeaf(YType.uint32, 'interval')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                            ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                            ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.interval = None
                         self.detection_multiplier = None
@@ -4141,6 +4207,7 @@ class Bfd(Entity):
                         self.name = None
                         self._segment_path = lambda: "owner-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-details/ipv4-multi-hop-session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionDetails.Ipv4MultiHopSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -4177,6 +4244,7 @@ class Bfd(Entity):
             self.ipv4_single_hop_session_detail = YList(self)
             self._segment_path = lambda: "ipv4-single-hop-session-details"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails, [], name, value)
@@ -4192,7 +4260,7 @@ class Bfd(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: destination_address
             
@@ -4250,9 +4318,9 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-information", ("status_information", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation)), ("mp-download-state", ("mp_download_state", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState)), ("lsp-ping-info", ("lsp_ping_info", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo)), ("owner-information", ("owner_information", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.OwnerInformation)), ("association-information", ("association_information", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.interface_name = None
                 self.destination_address = None
@@ -4274,6 +4342,7 @@ class Bfd(Entity):
                 self.association_information = YList(self)
                 self._segment_path = lambda: "ipv4-single-hop-session-detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail, ['interface_name', 'destination_address', 'location'], name, value)
@@ -4447,20 +4516,20 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("source-address", ("source_address", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.SourceAddress)), ("last-state-change", ("last_state_change", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.LastStateChange)), ("transmit-packet", ("transmit_packet", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.TransmitPacket)), ("receive-packet", ("receive_packet", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.ReceivePacket)), ("status-brief-information", ("status_brief_information", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation)), ("async-transmit-statistics", ("async_transmit_statistics", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics)), ("async-receive-statistics", ("async_receive_statistics", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics)), ("echo-transmit-statistics", ("echo_transmit_statistics", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics)), ("echo-received-statistics", ("echo_received_statistics", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics))])
                     self._leafs = OrderedDict([
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                        ('remote_discriminator', YLeaf(YType.uint32, 'remote-discriminator')),
-                        ('to_up_state_count', YLeaf(YType.uint32, 'to-up-state-count')),
-                        ('desired_minimum_echo_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval')),
-                        ('remote_negotiated_interval', YLeaf(YType.uint32, 'remote-negotiated-interval')),
-                        ('latency_number', YLeaf(YType.uint32, 'latency-number')),
-                        ('latency_minimum', YLeaf(YType.uint32, 'latency-minimum')),
-                        ('latency_maximum', YLeaf(YType.uint32, 'latency-maximum')),
-                        ('latency_average', YLeaf(YType.uint32, 'latency-average')),
-                        ('node_id', YLeaf(YType.str, 'node-id')),
-                        ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                        ('remote_discriminator', (YLeaf(YType.uint32, 'remote-discriminator'), ['int'])),
+                        ('to_up_state_count', (YLeaf(YType.uint32, 'to-up-state-count'), ['int'])),
+                        ('desired_minimum_echo_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval'), ['int'])),
+                        ('remote_negotiated_interval', (YLeaf(YType.uint32, 'remote-negotiated-interval'), ['int'])),
+                        ('latency_number', (YLeaf(YType.uint32, 'latency-number'), ['int'])),
+                        ('latency_minimum', (YLeaf(YType.uint32, 'latency-minimum'), ['int'])),
+                        ('latency_maximum', (YLeaf(YType.uint32, 'latency-maximum'), ['int'])),
+                        ('latency_average', (YLeaf(YType.uint32, 'latency-average'), ['int'])),
+                        ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                        ('internal_label', (YLeaf(YType.uint32, 'internal-label'), ['int'])),
                     ])
                     self.sessiontype = None
                     self.session_subtype = None
@@ -4514,6 +4583,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_received_statistics"] = "echo-received-statistics"
                     self._segment_path = lambda: "status-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
@@ -4566,10 +4636,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -4577,6 +4647,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "source-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -4639,10 +4710,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('days', YLeaf(YType.uint32, 'days')),
-                            ('hours', YLeaf(YType.uint8, 'hours')),
-                            ('minutes', YLeaf(YType.uint8, 'minutes')),
-                            ('seconds', YLeaf(YType.uint8, 'seconds')),
+                            ('days', (YLeaf(YType.uint32, 'days'), ['int'])),
+                            ('hours', (YLeaf(YType.uint8, 'hours'), ['int'])),
+                            ('minutes', (YLeaf(YType.uint8, 'minutes'), ['int'])),
+                            ('seconds', (YLeaf(YType.uint8, 'seconds'), ['int'])),
                         ])
                         self.days = None
                         self.hours = None
@@ -4650,6 +4721,7 @@ class Bfd(Entity):
                         self.seconds = None
                         self._segment_path = lambda: "last-state-change"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
@@ -4790,22 +4862,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -4825,6 +4897,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "transmit-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -4965,22 +5038,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -5000,6 +5073,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "receive-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -5046,6 +5120,7 @@ class Bfd(Entity):
                         self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                         self._segment_path = lambda: "status-brief-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
@@ -5106,10 +5181,10 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                                ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                                ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_remote_transmit_interval = None
                             self.negotiated_local_transmit_interval = None
@@ -5117,6 +5192,7 @@ class Bfd(Entity):
                             self.detection_multiplier = None
                             self._segment_path = lambda: "async-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -5168,15 +5244,16 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_transmit_interval = None
                             self.detection_time = None
                             self.detection_multiplier = None
                             self._segment_path = lambda: "echo-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -5247,11 +5324,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -5260,6 +5337,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -5330,11 +5408,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -5343,6 +5421,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-receive-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -5413,11 +5492,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -5426,6 +5505,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -5496,11 +5576,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -5509,6 +5589,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-received-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -5545,7 +5626,7 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("change-time", ("change_time", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState.ChangeTime))])
                     self._leafs = OrderedDict([
-                        ('mp_download_state', YLeaf(YType.enumeration, 'mp-download-state')),
+                        ('mp_download_state', (YLeaf(YType.enumeration, 'mp-download-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMpDownloadState', '')])),
                     ])
                     self.mp_download_state = None
 
@@ -5554,6 +5635,7 @@ class Bfd(Entity):
                     self._children_name_map["change_time"] = "change-time"
                     self._segment_path = lambda: "mp-download-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
@@ -5598,13 +5680,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "change-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/mp-download-state/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
@@ -5703,15 +5786,15 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("lsp-ping-tx-last-time", ("lsp_ping_tx_last_time", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime)), ("lsp-ping-tx-last-error-time", ("lsp_ping_tx_last_error_time", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime)), ("lsp-ping-rx-last-time", ("lsp_ping_rx_last_time", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime))])
                     self._leafs = OrderedDict([
-                        ('lsp_ping_tx_count', YLeaf(YType.uint32, 'lsp-ping-tx-count')),
-                        ('lsp_ping_tx_error_count', YLeaf(YType.uint32, 'lsp-ping-tx-error-count')),
-                        ('lsp_ping_tx_last_rc', YLeaf(YType.str, 'lsp-ping-tx-last-rc')),
-                        ('lsp_ping_tx_last_error_rc', YLeaf(YType.str, 'lsp-ping-tx-last-error-rc')),
-                        ('lsp_ping_rx_last_discr', YLeaf(YType.uint32, 'lsp-ping-rx-last-discr')),
-                        ('lsp_ping_rx_count', YLeaf(YType.uint32, 'lsp-ping-rx-count')),
-                        ('lsp_ping_rx_last_code', YLeaf(YType.uint8, 'lsp-ping-rx-last-code')),
-                        ('lsp_ping_rx_last_subcode', YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode')),
-                        ('lsp_ping_rx_last_output', YLeaf(YType.str, 'lsp-ping-rx-last-output')),
+                        ('lsp_ping_tx_count', (YLeaf(YType.uint32, 'lsp-ping-tx-count'), ['int'])),
+                        ('lsp_ping_tx_error_count', (YLeaf(YType.uint32, 'lsp-ping-tx-error-count'), ['int'])),
+                        ('lsp_ping_tx_last_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-rc'), ['str'])),
+                        ('lsp_ping_tx_last_error_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-error-rc'), ['str'])),
+                        ('lsp_ping_rx_last_discr', (YLeaf(YType.uint32, 'lsp-ping-rx-last-discr'), ['int'])),
+                        ('lsp_ping_rx_count', (YLeaf(YType.uint32, 'lsp-ping-rx-count'), ['int'])),
+                        ('lsp_ping_rx_last_code', (YLeaf(YType.uint8, 'lsp-ping-rx-last-code'), ['int'])),
+                        ('lsp_ping_rx_last_subcode', (YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode'), ['int'])),
+                        ('lsp_ping_rx_last_output', (YLeaf(YType.str, 'lsp-ping-rx-last-output'), ['str'])),
                     ])
                     self.lsp_ping_tx_count = None
                     self.lsp_ping_tx_error_count = None
@@ -5736,6 +5819,7 @@ class Bfd(Entity):
                     self._children_name_map["lsp_ping_rx_last_time"] = "lsp-ping-rx-last-time"
                     self._segment_path = lambda: "lsp-ping-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
@@ -5780,13 +5864,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -5831,13 +5916,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-error-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
@@ -5882,13 +5968,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-rx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -5954,11 +6041,11 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interval', YLeaf(YType.uint32, 'interval')),
-                        ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                        ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                        ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                        ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                        ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                        ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.interval = None
                     self.detection_multiplier = None
@@ -5967,6 +6054,7 @@ class Bfd(Entity):
                     self.name = None
                     self._segment_path = lambda: "owner-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -6022,9 +6110,9 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("ip-destination-address", ("ip_destination_address", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.IpDestinationAddress)), ("owner-information", ("owner_information", Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.OwnerInformation))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
                     ])
                     self.interface_name = None
                     self.sessiontype = None
@@ -6037,6 +6125,7 @@ class Bfd(Entity):
                     self.owner_information = YList(self)
                     self._segment_path = lambda: "association-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
@@ -6089,10 +6178,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -6100,6 +6189,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "ip-destination-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -6165,11 +6255,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interval', YLeaf(YType.uint32, 'interval')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                            ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                            ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.interval = None
                         self.detection_multiplier = None
@@ -6178,6 +6268,7 @@ class Bfd(Entity):
                         self.name = None
                         self._segment_path = lambda: "owner-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-details/ipv4-single-hop-session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionDetails.Ipv4SingleHopSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -6214,6 +6305,7 @@ class Bfd(Entity):
             self.ipv4_multi_hop_session_brief = YList(self)
             self._segment_path = lambda: "ipv4-multi-hop-session-briefs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs, [], name, value)
@@ -6303,15 +6395,15 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-brief-information", ("status_brief_information", Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation))])
                 self._leafs = OrderedDict([
-                    ('source_address', YLeaf(YType.str, 'source-address')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('session_type', YLeaf(YType.enumeration, 'session-type')),
-                    ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                    ('session_flags', YLeaf(YType.uint32, 'session-flags')),
+                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('session_type', (YLeaf(YType.enumeration, 'session-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                    ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                    ('session_flags', (YLeaf(YType.uint32, 'session-flags'), ['int'])),
                 ])
                 self.source_address = None
                 self.destination_address = None
@@ -6328,6 +6420,7 @@ class Bfd(Entity):
                 self._children_name_map["status_brief_information"] = "status-brief-information"
                 self._segment_path = lambda: "ipv4-multi-hop-session-brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-briefs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief, ['source_address', 'destination_address', 'location', 'vrf_name', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
@@ -6374,6 +6467,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                     self._segment_path = lambda: "status-brief-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-briefs/ipv4-multi-hop-session-brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation, [], name, value)
@@ -6434,10 +6528,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                            ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                            ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_remote_transmit_interval = None
                         self.negotiated_local_transmit_interval = None
@@ -6445,6 +6539,7 @@ class Bfd(Entity):
                         self.detection_multiplier = None
                         self._segment_path = lambda: "async-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-briefs/ipv4-multi-hop-session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -6496,15 +6591,16 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_transmit_interval = None
                         self.detection_time = None
                         self.detection_multiplier = None
                         self._segment_path = lambda: "echo-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-session-briefs/ipv4-multi-hop-session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4MultiHopSessionBriefs.Ipv4MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -6540,6 +6636,7 @@ class Bfd(Entity):
             self.generic_summary = YList(self)
             self._segment_path = lambda: "generic-summaries"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.GenericSummaries, [], name, value)
@@ -6648,17 +6745,17 @@ class Bfd(Entity):
                 self.ylist_key_names = ['location']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('pps_allocated_value', YLeaf(YType.uint32, 'pps-allocated-value')),
-                    ('ppsmp_allocated_value', YLeaf(YType.uint32, 'ppsmp-allocated-value')),
-                    ('pps_max_value', YLeaf(YType.uint32, 'pps-max-value')),
-                    ('ppsmp_max_value', YLeaf(YType.uint32, 'ppsmp-max-value')),
-                    ('total_session_number', YLeaf(YType.uint32, 'total-session-number')),
-                    ('mp_session_number', YLeaf(YType.uint32, 'mp-session-number')),
-                    ('max_session_number', YLeaf(YType.uint32, 'max-session-number')),
-                    ('pps_all_percentage', YLeaf(YType.uint32, 'pps-all-percentage')),
-                    ('ppsmp_percentage', YLeaf(YType.uint32, 'ppsmp-percentage')),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('pps_allocated_value', (YLeaf(YType.uint32, 'pps-allocated-value'), ['int'])),
+                    ('ppsmp_allocated_value', (YLeaf(YType.uint32, 'ppsmp-allocated-value'), ['int'])),
+                    ('pps_max_value', (YLeaf(YType.uint32, 'pps-max-value'), ['int'])),
+                    ('ppsmp_max_value', (YLeaf(YType.uint32, 'ppsmp-max-value'), ['int'])),
+                    ('total_session_number', (YLeaf(YType.uint32, 'total-session-number'), ['int'])),
+                    ('mp_session_number', (YLeaf(YType.uint32, 'mp-session-number'), ['int'])),
+                    ('max_session_number', (YLeaf(YType.uint32, 'max-session-number'), ['int'])),
+                    ('pps_all_percentage', (YLeaf(YType.uint32, 'pps-all-percentage'), ['int'])),
+                    ('ppsmp_percentage', (YLeaf(YType.uint32, 'ppsmp-percentage'), ['int'])),
                 ])
                 self.location = None
                 self.node_id = None
@@ -6673,6 +6770,7 @@ class Bfd(Entity):
                 self.ppsmp_percentage = None
                 self._segment_path = lambda: "generic-summary" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/generic-summaries/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.GenericSummaries.GenericSummary, ['location', u'node_id', u'pps_allocated_value', u'ppsmp_allocated_value', u'pps_max_value', u'ppsmp_max_value', u'total_session_number', u'mp_session_number', u'max_session_number', u'pps_all_percentage', u'ppsmp_percentage'], name, value)
@@ -6708,6 +6806,7 @@ class Bfd(Entity):
             self.ipv6_single_hop_multi_path = YList(self)
             self._segment_path = lambda: "ipv6-single-hop-multi-paths"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv6SingleHopMultiPaths, [], name, value)
@@ -6722,7 +6821,7 @@ class Bfd(Entity):
             	Interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: destination_address
             
@@ -6780,7 +6879,7 @@ class Bfd(Entity):
             	Interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             
 
@@ -6799,15 +6898,15 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('incoming_label_xr', YLeaf(YType.uint32, 'incoming-label-xr')),
-                    ('session_interface_name', YLeaf(YType.str, 'session-interface-name')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str','str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('incoming_label_xr', (YLeaf(YType.uint32, 'incoming-label-xr'), ['int'])),
+                    ('session_interface_name', (YLeaf(YType.str, 'session-interface-name'), ['str'])),
                 ])
                 self.interface_name = None
                 self.destination_address = None
@@ -6820,6 +6919,7 @@ class Bfd(Entity):
                 self.session_interface_name = None
                 self._segment_path = lambda: "ipv6-single-hop-multi-path"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-multi-paths/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6SingleHopMultiPaths.Ipv6SingleHopMultiPath, ['interface_name', 'destination_address', 'location', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
@@ -6856,6 +6956,7 @@ class Bfd(Entity):
             self.ipv4_single_hop_node_location_summary = YList(self)
             self._segment_path = lambda: "ipv4-single-hop-node-location-summaries"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4SingleHopNodeLocationSummaries, [], name, value)
@@ -6895,7 +6996,7 @@ class Bfd(Entity):
                 self.ylist_key_names = ['location']
                 self._child_classes = OrderedDict([("session-state", ("session_state", Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary.SessionState))])
                 self._leafs = OrderedDict([
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.location = None
 
@@ -6904,6 +7005,7 @@ class Bfd(Entity):
                 self._children_name_map["session_state"] = "session-state"
                 self._segment_path = lambda: "ipv4-single-hop-node-location-summary" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-node-location-summaries/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary, ['location'], name, value)
@@ -6972,12 +7074,12 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('total_count', YLeaf(YType.uint32, 'total-count')),
-                        ('up_count', YLeaf(YType.uint32, 'up-count')),
-                        ('down_count', YLeaf(YType.uint32, 'down-count')),
-                        ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
-                        ('retry_count', YLeaf(YType.uint32, 'retry-count')),
-                        ('standby_count', YLeaf(YType.uint32, 'standby-count')),
+                        ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                        ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                        ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                        ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
+                        ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
+                        ('standby_count', (YLeaf(YType.uint32, 'standby-count'), ['int'])),
                     ])
                     self.total_count = None
                     self.up_count = None
@@ -6986,6 +7088,7 @@ class Bfd(Entity):
                     self.retry_count = None
                     self.standby_count = None
                     self._segment_path = lambda: "session-state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4SingleHopNodeLocationSummaries.Ipv4SingleHopNodeLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
@@ -7023,6 +7126,7 @@ class Bfd(Entity):
             self._children_name_map["session_state"] = "session-state"
             self._segment_path = lambda: "label-summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.LabelSummary, [], name, value)
@@ -7077,10 +7181,10 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('total_count', YLeaf(YType.uint32, 'total-count')),
-                    ('down_count', YLeaf(YType.uint32, 'down-count')),
-                    ('up_count', YLeaf(YType.uint32, 'up-count')),
-                    ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
+                    ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                    ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                    ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                    ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
                 ])
                 self.total_count = None
                 self.down_count = None
@@ -7088,6 +7192,7 @@ class Bfd(Entity):
                 self.unknown_count = None
                 self._segment_path = lambda: "session-state"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.LabelSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
@@ -7124,6 +7229,7 @@ class Bfd(Entity):
             self.ipv4bf_do_mplste_head_session_brief = YList(self)
             self._segment_path = lambda: "ipv4bf-do-mplste-head-session-briefs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs, [], name, value)
@@ -7139,7 +7245,7 @@ class Bfd(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: vrf_name
             
@@ -7283,25 +7389,25 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-brief-information", ("status_brief_information", Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('incoming_label', YLeaf(YType.uint32, 'incoming-label')),
-                    ('fe_ctype', YLeaf(YType.uint32, 'fe-ctype')),
-                    ('fec_subgroup_id', YLeaf(YType.uint32, 'fec-subgroup-id')),
-                    ('feclspid', YLeaf(YType.uint32, 'feclspid')),
-                    ('fec_tunnel_id', YLeaf(YType.uint32, 'fec-tunnel-id')),
-                    ('fec_extended_tunnel_id', YLeaf(YType.str, 'fec-extended-tunnel-id')),
-                    ('fec_source', YLeaf(YType.str, 'fec-source')),
-                    ('fec_destination', YLeaf(YType.str, 'fec-destination')),
-                    ('fecp2mpid', YLeaf(YType.uint32, 'fecp2mpid')),
-                    ('fec_subgroup_originator', YLeaf(YType.str, 'fec-subgroup-originator')),
-                    ('fec_ctype', YLeaf(YType.uint32, 'fec-ctype')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('session_type', YLeaf(YType.enumeration, 'session-type')),
-                    ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                    ('session_flags', YLeaf(YType.uint32, 'session-flags')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('incoming_label', (YLeaf(YType.uint32, 'incoming-label'), ['int'])),
+                    ('fe_ctype', (YLeaf(YType.uint32, 'fe-ctype'), ['int'])),
+                    ('fec_subgroup_id', (YLeaf(YType.uint32, 'fec-subgroup-id'), ['int'])),
+                    ('feclspid', (YLeaf(YType.uint32, 'feclspid'), ['int'])),
+                    ('fec_tunnel_id', (YLeaf(YType.uint32, 'fec-tunnel-id'), ['int'])),
+                    ('fec_extended_tunnel_id', (YLeaf(YType.str, 'fec-extended-tunnel-id'), ['str'])),
+                    ('fec_source', (YLeaf(YType.str, 'fec-source'), ['str'])),
+                    ('fec_destination', (YLeaf(YType.str, 'fec-destination'), ['str'])),
+                    ('fecp2mpid', (YLeaf(YType.uint32, 'fecp2mpid'), ['int'])),
+                    ('fec_subgroup_originator', (YLeaf(YType.str, 'fec-subgroup-originator'), ['str'])),
+                    ('fec_ctype', (YLeaf(YType.uint32, 'fec-ctype'), ['int'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('session_type', (YLeaf(YType.enumeration, 'session-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                    ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                    ('session_flags', (YLeaf(YType.uint32, 'session-flags'), ['int'])),
                 ])
                 self.interface_name = None
                 self.vrf_name = None
@@ -7328,6 +7434,7 @@ class Bfd(Entity):
                 self._children_name_map["status_brief_information"] = "status-brief-information"
                 self._segment_path = lambda: "ipv4bf-do-mplste-head-session-brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-briefs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief, ['interface_name', 'vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
@@ -7374,6 +7481,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                     self._segment_path = lambda: "status-brief-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-briefs/ipv4bf-do-mplste-head-session-brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation, [], name, value)
@@ -7434,10 +7542,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                            ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                            ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_remote_transmit_interval = None
                         self.negotiated_local_transmit_interval = None
@@ -7445,6 +7553,7 @@ class Bfd(Entity):
                         self.detection_multiplier = None
                         self._segment_path = lambda: "async-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-briefs/ipv4bf-do-mplste-head-session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -7496,15 +7605,16 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_transmit_interval = None
                         self.detection_time = None
                         self.detection_multiplier = None
                         self._segment_path = lambda: "echo-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-briefs/ipv4bf-do-mplste-head-session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionBriefs.Ipv4bfDoMplsteHeadSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -7541,6 +7651,7 @@ class Bfd(Entity):
             self.ipv4bf_do_mplste_tail_session_detail = YList(self)
             self._segment_path = lambda: "ipv4bf-do-mplste-tail-session-details"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails, [], name, value)
@@ -7684,19 +7795,19 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-information", ("status_information", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation)), ("mp-download-state", ("mp_download_state", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState)), ("lsp-ping-info", ("lsp_ping_info", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo)), ("owner-information", ("owner_information", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.OwnerInformation)), ("association-information", ("association_information", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('incoming_label', YLeaf(YType.uint32, 'incoming-label')),
-                    ('fe_ctype', YLeaf(YType.uint32, 'fe-ctype')),
-                    ('fec_subgroup_id', YLeaf(YType.uint32, 'fec-subgroup-id')),
-                    ('feclspid', YLeaf(YType.uint32, 'feclspid')),
-                    ('fec_tunnel_id', YLeaf(YType.uint32, 'fec-tunnel-id')),
-                    ('fec_extended_tunnel_id', YLeaf(YType.str, 'fec-extended-tunnel-id')),
-                    ('fec_source', YLeaf(YType.str, 'fec-source')),
-                    ('fec_destination', YLeaf(YType.str, 'fec-destination')),
-                    ('fecp2mpid', YLeaf(YType.uint32, 'fecp2mpid')),
-                    ('fec_subgroup_originator', YLeaf(YType.str, 'fec-subgroup-originator')),
-                    ('fec_ctype', YLeaf(YType.uint32, 'fec-ctype')),
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('incoming_label', (YLeaf(YType.uint32, 'incoming-label'), ['int'])),
+                    ('fe_ctype', (YLeaf(YType.uint32, 'fe-ctype'), ['int'])),
+                    ('fec_subgroup_id', (YLeaf(YType.uint32, 'fec-subgroup-id'), ['int'])),
+                    ('feclspid', (YLeaf(YType.uint32, 'feclspid'), ['int'])),
+                    ('fec_tunnel_id', (YLeaf(YType.uint32, 'fec-tunnel-id'), ['int'])),
+                    ('fec_extended_tunnel_id', (YLeaf(YType.str, 'fec-extended-tunnel-id'), ['str'])),
+                    ('fec_source', (YLeaf(YType.str, 'fec-source'), ['str'])),
+                    ('fec_destination', (YLeaf(YType.str, 'fec-destination'), ['str'])),
+                    ('fecp2mpid', (YLeaf(YType.uint32, 'fecp2mpid'), ['int'])),
+                    ('fec_subgroup_originator', (YLeaf(YType.str, 'fec-subgroup-originator'), ['str'])),
+                    ('fec_ctype', (YLeaf(YType.uint32, 'fec-ctype'), ['int'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.vrf_name = None
                 self.incoming_label = None
@@ -7728,6 +7839,7 @@ class Bfd(Entity):
                 self.association_information = YList(self)
                 self._segment_path = lambda: "ipv4bf-do-mplste-tail-session-detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location'], name, value)
@@ -7901,20 +8013,20 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("source-address", ("source_address", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.SourceAddress)), ("last-state-change", ("last_state_change", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.LastStateChange)), ("transmit-packet", ("transmit_packet", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.TransmitPacket)), ("receive-packet", ("receive_packet", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.ReceivePacket)), ("status-brief-information", ("status_brief_information", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation)), ("async-transmit-statistics", ("async_transmit_statistics", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncTransmitStatistics)), ("async-receive-statistics", ("async_receive_statistics", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncReceiveStatistics)), ("echo-transmit-statistics", ("echo_transmit_statistics", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoTransmitStatistics)), ("echo-received-statistics", ("echo_received_statistics", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoReceivedStatistics))])
                     self._leafs = OrderedDict([
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                        ('remote_discriminator', YLeaf(YType.uint32, 'remote-discriminator')),
-                        ('to_up_state_count', YLeaf(YType.uint32, 'to-up-state-count')),
-                        ('desired_minimum_echo_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval')),
-                        ('remote_negotiated_interval', YLeaf(YType.uint32, 'remote-negotiated-interval')),
-                        ('latency_number', YLeaf(YType.uint32, 'latency-number')),
-                        ('latency_minimum', YLeaf(YType.uint32, 'latency-minimum')),
-                        ('latency_maximum', YLeaf(YType.uint32, 'latency-maximum')),
-                        ('latency_average', YLeaf(YType.uint32, 'latency-average')),
-                        ('node_id', YLeaf(YType.str, 'node-id')),
-                        ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                        ('remote_discriminator', (YLeaf(YType.uint32, 'remote-discriminator'), ['int'])),
+                        ('to_up_state_count', (YLeaf(YType.uint32, 'to-up-state-count'), ['int'])),
+                        ('desired_minimum_echo_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval'), ['int'])),
+                        ('remote_negotiated_interval', (YLeaf(YType.uint32, 'remote-negotiated-interval'), ['int'])),
+                        ('latency_number', (YLeaf(YType.uint32, 'latency-number'), ['int'])),
+                        ('latency_minimum', (YLeaf(YType.uint32, 'latency-minimum'), ['int'])),
+                        ('latency_maximum', (YLeaf(YType.uint32, 'latency-maximum'), ['int'])),
+                        ('latency_average', (YLeaf(YType.uint32, 'latency-average'), ['int'])),
+                        ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                        ('internal_label', (YLeaf(YType.uint32, 'internal-label'), ['int'])),
                     ])
                     self.sessiontype = None
                     self.session_subtype = None
@@ -7968,6 +8080,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_received_statistics"] = "echo-received-statistics"
                     self._segment_path = lambda: "status-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
@@ -8020,10 +8133,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -8031,6 +8144,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "source-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -8093,10 +8207,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('days', YLeaf(YType.uint32, 'days')),
-                            ('hours', YLeaf(YType.uint8, 'hours')),
-                            ('minutes', YLeaf(YType.uint8, 'minutes')),
-                            ('seconds', YLeaf(YType.uint8, 'seconds')),
+                            ('days', (YLeaf(YType.uint32, 'days'), ['int'])),
+                            ('hours', (YLeaf(YType.uint8, 'hours'), ['int'])),
+                            ('minutes', (YLeaf(YType.uint8, 'minutes'), ['int'])),
+                            ('seconds', (YLeaf(YType.uint8, 'seconds'), ['int'])),
                         ])
                         self.days = None
                         self.hours = None
@@ -8104,6 +8218,7 @@ class Bfd(Entity):
                         self.seconds = None
                         self._segment_path = lambda: "last-state-change"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
@@ -8244,22 +8359,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -8279,6 +8394,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "transmit-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -8419,22 +8535,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -8454,6 +8570,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "receive-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -8500,6 +8617,7 @@ class Bfd(Entity):
                         self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                         self._segment_path = lambda: "status-brief-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
@@ -8560,10 +8678,10 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                                ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                                ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_remote_transmit_interval = None
                             self.negotiated_local_transmit_interval = None
@@ -8571,6 +8689,7 @@ class Bfd(Entity):
                             self.detection_multiplier = None
                             self._segment_path = lambda: "async-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -8622,15 +8741,16 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_transmit_interval = None
                             self.detection_time = None
                             self.detection_multiplier = None
                             self._segment_path = lambda: "echo-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -8701,11 +8821,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -8714,6 +8834,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -8784,11 +8905,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -8797,6 +8918,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-receive-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -8867,11 +8989,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -8880,6 +9002,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -8950,11 +9073,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -8963,6 +9086,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-received-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -8999,7 +9123,7 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("change-time", ("change_time", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState.ChangeTime))])
                     self._leafs = OrderedDict([
-                        ('mp_download_state', YLeaf(YType.enumeration, 'mp-download-state')),
+                        ('mp_download_state', (YLeaf(YType.enumeration, 'mp-download-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMpDownloadState', '')])),
                     ])
                     self.mp_download_state = None
 
@@ -9008,6 +9132,7 @@ class Bfd(Entity):
                     self._children_name_map["change_time"] = "change-time"
                     self._segment_path = lambda: "mp-download-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
@@ -9052,13 +9177,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "change-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/mp-download-state/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
@@ -9157,15 +9283,15 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("lsp-ping-tx-last-time", ("lsp_ping_tx_last_time", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastTime)), ("lsp-ping-tx-last-error-time", ("lsp_ping_tx_last_error_time", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastErrorTime)), ("lsp-ping-rx-last-time", ("lsp_ping_rx_last_time", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingRxLastTime))])
                     self._leafs = OrderedDict([
-                        ('lsp_ping_tx_count', YLeaf(YType.uint32, 'lsp-ping-tx-count')),
-                        ('lsp_ping_tx_error_count', YLeaf(YType.uint32, 'lsp-ping-tx-error-count')),
-                        ('lsp_ping_tx_last_rc', YLeaf(YType.str, 'lsp-ping-tx-last-rc')),
-                        ('lsp_ping_tx_last_error_rc', YLeaf(YType.str, 'lsp-ping-tx-last-error-rc')),
-                        ('lsp_ping_rx_last_discr', YLeaf(YType.uint32, 'lsp-ping-rx-last-discr')),
-                        ('lsp_ping_rx_count', YLeaf(YType.uint32, 'lsp-ping-rx-count')),
-                        ('lsp_ping_rx_last_code', YLeaf(YType.uint8, 'lsp-ping-rx-last-code')),
-                        ('lsp_ping_rx_last_subcode', YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode')),
-                        ('lsp_ping_rx_last_output', YLeaf(YType.str, 'lsp-ping-rx-last-output')),
+                        ('lsp_ping_tx_count', (YLeaf(YType.uint32, 'lsp-ping-tx-count'), ['int'])),
+                        ('lsp_ping_tx_error_count', (YLeaf(YType.uint32, 'lsp-ping-tx-error-count'), ['int'])),
+                        ('lsp_ping_tx_last_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-rc'), ['str'])),
+                        ('lsp_ping_tx_last_error_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-error-rc'), ['str'])),
+                        ('lsp_ping_rx_last_discr', (YLeaf(YType.uint32, 'lsp-ping-rx-last-discr'), ['int'])),
+                        ('lsp_ping_rx_count', (YLeaf(YType.uint32, 'lsp-ping-rx-count'), ['int'])),
+                        ('lsp_ping_rx_last_code', (YLeaf(YType.uint8, 'lsp-ping-rx-last-code'), ['int'])),
+                        ('lsp_ping_rx_last_subcode', (YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode'), ['int'])),
+                        ('lsp_ping_rx_last_output', (YLeaf(YType.str, 'lsp-ping-rx-last-output'), ['str'])),
                     ])
                     self.lsp_ping_tx_count = None
                     self.lsp_ping_tx_error_count = None
@@ -9190,6 +9316,7 @@ class Bfd(Entity):
                     self._children_name_map["lsp_ping_rx_last_time"] = "lsp-ping-rx-last-time"
                     self._segment_path = lambda: "lsp-ping-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
@@ -9234,13 +9361,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -9285,13 +9413,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-error-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
@@ -9336,13 +9465,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-rx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -9408,11 +9538,11 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interval', YLeaf(YType.uint32, 'interval')),
-                        ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                        ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                        ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                        ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                        ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                        ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.interval = None
                     self.detection_multiplier = None
@@ -9421,6 +9551,7 @@ class Bfd(Entity):
                     self.name = None
                     self._segment_path = lambda: "owner-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -9476,9 +9607,9 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("ip-destination-address", ("ip_destination_address", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.IpDestinationAddress)), ("owner-information", ("owner_information", Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.OwnerInformation))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
                     ])
                     self.interface_name = None
                     self.sessiontype = None
@@ -9491,6 +9622,7 @@ class Bfd(Entity):
                     self.owner_information = YList(self)
                     self._segment_path = lambda: "association-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
@@ -9543,10 +9675,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -9554,6 +9686,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "ip-destination-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -9619,11 +9752,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interval', YLeaf(YType.uint32, 'interval')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                            ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                            ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.interval = None
                         self.detection_multiplier = None
@@ -9632,6 +9765,7 @@ class Bfd(Entity):
                         self.name = None
                         self._segment_path = lambda: "owner-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-details/ipv4bf-do-mplste-tail-session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionDetails.Ipv4bfDoMplsteTailSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -9668,6 +9802,7 @@ class Bfd(Entity):
             self.ipv4_multi_hop_node_location_summary = YList(self)
             self._segment_path = lambda: "ipv4-multi-hop-node-location-summaries"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4MultiHopNodeLocationSummaries, [], name, value)
@@ -9707,7 +9842,7 @@ class Bfd(Entity):
                 self.ylist_key_names = ['location']
                 self._child_classes = OrderedDict([("session-state", ("session_state", Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary.SessionState))])
                 self._leafs = OrderedDict([
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.location = None
 
@@ -9716,6 +9851,7 @@ class Bfd(Entity):
                 self._children_name_map["session_state"] = "session-state"
                 self._segment_path = lambda: "ipv4-multi-hop-node-location-summary" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-node-location-summaries/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary, ['location'], name, value)
@@ -9784,12 +9920,12 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('total_count', YLeaf(YType.uint32, 'total-count')),
-                        ('up_count', YLeaf(YType.uint32, 'up-count')),
-                        ('down_count', YLeaf(YType.uint32, 'down-count')),
-                        ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
-                        ('retry_count', YLeaf(YType.uint32, 'retry-count')),
-                        ('standby_count', YLeaf(YType.uint32, 'standby-count')),
+                        ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                        ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                        ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                        ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
+                        ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
+                        ('standby_count', (YLeaf(YType.uint32, 'standby-count'), ['int'])),
                     ])
                     self.total_count = None
                     self.up_count = None
@@ -9798,6 +9934,7 @@ class Bfd(Entity):
                     self.retry_count = None
                     self.standby_count = None
                     self._segment_path = lambda: "session-state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4MultiHopNodeLocationSummaries.Ipv4MultiHopNodeLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
@@ -9834,6 +9971,7 @@ class Bfd(Entity):
             self.ipv4bf_do_mplste_tail_session_brief = YList(self)
             self._segment_path = lambda: "ipv4bf-do-mplste-tail-session-briefs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs, [], name, value)
@@ -9986,24 +10124,24 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-brief-information", ("status_brief_information", Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('incoming_label', YLeaf(YType.uint32, 'incoming-label')),
-                    ('fe_ctype', YLeaf(YType.uint32, 'fe-ctype')),
-                    ('fec_subgroup_id', YLeaf(YType.uint32, 'fec-subgroup-id')),
-                    ('feclspid', YLeaf(YType.uint32, 'feclspid')),
-                    ('fec_tunnel_id', YLeaf(YType.uint32, 'fec-tunnel-id')),
-                    ('fec_extended_tunnel_id', YLeaf(YType.str, 'fec-extended-tunnel-id')),
-                    ('fec_source', YLeaf(YType.str, 'fec-source')),
-                    ('fec_destination', YLeaf(YType.str, 'fec-destination')),
-                    ('fecp2mpid', YLeaf(YType.uint32, 'fecp2mpid')),
-                    ('fec_subgroup_originator', YLeaf(YType.str, 'fec-subgroup-originator')),
-                    ('fec_ctype', YLeaf(YType.uint32, 'fec-ctype')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('session_type', YLeaf(YType.enumeration, 'session-type')),
-                    ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                    ('session_flags', YLeaf(YType.uint32, 'session-flags')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('incoming_label', (YLeaf(YType.uint32, 'incoming-label'), ['int'])),
+                    ('fe_ctype', (YLeaf(YType.uint32, 'fe-ctype'), ['int'])),
+                    ('fec_subgroup_id', (YLeaf(YType.uint32, 'fec-subgroup-id'), ['int'])),
+                    ('feclspid', (YLeaf(YType.uint32, 'feclspid'), ['int'])),
+                    ('fec_tunnel_id', (YLeaf(YType.uint32, 'fec-tunnel-id'), ['int'])),
+                    ('fec_extended_tunnel_id', (YLeaf(YType.str, 'fec-extended-tunnel-id'), ['str'])),
+                    ('fec_source', (YLeaf(YType.str, 'fec-source'), ['str'])),
+                    ('fec_destination', (YLeaf(YType.str, 'fec-destination'), ['str'])),
+                    ('fecp2mpid', (YLeaf(YType.uint32, 'fecp2mpid'), ['int'])),
+                    ('fec_subgroup_originator', (YLeaf(YType.str, 'fec-subgroup-originator'), ['str'])),
+                    ('fec_ctype', (YLeaf(YType.uint32, 'fec-ctype'), ['int'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('session_type', (YLeaf(YType.enumeration, 'session-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                    ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                    ('session_flags', (YLeaf(YType.uint32, 'session-flags'), ['int'])),
                 ])
                 self.vrf_name = None
                 self.incoming_label = None
@@ -10029,6 +10167,7 @@ class Bfd(Entity):
                 self._children_name_map["status_brief_information"] = "status-brief-information"
                 self._segment_path = lambda: "ipv4bf-do-mplste-tail-session-brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-briefs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
@@ -10075,6 +10214,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                     self._segment_path = lambda: "status-brief-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-briefs/ipv4bf-do-mplste-tail-session-brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation, [], name, value)
@@ -10135,10 +10275,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                            ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                            ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_remote_transmit_interval = None
                         self.negotiated_local_transmit_interval = None
@@ -10146,6 +10286,7 @@ class Bfd(Entity):
                         self.detection_multiplier = None
                         self._segment_path = lambda: "async-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-briefs/ipv4bf-do-mplste-tail-session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -10197,15 +10338,16 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_transmit_interval = None
                         self.detection_time = None
                         self.detection_multiplier = None
                         self._segment_path = lambda: "echo-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-session-briefs/ipv4bf-do-mplste-tail-session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteTailSessionBriefs.Ipv4bfDoMplsteTailSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -10242,6 +10384,7 @@ class Bfd(Entity):
             self.ipv6_multi_hop_node_location_summary = YList(self)
             self._segment_path = lambda: "ipv6-multi-hop-node-location-summaries"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv6MultiHopNodeLocationSummaries, [], name, value)
@@ -10281,7 +10424,7 @@ class Bfd(Entity):
                 self.ylist_key_names = ['location']
                 self._child_classes = OrderedDict([("session-state", ("session_state", Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary.SessionState))])
                 self._leafs = OrderedDict([
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.location = None
 
@@ -10290,6 +10433,7 @@ class Bfd(Entity):
                 self._children_name_map["session_state"] = "session-state"
                 self._segment_path = lambda: "ipv6-multi-hop-node-location-summary" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-node-location-summaries/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary, ['location'], name, value)
@@ -10358,12 +10502,12 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('total_count', YLeaf(YType.uint32, 'total-count')),
-                        ('up_count', YLeaf(YType.uint32, 'up-count')),
-                        ('down_count', YLeaf(YType.uint32, 'down-count')),
-                        ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
-                        ('retry_count', YLeaf(YType.uint32, 'retry-count')),
-                        ('standby_count', YLeaf(YType.uint32, 'standby-count')),
+                        ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                        ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                        ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                        ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
+                        ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
+                        ('standby_count', (YLeaf(YType.uint32, 'standby-count'), ['int'])),
                     ])
                     self.total_count = None
                     self.up_count = None
@@ -10372,6 +10516,7 @@ class Bfd(Entity):
                     self.retry_count = None
                     self.standby_count = None
                     self._segment_path = lambda: "session-state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6MultiHopNodeLocationSummaries.Ipv6MultiHopNodeLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
@@ -10410,6 +10555,7 @@ class Bfd(Entity):
             self._children_name_map["session_state"] = "session-state"
             self._segment_path = lambda: "ipv4-multi-hop-summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4MultiHopSummary, [], name, value)
@@ -10464,10 +10610,10 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('total_count', YLeaf(YType.uint32, 'total-count')),
-                    ('down_count', YLeaf(YType.uint32, 'down-count')),
-                    ('up_count', YLeaf(YType.uint32, 'up-count')),
-                    ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
+                    ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                    ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                    ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                    ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
                 ])
                 self.total_count = None
                 self.down_count = None
@@ -10475,6 +10621,7 @@ class Bfd(Entity):
                 self.unknown_count = None
                 self._segment_path = lambda: "session-state"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4MultiHopSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
@@ -10512,6 +10659,7 @@ class Bfd(Entity):
             self._children_name_map["ipv4_single_hop_packet_counters"] = "ipv4-single-hop-packet-counters"
             self._segment_path = lambda: "ipv4-single-hop-counters"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4SingleHopCounters, [], name, value)
@@ -10547,6 +10695,7 @@ class Bfd(Entity):
                 self.ipv4_single_hop_packet_counter = YList(self)
                 self._segment_path = lambda: "ipv4-single-hop-packet-counters"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-counters/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters, [], name, value)
@@ -10556,12 +10705,19 @@ class Bfd(Entity):
                 """
                 Interface IPv4 single hop Packet counters
                 
-                .. attribute:: interface_name  (key)
+                .. attribute:: interface_name
                 
                 	Interface Name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
+                
+                .. attribute:: location
+                
+                	Location
+                	**type**\: str
+                
+                	**pattern:** ([a\-zA\-Z0\-9\_]\*\\d+/){1,2}([a\-zA\-Z0\-9\_]\*\\d+)
                 
                 .. attribute:: hello_transmit_count
                 
@@ -10610,27 +10766,30 @@ class Bfd(Entity):
                     self.yang_parent_name = "ipv4-single-hop-packet-counters"
                     self.is_top_level_class = False
                     self.has_list_ancestor = False
-                    self.ylist_key_names = ['interface_name']
+                    self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('hello_transmit_count', YLeaf(YType.uint32, 'hello-transmit-count')),
-                        ('hello_receive_count', YLeaf(YType.uint32, 'hello-receive-count')),
-                        ('echo_transmit_count', YLeaf(YType.uint32, 'echo-transmit-count')),
-                        ('echo_receive_count', YLeaf(YType.uint32, 'echo-receive-count')),
-                        ('display_type', YLeaf(YType.enumeration, 'display-type')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                        ('hello_transmit_count', (YLeaf(YType.uint32, 'hello-transmit-count'), ['int'])),
+                        ('hello_receive_count', (YLeaf(YType.uint32, 'hello-receive-count'), ['int'])),
+                        ('echo_transmit_count', (YLeaf(YType.uint32, 'echo-transmit-count'), ['int'])),
+                        ('echo_receive_count', (YLeaf(YType.uint32, 'echo-receive-count'), ['int'])),
+                        ('display_type', (YLeaf(YType.enumeration, 'display-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtPktDisplay', '')])),
                     ])
                     self.interface_name = None
+                    self.location = None
                     self.hello_transmit_count = None
                     self.hello_receive_count = None
                     self.echo_transmit_count = None
                     self.echo_receive_count = None
                     self.display_type = None
-                    self._segment_path = lambda: "ipv4-single-hop-packet-counter" + "[interface-name='" + str(self.interface_name) + "']"
+                    self._segment_path = lambda: "ipv4-single-hop-packet-counter"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-counters/ipv4-single-hop-packet-counters/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter, ['interface_name', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
+                    self._perform_setattr(Bfd.Ipv4SingleHopCounters.Ipv4SingleHopPacketCounters.Ipv4SingleHopPacketCounter, ['interface_name', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
 
 
     class Ipv6MultiHopSessionDetails(Entity):
@@ -10664,6 +10823,7 @@ class Bfd(Entity):
             self.ipv6_multi_hop_session_detail = YList(self)
             self._segment_path = lambda: "ipv6-multi-hop-session-details"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails, [], name, value)
@@ -10756,10 +10916,10 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-information", ("status_information", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation)), ("mp-download-state", ("mp_download_state", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState)), ("lsp-ping-info", ("lsp_ping_info", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo)), ("owner-information", ("owner_information", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.OwnerInformation)), ("association-information", ("association_information", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation))])
                 self._leafs = OrderedDict([
-                    ('source_address', YLeaf(YType.str, 'source-address')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str','str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ])
                 self.source_address = None
                 self.destination_address = None
@@ -10782,6 +10942,7 @@ class Bfd(Entity):
                 self.association_information = YList(self)
                 self._segment_path = lambda: "ipv6-multi-hop-session-detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail, ['source_address', 'destination_address', 'location', 'vrf_name'], name, value)
@@ -10955,20 +11116,20 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("source-address", ("source_address", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.SourceAddress)), ("last-state-change", ("last_state_change", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.LastStateChange)), ("transmit-packet", ("transmit_packet", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.TransmitPacket)), ("receive-packet", ("receive_packet", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.ReceivePacket)), ("status-brief-information", ("status_brief_information", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation)), ("async-transmit-statistics", ("async_transmit_statistics", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics)), ("async-receive-statistics", ("async_receive_statistics", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics)), ("echo-transmit-statistics", ("echo_transmit_statistics", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics)), ("echo-received-statistics", ("echo_received_statistics", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics))])
                     self._leafs = OrderedDict([
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                        ('remote_discriminator', YLeaf(YType.uint32, 'remote-discriminator')),
-                        ('to_up_state_count', YLeaf(YType.uint32, 'to-up-state-count')),
-                        ('desired_minimum_echo_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval')),
-                        ('remote_negotiated_interval', YLeaf(YType.uint32, 'remote-negotiated-interval')),
-                        ('latency_number', YLeaf(YType.uint32, 'latency-number')),
-                        ('latency_minimum', YLeaf(YType.uint32, 'latency-minimum')),
-                        ('latency_maximum', YLeaf(YType.uint32, 'latency-maximum')),
-                        ('latency_average', YLeaf(YType.uint32, 'latency-average')),
-                        ('node_id', YLeaf(YType.str, 'node-id')),
-                        ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                        ('remote_discriminator', (YLeaf(YType.uint32, 'remote-discriminator'), ['int'])),
+                        ('to_up_state_count', (YLeaf(YType.uint32, 'to-up-state-count'), ['int'])),
+                        ('desired_minimum_echo_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval'), ['int'])),
+                        ('remote_negotiated_interval', (YLeaf(YType.uint32, 'remote-negotiated-interval'), ['int'])),
+                        ('latency_number', (YLeaf(YType.uint32, 'latency-number'), ['int'])),
+                        ('latency_minimum', (YLeaf(YType.uint32, 'latency-minimum'), ['int'])),
+                        ('latency_maximum', (YLeaf(YType.uint32, 'latency-maximum'), ['int'])),
+                        ('latency_average', (YLeaf(YType.uint32, 'latency-average'), ['int'])),
+                        ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                        ('internal_label', (YLeaf(YType.uint32, 'internal-label'), ['int'])),
                     ])
                     self.sessiontype = None
                     self.session_subtype = None
@@ -11022,6 +11183,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_received_statistics"] = "echo-received-statistics"
                     self._segment_path = lambda: "status-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
@@ -11074,10 +11236,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -11085,6 +11247,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "source-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -11147,10 +11310,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('days', YLeaf(YType.uint32, 'days')),
-                            ('hours', YLeaf(YType.uint8, 'hours')),
-                            ('minutes', YLeaf(YType.uint8, 'minutes')),
-                            ('seconds', YLeaf(YType.uint8, 'seconds')),
+                            ('days', (YLeaf(YType.uint32, 'days'), ['int'])),
+                            ('hours', (YLeaf(YType.uint8, 'hours'), ['int'])),
+                            ('minutes', (YLeaf(YType.uint8, 'minutes'), ['int'])),
+                            ('seconds', (YLeaf(YType.uint8, 'seconds'), ['int'])),
                         ])
                         self.days = None
                         self.hours = None
@@ -11158,6 +11321,7 @@ class Bfd(Entity):
                         self.seconds = None
                         self._segment_path = lambda: "last-state-change"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
@@ -11298,22 +11462,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -11333,6 +11497,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "transmit-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -11473,22 +11638,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -11508,6 +11673,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "receive-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -11554,6 +11720,7 @@ class Bfd(Entity):
                         self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                         self._segment_path = lambda: "status-brief-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
@@ -11614,10 +11781,10 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                                ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                                ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_remote_transmit_interval = None
                             self.negotiated_local_transmit_interval = None
@@ -11625,6 +11792,7 @@ class Bfd(Entity):
                             self.detection_multiplier = None
                             self._segment_path = lambda: "async-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -11676,15 +11844,16 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_transmit_interval = None
                             self.detection_time = None
                             self.detection_multiplier = None
                             self._segment_path = lambda: "echo-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -11755,11 +11924,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -11768,6 +11937,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -11838,11 +12008,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -11851,6 +12021,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-receive-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -11921,11 +12092,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -11934,6 +12105,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -12004,11 +12176,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -12017,6 +12189,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-received-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -12053,7 +12226,7 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("change-time", ("change_time", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState.ChangeTime))])
                     self._leafs = OrderedDict([
-                        ('mp_download_state', YLeaf(YType.enumeration, 'mp-download-state')),
+                        ('mp_download_state', (YLeaf(YType.enumeration, 'mp-download-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMpDownloadState', '')])),
                     ])
                     self.mp_download_state = None
 
@@ -12062,6 +12235,7 @@ class Bfd(Entity):
                     self._children_name_map["change_time"] = "change-time"
                     self._segment_path = lambda: "mp-download-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
@@ -12106,13 +12280,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "change-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/mp-download-state/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
@@ -12211,15 +12386,15 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("lsp-ping-tx-last-time", ("lsp_ping_tx_last_time", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime)), ("lsp-ping-tx-last-error-time", ("lsp_ping_tx_last_error_time", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime)), ("lsp-ping-rx-last-time", ("lsp_ping_rx_last_time", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime))])
                     self._leafs = OrderedDict([
-                        ('lsp_ping_tx_count', YLeaf(YType.uint32, 'lsp-ping-tx-count')),
-                        ('lsp_ping_tx_error_count', YLeaf(YType.uint32, 'lsp-ping-tx-error-count')),
-                        ('lsp_ping_tx_last_rc', YLeaf(YType.str, 'lsp-ping-tx-last-rc')),
-                        ('lsp_ping_tx_last_error_rc', YLeaf(YType.str, 'lsp-ping-tx-last-error-rc')),
-                        ('lsp_ping_rx_last_discr', YLeaf(YType.uint32, 'lsp-ping-rx-last-discr')),
-                        ('lsp_ping_rx_count', YLeaf(YType.uint32, 'lsp-ping-rx-count')),
-                        ('lsp_ping_rx_last_code', YLeaf(YType.uint8, 'lsp-ping-rx-last-code')),
-                        ('lsp_ping_rx_last_subcode', YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode')),
-                        ('lsp_ping_rx_last_output', YLeaf(YType.str, 'lsp-ping-rx-last-output')),
+                        ('lsp_ping_tx_count', (YLeaf(YType.uint32, 'lsp-ping-tx-count'), ['int'])),
+                        ('lsp_ping_tx_error_count', (YLeaf(YType.uint32, 'lsp-ping-tx-error-count'), ['int'])),
+                        ('lsp_ping_tx_last_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-rc'), ['str'])),
+                        ('lsp_ping_tx_last_error_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-error-rc'), ['str'])),
+                        ('lsp_ping_rx_last_discr', (YLeaf(YType.uint32, 'lsp-ping-rx-last-discr'), ['int'])),
+                        ('lsp_ping_rx_count', (YLeaf(YType.uint32, 'lsp-ping-rx-count'), ['int'])),
+                        ('lsp_ping_rx_last_code', (YLeaf(YType.uint8, 'lsp-ping-rx-last-code'), ['int'])),
+                        ('lsp_ping_rx_last_subcode', (YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode'), ['int'])),
+                        ('lsp_ping_rx_last_output', (YLeaf(YType.str, 'lsp-ping-rx-last-output'), ['str'])),
                     ])
                     self.lsp_ping_tx_count = None
                     self.lsp_ping_tx_error_count = None
@@ -12244,6 +12419,7 @@ class Bfd(Entity):
                     self._children_name_map["lsp_ping_rx_last_time"] = "lsp-ping-rx-last-time"
                     self._segment_path = lambda: "lsp-ping-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
@@ -12288,13 +12464,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -12339,13 +12516,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-error-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
@@ -12390,13 +12568,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-rx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -12462,11 +12641,11 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interval', YLeaf(YType.uint32, 'interval')),
-                        ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                        ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                        ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                        ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                        ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                        ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.interval = None
                     self.detection_multiplier = None
@@ -12475,6 +12654,7 @@ class Bfd(Entity):
                     self.name = None
                     self._segment_path = lambda: "owner-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -12530,9 +12710,9 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("ip-destination-address", ("ip_destination_address", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.IpDestinationAddress)), ("owner-information", ("owner_information", Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.OwnerInformation))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
                     ])
                     self.interface_name = None
                     self.sessiontype = None
@@ -12545,6 +12725,7 @@ class Bfd(Entity):
                     self.owner_information = YList(self)
                     self._segment_path = lambda: "association-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
@@ -12597,10 +12778,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -12608,6 +12789,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "ip-destination-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -12673,11 +12855,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interval', YLeaf(YType.uint32, 'interval')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                            ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                            ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.interval = None
                         self.detection_multiplier = None
@@ -12686,6 +12868,7 @@ class Bfd(Entity):
                         self.name = None
                         self._segment_path = lambda: "owner-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-details/ipv6-multi-hop-session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionDetails.Ipv6MultiHopSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -12721,6 +12904,7 @@ class Bfd(Entity):
             self.ipv6_multi_hop_multi_path = YList(self)
             self._segment_path = lambda: "ipv6-multi-hop-multi-paths"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv6MultiHopMultiPaths, [], name, value)
@@ -12806,7 +12990,7 @@ class Bfd(Entity):
             	Interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             
 
@@ -12825,16 +13009,16 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('source_address', YLeaf(YType.str, 'source-address')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('incoming_label_xr', YLeaf(YType.uint32, 'incoming-label-xr')),
-                    ('session_interface_name', YLeaf(YType.str, 'session-interface-name')),
+                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str','str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('incoming_label_xr', (YLeaf(YType.uint32, 'incoming-label-xr'), ['int'])),
+                    ('session_interface_name', (YLeaf(YType.str, 'session-interface-name'), ['str'])),
                 ])
                 self.source_address = None
                 self.destination_address = None
@@ -12848,6 +13032,7 @@ class Bfd(Entity):
                 self.session_interface_name = None
                 self._segment_path = lambda: "ipv6-multi-hop-multi-path"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-multi-paths/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6MultiHopMultiPaths.Ipv6MultiHopMultiPath, ['source_address', 'destination_address', 'location', 'vrf_name', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
@@ -12885,6 +13070,7 @@ class Bfd(Entity):
             self._children_name_map["ipv4bf_do_mplste_head_packet_counters"] = "ipv4bf-do-mplste-head-packet-counters"
             self._segment_path = lambda: "ipv4bf-do-mplste-head-counters"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadCounters, [], name, value)
@@ -12920,6 +13106,7 @@ class Bfd(Entity):
                 self.ipv4bf_do_mplste_head_packet_counter = YList(self)
                 self._segment_path = lambda: "ipv4bf-do-mplste-head-packet-counters"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-counters/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters, [], name, value)
@@ -12935,7 +13122,7 @@ class Bfd(Entity):
                 	Interface Name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: location
                 
@@ -12994,13 +13181,13 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('location', YLeaf(YType.str, 'location')),
-                        ('hello_transmit_count', YLeaf(YType.uint32, 'hello-transmit-count')),
-                        ('hello_receive_count', YLeaf(YType.uint32, 'hello-receive-count')),
-                        ('echo_transmit_count', YLeaf(YType.uint32, 'echo-transmit-count')),
-                        ('echo_receive_count', YLeaf(YType.uint32, 'echo-receive-count')),
-                        ('display_type', YLeaf(YType.enumeration, 'display-type')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                        ('hello_transmit_count', (YLeaf(YType.uint32, 'hello-transmit-count'), ['int'])),
+                        ('hello_receive_count', (YLeaf(YType.uint32, 'hello-receive-count'), ['int'])),
+                        ('echo_transmit_count', (YLeaf(YType.uint32, 'echo-transmit-count'), ['int'])),
+                        ('echo_receive_count', (YLeaf(YType.uint32, 'echo-receive-count'), ['int'])),
+                        ('display_type', (YLeaf(YType.enumeration, 'display-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtPktDisplay', '')])),
                     ])
                     self.interface_name = None
                     self.location = None
@@ -13011,6 +13198,7 @@ class Bfd(Entity):
                     self.display_type = None
                     self._segment_path = lambda: "ipv4bf-do-mplste-head-packet-counter"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-counters/ipv4bf-do-mplste-head-packet-counters/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadCounters.Ipv4bfDoMplsteHeadPacketCounters.Ipv4bfDoMplsteHeadPacketCounter, ['interface_name', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
@@ -13046,6 +13234,7 @@ class Bfd(Entity):
             self.session_mib = YList(self)
             self._segment_path = lambda: "session-mibs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.SessionMibs, [], name, value)
@@ -13271,32 +13460,32 @@ class Bfd(Entity):
                 self.ylist_key_names = ['discriminator']
                 self._child_classes = OrderedDict([("dest-address", ("dest_address", Bfd.SessionMibs.SessionMib.DestAddress))])
                 self._leafs = OrderedDict([
-                    ('discriminator', YLeaf(YType.uint32, 'discriminator')),
-                    ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                    ('remote_discriminator', YLeaf(YType.uint32, 'remote-discriminator')),
-                    ('sessionversion', YLeaf(YType.uint32, 'sessionversion')),
-                    ('session_state', YLeaf(YType.uint32, 'session-state')),
-                    ('trap_bitmap', YLeaf(YType.uint32, 'trap-bitmap')),
-                    ('pkt_in', YLeaf(YType.uint64, 'pkt-in')),
-                    ('pkt_out', YLeaf(YType.uint64, 'pkt-out')),
-                    ('last_up_time_sec', YLeaf(YType.uint64, 'last-up-time-sec')),
-                    ('last_up_time_nsec', YLeaf(YType.uint32, 'last-up-time-nsec')),
-                    ('last_down_time_sec', YLeaf(YType.uint64, 'last-down-time-sec')),
-                    ('last_down_time_nsec', YLeaf(YType.uint32, 'last-down-time-nsec')),
-                    ('last_io_evm_schd_time_sec', YLeaf(YType.uint64, 'last-io-evm-schd-time-sec')),
-                    ('last_io_evm_schd_time_nsec', YLeaf(YType.uint32, 'last-io-evm-schd-time-nsec')),
-                    ('last_io_evm_schd_comp_time_sec', YLeaf(YType.uint64, 'last-io-evm-schd-comp-time-sec')),
-                    ('last_io_evm_schd_comp_time_nsec', YLeaf(YType.uint32, 'last-io-evm-schd-comp-time-nsec')),
-                    ('last_down_diag', YLeaf(YType.enumeration, 'last-down-diag')),
-                    ('last_rx_down_diag', YLeaf(YType.enumeration, 'last-rx-down-diag')),
-                    ('up_counter', YLeaf(YType.uint32, 'up-counter')),
-                    ('last_time_cached', YLeaf(YType.uint64, 'last-time-cached')),
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('int_handle', YLeaf(YType.uint32, 'int-handle')),
-                    ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                    ('desired_min_tx_interval', YLeaf(YType.uint32, 'desired-min-tx-interval')),
-                    ('required_min_rx_interval', YLeaf(YType.uint32, 'required-min-rx-interval')),
-                    ('required_min_rx_echo_interval', YLeaf(YType.uint32, 'required-min-rx-echo-interval')),
+                    ('discriminator', (YLeaf(YType.uint32, 'discriminator'), ['int'])),
+                    ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                    ('remote_discriminator', (YLeaf(YType.uint32, 'remote-discriminator'), ['int'])),
+                    ('sessionversion', (YLeaf(YType.uint32, 'sessionversion'), ['int'])),
+                    ('session_state', (YLeaf(YType.uint32, 'session-state'), ['int'])),
+                    ('trap_bitmap', (YLeaf(YType.uint32, 'trap-bitmap'), ['int'])),
+                    ('pkt_in', (YLeaf(YType.uint64, 'pkt-in'), ['int'])),
+                    ('pkt_out', (YLeaf(YType.uint64, 'pkt-out'), ['int'])),
+                    ('last_up_time_sec', (YLeaf(YType.uint64, 'last-up-time-sec'), ['int'])),
+                    ('last_up_time_nsec', (YLeaf(YType.uint32, 'last-up-time-nsec'), ['int'])),
+                    ('last_down_time_sec', (YLeaf(YType.uint64, 'last-down-time-sec'), ['int'])),
+                    ('last_down_time_nsec', (YLeaf(YType.uint32, 'last-down-time-nsec'), ['int'])),
+                    ('last_io_evm_schd_time_sec', (YLeaf(YType.uint64, 'last-io-evm-schd-time-sec'), ['int'])),
+                    ('last_io_evm_schd_time_nsec', (YLeaf(YType.uint32, 'last-io-evm-schd-time-nsec'), ['int'])),
+                    ('last_io_evm_schd_comp_time_sec', (YLeaf(YType.uint64, 'last-io-evm-schd-comp-time-sec'), ['int'])),
+                    ('last_io_evm_schd_comp_time_nsec', (YLeaf(YType.uint32, 'last-io-evm-schd-comp-time-nsec'), ['int'])),
+                    ('last_down_diag', (YLeaf(YType.enumeration, 'last-down-diag'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                    ('last_rx_down_diag', (YLeaf(YType.enumeration, 'last-rx-down-diag'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                    ('up_counter', (YLeaf(YType.uint32, 'up-counter'), ['int'])),
+                    ('last_time_cached', (YLeaf(YType.uint64, 'last-time-cached'), ['int'])),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('int_handle', (YLeaf(YType.uint32, 'int-handle'), ['int'])),
+                    ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                    ('desired_min_tx_interval', (YLeaf(YType.uint32, 'desired-min-tx-interval'), ['int'])),
+                    ('required_min_rx_interval', (YLeaf(YType.uint32, 'required-min-rx-interval'), ['int'])),
+                    ('required_min_rx_echo_interval', (YLeaf(YType.uint32, 'required-min-rx-echo-interval'), ['int'])),
                 ])
                 self.discriminator = None
                 self.local_discriminator = None
@@ -13330,6 +13519,7 @@ class Bfd(Entity):
                 self._children_name_map["dest_address"] = "dest-address"
                 self._segment_path = lambda: "session-mib" + "[discriminator='" + str(self.discriminator) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-mibs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.SessionMibs.SessionMib, ['discriminator', u'local_discriminator', u'remote_discriminator', u'sessionversion', u'session_state', u'trap_bitmap', u'pkt_in', u'pkt_out', u'last_up_time_sec', u'last_up_time_nsec', u'last_down_time_sec', u'last_down_time_nsec', u'last_io_evm_schd_time_sec', u'last_io_evm_schd_time_nsec', u'last_io_evm_schd_comp_time_sec', u'last_io_evm_schd_comp_time_nsec', u'last_down_diag', u'last_rx_down_diag', u'up_counter', u'last_time_cached', u'interface_name', u'int_handle', u'detection_multiplier', u'desired_min_tx_interval', u'required_min_rx_interval', u'required_min_rx_echo_interval'], name, value)
@@ -13382,16 +13572,17 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('afi', YLeaf(YType.enumeration, 'afi')),
-                        ('dummy', YLeaf(YType.uint8, 'dummy')),
-                        ('ipv4', YLeaf(YType.str, 'ipv4')),
-                        ('ipv6', YLeaf(YType.str, 'ipv6')),
+                        ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                        ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                        ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                        ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                     ])
                     self.afi = None
                     self.dummy = None
                     self.ipv4 = None
                     self.ipv6 = None
                     self._segment_path = lambda: "dest-address"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.SessionMibs.SessionMib.DestAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -13430,6 +13621,7 @@ class Bfd(Entity):
             self._children_name_map["session_state"] = "session-state"
             self._segment_path = lambda: "ipv6-multi-hop-summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv6MultiHopSummary, [], name, value)
@@ -13484,10 +13676,10 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('total_count', YLeaf(YType.uint32, 'total-count')),
-                    ('down_count', YLeaf(YType.uint32, 'down-count')),
-                    ('up_count', YLeaf(YType.uint32, 'up-count')),
-                    ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
+                    ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                    ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                    ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                    ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
                 ])
                 self.total_count = None
                 self.down_count = None
@@ -13495,6 +13687,7 @@ class Bfd(Entity):
                 self.unknown_count = None
                 self._segment_path = lambda: "session-state"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6MultiHopSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
@@ -13531,6 +13724,7 @@ class Bfd(Entity):
             self.label_summary_node = YList(self)
             self._segment_path = lambda: "label-summary-nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.LabelSummaryNodes, [], name, value)
@@ -13569,7 +13763,7 @@ class Bfd(Entity):
                 self.ylist_key_names = ['location_name']
                 self._child_classes = OrderedDict([("session-state", ("session_state", Bfd.LabelSummaryNodes.LabelSummaryNode.SessionState))])
                 self._leafs = OrderedDict([
-                    ('location_name', YLeaf(YType.str, 'location-name')),
+                    ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                 ])
                 self.location_name = None
 
@@ -13578,6 +13772,7 @@ class Bfd(Entity):
                 self._children_name_map["session_state"] = "session-state"
                 self._segment_path = lambda: "label-summary-node" + "[location-name='" + str(self.location_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-summary-nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.LabelSummaryNodes.LabelSummaryNode, ['location_name'], name, value)
@@ -13646,12 +13841,12 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('total_count', YLeaf(YType.uint32, 'total-count')),
-                        ('up_count', YLeaf(YType.uint32, 'up-count')),
-                        ('down_count', YLeaf(YType.uint32, 'down-count')),
-                        ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
-                        ('retry_count', YLeaf(YType.uint32, 'retry-count')),
-                        ('standby_count', YLeaf(YType.uint32, 'standby-count')),
+                        ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                        ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                        ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                        ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
+                        ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
+                        ('standby_count', (YLeaf(YType.uint32, 'standby-count'), ['int'])),
                     ])
                     self.total_count = None
                     self.up_count = None
@@ -13660,6 +13855,7 @@ class Bfd(Entity):
                     self.retry_count = None
                     self.standby_count = None
                     self._segment_path = lambda: "session-state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.LabelSummaryNodes.LabelSummaryNode.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
@@ -13696,6 +13892,7 @@ class Bfd(Entity):
             self.ipv6_multi_hop_session_brief = YList(self)
             self._segment_path = lambda: "ipv6-multi-hop-session-briefs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs, [], name, value)
@@ -13797,15 +13994,15 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-brief-information", ("status_brief_information", Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation))])
                 self._leafs = OrderedDict([
-                    ('source_address', YLeaf(YType.str, 'source-address')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('session_type', YLeaf(YType.enumeration, 'session-type')),
-                    ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                    ('session_flags', YLeaf(YType.uint32, 'session-flags')),
+                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str','str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('session_type', (YLeaf(YType.enumeration, 'session-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                    ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                    ('session_flags', (YLeaf(YType.uint32, 'session-flags'), ['int'])),
                 ])
                 self.source_address = None
                 self.destination_address = None
@@ -13822,6 +14019,7 @@ class Bfd(Entity):
                 self._children_name_map["status_brief_information"] = "status-brief-information"
                 self._segment_path = lambda: "ipv6-multi-hop-session-brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-briefs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief, ['source_address', 'destination_address', 'location', 'vrf_name', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
@@ -13868,6 +14066,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                     self._segment_path = lambda: "status-brief-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-briefs/ipv6-multi-hop-session-brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation, [], name, value)
@@ -13928,10 +14127,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                            ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                            ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_remote_transmit_interval = None
                         self.negotiated_local_transmit_interval = None
@@ -13939,6 +14138,7 @@ class Bfd(Entity):
                         self.detection_multiplier = None
                         self._segment_path = lambda: "async-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-briefs/ipv6-multi-hop-session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -13990,15 +14190,16 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_transmit_interval = None
                         self.detection_time = None
                         self.detection_multiplier = None
                         self._segment_path = lambda: "echo-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-session-briefs/ipv6-multi-hop-session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6MultiHopSessionBriefs.Ipv6MultiHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -14035,6 +14236,7 @@ class Bfd(Entity):
             self.session_brief = YList(self)
             self._segment_path = lambda: "session-briefs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.SessionBriefs, [], name, value)
@@ -14050,7 +14252,7 @@ class Bfd(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: destination_address
             
@@ -14117,14 +14319,14 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-brief-information", ("status_brief_information", Bfd.SessionBriefs.SessionBrief.StatusBriefInformation))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('session_type', YLeaf(YType.enumeration, 'session-type')),
-                    ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                    ('session_flags', YLeaf(YType.uint32, 'session-flags')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('session_type', (YLeaf(YType.enumeration, 'session-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                    ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                    ('session_flags', (YLeaf(YType.uint32, 'session-flags'), ['int'])),
                 ])
                 self.interface_name = None
                 self.destination_address = None
@@ -14140,6 +14342,7 @@ class Bfd(Entity):
                 self._children_name_map["status_brief_information"] = "status-brief-information"
                 self._segment_path = lambda: "session-brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-briefs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.SessionBriefs.SessionBrief, ['interface_name', 'destination_address', 'location', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
@@ -14186,6 +14389,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                     self._segment_path = lambda: "status-brief-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-briefs/session-brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation, [], name, value)
@@ -14246,10 +14450,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                            ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                            ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_remote_transmit_interval = None
                         self.negotiated_local_transmit_interval = None
@@ -14257,6 +14461,7 @@ class Bfd(Entity):
                         self.detection_multiplier = None
                         self._segment_path = lambda: "async-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-briefs/session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -14308,15 +14513,16 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_transmit_interval = None
                         self.detection_time = None
                         self.detection_multiplier = None
                         self._segment_path = lambda: "echo-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-briefs/session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionBriefs.SessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -14353,6 +14559,7 @@ class Bfd(Entity):
             self.ipv6_single_hop_node_location_summary = YList(self)
             self._segment_path = lambda: "ipv6-single-hop-node-location-summaries"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv6SingleHopNodeLocationSummaries, [], name, value)
@@ -14392,7 +14599,7 @@ class Bfd(Entity):
                 self.ylist_key_names = ['location']
                 self._child_classes = OrderedDict([("session-state", ("session_state", Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary.SessionState))])
                 self._leafs = OrderedDict([
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.location = None
 
@@ -14401,6 +14608,7 @@ class Bfd(Entity):
                 self._children_name_map["session_state"] = "session-state"
                 self._segment_path = lambda: "ipv6-single-hop-node-location-summary" + "[location='" + str(self.location) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-node-location-summaries/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary, ['location'], name, value)
@@ -14469,12 +14677,12 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('total_count', YLeaf(YType.uint32, 'total-count')),
-                        ('up_count', YLeaf(YType.uint32, 'up-count')),
-                        ('down_count', YLeaf(YType.uint32, 'down-count')),
-                        ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
-                        ('retry_count', YLeaf(YType.uint32, 'retry-count')),
-                        ('standby_count', YLeaf(YType.uint32, 'standby-count')),
+                        ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                        ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                        ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                        ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
+                        ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
+                        ('standby_count', (YLeaf(YType.uint32, 'standby-count'), ['int'])),
                     ])
                     self.total_count = None
                     self.up_count = None
@@ -14483,6 +14691,7 @@ class Bfd(Entity):
                     self.retry_count = None
                     self.standby_count = None
                     self._segment_path = lambda: "session-state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6SingleHopNodeLocationSummaries.Ipv6SingleHopNodeLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
@@ -14521,6 +14730,7 @@ class Bfd(Entity):
             self._children_name_map["session_state"] = "session-state"
             self._segment_path = lambda: "summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Summary, [], name, value)
@@ -14575,10 +14785,10 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('total_count', YLeaf(YType.uint32, 'total-count')),
-                    ('down_count', YLeaf(YType.uint32, 'down-count')),
-                    ('up_count', YLeaf(YType.uint32, 'up-count')),
-                    ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
+                    ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                    ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                    ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                    ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
                 ])
                 self.total_count = None
                 self.down_count = None
@@ -14586,6 +14796,7 @@ class Bfd(Entity):
                 self.unknown_count = None
                 self._segment_path = lambda: "session-state"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Summary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)
@@ -14622,6 +14833,7 @@ class Bfd(Entity):
             self.ipv4bfd_mplste_tail_node_summary = YList(self)
             self._segment_path = lambda: "ipv4bfd-mplste-tail-node-summaries"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4bfdMplsteTailNodeSummaries, [], name, value)
@@ -14660,7 +14872,7 @@ class Bfd(Entity):
                 self.ylist_key_names = ['location_name']
                 self._child_classes = OrderedDict([("session-state", ("session_state", Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary.SessionState))])
                 self._leafs = OrderedDict([
-                    ('location_name', YLeaf(YType.str, 'location-name')),
+                    ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                 ])
                 self.location_name = None
 
@@ -14669,6 +14881,7 @@ class Bfd(Entity):
                 self._children_name_map["session_state"] = "session-state"
                 self._segment_path = lambda: "ipv4bfd-mplste-tail-node-summary" + "[location-name='" + str(self.location_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bfd-mplste-tail-node-summaries/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary, ['location_name'], name, value)
@@ -14737,12 +14950,12 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('total_count', YLeaf(YType.uint32, 'total-count')),
-                        ('up_count', YLeaf(YType.uint32, 'up-count')),
-                        ('down_count', YLeaf(YType.uint32, 'down-count')),
-                        ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
-                        ('retry_count', YLeaf(YType.uint32, 'retry-count')),
-                        ('standby_count', YLeaf(YType.uint32, 'standby-count')),
+                        ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                        ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                        ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                        ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
+                        ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
+                        ('standby_count', (YLeaf(YType.uint32, 'standby-count'), ['int'])),
                     ])
                     self.total_count = None
                     self.up_count = None
@@ -14751,6 +14964,7 @@ class Bfd(Entity):
                     self.retry_count = None
                     self.standby_count = None
                     self._segment_path = lambda: "session-state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfdMplsteTailNodeSummaries.Ipv4bfdMplsteTailNodeSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
@@ -14787,6 +15001,7 @@ class Bfd(Entity):
             self.ipv4_single_hop_location_summary = YList(self)
             self._segment_path = lambda: "ipv4-single-hop-location-summaries"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4SingleHopLocationSummaries, [], name, value)
@@ -14826,7 +15041,7 @@ class Bfd(Entity):
                 self.ylist_key_names = ['location_name']
                 self._child_classes = OrderedDict([("session-state", ("session_state", Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary.SessionState))])
                 self._leafs = OrderedDict([
-                    ('location_name', YLeaf(YType.str, 'location-name')),
+                    ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                 ])
                 self.location_name = None
 
@@ -14835,6 +15050,7 @@ class Bfd(Entity):
                 self._children_name_map["session_state"] = "session-state"
                 self._segment_path = lambda: "ipv4-single-hop-location-summary" + "[location-name='" + str(self.location_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-location-summaries/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary, ['location_name'], name, value)
@@ -14903,12 +15119,12 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('total_count', YLeaf(YType.uint32, 'total-count')),
-                        ('up_count', YLeaf(YType.uint32, 'up-count')),
-                        ('down_count', YLeaf(YType.uint32, 'down-count')),
-                        ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
-                        ('retry_count', YLeaf(YType.uint32, 'retry-count')),
-                        ('standby_count', YLeaf(YType.uint32, 'standby-count')),
+                        ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                        ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                        ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                        ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
+                        ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
+                        ('standby_count', (YLeaf(YType.uint32, 'standby-count'), ['int'])),
                     ])
                     self.total_count = None
                     self.up_count = None
@@ -14917,6 +15133,7 @@ class Bfd(Entity):
                     self.retry_count = None
                     self.standby_count = None
                     self._segment_path = lambda: "session-state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4SingleHopLocationSummaries.Ipv4SingleHopLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
@@ -14953,6 +15170,7 @@ class Bfd(Entity):
             self.ipv4bfd_mplste_head_summary_node = YList(self)
             self._segment_path = lambda: "ipv4bfd-mplste-head-summary-nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4bfdMplsteHeadSummaryNodes, [], name, value)
@@ -14991,7 +15209,7 @@ class Bfd(Entity):
                 self.ylist_key_names = ['location_name']
                 self._child_classes = OrderedDict([("session-state", ("session_state", Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode.SessionState))])
                 self._leafs = OrderedDict([
-                    ('location_name', YLeaf(YType.str, 'location-name')),
+                    ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                 ])
                 self.location_name = None
 
@@ -15000,6 +15218,7 @@ class Bfd(Entity):
                 self._children_name_map["session_state"] = "session-state"
                 self._segment_path = lambda: "ipv4bfd-mplste-head-summary-node" + "[location-name='" + str(self.location_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bfd-mplste-head-summary-nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode, ['location_name'], name, value)
@@ -15068,12 +15287,12 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('total_count', YLeaf(YType.uint32, 'total-count')),
-                        ('up_count', YLeaf(YType.uint32, 'up-count')),
-                        ('down_count', YLeaf(YType.uint32, 'down-count')),
-                        ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
-                        ('retry_count', YLeaf(YType.uint32, 'retry-count')),
-                        ('standby_count', YLeaf(YType.uint32, 'standby-count')),
+                        ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                        ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                        ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                        ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
+                        ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
+                        ('standby_count', (YLeaf(YType.uint32, 'standby-count'), ['int'])),
                     ])
                     self.total_count = None
                     self.up_count = None
@@ -15082,6 +15301,7 @@ class Bfd(Entity):
                     self.retry_count = None
                     self.standby_count = None
                     self._segment_path = lambda: "session-state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfdMplsteHeadSummaryNodes.Ipv4bfdMplsteHeadSummaryNode.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
@@ -15118,6 +15338,7 @@ class Bfd(Entity):
             self.label_session_detail = YList(self)
             self._segment_path = lambda: "label-session-details"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.LabelSessionDetails, [], name, value)
@@ -15132,7 +15353,7 @@ class Bfd(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: incoming_label
             
@@ -15190,9 +15411,9 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-information", ("status_information", Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation)), ("mp-download-state", ("mp_download_state", Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState)), ("lsp-ping-info", ("lsp_ping_info", Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo)), ("owner-information", ("owner_information", Bfd.LabelSessionDetails.LabelSessionDetail.OwnerInformation)), ("association-information", ("association_information", Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('incoming_label', YLeaf(YType.uint32, 'incoming-label')),
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('incoming_label', (YLeaf(YType.uint32, 'incoming-label'), ['int'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.interface_name = None
                 self.incoming_label = None
@@ -15214,6 +15435,7 @@ class Bfd(Entity):
                 self.association_information = YList(self)
                 self._segment_path = lambda: "label-session-detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail, ['interface_name', 'incoming_label', 'location'], name, value)
@@ -15387,20 +15609,20 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("source-address", ("source_address", Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.SourceAddress)), ("last-state-change", ("last_state_change", Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.LastStateChange)), ("transmit-packet", ("transmit_packet", Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.TransmitPacket)), ("receive-packet", ("receive_packet", Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.ReceivePacket)), ("status-brief-information", ("status_brief_information", Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation)), ("async-transmit-statistics", ("async_transmit_statistics", Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncTransmitStatistics)), ("async-receive-statistics", ("async_receive_statistics", Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncReceiveStatistics)), ("echo-transmit-statistics", ("echo_transmit_statistics", Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoTransmitStatistics)), ("echo-received-statistics", ("echo_received_statistics", Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoReceivedStatistics))])
                     self._leafs = OrderedDict([
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                        ('remote_discriminator', YLeaf(YType.uint32, 'remote-discriminator')),
-                        ('to_up_state_count', YLeaf(YType.uint32, 'to-up-state-count')),
-                        ('desired_minimum_echo_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval')),
-                        ('remote_negotiated_interval', YLeaf(YType.uint32, 'remote-negotiated-interval')),
-                        ('latency_number', YLeaf(YType.uint32, 'latency-number')),
-                        ('latency_minimum', YLeaf(YType.uint32, 'latency-minimum')),
-                        ('latency_maximum', YLeaf(YType.uint32, 'latency-maximum')),
-                        ('latency_average', YLeaf(YType.uint32, 'latency-average')),
-                        ('node_id', YLeaf(YType.str, 'node-id')),
-                        ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                        ('remote_discriminator', (YLeaf(YType.uint32, 'remote-discriminator'), ['int'])),
+                        ('to_up_state_count', (YLeaf(YType.uint32, 'to-up-state-count'), ['int'])),
+                        ('desired_minimum_echo_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval'), ['int'])),
+                        ('remote_negotiated_interval', (YLeaf(YType.uint32, 'remote-negotiated-interval'), ['int'])),
+                        ('latency_number', (YLeaf(YType.uint32, 'latency-number'), ['int'])),
+                        ('latency_minimum', (YLeaf(YType.uint32, 'latency-minimum'), ['int'])),
+                        ('latency_maximum', (YLeaf(YType.uint32, 'latency-maximum'), ['int'])),
+                        ('latency_average', (YLeaf(YType.uint32, 'latency-average'), ['int'])),
+                        ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                        ('internal_label', (YLeaf(YType.uint32, 'internal-label'), ['int'])),
                     ])
                     self.sessiontype = None
                     self.session_subtype = None
@@ -15454,6 +15676,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_received_statistics"] = "echo-received-statistics"
                     self._segment_path = lambda: "status-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
@@ -15506,10 +15729,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -15517,6 +15740,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "source-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -15579,10 +15803,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('days', YLeaf(YType.uint32, 'days')),
-                            ('hours', YLeaf(YType.uint8, 'hours')),
-                            ('minutes', YLeaf(YType.uint8, 'minutes')),
-                            ('seconds', YLeaf(YType.uint8, 'seconds')),
+                            ('days', (YLeaf(YType.uint32, 'days'), ['int'])),
+                            ('hours', (YLeaf(YType.uint8, 'hours'), ['int'])),
+                            ('minutes', (YLeaf(YType.uint8, 'minutes'), ['int'])),
+                            ('seconds', (YLeaf(YType.uint8, 'seconds'), ['int'])),
                         ])
                         self.days = None
                         self.hours = None
@@ -15590,6 +15814,7 @@ class Bfd(Entity):
                         self.seconds = None
                         self._segment_path = lambda: "last-state-change"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
@@ -15730,22 +15955,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -15765,6 +15990,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "transmit-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -15905,22 +16131,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -15940,6 +16166,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "receive-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -15986,6 +16213,7 @@ class Bfd(Entity):
                         self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                         self._segment_path = lambda: "status-brief-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
@@ -16046,10 +16274,10 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                                ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                                ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_remote_transmit_interval = None
                             self.negotiated_local_transmit_interval = None
@@ -16057,6 +16285,7 @@ class Bfd(Entity):
                             self.detection_multiplier = None
                             self._segment_path = lambda: "async-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -16108,15 +16337,16 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_transmit_interval = None
                             self.detection_time = None
                             self.detection_multiplier = None
                             self._segment_path = lambda: "echo-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -16187,11 +16417,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -16200,6 +16430,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -16270,11 +16501,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -16283,6 +16514,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-receive-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -16353,11 +16585,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -16366,6 +16598,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -16436,11 +16669,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -16449,6 +16682,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-received-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -16485,7 +16719,7 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("change-time", ("change_time", Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState.ChangeTime))])
                     self._leafs = OrderedDict([
-                        ('mp_download_state', YLeaf(YType.enumeration, 'mp-download-state')),
+                        ('mp_download_state', (YLeaf(YType.enumeration, 'mp-download-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMpDownloadState', '')])),
                     ])
                     self.mp_download_state = None
 
@@ -16494,6 +16728,7 @@ class Bfd(Entity):
                     self._children_name_map["change_time"] = "change-time"
                     self._segment_path = lambda: "mp-download-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
@@ -16538,13 +16773,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "change-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/mp-download-state/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
@@ -16643,15 +16879,15 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("lsp-ping-tx-last-time", ("lsp_ping_tx_last_time", Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastTime)), ("lsp-ping-tx-last-error-time", ("lsp_ping_tx_last_error_time", Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastErrorTime)), ("lsp-ping-rx-last-time", ("lsp_ping_rx_last_time", Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingRxLastTime))])
                     self._leafs = OrderedDict([
-                        ('lsp_ping_tx_count', YLeaf(YType.uint32, 'lsp-ping-tx-count')),
-                        ('lsp_ping_tx_error_count', YLeaf(YType.uint32, 'lsp-ping-tx-error-count')),
-                        ('lsp_ping_tx_last_rc', YLeaf(YType.str, 'lsp-ping-tx-last-rc')),
-                        ('lsp_ping_tx_last_error_rc', YLeaf(YType.str, 'lsp-ping-tx-last-error-rc')),
-                        ('lsp_ping_rx_last_discr', YLeaf(YType.uint32, 'lsp-ping-rx-last-discr')),
-                        ('lsp_ping_rx_count', YLeaf(YType.uint32, 'lsp-ping-rx-count')),
-                        ('lsp_ping_rx_last_code', YLeaf(YType.uint8, 'lsp-ping-rx-last-code')),
-                        ('lsp_ping_rx_last_subcode', YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode')),
-                        ('lsp_ping_rx_last_output', YLeaf(YType.str, 'lsp-ping-rx-last-output')),
+                        ('lsp_ping_tx_count', (YLeaf(YType.uint32, 'lsp-ping-tx-count'), ['int'])),
+                        ('lsp_ping_tx_error_count', (YLeaf(YType.uint32, 'lsp-ping-tx-error-count'), ['int'])),
+                        ('lsp_ping_tx_last_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-rc'), ['str'])),
+                        ('lsp_ping_tx_last_error_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-error-rc'), ['str'])),
+                        ('lsp_ping_rx_last_discr', (YLeaf(YType.uint32, 'lsp-ping-rx-last-discr'), ['int'])),
+                        ('lsp_ping_rx_count', (YLeaf(YType.uint32, 'lsp-ping-rx-count'), ['int'])),
+                        ('lsp_ping_rx_last_code', (YLeaf(YType.uint8, 'lsp-ping-rx-last-code'), ['int'])),
+                        ('lsp_ping_rx_last_subcode', (YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode'), ['int'])),
+                        ('lsp_ping_rx_last_output', (YLeaf(YType.str, 'lsp-ping-rx-last-output'), ['str'])),
                     ])
                     self.lsp_ping_tx_count = None
                     self.lsp_ping_tx_error_count = None
@@ -16676,6 +16912,7 @@ class Bfd(Entity):
                     self._children_name_map["lsp_ping_rx_last_time"] = "lsp-ping-rx-last-time"
                     self._segment_path = lambda: "lsp-ping-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
@@ -16720,13 +16957,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -16771,13 +17009,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-error-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
@@ -16822,13 +17061,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-rx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -16894,11 +17134,11 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interval', YLeaf(YType.uint32, 'interval')),
-                        ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                        ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                        ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                        ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                        ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                        ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.interval = None
                     self.detection_multiplier = None
@@ -16907,6 +17147,7 @@ class Bfd(Entity):
                     self.name = None
                     self._segment_path = lambda: "owner-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -16962,9 +17203,9 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("ip-destination-address", ("ip_destination_address", Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.IpDestinationAddress)), ("owner-information", ("owner_information", Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.OwnerInformation))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
                     ])
                     self.interface_name = None
                     self.sessiontype = None
@@ -16977,6 +17218,7 @@ class Bfd(Entity):
                     self.owner_information = YList(self)
                     self._segment_path = lambda: "association-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
@@ -17029,10 +17271,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -17040,6 +17282,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "ip-destination-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -17105,11 +17348,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interval', YLeaf(YType.uint32, 'interval')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                            ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                            ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.interval = None
                         self.detection_multiplier = None
@@ -17118,6 +17361,7 @@ class Bfd(Entity):
                         self.name = None
                         self._segment_path = lambda: "owner-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-session-details/label-session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.LabelSessionDetails.LabelSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -17154,6 +17398,7 @@ class Bfd(Entity):
             self.ipv6_single_hop_session_detail = YList(self)
             self._segment_path = lambda: "ipv6-single-hop-session-details"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails, [], name, value)
@@ -17169,7 +17414,7 @@ class Bfd(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: destination_address
             
@@ -17233,9 +17478,9 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-information", ("status_information", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation)), ("mp-download-state", ("mp_download_state", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState)), ("lsp-ping-info", ("lsp_ping_info", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo)), ("owner-information", ("owner_information", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.OwnerInformation)), ("association-information", ("association_information", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str','str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.interface_name = None
                 self.destination_address = None
@@ -17257,6 +17502,7 @@ class Bfd(Entity):
                 self.association_information = YList(self)
                 self._segment_path = lambda: "ipv6-single-hop-session-detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail, ['interface_name', 'destination_address', 'location'], name, value)
@@ -17430,20 +17676,20 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("source-address", ("source_address", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.SourceAddress)), ("last-state-change", ("last_state_change", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.LastStateChange)), ("transmit-packet", ("transmit_packet", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.TransmitPacket)), ("receive-packet", ("receive_packet", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.ReceivePacket)), ("status-brief-information", ("status_brief_information", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation)), ("async-transmit-statistics", ("async_transmit_statistics", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics)), ("async-receive-statistics", ("async_receive_statistics", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics)), ("echo-transmit-statistics", ("echo_transmit_statistics", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics)), ("echo-received-statistics", ("echo_received_statistics", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics))])
                     self._leafs = OrderedDict([
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                        ('remote_discriminator', YLeaf(YType.uint32, 'remote-discriminator')),
-                        ('to_up_state_count', YLeaf(YType.uint32, 'to-up-state-count')),
-                        ('desired_minimum_echo_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval')),
-                        ('remote_negotiated_interval', YLeaf(YType.uint32, 'remote-negotiated-interval')),
-                        ('latency_number', YLeaf(YType.uint32, 'latency-number')),
-                        ('latency_minimum', YLeaf(YType.uint32, 'latency-minimum')),
-                        ('latency_maximum', YLeaf(YType.uint32, 'latency-maximum')),
-                        ('latency_average', YLeaf(YType.uint32, 'latency-average')),
-                        ('node_id', YLeaf(YType.str, 'node-id')),
-                        ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                        ('remote_discriminator', (YLeaf(YType.uint32, 'remote-discriminator'), ['int'])),
+                        ('to_up_state_count', (YLeaf(YType.uint32, 'to-up-state-count'), ['int'])),
+                        ('desired_minimum_echo_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval'), ['int'])),
+                        ('remote_negotiated_interval', (YLeaf(YType.uint32, 'remote-negotiated-interval'), ['int'])),
+                        ('latency_number', (YLeaf(YType.uint32, 'latency-number'), ['int'])),
+                        ('latency_minimum', (YLeaf(YType.uint32, 'latency-minimum'), ['int'])),
+                        ('latency_maximum', (YLeaf(YType.uint32, 'latency-maximum'), ['int'])),
+                        ('latency_average', (YLeaf(YType.uint32, 'latency-average'), ['int'])),
+                        ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                        ('internal_label', (YLeaf(YType.uint32, 'internal-label'), ['int'])),
                     ])
                     self.sessiontype = None
                     self.session_subtype = None
@@ -17497,6 +17743,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_received_statistics"] = "echo-received-statistics"
                     self._segment_path = lambda: "status-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
@@ -17549,10 +17796,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -17560,6 +17807,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "source-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -17622,10 +17870,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('days', YLeaf(YType.uint32, 'days')),
-                            ('hours', YLeaf(YType.uint8, 'hours')),
-                            ('minutes', YLeaf(YType.uint8, 'minutes')),
-                            ('seconds', YLeaf(YType.uint8, 'seconds')),
+                            ('days', (YLeaf(YType.uint32, 'days'), ['int'])),
+                            ('hours', (YLeaf(YType.uint8, 'hours'), ['int'])),
+                            ('minutes', (YLeaf(YType.uint8, 'minutes'), ['int'])),
+                            ('seconds', (YLeaf(YType.uint8, 'seconds'), ['int'])),
                         ])
                         self.days = None
                         self.hours = None
@@ -17633,6 +17881,7 @@ class Bfd(Entity):
                         self.seconds = None
                         self._segment_path = lambda: "last-state-change"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
@@ -17773,22 +18022,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -17808,6 +18057,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "transmit-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -17948,22 +18198,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -17983,6 +18233,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "receive-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -18029,6 +18280,7 @@ class Bfd(Entity):
                         self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                         self._segment_path = lambda: "status-brief-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
@@ -18089,10 +18341,10 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                                ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                                ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_remote_transmit_interval = None
                             self.negotiated_local_transmit_interval = None
@@ -18100,6 +18352,7 @@ class Bfd(Entity):
                             self.detection_multiplier = None
                             self._segment_path = lambda: "async-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -18151,15 +18404,16 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_transmit_interval = None
                             self.detection_time = None
                             self.detection_multiplier = None
                             self._segment_path = lambda: "echo-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -18230,11 +18484,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -18243,6 +18497,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -18313,11 +18568,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -18326,6 +18581,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-receive-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -18396,11 +18652,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -18409,6 +18665,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -18479,11 +18736,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -18492,6 +18749,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-received-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -18528,7 +18786,7 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("change-time", ("change_time", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState.ChangeTime))])
                     self._leafs = OrderedDict([
-                        ('mp_download_state', YLeaf(YType.enumeration, 'mp-download-state')),
+                        ('mp_download_state', (YLeaf(YType.enumeration, 'mp-download-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMpDownloadState', '')])),
                     ])
                     self.mp_download_state = None
 
@@ -18537,6 +18795,7 @@ class Bfd(Entity):
                     self._children_name_map["change_time"] = "change-time"
                     self._segment_path = lambda: "mp-download-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
@@ -18581,13 +18840,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "change-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/mp-download-state/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
@@ -18686,15 +18946,15 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("lsp-ping-tx-last-time", ("lsp_ping_tx_last_time", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime)), ("lsp-ping-tx-last-error-time", ("lsp_ping_tx_last_error_time", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime)), ("lsp-ping-rx-last-time", ("lsp_ping_rx_last_time", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime))])
                     self._leafs = OrderedDict([
-                        ('lsp_ping_tx_count', YLeaf(YType.uint32, 'lsp-ping-tx-count')),
-                        ('lsp_ping_tx_error_count', YLeaf(YType.uint32, 'lsp-ping-tx-error-count')),
-                        ('lsp_ping_tx_last_rc', YLeaf(YType.str, 'lsp-ping-tx-last-rc')),
-                        ('lsp_ping_tx_last_error_rc', YLeaf(YType.str, 'lsp-ping-tx-last-error-rc')),
-                        ('lsp_ping_rx_last_discr', YLeaf(YType.uint32, 'lsp-ping-rx-last-discr')),
-                        ('lsp_ping_rx_count', YLeaf(YType.uint32, 'lsp-ping-rx-count')),
-                        ('lsp_ping_rx_last_code', YLeaf(YType.uint8, 'lsp-ping-rx-last-code')),
-                        ('lsp_ping_rx_last_subcode', YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode')),
-                        ('lsp_ping_rx_last_output', YLeaf(YType.str, 'lsp-ping-rx-last-output')),
+                        ('lsp_ping_tx_count', (YLeaf(YType.uint32, 'lsp-ping-tx-count'), ['int'])),
+                        ('lsp_ping_tx_error_count', (YLeaf(YType.uint32, 'lsp-ping-tx-error-count'), ['int'])),
+                        ('lsp_ping_tx_last_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-rc'), ['str'])),
+                        ('lsp_ping_tx_last_error_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-error-rc'), ['str'])),
+                        ('lsp_ping_rx_last_discr', (YLeaf(YType.uint32, 'lsp-ping-rx-last-discr'), ['int'])),
+                        ('lsp_ping_rx_count', (YLeaf(YType.uint32, 'lsp-ping-rx-count'), ['int'])),
+                        ('lsp_ping_rx_last_code', (YLeaf(YType.uint8, 'lsp-ping-rx-last-code'), ['int'])),
+                        ('lsp_ping_rx_last_subcode', (YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode'), ['int'])),
+                        ('lsp_ping_rx_last_output', (YLeaf(YType.str, 'lsp-ping-rx-last-output'), ['str'])),
                     ])
                     self.lsp_ping_tx_count = None
                     self.lsp_ping_tx_error_count = None
@@ -18719,6 +18979,7 @@ class Bfd(Entity):
                     self._children_name_map["lsp_ping_rx_last_time"] = "lsp-ping-rx-last-time"
                     self._segment_path = lambda: "lsp-ping-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
@@ -18763,13 +19024,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -18814,13 +19076,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-error-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
@@ -18865,13 +19128,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-rx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -18937,11 +19201,11 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interval', YLeaf(YType.uint32, 'interval')),
-                        ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                        ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                        ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                        ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                        ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                        ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.interval = None
                     self.detection_multiplier = None
@@ -18950,6 +19214,7 @@ class Bfd(Entity):
                     self.name = None
                     self._segment_path = lambda: "owner-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -19005,9 +19270,9 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("ip-destination-address", ("ip_destination_address", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.IpDestinationAddress)), ("owner-information", ("owner_information", Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.OwnerInformation))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
                     ])
                     self.interface_name = None
                     self.sessiontype = None
@@ -19020,6 +19285,7 @@ class Bfd(Entity):
                     self.owner_information = YList(self)
                     self._segment_path = lambda: "association-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
@@ -19072,10 +19338,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -19083,6 +19349,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "ip-destination-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -19148,11 +19415,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interval', YLeaf(YType.uint32, 'interval')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                            ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                            ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.interval = None
                         self.detection_multiplier = None
@@ -19161,6 +19428,7 @@ class Bfd(Entity):
                         self.name = None
                         self._segment_path = lambda: "owner-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-details/ipv6-single-hop-session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionDetails.Ipv6SingleHopSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -19198,6 +19466,7 @@ class Bfd(Entity):
             self._children_name_map["ipv4_multi_hop_packet_counters"] = "ipv4-multi-hop-packet-counters"
             self._segment_path = lambda: "ipv4-multi-hop-counters"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4MultiHopCounters, [], name, value)
@@ -19233,6 +19502,7 @@ class Bfd(Entity):
                 self.ipv4_multi_hop_packet_counter = YList(self)
                 self._segment_path = lambda: "ipv4-multi-hop-packet-counters"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-counters/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters, [], name, value)
@@ -19332,15 +19602,15 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('source_address', YLeaf(YType.str, 'source-address')),
-                        ('destination_address', YLeaf(YType.str, 'destination-address')),
-                        ('location', YLeaf(YType.str, 'location')),
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                        ('hello_transmit_count', YLeaf(YType.uint32, 'hello-transmit-count')),
-                        ('hello_receive_count', YLeaf(YType.uint32, 'hello-receive-count')),
-                        ('echo_transmit_count', YLeaf(YType.uint32, 'echo-transmit-count')),
-                        ('echo_receive_count', YLeaf(YType.uint32, 'echo-receive-count')),
-                        ('display_type', YLeaf(YType.enumeration, 'display-type')),
+                        ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                        ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str','str'])),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                        ('hello_transmit_count', (YLeaf(YType.uint32, 'hello-transmit-count'), ['int'])),
+                        ('hello_receive_count', (YLeaf(YType.uint32, 'hello-receive-count'), ['int'])),
+                        ('echo_transmit_count', (YLeaf(YType.uint32, 'echo-transmit-count'), ['int'])),
+                        ('echo_receive_count', (YLeaf(YType.uint32, 'echo-receive-count'), ['int'])),
+                        ('display_type', (YLeaf(YType.enumeration, 'display-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtPktDisplay', '')])),
                     ])
                     self.source_address = None
                     self.destination_address = None
@@ -19353,6 +19623,7 @@ class Bfd(Entity):
                     self.display_type = None
                     self._segment_path = lambda: "ipv4-multi-hop-packet-counter"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-counters/ipv4-multi-hop-packet-counters/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4MultiHopCounters.Ipv4MultiHopPacketCounters.Ipv4MultiHopPacketCounter, ['source_address', 'destination_address', 'location', 'vrf_name', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
@@ -19389,6 +19660,7 @@ class Bfd(Entity):
             self.session_detail = YList(self)
             self._segment_path = lambda: "session-details"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.SessionDetails, [], name, value)
@@ -19404,7 +19676,7 @@ class Bfd(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: destination_address
             
@@ -19462,9 +19734,9 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-information", ("status_information", Bfd.SessionDetails.SessionDetail.StatusInformation)), ("mp-download-state", ("mp_download_state", Bfd.SessionDetails.SessionDetail.MpDownloadState)), ("lsp-ping-info", ("lsp_ping_info", Bfd.SessionDetails.SessionDetail.LspPingInfo)), ("owner-information", ("owner_information", Bfd.SessionDetails.SessionDetail.OwnerInformation)), ("association-information", ("association_information", Bfd.SessionDetails.SessionDetail.AssociationInformation))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.interface_name = None
                 self.destination_address = None
@@ -19486,6 +19758,7 @@ class Bfd(Entity):
                 self.association_information = YList(self)
                 self._segment_path = lambda: "session-detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.SessionDetails.SessionDetail, ['interface_name', 'destination_address', 'location'], name, value)
@@ -19659,20 +19932,20 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("source-address", ("source_address", Bfd.SessionDetails.SessionDetail.StatusInformation.SourceAddress)), ("last-state-change", ("last_state_change", Bfd.SessionDetails.SessionDetail.StatusInformation.LastStateChange)), ("transmit-packet", ("transmit_packet", Bfd.SessionDetails.SessionDetail.StatusInformation.TransmitPacket)), ("receive-packet", ("receive_packet", Bfd.SessionDetails.SessionDetail.StatusInformation.ReceivePacket)), ("status-brief-information", ("status_brief_information", Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation)), ("async-transmit-statistics", ("async_transmit_statistics", Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncTransmitStatistics)), ("async-receive-statistics", ("async_receive_statistics", Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncReceiveStatistics)), ("echo-transmit-statistics", ("echo_transmit_statistics", Bfd.SessionDetails.SessionDetail.StatusInformation.EchoTransmitStatistics)), ("echo-received-statistics", ("echo_received_statistics", Bfd.SessionDetails.SessionDetail.StatusInformation.EchoReceivedStatistics))])
                     self._leafs = OrderedDict([
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                        ('remote_discriminator', YLeaf(YType.uint32, 'remote-discriminator')),
-                        ('to_up_state_count', YLeaf(YType.uint32, 'to-up-state-count')),
-                        ('desired_minimum_echo_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval')),
-                        ('remote_negotiated_interval', YLeaf(YType.uint32, 'remote-negotiated-interval')),
-                        ('latency_number', YLeaf(YType.uint32, 'latency-number')),
-                        ('latency_minimum', YLeaf(YType.uint32, 'latency-minimum')),
-                        ('latency_maximum', YLeaf(YType.uint32, 'latency-maximum')),
-                        ('latency_average', YLeaf(YType.uint32, 'latency-average')),
-                        ('node_id', YLeaf(YType.str, 'node-id')),
-                        ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                        ('remote_discriminator', (YLeaf(YType.uint32, 'remote-discriminator'), ['int'])),
+                        ('to_up_state_count', (YLeaf(YType.uint32, 'to-up-state-count'), ['int'])),
+                        ('desired_minimum_echo_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval'), ['int'])),
+                        ('remote_negotiated_interval', (YLeaf(YType.uint32, 'remote-negotiated-interval'), ['int'])),
+                        ('latency_number', (YLeaf(YType.uint32, 'latency-number'), ['int'])),
+                        ('latency_minimum', (YLeaf(YType.uint32, 'latency-minimum'), ['int'])),
+                        ('latency_maximum', (YLeaf(YType.uint32, 'latency-maximum'), ['int'])),
+                        ('latency_average', (YLeaf(YType.uint32, 'latency-average'), ['int'])),
+                        ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                        ('internal_label', (YLeaf(YType.uint32, 'internal-label'), ['int'])),
                     ])
                     self.sessiontype = None
                     self.session_subtype = None
@@ -19726,6 +19999,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_received_statistics"] = "echo-received-statistics"
                     self._segment_path = lambda: "status-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
@@ -19778,10 +20052,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -19789,6 +20063,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "source-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -19851,10 +20126,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('days', YLeaf(YType.uint32, 'days')),
-                            ('hours', YLeaf(YType.uint8, 'hours')),
-                            ('minutes', YLeaf(YType.uint8, 'minutes')),
-                            ('seconds', YLeaf(YType.uint8, 'seconds')),
+                            ('days', (YLeaf(YType.uint32, 'days'), ['int'])),
+                            ('hours', (YLeaf(YType.uint8, 'hours'), ['int'])),
+                            ('minutes', (YLeaf(YType.uint8, 'minutes'), ['int'])),
+                            ('seconds', (YLeaf(YType.uint8, 'seconds'), ['int'])),
                         ])
                         self.days = None
                         self.hours = None
@@ -19862,6 +20137,7 @@ class Bfd(Entity):
                         self.seconds = None
                         self._segment_path = lambda: "last-state-change"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
@@ -20002,22 +20278,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -20037,6 +20313,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "transmit-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -20177,22 +20454,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -20212,6 +20489,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "receive-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -20258,6 +20536,7 @@ class Bfd(Entity):
                         self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                         self._segment_path = lambda: "status-brief-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
@@ -20318,10 +20597,10 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                                ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                                ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_remote_transmit_interval = None
                             self.negotiated_local_transmit_interval = None
@@ -20329,6 +20608,7 @@ class Bfd(Entity):
                             self.detection_multiplier = None
                             self._segment_path = lambda: "async-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -20380,15 +20660,16 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_transmit_interval = None
                             self.detection_time = None
                             self.detection_multiplier = None
                             self._segment_path = lambda: "echo-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -20459,11 +20740,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -20472,6 +20753,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -20542,11 +20824,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -20555,6 +20837,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-receive-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -20625,11 +20908,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -20638,6 +20921,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -20708,11 +20992,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -20721,6 +21005,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-received-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -20757,7 +21042,7 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("change-time", ("change_time", Bfd.SessionDetails.SessionDetail.MpDownloadState.ChangeTime))])
                     self._leafs = OrderedDict([
-                        ('mp_download_state', YLeaf(YType.enumeration, 'mp-download-state')),
+                        ('mp_download_state', (YLeaf(YType.enumeration, 'mp-download-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMpDownloadState', '')])),
                     ])
                     self.mp_download_state = None
 
@@ -20766,6 +21051,7 @@ class Bfd(Entity):
                     self._children_name_map["change_time"] = "change-time"
                     self._segment_path = lambda: "mp-download-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.SessionDetails.SessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
@@ -20810,13 +21096,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "change-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/mp-download-state/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
@@ -20915,15 +21202,15 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("lsp-ping-tx-last-time", ("lsp_ping_tx_last_time", Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastTime)), ("lsp-ping-tx-last-error-time", ("lsp_ping_tx_last_error_time", Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastErrorTime)), ("lsp-ping-rx-last-time", ("lsp_ping_rx_last_time", Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingRxLastTime))])
                     self._leafs = OrderedDict([
-                        ('lsp_ping_tx_count', YLeaf(YType.uint32, 'lsp-ping-tx-count')),
-                        ('lsp_ping_tx_error_count', YLeaf(YType.uint32, 'lsp-ping-tx-error-count')),
-                        ('lsp_ping_tx_last_rc', YLeaf(YType.str, 'lsp-ping-tx-last-rc')),
-                        ('lsp_ping_tx_last_error_rc', YLeaf(YType.str, 'lsp-ping-tx-last-error-rc')),
-                        ('lsp_ping_rx_last_discr', YLeaf(YType.uint32, 'lsp-ping-rx-last-discr')),
-                        ('lsp_ping_rx_count', YLeaf(YType.uint32, 'lsp-ping-rx-count')),
-                        ('lsp_ping_rx_last_code', YLeaf(YType.uint8, 'lsp-ping-rx-last-code')),
-                        ('lsp_ping_rx_last_subcode', YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode')),
-                        ('lsp_ping_rx_last_output', YLeaf(YType.str, 'lsp-ping-rx-last-output')),
+                        ('lsp_ping_tx_count', (YLeaf(YType.uint32, 'lsp-ping-tx-count'), ['int'])),
+                        ('lsp_ping_tx_error_count', (YLeaf(YType.uint32, 'lsp-ping-tx-error-count'), ['int'])),
+                        ('lsp_ping_tx_last_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-rc'), ['str'])),
+                        ('lsp_ping_tx_last_error_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-error-rc'), ['str'])),
+                        ('lsp_ping_rx_last_discr', (YLeaf(YType.uint32, 'lsp-ping-rx-last-discr'), ['int'])),
+                        ('lsp_ping_rx_count', (YLeaf(YType.uint32, 'lsp-ping-rx-count'), ['int'])),
+                        ('lsp_ping_rx_last_code', (YLeaf(YType.uint8, 'lsp-ping-rx-last-code'), ['int'])),
+                        ('lsp_ping_rx_last_subcode', (YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode'), ['int'])),
+                        ('lsp_ping_rx_last_output', (YLeaf(YType.str, 'lsp-ping-rx-last-output'), ['str'])),
                     ])
                     self.lsp_ping_tx_count = None
                     self.lsp_ping_tx_error_count = None
@@ -20948,6 +21235,7 @@ class Bfd(Entity):
                     self._children_name_map["lsp_ping_rx_last_time"] = "lsp-ping-rx-last-time"
                     self._segment_path = lambda: "lsp-ping-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
@@ -20992,13 +21280,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -21043,13 +21332,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-error-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
@@ -21094,13 +21384,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-rx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -21166,11 +21457,11 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interval', YLeaf(YType.uint32, 'interval')),
-                        ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                        ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                        ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                        ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                        ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                        ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.interval = None
                     self.detection_multiplier = None
@@ -21179,6 +21470,7 @@ class Bfd(Entity):
                     self.name = None
                     self._segment_path = lambda: "owner-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.SessionDetails.SessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -21234,9 +21526,9 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("ip-destination-address", ("ip_destination_address", Bfd.SessionDetails.SessionDetail.AssociationInformation.IpDestinationAddress)), ("owner-information", ("owner_information", Bfd.SessionDetails.SessionDetail.AssociationInformation.OwnerInformation))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
                     ])
                     self.interface_name = None
                     self.sessiontype = None
@@ -21249,6 +21541,7 @@ class Bfd(Entity):
                     self.owner_information = YList(self)
                     self._segment_path = lambda: "association-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.SessionDetails.SessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
@@ -21301,10 +21594,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -21312,6 +21605,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "ip-destination-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -21377,11 +21671,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interval', YLeaf(YType.uint32, 'interval')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                            ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                            ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.interval = None
                         self.detection_multiplier = None
@@ -21390,6 +21684,7 @@ class Bfd(Entity):
                         self.name = None
                         self._segment_path = lambda: "owner-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/session-details/session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.SessionDetails.SessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -21425,6 +21720,7 @@ class Bfd(Entity):
             self.ipv4_single_hop_multi_path = YList(self)
             self._segment_path = lambda: "ipv4-single-hop-multi-paths"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4SingleHopMultiPaths, [], name, value)
@@ -21439,7 +21735,7 @@ class Bfd(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: destination_address
             
@@ -21491,7 +21787,7 @@ class Bfd(Entity):
             	Interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             
 
@@ -21510,15 +21806,15 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('incoming_label_xr', YLeaf(YType.uint32, 'incoming-label-xr')),
-                    ('session_interface_name', YLeaf(YType.str, 'session-interface-name')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('incoming_label_xr', (YLeaf(YType.uint32, 'incoming-label-xr'), ['int'])),
+                    ('session_interface_name', (YLeaf(YType.str, 'session-interface-name'), ['str'])),
                 ])
                 self.interface_name = None
                 self.destination_address = None
@@ -21531,6 +21827,7 @@ class Bfd(Entity):
                 self.session_interface_name = None
                 self._segment_path = lambda: "ipv4-single-hop-multi-path"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-multi-paths/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4SingleHopMultiPaths.Ipv4SingleHopMultiPath, ['interface_name', 'destination_address', 'location', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
@@ -21567,6 +21864,7 @@ class Bfd(Entity):
             self.ipv4_single_hop_session_brief = YList(self)
             self._segment_path = lambda: "ipv4-single-hop-session-briefs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs, [], name, value)
@@ -21582,7 +21880,7 @@ class Bfd(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: destination_address
             
@@ -21649,14 +21947,14 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-brief-information", ("status_brief_information", Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('session_type', YLeaf(YType.enumeration, 'session-type')),
-                    ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                    ('session_flags', YLeaf(YType.uint32, 'session-flags')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('session_type', (YLeaf(YType.enumeration, 'session-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                    ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                    ('session_flags', (YLeaf(YType.uint32, 'session-flags'), ['int'])),
                 ])
                 self.interface_name = None
                 self.destination_address = None
@@ -21672,6 +21970,7 @@ class Bfd(Entity):
                 self._children_name_map["status_brief_information"] = "status-brief-information"
                 self._segment_path = lambda: "ipv4-single-hop-session-brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-briefs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief, ['interface_name', 'destination_address', 'location', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
@@ -21718,6 +22017,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                     self._segment_path = lambda: "status-brief-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-briefs/ipv4-single-hop-session-brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation, [], name, value)
@@ -21778,10 +22078,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                            ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                            ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_remote_transmit_interval = None
                         self.negotiated_local_transmit_interval = None
@@ -21789,6 +22089,7 @@ class Bfd(Entity):
                         self.detection_multiplier = None
                         self._segment_path = lambda: "async-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-briefs/ipv4-single-hop-session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -21840,15 +22141,16 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_transmit_interval = None
                         self.detection_time = None
                         self.detection_multiplier = None
                         self._segment_path = lambda: "echo-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-single-hop-session-briefs/ipv4-single-hop-session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4SingleHopSessionBriefs.Ipv4SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -21886,6 +22188,7 @@ class Bfd(Entity):
             self._children_name_map["ipv6_multi_hop_packet_counters"] = "ipv6-multi-hop-packet-counters"
             self._segment_path = lambda: "ipv6-multi-hop-counters"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv6MultiHopCounters, [], name, value)
@@ -21921,6 +22224,7 @@ class Bfd(Entity):
                 self.ipv6_multi_hop_packet_counter = YList(self)
                 self._segment_path = lambda: "ipv6-multi-hop-packet-counters"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-counters/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters, [], name, value)
@@ -22020,15 +22324,15 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('source_address', YLeaf(YType.str, 'source-address')),
-                        ('destination_address', YLeaf(YType.str, 'destination-address')),
-                        ('location', YLeaf(YType.str, 'location')),
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                        ('hello_transmit_count', YLeaf(YType.uint32, 'hello-transmit-count')),
-                        ('hello_receive_count', YLeaf(YType.uint32, 'hello-receive-count')),
-                        ('echo_transmit_count', YLeaf(YType.uint32, 'echo-transmit-count')),
-                        ('echo_receive_count', YLeaf(YType.uint32, 'echo-receive-count')),
-                        ('display_type', YLeaf(YType.enumeration, 'display-type')),
+                        ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                        ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str','str'])),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                        ('hello_transmit_count', (YLeaf(YType.uint32, 'hello-transmit-count'), ['int'])),
+                        ('hello_receive_count', (YLeaf(YType.uint32, 'hello-receive-count'), ['int'])),
+                        ('echo_transmit_count', (YLeaf(YType.uint32, 'echo-transmit-count'), ['int'])),
+                        ('echo_receive_count', (YLeaf(YType.uint32, 'echo-receive-count'), ['int'])),
+                        ('display_type', (YLeaf(YType.enumeration, 'display-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtPktDisplay', '')])),
                     ])
                     self.source_address = None
                     self.destination_address = None
@@ -22041,6 +22345,7 @@ class Bfd(Entity):
                     self.display_type = None
                     self._segment_path = lambda: "ipv6-multi-hop-packet-counter"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-multi-hop-counters/ipv6-multi-hop-packet-counters/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6MultiHopCounters.Ipv6MultiHopPacketCounters.Ipv6MultiHopPacketCounter, ['source_address', 'destination_address', 'location', 'vrf_name', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
@@ -22077,6 +22382,7 @@ class Bfd(Entity):
             self.ipv6_single_hop_location_summary = YList(self)
             self._segment_path = lambda: "ipv6-single-hop-location-summaries"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv6SingleHopLocationSummaries, [], name, value)
@@ -22116,7 +22422,7 @@ class Bfd(Entity):
                 self.ylist_key_names = ['location_name']
                 self._child_classes = OrderedDict([("session-state", ("session_state", Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState))])
                 self._leafs = OrderedDict([
-                    ('location_name', YLeaf(YType.str, 'location-name')),
+                    ('location_name', (YLeaf(YType.str, 'location-name'), ['str'])),
                 ])
                 self.location_name = None
 
@@ -22125,6 +22431,7 @@ class Bfd(Entity):
                 self._children_name_map["session_state"] = "session-state"
                 self._segment_path = lambda: "ipv6-single-hop-location-summary" + "[location-name='" + str(self.location_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-location-summaries/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary, ['location_name'], name, value)
@@ -22193,12 +22500,12 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('total_count', YLeaf(YType.uint32, 'total-count')),
-                        ('up_count', YLeaf(YType.uint32, 'up-count')),
-                        ('down_count', YLeaf(YType.uint32, 'down-count')),
-                        ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
-                        ('retry_count', YLeaf(YType.uint32, 'retry-count')),
-                        ('standby_count', YLeaf(YType.uint32, 'standby-count')),
+                        ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                        ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                        ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                        ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
+                        ('retry_count', (YLeaf(YType.uint32, 'retry-count'), ['int'])),
+                        ('standby_count', (YLeaf(YType.uint32, 'standby-count'), ['int'])),
                     ])
                     self.total_count = None
                     self.up_count = None
@@ -22207,6 +22514,7 @@ class Bfd(Entity):
                     self.retry_count = None
                     self.standby_count = None
                     self._segment_path = lambda: "session-state"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6SingleHopLocationSummaries.Ipv6SingleHopLocationSummary.SessionState, [u'total_count', u'up_count', u'down_count', u'unknown_count', u'retry_count', u'standby_count'], name, value)
@@ -22244,6 +22552,7 @@ class Bfd(Entity):
             self._children_name_map["label_packet_counters"] = "label-packet-counters"
             self._segment_path = lambda: "label-counters"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.LabelCounters, [], name, value)
@@ -22279,6 +22588,7 @@ class Bfd(Entity):
                 self.label_packet_counter = YList(self)
                 self._segment_path = lambda: "label-packet-counters"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-counters/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.LabelCounters.LabelPacketCounters, [], name, value)
@@ -22293,7 +22603,7 @@ class Bfd(Entity):
                 	Interface Name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: location
                 
@@ -22352,13 +22662,13 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('location', YLeaf(YType.str, 'location')),
-                        ('hello_transmit_count', YLeaf(YType.uint32, 'hello-transmit-count')),
-                        ('hello_receive_count', YLeaf(YType.uint32, 'hello-receive-count')),
-                        ('echo_transmit_count', YLeaf(YType.uint32, 'echo-transmit-count')),
-                        ('echo_receive_count', YLeaf(YType.uint32, 'echo-receive-count')),
-                        ('display_type', YLeaf(YType.enumeration, 'display-type')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                        ('hello_transmit_count', (YLeaf(YType.uint32, 'hello-transmit-count'), ['int'])),
+                        ('hello_receive_count', (YLeaf(YType.uint32, 'hello-receive-count'), ['int'])),
+                        ('echo_transmit_count', (YLeaf(YType.uint32, 'echo-transmit-count'), ['int'])),
+                        ('echo_receive_count', (YLeaf(YType.uint32, 'echo-receive-count'), ['int'])),
+                        ('display_type', (YLeaf(YType.enumeration, 'display-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtPktDisplay', '')])),
                     ])
                     self.interface_name = None
                     self.location = None
@@ -22369,6 +22679,7 @@ class Bfd(Entity):
                     self.display_type = None
                     self._segment_path = lambda: "label-packet-counter"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/label-counters/label-packet-counters/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.LabelCounters.LabelPacketCounters.LabelPacketCounter, ['interface_name', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
@@ -22405,6 +22716,7 @@ class Bfd(Entity):
             self.ipv4bf_do_mplste_head_session_detail = YList(self)
             self._segment_path = lambda: "ipv4bf-do-mplste-head-session-details"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails, [], name, value)
@@ -22420,7 +22732,7 @@ class Bfd(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: vrf_name
             
@@ -22555,20 +22867,20 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-information", ("status_information", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation)), ("mp-download-state", ("mp_download_state", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState)), ("lsp-ping-info", ("lsp_ping_info", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo)), ("owner-information", ("owner_information", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.OwnerInformation)), ("association-information", ("association_information", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('incoming_label', YLeaf(YType.uint32, 'incoming-label')),
-                    ('fe_ctype', YLeaf(YType.uint32, 'fe-ctype')),
-                    ('fec_subgroup_id', YLeaf(YType.uint32, 'fec-subgroup-id')),
-                    ('feclspid', YLeaf(YType.uint32, 'feclspid')),
-                    ('fec_tunnel_id', YLeaf(YType.uint32, 'fec-tunnel-id')),
-                    ('fec_extended_tunnel_id', YLeaf(YType.str, 'fec-extended-tunnel-id')),
-                    ('fec_source', YLeaf(YType.str, 'fec-source')),
-                    ('fec_destination', YLeaf(YType.str, 'fec-destination')),
-                    ('fecp2mpid', YLeaf(YType.uint32, 'fecp2mpid')),
-                    ('fec_subgroup_originator', YLeaf(YType.str, 'fec-subgroup-originator')),
-                    ('fec_ctype', YLeaf(YType.uint32, 'fec-ctype')),
-                    ('location', YLeaf(YType.str, 'location')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('incoming_label', (YLeaf(YType.uint32, 'incoming-label'), ['int'])),
+                    ('fe_ctype', (YLeaf(YType.uint32, 'fe-ctype'), ['int'])),
+                    ('fec_subgroup_id', (YLeaf(YType.uint32, 'fec-subgroup-id'), ['int'])),
+                    ('feclspid', (YLeaf(YType.uint32, 'feclspid'), ['int'])),
+                    ('fec_tunnel_id', (YLeaf(YType.uint32, 'fec-tunnel-id'), ['int'])),
+                    ('fec_extended_tunnel_id', (YLeaf(YType.str, 'fec-extended-tunnel-id'), ['str'])),
+                    ('fec_source', (YLeaf(YType.str, 'fec-source'), ['str'])),
+                    ('fec_destination', (YLeaf(YType.str, 'fec-destination'), ['str'])),
+                    ('fecp2mpid', (YLeaf(YType.uint32, 'fecp2mpid'), ['int'])),
+                    ('fec_subgroup_originator', (YLeaf(YType.str, 'fec-subgroup-originator'), ['str'])),
+                    ('fec_ctype', (YLeaf(YType.uint32, 'fec-ctype'), ['int'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
                 ])
                 self.interface_name = None
                 self.vrf_name = None
@@ -22601,6 +22913,7 @@ class Bfd(Entity):
                 self.association_information = YList(self)
                 self._segment_path = lambda: "ipv4bf-do-mplste-head-session-detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail, ['interface_name', 'vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location'], name, value)
@@ -22774,20 +23087,20 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("source-address", ("source_address", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.SourceAddress)), ("last-state-change", ("last_state_change", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.LastStateChange)), ("transmit-packet", ("transmit_packet", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.TransmitPacket)), ("receive-packet", ("receive_packet", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.ReceivePacket)), ("status-brief-information", ("status_brief_information", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation)), ("async-transmit-statistics", ("async_transmit_statistics", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncTransmitStatistics)), ("async-receive-statistics", ("async_receive_statistics", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncReceiveStatistics)), ("echo-transmit-statistics", ("echo_transmit_statistics", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoTransmitStatistics)), ("echo-received-statistics", ("echo_received_statistics", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoReceivedStatistics))])
                     self._leafs = OrderedDict([
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                        ('remote_discriminator', YLeaf(YType.uint32, 'remote-discriminator')),
-                        ('to_up_state_count', YLeaf(YType.uint32, 'to-up-state-count')),
-                        ('desired_minimum_echo_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval')),
-                        ('remote_negotiated_interval', YLeaf(YType.uint32, 'remote-negotiated-interval')),
-                        ('latency_number', YLeaf(YType.uint32, 'latency-number')),
-                        ('latency_minimum', YLeaf(YType.uint32, 'latency-minimum')),
-                        ('latency_maximum', YLeaf(YType.uint32, 'latency-maximum')),
-                        ('latency_average', YLeaf(YType.uint32, 'latency-average')),
-                        ('node_id', YLeaf(YType.str, 'node-id')),
-                        ('internal_label', YLeaf(YType.uint32, 'internal-label')),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                        ('remote_discriminator', (YLeaf(YType.uint32, 'remote-discriminator'), ['int'])),
+                        ('to_up_state_count', (YLeaf(YType.uint32, 'to-up-state-count'), ['int'])),
+                        ('desired_minimum_echo_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-echo-transmit-interval'), ['int'])),
+                        ('remote_negotiated_interval', (YLeaf(YType.uint32, 'remote-negotiated-interval'), ['int'])),
+                        ('latency_number', (YLeaf(YType.uint32, 'latency-number'), ['int'])),
+                        ('latency_minimum', (YLeaf(YType.uint32, 'latency-minimum'), ['int'])),
+                        ('latency_maximum', (YLeaf(YType.uint32, 'latency-maximum'), ['int'])),
+                        ('latency_average', (YLeaf(YType.uint32, 'latency-average'), ['int'])),
+                        ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                        ('internal_label', (YLeaf(YType.uint32, 'internal-label'), ['int'])),
                     ])
                     self.sessiontype = None
                     self.session_subtype = None
@@ -22841,6 +23154,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_received_statistics"] = "echo-received-statistics"
                     self._segment_path = lambda: "status-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation, [u'sessiontype', u'session_subtype', u'state', u'local_discriminator', u'remote_discriminator', u'to_up_state_count', u'desired_minimum_echo_transmit_interval', u'remote_negotiated_interval', u'latency_number', u'latency_minimum', u'latency_maximum', u'latency_average', u'node_id', u'internal_label'], name, value)
@@ -22893,10 +23207,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -22904,6 +23218,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "source-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.SourceAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -22966,10 +23281,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('days', YLeaf(YType.uint32, 'days')),
-                            ('hours', YLeaf(YType.uint8, 'hours')),
-                            ('minutes', YLeaf(YType.uint8, 'minutes')),
-                            ('seconds', YLeaf(YType.uint8, 'seconds')),
+                            ('days', (YLeaf(YType.uint32, 'days'), ['int'])),
+                            ('hours', (YLeaf(YType.uint8, 'hours'), ['int'])),
+                            ('minutes', (YLeaf(YType.uint8, 'minutes'), ['int'])),
+                            ('seconds', (YLeaf(YType.uint8, 'seconds'), ['int'])),
                         ])
                         self.days = None
                         self.hours = None
@@ -22977,6 +23292,7 @@ class Bfd(Entity):
                         self.seconds = None
                         self._segment_path = lambda: "last-state-change"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.LastStateChange, [u'days', u'hours', u'minutes', u'seconds'], name, value)
@@ -23117,22 +23433,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -23152,6 +23468,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "transmit-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.TransmitPacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -23292,22 +23609,22 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('version', YLeaf(YType.uint8, 'version')),
-                            ('diagnostic', YLeaf(YType.enumeration, 'diagnostic')),
-                            ('ihear_you', YLeaf(YType.int32, 'ihear-you')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('demand', YLeaf(YType.int32, 'demand')),
-                            ('poll', YLeaf(YType.int32, 'poll')),
-                            ('final', YLeaf(YType.int32, 'final')),
-                            ('control_plane_independent', YLeaf(YType.int32, 'control-plane-independent')),
-                            ('authentication_present', YLeaf(YType.int32, 'authentication-present')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('length', YLeaf(YType.uint32, 'length')),
-                            ('my_discriminator', YLeaf(YType.uint32, 'my-discriminator')),
-                            ('your_discriminator', YLeaf(YType.uint32, 'your-discriminator')),
-                            ('desired_minimum_transmit_interval', YLeaf(YType.uint32, 'desired-minimum-transmit-interval')),
-                            ('required_minimum_receive_interval', YLeaf(YType.uint32, 'required-minimum-receive-interval')),
-                            ('required_minimum_echo_receive_interval', YLeaf(YType.uint32, 'required-minimum-echo-receive-interval')),
+                            ('version', (YLeaf(YType.uint8, 'version'), ['int'])),
+                            ('diagnostic', (YLeaf(YType.enumeration, 'diagnostic'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionDiag', '')])),
+                            ('ihear_you', (YLeaf(YType.int32, 'ihear-you'), ['int'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                            ('demand', (YLeaf(YType.int32, 'demand'), ['int'])),
+                            ('poll', (YLeaf(YType.int32, 'poll'), ['int'])),
+                            ('final', (YLeaf(YType.int32, 'final'), ['int'])),
+                            ('control_plane_independent', (YLeaf(YType.int32, 'control-plane-independent'), ['int'])),
+                            ('authentication_present', (YLeaf(YType.int32, 'authentication-present'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('length', (YLeaf(YType.uint32, 'length'), ['int'])),
+                            ('my_discriminator', (YLeaf(YType.uint32, 'my-discriminator'), ['int'])),
+                            ('your_discriminator', (YLeaf(YType.uint32, 'your-discriminator'), ['int'])),
+                            ('desired_minimum_transmit_interval', (YLeaf(YType.uint32, 'desired-minimum-transmit-interval'), ['int'])),
+                            ('required_minimum_receive_interval', (YLeaf(YType.uint32, 'required-minimum-receive-interval'), ['int'])),
+                            ('required_minimum_echo_receive_interval', (YLeaf(YType.uint32, 'required-minimum-echo-receive-interval'), ['int'])),
                         ])
                         self.version = None
                         self.diagnostic = None
@@ -23327,6 +23644,7 @@ class Bfd(Entity):
                         self.required_minimum_echo_receive_interval = None
                         self._segment_path = lambda: "receive-packet"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.ReceivePacket, [u'version', u'diagnostic', u'ihear_you', u'state', u'demand', u'poll', u'final', u'control_plane_independent', u'authentication_present', u'detection_multiplier', u'length', u'my_discriminator', u'your_discriminator', u'desired_minimum_transmit_interval', u'required_minimum_receive_interval', u'required_minimum_echo_receive_interval'], name, value)
@@ -23373,6 +23691,7 @@ class Bfd(Entity):
                         self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                         self._segment_path = lambda: "status-brief-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation, [], name, value)
@@ -23433,10 +23752,10 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                                ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                                ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_remote_transmit_interval = None
                             self.negotiated_local_transmit_interval = None
@@ -23444,6 +23763,7 @@ class Bfd(Entity):
                             self.detection_multiplier = None
                             self._segment_path = lambda: "async-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -23495,15 +23815,16 @@ class Bfd(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                                ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                                ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                                ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                             ])
                             self.negotiated_transmit_interval = None
                             self.detection_time = None
                             self.detection_multiplier = None
                             self._segment_path = lambda: "echo-interval-multiplier"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/status-brief-information/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -23574,11 +23895,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -23587,6 +23908,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -23657,11 +23979,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -23670,6 +23992,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "async-receive-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.AsyncReceiveStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -23740,11 +24063,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -23753,6 +24076,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-transmit-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoTransmitStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -23823,11 +24147,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('number', YLeaf(YType.uint32, 'number')),
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
-                            ('average', YLeaf(YType.uint32, 'average')),
-                            ('last', YLeaf(YType.uint32, 'last')),
+                            ('number', (YLeaf(YType.uint32, 'number'), ['int'])),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                            ('average', (YLeaf(YType.uint32, 'average'), ['int'])),
+                            ('last', (YLeaf(YType.uint32, 'last'), ['int'])),
                         ])
                         self.number = None
                         self.minimum = None
@@ -23836,6 +24160,7 @@ class Bfd(Entity):
                         self.last = None
                         self._segment_path = lambda: "echo-received-statistics"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/status-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.StatusInformation.EchoReceivedStatistics, [u'number', u'minimum', u'maximum', u'average', u'last'], name, value)
@@ -23872,7 +24197,7 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("change-time", ("change_time", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState.ChangeTime))])
                     self._leafs = OrderedDict([
-                        ('mp_download_state', YLeaf(YType.enumeration, 'mp-download-state')),
+                        ('mp_download_state', (YLeaf(YType.enumeration, 'mp-download-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMpDownloadState', '')])),
                     ])
                     self.mp_download_state = None
 
@@ -23881,6 +24206,7 @@ class Bfd(Entity):
                     self._children_name_map["change_time"] = "change-time"
                     self._segment_path = lambda: "mp-download-state"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState, [u'mp_download_state'], name, value)
@@ -23925,13 +24251,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "change-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/mp-download-state/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.MpDownloadState.ChangeTime, [u'seconds', u'nanoseconds'], name, value)
@@ -24030,15 +24357,15 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("lsp-ping-tx-last-time", ("lsp_ping_tx_last_time", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastTime)), ("lsp-ping-tx-last-error-time", ("lsp_ping_tx_last_error_time", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastErrorTime)), ("lsp-ping-rx-last-time", ("lsp_ping_rx_last_time", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingRxLastTime))])
                     self._leafs = OrderedDict([
-                        ('lsp_ping_tx_count', YLeaf(YType.uint32, 'lsp-ping-tx-count')),
-                        ('lsp_ping_tx_error_count', YLeaf(YType.uint32, 'lsp-ping-tx-error-count')),
-                        ('lsp_ping_tx_last_rc', YLeaf(YType.str, 'lsp-ping-tx-last-rc')),
-                        ('lsp_ping_tx_last_error_rc', YLeaf(YType.str, 'lsp-ping-tx-last-error-rc')),
-                        ('lsp_ping_rx_last_discr', YLeaf(YType.uint32, 'lsp-ping-rx-last-discr')),
-                        ('lsp_ping_rx_count', YLeaf(YType.uint32, 'lsp-ping-rx-count')),
-                        ('lsp_ping_rx_last_code', YLeaf(YType.uint8, 'lsp-ping-rx-last-code')),
-                        ('lsp_ping_rx_last_subcode', YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode')),
-                        ('lsp_ping_rx_last_output', YLeaf(YType.str, 'lsp-ping-rx-last-output')),
+                        ('lsp_ping_tx_count', (YLeaf(YType.uint32, 'lsp-ping-tx-count'), ['int'])),
+                        ('lsp_ping_tx_error_count', (YLeaf(YType.uint32, 'lsp-ping-tx-error-count'), ['int'])),
+                        ('lsp_ping_tx_last_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-rc'), ['str'])),
+                        ('lsp_ping_tx_last_error_rc', (YLeaf(YType.str, 'lsp-ping-tx-last-error-rc'), ['str'])),
+                        ('lsp_ping_rx_last_discr', (YLeaf(YType.uint32, 'lsp-ping-rx-last-discr'), ['int'])),
+                        ('lsp_ping_rx_count', (YLeaf(YType.uint32, 'lsp-ping-rx-count'), ['int'])),
+                        ('lsp_ping_rx_last_code', (YLeaf(YType.uint8, 'lsp-ping-rx-last-code'), ['int'])),
+                        ('lsp_ping_rx_last_subcode', (YLeaf(YType.uint8, 'lsp-ping-rx-last-subcode'), ['int'])),
+                        ('lsp_ping_rx_last_output', (YLeaf(YType.str, 'lsp-ping-rx-last-output'), ['str'])),
                     ])
                     self.lsp_ping_tx_count = None
                     self.lsp_ping_tx_error_count = None
@@ -24063,6 +24390,7 @@ class Bfd(Entity):
                     self._children_name_map["lsp_ping_rx_last_time"] = "lsp-ping-rx-last-time"
                     self._segment_path = lambda: "lsp-ping-info"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo, [u'lsp_ping_tx_count', u'lsp_ping_tx_error_count', u'lsp_ping_tx_last_rc', u'lsp_ping_tx_last_error_rc', u'lsp_ping_rx_last_discr', u'lsp_ping_rx_count', u'lsp_ping_rx_last_code', u'lsp_ping_rx_last_subcode', u'lsp_ping_rx_last_output'], name, value)
@@ -24107,13 +24435,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -24158,13 +24487,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-tx-last-error-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingTxLastErrorTime, [u'seconds', u'nanoseconds'], name, value)
@@ -24209,13 +24539,14 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('seconds', YLeaf(YType.uint64, 'seconds')),
-                            ('nanoseconds', YLeaf(YType.uint32, 'nanoseconds')),
+                            ('seconds', (YLeaf(YType.uint64, 'seconds'), ['int'])),
+                            ('nanoseconds', (YLeaf(YType.uint32, 'nanoseconds'), ['int'])),
                         ])
                         self.seconds = None
                         self.nanoseconds = None
                         self._segment_path = lambda: "lsp-ping-rx-last-time"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/lsp-ping-info/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.LspPingInfo.LspPingRxLastTime, [u'seconds', u'nanoseconds'], name, value)
@@ -24281,11 +24612,11 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interval', YLeaf(YType.uint32, 'interval')),
-                        ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                        ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                        ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                        ('name', YLeaf(YType.str, 'name')),
+                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                        ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                        ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                        ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
                     ])
                     self.interval = None
                     self.detection_multiplier = None
@@ -24294,6 +24625,7 @@ class Bfd(Entity):
                     self.name = None
                     self._segment_path = lambda: "owner-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -24349,9 +24681,9 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("ip-destination-address", ("ip_destination_address", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.IpDestinationAddress)), ("owner-information", ("owner_information", Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.OwnerInformation))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
                     ])
                     self.interface_name = None
                     self.sessiontype = None
@@ -24364,6 +24696,7 @@ class Bfd(Entity):
                     self.owner_information = YList(self)
                     self._segment_path = lambda: "association-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
@@ -24416,10 +24749,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -24427,6 +24760,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "ip-destination-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -24492,11 +24826,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interval', YLeaf(YType.uint32, 'interval')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                            ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                            ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.interval = None
                         self.detection_multiplier = None
@@ -24505,6 +24839,7 @@ class Bfd(Entity):
                         self.name = None
                         self._segment_path = lambda: "owner-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-session-details/ipv4bf-do-mplste-head-session-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSessionDetails.Ipv4bfDoMplsteHeadSessionDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -24541,6 +24876,7 @@ class Bfd(Entity):
             self.relation_brief = YList(self)
             self._segment_path = lambda: "relation-briefs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.RelationBriefs, [], name, value)
@@ -24556,7 +24892,7 @@ class Bfd(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: destination_address
             
@@ -24598,9 +24934,9 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("link-information", ("link_information", Bfd.RelationBriefs.RelationBrief.LinkInformation))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str','str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
                 ])
                 self.interface_name = None
                 self.destination_address = None
@@ -24609,6 +24945,7 @@ class Bfd(Entity):
                 self.link_information = YList(self)
                 self._segment_path = lambda: "relation-brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/relation-briefs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.RelationBriefs.RelationBrief, ['interface_name', 'destination_address', u'state'], name, value)
@@ -24647,13 +24984,14 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                     ])
                     self.state = None
                     self.interface_name = None
                     self._segment_path = lambda: "link-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/relation-briefs/relation-brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.RelationBriefs.RelationBrief.LinkInformation, [u'state', u'interface_name'], name, value)
@@ -24689,6 +25027,7 @@ class Bfd(Entity):
             self.client_brief = YList(self)
             self._segment_path = lambda: "client-briefs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.ClientBriefs, [], name, value)
@@ -24743,10 +25082,10 @@ class Bfd(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
-                    ('name_xr', YLeaf(YType.str, 'name-xr')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('session_count', YLeaf(YType.uint32, 'session-count')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                    ('name_xr', (YLeaf(YType.str, 'name-xr'), ['str'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('session_count', (YLeaf(YType.uint32, 'session-count'), ['int'])),
                 ])
                 self.name = None
                 self.name_xr = None
@@ -24754,6 +25093,7 @@ class Bfd(Entity):
                 self.session_count = None
                 self._segment_path = lambda: "client-brief" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/client-briefs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.ClientBriefs.ClientBrief, ['name', u'name_xr', u'node_id', u'session_count'], name, value)
@@ -24789,6 +25129,7 @@ class Bfd(Entity):
             self.ipv4bf_do_mplste_head_multi_path = YList(self)
             self._segment_path = lambda: "ipv4bf-do-mplste-head-multi-paths"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadMultiPaths, [], name, value)
@@ -24803,7 +25144,7 @@ class Bfd(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: vrf_name
             
@@ -24932,7 +25273,7 @@ class Bfd(Entity):
             	Interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             
 
@@ -24951,26 +25292,26 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('incoming_label', YLeaf(YType.uint32, 'incoming-label')),
-                    ('fe_ctype', YLeaf(YType.uint32, 'fe-ctype')),
-                    ('fec_subgroup_id', YLeaf(YType.uint32, 'fec-subgroup-id')),
-                    ('feclspid', YLeaf(YType.uint32, 'feclspid')),
-                    ('fec_tunnel_id', YLeaf(YType.uint32, 'fec-tunnel-id')),
-                    ('fec_extended_tunnel_id', YLeaf(YType.str, 'fec-extended-tunnel-id')),
-                    ('fec_source', YLeaf(YType.str, 'fec-source')),
-                    ('fec_destination', YLeaf(YType.str, 'fec-destination')),
-                    ('fecp2mpid', YLeaf(YType.uint32, 'fecp2mpid')),
-                    ('fec_subgroup_originator', YLeaf(YType.str, 'fec-subgroup-originator')),
-                    ('fec_ctype', YLeaf(YType.uint32, 'fec-ctype')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('incoming_label_xr', YLeaf(YType.uint32, 'incoming-label-xr')),
-                    ('session_interface_name', YLeaf(YType.str, 'session-interface-name')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('incoming_label', (YLeaf(YType.uint32, 'incoming-label'), ['int'])),
+                    ('fe_ctype', (YLeaf(YType.uint32, 'fe-ctype'), ['int'])),
+                    ('fec_subgroup_id', (YLeaf(YType.uint32, 'fec-subgroup-id'), ['int'])),
+                    ('feclspid', (YLeaf(YType.uint32, 'feclspid'), ['int'])),
+                    ('fec_tunnel_id', (YLeaf(YType.uint32, 'fec-tunnel-id'), ['int'])),
+                    ('fec_extended_tunnel_id', (YLeaf(YType.str, 'fec-extended-tunnel-id'), ['str'])),
+                    ('fec_source', (YLeaf(YType.str, 'fec-source'), ['str'])),
+                    ('fec_destination', (YLeaf(YType.str, 'fec-destination'), ['str'])),
+                    ('fecp2mpid', (YLeaf(YType.uint32, 'fecp2mpid'), ['int'])),
+                    ('fec_subgroup_originator', (YLeaf(YType.str, 'fec-subgroup-originator'), ['str'])),
+                    ('fec_ctype', (YLeaf(YType.uint32, 'fec-ctype'), ['int'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('incoming_label_xr', (YLeaf(YType.uint32, 'incoming-label-xr'), ['int'])),
+                    ('session_interface_name', (YLeaf(YType.str, 'session-interface-name'), ['str'])),
                 ])
                 self.interface_name = None
                 self.vrf_name = None
@@ -24994,6 +25335,7 @@ class Bfd(Entity):
                 self.session_interface_name = None
                 self._segment_path = lambda: "ipv4bf-do-mplste-head-multi-path"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-multi-paths/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadMultiPaths.Ipv4bfDoMplsteHeadMultiPath, ['interface_name', 'vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
@@ -25030,6 +25372,7 @@ class Bfd(Entity):
             self.relation_detail = YList(self)
             self._segment_path = lambda: "relation-details"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.RelationDetails, [], name, value)
@@ -25045,7 +25388,7 @@ class Bfd(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: destination_address
             
@@ -25099,10 +25442,10 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("link-information", ("link_information", Bfd.RelationDetails.RelationDetail.LinkInformation)), ("association-information", ("association_information", Bfd.RelationDetails.RelationDetail.AssociationInformation))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str','str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
                 ])
                 self.interface_name = None
                 self.destination_address = None
@@ -25113,6 +25456,7 @@ class Bfd(Entity):
                 self.association_information = YList(self)
                 self._segment_path = lambda: "relation-detail"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/relation-details/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.RelationDetails.RelationDetail, ['interface_name', 'destination_address', u'state', u'local_discriminator'], name, value)
@@ -25158,15 +25502,16 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
                     ])
                     self.state = None
                     self.interface_name = None
                     self.local_discriminator = None
                     self._segment_path = lambda: "link-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/relation-details/relation-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.RelationDetails.RelationDetail.LinkInformation, [u'state', u'interface_name', u'local_discriminator'], name, value)
@@ -25222,9 +25567,9 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("ip-destination-address", ("ip_destination_address", Bfd.RelationDetails.RelationDetail.AssociationInformation.IpDestinationAddress)), ("owner-information", ("owner_information", Bfd.RelationDetails.RelationDetail.AssociationInformation.OwnerInformation))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                        ('sessiontype', YLeaf(YType.enumeration, 'sessiontype')),
-                        ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                        ('sessiontype', (YLeaf(YType.enumeration, 'sessiontype'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                        ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
                     ])
                     self.interface_name = None
                     self.sessiontype = None
@@ -25237,6 +25582,7 @@ class Bfd(Entity):
                     self.owner_information = YList(self)
                     self._segment_path = lambda: "association-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/relation-details/relation-detail/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.RelationDetails.RelationDetail.AssociationInformation, [u'interface_name', u'sessiontype', u'local_discriminator'], name, value)
@@ -25289,10 +25635,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('afi', YLeaf(YType.enumeration, 'afi')),
-                            ('dummy', YLeaf(YType.uint8, 'dummy')),
-                            ('ipv4', YLeaf(YType.str, 'ipv4')),
-                            ('ipv6', YLeaf(YType.str, 'ipv6')),
+                            ('afi', (YLeaf(YType.enumeration, 'afi'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdAfId', '')])),
+                            ('dummy', (YLeaf(YType.uint8, 'dummy'), ['int'])),
+                            ('ipv4', (YLeaf(YType.str, 'ipv4'), ['str'])),
+                            ('ipv6', (YLeaf(YType.str, 'ipv6'), ['str'])),
                         ])
                         self.afi = None
                         self.dummy = None
@@ -25300,6 +25646,7 @@ class Bfd(Entity):
                         self.ipv6 = None
                         self._segment_path = lambda: "ip-destination-address"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/relation-details/relation-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.RelationDetails.RelationDetail.AssociationInformation.IpDestinationAddress, [u'afi', u'dummy', u'ipv4', u'ipv6'], name, value)
@@ -25365,11 +25712,11 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interval', YLeaf(YType.uint32, 'interval')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                            ('adjusted_interval', YLeaf(YType.uint32, 'adjusted-interval')),
-                            ('adjusted_detection_multiplier', YLeaf(YType.uint32, 'adjusted-detection-multiplier')),
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                            ('adjusted_interval', (YLeaf(YType.uint32, 'adjusted-interval'), ['int'])),
+                            ('adjusted_detection_multiplier', (YLeaf(YType.uint32, 'adjusted-detection-multiplier'), ['int'])),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.interval = None
                         self.detection_multiplier = None
@@ -25378,6 +25725,7 @@ class Bfd(Entity):
                         self.name = None
                         self._segment_path = lambda: "owner-information"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/relation-details/relation-detail/association-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.RelationDetails.RelationDetail.AssociationInformation.OwnerInformation, [u'interval', u'detection_multiplier', u'adjusted_interval', u'adjusted_detection_multiplier', u'name'], name, value)
@@ -25415,6 +25763,7 @@ class Bfd(Entity):
             self._children_name_map["ipv4bf_do_mplste_tail_packet_counters"] = "ipv4bf-do-mplste-tail-packet-counters"
             self._segment_path = lambda: "ipv4bf-do-mplste-tail-counters"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailCounters, [], name, value)
@@ -25450,6 +25799,7 @@ class Bfd(Entity):
                 self.ipv4bf_do_mplste_tail_packet_counter = YList(self)
                 self._segment_path = lambda: "ipv4bf-do-mplste-tail-packet-counters"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-counters/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters, [], name, value)
@@ -25601,24 +25951,24 @@ class Bfd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                        ('incoming_label', YLeaf(YType.uint32, 'incoming-label')),
-                        ('fe_ctype', YLeaf(YType.uint32, 'fe-ctype')),
-                        ('fec_subgroup_id', YLeaf(YType.uint32, 'fec-subgroup-id')),
-                        ('feclspid', YLeaf(YType.uint32, 'feclspid')),
-                        ('fec_tunnel_id', YLeaf(YType.uint32, 'fec-tunnel-id')),
-                        ('fec_extended_tunnel_id', YLeaf(YType.str, 'fec-extended-tunnel-id')),
-                        ('fec_source', YLeaf(YType.str, 'fec-source')),
-                        ('fec_destination', YLeaf(YType.str, 'fec-destination')),
-                        ('fecp2mpid', YLeaf(YType.uint32, 'fecp2mpid')),
-                        ('fec_subgroup_originator', YLeaf(YType.str, 'fec-subgroup-originator')),
-                        ('fec_ctype', YLeaf(YType.uint32, 'fec-ctype')),
-                        ('location', YLeaf(YType.str, 'location')),
-                        ('hello_transmit_count', YLeaf(YType.uint32, 'hello-transmit-count')),
-                        ('hello_receive_count', YLeaf(YType.uint32, 'hello-receive-count')),
-                        ('echo_transmit_count', YLeaf(YType.uint32, 'echo-transmit-count')),
-                        ('echo_receive_count', YLeaf(YType.uint32, 'echo-receive-count')),
-                        ('display_type', YLeaf(YType.enumeration, 'display-type')),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                        ('incoming_label', (YLeaf(YType.uint32, 'incoming-label'), ['int'])),
+                        ('fe_ctype', (YLeaf(YType.uint32, 'fe-ctype'), ['int'])),
+                        ('fec_subgroup_id', (YLeaf(YType.uint32, 'fec-subgroup-id'), ['int'])),
+                        ('feclspid', (YLeaf(YType.uint32, 'feclspid'), ['int'])),
+                        ('fec_tunnel_id', (YLeaf(YType.uint32, 'fec-tunnel-id'), ['int'])),
+                        ('fec_extended_tunnel_id', (YLeaf(YType.str, 'fec-extended-tunnel-id'), ['str'])),
+                        ('fec_source', (YLeaf(YType.str, 'fec-source'), ['str'])),
+                        ('fec_destination', (YLeaf(YType.str, 'fec-destination'), ['str'])),
+                        ('fecp2mpid', (YLeaf(YType.uint32, 'fecp2mpid'), ['int'])),
+                        ('fec_subgroup_originator', (YLeaf(YType.str, 'fec-subgroup-originator'), ['str'])),
+                        ('fec_ctype', (YLeaf(YType.uint32, 'fec-ctype'), ['int'])),
+                        ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                        ('hello_transmit_count', (YLeaf(YType.uint32, 'hello-transmit-count'), ['int'])),
+                        ('hello_receive_count', (YLeaf(YType.uint32, 'hello-receive-count'), ['int'])),
+                        ('echo_transmit_count', (YLeaf(YType.uint32, 'echo-transmit-count'), ['int'])),
+                        ('echo_receive_count', (YLeaf(YType.uint32, 'echo-receive-count'), ['int'])),
+                        ('display_type', (YLeaf(YType.enumeration, 'display-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtPktDisplay', '')])),
                     ])
                     self.vrf_name = None
                     self.incoming_label = None
@@ -25640,6 +25990,7 @@ class Bfd(Entity):
                     self.display_type = None
                     self._segment_path = lambda: "ipv4bf-do-mplste-tail-packet-counter"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-counters/ipv4bf-do-mplste-tail-packet-counters/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv4bfDoMplsteTailCounters.Ipv4bfDoMplsteTailPacketCounters.Ipv4bfDoMplsteTailPacketCounter, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', u'hello_transmit_count', u'hello_receive_count', u'echo_transmit_count', u'echo_receive_count', u'display_type'], name, value)
@@ -25676,6 +26027,7 @@ class Bfd(Entity):
             self.ipv6_single_hop_session_brief = YList(self)
             self._segment_path = lambda: "ipv6-single-hop-session-briefs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs, [], name, value)
@@ -25691,7 +26043,7 @@ class Bfd(Entity):
             	Interface Name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: destination_address
             
@@ -25764,14 +26116,14 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("status-brief-information", ("status_brief_information", Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation))])
                 self._leafs = OrderedDict([
-                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('session_type', YLeaf(YType.enumeration, 'session-type')),
-                    ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                    ('session_flags', YLeaf(YType.uint32, 'session-flags')),
+                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str','str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('session_type', (YLeaf(YType.enumeration, 'session-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdSession', '')])),
+                    ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                    ('session_flags', (YLeaf(YType.uint32, 'session-flags'), ['int'])),
                 ])
                 self.interface_name = None
                 self.destination_address = None
@@ -25787,6 +26139,7 @@ class Bfd(Entity):
                 self._children_name_map["status_brief_information"] = "status-brief-information"
                 self._segment_path = lambda: "ipv6-single-hop-session-brief"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-briefs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief, ['interface_name', 'destination_address', 'location', u'node_id', u'state', u'session_type', u'session_subtype', u'session_flags'], name, value)
@@ -25833,6 +26186,7 @@ class Bfd(Entity):
                     self._children_name_map["echo_interval_multiplier"] = "echo-interval-multiplier"
                     self._segment_path = lambda: "status-brief-information"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-briefs/ipv6-single-hop-session-brief/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation, [], name, value)
@@ -25893,10 +26247,10 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_remote_transmit_interval', YLeaf(YType.uint32, 'negotiated-remote-transmit-interval')),
-                            ('negotiated_local_transmit_interval', YLeaf(YType.uint32, 'negotiated-local-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_remote_transmit_interval', (YLeaf(YType.uint32, 'negotiated-remote-transmit-interval'), ['int'])),
+                            ('negotiated_local_transmit_interval', (YLeaf(YType.uint32, 'negotiated-local-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_remote_transmit_interval = None
                         self.negotiated_local_transmit_interval = None
@@ -25904,6 +26258,7 @@ class Bfd(Entity):
                         self.detection_multiplier = None
                         self._segment_path = lambda: "async-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-briefs/ipv6-single-hop-session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.AsyncIntervalMultiplier, [u'negotiated_remote_transmit_interval', u'negotiated_local_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -25955,15 +26310,16 @@ class Bfd(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('negotiated_transmit_interval', YLeaf(YType.uint32, 'negotiated-transmit-interval')),
-                            ('detection_time', YLeaf(YType.uint32, 'detection-time')),
-                            ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
+                            ('negotiated_transmit_interval', (YLeaf(YType.uint32, 'negotiated-transmit-interval'), ['int'])),
+                            ('detection_time', (YLeaf(YType.uint32, 'detection-time'), ['int'])),
+                            ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
                         ])
                         self.negotiated_transmit_interval = None
                         self.detection_time = None
                         self.detection_multiplier = None
                         self._segment_path = lambda: "echo-interval-multiplier"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv6-single-hop-session-briefs/ipv6-single-hop-session-brief/status-brief-information/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Bfd.Ipv6SingleHopSessionBriefs.Ipv6SingleHopSessionBrief.StatusBriefInformation.EchoIntervalMultiplier, [u'negotiated_transmit_interval', u'detection_time', u'detection_multiplier'], name, value)
@@ -25999,6 +26355,7 @@ class Bfd(Entity):
             self.ipv4bf_do_mplste_tail_multi_path = YList(self)
             self._segment_path = lambda: "ipv4bf-do-mplste-tail-multi-paths"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteTailMultiPaths, [], name, value)
@@ -26135,7 +26492,7 @@ class Bfd(Entity):
             	Interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             
 
@@ -26154,25 +26511,25 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('incoming_label', YLeaf(YType.uint32, 'incoming-label')),
-                    ('fe_ctype', YLeaf(YType.uint32, 'fe-ctype')),
-                    ('fec_subgroup_id', YLeaf(YType.uint32, 'fec-subgroup-id')),
-                    ('feclspid', YLeaf(YType.uint32, 'feclspid')),
-                    ('fec_tunnel_id', YLeaf(YType.uint32, 'fec-tunnel-id')),
-                    ('fec_extended_tunnel_id', YLeaf(YType.str, 'fec-extended-tunnel-id')),
-                    ('fec_source', YLeaf(YType.str, 'fec-source')),
-                    ('fec_destination', YLeaf(YType.str, 'fec-destination')),
-                    ('fecp2mpid', YLeaf(YType.uint32, 'fecp2mpid')),
-                    ('fec_subgroup_originator', YLeaf(YType.str, 'fec-subgroup-originator')),
-                    ('fec_ctype', YLeaf(YType.uint32, 'fec-ctype')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('incoming_label_xr', YLeaf(YType.uint32, 'incoming-label-xr')),
-                    ('session_interface_name', YLeaf(YType.str, 'session-interface-name')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('incoming_label', (YLeaf(YType.uint32, 'incoming-label'), ['int'])),
+                    ('fe_ctype', (YLeaf(YType.uint32, 'fe-ctype'), ['int'])),
+                    ('fec_subgroup_id', (YLeaf(YType.uint32, 'fec-subgroup-id'), ['int'])),
+                    ('feclspid', (YLeaf(YType.uint32, 'feclspid'), ['int'])),
+                    ('fec_tunnel_id', (YLeaf(YType.uint32, 'fec-tunnel-id'), ['int'])),
+                    ('fec_extended_tunnel_id', (YLeaf(YType.str, 'fec-extended-tunnel-id'), ['str'])),
+                    ('fec_source', (YLeaf(YType.str, 'fec-source'), ['str'])),
+                    ('fec_destination', (YLeaf(YType.str, 'fec-destination'), ['str'])),
+                    ('fecp2mpid', (YLeaf(YType.uint32, 'fecp2mpid'), ['int'])),
+                    ('fec_subgroup_originator', (YLeaf(YType.str, 'fec-subgroup-originator'), ['str'])),
+                    ('fec_ctype', (YLeaf(YType.uint32, 'fec-ctype'), ['int'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('incoming_label_xr', (YLeaf(YType.uint32, 'incoming-label-xr'), ['int'])),
+                    ('session_interface_name', (YLeaf(YType.str, 'session-interface-name'), ['str'])),
                 ])
                 self.vrf_name = None
                 self.incoming_label = None
@@ -26195,6 +26552,7 @@ class Bfd(Entity):
                 self.session_interface_name = None
                 self._segment_path = lambda: "ipv4bf-do-mplste-tail-multi-path"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-tail-multi-paths/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteTailMultiPaths.Ipv4bfDoMplsteTailMultiPath, ['vrf_name', 'incoming_label', 'fe_ctype', 'fec_subgroup_id', 'feclspid', 'fec_tunnel_id', 'fec_extended_tunnel_id', 'fec_source', 'fec_destination', 'fecp2mpid', 'fec_subgroup_originator', 'fec_ctype', 'location', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
@@ -26230,6 +26588,7 @@ class Bfd(Entity):
             self.ipv4_multi_hop_multi_path = YList(self)
             self._segment_path = lambda: "ipv4-multi-hop-multi-paths"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4MultiHopMultiPaths, [], name, value)
@@ -26315,7 +26674,7 @@ class Bfd(Entity):
             	Interface name
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             
 
@@ -26334,16 +26693,16 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('source_address', YLeaf(YType.str, 'source-address')),
-                    ('destination_address', YLeaf(YType.str, 'destination-address')),
-                    ('location', YLeaf(YType.str, 'location')),
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('session_subtype', YLeaf(YType.str, 'session-subtype')),
-                    ('state', YLeaf(YType.enumeration, 'state')),
-                    ('local_discriminator', YLeaf(YType.uint32, 'local-discriminator')),
-                    ('node_id', YLeaf(YType.str, 'node-id')),
-                    ('incoming_label_xr', YLeaf(YType.uint32, 'incoming-label-xr')),
-                    ('session_interface_name', YLeaf(YType.str, 'session-interface-name')),
+                    ('source_address', (YLeaf(YType.str, 'source-address'), ['str','str'])),
+                    ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str','str'])),
+                    ('location', (YLeaf(YType.str, 'location'), ['str'])),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('session_subtype', (YLeaf(YType.str, 'session-subtype'), ['str'])),
+                    ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_bfd_oper', 'BfdMgmtSessionState', '')])),
+                    ('local_discriminator', (YLeaf(YType.uint32, 'local-discriminator'), ['int'])),
+                    ('node_id', (YLeaf(YType.str, 'node-id'), ['str'])),
+                    ('incoming_label_xr', (YLeaf(YType.uint32, 'incoming-label-xr'), ['int'])),
+                    ('session_interface_name', (YLeaf(YType.str, 'session-interface-name'), ['str'])),
                 ])
                 self.source_address = None
                 self.destination_address = None
@@ -26357,6 +26716,7 @@ class Bfd(Entity):
                 self.session_interface_name = None
                 self._segment_path = lambda: "ipv4-multi-hop-multi-path"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4-multi-hop-multi-paths/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4MultiHopMultiPaths.Ipv4MultiHopMultiPath, ['source_address', 'destination_address', 'location', 'vrf_name', u'session_subtype', u'state', u'local_discriminator', u'node_id', u'incoming_label_xr', u'session_interface_name'], name, value)
@@ -26395,6 +26755,7 @@ class Bfd(Entity):
             self._children_name_map["session_state"] = "session-state"
             self._segment_path = lambda: "ipv4bf-do-mplste-head-summary"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSummary, [], name, value)
@@ -26449,10 +26810,10 @@ class Bfd(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('total_count', YLeaf(YType.uint32, 'total-count')),
-                    ('down_count', YLeaf(YType.uint32, 'down-count')),
-                    ('up_count', YLeaf(YType.uint32, 'up-count')),
-                    ('unknown_count', YLeaf(YType.uint32, 'unknown-count')),
+                    ('total_count', (YLeaf(YType.uint32, 'total-count'), ['int'])),
+                    ('down_count', (YLeaf(YType.uint32, 'down-count'), ['int'])),
+                    ('up_count', (YLeaf(YType.uint32, 'up-count'), ['int'])),
+                    ('unknown_count', (YLeaf(YType.uint32, 'unknown-count'), ['int'])),
                 ])
                 self.total_count = None
                 self.down_count = None
@@ -26460,6 +26821,7 @@ class Bfd(Entity):
                 self.unknown_count = None
                 self._segment_path = lambda: "session-state"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-bfd-oper:bfd/ipv4bf-do-mplste-head-summary/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Bfd.Ipv4bfDoMplsteHeadSummary.SessionState, [u'total_count', u'down_count', u'up_count', u'unknown_count'], name, value)

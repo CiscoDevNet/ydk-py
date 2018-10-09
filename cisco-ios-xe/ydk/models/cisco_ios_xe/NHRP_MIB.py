@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class NHRPMIB(Entity):
     """
     
@@ -135,6 +136,7 @@ class NHRPMIB(Entity):
         self.nhrpserverstattable.parent = self
         self._children_name_map["nhrpserverstattable"] = "nhrpServerStatTable"
         self._segment_path = lambda: "NHRP-MIB:NHRP-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(NHRPMIB, [], name, value)
@@ -168,11 +170,12 @@ class NHRPMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('nhrpnextindex', YLeaf(YType.uint32, 'nhrpNextIndex')),
+                ('nhrpnextindex', (YLeaf(YType.uint32, 'nhrpNextIndex'), ['int'])),
             ])
             self.nhrpnextindex = None
             self._segment_path = lambda: "nhrpGeneralObjects"
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NHRPMIB.NhrpGeneralObjects, ['nhrpnextindex'], name, value)
@@ -209,6 +212,7 @@ class NHRPMIB(Entity):
             self.nhrpcacheentry = YList(self)
             self._segment_path = lambda: "nhrpCacheTable"
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NHRPMIB.NhrpCacheTable, [], name, value)
@@ -358,23 +362,23 @@ class NHRPMIB(Entity):
                 self.ylist_key_names = ['nhrpcacheinternetworkaddrtype','nhrpcacheinternetworkaddr','ifindex','nhrpcacheindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('nhrpcacheinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpCacheInternetworkAddrType')),
-                    ('nhrpcacheinternetworkaddr', YLeaf(YType.str, 'nhrpCacheInternetworkAddr')),
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('nhrpcacheindex', YLeaf(YType.uint32, 'nhrpCacheIndex')),
-                    ('nhrpcacheprefixlength', YLeaf(YType.int32, 'nhrpCachePrefixLength')),
-                    ('nhrpcachenexthopinternetworkaddr', YLeaf(YType.str, 'nhrpCacheNextHopInternetworkAddr')),
-                    ('nhrpcachenbmaaddrtype', YLeaf(YType.enumeration, 'nhrpCacheNbmaAddrType')),
-                    ('nhrpcachenbmaaddr', YLeaf(YType.str, 'nhrpCacheNbmaAddr')),
-                    ('nhrpcachenbmasubaddr', YLeaf(YType.str, 'nhrpCacheNbmaSubaddr')),
-                    ('nhrpcachetype', YLeaf(YType.enumeration, 'nhrpCacheType')),
-                    ('nhrpcachestate', YLeaf(YType.enumeration, 'nhrpCacheState')),
-                    ('nhrpcacheholdingtimevalid', YLeaf(YType.boolean, 'nhrpCacheHoldingTimeValid')),
-                    ('nhrpcacheholdingtime', YLeaf(YType.uint32, 'nhrpCacheHoldingTime')),
-                    ('nhrpcachenegotiatedmtu', YLeaf(YType.int32, 'nhrpCacheNegotiatedMtu')),
-                    ('nhrpcachepreference', YLeaf(YType.int32, 'nhrpCachePreference')),
-                    ('nhrpcachestoragetype', YLeaf(YType.enumeration, 'nhrpCacheStorageType')),
-                    ('nhrpcacherowstatus', YLeaf(YType.enumeration, 'nhrpCacheRowStatus')),
+                    ('nhrpcacheinternetworkaddrtype', (YLeaf(YType.enumeration, 'nhrpCacheInternetworkAddrType'), [('ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB', 'AddressFamilyNumbers', '')])),
+                    ('nhrpcacheinternetworkaddr', (YLeaf(YType.str, 'nhrpCacheInternetworkAddr'), ['str'])),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('nhrpcacheindex', (YLeaf(YType.uint32, 'nhrpCacheIndex'), ['int'])),
+                    ('nhrpcacheprefixlength', (YLeaf(YType.int32, 'nhrpCachePrefixLength'), ['int'])),
+                    ('nhrpcachenexthopinternetworkaddr', (YLeaf(YType.str, 'nhrpCacheNextHopInternetworkAddr'), ['str'])),
+                    ('nhrpcachenbmaaddrtype', (YLeaf(YType.enumeration, 'nhrpCacheNbmaAddrType'), [('ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB', 'AddressFamilyNumbers', '')])),
+                    ('nhrpcachenbmaaddr', (YLeaf(YType.str, 'nhrpCacheNbmaAddr'), ['str'])),
+                    ('nhrpcachenbmasubaddr', (YLeaf(YType.str, 'nhrpCacheNbmaSubaddr'), ['str'])),
+                    ('nhrpcachetype', (YLeaf(YType.enumeration, 'nhrpCacheType'), [('ydk.models.cisco_ios_xe.NHRP_MIB', 'NHRPMIB', 'NhrpCacheTable.NhrpCacheEntry.NhrpCacheType')])),
+                    ('nhrpcachestate', (YLeaf(YType.enumeration, 'nhrpCacheState'), [('ydk.models.cisco_ios_xe.NHRP_MIB', 'NHRPMIB', 'NhrpCacheTable.NhrpCacheEntry.NhrpCacheState')])),
+                    ('nhrpcacheholdingtimevalid', (YLeaf(YType.boolean, 'nhrpCacheHoldingTimeValid'), ['bool'])),
+                    ('nhrpcacheholdingtime', (YLeaf(YType.uint32, 'nhrpCacheHoldingTime'), ['int'])),
+                    ('nhrpcachenegotiatedmtu', (YLeaf(YType.int32, 'nhrpCacheNegotiatedMtu'), ['int'])),
+                    ('nhrpcachepreference', (YLeaf(YType.int32, 'nhrpCachePreference'), ['int'])),
+                    ('nhrpcachestoragetype', (YLeaf(YType.enumeration, 'nhrpCacheStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('nhrpcacherowstatus', (YLeaf(YType.enumeration, 'nhrpCacheRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.nhrpcacheinternetworkaddrtype = None
                 self.nhrpcacheinternetworkaddr = None
@@ -395,6 +399,7 @@ class NHRPMIB(Entity):
                 self.nhrpcacherowstatus = None
                 self._segment_path = lambda: "nhrpCacheEntry" + "[nhrpCacheInternetworkAddrType='" + str(self.nhrpcacheinternetworkaddrtype) + "']" + "[nhrpCacheInternetworkAddr='" + str(self.nhrpcacheinternetworkaddr) + "']" + "[ifIndex='" + str(self.ifindex) + "']" + "[nhrpCacheIndex='" + str(self.nhrpcacheindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpCacheTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NHRPMIB.NhrpCacheTable.NhrpCacheEntry, ['nhrpcacheinternetworkaddrtype', 'nhrpcacheinternetworkaddr', 'ifindex', 'nhrpcacheindex', 'nhrpcacheprefixlength', 'nhrpcachenexthopinternetworkaddr', 'nhrpcachenbmaaddrtype', 'nhrpcachenbmaaddr', 'nhrpcachenbmasubaddr', 'nhrpcachetype', 'nhrpcachestate', 'nhrpcacheholdingtimevalid', 'nhrpcacheholdingtime', 'nhrpcachenegotiatedmtu', 'nhrpcachepreference', 'nhrpcachestoragetype', 'nhrpcacherowstatus'], name, value)
@@ -566,6 +571,7 @@ class NHRPMIB(Entity):
             self.nhrppurgereqentry = YList(self)
             self._segment_path = lambda: "nhrpPurgeReqTable"
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NHRPMIB.NhrpPurgeReqTable, [], name, value)
@@ -630,12 +636,12 @@ class NHRPMIB(Entity):
                 self.ylist_key_names = ['nhrppurgeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('nhrppurgeindex', YLeaf(YType.uint32, 'nhrpPurgeIndex')),
-                    ('nhrppurgecacheidentifier', YLeaf(YType.uint32, 'nhrpPurgeCacheIdentifier')),
-                    ('nhrppurgeprefixlength', YLeaf(YType.int32, 'nhrpPurgePrefixLength')),
-                    ('nhrppurgerequestid', YLeaf(YType.uint32, 'nhrpPurgeRequestID')),
-                    ('nhrppurgereplyexpected', YLeaf(YType.boolean, 'nhrpPurgeReplyExpected')),
-                    ('nhrppurgerowstatus', YLeaf(YType.enumeration, 'nhrpPurgeRowStatus')),
+                    ('nhrppurgeindex', (YLeaf(YType.uint32, 'nhrpPurgeIndex'), ['int'])),
+                    ('nhrppurgecacheidentifier', (YLeaf(YType.uint32, 'nhrpPurgeCacheIdentifier'), ['int'])),
+                    ('nhrppurgeprefixlength', (YLeaf(YType.int32, 'nhrpPurgePrefixLength'), ['int'])),
+                    ('nhrppurgerequestid', (YLeaf(YType.uint32, 'nhrpPurgeRequestID'), ['int'])),
+                    ('nhrppurgereplyexpected', (YLeaf(YType.boolean, 'nhrpPurgeReplyExpected'), ['bool'])),
+                    ('nhrppurgerowstatus', (YLeaf(YType.enumeration, 'nhrpPurgeRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.nhrppurgeindex = None
                 self.nhrppurgecacheidentifier = None
@@ -645,6 +651,7 @@ class NHRPMIB(Entity):
                 self.nhrppurgerowstatus = None
                 self._segment_path = lambda: "nhrpPurgeReqEntry" + "[nhrpPurgeIndex='" + str(self.nhrppurgeindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpPurgeReqTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NHRPMIB.NhrpPurgeReqTable.NhrpPurgeReqEntry, ['nhrppurgeindex', 'nhrppurgecacheidentifier', 'nhrppurgeprefixlength', 'nhrppurgerequestid', 'nhrppurgereplyexpected', 'nhrppurgerowstatus'], name, value)
@@ -681,6 +688,7 @@ class NHRPMIB(Entity):
             self.nhrpcliententry = YList(self)
             self._segment_path = lambda: "nhrpClientTable"
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NHRPMIB.NhrpClientTable, [], name, value)
@@ -808,21 +816,21 @@ class NHRPMIB(Entity):
                 self.ylist_key_names = ['nhrpclientindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('nhrpclientindex', YLeaf(YType.uint32, 'nhrpClientIndex')),
-                    ('nhrpclientinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpClientInternetworkAddrType')),
-                    ('nhrpclientinternetworkaddr', YLeaf(YType.str, 'nhrpClientInternetworkAddr')),
-                    ('nhrpclientnbmaaddrtype', YLeaf(YType.enumeration, 'nhrpClientNbmaAddrType')),
-                    ('nhrpclientnbmaaddr', YLeaf(YType.str, 'nhrpClientNbmaAddr')),
-                    ('nhrpclientnbmasubaddr', YLeaf(YType.str, 'nhrpClientNbmaSubaddr')),
-                    ('nhrpclientinitialrequesttimeout', YLeaf(YType.int32, 'nhrpClientInitialRequestTimeout')),
-                    ('nhrpclientregistrationrequestretries', YLeaf(YType.int32, 'nhrpClientRegistrationRequestRetries')),
-                    ('nhrpclientresolutionrequestretries', YLeaf(YType.int32, 'nhrpClientResolutionRequestRetries')),
-                    ('nhrpclientpurgerequestretries', YLeaf(YType.int32, 'nhrpClientPurgeRequestRetries')),
-                    ('nhrpclientdefaultmtu', YLeaf(YType.uint32, 'nhrpClientDefaultMtu')),
-                    ('nhrpclientholdtime', YLeaf(YType.uint32, 'nhrpClientHoldTime')),
-                    ('nhrpclientrequestid', YLeaf(YType.uint32, 'nhrpClientRequestID')),
-                    ('nhrpclientstoragetype', YLeaf(YType.enumeration, 'nhrpClientStorageType')),
-                    ('nhrpclientrowstatus', YLeaf(YType.enumeration, 'nhrpClientRowStatus')),
+                    ('nhrpclientindex', (YLeaf(YType.uint32, 'nhrpClientIndex'), ['int'])),
+                    ('nhrpclientinternetworkaddrtype', (YLeaf(YType.enumeration, 'nhrpClientInternetworkAddrType'), [('ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB', 'AddressFamilyNumbers', '')])),
+                    ('nhrpclientinternetworkaddr', (YLeaf(YType.str, 'nhrpClientInternetworkAddr'), ['str'])),
+                    ('nhrpclientnbmaaddrtype', (YLeaf(YType.enumeration, 'nhrpClientNbmaAddrType'), [('ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB', 'AddressFamilyNumbers', '')])),
+                    ('nhrpclientnbmaaddr', (YLeaf(YType.str, 'nhrpClientNbmaAddr'), ['str'])),
+                    ('nhrpclientnbmasubaddr', (YLeaf(YType.str, 'nhrpClientNbmaSubaddr'), ['str'])),
+                    ('nhrpclientinitialrequesttimeout', (YLeaf(YType.int32, 'nhrpClientInitialRequestTimeout'), ['int'])),
+                    ('nhrpclientregistrationrequestretries', (YLeaf(YType.int32, 'nhrpClientRegistrationRequestRetries'), ['int'])),
+                    ('nhrpclientresolutionrequestretries', (YLeaf(YType.int32, 'nhrpClientResolutionRequestRetries'), ['int'])),
+                    ('nhrpclientpurgerequestretries', (YLeaf(YType.int32, 'nhrpClientPurgeRequestRetries'), ['int'])),
+                    ('nhrpclientdefaultmtu', (YLeaf(YType.uint32, 'nhrpClientDefaultMtu'), ['int'])),
+                    ('nhrpclientholdtime', (YLeaf(YType.uint32, 'nhrpClientHoldTime'), ['int'])),
+                    ('nhrpclientrequestid', (YLeaf(YType.uint32, 'nhrpClientRequestID'), ['int'])),
+                    ('nhrpclientstoragetype', (YLeaf(YType.enumeration, 'nhrpClientStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('nhrpclientrowstatus', (YLeaf(YType.enumeration, 'nhrpClientRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.nhrpclientindex = None
                 self.nhrpclientinternetworkaddrtype = None
@@ -841,6 +849,7 @@ class NHRPMIB(Entity):
                 self.nhrpclientrowstatus = None
                 self._segment_path = lambda: "nhrpClientEntry" + "[nhrpClientIndex='" + str(self.nhrpclientindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NHRPMIB.NhrpClientTable.NhrpClientEntry, ['nhrpclientindex', 'nhrpclientinternetworkaddrtype', 'nhrpclientinternetworkaddr', 'nhrpclientnbmaaddrtype', 'nhrpclientnbmaaddr', 'nhrpclientnbmasubaddr', 'nhrpclientinitialrequesttimeout', 'nhrpclientregistrationrequestretries', 'nhrpclientresolutionrequestretries', 'nhrpclientpurgerequestretries', 'nhrpclientdefaultmtu', 'nhrpclientholdtime', 'nhrpclientrequestid', 'nhrpclientstoragetype', 'nhrpclientrowstatus'], name, value)
@@ -877,6 +886,7 @@ class NHRPMIB(Entity):
             self.nhrpclientregistrationentry = YList(self)
             self._segment_path = lambda: "nhrpClientRegistrationTable"
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NHRPMIB.NhrpClientRegistrationTable, [], name, value)
@@ -936,11 +946,11 @@ class NHRPMIB(Entity):
                 self.ylist_key_names = ['nhrpclientindex','nhrpclientregindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('nhrpclientindex', YLeaf(YType.str, 'nhrpClientIndex')),
-                    ('nhrpclientregindex', YLeaf(YType.uint32, 'nhrpClientRegIndex')),
-                    ('nhrpclientreguniqueness', YLeaf(YType.enumeration, 'nhrpClientRegUniqueness')),
-                    ('nhrpclientregstate', YLeaf(YType.enumeration, 'nhrpClientRegState')),
-                    ('nhrpclientregrowstatus', YLeaf(YType.enumeration, 'nhrpClientRegRowStatus')),
+                    ('nhrpclientindex', (YLeaf(YType.str, 'nhrpClientIndex'), ['int'])),
+                    ('nhrpclientregindex', (YLeaf(YType.uint32, 'nhrpClientRegIndex'), ['int'])),
+                    ('nhrpclientreguniqueness', (YLeaf(YType.enumeration, 'nhrpClientRegUniqueness'), [('ydk.models.cisco_ios_xe.NHRP_MIB', 'NHRPMIB', 'NhrpClientRegistrationTable.NhrpClientRegistrationEntry.NhrpClientRegUniqueness')])),
+                    ('nhrpclientregstate', (YLeaf(YType.enumeration, 'nhrpClientRegState'), [('ydk.models.cisco_ios_xe.NHRP_MIB', 'NHRPMIB', 'NhrpClientRegistrationTable.NhrpClientRegistrationEntry.NhrpClientRegState')])),
+                    ('nhrpclientregrowstatus', (YLeaf(YType.enumeration, 'nhrpClientRegRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.nhrpclientindex = None
                 self.nhrpclientregindex = None
@@ -949,6 +959,7 @@ class NHRPMIB(Entity):
                 self.nhrpclientregrowstatus = None
                 self._segment_path = lambda: "nhrpClientRegistrationEntry" + "[nhrpClientIndex='" + str(self.nhrpclientindex) + "']" + "[nhrpClientRegIndex='" + str(self.nhrpclientregindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientRegistrationTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NHRPMIB.NhrpClientRegistrationTable.NhrpClientRegistrationEntry, ['nhrpclientindex', 'nhrpclientregindex', 'nhrpclientreguniqueness', 'nhrpclientregstate', 'nhrpclientregrowstatus'], name, value)
@@ -1062,6 +1073,7 @@ class NHRPMIB(Entity):
             self.nhrpclientnhsentry = YList(self)
             self._segment_path = lambda: "nhrpClientNhsTable"
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NHRPMIB.NhrpClientNhsTable, [], name, value)
@@ -1145,15 +1157,15 @@ class NHRPMIB(Entity):
                 self.ylist_key_names = ['nhrpclientindex','nhrpclientnhsindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('nhrpclientindex', YLeaf(YType.str, 'nhrpClientIndex')),
-                    ('nhrpclientnhsindex', YLeaf(YType.uint32, 'nhrpClientNhsIndex')),
-                    ('nhrpclientnhsinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpClientNhsInternetworkAddrType')),
-                    ('nhrpclientnhsinternetworkaddr', YLeaf(YType.str, 'nhrpClientNhsInternetworkAddr')),
-                    ('nhrpclientnhsnbmaaddrtype', YLeaf(YType.enumeration, 'nhrpClientNhsNbmaAddrType')),
-                    ('nhrpclientnhsnbmaaddr', YLeaf(YType.str, 'nhrpClientNhsNbmaAddr')),
-                    ('nhrpclientnhsnbmasubaddr', YLeaf(YType.str, 'nhrpClientNhsNbmaSubaddr')),
-                    ('nhrpclientnhsinuse', YLeaf(YType.boolean, 'nhrpClientNhsInUse')),
-                    ('nhrpclientnhsrowstatus', YLeaf(YType.enumeration, 'nhrpClientNhsRowStatus')),
+                    ('nhrpclientindex', (YLeaf(YType.str, 'nhrpClientIndex'), ['int'])),
+                    ('nhrpclientnhsindex', (YLeaf(YType.uint32, 'nhrpClientNhsIndex'), ['int'])),
+                    ('nhrpclientnhsinternetworkaddrtype', (YLeaf(YType.enumeration, 'nhrpClientNhsInternetworkAddrType'), [('ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB', 'AddressFamilyNumbers', '')])),
+                    ('nhrpclientnhsinternetworkaddr', (YLeaf(YType.str, 'nhrpClientNhsInternetworkAddr'), ['str'])),
+                    ('nhrpclientnhsnbmaaddrtype', (YLeaf(YType.enumeration, 'nhrpClientNhsNbmaAddrType'), [('ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB', 'AddressFamilyNumbers', '')])),
+                    ('nhrpclientnhsnbmaaddr', (YLeaf(YType.str, 'nhrpClientNhsNbmaAddr'), ['str'])),
+                    ('nhrpclientnhsnbmasubaddr', (YLeaf(YType.str, 'nhrpClientNhsNbmaSubaddr'), ['str'])),
+                    ('nhrpclientnhsinuse', (YLeaf(YType.boolean, 'nhrpClientNhsInUse'), ['bool'])),
+                    ('nhrpclientnhsrowstatus', (YLeaf(YType.enumeration, 'nhrpClientNhsRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.nhrpclientindex = None
                 self.nhrpclientnhsindex = None
@@ -1166,6 +1178,7 @@ class NHRPMIB(Entity):
                 self.nhrpclientnhsrowstatus = None
                 self._segment_path = lambda: "nhrpClientNhsEntry" + "[nhrpClientIndex='" + str(self.nhrpclientindex) + "']" + "[nhrpClientNhsIndex='" + str(self.nhrpclientnhsindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientNhsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NHRPMIB.NhrpClientNhsTable.NhrpClientNhsEntry, ['nhrpclientindex', 'nhrpclientnhsindex', 'nhrpclientnhsinternetworkaddrtype', 'nhrpclientnhsinternetworkaddr', 'nhrpclientnhsnbmaaddrtype', 'nhrpclientnhsnbmaaddr', 'nhrpclientnhsnbmasubaddr', 'nhrpclientnhsinuse', 'nhrpclientnhsrowstatus'], name, value)
@@ -1202,6 +1215,7 @@ class NHRPMIB(Entity):
             self.nhrpclientstatentry = YList(self)
             self._segment_path = lambda: "nhrpClientStatTable"
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NHRPMIB.NhrpClientStatTable, [], name, value)
@@ -1412,32 +1426,32 @@ class NHRPMIB(Entity):
                 self.ylist_key_names = ['nhrpclientindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('nhrpclientindex', YLeaf(YType.str, 'nhrpClientIndex')),
-                    ('nhrpclientstattxresolvereq', YLeaf(YType.uint32, 'nhrpClientStatTxResolveReq')),
-                    ('nhrpclientstatrxresolvereplyack', YLeaf(YType.uint32, 'nhrpClientStatRxResolveReplyAck')),
-                    ('nhrpclientstatrxresolvereplynakprohibited', YLeaf(YType.uint32, 'nhrpClientStatRxResolveReplyNakProhibited')),
-                    ('nhrpclientstatrxresolvereplynakinsufresources', YLeaf(YType.uint32, 'nhrpClientStatRxResolveReplyNakInsufResources')),
-                    ('nhrpclientstatrxresolvereplynaknobinding', YLeaf(YType.uint32, 'nhrpClientStatRxResolveReplyNakNoBinding')),
-                    ('nhrpclientstatrxresolvereplynaknotunique', YLeaf(YType.uint32, 'nhrpClientStatRxResolveReplyNakNotUnique')),
-                    ('nhrpclientstattxregisterreq', YLeaf(YType.uint32, 'nhrpClientStatTxRegisterReq')),
-                    ('nhrpclientstatrxregisterack', YLeaf(YType.uint32, 'nhrpClientStatRxRegisterAck')),
-                    ('nhrpclientstatrxregisternakprohibited', YLeaf(YType.uint32, 'nhrpClientStatRxRegisterNakProhibited')),
-                    ('nhrpclientstatrxregisternakinsufresources', YLeaf(YType.uint32, 'nhrpClientStatRxRegisterNakInsufResources')),
-                    ('nhrpclientstatrxregisternakalreadyreg', YLeaf(YType.uint32, 'nhrpClientStatRxRegisterNakAlreadyReg')),
-                    ('nhrpclientstatrxpurgereq', YLeaf(YType.uint32, 'nhrpClientStatRxPurgeReq')),
-                    ('nhrpclientstattxpurgereq', YLeaf(YType.uint32, 'nhrpClientStatTxPurgeReq')),
-                    ('nhrpclientstatrxpurgereply', YLeaf(YType.uint32, 'nhrpClientStatRxPurgeReply')),
-                    ('nhrpclientstattxpurgereply', YLeaf(YType.uint32, 'nhrpClientStatTxPurgeReply')),
-                    ('nhrpclientstattxerrorindication', YLeaf(YType.uint32, 'nhrpClientStatTxErrorIndication')),
-                    ('nhrpclientstatrxerrunrecognizedextension', YLeaf(YType.uint32, 'nhrpClientStatRxErrUnrecognizedExtension')),
-                    ('nhrpclientstatrxerrloopdetected', YLeaf(YType.uint32, 'nhrpClientStatRxErrLoopDetected')),
-                    ('nhrpclientstatrxerrprotoaddrunreachable', YLeaf(YType.uint32, 'nhrpClientStatRxErrProtoAddrUnreachable')),
-                    ('nhrpclientstatrxerrprotoerror', YLeaf(YType.uint32, 'nhrpClientStatRxErrProtoError')),
-                    ('nhrpclientstatrxerrsdusizeexceeded', YLeaf(YType.uint32, 'nhrpClientStatRxErrSduSizeExceeded')),
-                    ('nhrpclientstatrxerrinvalidextension', YLeaf(YType.uint32, 'nhrpClientStatRxErrInvalidExtension')),
-                    ('nhrpclientstatrxerrauthenticationfailure', YLeaf(YType.uint32, 'nhrpClientStatRxErrAuthenticationFailure')),
-                    ('nhrpclientstatrxerrhopcountexceeded', YLeaf(YType.uint32, 'nhrpClientStatRxErrHopCountExceeded')),
-                    ('nhrpclientstatdiscontinuitytime', YLeaf(YType.uint32, 'nhrpClientStatDiscontinuityTime')),
+                    ('nhrpclientindex', (YLeaf(YType.str, 'nhrpClientIndex'), ['int'])),
+                    ('nhrpclientstattxresolvereq', (YLeaf(YType.uint32, 'nhrpClientStatTxResolveReq'), ['int'])),
+                    ('nhrpclientstatrxresolvereplyack', (YLeaf(YType.uint32, 'nhrpClientStatRxResolveReplyAck'), ['int'])),
+                    ('nhrpclientstatrxresolvereplynakprohibited', (YLeaf(YType.uint32, 'nhrpClientStatRxResolveReplyNakProhibited'), ['int'])),
+                    ('nhrpclientstatrxresolvereplynakinsufresources', (YLeaf(YType.uint32, 'nhrpClientStatRxResolveReplyNakInsufResources'), ['int'])),
+                    ('nhrpclientstatrxresolvereplynaknobinding', (YLeaf(YType.uint32, 'nhrpClientStatRxResolveReplyNakNoBinding'), ['int'])),
+                    ('nhrpclientstatrxresolvereplynaknotunique', (YLeaf(YType.uint32, 'nhrpClientStatRxResolveReplyNakNotUnique'), ['int'])),
+                    ('nhrpclientstattxregisterreq', (YLeaf(YType.uint32, 'nhrpClientStatTxRegisterReq'), ['int'])),
+                    ('nhrpclientstatrxregisterack', (YLeaf(YType.uint32, 'nhrpClientStatRxRegisterAck'), ['int'])),
+                    ('nhrpclientstatrxregisternakprohibited', (YLeaf(YType.uint32, 'nhrpClientStatRxRegisterNakProhibited'), ['int'])),
+                    ('nhrpclientstatrxregisternakinsufresources', (YLeaf(YType.uint32, 'nhrpClientStatRxRegisterNakInsufResources'), ['int'])),
+                    ('nhrpclientstatrxregisternakalreadyreg', (YLeaf(YType.uint32, 'nhrpClientStatRxRegisterNakAlreadyReg'), ['int'])),
+                    ('nhrpclientstatrxpurgereq', (YLeaf(YType.uint32, 'nhrpClientStatRxPurgeReq'), ['int'])),
+                    ('nhrpclientstattxpurgereq', (YLeaf(YType.uint32, 'nhrpClientStatTxPurgeReq'), ['int'])),
+                    ('nhrpclientstatrxpurgereply', (YLeaf(YType.uint32, 'nhrpClientStatRxPurgeReply'), ['int'])),
+                    ('nhrpclientstattxpurgereply', (YLeaf(YType.uint32, 'nhrpClientStatTxPurgeReply'), ['int'])),
+                    ('nhrpclientstattxerrorindication', (YLeaf(YType.uint32, 'nhrpClientStatTxErrorIndication'), ['int'])),
+                    ('nhrpclientstatrxerrunrecognizedextension', (YLeaf(YType.uint32, 'nhrpClientStatRxErrUnrecognizedExtension'), ['int'])),
+                    ('nhrpclientstatrxerrloopdetected', (YLeaf(YType.uint32, 'nhrpClientStatRxErrLoopDetected'), ['int'])),
+                    ('nhrpclientstatrxerrprotoaddrunreachable', (YLeaf(YType.uint32, 'nhrpClientStatRxErrProtoAddrUnreachable'), ['int'])),
+                    ('nhrpclientstatrxerrprotoerror', (YLeaf(YType.uint32, 'nhrpClientStatRxErrProtoError'), ['int'])),
+                    ('nhrpclientstatrxerrsdusizeexceeded', (YLeaf(YType.uint32, 'nhrpClientStatRxErrSduSizeExceeded'), ['int'])),
+                    ('nhrpclientstatrxerrinvalidextension', (YLeaf(YType.uint32, 'nhrpClientStatRxErrInvalidExtension'), ['int'])),
+                    ('nhrpclientstatrxerrauthenticationfailure', (YLeaf(YType.uint32, 'nhrpClientStatRxErrAuthenticationFailure'), ['int'])),
+                    ('nhrpclientstatrxerrhopcountexceeded', (YLeaf(YType.uint32, 'nhrpClientStatRxErrHopCountExceeded'), ['int'])),
+                    ('nhrpclientstatdiscontinuitytime', (YLeaf(YType.uint32, 'nhrpClientStatDiscontinuityTime'), ['int'])),
                 ])
                 self.nhrpclientindex = None
                 self.nhrpclientstattxresolvereq = None
@@ -1467,6 +1481,7 @@ class NHRPMIB(Entity):
                 self.nhrpclientstatdiscontinuitytime = None
                 self._segment_path = lambda: "nhrpClientStatEntry" + "[nhrpClientIndex='" + str(self.nhrpclientindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpClientStatTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NHRPMIB.NhrpClientStatTable.NhrpClientStatEntry, ['nhrpclientindex', 'nhrpclientstattxresolvereq', 'nhrpclientstatrxresolvereplyack', 'nhrpclientstatrxresolvereplynakprohibited', 'nhrpclientstatrxresolvereplynakinsufresources', 'nhrpclientstatrxresolvereplynaknobinding', 'nhrpclientstatrxresolvereplynaknotunique', 'nhrpclientstattxregisterreq', 'nhrpclientstatrxregisterack', 'nhrpclientstatrxregisternakprohibited', 'nhrpclientstatrxregisternakinsufresources', 'nhrpclientstatrxregisternakalreadyreg', 'nhrpclientstatrxpurgereq', 'nhrpclientstattxpurgereq', 'nhrpclientstatrxpurgereply', 'nhrpclientstattxpurgereply', 'nhrpclientstattxerrorindication', 'nhrpclientstatrxerrunrecognizedextension', 'nhrpclientstatrxerrloopdetected', 'nhrpclientstatrxerrprotoaddrunreachable', 'nhrpclientstatrxerrprotoerror', 'nhrpclientstatrxerrsdusizeexceeded', 'nhrpclientstatrxerrinvalidextension', 'nhrpclientstatrxerrauthenticationfailure', 'nhrpclientstatrxerrhopcountexceeded', 'nhrpclientstatdiscontinuitytime'], name, value)
@@ -1503,6 +1518,7 @@ class NHRPMIB(Entity):
             self.nhrpserverentry = YList(self)
             self._segment_path = lambda: "nhrpServerTable"
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NHRPMIB.NhrpServerTable, [], name, value)
@@ -1577,14 +1593,14 @@ class NHRPMIB(Entity):
                 self.ylist_key_names = ['nhrpserverindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('nhrpserverindex', YLeaf(YType.uint32, 'nhrpServerIndex')),
-                    ('nhrpserverinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpServerInternetworkAddrType')),
-                    ('nhrpserverinternetworkaddr', YLeaf(YType.str, 'nhrpServerInternetworkAddr')),
-                    ('nhrpservernbmaaddrtype', YLeaf(YType.enumeration, 'nhrpServerNbmaAddrType')),
-                    ('nhrpservernbmaaddr', YLeaf(YType.str, 'nhrpServerNbmaAddr')),
-                    ('nhrpservernbmasubaddr', YLeaf(YType.str, 'nhrpServerNbmaSubaddr')),
-                    ('nhrpserverstoragetype', YLeaf(YType.enumeration, 'nhrpServerStorageType')),
-                    ('nhrpserverrowstatus', YLeaf(YType.enumeration, 'nhrpServerRowStatus')),
+                    ('nhrpserverindex', (YLeaf(YType.uint32, 'nhrpServerIndex'), ['int'])),
+                    ('nhrpserverinternetworkaddrtype', (YLeaf(YType.enumeration, 'nhrpServerInternetworkAddrType'), [('ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB', 'AddressFamilyNumbers', '')])),
+                    ('nhrpserverinternetworkaddr', (YLeaf(YType.str, 'nhrpServerInternetworkAddr'), ['str'])),
+                    ('nhrpservernbmaaddrtype', (YLeaf(YType.enumeration, 'nhrpServerNbmaAddrType'), [('ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB', 'AddressFamilyNumbers', '')])),
+                    ('nhrpservernbmaaddr', (YLeaf(YType.str, 'nhrpServerNbmaAddr'), ['str'])),
+                    ('nhrpservernbmasubaddr', (YLeaf(YType.str, 'nhrpServerNbmaSubaddr'), ['str'])),
+                    ('nhrpserverstoragetype', (YLeaf(YType.enumeration, 'nhrpServerStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('nhrpserverrowstatus', (YLeaf(YType.enumeration, 'nhrpServerRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.nhrpserverindex = None
                 self.nhrpserverinternetworkaddrtype = None
@@ -1596,6 +1612,7 @@ class NHRPMIB(Entity):
                 self.nhrpserverrowstatus = None
                 self._segment_path = lambda: "nhrpServerEntry" + "[nhrpServerIndex='" + str(self.nhrpserverindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NHRPMIB.NhrpServerTable.NhrpServerEntry, ['nhrpserverindex', 'nhrpserverinternetworkaddrtype', 'nhrpserverinternetworkaddr', 'nhrpservernbmaaddrtype', 'nhrpservernbmaaddr', 'nhrpservernbmasubaddr', 'nhrpserverstoragetype', 'nhrpserverrowstatus'], name, value)
@@ -1642,6 +1659,7 @@ class NHRPMIB(Entity):
             self.nhrpservercacheentry = YList(self)
             self._segment_path = lambda: "nhrpServerCacheTable"
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NHRPMIB.NhrpServerCacheTable, [], name, value)
@@ -1711,12 +1729,12 @@ class NHRPMIB(Entity):
                 self.ylist_key_names = ['nhrpcacheinternetworkaddrtype','nhrpcacheinternetworkaddr','ifindex','nhrpcacheindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('nhrpcacheinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpCacheInternetworkAddrType')),
-                    ('nhrpcacheinternetworkaddr', YLeaf(YType.str, 'nhrpCacheInternetworkAddr')),
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('nhrpcacheindex', YLeaf(YType.str, 'nhrpCacheIndex')),
-                    ('nhrpservercacheauthoritative', YLeaf(YType.boolean, 'nhrpServerCacheAuthoritative')),
-                    ('nhrpservercacheuniqueness', YLeaf(YType.boolean, 'nhrpServerCacheUniqueness')),
+                    ('nhrpcacheinternetworkaddrtype', (YLeaf(YType.enumeration, 'nhrpCacheInternetworkAddrType'), [('ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB', 'AddressFamilyNumbers', '')])),
+                    ('nhrpcacheinternetworkaddr', (YLeaf(YType.str, 'nhrpCacheInternetworkAddr'), ['str'])),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('nhrpcacheindex', (YLeaf(YType.str, 'nhrpCacheIndex'), ['int'])),
+                    ('nhrpservercacheauthoritative', (YLeaf(YType.boolean, 'nhrpServerCacheAuthoritative'), ['bool'])),
+                    ('nhrpservercacheuniqueness', (YLeaf(YType.boolean, 'nhrpServerCacheUniqueness'), ['bool'])),
                 ])
                 self.nhrpcacheinternetworkaddrtype = None
                 self.nhrpcacheinternetworkaddr = None
@@ -1726,6 +1744,7 @@ class NHRPMIB(Entity):
                 self.nhrpservercacheuniqueness = None
                 self._segment_path = lambda: "nhrpServerCacheEntry" + "[nhrpCacheInternetworkAddrType='" + str(self.nhrpcacheinternetworkaddrtype) + "']" + "[nhrpCacheInternetworkAddr='" + str(self.nhrpcacheinternetworkaddr) + "']" + "[ifIndex='" + str(self.ifindex) + "']" + "[nhrpCacheIndex='" + str(self.nhrpcacheindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerCacheTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NHRPMIB.NhrpServerCacheTable.NhrpServerCacheEntry, ['nhrpcacheinternetworkaddrtype', 'nhrpcacheinternetworkaddr', 'ifindex', 'nhrpcacheindex', 'nhrpservercacheauthoritative', 'nhrpservercacheuniqueness'], name, value)
@@ -1762,6 +1781,7 @@ class NHRPMIB(Entity):
             self.nhrpservernhcentry = YList(self)
             self._segment_path = lambda: "nhrpServerNhcTable"
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NHRPMIB.NhrpServerNhcTable, [], name, value)
@@ -1852,16 +1872,16 @@ class NHRPMIB(Entity):
                 self.ylist_key_names = ['nhrpserverindex','nhrpservernhcindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('nhrpserverindex', YLeaf(YType.str, 'nhrpServerIndex')),
-                    ('nhrpservernhcindex', YLeaf(YType.uint32, 'nhrpServerNhcIndex')),
-                    ('nhrpservernhcprefixlength', YLeaf(YType.int32, 'nhrpServerNhcPrefixLength')),
-                    ('nhrpservernhcinternetworkaddrtype', YLeaf(YType.enumeration, 'nhrpServerNhcInternetworkAddrType')),
-                    ('nhrpservernhcinternetworkaddr', YLeaf(YType.str, 'nhrpServerNhcInternetworkAddr')),
-                    ('nhrpservernhcnbmaaddrtype', YLeaf(YType.enumeration, 'nhrpServerNhcNbmaAddrType')),
-                    ('nhrpservernhcnbmaaddr', YLeaf(YType.str, 'nhrpServerNhcNbmaAddr')),
-                    ('nhrpservernhcnbmasubaddr', YLeaf(YType.str, 'nhrpServerNhcNbmaSubaddr')),
-                    ('nhrpservernhcinuse', YLeaf(YType.boolean, 'nhrpServerNhcInUse')),
-                    ('nhrpservernhcrowstatus', YLeaf(YType.enumeration, 'nhrpServerNhcRowStatus')),
+                    ('nhrpserverindex', (YLeaf(YType.str, 'nhrpServerIndex'), ['int'])),
+                    ('nhrpservernhcindex', (YLeaf(YType.uint32, 'nhrpServerNhcIndex'), ['int'])),
+                    ('nhrpservernhcprefixlength', (YLeaf(YType.int32, 'nhrpServerNhcPrefixLength'), ['int'])),
+                    ('nhrpservernhcinternetworkaddrtype', (YLeaf(YType.enumeration, 'nhrpServerNhcInternetworkAddrType'), [('ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB', 'AddressFamilyNumbers', '')])),
+                    ('nhrpservernhcinternetworkaddr', (YLeaf(YType.str, 'nhrpServerNhcInternetworkAddr'), ['str'])),
+                    ('nhrpservernhcnbmaaddrtype', (YLeaf(YType.enumeration, 'nhrpServerNhcNbmaAddrType'), [('ydk.models.cisco_ios_xe.IANA_ADDRESS_FAMILY_NUMBERS_MIB', 'AddressFamilyNumbers', '')])),
+                    ('nhrpservernhcnbmaaddr', (YLeaf(YType.str, 'nhrpServerNhcNbmaAddr'), ['str'])),
+                    ('nhrpservernhcnbmasubaddr', (YLeaf(YType.str, 'nhrpServerNhcNbmaSubaddr'), ['str'])),
+                    ('nhrpservernhcinuse', (YLeaf(YType.boolean, 'nhrpServerNhcInUse'), ['bool'])),
+                    ('nhrpservernhcrowstatus', (YLeaf(YType.enumeration, 'nhrpServerNhcRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.nhrpserverindex = None
                 self.nhrpservernhcindex = None
@@ -1875,6 +1895,7 @@ class NHRPMIB(Entity):
                 self.nhrpservernhcrowstatus = None
                 self._segment_path = lambda: "nhrpServerNhcEntry" + "[nhrpServerIndex='" + str(self.nhrpserverindex) + "']" + "[nhrpServerNhcIndex='" + str(self.nhrpservernhcindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerNhcTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NHRPMIB.NhrpServerNhcTable.NhrpServerNhcEntry, ['nhrpserverindex', 'nhrpservernhcindex', 'nhrpservernhcprefixlength', 'nhrpservernhcinternetworkaddrtype', 'nhrpservernhcinternetworkaddr', 'nhrpservernhcnbmaaddrtype', 'nhrpservernhcnbmaaddr', 'nhrpservernhcnbmasubaddr', 'nhrpservernhcinuse', 'nhrpservernhcrowstatus'], name, value)
@@ -1910,6 +1931,7 @@ class NHRPMIB(Entity):
             self.nhrpserverstatentry = YList(self)
             self._segment_path = lambda: "nhrpServerStatTable"
             self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NHRPMIB.NhrpServerStatTable, [], name, value)
@@ -2228,47 +2250,47 @@ class NHRPMIB(Entity):
                 self.ylist_key_names = ['nhrpserverindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('nhrpserverindex', YLeaf(YType.str, 'nhrpServerIndex')),
-                    ('nhrpserverstatrxresolvereq', YLeaf(YType.uint32, 'nhrpServerStatRxResolveReq')),
-                    ('nhrpserverstattxresolvereplyack', YLeaf(YType.uint32, 'nhrpServerStatTxResolveReplyAck')),
-                    ('nhrpserverstattxresolvereplynakprohibited', YLeaf(YType.uint32, 'nhrpServerStatTxResolveReplyNakProhibited')),
-                    ('nhrpserverstattxresolvereplynakinsufresources', YLeaf(YType.uint32, 'nhrpServerStatTxResolveReplyNakInsufResources')),
-                    ('nhrpserverstattxresolvereplynaknobinding', YLeaf(YType.uint32, 'nhrpServerStatTxResolveReplyNakNoBinding')),
-                    ('nhrpserverstattxresolvereplynaknotunique', YLeaf(YType.uint32, 'nhrpServerStatTxResolveReplyNakNotUnique')),
-                    ('nhrpserverstatrxregisterreq', YLeaf(YType.uint32, 'nhrpServerStatRxRegisterReq')),
-                    ('nhrpserverstattxregisterack', YLeaf(YType.uint32, 'nhrpServerStatTxRegisterAck')),
-                    ('nhrpserverstattxregisternakprohibited', YLeaf(YType.uint32, 'nhrpServerStatTxRegisterNakProhibited')),
-                    ('nhrpserverstattxregisternakinsufresources', YLeaf(YType.uint32, 'nhrpServerStatTxRegisterNakInsufResources')),
-                    ('nhrpserverstattxregisternakalreadyreg', YLeaf(YType.uint32, 'nhrpServerStatTxRegisterNakAlreadyReg')),
-                    ('nhrpserverstatrxpurgereq', YLeaf(YType.uint32, 'nhrpServerStatRxPurgeReq')),
-                    ('nhrpserverstattxpurgereq', YLeaf(YType.uint32, 'nhrpServerStatTxPurgeReq')),
-                    ('nhrpserverstatrxpurgereply', YLeaf(YType.uint32, 'nhrpServerStatRxPurgeReply')),
-                    ('nhrpserverstattxpurgereply', YLeaf(YType.uint32, 'nhrpServerStatTxPurgeReply')),
-                    ('nhrpserverstatrxerrunrecognizedextension', YLeaf(YType.uint32, 'nhrpServerStatRxErrUnrecognizedExtension')),
-                    ('nhrpserverstatrxerrloopdetected', YLeaf(YType.uint32, 'nhrpServerStatRxErrLoopDetected')),
-                    ('nhrpserverstatrxerrprotoaddrunreachable', YLeaf(YType.uint32, 'nhrpServerStatRxErrProtoAddrUnreachable')),
-                    ('nhrpserverstatrxerrprotoerror', YLeaf(YType.uint32, 'nhrpServerStatRxErrProtoError')),
-                    ('nhrpserverstatrxerrsdusizeexceeded', YLeaf(YType.uint32, 'nhrpServerStatRxErrSduSizeExceeded')),
-                    ('nhrpserverstatrxerrinvalidextension', YLeaf(YType.uint32, 'nhrpServerStatRxErrInvalidExtension')),
-                    ('nhrpserverstatrxerrinvalidresreplyreceived', YLeaf(YType.uint32, 'nhrpServerStatRxErrInvalidResReplyReceived')),
-                    ('nhrpserverstatrxerrauthenticationfailure', YLeaf(YType.uint32, 'nhrpServerStatRxErrAuthenticationFailure')),
-                    ('nhrpserverstatrxerrhopcountexceeded', YLeaf(YType.uint32, 'nhrpServerStatRxErrHopCountExceeded')),
-                    ('nhrpserverstattxerrunrecognizedextension', YLeaf(YType.uint32, 'nhrpServerStatTxErrUnrecognizedExtension')),
-                    ('nhrpserverstattxerrloopdetected', YLeaf(YType.uint32, 'nhrpServerStatTxErrLoopDetected')),
-                    ('nhrpserverstattxerrprotoaddrunreachable', YLeaf(YType.uint32, 'nhrpServerStatTxErrProtoAddrUnreachable')),
-                    ('nhrpserverstattxerrprotoerror', YLeaf(YType.uint32, 'nhrpServerStatTxErrProtoError')),
-                    ('nhrpserverstattxerrsdusizeexceeded', YLeaf(YType.uint32, 'nhrpServerStatTxErrSduSizeExceeded')),
-                    ('nhrpserverstattxerrinvalidextension', YLeaf(YType.uint32, 'nhrpServerStatTxErrInvalidExtension')),
-                    ('nhrpserverstattxerrauthenticationfailure', YLeaf(YType.uint32, 'nhrpServerStatTxErrAuthenticationFailure')),
-                    ('nhrpserverstattxerrhopcountexceeded', YLeaf(YType.uint32, 'nhrpServerStatTxErrHopCountExceeded')),
-                    ('nhrpserverstatfwresolvereq', YLeaf(YType.uint32, 'nhrpServerStatFwResolveReq')),
-                    ('nhrpserverstatfwresolvereply', YLeaf(YType.uint32, 'nhrpServerStatFwResolveReply')),
-                    ('nhrpserverstatfwregisterreq', YLeaf(YType.uint32, 'nhrpServerStatFwRegisterReq')),
-                    ('nhrpserverstatfwregisterreply', YLeaf(YType.uint32, 'nhrpServerStatFwRegisterReply')),
-                    ('nhrpserverstatfwpurgereq', YLeaf(YType.uint32, 'nhrpServerStatFwPurgeReq')),
-                    ('nhrpserverstatfwpurgereply', YLeaf(YType.uint32, 'nhrpServerStatFwPurgeReply')),
-                    ('nhrpserverstatfwerrorindication', YLeaf(YType.uint32, 'nhrpServerStatFwErrorIndication')),
-                    ('nhrpserverstatdiscontinuitytime', YLeaf(YType.uint32, 'nhrpServerStatDiscontinuityTime')),
+                    ('nhrpserverindex', (YLeaf(YType.str, 'nhrpServerIndex'), ['int'])),
+                    ('nhrpserverstatrxresolvereq', (YLeaf(YType.uint32, 'nhrpServerStatRxResolveReq'), ['int'])),
+                    ('nhrpserverstattxresolvereplyack', (YLeaf(YType.uint32, 'nhrpServerStatTxResolveReplyAck'), ['int'])),
+                    ('nhrpserverstattxresolvereplynakprohibited', (YLeaf(YType.uint32, 'nhrpServerStatTxResolveReplyNakProhibited'), ['int'])),
+                    ('nhrpserverstattxresolvereplynakinsufresources', (YLeaf(YType.uint32, 'nhrpServerStatTxResolveReplyNakInsufResources'), ['int'])),
+                    ('nhrpserverstattxresolvereplynaknobinding', (YLeaf(YType.uint32, 'nhrpServerStatTxResolveReplyNakNoBinding'), ['int'])),
+                    ('nhrpserverstattxresolvereplynaknotunique', (YLeaf(YType.uint32, 'nhrpServerStatTxResolveReplyNakNotUnique'), ['int'])),
+                    ('nhrpserverstatrxregisterreq', (YLeaf(YType.uint32, 'nhrpServerStatRxRegisterReq'), ['int'])),
+                    ('nhrpserverstattxregisterack', (YLeaf(YType.uint32, 'nhrpServerStatTxRegisterAck'), ['int'])),
+                    ('nhrpserverstattxregisternakprohibited', (YLeaf(YType.uint32, 'nhrpServerStatTxRegisterNakProhibited'), ['int'])),
+                    ('nhrpserverstattxregisternakinsufresources', (YLeaf(YType.uint32, 'nhrpServerStatTxRegisterNakInsufResources'), ['int'])),
+                    ('nhrpserverstattxregisternakalreadyreg', (YLeaf(YType.uint32, 'nhrpServerStatTxRegisterNakAlreadyReg'), ['int'])),
+                    ('nhrpserverstatrxpurgereq', (YLeaf(YType.uint32, 'nhrpServerStatRxPurgeReq'), ['int'])),
+                    ('nhrpserverstattxpurgereq', (YLeaf(YType.uint32, 'nhrpServerStatTxPurgeReq'), ['int'])),
+                    ('nhrpserverstatrxpurgereply', (YLeaf(YType.uint32, 'nhrpServerStatRxPurgeReply'), ['int'])),
+                    ('nhrpserverstattxpurgereply', (YLeaf(YType.uint32, 'nhrpServerStatTxPurgeReply'), ['int'])),
+                    ('nhrpserverstatrxerrunrecognizedextension', (YLeaf(YType.uint32, 'nhrpServerStatRxErrUnrecognizedExtension'), ['int'])),
+                    ('nhrpserverstatrxerrloopdetected', (YLeaf(YType.uint32, 'nhrpServerStatRxErrLoopDetected'), ['int'])),
+                    ('nhrpserverstatrxerrprotoaddrunreachable', (YLeaf(YType.uint32, 'nhrpServerStatRxErrProtoAddrUnreachable'), ['int'])),
+                    ('nhrpserverstatrxerrprotoerror', (YLeaf(YType.uint32, 'nhrpServerStatRxErrProtoError'), ['int'])),
+                    ('nhrpserverstatrxerrsdusizeexceeded', (YLeaf(YType.uint32, 'nhrpServerStatRxErrSduSizeExceeded'), ['int'])),
+                    ('nhrpserverstatrxerrinvalidextension', (YLeaf(YType.uint32, 'nhrpServerStatRxErrInvalidExtension'), ['int'])),
+                    ('nhrpserverstatrxerrinvalidresreplyreceived', (YLeaf(YType.uint32, 'nhrpServerStatRxErrInvalidResReplyReceived'), ['int'])),
+                    ('nhrpserverstatrxerrauthenticationfailure', (YLeaf(YType.uint32, 'nhrpServerStatRxErrAuthenticationFailure'), ['int'])),
+                    ('nhrpserverstatrxerrhopcountexceeded', (YLeaf(YType.uint32, 'nhrpServerStatRxErrHopCountExceeded'), ['int'])),
+                    ('nhrpserverstattxerrunrecognizedextension', (YLeaf(YType.uint32, 'nhrpServerStatTxErrUnrecognizedExtension'), ['int'])),
+                    ('nhrpserverstattxerrloopdetected', (YLeaf(YType.uint32, 'nhrpServerStatTxErrLoopDetected'), ['int'])),
+                    ('nhrpserverstattxerrprotoaddrunreachable', (YLeaf(YType.uint32, 'nhrpServerStatTxErrProtoAddrUnreachable'), ['int'])),
+                    ('nhrpserverstattxerrprotoerror', (YLeaf(YType.uint32, 'nhrpServerStatTxErrProtoError'), ['int'])),
+                    ('nhrpserverstattxerrsdusizeexceeded', (YLeaf(YType.uint32, 'nhrpServerStatTxErrSduSizeExceeded'), ['int'])),
+                    ('nhrpserverstattxerrinvalidextension', (YLeaf(YType.uint32, 'nhrpServerStatTxErrInvalidExtension'), ['int'])),
+                    ('nhrpserverstattxerrauthenticationfailure', (YLeaf(YType.uint32, 'nhrpServerStatTxErrAuthenticationFailure'), ['int'])),
+                    ('nhrpserverstattxerrhopcountexceeded', (YLeaf(YType.uint32, 'nhrpServerStatTxErrHopCountExceeded'), ['int'])),
+                    ('nhrpserverstatfwresolvereq', (YLeaf(YType.uint32, 'nhrpServerStatFwResolveReq'), ['int'])),
+                    ('nhrpserverstatfwresolvereply', (YLeaf(YType.uint32, 'nhrpServerStatFwResolveReply'), ['int'])),
+                    ('nhrpserverstatfwregisterreq', (YLeaf(YType.uint32, 'nhrpServerStatFwRegisterReq'), ['int'])),
+                    ('nhrpserverstatfwregisterreply', (YLeaf(YType.uint32, 'nhrpServerStatFwRegisterReply'), ['int'])),
+                    ('nhrpserverstatfwpurgereq', (YLeaf(YType.uint32, 'nhrpServerStatFwPurgeReq'), ['int'])),
+                    ('nhrpserverstatfwpurgereply', (YLeaf(YType.uint32, 'nhrpServerStatFwPurgeReply'), ['int'])),
+                    ('nhrpserverstatfwerrorindication', (YLeaf(YType.uint32, 'nhrpServerStatFwErrorIndication'), ['int'])),
+                    ('nhrpserverstatdiscontinuitytime', (YLeaf(YType.uint32, 'nhrpServerStatDiscontinuityTime'), ['int'])),
                 ])
                 self.nhrpserverindex = None
                 self.nhrpserverstatrxresolvereq = None
@@ -2313,6 +2335,7 @@ class NHRPMIB(Entity):
                 self.nhrpserverstatdiscontinuitytime = None
                 self._segment_path = lambda: "nhrpServerStatEntry" + "[nhrpServerIndex='" + str(self.nhrpserverindex) + "']"
                 self._absolute_path = lambda: "NHRP-MIB:NHRP-MIB/nhrpServerStatTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NHRPMIB.NhrpServerStatTable.NhrpServerStatEntry, ['nhrpserverindex', 'nhrpserverstatrxresolvereq', 'nhrpserverstattxresolvereplyack', 'nhrpserverstattxresolvereplynakprohibited', 'nhrpserverstattxresolvereplynakinsufresources', 'nhrpserverstattxresolvereplynaknobinding', 'nhrpserverstattxresolvereplynaknotunique', 'nhrpserverstatrxregisterreq', 'nhrpserverstattxregisterack', 'nhrpserverstattxregisternakprohibited', 'nhrpserverstattxregisternakinsufresources', 'nhrpserverstattxregisternakalreadyreg', 'nhrpserverstatrxpurgereq', 'nhrpserverstattxpurgereq', 'nhrpserverstatrxpurgereply', 'nhrpserverstattxpurgereply', 'nhrpserverstatrxerrunrecognizedextension', 'nhrpserverstatrxerrloopdetected', 'nhrpserverstatrxerrprotoaddrunreachable', 'nhrpserverstatrxerrprotoerror', 'nhrpserverstatrxerrsdusizeexceeded', 'nhrpserverstatrxerrinvalidextension', 'nhrpserverstatrxerrinvalidresreplyreceived', 'nhrpserverstatrxerrauthenticationfailure', 'nhrpserverstatrxerrhopcountexceeded', 'nhrpserverstattxerrunrecognizedextension', 'nhrpserverstattxerrloopdetected', 'nhrpserverstattxerrprotoaddrunreachable', 'nhrpserverstattxerrprotoerror', 'nhrpserverstattxerrsdusizeexceeded', 'nhrpserverstattxerrinvalidextension', 'nhrpserverstattxerrauthenticationfailure', 'nhrpserverstattxerrhopcountexceeded', 'nhrpserverstatfwresolvereq', 'nhrpserverstatfwresolvereply', 'nhrpserverstatfwregisterreq', 'nhrpserverstatfwregisterreply', 'nhrpserverstatfwpurgereq', 'nhrpserverstatfwpurgereply', 'nhrpserverstatfwerrorindication', 'nhrpserverstatdiscontinuitytime'], name, value)

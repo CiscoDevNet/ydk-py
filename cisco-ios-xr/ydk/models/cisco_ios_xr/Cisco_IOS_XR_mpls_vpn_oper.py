@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   l3vpn\: L3VPN operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class MplsVpnAfi(Enum):
@@ -136,6 +137,7 @@ class L3vpn(Entity):
         self.vrfs.parent = self
         self._children_name_map["vrfs"] = "vrfs"
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-vpn-oper:l3vpn"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(L3vpn, [], name, value)
@@ -172,6 +174,7 @@ class L3vpn(Entity):
             self.invalid_vrf = YList(self)
             self._segment_path = lambda: "invalid-vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L3vpn.InvalidVrfs, [], name, value)
@@ -233,11 +236,11 @@ class L3vpn(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("interface", ("interface", L3vpn.InvalidVrfs.InvalidVrf.Interface)), ("af", ("af", L3vpn.InvalidVrfs.InvalidVrf.Af))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('vrf_name_xr', YLeaf(YType.str, 'vrf-name-xr')),
-                    ('vrf_description', YLeaf(YType.str, 'vrf-description')),
-                    ('route_distinguisher', YLeaf(YType.str, 'route-distinguisher')),
-                    ('is_big_vrf', YLeaf(YType.boolean, 'is-big-vrf')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('vrf_name_xr', (YLeaf(YType.str, 'vrf-name-xr'), ['str'])),
+                    ('vrf_description', (YLeaf(YType.str, 'vrf-description'), ['str'])),
+                    ('route_distinguisher', (YLeaf(YType.str, 'route-distinguisher'), ['str'])),
+                    ('is_big_vrf', (YLeaf(YType.boolean, 'is-big-vrf'), ['bool'])),
                 ])
                 self.vrf_name = None
                 self.vrf_name_xr = None
@@ -249,6 +252,7 @@ class L3vpn(Entity):
                 self.af = YList(self)
                 self._segment_path = lambda: "invalid-vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/invalid-vrfs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf, ['vrf_name', 'vrf_name_xr', 'vrf_description', 'route_distinguisher', 'is_big_vrf'], name, value)
@@ -280,10 +284,11 @@ class L3vpn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                     ])
                     self.interface_name = None
                     self._segment_path = lambda: "interface"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Interface, ['interface_name'], name, value)
@@ -335,10 +340,10 @@ class L3vpn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("route-target", ("route_target", L3vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget))])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
-                        ('import_route_policy', YLeaf(YType.str, 'import-route-policy')),
-                        ('export_route_policy', YLeaf(YType.str, 'export-route-policy')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper', 'MplsVpnAfi', '')])),
+                        ('saf_name', (YLeaf(YType.enumeration, 'saf-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper', 'MplsVpnSafi', '')])),
+                        ('import_route_policy', (YLeaf(YType.str, 'import-route-policy'), ['str'])),
+                        ('export_route_policy', (YLeaf(YType.str, 'export-route-policy'), ['str'])),
                     ])
                     self.af_name = None
                     self.saf_name = None
@@ -347,6 +352,7 @@ class L3vpn(Entity):
 
                     self.route_target = YList(self)
                     self._segment_path = lambda: "af"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Af, ['af_name', 'saf_name', 'import_route_policy', 'export_route_policy'], name, value)
@@ -393,16 +399,17 @@ class L3vpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('route_target_type', YLeaf(YType.enumeration, 'route-target-type')),
-                            ('route_target_value', YLeaf(YType.str, 'route-target-value')),
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                            ('route_target_type', (YLeaf(YType.enumeration, 'route-target-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper', 'MplsVpnRt', '')])),
+                            ('route_target_value', (YLeaf(YType.str, 'route-target-value'), ['str'])),
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper', 'MplsVpnAfi', '')])),
+                            ('saf_name', (YLeaf(YType.enumeration, 'saf-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper', 'MplsVpnSafi', '')])),
                         ])
                         self.route_target_type = None
                         self.route_target_value = None
                         self.af_name = None
                         self.saf_name = None
                         self._segment_path = lambda: "route-target"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L3vpn.InvalidVrfs.InvalidVrf.Af.RouteTarget, ['route_target_type', 'route_target_value', 'af_name', 'saf_name'], name, value)
@@ -438,6 +445,7 @@ class L3vpn(Entity):
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L3vpn.Vrfs, [], name, value)
@@ -499,11 +507,11 @@ class L3vpn(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("interface", ("interface", L3vpn.Vrfs.Vrf.Interface)), ("af", ("af", L3vpn.Vrfs.Vrf.Af))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                    ('vrf_name_xr', YLeaf(YType.str, 'vrf-name-xr')),
-                    ('vrf_description', YLeaf(YType.str, 'vrf-description')),
-                    ('route_distinguisher', YLeaf(YType.str, 'route-distinguisher')),
-                    ('is_big_vrf', YLeaf(YType.boolean, 'is-big-vrf')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                    ('vrf_name_xr', (YLeaf(YType.str, 'vrf-name-xr'), ['str'])),
+                    ('vrf_description', (YLeaf(YType.str, 'vrf-description'), ['str'])),
+                    ('route_distinguisher', (YLeaf(YType.str, 'route-distinguisher'), ['str'])),
+                    ('is_big_vrf', (YLeaf(YType.boolean, 'is-big-vrf'), ['bool'])),
                 ])
                 self.vrf_name = None
                 self.vrf_name_xr = None
@@ -515,6 +523,7 @@ class L3vpn(Entity):
                 self.af = YList(self)
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-vpn-oper:l3vpn/vrfs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L3vpn.Vrfs.Vrf, ['vrf_name', 'vrf_name_xr', 'vrf_description', 'route_distinguisher', 'is_big_vrf'], name, value)
@@ -546,10 +555,11 @@ class L3vpn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                     ])
                     self.interface_name = None
                     self._segment_path = lambda: "interface"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L3vpn.Vrfs.Vrf.Interface, ['interface_name'], name, value)
@@ -601,10 +611,10 @@ class L3vpn(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("route-target", ("route_target", L3vpn.Vrfs.Vrf.Af.RouteTarget))])
                     self._leafs = OrderedDict([
-                        ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                        ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
-                        ('import_route_policy', YLeaf(YType.str, 'import-route-policy')),
-                        ('export_route_policy', YLeaf(YType.str, 'export-route-policy')),
+                        ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper', 'MplsVpnAfi', '')])),
+                        ('saf_name', (YLeaf(YType.enumeration, 'saf-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper', 'MplsVpnSafi', '')])),
+                        ('import_route_policy', (YLeaf(YType.str, 'import-route-policy'), ['str'])),
+                        ('export_route_policy', (YLeaf(YType.str, 'export-route-policy'), ['str'])),
                     ])
                     self.af_name = None
                     self.saf_name = None
@@ -613,6 +623,7 @@ class L3vpn(Entity):
 
                     self.route_target = YList(self)
                     self._segment_path = lambda: "af"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L3vpn.Vrfs.Vrf.Af, ['af_name', 'saf_name', 'import_route_policy', 'export_route_policy'], name, value)
@@ -659,16 +670,17 @@ class L3vpn(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('route_target_type', YLeaf(YType.enumeration, 'route-target-type')),
-                            ('route_target_value', YLeaf(YType.str, 'route-target-value')),
-                            ('af_name', YLeaf(YType.enumeration, 'af-name')),
-                            ('saf_name', YLeaf(YType.enumeration, 'saf-name')),
+                            ('route_target_type', (YLeaf(YType.enumeration, 'route-target-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper', 'MplsVpnRt', '')])),
+                            ('route_target_value', (YLeaf(YType.str, 'route-target-value'), ['str'])),
+                            ('af_name', (YLeaf(YType.enumeration, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper', 'MplsVpnAfi', '')])),
+                            ('saf_name', (YLeaf(YType.enumeration, 'saf-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_vpn_oper', 'MplsVpnSafi', '')])),
                         ])
                         self.route_target_type = None
                         self.route_target_value = None
                         self.af_name = None
                         self.saf_name = None
                         self._segment_path = lambda: "route-target"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L3vpn.Vrfs.Vrf.Af.RouteTarget, ['route_target_type', 'route_target_value', 'af_name', 'saf_name'], name, value)

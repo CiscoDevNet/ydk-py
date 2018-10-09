@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   file\-system\: List of filesystems
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -50,6 +51,7 @@ class FileSystem(Entity):
 
         self.node = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-shellutil-filesystem-oper:file-system"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(FileSystem, [], name, value)
@@ -88,13 +90,14 @@ class FileSystem(Entity):
             self.ylist_key_names = ['node_name']
             self._child_classes = OrderedDict([("file-system", ("file_system", FileSystem.Node.FileSystem_))])
             self._leafs = OrderedDict([
-                ('node_name', YLeaf(YType.str, 'node-name')),
+                ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
             ])
             self.node_name = None
 
             self.file_system = YList(self)
             self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-shellutil-filesystem-oper:file-system/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(FileSystem.Node, ['node_name'], name, value)
@@ -150,11 +153,11 @@ class FileSystem(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('size', YLeaf(YType.str, 'size')),
-                    ('free', YLeaf(YType.str, 'free')),
-                    ('type', YLeaf(YType.str, 'type')),
-                    ('flags', YLeaf(YType.str, 'flags')),
-                    ('prefixes', YLeaf(YType.str, 'prefixes')),
+                    ('size', (YLeaf(YType.str, 'size'), ['str'])),
+                    ('free', (YLeaf(YType.str, 'free'), ['str'])),
+                    ('type', (YLeaf(YType.str, 'type'), ['str'])),
+                    ('flags', (YLeaf(YType.str, 'flags'), ['str'])),
+                    ('prefixes', (YLeaf(YType.str, 'prefixes'), ['str'])),
                 ])
                 self.size = None
                 self.free = None
@@ -162,6 +165,7 @@ class FileSystem(Entity):
                 self.flags = None
                 self.prefixes = None
                 self._segment_path = lambda: "file-system"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(FileSystem.Node.FileSystem_, ['size', 'free', 'type', 'flags', 'prefixes'], name, value)

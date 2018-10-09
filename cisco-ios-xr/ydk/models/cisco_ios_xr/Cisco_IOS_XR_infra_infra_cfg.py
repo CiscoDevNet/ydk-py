@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   banners\: Schema for Banner configuration commands
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class Banner(Enum):
@@ -95,6 +96,7 @@ class Banners(Entity):
 
         self.banner = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-infra-infra-cfg:banners"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Banners, [], name, value)
@@ -133,13 +135,14 @@ class Banners(Entity):
             self.ylist_key_names = ['banner_name']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('banner_name', YLeaf(YType.enumeration, 'banner-name')),
-                ('banner_text', YLeaf(YType.str, 'banner-text')),
+                ('banner_name', (YLeaf(YType.enumeration, 'banner-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_infra_infra_cfg', 'Banner', '')])),
+                ('banner_text', (YLeaf(YType.str, 'banner-text'), ['str'])),
             ])
             self.banner_name = None
             self.banner_text = None
             self._segment_path = lambda: "banner" + "[banner-name='" + str(self.banner_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-infra-infra-cfg:banners/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Banners.Banner, ['banner_name', 'banner_text'], name, value)

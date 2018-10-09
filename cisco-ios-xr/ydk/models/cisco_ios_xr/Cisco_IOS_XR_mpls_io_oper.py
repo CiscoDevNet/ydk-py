@@ -8,7 +8,7 @@ for the following management objects\:
   mpls\-ea\: MPLS IO EA operational data
   mpls\-ma\: mpls ma
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -53,6 +54,7 @@ class MplsEa(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-io-oper:mpls-ea"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MplsEa, [], name, value)
@@ -89,6 +91,7 @@ class MplsEa(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-io-oper:mpls-ea/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsEa.Nodes, [], name, value)
@@ -127,7 +130,7 @@ class MplsEa(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("interfaces", ("interfaces", MplsEa.Nodes.Node.Interfaces))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -136,6 +139,7 @@ class MplsEa(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-io-oper:mpls-ea/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsEa.Nodes.Node, ['node_name'], name, value)
@@ -170,6 +174,7 @@ class MplsEa(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsEa.Nodes.Node.Interfaces, [], name, value)
@@ -184,7 +189,7 @@ class MplsEa(Entity):
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: mtu
                     
@@ -231,11 +236,11 @@ class MplsEa(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('mtu', YLeaf(YType.uint32, 'mtu')),
-                            ('bkp_label_stack_depth', YLeaf(YType.uint8, 'bkp-label-stack-depth')),
-                            ('srte_label_stack_depth', YLeaf(YType.uint8, 'srte-label-stack-depth')),
-                            ('pri_label_stack_depth', YLeaf(YType.uint8, 'pri-label-stack-depth')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                            ('bkp_label_stack_depth', (YLeaf(YType.uint8, 'bkp-label-stack-depth'), ['int'])),
+                            ('srte_label_stack_depth', (YLeaf(YType.uint8, 'srte-label-stack-depth'), ['int'])),
+                            ('pri_label_stack_depth', (YLeaf(YType.uint8, 'pri-label-stack-depth'), ['int'])),
                         ])
                         self.interface_name = None
                         self.mtu = None
@@ -243,9 +248,10 @@ class MplsEa(Entity):
                         self.srte_label_stack_depth = None
                         self.pri_label_stack_depth = None
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsEa.Nodes.Node.Interfaces.Interface, ['interface_name', u'mtu', u'bkp_label_stack_depth', u'srte_label_stack_depth', u'pri_label_stack_depth'], name, value)
+                        self._perform_setattr(MplsEa.Nodes.Node.Interfaces.Interface, ['interface_name', 'mtu', 'bkp_label_stack_depth', 'srte_label_stack_depth', 'pri_label_stack_depth'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MplsEa()
@@ -283,6 +289,7 @@ class MplsMa(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-io-oper:mpls-ma"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MplsMa, [], name, value)
@@ -319,6 +326,7 @@ class MplsMa(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-io-oper:mpls-ma/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsMa.Nodes, [], name, value)
@@ -357,7 +365,7 @@ class MplsMa(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("interfaces", ("interfaces", MplsMa.Nodes.Node.Interfaces))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -366,6 +374,7 @@ class MplsMa(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-io-oper:mpls-ma/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsMa.Nodes.Node, ['node_name'], name, value)
@@ -400,6 +409,7 @@ class MplsMa(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsMa.Nodes.Node.Interfaces, [], name, value)
@@ -414,7 +424,7 @@ class MplsMa(Entity):
                     	Interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: mtu
                     
@@ -461,11 +471,11 @@ class MplsMa(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('mtu', YLeaf(YType.uint32, 'mtu')),
-                            ('bkp_label_stack_depth', YLeaf(YType.uint8, 'bkp-label-stack-depth')),
-                            ('srte_label_stack_depth', YLeaf(YType.uint8, 'srte-label-stack-depth')),
-                            ('pri_label_stack_depth', YLeaf(YType.uint8, 'pri-label-stack-depth')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                            ('bkp_label_stack_depth', (YLeaf(YType.uint8, 'bkp-label-stack-depth'), ['int'])),
+                            ('srte_label_stack_depth', (YLeaf(YType.uint8, 'srte-label-stack-depth'), ['int'])),
+                            ('pri_label_stack_depth', (YLeaf(YType.uint8, 'pri-label-stack-depth'), ['int'])),
                         ])
                         self.interface_name = None
                         self.mtu = None
@@ -473,9 +483,10 @@ class MplsMa(Entity):
                         self.srte_label_stack_depth = None
                         self.pri_label_stack_depth = None
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(MplsMa.Nodes.Node.Interfaces.Interface, ['interface_name', u'mtu', u'bkp_label_stack_depth', u'srte_label_stack_depth', u'pri_label_stack_depth'], name, value)
+                        self._perform_setattr(MplsMa.Nodes.Node.Interfaces.Interface, ['interface_name', 'mtu', 'bkp_label_stack_depth', 'srte_label_stack_depth', 'pri_label_stack_depth'], name, value)
 
     def clone_ptr(self):
         self._top_entity = MplsMa()

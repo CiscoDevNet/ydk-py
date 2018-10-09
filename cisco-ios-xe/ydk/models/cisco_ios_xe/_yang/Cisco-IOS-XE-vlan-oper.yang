@@ -21,6 +21,11 @@ module Cisco-IOS-XE-vlan-oper {
      Copyright (c) 2016-2017 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-04-09 {
+    description
+      "vlan interfaces container added under vlan members";
+    reference "2.0.0";
+  }
   revision 2017-05-05 {
     description
       "Initial revision";
@@ -38,6 +43,21 @@ module Cisco-IOS-XE-vlan-oper {
     }
     description
       "Operational state of the VLAN";
+  }
+
+  grouping vlan-members-interface {
+    description
+      "Assigned ports to the given  VLAN";
+    leaf interface {
+      type string;
+      description
+        "Assigned interface to the vlan";
+    }
+    leaf subinterface {
+      type uint32;
+      description
+        "Assigned subinterface to the vlan";
+    }
   }
 
   grouping interfaces {
@@ -77,6 +97,12 @@ module Cisco-IOS-XE-vlan-oper {
       description
         "Assigned ports";
       uses vlan-ios-xe-oper:interfaces;
+    }
+    list vlan-interfaces {
+      key "interface";
+      description
+        "List of interfaces for a given VLAN";
+      uses vlan-ios-xe-oper:vlan-members-interface;
     }
   }
 

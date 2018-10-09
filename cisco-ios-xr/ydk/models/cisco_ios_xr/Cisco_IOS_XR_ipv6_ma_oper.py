@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ipv6\-network\: IPv6 network operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class Ipv6MaIfAddrState(Enum):
@@ -157,6 +158,7 @@ class Ipv6Network(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv6-ma-oper:ipv6-network"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ipv6Network, [], name, value)
@@ -192,6 +194,7 @@ class Ipv6Network(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ipv6Network.Nodes, [], name, value)
@@ -231,7 +234,7 @@ class Ipv6Network(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("interface-data", ("interface_data", Ipv6Network.Nodes.Node.InterfaceData))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -240,6 +243,7 @@ class Ipv6Network(Entity):
                 self._children_name_map["interface_data"] = "interface-data"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv6-ma-oper:ipv6-network/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ipv6Network.Nodes.Node, ['node_name'], name, value)
@@ -285,6 +289,7 @@ class Ipv6Network(Entity):
                     self.summary.parent = self
                     self._children_name_map["summary"] = "summary"
                     self._segment_path = lambda: "interface-data"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData, [], name, value)
@@ -320,6 +325,7 @@ class Ipv6Network(Entity):
 
                         self.vrf = YList(self)
                         self._segment_path = lambda: "vrfs"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs, [], name, value)
@@ -373,7 +379,7 @@ class Ipv6Network(Entity):
                             self.ylist_key_names = ['vrf_name']
                             self._child_classes = OrderedDict([("briefs", ("briefs", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs)), ("global-details", ("global_details", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails)), ("global-briefs", ("global_briefs", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs)), ("details", ("details", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details))])
                             self._leafs = OrderedDict([
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                             ])
                             self.vrf_name = None
 
@@ -393,6 +399,7 @@ class Ipv6Network(Entity):
                             self.details.parent = self
                             self._children_name_map["details"] = "details"
                             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -428,6 +435,7 @@ class Ipv6Network(Entity):
 
                                 self.brief = YList(self)
                                 self._segment_path = lambda: "briefs"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs, [], name, value)
@@ -443,7 +451,7 @@ class Ipv6Network(Entity):
                                 	The name of the interface
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: link_local_address
                                 
@@ -484,9 +492,9 @@ class Ipv6Network(Entity):
                                     self.ylist_key_names = ['interface_name']
                                     self._child_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress)), ("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address))])
                                     self._leafs = OrderedDict([
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('line_state', YLeaf(YType.enumeration, 'line-state')),
-                                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineState', '')])),
+                                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                                     ])
                                     self.interface_name = None
                                     self.line_state = None
@@ -498,9 +506,10 @@ class Ipv6Network(Entity):
 
                                     self.address = YList(self)
                                     self._segment_path = lambda: "brief" + "[interface-name='" + str(self.interface_name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, ['interface_name', 'line_state', 'vrf_name'], name, value)
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief, ['interface_name', u'line_state', u'vrf_name'], name, value)
 
 
                                 class LinkLocalAddress(Entity):
@@ -555,11 +564,11 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                            ('address_state', YLeaf(YType.enumeration, 'address-state')),
-                                            ('is_anycast', YLeaf(YType.boolean, 'is-anycast')),
-                                            ('route_tag', YLeaf(YType.uint32, 'route-tag')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                            ('address_state', (YLeaf(YType.enumeration, 'address-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState', '')])),
+                                            ('is_anycast', (YLeaf(YType.boolean, 'is-anycast'), ['bool'])),
+                                            ('route_tag', (YLeaf(YType.uint32, 'route-tag'), ['int'])),
                                         ])
                                         self.address = None
                                         self.prefix_length = None
@@ -567,9 +576,10 @@ class Ipv6Network(Entity):
                                         self.is_anycast = None
                                         self.route_tag = None
                                         self._segment_path = lambda: "link-local-address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.LinkLocalAddress, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
                                 class Address(Entity):
@@ -624,11 +634,11 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                            ('address_state', YLeaf(YType.enumeration, 'address-state')),
-                                            ('is_anycast', YLeaf(YType.boolean, 'is-anycast')),
-                                            ('route_tag', YLeaf(YType.uint32, 'route-tag')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                            ('address_state', (YLeaf(YType.enumeration, 'address-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState', '')])),
+                                            ('is_anycast', (YLeaf(YType.boolean, 'is-anycast'), ['bool'])),
+                                            ('route_tag', (YLeaf(YType.uint32, 'route-tag'), ['int'])),
                                         ])
                                         self.address = None
                                         self.prefix_length = None
@@ -636,9 +646,10 @@ class Ipv6Network(Entity):
                                         self.is_anycast = None
                                         self.route_tag = None
                                         self._segment_path = lambda: "address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Briefs.Brief.Address, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
                         class GlobalDetails(Entity):
@@ -671,6 +682,7 @@ class Ipv6Network(Entity):
 
                                 self.global_detail = YList(self)
                                 self._segment_path = lambda: "global-details"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails, [], name, value)
@@ -686,7 +698,7 @@ class Ipv6Network(Entity):
                                 	The name of the interface
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: link_local_address
                                 
@@ -819,16 +831,16 @@ class Ipv6Network(Entity):
                                     self.ylist_key_names = ['interface_name']
                                     self._child_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress)), ("access-control-list", ("access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList)), ("multi-access-control-list", ("multi_access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList)), ("rpf", ("rpf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa)), ("utime", ("utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Utime)), ("idb-utime", ("idb_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.FwdDisUtime)), ("multicast-group", ("multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup)), ("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address)), ("client-multicast-group", ("client_multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup))])
                                     self._leafs = OrderedDict([
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('line_state', YLeaf(YType.enumeration, 'line-state')),
-                                        ('mtu', YLeaf(YType.uint32, 'mtu')),
-                                        ('operation_state', YLeaf(YType.enumeration, 'operation-state')),
-                                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                        ('is_icmp_unreach_enabled', YLeaf(YType.boolean, 'is-icmp-unreach-enabled')),
-                                        ('rg_id_exists', YLeaf(YType.boolean, 'rg-id-exists')),
-                                        ('mlacp_active', YLeaf(YType.boolean, 'mlacp-active')),
-                                        ('flow_tag_src', YLeaf(YType.boolean, 'flow-tag-src')),
-                                        ('flow_tag_dst', YLeaf(YType.boolean, 'flow-tag-dst')),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineState', '')])),
+                                        ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                                        ('operation_state', (YLeaf(YType.enumeration, 'operation-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaOperState', '')])),
+                                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                        ('is_icmp_unreach_enabled', (YLeaf(YType.boolean, 'is-icmp-unreach-enabled'), ['bool'])),
+                                        ('rg_id_exists', (YLeaf(YType.boolean, 'rg-id-exists'), ['bool'])),
+                                        ('mlacp_active', (YLeaf(YType.boolean, 'mlacp-active'), ['bool'])),
+                                        ('flow_tag_src', (YLeaf(YType.boolean, 'flow-tag-src'), ['bool'])),
+                                        ('flow_tag_dst', (YLeaf(YType.boolean, 'flow-tag-dst'), ['bool'])),
                                     ])
                                     self.interface_name = None
                                     self.line_state = None
@@ -885,9 +897,10 @@ class Ipv6Network(Entity):
                                     self.address = YList(self)
                                     self.client_multicast_group = YList(self)
                                     self._segment_path = lambda: "global-detail" + "[interface-name='" + str(self.interface_name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail, ['interface_name', 'line_state', 'mtu', 'operation_state', 'vrf_name', 'is_icmp_unreach_enabled', 'rg_id_exists', 'mlacp_active', 'flow_tag_src', 'flow_tag_dst'], name, value)
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail, ['interface_name', u'line_state', u'mtu', u'operation_state', u'vrf_name', u'is_icmp_unreach_enabled', u'rg_id_exists', u'mlacp_active', u'flow_tag_src', u'flow_tag_dst'], name, value)
 
 
                                 class LinkLocalAddress(Entity):
@@ -942,11 +955,11 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                            ('address_state', YLeaf(YType.enumeration, 'address-state')),
-                                            ('is_anycast', YLeaf(YType.boolean, 'is-anycast')),
-                                            ('route_tag', YLeaf(YType.uint32, 'route-tag')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                            ('address_state', (YLeaf(YType.enumeration, 'address-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState', '')])),
+                                            ('is_anycast', (YLeaf(YType.boolean, 'is-anycast'), ['bool'])),
+                                            ('route_tag', (YLeaf(YType.uint32, 'route-tag'), ['int'])),
                                         ])
                                         self.address = None
                                         self.prefix_length = None
@@ -954,9 +967,10 @@ class Ipv6Network(Entity):
                                         self.is_anycast = None
                                         self.route_tag = None
                                         self._segment_path = lambda: "link-local-address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.LinkLocalAddress, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
                                 class AccessControlList(Entity):
@@ -1000,19 +1014,20 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('in_bound', YLeaf(YType.str, 'in-bound')),
-                                            ('out_bound', YLeaf(YType.str, 'out-bound')),
-                                            ('common_in_bound', YLeaf(YType.str, 'common-in-bound')),
-                                            ('common_out_bound', YLeaf(YType.str, 'common-out-bound')),
+                                            ('in_bound', (YLeaf(YType.str, 'in-bound'), ['str'])),
+                                            ('out_bound', (YLeaf(YType.str, 'out-bound'), ['str'])),
+                                            ('common_in_bound', (YLeaf(YType.str, 'common-in-bound'), ['str'])),
+                                            ('common_out_bound', (YLeaf(YType.str, 'common-out-bound'), ['str'])),
                                         ])
                                         self.in_bound = None
                                         self.out_bound = None
                                         self.common_in_bound = None
                                         self.common_out_bound = None
                                         self._segment_path = lambda: "access-control-list"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList, ['in_bound', 'out_bound', 'common_in_bound', 'common_out_bound'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.AccessControlList, [u'in_bound', u'out_bound', u'common_in_bound', u'common_out_bound'], name, value)
 
 
                                 class MultiAccessControlList(Entity):
@@ -1056,6 +1071,7 @@ class Ipv6Network(Entity):
                                         self.outbound = YList(self)
                                         self.common = YList(self)
                                         self._segment_path = lambda: "multi-access-control-list"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList, [], name, value)
@@ -1087,13 +1103,14 @@ class Ipv6Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('entry', YLeaf(YType.str, 'entry')),
+                                                ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
                                             ])
                                             self.entry = None
                                             self._segment_path = lambda: "inbound"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Inbound, ['entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Inbound, [u'entry'], name, value)
 
 
                                     class Outbound(Entity):
@@ -1122,13 +1139,14 @@ class Ipv6Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('entry', YLeaf(YType.str, 'entry')),
+                                                ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
                                             ])
                                             self.entry = None
                                             self._segment_path = lambda: "outbound"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Outbound, ['entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Outbound, [u'entry'], name, value)
 
 
                                     class Common(Entity):
@@ -1157,13 +1175,14 @@ class Ipv6Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('entry', YLeaf(YType.str, 'entry')),
+                                                ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
                                             ])
                                             self.entry = None
                                             self._segment_path = lambda: "common"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Common, ['entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MultiAccessControlList.Common, [u'entry'], name, value)
 
 
                                 class Rpf(Entity):
@@ -1209,19 +1228,20 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('enable', YLeaf(YType.boolean, 'enable')),
-                                            ('allow_default_route', YLeaf(YType.boolean, 'allow-default-route')),
-                                            ('allow_self_ping', YLeaf(YType.boolean, 'allow-self-ping')),
-                                            ('mode', YLeaf(YType.uint32, 'mode')),
+                                            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                            ('allow_default_route', (YLeaf(YType.boolean, 'allow-default-route'), ['bool'])),
+                                            ('allow_self_ping', (YLeaf(YType.boolean, 'allow-self-ping'), ['bool'])),
+                                            ('mode', (YLeaf(YType.uint32, 'mode'), ['int'])),
                                         ])
                                         self.enable = None
                                         self.allow_default_route = None
                                         self.allow_self_ping = None
                                         self.mode = None
                                         self._segment_path = lambda: "rpf"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Rpf, [u'enable', u'allow_default_route', u'allow_self_ping', u'mode'], name, value)
 
 
                                 class BgpPa(Entity):
@@ -1264,6 +1284,7 @@ class Ipv6Network(Entity):
                                         self.output.parent = self
                                         self._children_name_map["output"] = "output"
                                         self._segment_path = lambda: "bgp-pa"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa, [], name, value)
@@ -1307,17 +1328,18 @@ class Ipv6Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('enable', YLeaf(YType.uint32, 'enable')),
-                                                ('source', YLeaf(YType.boolean, 'source')),
-                                                ('destination', YLeaf(YType.boolean, 'destination')),
+                                                ('enable', (YLeaf(YType.uint32, 'enable'), ['int'])),
+                                                ('source', (YLeaf(YType.boolean, 'source'), ['bool'])),
+                                                ('destination', (YLeaf(YType.boolean, 'destination'), ['bool'])),
                                             ])
                                             self.enable = None
                                             self.source = None
                                             self.destination = None
                                             self._segment_path = lambda: "input"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Input, [u'enable', u'source', u'destination'], name, value)
 
 
                                     class Output(Entity):
@@ -1358,17 +1380,18 @@ class Ipv6Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('enable', YLeaf(YType.uint32, 'enable')),
-                                                ('source', YLeaf(YType.boolean, 'source')),
-                                                ('destination', YLeaf(YType.boolean, 'destination')),
+                                                ('enable', (YLeaf(YType.uint32, 'enable'), ['int'])),
+                                                ('source', (YLeaf(YType.boolean, 'source'), ['bool'])),
+                                                ('destination', (YLeaf(YType.boolean, 'destination'), ['bool'])),
                                             ])
                                             self.enable = None
                                             self.source = None
                                             self.destination = None
                                             self._segment_path = lambda: "output"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.BgpPa.Output, [u'enable', u'source', u'destination'], name, value)
 
 
                                 class Utime(Entity):
@@ -1393,6 +1416,7 @@ class Ipv6Network(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "utime"
+                                        self._is_frozen = True
 
 
                                 class IdbUtime(Entity):
@@ -1417,6 +1441,7 @@ class Ipv6Network(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "idb-utime"
+                                        self._is_frozen = True
 
 
                                 class CapsUtime(Entity):
@@ -1441,6 +1466,7 @@ class Ipv6Network(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "caps-utime"
+                                        self._is_frozen = True
 
 
                                 class FwdEnUtime(Entity):
@@ -1465,6 +1491,7 @@ class Ipv6Network(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "fwd-en-utime"
+                                        self._is_frozen = True
 
 
                                 class FwdDisUtime(Entity):
@@ -1489,6 +1516,7 @@ class Ipv6Network(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "fwd-dis-utime"
+                                        self._is_frozen = True
 
 
                                 class MulticastGroup(Entity):
@@ -1519,13 +1547,14 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                         ])
                                         self.address = None
                                         self._segment_path = lambda: "multicast-group"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup, ['address'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.MulticastGroup, [u'address'], name, value)
 
 
                                 class Address(Entity):
@@ -1580,11 +1609,11 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                            ('address_state', YLeaf(YType.enumeration, 'address-state')),
-                                            ('is_anycast', YLeaf(YType.boolean, 'is-anycast')),
-                                            ('route_tag', YLeaf(YType.uint32, 'route-tag')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                            ('address_state', (YLeaf(YType.enumeration, 'address-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState', '')])),
+                                            ('is_anycast', (YLeaf(YType.boolean, 'is-anycast'), ['bool'])),
+                                            ('route_tag', (YLeaf(YType.uint32, 'route-tag'), ['int'])),
                                         ])
                                         self.address = None
                                         self.prefix_length = None
@@ -1592,9 +1621,10 @@ class Ipv6Network(Entity):
                                         self.is_anycast = None
                                         self.route_tag = None
                                         self._segment_path = lambda: "address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.Address, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
                                 class ClientMulticastGroup(Entity):
@@ -1625,13 +1655,14 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                         ])
                                         self.address = None
                                         self._segment_path = lambda: "client-multicast-group"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup, ['address'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalDetails.GlobalDetail.ClientMulticastGroup, [u'address'], name, value)
 
 
                         class GlobalBriefs(Entity):
@@ -1664,6 +1695,7 @@ class Ipv6Network(Entity):
 
                                 self.global_brief = YList(self)
                                 self._segment_path = lambda: "global-briefs"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs, [], name, value)
@@ -1679,7 +1711,7 @@ class Ipv6Network(Entity):
                                 	The name of the interface
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: link_local_address
                                 
@@ -1720,9 +1752,9 @@ class Ipv6Network(Entity):
                                     self.ylist_key_names = ['interface_name']
                                     self._child_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress)), ("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address))])
                                     self._leafs = OrderedDict([
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('line_state', YLeaf(YType.enumeration, 'line-state')),
-                                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineState', '')])),
+                                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                                     ])
                                     self.interface_name = None
                                     self.line_state = None
@@ -1734,9 +1766,10 @@ class Ipv6Network(Entity):
 
                                     self.address = YList(self)
                                     self._segment_path = lambda: "global-brief" + "[interface-name='" + str(self.interface_name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief, ['interface_name', 'line_state', 'vrf_name'], name, value)
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief, ['interface_name', u'line_state', u'vrf_name'], name, value)
 
 
                                 class LinkLocalAddress(Entity):
@@ -1791,11 +1824,11 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                            ('address_state', YLeaf(YType.enumeration, 'address-state')),
-                                            ('is_anycast', YLeaf(YType.boolean, 'is-anycast')),
-                                            ('route_tag', YLeaf(YType.uint32, 'route-tag')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                            ('address_state', (YLeaf(YType.enumeration, 'address-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState', '')])),
+                                            ('is_anycast', (YLeaf(YType.boolean, 'is-anycast'), ['bool'])),
+                                            ('route_tag', (YLeaf(YType.uint32, 'route-tag'), ['int'])),
                                         ])
                                         self.address = None
                                         self.prefix_length = None
@@ -1803,9 +1836,10 @@ class Ipv6Network(Entity):
                                         self.is_anycast = None
                                         self.route_tag = None
                                         self._segment_path = lambda: "link-local-address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.LinkLocalAddress, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
                                 class Address(Entity):
@@ -1860,11 +1894,11 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                            ('address_state', YLeaf(YType.enumeration, 'address-state')),
-                                            ('is_anycast', YLeaf(YType.boolean, 'is-anycast')),
-                                            ('route_tag', YLeaf(YType.uint32, 'route-tag')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                            ('address_state', (YLeaf(YType.enumeration, 'address-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState', '')])),
+                                            ('is_anycast', (YLeaf(YType.boolean, 'is-anycast'), ['bool'])),
+                                            ('route_tag', (YLeaf(YType.uint32, 'route-tag'), ['int'])),
                                         ])
                                         self.address = None
                                         self.prefix_length = None
@@ -1872,9 +1906,10 @@ class Ipv6Network(Entity):
                                         self.is_anycast = None
                                         self.route_tag = None
                                         self._segment_path = lambda: "address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.GlobalBriefs.GlobalBrief.Address, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
                         class Details(Entity):
@@ -1907,6 +1942,7 @@ class Ipv6Network(Entity):
 
                                 self.detail = YList(self)
                                 self._segment_path = lambda: "details"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details, [], name, value)
@@ -1922,7 +1958,7 @@ class Ipv6Network(Entity):
                                 	The name of the interface
                                 	**type**\: str
                                 
-                                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                                 
                                 .. attribute:: link_local_address
                                 
@@ -2055,16 +2091,16 @@ class Ipv6Network(Entity):
                                     self.ylist_key_names = ['interface_name']
                                     self._child_classes = OrderedDict([("link-local-address", ("link_local_address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress)), ("access-control-list", ("access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList)), ("multi-access-control-list", ("multi_access_control_list", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList)), ("rpf", ("rpf", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf)), ("bgp-pa", ("bgp_pa", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa)), ("utime", ("utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Utime)), ("idb-utime", ("idb_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.IdbUtime)), ("caps-utime", ("caps_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.CapsUtime)), ("fwd-en-utime", ("fwd_en_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdEnUtime)), ("fwd-dis-utime", ("fwd_dis_utime", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.FwdDisUtime)), ("multicast-group", ("multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup)), ("address", ("address", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address)), ("client-multicast-group", ("client_multicast_group", Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup))])
                                     self._leafs = OrderedDict([
-                                        ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                        ('line_state', YLeaf(YType.enumeration, 'line-state')),
-                                        ('mtu', YLeaf(YType.uint32, 'mtu')),
-                                        ('operation_state', YLeaf(YType.enumeration, 'operation-state')),
-                                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                        ('is_icmp_unreach_enabled', YLeaf(YType.boolean, 'is-icmp-unreach-enabled')),
-                                        ('rg_id_exists', YLeaf(YType.boolean, 'rg-id-exists')),
-                                        ('mlacp_active', YLeaf(YType.boolean, 'mlacp-active')),
-                                        ('flow_tag_src', YLeaf(YType.boolean, 'flow-tag-src')),
-                                        ('flow_tag_dst', YLeaf(YType.boolean, 'flow-tag-dst')),
+                                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                        ('line_state', (YLeaf(YType.enumeration, 'line-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfLineState', '')])),
+                                        ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
+                                        ('operation_state', (YLeaf(YType.enumeration, 'operation-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaOperState', '')])),
+                                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                        ('is_icmp_unreach_enabled', (YLeaf(YType.boolean, 'is-icmp-unreach-enabled'), ['bool'])),
+                                        ('rg_id_exists', (YLeaf(YType.boolean, 'rg-id-exists'), ['bool'])),
+                                        ('mlacp_active', (YLeaf(YType.boolean, 'mlacp-active'), ['bool'])),
+                                        ('flow_tag_src', (YLeaf(YType.boolean, 'flow-tag-src'), ['bool'])),
+                                        ('flow_tag_dst', (YLeaf(YType.boolean, 'flow-tag-dst'), ['bool'])),
                                     ])
                                     self.interface_name = None
                                     self.line_state = None
@@ -2121,9 +2157,10 @@ class Ipv6Network(Entity):
                                     self.address = YList(self)
                                     self.client_multicast_group = YList(self)
                                     self._segment_path = lambda: "detail" + "[interface-name='" + str(self.interface_name) + "']"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', 'line_state', 'mtu', 'operation_state', 'vrf_name', 'is_icmp_unreach_enabled', 'rg_id_exists', 'mlacp_active', 'flow_tag_src', 'flow_tag_dst'], name, value)
+                                    self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail, ['interface_name', u'line_state', u'mtu', u'operation_state', u'vrf_name', u'is_icmp_unreach_enabled', u'rg_id_exists', u'mlacp_active', u'flow_tag_src', u'flow_tag_dst'], name, value)
 
 
                                 class LinkLocalAddress(Entity):
@@ -2178,11 +2215,11 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                            ('address_state', YLeaf(YType.enumeration, 'address-state')),
-                                            ('is_anycast', YLeaf(YType.boolean, 'is-anycast')),
-                                            ('route_tag', YLeaf(YType.uint32, 'route-tag')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                            ('address_state', (YLeaf(YType.enumeration, 'address-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState', '')])),
+                                            ('is_anycast', (YLeaf(YType.boolean, 'is-anycast'), ['bool'])),
+                                            ('route_tag', (YLeaf(YType.uint32, 'route-tag'), ['int'])),
                                         ])
                                         self.address = None
                                         self.prefix_length = None
@@ -2190,9 +2227,10 @@ class Ipv6Network(Entity):
                                         self.is_anycast = None
                                         self.route_tag = None
                                         self._segment_path = lambda: "link-local-address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.LinkLocalAddress, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
                                 class AccessControlList(Entity):
@@ -2236,19 +2274,20 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('in_bound', YLeaf(YType.str, 'in-bound')),
-                                            ('out_bound', YLeaf(YType.str, 'out-bound')),
-                                            ('common_in_bound', YLeaf(YType.str, 'common-in-bound')),
-                                            ('common_out_bound', YLeaf(YType.str, 'common-out-bound')),
+                                            ('in_bound', (YLeaf(YType.str, 'in-bound'), ['str'])),
+                                            ('out_bound', (YLeaf(YType.str, 'out-bound'), ['str'])),
+                                            ('common_in_bound', (YLeaf(YType.str, 'common-in-bound'), ['str'])),
+                                            ('common_out_bound', (YLeaf(YType.str, 'common-out-bound'), ['str'])),
                                         ])
                                         self.in_bound = None
                                         self.out_bound = None
                                         self.common_in_bound = None
                                         self.common_out_bound = None
                                         self._segment_path = lambda: "access-control-list"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList, ['in_bound', 'out_bound', 'common_in_bound', 'common_out_bound'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.AccessControlList, [u'in_bound', u'out_bound', u'common_in_bound', u'common_out_bound'], name, value)
 
 
                                 class MultiAccessControlList(Entity):
@@ -2292,6 +2331,7 @@ class Ipv6Network(Entity):
                                         self.outbound = YList(self)
                                         self.common = YList(self)
                                         self._segment_path = lambda: "multi-access-control-list"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList, [], name, value)
@@ -2323,13 +2363,14 @@ class Ipv6Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('entry', YLeaf(YType.str, 'entry')),
+                                                ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
                                             ])
                                             self.entry = None
                                             self._segment_path = lambda: "inbound"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Inbound, ['entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Inbound, [u'entry'], name, value)
 
 
                                     class Outbound(Entity):
@@ -2358,13 +2399,14 @@ class Ipv6Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('entry', YLeaf(YType.str, 'entry')),
+                                                ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
                                             ])
                                             self.entry = None
                                             self._segment_path = lambda: "outbound"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Outbound, ['entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Outbound, [u'entry'], name, value)
 
 
                                     class Common(Entity):
@@ -2393,13 +2435,14 @@ class Ipv6Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('entry', YLeaf(YType.str, 'entry')),
+                                                ('entry', (YLeaf(YType.str, 'entry'), ['str'])),
                                             ])
                                             self.entry = None
                                             self._segment_path = lambda: "common"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Common, ['entry'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MultiAccessControlList.Common, [u'entry'], name, value)
 
 
                                 class Rpf(Entity):
@@ -2445,19 +2488,20 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('enable', YLeaf(YType.boolean, 'enable')),
-                                            ('allow_default_route', YLeaf(YType.boolean, 'allow-default-route')),
-                                            ('allow_self_ping', YLeaf(YType.boolean, 'allow-self-ping')),
-                                            ('mode', YLeaf(YType.uint32, 'mode')),
+                                            ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
+                                            ('allow_default_route', (YLeaf(YType.boolean, 'allow-default-route'), ['bool'])),
+                                            ('allow_self_ping', (YLeaf(YType.boolean, 'allow-self-ping'), ['bool'])),
+                                            ('mode', (YLeaf(YType.uint32, 'mode'), ['int'])),
                                         ])
                                         self.enable = None
                                         self.allow_default_route = None
                                         self.allow_self_ping = None
                                         self.mode = None
                                         self._segment_path = lambda: "rpf"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, ['enable', 'allow_default_route', 'allow_self_ping', 'mode'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Rpf, [u'enable', u'allow_default_route', u'allow_self_ping', u'mode'], name, value)
 
 
                                 class BgpPa(Entity):
@@ -2500,6 +2544,7 @@ class Ipv6Network(Entity):
                                         self.output.parent = self
                                         self._children_name_map["output"] = "output"
                                         self._segment_path = lambda: "bgp-pa"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa, [], name, value)
@@ -2543,17 +2588,18 @@ class Ipv6Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('enable', YLeaf(YType.uint32, 'enable')),
-                                                ('source', YLeaf(YType.boolean, 'source')),
-                                                ('destination', YLeaf(YType.boolean, 'destination')),
+                                                ('enable', (YLeaf(YType.uint32, 'enable'), ['int'])),
+                                                ('source', (YLeaf(YType.boolean, 'source'), ['bool'])),
+                                                ('destination', (YLeaf(YType.boolean, 'destination'), ['bool'])),
                                             ])
                                             self.enable = None
                                             self.source = None
                                             self.destination = None
                                             self._segment_path = lambda: "input"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, ['enable', 'source', 'destination'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Input, [u'enable', u'source', u'destination'], name, value)
 
 
                                     class Output(Entity):
@@ -2594,17 +2640,18 @@ class Ipv6Network(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('enable', YLeaf(YType.uint32, 'enable')),
-                                                ('source', YLeaf(YType.boolean, 'source')),
-                                                ('destination', YLeaf(YType.boolean, 'destination')),
+                                                ('enable', (YLeaf(YType.uint32, 'enable'), ['int'])),
+                                                ('source', (YLeaf(YType.boolean, 'source'), ['bool'])),
+                                                ('destination', (YLeaf(YType.boolean, 'destination'), ['bool'])),
                                             ])
                                             self.enable = None
                                             self.source = None
                                             self.destination = None
                                             self._segment_path = lambda: "output"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, ['enable', 'source', 'destination'], name, value)
+                                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.BgpPa.Output, [u'enable', u'source', u'destination'], name, value)
 
 
                                 class Utime(Entity):
@@ -2629,6 +2676,7 @@ class Ipv6Network(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "utime"
+                                        self._is_frozen = True
 
 
                                 class IdbUtime(Entity):
@@ -2653,6 +2701,7 @@ class Ipv6Network(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "idb-utime"
+                                        self._is_frozen = True
 
 
                                 class CapsUtime(Entity):
@@ -2677,6 +2726,7 @@ class Ipv6Network(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "caps-utime"
+                                        self._is_frozen = True
 
 
                                 class FwdEnUtime(Entity):
@@ -2701,6 +2751,7 @@ class Ipv6Network(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "fwd-en-utime"
+                                        self._is_frozen = True
 
 
                                 class FwdDisUtime(Entity):
@@ -2725,6 +2776,7 @@ class Ipv6Network(Entity):
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict()
                                         self._segment_path = lambda: "fwd-dis-utime"
+                                        self._is_frozen = True
 
 
                                 class MulticastGroup(Entity):
@@ -2755,13 +2807,14 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                         ])
                                         self.address = None
                                         self._segment_path = lambda: "multicast-group"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, ['address'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.MulticastGroup, [u'address'], name, value)
 
 
                                 class Address(Entity):
@@ -2816,11 +2869,11 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
-                                            ('prefix_length', YLeaf(YType.uint32, 'prefix-length')),
-                                            ('address_state', YLeaf(YType.enumeration, 'address-state')),
-                                            ('is_anycast', YLeaf(YType.boolean, 'is-anycast')),
-                                            ('route_tag', YLeaf(YType.uint32, 'route-tag')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                            ('prefix_length', (YLeaf(YType.uint32, 'prefix-length'), ['int'])),
+                                            ('address_state', (YLeaf(YType.enumeration, 'address-state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv6_ma_oper', 'Ipv6MaIfAddrState', '')])),
+                                            ('is_anycast', (YLeaf(YType.boolean, 'is-anycast'), ['bool'])),
+                                            ('route_tag', (YLeaf(YType.uint32, 'route-tag'), ['int'])),
                                         ])
                                         self.address = None
                                         self.prefix_length = None
@@ -2828,9 +2881,10 @@ class Ipv6Network(Entity):
                                         self.is_anycast = None
                                         self.route_tag = None
                                         self._segment_path = lambda: "address"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address, ['address', 'prefix_length', 'address_state', 'is_anycast', 'route_tag'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.Address, [u'address', u'prefix_length', u'address_state', u'is_anycast', u'route_tag'], name, value)
 
 
                                 class ClientMulticastGroup(Entity):
@@ -2861,13 +2915,14 @@ class Ipv6Network(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('address', YLeaf(YType.str, 'address')),
+                                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
                                         ])
                                         self.address = None
                                         self._segment_path = lambda: "client-multicast-group"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup, ['address'], name, value)
+                                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Vrfs.Vrf.Details.Detail.ClientMulticastGroup, [u'address'], name, value)
 
 
                 class Summary(Entity):
@@ -2919,7 +2974,7 @@ class Ipv6Network(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("if-up-up", ("if_up_up", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp)), ("if-up-down", ("if_up_down", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown)), ("if-down-down", ("if_down_down", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown)), ("if-shutdown-down", ("if_shutdown_down", Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown))])
                         self._leafs = OrderedDict([
-                            ('if_up_down_basecaps_up', YLeaf(YType.uint32, 'if-up-down-basecaps-up')),
+                            ('if_up_down_basecaps_up', (YLeaf(YType.uint32, 'if-up-down-basecaps-up'), ['int'])),
                         ])
                         self.if_up_down_basecaps_up = None
 
@@ -2939,9 +2994,10 @@ class Ipv6Network(Entity):
                         self.if_shutdown_down.parent = self
                         self._children_name_map["if_shutdown_down"] = "if-shutdown-down"
                         self._segment_path = lambda: "summary"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary, ['if_up_down_basecaps_up'], name, value)
+                        self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary, [u'if_up_down_basecaps_up'], name, value)
 
 
                     class IfUpUp(Entity):
@@ -2986,17 +3042,18 @@ class Ipv6Network(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
-                                ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),
-                                ('ip_unassigned', YLeaf(YType.uint32, 'ip-unassigned')),
+                                ('ip_assigned', (YLeaf(YType.uint32, 'ip-assigned'), ['int'])),
+                                ('ip_unnumbered', (YLeaf(YType.uint32, 'ip-unnumbered'), ['int'])),
+                                ('ip_unassigned', (YLeaf(YType.uint32, 'ip-unassigned'), ['int'])),
                             ])
                             self.ip_assigned = None
                             self.ip_unnumbered = None
                             self.ip_unassigned = None
                             self._segment_path = lambda: "if-up-up"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpUp, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
 
                     class IfUpDown(Entity):
@@ -3041,17 +3098,18 @@ class Ipv6Network(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
-                                ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),
-                                ('ip_unassigned', YLeaf(YType.uint32, 'ip-unassigned')),
+                                ('ip_assigned', (YLeaf(YType.uint32, 'ip-assigned'), ['int'])),
+                                ('ip_unnumbered', (YLeaf(YType.uint32, 'ip-unnumbered'), ['int'])),
+                                ('ip_unassigned', (YLeaf(YType.uint32, 'ip-unassigned'), ['int'])),
                             ])
                             self.ip_assigned = None
                             self.ip_unnumbered = None
                             self.ip_unassigned = None
                             self._segment_path = lambda: "if-up-down"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfUpDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
 
                     class IfDownDown(Entity):
@@ -3096,17 +3154,18 @@ class Ipv6Network(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
-                                ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),
-                                ('ip_unassigned', YLeaf(YType.uint32, 'ip-unassigned')),
+                                ('ip_assigned', (YLeaf(YType.uint32, 'ip-assigned'), ['int'])),
+                                ('ip_unnumbered', (YLeaf(YType.uint32, 'ip-unnumbered'), ['int'])),
+                                ('ip_unassigned', (YLeaf(YType.uint32, 'ip-unassigned'), ['int'])),
                             ])
                             self.ip_assigned = None
                             self.ip_unnumbered = None
                             self.ip_unassigned = None
                             self._segment_path = lambda: "if-down-down"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfDownDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
 
                     class IfShutdownDown(Entity):
@@ -3151,17 +3210,18 @@ class Ipv6Network(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('ip_assigned', YLeaf(YType.uint32, 'ip-assigned')),
-                                ('ip_unnumbered', YLeaf(YType.uint32, 'ip-unnumbered')),
-                                ('ip_unassigned', YLeaf(YType.uint32, 'ip-unassigned')),
+                                ('ip_assigned', (YLeaf(YType.uint32, 'ip-assigned'), ['int'])),
+                                ('ip_unnumbered', (YLeaf(YType.uint32, 'ip-unnumbered'), ['int'])),
+                                ('ip_unassigned', (YLeaf(YType.uint32, 'ip-unassigned'), ['int'])),
                             ])
                             self.ip_assigned = None
                             self.ip_unnumbered = None
                             self.ip_unassigned = None
                             self._segment_path = lambda: "if-shutdown-down"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, ['ip_assigned', 'ip_unnumbered', 'ip_unassigned'], name, value)
+                            self._perform_setattr(Ipv6Network.Nodes.Node.InterfaceData.Summary.IfShutdownDown, [u'ip_assigned', u'ip_unnumbered', u'ip_unassigned'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ipv6Network()

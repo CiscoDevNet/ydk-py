@@ -12,6 +12,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class IPFORWARDMIB(Entity):
     """
     
@@ -64,6 +65,7 @@ class IPFORWARDMIB(Entity):
         self.ipcidrroutetable.parent = self
         self._children_name_map["ipcidrroutetable"] = "ipCidrRouteTable"
         self._segment_path = lambda: "IP-FORWARD-MIB:IP-FORWARD-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(IPFORWARDMIB, [], name, value)
@@ -106,13 +108,14 @@ class IPFORWARDMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ipforwardnumber', YLeaf(YType.uint32, 'ipForwardNumber')),
-                ('ipcidrroutenumber', YLeaf(YType.uint32, 'ipCidrRouteNumber')),
+                ('ipforwardnumber', (YLeaf(YType.uint32, 'ipForwardNumber'), ['int'])),
+                ('ipcidrroutenumber', (YLeaf(YType.uint32, 'ipCidrRouteNumber'), ['int'])),
             ])
             self.ipforwardnumber = None
             self.ipcidrroutenumber = None
             self._segment_path = lambda: "ipForward"
             self._absolute_path = lambda: "IP-FORWARD-MIB:IP-FORWARD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPFORWARDMIB.IpForward, ['ipforwardnumber', 'ipcidrroutenumber'], name, value)
@@ -150,6 +153,7 @@ class IPFORWARDMIB(Entity):
             self.ipforwardentry = YList(self)
             self._segment_path = lambda: "ipForwardTable"
             self._absolute_path = lambda: "IP-FORWARD-MIB:IP-FORWARD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPFORWARDMIB.IpForwardTable, [], name, value)
@@ -308,21 +312,21 @@ class IPFORWARDMIB(Entity):
                 self.ylist_key_names = ['ipforwarddest','ipforwardproto','ipforwardpolicy','ipforwardnexthop']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipforwarddest', YLeaf(YType.str, 'ipForwardDest')),
-                    ('ipforwardproto', YLeaf(YType.enumeration, 'ipForwardProto')),
-                    ('ipforwardpolicy', YLeaf(YType.int32, 'ipForwardPolicy')),
-                    ('ipforwardnexthop', YLeaf(YType.str, 'ipForwardNextHop')),
-                    ('ipforwardmask', YLeaf(YType.str, 'ipForwardMask')),
-                    ('ipforwardifindex', YLeaf(YType.int32, 'ipForwardIfIndex')),
-                    ('ipforwardtype', YLeaf(YType.enumeration, 'ipForwardType')),
-                    ('ipforwardage', YLeaf(YType.int32, 'ipForwardAge')),
-                    ('ipforwardinfo', YLeaf(YType.str, 'ipForwardInfo')),
-                    ('ipforwardnexthopas', YLeaf(YType.int32, 'ipForwardNextHopAS')),
-                    ('ipforwardmetric1', YLeaf(YType.int32, 'ipForwardMetric1')),
-                    ('ipforwardmetric2', YLeaf(YType.int32, 'ipForwardMetric2')),
-                    ('ipforwardmetric3', YLeaf(YType.int32, 'ipForwardMetric3')),
-                    ('ipforwardmetric4', YLeaf(YType.int32, 'ipForwardMetric4')),
-                    ('ipforwardmetric5', YLeaf(YType.int32, 'ipForwardMetric5')),
+                    ('ipforwarddest', (YLeaf(YType.str, 'ipForwardDest'), ['str'])),
+                    ('ipforwardproto', (YLeaf(YType.enumeration, 'ipForwardProto'), [('ydk.models.cisco_ios_xe.IP_FORWARD_MIB', 'IPFORWARDMIB', 'IpForwardTable.IpForwardEntry.IpForwardProto')])),
+                    ('ipforwardpolicy', (YLeaf(YType.int32, 'ipForwardPolicy'), ['int'])),
+                    ('ipforwardnexthop', (YLeaf(YType.str, 'ipForwardNextHop'), ['str'])),
+                    ('ipforwardmask', (YLeaf(YType.str, 'ipForwardMask'), ['str'])),
+                    ('ipforwardifindex', (YLeaf(YType.int32, 'ipForwardIfIndex'), ['int'])),
+                    ('ipforwardtype', (YLeaf(YType.enumeration, 'ipForwardType'), [('ydk.models.cisco_ios_xe.IP_FORWARD_MIB', 'IPFORWARDMIB', 'IpForwardTable.IpForwardEntry.IpForwardType')])),
+                    ('ipforwardage', (YLeaf(YType.int32, 'ipForwardAge'), ['int'])),
+                    ('ipforwardinfo', (YLeaf(YType.str, 'ipForwardInfo'), ['str'])),
+                    ('ipforwardnexthopas', (YLeaf(YType.int32, 'ipForwardNextHopAS'), ['int'])),
+                    ('ipforwardmetric1', (YLeaf(YType.int32, 'ipForwardMetric1'), ['int'])),
+                    ('ipforwardmetric2', (YLeaf(YType.int32, 'ipForwardMetric2'), ['int'])),
+                    ('ipforwardmetric3', (YLeaf(YType.int32, 'ipForwardMetric3'), ['int'])),
+                    ('ipforwardmetric4', (YLeaf(YType.int32, 'ipForwardMetric4'), ['int'])),
+                    ('ipforwardmetric5', (YLeaf(YType.int32, 'ipForwardMetric5'), ['int'])),
                 ])
                 self.ipforwarddest = None
                 self.ipforwardproto = None
@@ -341,6 +345,7 @@ class IPFORWARDMIB(Entity):
                 self.ipforwardmetric5 = None
                 self._segment_path = lambda: "ipForwardEntry" + "[ipForwardDest='" + str(self.ipforwarddest) + "']" + "[ipForwardProto='" + str(self.ipforwardproto) + "']" + "[ipForwardPolicy='" + str(self.ipforwardpolicy) + "']" + "[ipForwardNextHop='" + str(self.ipforwardnexthop) + "']"
                 self._absolute_path = lambda: "IP-FORWARD-MIB:IP-FORWARD-MIB/ipForwardTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPFORWARDMIB.IpForwardTable.IpForwardEntry, ['ipforwarddest', 'ipforwardproto', 'ipforwardpolicy', 'ipforwardnexthop', 'ipforwardmask', 'ipforwardifindex', 'ipforwardtype', 'ipforwardage', 'ipforwardinfo', 'ipforwardnexthopas', 'ipforwardmetric1', 'ipforwardmetric2', 'ipforwardmetric3', 'ipforwardmetric4', 'ipforwardmetric5'], name, value)
@@ -512,6 +517,7 @@ class IPFORWARDMIB(Entity):
             self.ipcidrrouteentry = YList(self)
             self._segment_path = lambda: "ipCidrRouteTable"
             self._absolute_path = lambda: "IP-FORWARD-MIB:IP-FORWARD-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IPFORWARDMIB.IpCidrRouteTable, [], name, value)
@@ -645,22 +651,22 @@ class IPFORWARDMIB(Entity):
                 self.ylist_key_names = ['ipcidrroutedest','ipcidrroutemask','ipcidrroutetos','ipcidrroutenexthop']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ipcidrroutedest', YLeaf(YType.str, 'ipCidrRouteDest')),
-                    ('ipcidrroutemask', YLeaf(YType.str, 'ipCidrRouteMask')),
-                    ('ipcidrroutetos', YLeaf(YType.int32, 'ipCidrRouteTos')),
-                    ('ipcidrroutenexthop', YLeaf(YType.str, 'ipCidrRouteNextHop')),
-                    ('ipcidrrouteifindex', YLeaf(YType.int32, 'ipCidrRouteIfIndex')),
-                    ('ipcidrroutetype', YLeaf(YType.enumeration, 'ipCidrRouteType')),
-                    ('ipcidrrouteproto', YLeaf(YType.enumeration, 'ipCidrRouteProto')),
-                    ('ipcidrrouteage', YLeaf(YType.int32, 'ipCidrRouteAge')),
-                    ('ipcidrrouteinfo', YLeaf(YType.str, 'ipCidrRouteInfo')),
-                    ('ipcidrroutenexthopas', YLeaf(YType.int32, 'ipCidrRouteNextHopAS')),
-                    ('ipcidrroutemetric1', YLeaf(YType.int32, 'ipCidrRouteMetric1')),
-                    ('ipcidrroutemetric2', YLeaf(YType.int32, 'ipCidrRouteMetric2')),
-                    ('ipcidrroutemetric3', YLeaf(YType.int32, 'ipCidrRouteMetric3')),
-                    ('ipcidrroutemetric4', YLeaf(YType.int32, 'ipCidrRouteMetric4')),
-                    ('ipcidrroutemetric5', YLeaf(YType.int32, 'ipCidrRouteMetric5')),
-                    ('ipcidrroutestatus', YLeaf(YType.enumeration, 'ipCidrRouteStatus')),
+                    ('ipcidrroutedest', (YLeaf(YType.str, 'ipCidrRouteDest'), ['str'])),
+                    ('ipcidrroutemask', (YLeaf(YType.str, 'ipCidrRouteMask'), ['str'])),
+                    ('ipcidrroutetos', (YLeaf(YType.int32, 'ipCidrRouteTos'), ['int'])),
+                    ('ipcidrroutenexthop', (YLeaf(YType.str, 'ipCidrRouteNextHop'), ['str'])),
+                    ('ipcidrrouteifindex', (YLeaf(YType.int32, 'ipCidrRouteIfIndex'), ['int'])),
+                    ('ipcidrroutetype', (YLeaf(YType.enumeration, 'ipCidrRouteType'), [('ydk.models.cisco_ios_xe.IP_FORWARD_MIB', 'IPFORWARDMIB', 'IpCidrRouteTable.IpCidrRouteEntry.IpCidrRouteType')])),
+                    ('ipcidrrouteproto', (YLeaf(YType.enumeration, 'ipCidrRouteProto'), [('ydk.models.cisco_ios_xe.IP_FORWARD_MIB', 'IPFORWARDMIB', 'IpCidrRouteTable.IpCidrRouteEntry.IpCidrRouteProto')])),
+                    ('ipcidrrouteage', (YLeaf(YType.int32, 'ipCidrRouteAge'), ['int'])),
+                    ('ipcidrrouteinfo', (YLeaf(YType.str, 'ipCidrRouteInfo'), ['str'])),
+                    ('ipcidrroutenexthopas', (YLeaf(YType.int32, 'ipCidrRouteNextHopAS'), ['int'])),
+                    ('ipcidrroutemetric1', (YLeaf(YType.int32, 'ipCidrRouteMetric1'), ['int'])),
+                    ('ipcidrroutemetric2', (YLeaf(YType.int32, 'ipCidrRouteMetric2'), ['int'])),
+                    ('ipcidrroutemetric3', (YLeaf(YType.int32, 'ipCidrRouteMetric3'), ['int'])),
+                    ('ipcidrroutemetric4', (YLeaf(YType.int32, 'ipCidrRouteMetric4'), ['int'])),
+                    ('ipcidrroutemetric5', (YLeaf(YType.int32, 'ipCidrRouteMetric5'), ['int'])),
+                    ('ipcidrroutestatus', (YLeaf(YType.enumeration, 'ipCidrRouteStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ipcidrroutedest = None
                 self.ipcidrroutemask = None
@@ -680,6 +686,7 @@ class IPFORWARDMIB(Entity):
                 self.ipcidrroutestatus = None
                 self._segment_path = lambda: "ipCidrRouteEntry" + "[ipCidrRouteDest='" + str(self.ipcidrroutedest) + "']" + "[ipCidrRouteMask='" + str(self.ipcidrroutemask) + "']" + "[ipCidrRouteTos='" + str(self.ipcidrroutetos) + "']" + "[ipCidrRouteNextHop='" + str(self.ipcidrroutenexthop) + "']"
                 self._absolute_path = lambda: "IP-FORWARD-MIB:IP-FORWARD-MIB/ipCidrRouteTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IPFORWARDMIB.IpCidrRouteTable.IpCidrRouteEntry, ['ipcidrroutedest', 'ipcidrroutemask', 'ipcidrroutetos', 'ipcidrroutenexthop', 'ipcidrrouteifindex', 'ipcidrroutetype', 'ipcidrrouteproto', 'ipcidrrouteage', 'ipcidrrouteinfo', 'ipcidrroutenexthopas', 'ipcidrroutemetric1', 'ipcidrroutemetric2', 'ipcidrroutemetric3', 'ipcidrroutemetric4', 'ipcidrroutemetric5', 'ipcidrroutestatus'], name, value)

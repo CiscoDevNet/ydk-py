@@ -27,15 +27,30 @@ module Cisco-IOS-XE-eta {
 
   description
     "Cisco XE Native Encrypted Traffic Analytics Yang model.
-     Copyright (c) 2017 by Cisco Systems, Inc.
+     Copyright (c) 2017-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-06-28 {
+    description
+      "added must constraints for deleting vrf";
+  }
+
+  revision 2018-05-14 {
+    description
+      "Limit string lengths for threat-defense features";
+  }
+
+  revision 2018-02-22 {
+    description
+      "Add threat-defense support for Ethernet interfaces";
+  }
+
   revision 2017-11-27 {
-     description
-       "Added Change 25GE name";
+    description
+      "Added Change 25GE name";
   }
 
   revision 2017-11-14 {
@@ -90,7 +105,12 @@ module Cisco-IOS-XE-eta {
               leaf vrf {
                 description
                   "Optional VRF label";
-                type string;
+		must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+		  error-message "VRF must be created 1st, deleted last";
+                }
+                type string {
+                  length "1..32";
+                }
               }
             }
           }
@@ -117,7 +137,9 @@ module Cisco-IOS-XE-eta {
             type uint16 {
               range "1..199 | 1300..2699";
             }
-            type string;
+            type string {
+              length "1..64";
+            }
           }
         }
       }
@@ -147,6 +169,10 @@ module Cisco-IOS-XE-eta {
   /////////////////////////////////////////////////////////
   // native / interface
   /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:Ethernet" {
+    uses config-interface-eta-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:FastEthernet" {
     uses config-interface-eta-grouping;
   }

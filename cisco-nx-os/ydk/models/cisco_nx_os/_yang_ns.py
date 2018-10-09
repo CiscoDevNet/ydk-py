@@ -1,7 +1,7 @@
 BUNDLE_NAME = "cisco_nx_os"
 
 CAPABILITIES = {
-    "Cisco-NX-OS-device": "2018-06-14",
+    "Cisco-NX-OS-device": "2018-07-17",
 }
 
 ENTITY_LOOKUP = {
@@ -11,5 +11,9 @@ ENTITY_LOOKUP = {
 
 NAMESPACE_LOOKUP = {
     "Cisco-NX-OS-device": "http://cisco.com/ns/yang/cisco-nx-os-device",
+}
+
+IDENTITY_LOOKUP = {
+    'Cisco-NX-OS-device:inactive':('ydk.models.cisco_nx_os.Cisco_NX_OS_device', 'Inactive'),
 }
 

@@ -12,6 +12,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class CatmOAMFailureType(Enum):
     """
     CatmOAMFailureType (Enum Class)
@@ -226,6 +227,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
         self.catmuppvclrangetable.parent = self
         self._children_name_map["catmuppvclrangetable"] = "catmUpPVclRangeTable"
         self._segment_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOATMPVCTRAPEXTNMIB, [], name, value)
@@ -264,6 +266,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             self.catmcurstatchangepvclentry = YList(self)
             self._segment_path = lambda: "catmCurStatChangePVclTable"
             self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmCurStatChangePVclTable, [], name, value)
@@ -423,24 +426,24 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','atmvclvci']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('atmvclvci', YLeaf(YType.str, 'atmVclVci')),
-                    ('catmpvclstatustransition', YLeaf(YType.uint32, 'catmPVclStatusTransition')),
-                    ('catmpvclstatuschangestart', YLeaf(YType.uint32, 'catmPVclStatusChangeStart')),
-                    ('catmpvclstatuschangeend', YLeaf(YType.uint32, 'catmPVclStatusChangeEnd')),
-                    ('catmpvclsegccstatustransition', YLeaf(YType.uint32, 'catmPVclSegCCStatusTransition')),
-                    ('catmpvclsegccstatuschangestart', YLeaf(YType.uint32, 'catmPVclSegCCStatusChangeStart')),
-                    ('catmpvclsegccstatuschangeend', YLeaf(YType.uint32, 'catmPVclSegCCStatusChangeEnd')),
-                    ('catmpvclendccstatustransition', YLeaf(YType.uint32, 'catmPVclEndCCStatusTransition')),
-                    ('catmpvclendccstatuschangestart', YLeaf(YType.uint32, 'catmPVclEndCCStatusChangeStart')),
-                    ('catmpvclendccstatuschangeend', YLeaf(YType.uint32, 'catmPVclEndCCStatusChangeEnd')),
-                    ('catmpvclaisrdistatustransition', YLeaf(YType.uint32, 'catmPVclAISRDIStatusTransition')),
-                    ('catmpvclaisrdistatuschangestart', YLeaf(YType.uint32, 'catmPVclAISRDIStatusChangeStart')),
-                    ('catmpvclaisrdistatuschangeend', YLeaf(YType.uint32, 'catmPVclAISRDIStatusChangeEnd')),
-                    ('catmpvclcurfailtime', YLeaf(YType.uint32, 'catmPVclCurFailTime')),
-                    ('catmpvclprevrecovertime', YLeaf(YType.uint32, 'catmPVclPrevRecoverTime')),
-                    ('catmpvclfailurereason', YLeaf(YType.enumeration, 'catmPVclFailureReason')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('atmvclvci', (YLeaf(YType.str, 'atmVclVci'), ['int'])),
+                    ('catmpvclstatustransition', (YLeaf(YType.uint32, 'catmPVclStatusTransition'), ['int'])),
+                    ('catmpvclstatuschangestart', (YLeaf(YType.uint32, 'catmPVclStatusChangeStart'), ['int'])),
+                    ('catmpvclstatuschangeend', (YLeaf(YType.uint32, 'catmPVclStatusChangeEnd'), ['int'])),
+                    ('catmpvclsegccstatustransition', (YLeaf(YType.uint32, 'catmPVclSegCCStatusTransition'), ['int'])),
+                    ('catmpvclsegccstatuschangestart', (YLeaf(YType.uint32, 'catmPVclSegCCStatusChangeStart'), ['int'])),
+                    ('catmpvclsegccstatuschangeend', (YLeaf(YType.uint32, 'catmPVclSegCCStatusChangeEnd'), ['int'])),
+                    ('catmpvclendccstatustransition', (YLeaf(YType.uint32, 'catmPVclEndCCStatusTransition'), ['int'])),
+                    ('catmpvclendccstatuschangestart', (YLeaf(YType.uint32, 'catmPVclEndCCStatusChangeStart'), ['int'])),
+                    ('catmpvclendccstatuschangeend', (YLeaf(YType.uint32, 'catmPVclEndCCStatusChangeEnd'), ['int'])),
+                    ('catmpvclaisrdistatustransition', (YLeaf(YType.uint32, 'catmPVclAISRDIStatusTransition'), ['int'])),
+                    ('catmpvclaisrdistatuschangestart', (YLeaf(YType.uint32, 'catmPVclAISRDIStatusChangeStart'), ['int'])),
+                    ('catmpvclaisrdistatuschangeend', (YLeaf(YType.uint32, 'catmPVclAISRDIStatusChangeEnd'), ['int'])),
+                    ('catmpvclcurfailtime', (YLeaf(YType.uint32, 'catmPVclCurFailTime'), ['int'])),
+                    ('catmpvclprevrecovertime', (YLeaf(YType.uint32, 'catmPVclPrevRecoverTime'), ['int'])),
+                    ('catmpvclfailurereason', (YLeaf(YType.enumeration, 'catmPVclFailureReason'), [('ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB', 'CatmOAMFailureType', '')])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -462,6 +465,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.catmpvclfailurereason = None
                 self._segment_path = lambda: "catmCurStatChangePVclEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[atmVclVci='" + str(self.atmvclvci) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmCurStatChangePVclTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmCurStatChangePVclTable.CatmCurStatChangePVclEntry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'catmpvclstatustransition', 'catmpvclstatuschangestart', 'catmpvclstatuschangeend', 'catmpvclsegccstatustransition', 'catmpvclsegccstatuschangestart', 'catmpvclsegccstatuschangeend', 'catmpvclendccstatustransition', 'catmpvclendccstatuschangestart', 'catmpvclendccstatuschangeend', 'catmpvclaisrdistatustransition', 'catmpvclaisrdistatuschangestart', 'catmpvclaisrdistatuschangeend', 'catmpvclcurfailtime', 'catmpvclprevrecovertime', 'catmpvclfailurereason'], name, value)
@@ -501,6 +505,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             self.catmstatuschangepvclrangeentry = YList(self)
             self._segment_path = lambda: "catmStatusChangePVclRangeTable"
             self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmStatusChangePVclRangeTable, [], name, value)
@@ -584,13 +589,13 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','catmstatuschangepvclrangeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('catmstatuschangepvclrangeindex', YLeaf(YType.int32, 'catmStatusChangePVclRangeIndex')),
-                    ('catmpvcllowerrangevalue', YLeaf(YType.int32, 'catmPVclLowerRangeValue')),
-                    ('catmpvclhigherrangevalue', YLeaf(YType.int32, 'catmPVclHigherRangeValue')),
-                    ('catmpvclrangestatuschangestart', YLeaf(YType.uint32, 'catmPVclRangeStatusChangeStart')),
-                    ('catmpvclrangestatuschangeend', YLeaf(YType.uint32, 'catmPVclRangeStatusChangeEnd')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('catmstatuschangepvclrangeindex', (YLeaf(YType.int32, 'catmStatusChangePVclRangeIndex'), ['int'])),
+                    ('catmpvcllowerrangevalue', (YLeaf(YType.int32, 'catmPVclLowerRangeValue'), ['int'])),
+                    ('catmpvclhigherrangevalue', (YLeaf(YType.int32, 'catmPVclHigherRangeValue'), ['int'])),
+                    ('catmpvclrangestatuschangestart', (YLeaf(YType.uint32, 'catmPVclRangeStatusChangeStart'), ['int'])),
+                    ('catmpvclrangestatuschangeend', (YLeaf(YType.uint32, 'catmPVclRangeStatusChangeEnd'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -601,6 +606,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.catmpvclrangestatuschangeend = None
                 self._segment_path = lambda: "catmStatusChangePVclRangeEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + str(self.catmstatuschangepvclrangeindex) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmStatusChangePVclRangeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmStatusChangePVclRangeTable.CatmStatusChangePVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvcllowerrangevalue', 'catmpvclhigherrangevalue', 'catmpvclrangestatuschangestart', 'catmpvclrangestatuschangeend'], name, value)
@@ -641,6 +647,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             self.catmsegccstatuschpvclrangeentry = YList(self)
             self._segment_path = lambda: "catmSegCCStatusChPVclRangeTable"
             self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmSegCCStatusChPVclRangeTable, [], name, value)
@@ -726,13 +733,13 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','catmstatuschangepvclrangeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('catmstatuschangepvclrangeindex', YLeaf(YType.str, 'catmStatusChangePVclRangeIndex')),
-                    ('catmpvclsegcclowerrangevalue', YLeaf(YType.int32, 'catmPVclSegCCLowerRangeValue')),
-                    ('catmpvclsegcchigherrangevalue', YLeaf(YType.int32, 'catmPVclSegCCHigherRangeValue')),
-                    ('catmpvclsegccrangestatuschstart', YLeaf(YType.uint32, 'catmPVclSegCCRangeStatusChStart')),
-                    ('catmpvclsegccrangestatuschend', YLeaf(YType.uint32, 'catmPVclSegCCRangeStatusChEnd')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('catmstatuschangepvclrangeindex', (YLeaf(YType.str, 'catmStatusChangePVclRangeIndex'), ['int'])),
+                    ('catmpvclsegcclowerrangevalue', (YLeaf(YType.int32, 'catmPVclSegCCLowerRangeValue'), ['int'])),
+                    ('catmpvclsegcchigherrangevalue', (YLeaf(YType.int32, 'catmPVclSegCCHigherRangeValue'), ['int'])),
+                    ('catmpvclsegccrangestatuschstart', (YLeaf(YType.uint32, 'catmPVclSegCCRangeStatusChStart'), ['int'])),
+                    ('catmpvclsegccrangestatuschend', (YLeaf(YType.uint32, 'catmPVclSegCCRangeStatusChEnd'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -743,6 +750,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.catmpvclsegccrangestatuschend = None
                 self._segment_path = lambda: "catmSegCCStatusChPVclRangeEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + str(self.catmstatuschangepvclrangeindex) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmSegCCStatusChPVclRangeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmSegCCStatusChPVclRangeTable.CatmSegCCStatusChPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvclsegcclowerrangevalue', 'catmpvclsegcchigherrangevalue', 'catmpvclsegccrangestatuschstart', 'catmpvclsegccrangestatuschend'], name, value)
@@ -783,6 +791,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             self.catmendccstatuschpvclrangeentry = YList(self)
             self._segment_path = lambda: "catmEndCCStatusChPVclRangeTable"
             self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmEndCCStatusChPVclRangeTable, [], name, value)
@@ -868,13 +877,13 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','catmstatuschangepvclrangeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('catmstatuschangepvclrangeindex', YLeaf(YType.str, 'catmStatusChangePVclRangeIndex')),
-                    ('catmpvclendcclowerrangevalue', YLeaf(YType.int32, 'catmPVclEndCCLowerRangeValue')),
-                    ('catmpvclendcchigherrangevalue', YLeaf(YType.int32, 'catmPVclEndCCHigherRangeValue')),
-                    ('catmpvclendccrangestatuschstart', YLeaf(YType.uint32, 'catmPVclEndCCRangeStatusChStart')),
-                    ('catmpvclendccrangestatuschend', YLeaf(YType.uint32, 'catmPVclEndCCRangeStatusChEnd')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('catmstatuschangepvclrangeindex', (YLeaf(YType.str, 'catmStatusChangePVclRangeIndex'), ['int'])),
+                    ('catmpvclendcclowerrangevalue', (YLeaf(YType.int32, 'catmPVclEndCCLowerRangeValue'), ['int'])),
+                    ('catmpvclendcchigherrangevalue', (YLeaf(YType.int32, 'catmPVclEndCCHigherRangeValue'), ['int'])),
+                    ('catmpvclendccrangestatuschstart', (YLeaf(YType.uint32, 'catmPVclEndCCRangeStatusChStart'), ['int'])),
+                    ('catmpvclendccrangestatuschend', (YLeaf(YType.uint32, 'catmPVclEndCCRangeStatusChEnd'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -885,6 +894,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.catmpvclendccrangestatuschend = None
                 self._segment_path = lambda: "catmEndCCStatusChPVclRangeEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + str(self.catmstatuschangepvclrangeindex) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmEndCCStatusChPVclRangeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmEndCCStatusChPVclRangeTable.CatmEndCCStatusChPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvclendcclowerrangevalue', 'catmpvclendcchigherrangevalue', 'catmpvclendccrangestatuschstart', 'catmpvclendccrangestatuschend'], name, value)
@@ -925,6 +935,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             self.catmaisrdistatuschpvclrangeentry = YList(self)
             self._segment_path = lambda: "catmAISRDIStatusChPVclRangeTable"
             self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmAISRDIStatusChPVclRangeTable, [], name, value)
@@ -1010,13 +1021,13 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','catmstatuschangepvclrangeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('catmstatuschangepvclrangeindex', YLeaf(YType.str, 'catmStatusChangePVclRangeIndex')),
-                    ('catmpvclaisrdilowerrangevalue', YLeaf(YType.int32, 'catmPVclAISRDILowerRangeValue')),
-                    ('catmpvclaisrdihigherrangevalue', YLeaf(YType.int32, 'catmPVclAISRDIHigherRangeValue')),
-                    ('catmpvclaisrdirangestatuschstart', YLeaf(YType.uint32, 'catmPVclAISRDIRangeStatusChStart')),
-                    ('catmpvclaisrdirangestatuschend', YLeaf(YType.uint32, 'catmPVclAISRDIRangeStatusChEnd')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('catmstatuschangepvclrangeindex', (YLeaf(YType.str, 'catmStatusChangePVclRangeIndex'), ['int'])),
+                    ('catmpvclaisrdilowerrangevalue', (YLeaf(YType.int32, 'catmPVclAISRDILowerRangeValue'), ['int'])),
+                    ('catmpvclaisrdihigherrangevalue', (YLeaf(YType.int32, 'catmPVclAISRDIHigherRangeValue'), ['int'])),
+                    ('catmpvclaisrdirangestatuschstart', (YLeaf(YType.uint32, 'catmPVclAISRDIRangeStatusChStart'), ['int'])),
+                    ('catmpvclaisrdirangestatuschend', (YLeaf(YType.uint32, 'catmPVclAISRDIRangeStatusChEnd'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -1027,6 +1038,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.catmpvclaisrdirangestatuschend = None
                 self._segment_path = lambda: "catmAISRDIStatusChPVclRangeEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + str(self.catmstatuschangepvclrangeindex) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmAISRDIStatusChPVclRangeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmAISRDIStatusChPVclRangeTable.CatmAISRDIStatusChPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvclaisrdilowerrangevalue', 'catmpvclaisrdihigherrangevalue', 'catmpvclaisrdirangestatuschstart', 'catmpvclaisrdirangestatuschend'], name, value)
@@ -1066,6 +1078,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             self.catmdownpvclrangeentry = YList(self)
             self._segment_path = lambda: "catmDownPVclRangeTable"
             self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmDownPVclRangeTable, [], name, value)
@@ -1170,16 +1183,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','catmstatuschangepvclrangeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('catmstatuschangepvclrangeindex', YLeaf(YType.str, 'catmStatusChangePVclRangeIndex')),
-                    ('catmdownpvcllowerrangevalue', YLeaf(YType.int32, 'catmDownPVclLowerRangeValue')),
-                    ('catmdownpvclhigherrangevalue', YLeaf(YType.int32, 'catmDownPVclHigherRangeValue')),
-                    ('catmdownpvclrangestart', YLeaf(YType.uint32, 'catmDownPVclRangeStart')),
-                    ('catmdownpvclrangeend', YLeaf(YType.uint32, 'catmDownPVclRangeEnd')),
-                    ('catmprevuppvclrangestart', YLeaf(YType.uint32, 'catmPrevUpPVclRangeStart')),
-                    ('catmprevuppvclrangeend', YLeaf(YType.uint32, 'catmPrevUpPVclRangeEnd')),
-                    ('catmpvclrangefailurereason', YLeaf(YType.enumeration, 'catmPVclRangeFailureReason')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('catmstatuschangepvclrangeindex', (YLeaf(YType.str, 'catmStatusChangePVclRangeIndex'), ['int'])),
+                    ('catmdownpvcllowerrangevalue', (YLeaf(YType.int32, 'catmDownPVclLowerRangeValue'), ['int'])),
+                    ('catmdownpvclhigherrangevalue', (YLeaf(YType.int32, 'catmDownPVclHigherRangeValue'), ['int'])),
+                    ('catmdownpvclrangestart', (YLeaf(YType.uint32, 'catmDownPVclRangeStart'), ['int'])),
+                    ('catmdownpvclrangeend', (YLeaf(YType.uint32, 'catmDownPVclRangeEnd'), ['int'])),
+                    ('catmprevuppvclrangestart', (YLeaf(YType.uint32, 'catmPrevUpPVclRangeStart'), ['int'])),
+                    ('catmprevuppvclrangeend', (YLeaf(YType.uint32, 'catmPrevUpPVclRangeEnd'), ['int'])),
+                    ('catmpvclrangefailurereason', (YLeaf(YType.enumeration, 'catmPVclRangeFailureReason'), [('ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB', 'CatmOAMFailureType', '')])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -1193,6 +1206,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.catmpvclrangefailurereason = None
                 self._segment_path = lambda: "catmDownPVclRangeEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + str(self.catmstatuschangepvclrangeindex) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmDownPVclRangeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmDownPVclRangeTable.CatmDownPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmdownpvcllowerrangevalue', 'catmdownpvclhigherrangevalue', 'catmdownpvclrangestart', 'catmdownpvclrangeend', 'catmprevuppvclrangestart', 'catmprevuppvclrangeend', 'catmpvclrangefailurereason'], name, value)
@@ -1231,6 +1245,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             self.catmcurstatusuppvclentry = YList(self)
             self._segment_path = lambda: "catmCurStatusUpPVclTable"
             self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmCurStatusUpPVclTable, [], name, value)
@@ -1391,24 +1406,24 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','atmvclvci']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('atmvclvci', YLeaf(YType.str, 'atmVclVci')),
-                    ('catmpvclstatusuptransition', YLeaf(YType.uint32, 'catmPVclStatusUpTransition')),
-                    ('catmpvclstatusupstart', YLeaf(YType.uint32, 'catmPVclStatusUpStart')),
-                    ('catmpvclstatusupend', YLeaf(YType.uint32, 'catmPVclStatusUpEnd')),
-                    ('catmpvclsegccstatusuptransition', YLeaf(YType.uint32, 'catmPVclSegCCStatusUpTransition')),
-                    ('catmpvclsegccstatusupstart', YLeaf(YType.uint32, 'catmPVclSegCCStatusUpStart')),
-                    ('catmpvclsegccstatusupend', YLeaf(YType.uint32, 'catmPVclSegCCStatusUpEnd')),
-                    ('catmpvclendccstatusuptransition', YLeaf(YType.uint32, 'catmPVclEndCCStatusUpTransition')),
-                    ('catmpvclendccstatusupstart', YLeaf(YType.uint32, 'catmPVclEndCCStatusUpStart')),
-                    ('catmpvclendccstatusupend', YLeaf(YType.uint32, 'catmPVclEndCCStatusUpEnd')),
-                    ('catmpvclaisrdistatusuptransition', YLeaf(YType.uint32, 'catmPVclAISRDIStatusUpTransition')),
-                    ('catmpvclaisrdistatusupstart', YLeaf(YType.uint32, 'catmPVclAISRDIStatusUpStart')),
-                    ('catmpvclaisrdistatusupend', YLeaf(YType.uint32, 'catmPVclAISRDIStatusUpEnd')),
-                    ('catmpvclcurrecovertime', YLeaf(YType.uint32, 'catmPVclCurRecoverTime')),
-                    ('catmpvclprevfailtime', YLeaf(YType.uint32, 'catmPVclPrevFailTime')),
-                    ('catmpvclrecoveryreason', YLeaf(YType.enumeration, 'catmPVclRecoveryReason')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('atmvclvci', (YLeaf(YType.str, 'atmVclVci'), ['int'])),
+                    ('catmpvclstatusuptransition', (YLeaf(YType.uint32, 'catmPVclStatusUpTransition'), ['int'])),
+                    ('catmpvclstatusupstart', (YLeaf(YType.uint32, 'catmPVclStatusUpStart'), ['int'])),
+                    ('catmpvclstatusupend', (YLeaf(YType.uint32, 'catmPVclStatusUpEnd'), ['int'])),
+                    ('catmpvclsegccstatusuptransition', (YLeaf(YType.uint32, 'catmPVclSegCCStatusUpTransition'), ['int'])),
+                    ('catmpvclsegccstatusupstart', (YLeaf(YType.uint32, 'catmPVclSegCCStatusUpStart'), ['int'])),
+                    ('catmpvclsegccstatusupend', (YLeaf(YType.uint32, 'catmPVclSegCCStatusUpEnd'), ['int'])),
+                    ('catmpvclendccstatusuptransition', (YLeaf(YType.uint32, 'catmPVclEndCCStatusUpTransition'), ['int'])),
+                    ('catmpvclendccstatusupstart', (YLeaf(YType.uint32, 'catmPVclEndCCStatusUpStart'), ['int'])),
+                    ('catmpvclendccstatusupend', (YLeaf(YType.uint32, 'catmPVclEndCCStatusUpEnd'), ['int'])),
+                    ('catmpvclaisrdistatusuptransition', (YLeaf(YType.uint32, 'catmPVclAISRDIStatusUpTransition'), ['int'])),
+                    ('catmpvclaisrdistatusupstart', (YLeaf(YType.uint32, 'catmPVclAISRDIStatusUpStart'), ['int'])),
+                    ('catmpvclaisrdistatusupend', (YLeaf(YType.uint32, 'catmPVclAISRDIStatusUpEnd'), ['int'])),
+                    ('catmpvclcurrecovertime', (YLeaf(YType.uint32, 'catmPVclCurRecoverTime'), ['int'])),
+                    ('catmpvclprevfailtime', (YLeaf(YType.uint32, 'catmPVclPrevFailTime'), ['int'])),
+                    ('catmpvclrecoveryreason', (YLeaf(YType.enumeration, 'catmPVclRecoveryReason'), [('ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB', 'CatmOAMRecoveryType', '')])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -1430,6 +1445,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.catmpvclrecoveryreason = None
                 self._segment_path = lambda: "catmCurStatusUpPVclEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[atmVclVci='" + str(self.atmvclvci) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmCurStatusUpPVclTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmCurStatusUpPVclTable.CatmCurStatusUpPVclEntry, ['ifindex', 'atmvclvpi', 'atmvclvci', 'catmpvclstatusuptransition', 'catmpvclstatusupstart', 'catmpvclstatusupend', 'catmpvclsegccstatusuptransition', 'catmpvclsegccstatusupstart', 'catmpvclsegccstatusupend', 'catmpvclendccstatusuptransition', 'catmpvclendccstatusupstart', 'catmpvclendccstatusupend', 'catmpvclaisrdistatusuptransition', 'catmpvclaisrdistatusupstart', 'catmpvclaisrdistatusupend', 'catmpvclcurrecovertime', 'catmpvclprevfailtime', 'catmpvclrecoveryreason'], name, value)
@@ -1469,6 +1485,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             self.catmstatusuppvclrangeentry = YList(self)
             self._segment_path = lambda: "catmStatusUpPVclRangeTable"
             self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmStatusUpPVclRangeTable, [], name, value)
@@ -1554,13 +1571,13 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','catmstatuschangepvclrangeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('catmstatuschangepvclrangeindex', YLeaf(YType.str, 'catmStatusChangePVclRangeIndex')),
-                    ('catmpvcluplowerrangevalue', YLeaf(YType.int32, 'catmPVclUpLowerRangeValue')),
-                    ('catmpvcluphigherrangevalue', YLeaf(YType.int32, 'catmPVclUpHigherRangeValue')),
-                    ('catmpvclrangestatusupstart', YLeaf(YType.uint32, 'catmPVclRangeStatusUpStart')),
-                    ('catmpvclrangestatusupend', YLeaf(YType.uint32, 'catmPVclRangeStatusUpEnd')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('catmstatuschangepvclrangeindex', (YLeaf(YType.str, 'catmStatusChangePVclRangeIndex'), ['int'])),
+                    ('catmpvcluplowerrangevalue', (YLeaf(YType.int32, 'catmPVclUpLowerRangeValue'), ['int'])),
+                    ('catmpvcluphigherrangevalue', (YLeaf(YType.int32, 'catmPVclUpHigherRangeValue'), ['int'])),
+                    ('catmpvclrangestatusupstart', (YLeaf(YType.uint32, 'catmPVclRangeStatusUpStart'), ['int'])),
+                    ('catmpvclrangestatusupend', (YLeaf(YType.uint32, 'catmPVclRangeStatusUpEnd'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -1571,6 +1588,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.catmpvclrangestatusupend = None
                 self._segment_path = lambda: "catmStatusUpPVclRangeEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + str(self.catmstatuschangepvclrangeindex) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmStatusUpPVclRangeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmStatusUpPVclRangeTable.CatmStatusUpPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvcluplowerrangevalue', 'catmpvcluphigherrangevalue', 'catmpvclrangestatusupstart', 'catmpvclrangestatusupend'], name, value)
@@ -1610,6 +1628,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             self.catmsegccstatusuppvclrangeentry = YList(self)
             self._segment_path = lambda: "catmSegCCStatusUpPVclRangeTable"
             self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmSegCCStatusUpPVclRangeTable, [], name, value)
@@ -1695,13 +1714,13 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','catmstatuschangepvclrangeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('catmstatuschangepvclrangeindex', YLeaf(YType.str, 'catmStatusChangePVclRangeIndex')),
-                    ('catmpvclsegccuplowerrangevalue', YLeaf(YType.int32, 'catmPVclSegCCUpLowerRangeValue')),
-                    ('catmpvclsegccuphigherrangevalue', YLeaf(YType.int32, 'catmPVclSegCCUpHigherRangeValue')),
-                    ('catmpvclsegccrangestatusupstart', YLeaf(YType.uint32, 'catmPVclSegCCRangeStatusUpStart')),
-                    ('catmpvclsegccrangestatusupend', YLeaf(YType.uint32, 'catmPVclSegCCRangeStatusUpEnd')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('catmstatuschangepvclrangeindex', (YLeaf(YType.str, 'catmStatusChangePVclRangeIndex'), ['int'])),
+                    ('catmpvclsegccuplowerrangevalue', (YLeaf(YType.int32, 'catmPVclSegCCUpLowerRangeValue'), ['int'])),
+                    ('catmpvclsegccuphigherrangevalue', (YLeaf(YType.int32, 'catmPVclSegCCUpHigherRangeValue'), ['int'])),
+                    ('catmpvclsegccrangestatusupstart', (YLeaf(YType.uint32, 'catmPVclSegCCRangeStatusUpStart'), ['int'])),
+                    ('catmpvclsegccrangestatusupend', (YLeaf(YType.uint32, 'catmPVclSegCCRangeStatusUpEnd'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -1712,6 +1731,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.catmpvclsegccrangestatusupend = None
                 self._segment_path = lambda: "catmSegCCStatusUpPVclRangeEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + str(self.catmstatuschangepvclrangeindex) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmSegCCStatusUpPVclRangeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmSegCCStatusUpPVclRangeTable.CatmSegCCStatusUpPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvclsegccuplowerrangevalue', 'catmpvclsegccuphigherrangevalue', 'catmpvclsegccrangestatusupstart', 'catmpvclsegccrangestatusupend'], name, value)
@@ -1751,6 +1771,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             self.catmendccstatusuppvclrangeentry = YList(self)
             self._segment_path = lambda: "catmEndCCStatusUpPVclRangeTable"
             self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmEndCCStatusUpPVclRangeTable, [], name, value)
@@ -1836,13 +1857,13 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','catmstatuschangepvclrangeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('catmstatuschangepvclrangeindex', YLeaf(YType.str, 'catmStatusChangePVclRangeIndex')),
-                    ('catmpvclendccuplowerrangevalue', YLeaf(YType.int32, 'catmPVclEndCCUpLowerRangeValue')),
-                    ('catmpvclendccuphigherrangevalue', YLeaf(YType.int32, 'catmPVclEndCCUpHigherRangeValue')),
-                    ('catmpvclendccrangestatusupstart', YLeaf(YType.uint32, 'catmPVclEndCCRangeStatusUpStart')),
-                    ('catmpvclendccrangestatusupend', YLeaf(YType.uint32, 'catmPVclEndCCRangeStatusUpEnd')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('catmstatuschangepvclrangeindex', (YLeaf(YType.str, 'catmStatusChangePVclRangeIndex'), ['int'])),
+                    ('catmpvclendccuplowerrangevalue', (YLeaf(YType.int32, 'catmPVclEndCCUpLowerRangeValue'), ['int'])),
+                    ('catmpvclendccuphigherrangevalue', (YLeaf(YType.int32, 'catmPVclEndCCUpHigherRangeValue'), ['int'])),
+                    ('catmpvclendccrangestatusupstart', (YLeaf(YType.uint32, 'catmPVclEndCCRangeStatusUpStart'), ['int'])),
+                    ('catmpvclendccrangestatusupend', (YLeaf(YType.uint32, 'catmPVclEndCCRangeStatusUpEnd'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -1853,6 +1874,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.catmpvclendccrangestatusupend = None
                 self._segment_path = lambda: "catmEndCCStatusUpPVclRangeEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + str(self.catmstatuschangepvclrangeindex) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmEndCCStatusUpPVclRangeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmEndCCStatusUpPVclRangeTable.CatmEndCCStatusUpPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvclendccuplowerrangevalue', 'catmpvclendccuphigherrangevalue', 'catmpvclendccrangestatusupstart', 'catmpvclendccrangestatusupend'], name, value)
@@ -1892,6 +1914,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             self.catmaisrdistatusuppvclrangeentry = YList(self)
             self._segment_path = lambda: "catmAISRDIStatusUpPVclRangeTable"
             self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmAISRDIStatusUpPVclRangeTable, [], name, value)
@@ -1977,13 +2000,13 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','catmstatuschangepvclrangeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('catmstatuschangepvclrangeindex', YLeaf(YType.str, 'catmStatusChangePVclRangeIndex')),
-                    ('catmpvclaisrdiuplowerrangevalue', YLeaf(YType.int32, 'catmPVclAISRDIUpLowerRangeValue')),
-                    ('catmpvclaisrdiuphigherrangevalue', YLeaf(YType.int32, 'catmPVclAISRDIUpHigherRangeValue')),
-                    ('catmpvclaisrdirangestatusupstart', YLeaf(YType.uint32, 'catmPVclAISRDIRangeStatusUpStart')),
-                    ('catmpvclaisrdirangestatusupend', YLeaf(YType.uint32, 'catmPVclAISRDIRangeStatusUpEnd')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('catmstatuschangepvclrangeindex', (YLeaf(YType.str, 'catmStatusChangePVclRangeIndex'), ['int'])),
+                    ('catmpvclaisrdiuplowerrangevalue', (YLeaf(YType.int32, 'catmPVclAISRDIUpLowerRangeValue'), ['int'])),
+                    ('catmpvclaisrdiuphigherrangevalue', (YLeaf(YType.int32, 'catmPVclAISRDIUpHigherRangeValue'), ['int'])),
+                    ('catmpvclaisrdirangestatusupstart', (YLeaf(YType.uint32, 'catmPVclAISRDIRangeStatusUpStart'), ['int'])),
+                    ('catmpvclaisrdirangestatusupend', (YLeaf(YType.uint32, 'catmPVclAISRDIRangeStatusUpEnd'), ['int'])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -1994,6 +2017,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.catmpvclaisrdirangestatusupend = None
                 self._segment_path = lambda: "catmAISRDIStatusUpPVclRangeEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + str(self.catmstatuschangepvclrangeindex) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmAISRDIStatusUpPVclRangeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmAISRDIStatusUpPVclRangeTable.CatmAISRDIStatusUpPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmpvclaisrdiuplowerrangevalue', 'catmpvclaisrdiuphigherrangevalue', 'catmpvclaisrdirangestatusupstart', 'catmpvclaisrdirangestatusupend'], name, value)
@@ -2033,6 +2057,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
             self.catmuppvclrangeentry = YList(self)
             self._segment_path = lambda: "catmUpPVclRangeTable"
             self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmUpPVclRangeTable, [], name, value)
@@ -2137,16 +2162,16 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.ylist_key_names = ['ifindex','atmvclvpi','catmstatuschangepvclrangeindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('atmvclvpi', YLeaf(YType.str, 'atmVclVpi')),
-                    ('catmstatuschangepvclrangeindex', YLeaf(YType.str, 'catmStatusChangePVclRangeIndex')),
-                    ('catmuppvcllowerrangevalue', YLeaf(YType.int32, 'catmUpPVclLowerRangeValue')),
-                    ('catmuppvclhigherrangevalue', YLeaf(YType.int32, 'catmUpPVclHigherRangeValue')),
-                    ('catmuppvclrangestart', YLeaf(YType.uint32, 'catmUpPVclRangeStart')),
-                    ('catmuppvclrangeend', YLeaf(YType.uint32, 'catmUpPVclRangeEnd')),
-                    ('catmprevdownpvclrangestart', YLeaf(YType.uint32, 'catmPrevDownPVclRangeStart')),
-                    ('catmprevdownpvclrangeend', YLeaf(YType.uint32, 'catmPrevDownPVclRangeEnd')),
-                    ('catmpvclrangerecoveryreason', YLeaf(YType.enumeration, 'catmPVclRangeRecoveryReason')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('atmvclvpi', (YLeaf(YType.str, 'atmVclVpi'), ['int'])),
+                    ('catmstatuschangepvclrangeindex', (YLeaf(YType.str, 'catmStatusChangePVclRangeIndex'), ['int'])),
+                    ('catmuppvcllowerrangevalue', (YLeaf(YType.int32, 'catmUpPVclLowerRangeValue'), ['int'])),
+                    ('catmuppvclhigherrangevalue', (YLeaf(YType.int32, 'catmUpPVclHigherRangeValue'), ['int'])),
+                    ('catmuppvclrangestart', (YLeaf(YType.uint32, 'catmUpPVclRangeStart'), ['int'])),
+                    ('catmuppvclrangeend', (YLeaf(YType.uint32, 'catmUpPVclRangeEnd'), ['int'])),
+                    ('catmprevdownpvclrangestart', (YLeaf(YType.uint32, 'catmPrevDownPVclRangeStart'), ['int'])),
+                    ('catmprevdownpvclrangeend', (YLeaf(YType.uint32, 'catmPrevDownPVclRangeEnd'), ['int'])),
+                    ('catmpvclrangerecoveryreason', (YLeaf(YType.enumeration, 'catmPVclRangeRecoveryReason'), [('ydk.models.cisco_ios_xe.CISCO_ATM_PVCTRAP_EXTN_MIB', 'CatmOAMRecoveryType', '')])),
                 ])
                 self.ifindex = None
                 self.atmvclvpi = None
@@ -2160,6 +2185,7 @@ class CISCOATMPVCTRAPEXTNMIB(Entity):
                 self.catmpvclrangerecoveryreason = None
                 self._segment_path = lambda: "catmUpPVclRangeEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[atmVclVpi='" + str(self.atmvclvpi) + "']" + "[catmStatusChangePVclRangeIndex='" + str(self.catmstatuschangepvclrangeindex) + "']"
                 self._absolute_path = lambda: "CISCO-ATM-PVCTRAP-EXTN-MIB:CISCO-ATM-PVCTRAP-EXTN-MIB/catmUpPVclRangeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOATMPVCTRAPEXTNMIB.CatmUpPVclRangeTable.CatmUpPVclRangeEntry, ['ifindex', 'atmvclvpi', 'catmstatuschangepvclrangeindex', 'catmuppvcllowerrangevalue', 'catmuppvclhigherrangevalue', 'catmuppvclrangestart', 'catmuppvclrangeend', 'catmprevdownpvclrangestart', 'catmprevdownpvclrangeend', 'catmpvclrangerecoveryreason'], name, value)

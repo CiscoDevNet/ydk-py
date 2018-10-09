@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ip\-tcp\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -67,7 +68,7 @@ class IpUdp(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("num-thread", ("num_thread", IpUdp.NumThread)), ("directory", ("directory", IpUdp.Directory))])
         self._leafs = OrderedDict([
-            ('receive_q', YLeaf(YType.uint32, 'receive-q')),
+            ('receive_q', (YLeaf(YType.uint32, 'receive-q'), ['int'])),
         ])
         self.receive_q = None
 
@@ -77,6 +78,7 @@ class IpUdp(Entity):
         self.directory = None
         self._children_name_map["directory"] = "directory"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-udp-cfg:ip-udp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(IpUdp, ['receive_q'], name, value)
@@ -124,13 +126,14 @@ class IpUdp(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('udp_in_q_threads', YLeaf(YType.uint32, 'udp-in-q-threads')),
-                ('udp_out_q_threads', YLeaf(YType.uint32, 'udp-out-q-threads')),
+                ('udp_in_q_threads', (YLeaf(YType.uint32, 'udp-in-q-threads'), ['int'])),
+                ('udp_out_q_threads', (YLeaf(YType.uint32, 'udp-out-q-threads'), ['int'])),
             ])
             self.udp_in_q_threads = None
             self.udp_out_q_threads = None
             self._segment_path = lambda: "num-thread"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-udp-cfg:ip-udp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IpUdp.NumThread, ['udp_in_q_threads', 'udp_out_q_threads'], name, value)
@@ -185,15 +188,16 @@ class IpUdp(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('directoryname', YLeaf(YType.str, 'directoryname')),
-                ('max_udp_debug_files', YLeaf(YType.uint32, 'max-udp-debug-files')),
-                ('max_file_size_files', YLeaf(YType.uint32, 'max-file-size-files')),
+                ('directoryname', (YLeaf(YType.str, 'directoryname'), ['str'])),
+                ('max_udp_debug_files', (YLeaf(YType.uint32, 'max-udp-debug-files'), ['int'])),
+                ('max_file_size_files', (YLeaf(YType.uint32, 'max-file-size-files'), ['int'])),
             ])
             self.directoryname = None
             self.max_udp_debug_files = None
             self.max_file_size_files = None
             self._segment_path = lambda: "directory"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-udp-cfg:ip-udp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IpUdp.Directory, ['directoryname', 'max_udp_debug_files', 'max_file_size_files'], name, value)

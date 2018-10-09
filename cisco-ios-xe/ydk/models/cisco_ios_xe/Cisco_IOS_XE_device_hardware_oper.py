@@ -14,6 +14,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class AlarmSeverity(Enum):
     """
     AlarmSeverity (Enum Class)
@@ -156,6 +157,7 @@ class DeviceHardwareData(Entity):
         self.device_hardware = None
         self._children_name_map["device_hardware"] = "device-hardware"
         self._segment_path = lambda: "Cisco-IOS-XE-device-hardware-oper:device-hardware-data"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(DeviceHardwareData, [], name, value)
@@ -210,6 +212,7 @@ class DeviceHardwareData(Entity):
             self.device_alarm = YList(self)
             self._segment_path = lambda: "device-hardware"
             self._absolute_path = lambda: "Cisco-IOS-XE-device-hardware-oper:device-hardware-data/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DeviceHardwareData.DeviceHardware, [], name, value)
@@ -268,12 +271,12 @@ class DeviceHardwareData(Entity):
                 self.ylist_key_names = ['hw_type','hw_dev_index']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('hw_type', YLeaf(YType.enumeration, 'hw-type')),
-                    ('hw_dev_index', YLeaf(YType.uint32, 'hw-dev-index')),
-                    ('version', YLeaf(YType.str, 'version')),
-                    ('part_number', YLeaf(YType.str, 'part-number')),
-                    ('serial_number', YLeaf(YType.str, 'serial-number')),
-                    ('hw_description', YLeaf(YType.str, 'hw-description')),
+                    ('hw_type', (YLeaf(YType.enumeration, 'hw-type'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_device_hardware_oper', 'HwType', '')])),
+                    ('hw_dev_index', (YLeaf(YType.uint32, 'hw-dev-index'), ['int'])),
+                    ('version', (YLeaf(YType.str, 'version'), ['str'])),
+                    ('part_number', (YLeaf(YType.str, 'part-number'), ['str'])),
+                    ('serial_number', (YLeaf(YType.str, 'serial-number'), ['str'])),
+                    ('hw_description', (YLeaf(YType.str, 'hw-description'), ['str'])),
                 ])
                 self.hw_type = None
                 self.hw_dev_index = None
@@ -283,6 +286,7 @@ class DeviceHardwareData(Entity):
                 self.hw_description = None
                 self._segment_path = lambda: "device-inventory" + "[hw-type='" + str(self.hw_type) + "']" + "[hw-dev-index='" + str(self.hw_dev_index) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-device-hardware-oper:device-hardware-data/device-hardware/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DeviceHardwareData.DeviceHardware.DeviceInventory, ['hw_type', 'hw_dev_index', 'version', 'part_number', 'serial_number', 'hw_description'], name, value)
@@ -345,12 +349,12 @@ class DeviceHardwareData(Entity):
                 self.ylist_key_names = ['alarm_id','alarm_instance']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('alarm_id', YLeaf(YType.uint32, 'alarm-id')),
-                    ('alarm_instance', YLeaf(YType.uint32, 'alarm-instance')),
-                    ('alarm_name', YLeaf(YType.str, 'alarm-name')),
-                    ('alarm_category', YLeaf(YType.enumeration, 'alarm-category')),
-                    ('alarm_time', YLeaf(YType.str, 'alarm-time')),
-                    ('alarm_description', YLeaf(YType.str, 'alarm-description')),
+                    ('alarm_id', (YLeaf(YType.uint32, 'alarm-id'), ['int'])),
+                    ('alarm_instance', (YLeaf(YType.uint32, 'alarm-instance'), ['int'])),
+                    ('alarm_name', (YLeaf(YType.str, 'alarm-name'), ['str'])),
+                    ('alarm_category', (YLeaf(YType.enumeration, 'alarm-category'), [('ydk.models.cisco_ios_xe.Cisco_IOS_XE_device_hardware_oper', 'AlarmSeverity', '')])),
+                    ('alarm_time', (YLeaf(YType.str, 'alarm-time'), ['str'])),
+                    ('alarm_description', (YLeaf(YType.str, 'alarm-description'), ['str'])),
                 ])
                 self.alarm_id = None
                 self.alarm_instance = None
@@ -360,6 +364,7 @@ class DeviceHardwareData(Entity):
                 self.alarm_description = None
                 self._segment_path = lambda: "device-alarm" + "[alarm-id='" + str(self.alarm_id) + "']" + "[alarm-instance='" + str(self.alarm_instance) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XE-device-hardware-oper:device-hardware-data/device-hardware/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DeviceHardwareData.DeviceHardware.DeviceAlarm, ['alarm_id', 'alarm_instance', 'alarm_name', 'alarm_category', 'alarm_time', 'alarm_description'], name, value)
@@ -418,11 +423,11 @@ class DeviceHardwareData(Entity):
                 self._child_classes = OrderedDict([])
                 self.is_presence_container = True
                 self._leafs = OrderedDict([
-                    ('current_time', YLeaf(YType.str, 'current-time')),
-                    ('boot_time', YLeaf(YType.str, 'boot-time')),
-                    ('software_version', YLeaf(YType.str, 'software-version')),
-                    ('rommon_version', YLeaf(YType.str, 'rommon-version')),
-                    ('last_reboot_reason', YLeaf(YType.str, 'last-reboot-reason')),
+                    ('current_time', (YLeaf(YType.str, 'current-time'), ['str'])),
+                    ('boot_time', (YLeaf(YType.str, 'boot-time'), ['str'])),
+                    ('software_version', (YLeaf(YType.str, 'software-version'), ['str'])),
+                    ('rommon_version', (YLeaf(YType.str, 'rommon-version'), ['str'])),
+                    ('last_reboot_reason', (YLeaf(YType.str, 'last-reboot-reason'), ['str'])),
                 ])
                 self.current_time = None
                 self.boot_time = None
@@ -431,6 +436,7 @@ class DeviceHardwareData(Entity):
                 self.last_reboot_reason = None
                 self._segment_path = lambda: "device-system-data"
                 self._absolute_path = lambda: "Cisco-IOS-XE-device-hardware-oper:device-hardware-data/device-hardware/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DeviceHardwareData.DeviceHardware.DeviceSystemData, ['current_time', 'boot_time', 'software_version', 'rommon_version', 'last_reboot_reason'], name, value)

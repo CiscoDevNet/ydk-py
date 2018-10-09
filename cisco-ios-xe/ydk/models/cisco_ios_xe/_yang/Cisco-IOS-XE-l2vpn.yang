@@ -45,6 +45,10 @@ module Cisco-IOS-XE-l2vpn {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-02-13 {
+    description
+      "Added Evpn support";
+  }
   revision 2017-11-27 {
      description
        "Added Change 25GE name";
@@ -619,7 +623,234 @@ module Cisco-IOS-XE-l2vpn {
       }
     }
   }
+  
+  grouping config-l2vpn-evpn-main {
+    container evpn {
+      description
+        "Ethernet Virtual Private Network (EVPN) configuration";
+      container replication-type {
+        description
+          "Specify method for replicating BUM traffic";      
+        choice replication-type-choice {
+          leaf ingress {
+            description
+              "Ingress replication";      
+            type empty;
+          }
+          leaf static {
+            description
+              "Static replication";      
+            type empty;
+          }
+          leaf p2mp {
+            description
+              "p2mp replication";     
+            type empty;
+          }
+          leaf mp2mp {
+            description
+              "mp2mp replication";      
+            type empty;
+          }
+        }
+      }
+      container arp{
+        description
+          "arp parameters";
+        container flooding-suppression{
+          leaf disable{
+            type empty;        
+          }
+        }
+      }
+      container mac {
+        description
+          "MAC parameters";   
+        container duplication {
+          description
+            "MAC duplication detection";      
+          leaf limit {
+            description
+             "Number of MAC moves within specified time interval";       
+            type uint16{
+              range 2..1000;
+            }
+          }
+          leaf time{
+            description
+             "MAC duplication timer";     
+            type uint32{
+              range 10..36000;
+           }
+         }
+       }
+     }
+     container ip {
+       description
+         "IP parameters";   
+       container duplication {
+         description
+           "IP duplication detection";      
+         leaf limit {
+           description
+             "Number of IP moves within specified time interval";       
+           type uint16{
+             range 2..1000;
+           }
+         }
+         leaf time{
+           description
+             "IP duplication timer";      
+           type uint32{
+             range 10..36000;
+           }
+         }
+       }
+     }
+     container mpls{
+       description
+                 "MPLS label config";     
+       container label{
+         container mode {
+           choice mode-choice {
+             leaf per-ce {
+               description
+                 "Allocate one MPLS label per Customer Edge device";     
+               type empty;
+             }
+             leaf per-evi {
+               description
+                  "Allocate one MPLS label per EVPN Instance";   
+               type empty;
+             }
+             leaf per-bd {
+               type empty;
+             }
+           }
+         }
+       }
+     }
+     container multihoming {
+       description
+         "Evpn multihoming config";      
+       container aliasing {
+         leaf disable {
+           type empty;
+         }
+       }
+     }
+     container router-id {
+       description
+         "Select interface to prefer for evpn router-id";
+       container interface {
+         uses ios-ifc:interface-grouping;
+       }
+     }
+    }
+  }
 
+
+  grouping config-l2vpn-evpn-instance-sub-cmd {
+    leaf encapsulation {
+      description
+        "Data encapsulation method";
+      type enumeration {
+        enum "vxlan";
+        enum "mpls";
+      }
+    }
+    container auto-route-target_cont {
+      leaf auto-route-target {
+        description 
+          "Automatically set a route-target";
+        type empty;
+      }
+    }
+    container rd {
+      description 
+        "EVPN Route Distinguisher";
+      leaf rd-value {
+        description
+          "ASN:nn or IP-address:nn";
+        type string;
+      }
+    }
+    container route-target {                                                   
+      description
+        "Route Target VPN Extended Communities";                      
+      leaf rt-value {
+        description
+          "ASN:nn or IP-address:nn";
+        type string;
+      }
+      container both {
+        description 
+          "Both import and export Target-VPN community";
+        leaf rt-value {
+          description
+            "ASN:nn or IP-address:nn";   
+          type string;
+        }
+      }
+      container export {
+        leaf rt-value {
+          description
+             "ASN:nn or IP-address:nn";
+          type string;
+        }
+      }
+      container import {
+        description
+          "Import Target-VPN community";
+        leaf rt-value {
+          description
+             "ASN:nn or IP-address:nn";
+          type string;
+        }
+      }
+    }
+
+  }
+
+  grouping config-l2vpn-evpn-instance {
+    container evpn-instance {
+      container evpn {
+        container instance{
+          list instance {
+            description
+              "evpn instance";
+            key "evpn-instance-num";
+            leaf evpn-instance-num {
+              description
+                "evpn instance number";
+              type string;
+            }
+
+            choice evpn-service-type {
+              description
+                "Evpn Service type.";
+              container  point-to-point {
+                presence "true";
+                uses config-l2vpn-evpn-instance-sub-cmd;
+              }
+              container  vlan-aware {
+                presence "true";
+                uses config-l2vpn-evpn-instance-sub-cmd;
+              }
+              container  vlan-based {
+                presence "true";
+                uses config-l2vpn-evpn-instance-sub-cmd;
+              }
+              container  vlan-bundle {
+                presence "true";
+                uses config-l2vpn-evpn-instance-sub-cmd;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   grouping config-l2vpn-grouping {
     container pseudowire {
       description
@@ -901,6 +1132,10 @@ module Cisco-IOS-XE-l2vpn {
           }
         }
       }
+    }
+    container evpn_cont {
+      uses config-l2vpn-evpn-main;
+      uses config-l2vpn-evpn-instance;
     }
   }
 
@@ -1269,6 +1504,50 @@ module Cisco-IOS-XE-l2vpn {
     uses pseudowire-grouping;
   }
 
+  grouping config-evpn-ethernet-segment {
+    container evpn {        
+      list ethernet-segment {
+        description
+          "Ethernet segment local discriminator value";  
+        key "es-value";
+        leaf es-value {
+          description
+            "Ethernet segment local discriminator value";      
+          type uint16 {
+            range "1..65535";
+          }
+        }
+        container df-election{
+          description
+            "Designated forwarder election parameters";     
+          leaf wait-time{
+            type uint8 {
+              range "1..10";
+            }
+          }
+        }
+        container redundancy {
+          description
+            "Multi-homing redundancy parameters";      
+          choice redundancy-choice {
+            leaf all-active {
+              type empty;
+            }
+            leaf single-active {
+              type empty;
+            }
+          }
+        }
+        leaf sytem-mac {
+          description
+            "System MAC address for generating the Ethernet Segment ID";      
+          type string;
+        }
+      }
+    }
+  }
+
+
   /////////////////////////////////////////////////////////
   // native / interface / pseudowire
   /////////////////////////////////////////////////////////
@@ -1391,6 +1670,47 @@ module Cisco-IOS-XE-l2vpn {
       if-feature ios-features:efp;
     }    
   }
+
+  ///////////////////////////////////////////////////////////////////
+  // native / interface * / evpn
+  ///////////////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:FastEthernet" {
+    uses config-evpn-ethernet-segment;
+  }
+
+  augment "/ios:native/ios:interface/ios:GigabitEthernet" {
+    uses config-evpn-ethernet-segment;
+  }
+
+  augment "/ios:native/ios:interface/ios:TenGigabitEthernet" {
+    uses config-evpn-ethernet-segment;
+  }
+
+  augment "/ios:native/ios:interface/ios:FiveGigabitEthernet" {
+    uses config-evpn-ethernet-segment;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwentyFiveGigE" {
+    uses config-evpn-ethernet-segment;
+  }
+
+  augment "/ios:native/ios:interface/ios:TwoGigabitEthernet" {
+    uses config-evpn-ethernet-segment;
+  }
+
+  augment "/ios:native/ios:interface/ios:FortyGigabitEthernet" {
+    uses config-evpn-ethernet-segment;
+  }
+
+  augment "/ios:native/ios:interface/ios:HundredGigE" {
+    uses config-evpn-ethernet-segment;
+  }
+
+  augment "/ios:native/ios:interface/ios:Port-channel" {
+    uses config-evpn-ethernet-segment;
+  }
+  
+
 
   /////////////////////////////////////////////////////////
   // native / l2

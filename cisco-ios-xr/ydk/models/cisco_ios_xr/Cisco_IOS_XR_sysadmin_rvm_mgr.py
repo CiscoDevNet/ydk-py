@@ -1,15 +1,9 @@
 """ Cisco_IOS_XR_sysadmin_rvm_mgr 
 
-This module contains definitions
-for the Calvados model objects.
-
 This module contains a collection of YANG
 definitions for Cisco IOS\-XR SysAdmin configuration.
 
 Copyright(c) 2013\-2017 by Cisco Systems, Inc.
-All rights reserved.
-
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -19,6 +13,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class FlagtypeTd(Enum):
@@ -82,6 +77,7 @@ class RVM(Entity):
 
         self.all_locations = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-rvm-mgr:RVM"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(RVM, [], name, value)
@@ -128,7 +124,7 @@ class RVM(Entity):
             self.ylist_key_names = ['location']
             self._child_classes = OrderedDict([("objects", ("objects", RVM.AllLocations.Objects)), ("node", ("node", RVM.AllLocations.Node)), ("card", ("card", RVM.AllLocations.Card))])
             self._leafs = OrderedDict([
-                ('location', YLeaf(YType.str, 'location')),
+                ('location', (YLeaf(YType.str, 'location'), ['str'])),
             ])
             self.location = None
 
@@ -145,6 +141,7 @@ class RVM(Entity):
             self._children_name_map["card"] = "card"
             self._segment_path = lambda: "all-locations" + "[location='" + str(self.location) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-rvm-mgr:RVM/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(RVM.AllLocations, ['location'], name, value)
@@ -179,6 +176,7 @@ class RVM(Entity):
 
                 self.all_objs = YList(self)
                 self._segment_path = lambda: "objects"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RVM.AllLocations.Objects, [], name, value)
@@ -233,16 +231,17 @@ class RVM(Entity):
                     self.ylist_key_names = ['index']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('index', YLeaf(YType.uint32, 'index')),
-                        ('num_allocated', YLeaf(YType.uint32, 'num_allocated')),
-                        ('num_freed', YLeaf(YType.uint32, 'num_freed')),
-                        ('num_objects', YLeaf(YType.uint32, 'num_objects')),
+                        ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                        ('num_allocated', (YLeaf(YType.uint32, 'num_allocated'), ['int'])),
+                        ('num_freed', (YLeaf(YType.uint32, 'num_freed'), ['int'])),
+                        ('num_objects', (YLeaf(YType.uint32, 'num_objects'), ['int'])),
                     ])
                     self.index = None
                     self.num_allocated = None
                     self.num_freed = None
                     self.num_objects = None
                     self._segment_path = lambda: "all-objs" + "[index='" + str(self.index) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RVM.AllLocations.Objects.AllObjs, ['index', 'num_allocated', 'num_freed', 'num_objects'], name, value)
@@ -277,6 +276,7 @@ class RVM(Entity):
 
                 self.all_nodes = YList(self)
                 self._segment_path = lambda: "node"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RVM.AllLocations.Node, [], name, value)
@@ -330,11 +330,11 @@ class RVM(Entity):
                     self.ylist_key_names = ['ipv4_addr']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('ipv4_addr', YLeaf(YType.uint32, 'ipv4_addr')),
-                        ('ipv4_addr_str', YLeaf(YType.str, 'ipv4_addr_str')),
-                        ('node_info', YLeaf(YType.str, 'node_info')),
-                        ('node_hb_info', YLeaf(YType.str, 'node_hb_info')),
-                        ('node_card_info', YLeaf(YType.str, 'node_card_info')),
+                        ('ipv4_addr', (YLeaf(YType.uint32, 'ipv4_addr'), ['int'])),
+                        ('ipv4_addr_str', (YLeaf(YType.str, 'ipv4_addr_str'), ['str'])),
+                        ('node_info', (YLeaf(YType.str, 'node_info'), ['str'])),
+                        ('node_hb_info', (YLeaf(YType.str, 'node_hb_info'), ['str'])),
+                        ('node_card_info', (YLeaf(YType.str, 'node_card_info'), ['str'])),
                     ])
                     self.ipv4_addr = None
                     self.ipv4_addr_str = None
@@ -342,6 +342,7 @@ class RVM(Entity):
                     self.node_hb_info = None
                     self.node_card_info = None
                     self._segment_path = lambda: "all-nodes" + "[ipv4_addr='" + str(self.ipv4_addr) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RVM.AllLocations.Node.AllNodes, ['ipv4_addr', 'ipv4_addr_str', 'node_info', 'node_hb_info', 'node_card_info'], name, value)
@@ -376,6 +377,7 @@ class RVM(Entity):
 
                 self.all_cards = YList(self)
                 self._segment_path = lambda: "card"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(RVM.AllLocations.Card, [], name, value)
@@ -427,11 +429,11 @@ class RVM(Entity):
                     self.ylist_key_names = ['serial_num']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('serial_num', YLeaf(YType.str, 'serial_num')),
-                        ('card_flag', YLeaf(YType.str, 'card_flag')),
-                        ('card_info', YLeaf(YType.str, 'card_info')),
-                        ('sysadmin_nodes', YLeaf(YType.str, 'sysadmin_nodes')),
-                        ('xr_nodes', YLeaf(YType.str, 'xr_nodes')),
+                        ('serial_num', (YLeaf(YType.str, 'serial_num'), ['str'])),
+                        ('card_flag', (YLeaf(YType.str, 'card_flag'), ['str'])),
+                        ('card_info', (YLeaf(YType.str, 'card_info'), ['str'])),
+                        ('sysadmin_nodes', (YLeaf(YType.str, 'sysadmin_nodes'), ['str'])),
+                        ('xr_nodes', (YLeaf(YType.str, 'xr_nodes'), ['str'])),
                     ])
                     self.serial_num = None
                     self.card_flag = None
@@ -439,6 +441,7 @@ class RVM(Entity):
                     self.sysadmin_nodes = None
                     self.xr_nodes = None
                     self._segment_path = lambda: "all-cards" + "[serial_num='" + str(self.serial_num) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(RVM.AllLocations.Card.AllCards, ['serial_num', 'card_flag', 'card_info', 'sysadmin_nodes', 'xr_nodes'], name, value)

@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ip\-explicit\-paths\: IP Explicit Path config data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class IpIepHop(Enum):
@@ -133,6 +134,7 @@ class IpExplicitPaths(Entity):
         self.paths.parent = self
         self._children_name_map["paths"] = "paths"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(IpExplicitPaths, [], name, value)
@@ -168,6 +170,7 @@ class IpExplicitPaths(Entity):
             self.path = YList(self)
             self._segment_path = lambda: "paths"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IpExplicitPaths.Paths, [], name, value)
@@ -209,7 +212,7 @@ class IpExplicitPaths(Entity):
                 self.ylist_key_names = ['type']
                 self._child_classes = OrderedDict([("name", ("name", IpExplicitPaths.Paths.Path.Name)), ("identifier", ("identifier", IpExplicitPaths.Paths.Path.Identifier))])
                 self._leafs = OrderedDict([
-                    ('type', YLeaf(YType.enumeration, 'type')),
+                    ('type', (YLeaf(YType.enumeration, 'type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg', 'IpIepPath', '')])),
                 ])
                 self.type = None
 
@@ -217,6 +220,7 @@ class IpExplicitPaths(Entity):
                 self.identifier = YList(self)
                 self._segment_path = lambda: "path" + "[type='" + str(self.type) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-iep-cfg:ip-explicit-paths/paths/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IpExplicitPaths.Paths.Path, ['type'], name, value)
@@ -260,8 +264,8 @@ class IpExplicitPaths(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([("hops", ("hops", IpExplicitPaths.Paths.Path.Name.Hops))])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('disable', YLeaf(YType.empty, 'disable')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                     ])
                     self.name = None
                     self.disable = None
@@ -270,6 +274,7 @@ class IpExplicitPaths(Entity):
                     self.hops.parent = self
                     self._children_name_map["hops"] = "hops"
                     self._segment_path = lambda: "name" + "[name='" + str(self.name) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(IpExplicitPaths.Paths.Path.Name, ['name', 'disable'], name, value)
@@ -304,6 +309,7 @@ class IpExplicitPaths(Entity):
 
                         self.hop = YList(self)
                         self._segment_path = lambda: "hops"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpExplicitPaths.Paths.Path.Name.Hops, [], name, value)
@@ -376,12 +382,12 @@ class IpExplicitPaths(Entity):
                             self.ylist_key_names = ['index_number']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('index_number', YLeaf(YType.uint32, 'index-number')),
-                                ('ip_address', YLeaf(YType.str, 'ip-address')),
-                                ('hop_type', YLeaf(YType.enumeration, 'hop-type')),
-                                ('if_index', YLeaf(YType.uint32, 'if-index')),
-                                ('num_type', YLeaf(YType.enumeration, 'num-type')),
-                                ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                                ('index_number', (YLeaf(YType.uint32, 'index-number'), ['int'])),
+                                ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                                ('hop_type', (YLeaf(YType.enumeration, 'hop-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg', 'IpIepHop', '')])),
+                                ('if_index', (YLeaf(YType.uint32, 'if-index'), ['int'])),
+                                ('num_type', (YLeaf(YType.enumeration, 'num-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg', 'IpIepNum', '')])),
+                                ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
                             ])
                             self.index_number = None
                             self.ip_address = None
@@ -390,6 +396,7 @@ class IpExplicitPaths(Entity):
                             self.num_type = None
                             self.mpls_label = None
                             self._segment_path = lambda: "hop" + "[index-number='" + str(self.index_number) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpExplicitPaths.Paths.Path.Name.Hops.Hop, ['index_number', 'ip_address', 'hop_type', 'if_index', 'num_type', 'mpls_label'], name, value)
@@ -433,8 +440,8 @@ class IpExplicitPaths(Entity):
                     self.ylist_key_names = ['id']
                     self._child_classes = OrderedDict([("hops", ("hops", IpExplicitPaths.Paths.Path.Identifier.Hops))])
                     self._leafs = OrderedDict([
-                        ('id', YLeaf(YType.uint32, 'id')),
-                        ('disable', YLeaf(YType.empty, 'disable')),
+                        ('id', (YLeaf(YType.uint32, 'id'), ['int'])),
+                        ('disable', (YLeaf(YType.empty, 'disable'), ['Empty'])),
                     ])
                     self.id = None
                     self.disable = None
@@ -443,6 +450,7 @@ class IpExplicitPaths(Entity):
                     self.hops.parent = self
                     self._children_name_map["hops"] = "hops"
                     self._segment_path = lambda: "identifier" + "[id='" + str(self.id) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(IpExplicitPaths.Paths.Path.Identifier, ['id', 'disable'], name, value)
@@ -477,6 +485,7 @@ class IpExplicitPaths(Entity):
 
                         self.hop = YList(self)
                         self._segment_path = lambda: "hops"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(IpExplicitPaths.Paths.Path.Identifier.Hops, [], name, value)
@@ -549,12 +558,12 @@ class IpExplicitPaths(Entity):
                             self.ylist_key_names = ['index_number']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('index_number', YLeaf(YType.uint32, 'index-number')),
-                                ('ip_address', YLeaf(YType.str, 'ip-address')),
-                                ('hop_type', YLeaf(YType.enumeration, 'hop-type')),
-                                ('if_index', YLeaf(YType.uint32, 'if-index')),
-                                ('num_type', YLeaf(YType.enumeration, 'num-type')),
-                                ('mpls_label', YLeaf(YType.uint32, 'mpls-label')),
+                                ('index_number', (YLeaf(YType.uint32, 'index-number'), ['int'])),
+                                ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str'])),
+                                ('hop_type', (YLeaf(YType.enumeration, 'hop-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg', 'IpIepHop', '')])),
+                                ('if_index', (YLeaf(YType.uint32, 'if-index'), ['int'])),
+                                ('num_type', (YLeaf(YType.enumeration, 'num-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ip_iep_cfg', 'IpIepNum', '')])),
+                                ('mpls_label', (YLeaf(YType.uint32, 'mpls-label'), ['int'])),
                             ])
                             self.index_number = None
                             self.ip_address = None
@@ -563,6 +572,7 @@ class IpExplicitPaths(Entity):
                             self.num_type = None
                             self.mpls_label = None
                             self._segment_path = lambda: "hop" + "[index-number='" + str(self.index_number) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(IpExplicitPaths.Paths.Path.Identifier.Hops.Hop, ['index_number', 'ip_address', 'hop_type', 'if_index', 'num_type', 'mpls_label'], name, value)

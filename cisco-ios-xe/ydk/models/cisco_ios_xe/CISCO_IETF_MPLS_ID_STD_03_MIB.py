@@ -18,6 +18,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOIETFMPLSIDSTD03MIB(Entity):
     """
     
@@ -50,6 +51,7 @@ class CISCOIETFMPLSIDSTD03MIB(Entity):
         self.cmplsidobjects.parent = self
         self._children_name_map["cmplsidobjects"] = "cmplsIdObjects"
         self._segment_path = lambda: "CISCO-IETF-MPLS-ID-STD-03-MIB:CISCO-IETF-MPLS-ID-STD-03-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOIETFMPLSIDSTD03MIB, [], name, value)
@@ -97,15 +99,16 @@ class CISCOIETFMPLSIDSTD03MIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cmplsglobalid', YLeaf(YType.str, 'cmplsGlobalId')),
-                ('cmplsicc', YLeaf(YType.str, 'cmplsIcc')),
-                ('cmplsnodeid', YLeaf(YType.uint32, 'cmplsNodeId')),
+                ('cmplsglobalid', (YLeaf(YType.str, 'cmplsGlobalId'), ['str'])),
+                ('cmplsicc', (YLeaf(YType.str, 'cmplsIcc'), ['str'])),
+                ('cmplsnodeid', (YLeaf(YType.uint32, 'cmplsNodeId'), ['int'])),
             ])
             self.cmplsglobalid = None
             self.cmplsicc = None
             self.cmplsnodeid = None
             self._segment_path = lambda: "cmplsIdObjects"
             self._absolute_path = lambda: "CISCO-IETF-MPLS-ID-STD-03-MIB:CISCO-IETF-MPLS-ID-STD-03-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOIETFMPLSIDSTD03MIB.CmplsIdObjects, ['cmplsglobalid', 'cmplsicc', 'cmplsnodeid'], name, value)

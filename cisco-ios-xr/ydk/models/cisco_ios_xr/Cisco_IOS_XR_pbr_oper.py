@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   pbr\: PBR operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class PolicyState(Enum):
@@ -73,6 +74,7 @@ class Pbr(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-pbr-oper:pbr"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Pbr, [], name, value)
@@ -108,6 +110,7 @@ class Pbr(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-pbr-oper:pbr/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pbr.Nodes, [], name, value)
@@ -146,7 +149,7 @@ class Pbr(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("policy-map", ("policy_map", Pbr.Nodes.Node.PolicyMap))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -155,6 +158,7 @@ class Pbr(Entity):
                 self._children_name_map["policy_map"] = "policy-map"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-pbr-oper:pbr/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pbr.Nodes.Node, ['node_name'], name, value)
@@ -191,6 +195,7 @@ class Pbr(Entity):
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
                     self._segment_path = lambda: "policy-map"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pbr.Nodes.Node.PolicyMap, [], name, value)
@@ -225,6 +230,7 @@ class Pbr(Entity):
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces, [], name, value)
@@ -239,7 +245,7 @@ class Pbr(Entity):
                         	Name of the interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: direction
                         
@@ -263,7 +269,7 @@ class Pbr(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([("direction", ("direction", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction))])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                             ])
                             self.interface_name = None
 
@@ -271,6 +277,7 @@ class Pbr(Entity):
                             self.direction.parent = self
                             self._children_name_map["direction"] = "direction"
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface, ['interface_name'], name, value)
@@ -307,6 +314,7 @@ class Pbr(Entity):
                                 self.input.parent = self
                                 self._children_name_map["input"] = "input"
                                 self._segment_path = lambda: "direction"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction, [], name, value)
@@ -364,10 +372,10 @@ class Pbr(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("class-stat", ("class_stat", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat))])
                                     self._leafs = OrderedDict([
-                                        ('node_name', YLeaf(YType.str, 'node-name')),
-                                        ('policy_name', YLeaf(YType.str, 'policy-name')),
-                                        ('state', YLeaf(YType.enumeration, 'state')),
-                                        ('state_description', YLeaf(YType.str, 'state-description')),
+                                        ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                                        ('policy_name', (YLeaf(YType.str, 'policy-name'), ['str'])),
+                                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper', 'PolicyState', '')])),
+                                        ('state_description', (YLeaf(YType.str, 'state-description'), ['str'])),
                                     ])
                                     self.node_name = None
                                     self.policy_name = None
@@ -376,9 +384,10 @@ class Pbr(Entity):
 
                                     self.class_stat = YList(self)
                                     self._segment_path = lambda: "input"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input, ['node_name', 'policy_name', 'state', 'state_description'], name, value)
+                                    self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input, [u'node_name', u'policy_name', u'state', u'state_description'], name, value)
 
 
                                 class ClassStat(Entity):
@@ -395,9 +404,14 @@ class Pbr(Entity):
                                     	HTTPR stats
                                     	**type**\:  :py:class:`HttprStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats>`
                                     
+                                    .. attribute:: http_enrich_stats
+                                    
+                                    	HTTP Enrichment stats
+                                    	**type**\:  :py:class:`HttpEnrichStats <ydk.models.cisco_ios_xr.Cisco_IOS_XR_pbr_oper.Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttpEnrichStats>`
+                                    
                                     .. attribute:: counter_validity_bitmask
                                     
-                                    	 Bitmask to indicate which counter or counters are undetermined. Counters will be marked undetermined when one or more classes share queues with class\-default because in such cases the value of counters for each class is invalid. Based on the flag(s) set, the following counters will be marked undetermined. For example, if value of this object returned is 0x00000101, counters TransmitPackets/TransmitBytes/TotalTransmitRate and DropPackets/DropBytes are undetermined .0x00000001 \- Transmit (TransmitPackets/TransmitBytes/TotalTransmitRate ), 0x00000002 \- Drop (TotalDropPackets/TotalDropBytes/TotalDropRate), 0x00000004 \- Httpr (HttprTransmitPackets/HttprTransmitBytes), 
+                                    	 Bitmask to indicate which counter or counters are undetermined. Counters will be marked undetermined when one or more classes share queues with class\-default because in such cases the value of counters for each class is invalid. Based on the flag(s) set, the following counters will be marked undetermined. For example, if value of this object returned is 0x00000101, counters TransmitPackets/TransmitBytes/TotalTransmitRate and DropPackets/DropBytes are undetermined .0x00000001 \- Transmit (TransmitPackets/TransmitBytes/TotalTransmitRate ), 0x00000002 \- Drop (TotalDropPackets/TotalDropBytes/TotalDropRate), 0x00000004 \- Httpr (HttprTransmitPackets/HttprTransmitBytes), 0x00000020 \- HttpErich (HttpErichTransmitPackets /HttpEnrichTransmitBytes), 
                                     	**type**\: int
                                     
                                     	**range:** 0..18446744073709551615
@@ -433,11 +447,11 @@ class Pbr(Entity):
                                         self.is_top_level_class = False
                                         self.has_list_ancestor = True
                                         self.ylist_key_names = []
-                                        self._child_classes = OrderedDict([("general-stats", ("general_stats", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats)), ("httpr-stats", ("httpr_stats", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats))])
+                                        self._child_classes = OrderedDict([("general-stats", ("general_stats", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats)), ("httpr-stats", ("httpr_stats", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats)), ("http-enrich-stats", ("http_enrich_stats", Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttpEnrichStats))])
                                         self._leafs = OrderedDict([
-                                            ('counter_validity_bitmask', YLeaf(YType.uint64, 'counter-validity-bitmask')),
-                                            ('class_name', YLeaf(YType.str, 'class-name')),
-                                            ('class_id', YLeaf(YType.uint32, 'class-id')),
+                                            ('counter_validity_bitmask', (YLeaf(YType.uint64, 'counter-validity-bitmask'), ['int'])),
+                                            ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                                            ('class_id', (YLeaf(YType.uint32, 'class-id'), ['int'])),
                                         ])
                                         self.counter_validity_bitmask = None
                                         self.class_name = None
@@ -450,10 +464,15 @@ class Pbr(Entity):
                                         self.httpr_stats = Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats()
                                         self.httpr_stats.parent = self
                                         self._children_name_map["httpr_stats"] = "httpr-stats"
+
+                                        self.http_enrich_stats = Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttpEnrichStats()
+                                        self.http_enrich_stats.parent = self
+                                        self._children_name_map["http_enrich_stats"] = "http-enrich-stats"
                                         self._segment_path = lambda: "class-stat"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat, ['counter_validity_bitmask', 'class_name', 'class_id'], name, value)
+                                        self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat, [u'counter_validity_bitmask', u'class_name', u'class_id'], name, value)
 
 
                                     class GeneralStats(Entity):
@@ -556,15 +575,15 @@ class Pbr(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('transmit_packets', YLeaf(YType.uint64, 'transmit-packets')),
-                                                ('transmit_bytes', YLeaf(YType.uint64, 'transmit-bytes')),
-                                                ('total_drop_packets', YLeaf(YType.uint64, 'total-drop-packets')),
-                                                ('total_drop_bytes', YLeaf(YType.uint64, 'total-drop-bytes')),
-                                                ('total_drop_rate', YLeaf(YType.uint32, 'total-drop-rate')),
-                                                ('match_data_rate', YLeaf(YType.uint32, 'match-data-rate')),
-                                                ('total_transmit_rate', YLeaf(YType.uint32, 'total-transmit-rate')),
-                                                ('pre_policy_matched_packets', YLeaf(YType.uint64, 'pre-policy-matched-packets')),
-                                                ('pre_policy_matched_bytes', YLeaf(YType.uint64, 'pre-policy-matched-bytes')),
+                                                ('transmit_packets', (YLeaf(YType.uint64, 'transmit-packets'), ['int'])),
+                                                ('transmit_bytes', (YLeaf(YType.uint64, 'transmit-bytes'), ['int'])),
+                                                ('total_drop_packets', (YLeaf(YType.uint64, 'total-drop-packets'), ['int'])),
+                                                ('total_drop_bytes', (YLeaf(YType.uint64, 'total-drop-bytes'), ['int'])),
+                                                ('total_drop_rate', (YLeaf(YType.uint32, 'total-drop-rate'), ['int'])),
+                                                ('match_data_rate', (YLeaf(YType.uint32, 'match-data-rate'), ['int'])),
+                                                ('total_transmit_rate', (YLeaf(YType.uint32, 'total-transmit-rate'), ['int'])),
+                                                ('pre_policy_matched_packets', (YLeaf(YType.uint64, 'pre-policy-matched-packets'), ['int'])),
+                                                ('pre_policy_matched_bytes', (YLeaf(YType.uint64, 'pre-policy-matched-bytes'), ['int'])),
                                             ])
                                             self.transmit_packets = None
                                             self.transmit_bytes = None
@@ -576,9 +595,10 @@ class Pbr(Entity):
                                             self.pre_policy_matched_packets = None
                                             self.pre_policy_matched_bytes = None
                                             self._segment_path = lambda: "general-stats"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats, ['transmit_packets', 'transmit_bytes', 'total_drop_packets', 'total_drop_bytes', 'total_drop_rate', 'match_data_rate', 'total_transmit_rate', 'pre_policy_matched_packets', 'pre_policy_matched_bytes'], name, value)
+                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.GeneralStats, [u'transmit_packets', u'transmit_bytes', u'total_drop_packets', u'total_drop_bytes', u'total_drop_rate', u'match_data_rate', u'total_transmit_rate', u'pre_policy_matched_packets', u'pre_policy_matched_bytes'], name, value)
 
 
                                     class HttprStats(Entity):
@@ -650,12 +670,12 @@ class Pbr(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('rqst_rcvd_packets', YLeaf(YType.uint64, 'rqst-rcvd-packets')),
-                                                ('rqst_rcvd_bytes', YLeaf(YType.uint64, 'rqst-rcvd-bytes')),
-                                                ('drop_packets', YLeaf(YType.uint64, 'drop-packets')),
-                                                ('drop_bytes', YLeaf(YType.uint64, 'drop-bytes')),
-                                                ('resp_sent_packets', YLeaf(YType.uint64, 'resp-sent-packets')),
-                                                ('resp_sent_bytes', YLeaf(YType.uint64, 'resp-sent-bytes')),
+                                                ('rqst_rcvd_packets', (YLeaf(YType.uint64, 'rqst-rcvd-packets'), ['int'])),
+                                                ('rqst_rcvd_bytes', (YLeaf(YType.uint64, 'rqst-rcvd-bytes'), ['int'])),
+                                                ('drop_packets', (YLeaf(YType.uint64, 'drop-packets'), ['int'])),
+                                                ('drop_bytes', (YLeaf(YType.uint64, 'drop-bytes'), ['int'])),
+                                                ('resp_sent_packets', (YLeaf(YType.uint64, 'resp-sent-packets'), ['int'])),
+                                                ('resp_sent_bytes', (YLeaf(YType.uint64, 'resp-sent-bytes'), ['int'])),
                                             ])
                                             self.rqst_rcvd_packets = None
                                             self.rqst_rcvd_bytes = None
@@ -664,9 +684,117 @@ class Pbr(Entity):
                                             self.resp_sent_packets = None
                                             self.resp_sent_bytes = None
                                             self._segment_path = lambda: "httpr-stats"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
-                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats, ['rqst_rcvd_packets', 'rqst_rcvd_bytes', 'drop_packets', 'drop_bytes', 'resp_sent_packets', 'resp_sent_bytes'], name, value)
+                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttprStats, [u'rqst_rcvd_packets', u'rqst_rcvd_bytes', u'drop_packets', u'drop_bytes', u'resp_sent_packets', u'resp_sent_bytes'], name, value)
+
+
+                                    class HttpEnrichStats(Entity):
+                                        """
+                                        HTTP Enrichment stats
+                                        
+                                        .. attribute:: rqst_rcvd_packets
+                                        
+                                        	TotalNum of pkts HTTP request received
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: rqst_rcvd_bytes
+                                        
+                                        	TotalNum of Bytes HTTP request received
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
+                                        
+                                        .. attribute:: drop_packets
+                                        
+                                        	Dropped  packets
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: drop_bytes
+                                        
+                                        	Dropped bytes
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
+                                        
+                                        .. attribute:: resp_sent_packets
+                                        
+                                        	TotalNum of pkts HTTP Enrichment response sent
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: resp_sent_bytes
+                                        
+                                        	TotalNum of Bytes HTTP Enrichment response sent
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        	**units**\: byte
+                                        
+                                        .. attribute:: req_sent_packets
+                                        
+                                        	TotalNum of pkts HTTP Enrichment request sent
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        .. attribute:: tcp_sent_packets
+                                        
+                                        	TotalNum of pkts HTTP Enrichment TCP packet sent
+                                        	**type**\: int
+                                        
+                                        	**range:** 0..18446744073709551615
+                                        
+                                        
+
+                                        """
+
+                                        _prefix = 'pbr-oper'
+                                        _revision = '2015-11-09'
+
+                                        def __init__(self):
+                                            super(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttpEnrichStats, self).__init__()
+
+                                            self.yang_name = "http-enrich-stats"
+                                            self.yang_parent_name = "class-stat"
+                                            self.is_top_level_class = False
+                                            self.has_list_ancestor = True
+                                            self.ylist_key_names = []
+                                            self._child_classes = OrderedDict([])
+                                            self._leafs = OrderedDict([
+                                                ('rqst_rcvd_packets', (YLeaf(YType.uint64, 'rqst-rcvd-packets'), ['int'])),
+                                                ('rqst_rcvd_bytes', (YLeaf(YType.uint64, 'rqst-rcvd-bytes'), ['int'])),
+                                                ('drop_packets', (YLeaf(YType.uint64, 'drop-packets'), ['int'])),
+                                                ('drop_bytes', (YLeaf(YType.uint64, 'drop-bytes'), ['int'])),
+                                                ('resp_sent_packets', (YLeaf(YType.uint64, 'resp-sent-packets'), ['int'])),
+                                                ('resp_sent_bytes', (YLeaf(YType.uint64, 'resp-sent-bytes'), ['int'])),
+                                                ('req_sent_packets', (YLeaf(YType.uint64, 'req-sent-packets'), ['int'])),
+                                                ('tcp_sent_packets', (YLeaf(YType.uint64, 'tcp-sent-packets'), ['int'])),
+                                            ])
+                                            self.rqst_rcvd_packets = None
+                                            self.rqst_rcvd_bytes = None
+                                            self.drop_packets = None
+                                            self.drop_bytes = None
+                                            self.resp_sent_packets = None
+                                            self.resp_sent_bytes = None
+                                            self.req_sent_packets = None
+                                            self.tcp_sent_packets = None
+                                            self._segment_path = lambda: "http-enrich-stats"
+                                            self._is_frozen = True
+
+                                        def __setattr__(self, name, value):
+                                            self._perform_setattr(Pbr.Nodes.Node.PolicyMap.Interfaces.Interface.Direction.Input.ClassStat.HttpEnrichStats, [u'rqst_rcvd_packets', u'rqst_rcvd_bytes', u'drop_packets', u'drop_bytes', u'resp_sent_packets', u'resp_sent_bytes', u'req_sent_packets', u'tcp_sent_packets'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Pbr()

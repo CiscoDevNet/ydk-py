@@ -41,6 +41,10 @@ module Cisco-IOS-XE-eigrp {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-06-28 {
+    description
+      "added must constraints for deleting vrf";
+  }
   revision 2017-09-21 {
     description 
       "fix the regression issue that a cli is splitted";
@@ -1143,6 +1147,9 @@ module Cisco-IOS-XE-eigrp {
             "Address family IPv4/IPv6 VRF";
           key "vrf";
           leaf vrf {
+	    must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+	      error-message "VRF must be created 1st, deleted last";
+            }
             type string;
           }
           leaf unicast-multicast {

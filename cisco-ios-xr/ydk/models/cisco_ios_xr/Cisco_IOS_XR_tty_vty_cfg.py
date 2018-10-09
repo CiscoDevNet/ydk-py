@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   vty\: VTY Pools configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class Vty(Entity):
         self.vty_pools.parent = self
         self._children_name_map["vty_pools"] = "vty-pools"
         self._segment_path = lambda: "Cisco-IOS-XR-tty-vty-cfg:vty"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Vty, [], name, value)
@@ -87,6 +89,7 @@ class Vty(Entity):
             self.vty_pool = YList(self)
             self._segment_path = lambda: "vty-pools"
             self._absolute_path = lambda: "Cisco-IOS-XR-tty-vty-cfg:vty/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Vty.VtyPools, [], name, value)
@@ -148,11 +151,11 @@ class Vty(Entity):
                 self.ylist_key_names = ['pool_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('pool_name', YLeaf(YType.str, 'pool-name')),
-                    ('first_vty', YLeaf(YType.uint32, 'first-vty')),
-                    ('last_vty', YLeaf(YType.uint32, 'last-vty')),
-                    ('line_template', YLeaf(YType.str, 'line-template')),
-                    ('none', YLeaf(YType.str, 'none')),
+                    ('pool_name', (YLeaf(YType.str, 'pool-name'), ['str'])),
+                    ('first_vty', (YLeaf(YType.uint32, 'first-vty'), ['int'])),
+                    ('last_vty', (YLeaf(YType.uint32, 'last-vty'), ['int'])),
+                    ('line_template', (YLeaf(YType.str, 'line-template'), ['str'])),
+                    ('none', (YLeaf(YType.str, 'none'), ['str'])),
                 ])
                 self.pool_name = None
                 self.first_vty = None
@@ -161,6 +164,7 @@ class Vty(Entity):
                 self.none = None
                 self._segment_path = lambda: "vty-pool" + "[pool-name='" + str(self.pool_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tty-vty-cfg:vty/vty-pools/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Vty.VtyPools.VtyPool, ['pool_name', 'first_vty', 'last_vty', 'line_template', 'none'], name, value)

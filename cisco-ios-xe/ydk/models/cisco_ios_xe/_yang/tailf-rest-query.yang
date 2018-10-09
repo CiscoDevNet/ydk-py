@@ -19,6 +19,13 @@ module tailf-rest-query {
      It is an internal module, not exported over any other northbound
      interface.";
 
+  revision 2017-01-06 {
+    description
+      "Released as part of ConfD-6.5.2.1 / NCS-4.5.3.
+
+       Added 'immediate-query' and 'immediate-query-result' for using the new
+       'immediate-query' function in tailf-common-query.";
+  }
   revision 2014-11-13 {
     description
       "Moved common parameters to 'tailf-common-query'.
@@ -91,6 +98,38 @@ module tailf-rest-query {
         "REPLY: to fetch-query-result
 
          Fetch (more) data, resulting from the query.";
+
+      uses tfcq:query-result;
+    }
+  }
+
+
+  /*
+   * Start a Query and return the entire result immediately.
+   */
+  tailf:structure immediate-query {
+    container immediate-query {
+      presence "request";
+      description
+        "Start an XPath Query by POSTing to /api/query, where the
+         body contains the 'immediate-query' container.  On success,
+         a 'query-result' will be returned.";
+
+      uses tfcq:start-query-parameters;
+    }
+  }
+
+
+  /*
+   * Format of the result from an immediate-query request.
+   */
+  tailf:structure immediate-query-result {
+    container immediate-query-result {
+      presence "reply";
+      description
+        "REPLY: to immediate-query
+
+         Fetch all data, resulting from the query.";
 
       uses tfcq:query-result;
     }

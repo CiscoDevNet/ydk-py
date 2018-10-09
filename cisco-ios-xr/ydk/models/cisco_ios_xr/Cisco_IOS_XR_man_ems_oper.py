@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   grpc\: grpc commands
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -61,6 +62,7 @@ class Grpc(Entity):
         self.status.parent = self
         self._children_name_map["status"] = "status"
         self._segment_path = lambda: "Cisco-IOS-XR-man-ems-oper:grpc"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Grpc, [], name, value)
@@ -234,27 +236,27 @@ class Grpc(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ct_show_cmd_txt_req_recv', YLeaf(YType.uint64, 'ct-show-cmd-txt-req-recv')),
-                ('ct_show_cmd_txt_res_sent', YLeaf(YType.uint64, 'ct-show-cmd-txt-res-sent')),
-                ('ct_get_config_req_recv', YLeaf(YType.uint64, 'ct-get-config-req-recv')),
-                ('ct_get_config_res_sent', YLeaf(YType.uint64, 'ct-get-config-res-sent')),
-                ('ct_cli_config_req_recv', YLeaf(YType.uint64, 'ct-cli-config-req-recv')),
-                ('ct_cli_config_res_sent', YLeaf(YType.uint64, 'ct-cli-config-res-sent')),
-                ('ct_merge_config_req_recv', YLeaf(YType.uint64, 'ct-merge-config-req-recv')),
-                ('ct_merge_config_res_sent', YLeaf(YType.uint64, 'ct-merge-config-res-sent')),
-                ('ct_commit_replace_req_recv', YLeaf(YType.uint64, 'ct-commit-replace-req-recv')),
-                ('ct_commit_replace_res_sent', YLeaf(YType.uint64, 'ct-commit-replace-res-sent')),
-                ('ct_delete_config_req_recv', YLeaf(YType.uint64, 'ct-delete-config-req-recv')),
-                ('ct_delete_config_res_sent', YLeaf(YType.uint64, 'ct-delete-config-res-sent')),
-                ('ct_replace_config_req_recv', YLeaf(YType.uint64, 'ct-replace-config-req-recv')),
-                ('ct_replace_config_res_sent', YLeaf(YType.uint64, 'ct-replace-config-res-sent')),
-                ('ct_get_oper_req_recv', YLeaf(YType.uint64, 'ct-get-oper-req-recv')),
-                ('ct_get_oper_res_sent', YLeaf(YType.uint64, 'ct-get-oper-res-sent')),
-                ('ct_get_current_session', YLeaf(YType.uint32, 'ct-get-current-session')),
-                ('ct_commit_config_req_recv', YLeaf(YType.uint64, 'ct-commit-config-req-recv')),
-                ('ct_commit_config_res_sent', YLeaf(YType.uint64, 'ct-commit-config-res-sent')),
-                ('ct_action_json_req_recv', YLeaf(YType.uint64, 'ct-action-json-req-recv')),
-                ('ct_action_json_res_sent', YLeaf(YType.uint64, 'ct-action-json-res-sent')),
+                ('ct_show_cmd_txt_req_recv', (YLeaf(YType.uint64, 'ct-show-cmd-txt-req-recv'), ['int'])),
+                ('ct_show_cmd_txt_res_sent', (YLeaf(YType.uint64, 'ct-show-cmd-txt-res-sent'), ['int'])),
+                ('ct_get_config_req_recv', (YLeaf(YType.uint64, 'ct-get-config-req-recv'), ['int'])),
+                ('ct_get_config_res_sent', (YLeaf(YType.uint64, 'ct-get-config-res-sent'), ['int'])),
+                ('ct_cli_config_req_recv', (YLeaf(YType.uint64, 'ct-cli-config-req-recv'), ['int'])),
+                ('ct_cli_config_res_sent', (YLeaf(YType.uint64, 'ct-cli-config-res-sent'), ['int'])),
+                ('ct_merge_config_req_recv', (YLeaf(YType.uint64, 'ct-merge-config-req-recv'), ['int'])),
+                ('ct_merge_config_res_sent', (YLeaf(YType.uint64, 'ct-merge-config-res-sent'), ['int'])),
+                ('ct_commit_replace_req_recv', (YLeaf(YType.uint64, 'ct-commit-replace-req-recv'), ['int'])),
+                ('ct_commit_replace_res_sent', (YLeaf(YType.uint64, 'ct-commit-replace-res-sent'), ['int'])),
+                ('ct_delete_config_req_recv', (YLeaf(YType.uint64, 'ct-delete-config-req-recv'), ['int'])),
+                ('ct_delete_config_res_sent', (YLeaf(YType.uint64, 'ct-delete-config-res-sent'), ['int'])),
+                ('ct_replace_config_req_recv', (YLeaf(YType.uint64, 'ct-replace-config-req-recv'), ['int'])),
+                ('ct_replace_config_res_sent', (YLeaf(YType.uint64, 'ct-replace-config-res-sent'), ['int'])),
+                ('ct_get_oper_req_recv', (YLeaf(YType.uint64, 'ct-get-oper-req-recv'), ['int'])),
+                ('ct_get_oper_res_sent', (YLeaf(YType.uint64, 'ct-get-oper-res-sent'), ['int'])),
+                ('ct_get_current_session', (YLeaf(YType.uint32, 'ct-get-current-session'), ['int'])),
+                ('ct_commit_config_req_recv', (YLeaf(YType.uint64, 'ct-commit-config-req-recv'), ['int'])),
+                ('ct_commit_config_res_sent', (YLeaf(YType.uint64, 'ct-commit-config-res-sent'), ['int'])),
+                ('ct_action_json_req_recv', (YLeaf(YType.uint64, 'ct-action-json-req-recv'), ['int'])),
+                ('ct_action_json_res_sent', (YLeaf(YType.uint64, 'ct-action-json-res-sent'), ['int'])),
             ])
             self.ct_show_cmd_txt_req_recv = None
             self.ct_show_cmd_txt_res_sent = None
@@ -279,9 +281,10 @@ class Grpc(Entity):
             self.ct_action_json_res_sent = None
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ems-oper:grpc/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Grpc.Statistics, [u'ct_show_cmd_txt_req_recv', u'ct_show_cmd_txt_res_sent', u'ct_get_config_req_recv', u'ct_get_config_res_sent', u'ct_cli_config_req_recv', u'ct_cli_config_res_sent', u'ct_merge_config_req_recv', u'ct_merge_config_res_sent', u'ct_commit_replace_req_recv', u'ct_commit_replace_res_sent', u'ct_delete_config_req_recv', u'ct_delete_config_res_sent', u'ct_replace_config_req_recv', u'ct_replace_config_res_sent', u'ct_get_oper_req_recv', u'ct_get_oper_res_sent', u'ct_get_current_session', u'ct_commit_config_req_recv', u'ct_commit_config_res_sent', u'ct_action_json_req_recv', u'ct_action_json_res_sent'], name, value)
+            self._perform_setattr(Grpc.Statistics, ['ct_show_cmd_txt_req_recv', 'ct_show_cmd_txt_res_sent', 'ct_get_config_req_recv', 'ct_get_config_res_sent', 'ct_cli_config_req_recv', 'ct_cli_config_res_sent', 'ct_merge_config_req_recv', 'ct_merge_config_res_sent', 'ct_commit_replace_req_recv', 'ct_commit_replace_res_sent', 'ct_delete_config_req_recv', 'ct_delete_config_res_sent', 'ct_replace_config_req_recv', 'ct_replace_config_res_sent', 'ct_get_oper_req_recv', 'ct_get_oper_res_sent', 'ct_get_current_session', 'ct_commit_config_req_recv', 'ct_commit_config_res_sent', 'ct_action_json_req_recv', 'ct_action_json_res_sent'], name, value)
 
 
     class Status(Entity):
@@ -334,6 +337,20 @@ class Grpc(Entity):
         
         	**range:** 0..4294967295
         
+        .. attribute:: max_streams
+        
+        	Maximum number of streaming gRPCs
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
+        .. attribute:: max_streams_per_user
+        
+        	Maximum number of streaming gRPCs per user
+        	**type**\: int
+        
+        	**range:** 0..4294967295
+        
         
 
         """
@@ -351,14 +368,16 @@ class Grpc(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('transport', YLeaf(YType.str, 'transport')),
-                ('address_family', YLeaf(YType.str, 'address-family')),
-                ('tls', YLeaf(YType.str, 'tls')),
-                ('trustpoint', YLeaf(YType.str, 'trustpoint')),
-                ('listening_port', YLeaf(YType.int32, 'listening-port')),
-                ('vrf_socket_ns_path', YLeaf(YType.str, 'vrf-socket-ns-path')),
-                ('max_req_per_user', YLeaf(YType.uint32, 'max-req-per-user')),
-                ('max_req_total', YLeaf(YType.uint32, 'max-req-total')),
+                ('transport', (YLeaf(YType.str, 'transport'), ['str'])),
+                ('address_family', (YLeaf(YType.str, 'address-family'), ['str'])),
+                ('tls', (YLeaf(YType.str, 'tls'), ['str'])),
+                ('trustpoint', (YLeaf(YType.str, 'trustpoint'), ['str'])),
+                ('listening_port', (YLeaf(YType.int32, 'listening-port'), ['int'])),
+                ('vrf_socket_ns_path', (YLeaf(YType.str, 'vrf-socket-ns-path'), ['str'])),
+                ('max_req_per_user', (YLeaf(YType.uint32, 'max-req-per-user'), ['int'])),
+                ('max_req_total', (YLeaf(YType.uint32, 'max-req-total'), ['int'])),
+                ('max_streams', (YLeaf(YType.uint32, 'max-streams'), ['int'])),
+                ('max_streams_per_user', (YLeaf(YType.uint32, 'max-streams-per-user'), ['int'])),
             ])
             self.transport = None
             self.address_family = None
@@ -368,11 +387,14 @@ class Grpc(Entity):
             self.vrf_socket_ns_path = None
             self.max_req_per_user = None
             self.max_req_total = None
+            self.max_streams = None
+            self.max_streams_per_user = None
             self._segment_path = lambda: "status"
             self._absolute_path = lambda: "Cisco-IOS-XR-man-ems-oper:grpc/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(Grpc.Status, [u'transport', u'address_family', u'tls', u'trustpoint', u'listening_port', u'vrf_socket_ns_path', u'max_req_per_user', u'max_req_total'], name, value)
+            self._perform_setattr(Grpc.Status, ['transport', 'address_family', 'tls', 'trustpoint', 'listening_port', 'vrf_socket_ns_path', 'max_req_per_user', 'max_req_total', 'max_streams', 'max_streams_per_user'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Grpc()

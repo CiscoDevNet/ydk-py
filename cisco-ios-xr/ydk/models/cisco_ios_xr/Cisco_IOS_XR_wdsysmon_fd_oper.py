@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   system\-monitoring\: Processes operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -50,6 +51,7 @@ class SystemMonitoring(Entity):
 
         self.cpu_utilization = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SystemMonitoring, [], name, value)
@@ -109,10 +111,10 @@ class SystemMonitoring(Entity):
             self.ylist_key_names = ['node_name']
             self._child_classes = OrderedDict([("process-cpu", ("process_cpu", SystemMonitoring.CpuUtilization.ProcessCpu))])
             self._leafs = OrderedDict([
-                ('node_name', YLeaf(YType.str, 'node-name')),
-                ('total_cpu_one_minute', YLeaf(YType.uint32, 'total-cpu-one-minute')),
-                ('total_cpu_five_minute', YLeaf(YType.uint32, 'total-cpu-five-minute')),
-                ('total_cpu_fifteen_minute', YLeaf(YType.uint32, 'total-cpu-fifteen-minute')),
+                ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
+                ('total_cpu_one_minute', (YLeaf(YType.uint32, 'total-cpu-one-minute'), ['int'])),
+                ('total_cpu_five_minute', (YLeaf(YType.uint32, 'total-cpu-five-minute'), ['int'])),
+                ('total_cpu_fifteen_minute', (YLeaf(YType.uint32, 'total-cpu-fifteen-minute'), ['int'])),
             ])
             self.node_name = None
             self.total_cpu_one_minute = None
@@ -122,6 +124,7 @@ class SystemMonitoring(Entity):
             self.process_cpu = YList(self)
             self._segment_path = lambda: "cpu-utilization" + "[node-name='" + str(self.node_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-wdsysmon-fd-oper:system-monitoring/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SystemMonitoring.CpuUtilization, ['node_name', u'total_cpu_one_minute', u'total_cpu_five_minute', u'total_cpu_fifteen_minute'], name, value)
@@ -187,11 +190,11 @@ class SystemMonitoring(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('process_name', YLeaf(YType.str, 'process-name')),
-                    ('process_id', YLeaf(YType.uint32, 'process-id')),
-                    ('process_cpu_one_minute', YLeaf(YType.uint32, 'process-cpu-one-minute')),
-                    ('process_cpu_five_minute', YLeaf(YType.uint32, 'process-cpu-five-minute')),
-                    ('process_cpu_fifteen_minute', YLeaf(YType.uint32, 'process-cpu-fifteen-minute')),
+                    ('process_name', (YLeaf(YType.str, 'process-name'), ['str'])),
+                    ('process_id', (YLeaf(YType.uint32, 'process-id'), ['int'])),
+                    ('process_cpu_one_minute', (YLeaf(YType.uint32, 'process-cpu-one-minute'), ['int'])),
+                    ('process_cpu_five_minute', (YLeaf(YType.uint32, 'process-cpu-five-minute'), ['int'])),
+                    ('process_cpu_fifteen_minute', (YLeaf(YType.uint32, 'process-cpu-fifteen-minute'), ['int'])),
                 ])
                 self.process_name = None
                 self.process_id = None
@@ -199,6 +202,7 @@ class SystemMonitoring(Entity):
                 self.process_cpu_five_minute = None
                 self.process_cpu_fifteen_minute = None
                 self._segment_path = lambda: "process-cpu"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SystemMonitoring.CpuUtilization.ProcessCpu, [u'process_name', u'process_id', u'process_cpu_one_minute', u'process_cpu_five_minute', u'process_cpu_fifteen_minute'], name, value)

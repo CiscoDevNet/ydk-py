@@ -28,6 +28,11 @@ module Cisco-IOS-XE-cellwan-oper {
      Copyright (c) 2018 by Cisco Systems, Inc.
      All rights reserved.";
 
+  revision 2018-09-04 {
+    description
+      "Addition of Cellular Sim Security, GPS and SMS data";
+    reference "1.1.0";
+  }
   revision 2018-05-01 {
     description
       "Initial revision";
@@ -612,6 +617,240 @@ module Cisco-IOS-XE-cellwan-oper {
       "Profile Scope indicates the IP address scope";
   }
 
+  typedef cellwan-chv1-sim-status {
+    type enumeration {
+      enum "chv1-verify-disabled" {
+        value 0;
+        description
+          "SIM card holder verification (CHV1) disabled";
+      }
+      enum "chv1-verify-enabled" {
+        value 1;
+        description
+          "SIM card holder verification (CHV1) enabled";
+      }
+      enum "chv1-verify-pending" {
+        value 2;
+        description
+          "SIM card holder verification (CHV1) pending";
+      }
+    }
+    description
+      "Cellular modem SIM card holder verification (CHV1) status";
+  }
+
+  typedef cellwan-sim-status {
+    type enumeration {
+      enum "sim-status-ok" {
+        value 0;
+        description
+          "Cellular modem SIM status is inserted";
+      }
+      enum "sim-status-not-inserted" {
+        value 1;
+        description
+          "Cellular modem SIM is not inserted";
+      }
+      enum "sim-status-removed" {
+        value 2;
+        description
+          "Cellular modem SIM is in removed state";
+      }
+      enum "sim-status-init-failure" {
+        value 3;
+        description
+          "Cellular modem SIM is in initialization failure state";
+      }
+      enum "sim-status-general-failure" {
+        value 4;
+        description
+          "Cellular modem SIM is in general failure state";
+      }
+      enum "sim-status-locked" {
+        value 5;
+        description
+          "Cellular modem SIM is in locked state";
+      }
+      enum "sim-status-chv1-blocked" {
+        value 6;
+        description
+          "Cellular modem SIM is in chv1 (Card Holder Verification) blocked state";
+      }
+      enum "sim-status-chv2-blocked" {
+        value 7;
+        description
+          "Cellular modem SIM is in chv2 (Card Holder Verification) blocked state";
+      }
+      enum "sim-status-chv1-rejected" {
+        value 8;
+        description
+          "Cellular modem SIM is in chv1 (Card Holder Verification) rejected state";
+      }
+      enum "sim-status-chv2-rejected" {
+        value 9;
+        description
+          "Cellular modem SIM is in chv2 (Card Holder Verification) rejected state";
+      }
+      enum "sim-status-mep-locked" {
+        value 10;
+        description
+          "Cellular modem SIM is in MEP (Mobile Equipment Personalization) locked state";
+      }
+      enum "sim-status-network-reject" {
+        value 11;
+        description
+          "Cellular modem SIM is in network reject state";
+      }
+      enum "sim-status-unknown" {
+        value 12;
+        description
+          "Cellular modem SIM is in unknown state";
+      }
+    }
+    description
+      "Cellular modem SIM status";
+  }
+
+  typedef cellwan-sim-user-op {
+    type enumeration {
+      enum "sim-user-op-none" {
+        value 0;
+        description
+          "Cellular modem SIM user operation is in None state";
+      }
+      enum "sim-user-op-chv1" {
+        value 1;
+        description
+          "Cellular modem SIM user is in CHV1 (Card Holder Verification) state";
+      }
+      enum "sim-user-op-chv2" {
+        value 2;
+        description
+          "Cellular modem SIM user is in CHV2 (Card Holder Verification) state";
+      }
+      enum "sim-user-op-unblock-chv1" {
+        value 3;
+        description
+          "Cellular modem SIM user is in Unblocked CHV1 (Card Holder Verification) state";
+      }
+      enum "sim-user-op-unblock-chv2" {
+        value 4;
+        description
+          "Cellular modem SIM user is in Unblocked CHV2 (Card Holder Verification) state";
+      }
+      enum "sim-user-op-mep" {
+        value 5;
+        description
+          "Cellular modem SIM user is in MEP (Mobile Equipment Personalization) state";
+      }
+      enum "sim-user-op-unknown" {
+        value 6;
+        description
+          "Cellular modem SIM user operation is in Unknown state";
+      }
+    }
+    description
+      "Cellular modem SIM user operation status";
+  }
+
+  typedef cwan-gps-feature-state {
+    type enumeration {
+      enum "gps-disabled" {
+        value 0;
+        description
+          "Cellular modem GPS feature state is Disabled";
+      }
+      enum "gps-enabled" {
+        value 1;
+        description
+          "Cellular modem GPS feature state is Enabled";
+      }
+    }
+    description
+      "Cellular modem GPS feature state status";
+  }
+
+  typedef cwan-gps-port-selected {
+    type enumeration {
+      enum "dedicated-gps-port" {
+        value 0;
+        description
+          "Cellular modem dedicated GPS port selected";
+      }
+      enum "div-gps-port" {
+        value 1;
+        description
+          "Cellular modem DIV port selected for GPS";
+      }
+      enum "voltage-no-bias-gps-port" {
+        value 2;
+        description
+          "Cellular modem voltage no-bias port selected for GPS";
+      }
+      enum "gps-port-none" {
+        value 3;
+        description
+          "Cellular modem none port selected for GPS";
+      }
+    }
+    description
+      "Cellular modem GPS port selection status";
+  }
+
+  typedef cwan-gps-state {
+    type enumeration {
+      enum "gps-state-disabled" {
+        value 1;
+        description
+          "Cellular modem is in GPS disabled state";
+      }
+      enum "gps-state-acquiring" {
+        value 2;
+        description
+          "Cellular modem is in GPS acquiring state";
+      }
+      enum "gps-state-enabled" {
+        value 3;
+        description
+          "Cellular modem is in GPS enabled state";
+      }
+      enum "gps-loc-error" {
+        value 4;
+        description
+          "Cellular modem is in GPS location error state";
+      }
+    }
+    description
+      "Cellular modem GPS state";
+  }
+
+  typedef cwan-gps-mode-selected {
+    type enumeration {
+      enum "gps-mode-disable" {
+        value 0;
+        description
+          "Cellular modem GPS mode is disabled";
+      }
+      enum "gps-mode-standalone" {
+        value 1;
+        description
+          "Cellular modem GPS mode is standalone";
+      }
+      enum "gps-mode-mbased" {
+        value 2;
+        description
+          "Cellular modem GPS mode is ms-based";
+      }
+      enum "gps-mode-msassist" {
+        value 3;
+        description
+          "Cellular modem GPS mode is ms-assist";
+      }
+    }
+    description
+      "Cellular modem GPS mode selection status";
+  }
+
   grouping cellwan-hardware-entry {
     description
       "Cellular modem hardware status entry details";
@@ -954,6 +1193,166 @@ module Cisco-IOS-XE-cellwan-oper {
     }
   }
 
+  grouping cellwan-security-entry {
+    description
+      "Cellular modem SIM security status entry details";
+    leaf cellular-interface {
+      type string;
+      description
+        "Cellular interface";
+    }
+    leaf active-sim {
+      type int8;
+      description
+        "Cellular modem active SIM slot status";
+    }
+    leaf sim-num-switchover {
+      type uint32;
+      description
+        "Cellular modem SIM switchover attempts";
+    }
+    leaf chv1-status {
+      type cellwan-ios-xe-oper:cellwan-chv1-sim-status;
+      description
+        "Cellular SIM Card Holder Verification (CHV1) status";
+    }
+    leaf sim-status {
+      type cellwan-ios-xe-oper:cellwan-sim-status;
+      description
+        "Cellular SIM status";
+    }
+    leaf sim-oper {
+      type cellwan-ios-xe-oper:cellwan-sim-user-op;
+      description
+        "Cellular SIM user operation";
+    }
+    leaf num-retries {
+      type int8;
+      description
+        "Cellular SIM number of CHV1 retries remaining";
+    }
+  }
+
+  grouping cellwan-sms-entry {
+    description
+      "Cellular modem SMS entry details";
+    leaf cellular-interface {
+      type string;
+      description
+        "Cellular interface";
+    }
+    leaf in-sms-count {
+      type uint16;
+      description
+        "Number of incoming SMS stored in Cellular modem";
+    }
+    leaf in-sms-archived {
+      type uint16;
+      description
+        "Number of incoming SMS archived in Cellular modem";
+    }
+    leaf in-sms-deleted {
+      type uint16;
+      description
+        "Number of incoming SMS deleted in Cellular modem";
+    }
+    leaf in-sms-max {
+      type uint16;
+      description
+        "Number of SIM/modem SMS record allocated";
+    }
+    leaf in-sms-used {
+      type uint16;
+      description
+        "Number of SIM/modem SMS record used";
+    }
+    leaf sms-callback-count {
+      type uint16;
+      description
+        "Number of SMS triggerred data callback";
+    }
+    leaf in-sms-arch-count {
+      type uint16;
+      description
+        "Number of successful archive on in SMS";
+    }
+    leaf in-sms-arch-error-count {
+      type uint16;
+      description
+        "Number of failed archive on in SMS";
+    }
+    leaf out-sms-count {
+      type uint16;
+      description
+        "Number of outgoing SMS successfully sent";
+    }
+    leaf out-sms-error-count {
+      type uint16;
+      description
+        "Number of outgoing SMS send failure";
+    }
+    leaf out-sms-pending {
+      type uint16;
+      description
+        "Number of outgoing SMS pending";
+    }
+    leaf out-sms-arch-count {
+      type uint16;
+      description
+        "Number of successful archive out in SMS";
+    }
+    leaf out-sms-arch-error-count {
+      type uint16;
+      description
+        "Number of failed archive on out SMS";
+    }
+  }
+
+  grouping cellwan-gps-entry {
+    description
+      "Cellular modem GPS status entry details";
+    leaf cellular-interface {
+      type string;
+      description
+        "Cellular interface";
+    }
+    leaf gps-feature-state {
+      type cellwan-ios-xe-oper:cwan-gps-feature-state;
+      description
+        "Cellular modem GPS feature state status";
+    }
+    leaf port-selected {
+      type cellwan-ios-xe-oper:cwan-gps-port-selected;
+      description
+        "Cellular modem GPS port selection status";
+    }
+    leaf state {
+      type cellwan-ios-xe-oper:cwan-gps-state;
+      description
+        "Cellular modem GPS state status";
+    }
+    leaf mode-selected {
+      type cellwan-ios-xe-oper:cwan-gps-mode-selected;
+      description
+        "Cellular modem GPS mode selection status";
+    }
+    leaf latitude {
+      type string;
+      description
+        "Cellular modem GPS latitude details";
+    }
+    leaf longitude {
+      type string;
+      description
+        "Cellular modem GPS longitude details";
+    }
+    leaf timestamp {
+      type yang:date-and-time;
+      description
+        "Cellular modem GPS timestamp details";
+    }
+  }
+
   container cellwan-oper-data {
     config false;
     description
@@ -981,6 +1380,24 @@ module Cisco-IOS-XE-cellwan-oper {
       description
         "Cellwan modem connection data";
       uses cellwan-ios-xe-oper:cellwan-connection-entry;
+    }
+    list cellwan-security {
+      key "cellular-interface";
+      description
+        "Cellwan modem sim security data";
+      uses cellwan-ios-xe-oper:cellwan-security-entry;
+    }
+    list cellwan-sms {
+      key "cellular-interface";
+      description
+        "Cellwan modem sms data";
+      uses cellwan-ios-xe-oper:cellwan-sms-entry;
+    }
+    list cellwan-gps {
+      key "cellular-interface";
+      description
+        "Cellwan modem gps data";
+      uses cellwan-ios-xe-oper:cellwan-gps-entry;
     }
   }
 }

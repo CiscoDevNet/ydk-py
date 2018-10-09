@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   mpls\-lsd\: MPLS LSD configuration data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class MplsIpTtlPropagateDisable(Enum):
@@ -110,10 +111,10 @@ class MplsLsd(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("ipv6", ("ipv6", MplsLsd.Ipv6)), ("ipv4", ("ipv4", MplsLsd.Ipv4)), ("label-databases", ("label_databases", MplsLsd.LabelDatabases))])
         self._leafs = OrderedDict([
-            ('ltrace_multiplier', YLeaf(YType.uint32, 'ltrace-multiplier')),
-            ('app_reg_delay_disable', YLeaf(YType.empty, 'app-reg-delay-disable')),
-            ('mpls_entropy_label', YLeaf(YType.empty, 'mpls-entropy-label')),
-            ('mpls_ip_ttl_propagate_disable', YLeaf(YType.enumeration, 'mpls-ip-ttl-propagate-disable')),
+            ('ltrace_multiplier', (YLeaf(YType.uint32, 'ltrace-multiplier'), ['int'])),
+            ('app_reg_delay_disable', (YLeaf(YType.empty, 'app-reg-delay-disable'), ['Empty'])),
+            ('mpls_entropy_label', (YLeaf(YType.empty, 'mpls-entropy-label'), ['Empty'])),
+            ('mpls_ip_ttl_propagate_disable', (YLeaf(YType.enumeration, 'mpls-ip-ttl-propagate-disable'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_mpls_lsd_cfg', 'MplsIpTtlPropagateDisable', '')])),
         ])
         self.ltrace_multiplier = None
         self.app_reg_delay_disable = None
@@ -132,6 +133,7 @@ class MplsLsd(Entity):
         self.label_databases.parent = self
         self._children_name_map["label_databases"] = "label-databases"
         self._segment_path = lambda: "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(MplsLsd, ['ltrace_multiplier', 'app_reg_delay_disable', 'mpls_entropy_label', 'mpls_ip_ttl_propagate_disable'], name, value)
@@ -165,11 +167,12 @@ class MplsLsd(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ttl_expiration_pop', YLeaf(YType.uint32, 'ttl-expiration-pop')),
+                ('ttl_expiration_pop', (YLeaf(YType.uint32, 'ttl-expiration-pop'), ['int'])),
             ])
             self.ttl_expiration_pop = None
             self._segment_path = lambda: "ipv6"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsLsd.Ipv6, ['ttl_expiration_pop'], name, value)
@@ -203,11 +206,12 @@ class MplsLsd(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ttl_expiration_pop', YLeaf(YType.uint32, 'ttl-expiration-pop')),
+                ('ttl_expiration_pop', (YLeaf(YType.uint32, 'ttl-expiration-pop'), ['int'])),
             ])
             self.ttl_expiration_pop = None
             self._segment_path = lambda: "ipv4"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsLsd.Ipv4, ['ttl_expiration_pop'], name, value)
@@ -243,6 +247,7 @@ class MplsLsd(Entity):
             self.label_database = YList(self)
             self._segment_path = lambda: "label-databases"
             self._absolute_path = lambda: "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(MplsLsd.LabelDatabases, [], name, value)
@@ -281,7 +286,7 @@ class MplsLsd(Entity):
                 self.ylist_key_names = ['label_database_id']
                 self._child_classes = OrderedDict([("label-range", ("label_range", MplsLsd.LabelDatabases.LabelDatabase.LabelRange))])
                 self._leafs = OrderedDict([
-                    ('label_database_id', YLeaf(YType.uint32, 'label-database-id')),
+                    ('label_database_id', (YLeaf(YType.uint32, 'label-database-id'), ['int'])),
                 ])
                 self.label_database_id = None
 
@@ -290,6 +295,7 @@ class MplsLsd(Entity):
                 self._children_name_map["label_range"] = "label-range"
                 self._segment_path = lambda: "label-database" + "[label-database-id='" + str(self.label_database_id) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-mpls-lsd-cfg:mpls-lsd/label-databases/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(MplsLsd.LabelDatabases.LabelDatabase, ['label_database_id'], name, value)
@@ -344,16 +350,17 @@ class MplsLsd(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('minvalue', YLeaf(YType.uint32, 'minvalue')),
-                        ('max_value', YLeaf(YType.uint32, 'max-value')),
-                        ('min_static_value', YLeaf(YType.uint32, 'min-static-value')),
-                        ('max_static_value', YLeaf(YType.uint32, 'max-static-value')),
+                        ('minvalue', (YLeaf(YType.uint32, 'minvalue'), ['int'])),
+                        ('max_value', (YLeaf(YType.uint32, 'max-value'), ['int'])),
+                        ('min_static_value', (YLeaf(YType.uint32, 'min-static-value'), ['int'])),
+                        ('max_static_value', (YLeaf(YType.uint32, 'max-static-value'), ['int'])),
                     ])
                     self.minvalue = None
                     self.max_value = None
                     self.min_static_value = None
                     self.max_static_value = None
                     self._segment_path = lambda: "label-range"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(MplsLsd.LabelDatabases.LabelDatabase.LabelRange, ['minvalue', 'max_value', 'min_static_value', 'max_static_value'], name, value)

@@ -15,6 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOPIMMIB(Entity):
     """
     
@@ -56,6 +57,7 @@ class CISCOPIMMIB(Entity):
         self.ciscopimmibnotificationobjects.parent = self
         self._children_name_map["ciscopimmibnotificationobjects"] = "ciscoPimMIBNotificationObjects"
         self._segment_path = lambda: "CISCO-PIM-MIB:CISCO-PIM-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOPIMMIB, [], name, value)
@@ -137,15 +139,15 @@ class CISCOPIMMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cpiminvalidregistermsgsrcvd', YLeaf(YType.uint32, 'cpimInvalidRegisterMsgsRcvd')),
-                ('cpiminvalidjoinprunemsgsrcvd', YLeaf(YType.uint32, 'cpimInvalidJoinPruneMsgsRcvd')),
-                ('cpimlasterrortype', YLeaf(YType.enumeration, 'cpimLastErrorType')),
-                ('cpimlasterrororigintype', YLeaf(YType.enumeration, 'cpimLastErrorOriginType')),
-                ('cpimlasterrororigin', YLeaf(YType.str, 'cpimLastErrorOrigin')),
-                ('cpimlasterrorgrouptype', YLeaf(YType.enumeration, 'cpimLastErrorGroupType')),
-                ('cpimlasterrorgroup', YLeaf(YType.str, 'cpimLastErrorGroup')),
-                ('cpimlasterrorrptype', YLeaf(YType.enumeration, 'cpimLastErrorRPType')),
-                ('cpimlasterrorrp', YLeaf(YType.str, 'cpimLastErrorRP')),
+                ('cpiminvalidregistermsgsrcvd', (YLeaf(YType.uint32, 'cpimInvalidRegisterMsgsRcvd'), ['int'])),
+                ('cpiminvalidjoinprunemsgsrcvd', (YLeaf(YType.uint32, 'cpimInvalidJoinPruneMsgsRcvd'), ['int'])),
+                ('cpimlasterrortype', (YLeaf(YType.enumeration, 'cpimLastErrorType'), [('ydk.models.cisco_ios_xe.CISCO_PIM_MIB', 'CISCOPIMMIB', 'Cpim.CpimLastErrorType')])),
+                ('cpimlasterrororigintype', (YLeaf(YType.enumeration, 'cpimLastErrorOriginType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                ('cpimlasterrororigin', (YLeaf(YType.str, 'cpimLastErrorOrigin'), ['str'])),
+                ('cpimlasterrorgrouptype', (YLeaf(YType.enumeration, 'cpimLastErrorGroupType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                ('cpimlasterrorgroup', (YLeaf(YType.str, 'cpimLastErrorGroup'), ['str'])),
+                ('cpimlasterrorrptype', (YLeaf(YType.enumeration, 'cpimLastErrorRPType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                ('cpimlasterrorrp', (YLeaf(YType.str, 'cpimLastErrorRP'), ['str'])),
             ])
             self.cpiminvalidregistermsgsrcvd = None
             self.cpiminvalidjoinprunemsgsrcvd = None
@@ -158,6 +160,7 @@ class CISCOPIMMIB(Entity):
             self.cpimlasterrorrp = None
             self._segment_path = lambda: "cpim"
             self._absolute_path = lambda: "CISCO-PIM-MIB:CISCO-PIM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPIMMIB.Cpim, ['cpiminvalidregistermsgsrcvd', 'cpiminvalidjoinprunemsgsrcvd', 'cpimlasterrortype', 'cpimlasterrororigintype', 'cpimlasterrororigin', 'cpimlasterrorgrouptype', 'cpimlasterrorgroup', 'cpimlasterrorrptype', 'cpimlasterrorrp'], name, value)
@@ -212,11 +215,12 @@ class CISCOPIMMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('cpimrpmappingchangetype', YLeaf(YType.enumeration, 'cpimRPMappingChangeType')),
+                ('cpimrpmappingchangetype', (YLeaf(YType.enumeration, 'cpimRPMappingChangeType'), [('ydk.models.cisco_ios_xe.CISCO_PIM_MIB', 'CISCOPIMMIB', 'CiscoPimMIBNotificationObjects.CpimRPMappingChangeType')])),
             ])
             self.cpimrpmappingchangetype = None
             self._segment_path = lambda: "ciscoPimMIBNotificationObjects"
             self._absolute_path = lambda: "CISCO-PIM-MIB:CISCO-PIM-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOPIMMIB.CiscoPimMIBNotificationObjects, ['cpimrpmappingchangetype'], name, value)

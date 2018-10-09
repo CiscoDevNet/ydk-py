@@ -11,6 +11,7 @@ from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
+
 class Action(Enum):
     """
     Action (Enum Class)
@@ -306,6 +307,7 @@ class Aaa(Entity):
         self.disaster_recovery.parent = self
         self._children_name_map["disaster_recovery"] = "Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"
         self._segment_path = lambda: "tailf-aaa:aaa"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Aaa, [], name, value)
@@ -352,6 +354,7 @@ class Aaa(Entity):
             self._children_name_map["groups"] = "groups"
             self._segment_path = lambda: "authentication"
             self._absolute_path = lambda: "tailf-aaa:aaa/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.Authentication, [], name, value)
@@ -387,6 +390,7 @@ class Aaa(Entity):
                 self.user = YList(self)
                 self._segment_path = lambda: "users"
                 self._absolute_path = lambda: "tailf-aaa:aaa/authentication/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Authentication.Users, [], name, value)
@@ -457,12 +461,12 @@ class Aaa(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('uid', YLeaf(YType.int32, 'uid')),
-                        ('gid', YLeaf(YType.int32, 'gid')),
-                        ('password', YLeaf(YType.str, 'password')),
-                        ('ssh_keydir', YLeaf(YType.str, 'ssh_keydir')),
-                        ('homedir', YLeaf(YType.str, 'homedir')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('uid', (YLeaf(YType.int32, 'uid'), ['int'])),
+                        ('gid', (YLeaf(YType.int32, 'gid'), ['int'])),
+                        ('password', (YLeaf(YType.str, 'password'), ['str'])),
+                        ('ssh_keydir', (YLeaf(YType.str, 'ssh_keydir'), ['str'])),
+                        ('homedir', (YLeaf(YType.str, 'homedir'), ['str'])),
                     ])
                     self.name = None
                     self.uid = None
@@ -472,6 +476,7 @@ class Aaa(Entity):
                     self.homedir = None
                     self._segment_path = lambda: "user" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "tailf-aaa:aaa/authentication/users/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Authentication.Users.User, [u'name', u'uid', u'gid', u'password', u'ssh_keydir', u'homedir'], name, value)
@@ -507,6 +512,7 @@ class Aaa(Entity):
                 self.group = YList(self)
                 self._segment_path = lambda: "groups"
                 self._absolute_path = lambda: "tailf-aaa:aaa/authentication/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Authentication.Groups, [], name, value)
@@ -552,15 +558,16 @@ class Aaa(Entity):
                     self.ylist_key_names = ['name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('name', YLeaf(YType.str, 'name')),
-                        ('gid', YLeaf(YType.int32, 'gid')),
-                        ('users', YLeaf(YType.str, 'users')),
+                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                        ('gid', (YLeaf(YType.int32, 'gid'), ['int'])),
+                        ('users', (YLeaf(YType.str, 'users'), ['str'])),
                     ])
                     self.name = None
                     self.gid = None
                     self.users = None
                     self._segment_path = lambda: "group" + "[name='" + str(self.name) + "']"
                     self._absolute_path = lambda: "tailf-aaa:aaa/authentication/groups/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Authentication.Groups.Group, [u'name', u'gid', u'users'], name, value)
@@ -607,6 +614,7 @@ class Aaa(Entity):
             self._children_name_map["datarules"] = "datarules"
             self._segment_path = lambda: "authorization"
             self._absolute_path = lambda: "tailf-aaa:aaa/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.Authorization, [], name, value)
@@ -642,6 +650,7 @@ class Aaa(Entity):
                 self.cmdrule = YList(self)
                 self._segment_path = lambda: "cmdrules"
                 self._absolute_path = lambda: "tailf-aaa:aaa/authorization/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Authorization.Cmdrules, [], name, value)
@@ -710,12 +719,12 @@ class Aaa(Entity):
                     self.ylist_key_names = ['index']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('index', YLeaf(YType.uint32, 'index')),
-                        ('context', YLeaf(YType.str, 'context')),
-                        ('command', YLeaf(YType.str, 'command')),
-                        ('group', YLeaf(YType.str, 'group')),
-                        ('ops', YLeaf(YType.enumeration, 'ops')),
-                        ('action', YLeaf(YType.enumeration, 'action')),
+                        ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                        ('context', (YLeaf(YType.str, 'context'), ['str'])),
+                        ('command', (YLeaf(YType.str, 'command'), ['str'])),
+                        ('group', (YLeaf(YType.str, 'group'), ['str'])),
+                        ('ops', (YLeaf(YType.enumeration, 'ops'), [('ydk.models.cisco_ios_xr.tailf_aaa', 'CmdOperationType', '')])),
+                        ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.tailf_aaa', 'Action', '')])),
                     ])
                     self.index = None
                     self.context = None
@@ -725,6 +734,7 @@ class Aaa(Entity):
                     self.action = None
                     self._segment_path = lambda: "cmdrule" + "[index='" + str(self.index) + "']"
                     self._absolute_path = lambda: "tailf-aaa:aaa/authorization/cmdrules/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Authorization.Cmdrules.Cmdrule, [u'index', u'context', u'command', u'group', u'ops', u'action'], name, value)
@@ -760,6 +770,7 @@ class Aaa(Entity):
                 self.datarule = YList(self)
                 self._segment_path = lambda: "datarules"
                 self._absolute_path = lambda: "tailf-aaa:aaa/authorization/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Authorization.Datarules, [], name, value)
@@ -835,13 +846,13 @@ class Aaa(Entity):
                     self.ylist_key_names = ['index']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('index', YLeaf(YType.uint32, 'index')),
-                        ('namespace', YLeaf(YType.str, 'namespace')),
-                        ('context', YLeaf(YType.str, 'context')),
-                        ('keypath', YLeaf(YType.str, 'keypath')),
-                        ('group', YLeaf(YType.str, 'group')),
-                        ('ops', YLeaf(YType.enumeration, 'ops')),
-                        ('action', YLeaf(YType.enumeration, 'action')),
+                        ('index', (YLeaf(YType.uint32, 'index'), ['int'])),
+                        ('namespace', (YLeaf(YType.str, 'namespace'), ['str'])),
+                        ('context', (YLeaf(YType.str, 'context'), ['str'])),
+                        ('keypath', (YLeaf(YType.str, 'keypath'), ['str'])),
+                        ('group', (YLeaf(YType.str, 'group'), ['str'])),
+                        ('ops', (YLeaf(YType.enumeration, 'ops'), [('ydk.models.cisco_ios_xr.tailf_aaa', 'DataOperationType', '')])),
+                        ('action', (YLeaf(YType.enumeration, 'action'), [('ydk.models.cisco_ios_xr.tailf_aaa', 'Action', '')])),
                     ])
                     self.index = None
                     self.namespace = None
@@ -852,6 +863,7 @@ class Aaa(Entity):
                     self.action = None
                     self._segment_path = lambda: "datarule" + "[index='" + str(self.index) + "']"
                     self._absolute_path = lambda: "tailf-aaa:aaa/authorization/datarules/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Authorization.Datarules.Datarule, [u'index', u'namespace', u'context', u'keypath', u'group', u'ops', u'action'], name, value)
@@ -896,6 +908,7 @@ class Aaa(Entity):
             self.privilege = YList(self)
             self._segment_path = lambda: "ios"
             self._absolute_path = lambda: "tailf-aaa:aaa/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.Ios, [], name, value)
@@ -946,10 +959,10 @@ class Aaa(Entity):
                 self.ylist_key_names = ['nr']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('nr', YLeaf(YType.int32, 'nr')),
-                    ('secret', YLeaf(YType.str, 'secret')),
-                    ('password', YLeaf(YType.str, 'password')),
-                    ('prompt', YLeaf(YType.str, 'prompt')),
+                    ('nr', (YLeaf(YType.int32, 'nr'), ['int'])),
+                    ('secret', (YLeaf(YType.str, 'secret'), ['str'])),
+                    ('password', (YLeaf(YType.str, 'password'), ['str'])),
+                    ('prompt', (YLeaf(YType.str, 'prompt'), ['str'])),
                 ])
                 self.nr = None
                 self.secret = None
@@ -957,6 +970,7 @@ class Aaa(Entity):
                 self.prompt = None
                 self._segment_path = lambda: "level" + "[nr='" + str(self.nr) + "']"
                 self._absolute_path = lambda: "tailf-aaa:aaa/ios/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Ios.Level, [u'nr', u'secret', u'password', u'prompt'], name, value)
@@ -997,13 +1011,14 @@ class Aaa(Entity):
                 self.ylist_key_names = ['mode']
                 self._child_classes = OrderedDict([("level", ("level", Aaa.Ios.Privilege.Level))])
                 self._leafs = OrderedDict([
-                    ('mode', YLeaf(YType.str, 'mode')),
+                    ('mode', (YLeaf(YType.str, 'mode'), ['str',('ydk.models.cisco_ios_xr.tailf_aaa', 'BuiltinModes_', '')])),
                 ])
                 self.mode = None
 
                 self.level = YList(self)
                 self._segment_path = lambda: "privilege" + "[mode='" + str(self.mode) + "']"
                 self._absolute_path = lambda: "tailf-aaa:aaa/ios/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Aaa.Ios.Privilege, [u'mode'], name, value)
@@ -1042,12 +1057,13 @@ class Aaa(Entity):
                     self.ylist_key_names = ['nr']
                     self._child_classes = OrderedDict([("command", ("command", Aaa.Ios.Privilege.Level.Command))])
                     self._leafs = OrderedDict([
-                        ('nr', YLeaf(YType.int32, 'nr')),
+                        ('nr', (YLeaf(YType.int32, 'nr'), ['int'])),
                     ])
                     self.nr = None
 
                     self.command = YList(self)
                     self._segment_path = lambda: "level" + "[nr='" + str(self.nr) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Aaa.Ios.Privilege.Level, [u'nr'], name, value)
@@ -1079,10 +1095,11 @@ class Aaa(Entity):
                         self.ylist_key_names = ['name']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('name', YLeaf(YType.str, 'name')),
+                            ('name', (YLeaf(YType.str, 'name'), ['str'])),
                         ])
                         self.name = None
                         self._segment_path = lambda: "command" + "[name='" + str(self.name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Aaa.Ios.Privilege.Level.Command, [u'name'], name, value)
@@ -1129,10 +1146,10 @@ class Aaa(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('shell_access', YLeaf(YType.str, 'shell-access')),
-                ('first_user', YLeaf(YType.str, 'first-user')),
-                ('first_user_change', YLeaf(YType.str, 'first-user-change')),
-                ('current_disaster_recovery_user', YLeaf(YType.str, 'current-disaster-recovery-user')),
+                ('shell_access', (YLeaf(YType.str, 'shell-access'), ['str'])),
+                ('first_user', (YLeaf(YType.str, 'first-user'), ['str'])),
+                ('first_user_change', (YLeaf(YType.str, 'first-user-change'), ['str'])),
+                ('current_disaster_recovery_user', (YLeaf(YType.str, 'current-disaster-recovery-user'), ['str'])),
             ])
             self.shell_access = None
             self.first_user = None
@@ -1140,6 +1157,7 @@ class Aaa(Entity):
             self.current_disaster_recovery_user = None
             self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-aaa-aaa-show:privileged-access"
             self._absolute_path = lambda: "tailf-aaa:aaa/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.PrivilegedAccess, ['shell_access', 'first_user', 'first_user_change', 'current_disaster_recovery_user'], name, value)
@@ -1171,11 +1189,12 @@ class Aaa(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('log_data', YLeaf(YType.str, 'log-data')),
+                ('log_data', (YLeaf(YType.str, 'log-data'), ['str'])),
             ])
             self.log_data = None
             self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-aaa-aaa-show:accounting"
             self._absolute_path = lambda: "tailf-aaa:aaa/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.Accounting, ['log_data'], name, value)
@@ -1207,11 +1226,12 @@ class Aaa(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('grp_data', YLeaf(YType.str, 'grp-data')),
+                ('grp_data', (YLeaf(YType.str, 'grp-data'), ['str'])),
             ])
             self.grp_data = None
             self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-aaa-aaa-show:user-group"
             self._absolute_path = lambda: "tailf-aaa:aaa/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.UserGroup, ['grp_data'], name, value)
@@ -1250,13 +1270,14 @@ class Aaa(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('username', YLeaf(YType.str, 'username')),
-                ('password', YLeaf(YType.str, 'password')),
+                ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                ('password', (YLeaf(YType.str, 'password'), ['str'])),
             ])
             self.username = None
             self.password = None
             self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-aaa-disaster-recovery:disaster-recovery"
             self._absolute_path = lambda: "tailf-aaa:aaa/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Aaa.DisasterRecovery, ['username', 'password'], name, value)
@@ -1299,12 +1320,13 @@ class Alias(Entity):
         self.ylist_key_names = ['name']
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
-            ('name', YLeaf(YType.str, 'name')),
-            ('expansion', YLeaf(YType.str, 'expansion')),
+            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+            ('expansion', (YLeaf(YType.str, 'expansion'), ['str'])),
         ])
         self.name = None
         self.expansion = None
         self._segment_path = lambda: "tailf-aaa:alias" + "[name='" + str(self.name) + "']"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Alias, [u'name', u'expansion'], name, value)
@@ -1394,16 +1416,16 @@ class Session(Entity):
         self._child_classes = OrderedDict([])
         self.is_presence_container = True
         self._leafs = OrderedDict([
-            ('complete_on_space', YLeaf(YType.boolean, 'complete-on-space')),
-            ('ignore_leading_space', YLeaf(YType.boolean, 'ignore-leading-space')),
-            ('idle_timeout', YLeaf(YType.uint64, 'idle-timeout')),
-            ('paginate', YLeaf(YType.boolean, 'paginate')),
-            ('history', YLeaf(YType.uint64, 'history')),
-            ('autowizard', YLeaf(YType.boolean, 'autowizard')),
-            ('show_defaults', YLeaf(YType.boolean, 'show-defaults')),
-            ('display_level', YLeaf(YType.uint64, 'display-level')),
-            ('prompt1', YLeaf(YType.str, 'prompt1')),
-            ('prompt2', YLeaf(YType.str, 'prompt2')),
+            ('complete_on_space', (YLeaf(YType.boolean, 'complete-on-space'), ['bool'])),
+            ('ignore_leading_space', (YLeaf(YType.boolean, 'ignore-leading-space'), ['bool'])),
+            ('idle_timeout', (YLeaf(YType.uint64, 'idle-timeout'), ['int'])),
+            ('paginate', (YLeaf(YType.boolean, 'paginate'), ['bool'])),
+            ('history', (YLeaf(YType.uint64, 'history'), ['int'])),
+            ('autowizard', (YLeaf(YType.boolean, 'autowizard'), ['bool'])),
+            ('show_defaults', (YLeaf(YType.boolean, 'show-defaults'), ['bool'])),
+            ('display_level', (YLeaf(YType.uint64, 'display-level'), ['int'])),
+            ('prompt1', (YLeaf(YType.str, 'prompt1'), ['str'])),
+            ('prompt2', (YLeaf(YType.str, 'prompt2'), ['str'])),
         ])
         self.complete_on_space = None
         self.ignore_leading_space = None
@@ -1416,6 +1438,7 @@ class Session(Entity):
         self.prompt1 = None
         self.prompt2 = None
         self._segment_path = lambda: "tailf-aaa:session"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Session, [u'complete_on_space', u'ignore_leading_space', u'idle_timeout', u'paginate', u'history', u'autowizard', u'show_defaults', u'display_level', u'prompt1', u'prompt2'], name, value)
@@ -1466,8 +1489,8 @@ class User(Entity):
         self.ylist_key_names = ['name']
         self._child_classes = OrderedDict([("alias", ("alias", User.Alias)), ("session", ("session", User.Session))])
         self._leafs = OrderedDict([
-            ('name', YLeaf(YType.str, 'name')),
-            ('description', YLeaf(YType.str, 'description')),
+            ('name', (YLeaf(YType.str, 'name'), ['str'])),
+            ('description', (YLeaf(YType.str, 'description'), ['str'])),
         ])
         self.name = None
         self.description = None
@@ -1478,6 +1501,7 @@ class User(Entity):
 
         self.alias = YList(self)
         self._segment_path = lambda: "tailf-aaa:user" + "[name='" + str(self.name) + "']"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(User, [u'name', u'description'], name, value)
@@ -1516,12 +1540,13 @@ class User(Entity):
             self.ylist_key_names = ['name']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('name', YLeaf(YType.str, 'name')),
-                ('expansion', YLeaf(YType.str, 'expansion')),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('expansion', (YLeaf(YType.str, 'expansion'), ['str'])),
             ])
             self.name = None
             self.expansion = None
             self._segment_path = lambda: "alias" + "[name='" + str(self.name) + "']"
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(User.Alias, [u'name', u'expansion'], name, value)
@@ -1604,16 +1629,16 @@ class User(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('complete_on_space', YLeaf(YType.boolean, 'complete-on-space')),
-                ('ignore_leading_space', YLeaf(YType.boolean, 'ignore-leading-space')),
-                ('idle_timeout', YLeaf(YType.uint64, 'idle-timeout')),
-                ('paginate', YLeaf(YType.boolean, 'paginate')),
-                ('history', YLeaf(YType.uint64, 'history')),
-                ('autowizard', YLeaf(YType.boolean, 'autowizard')),
-                ('show_defaults', YLeaf(YType.boolean, 'show-defaults')),
-                ('display_level', YLeaf(YType.uint64, 'display-level')),
-                ('prompt1', YLeaf(YType.str, 'prompt1')),
-                ('prompt2', YLeaf(YType.str, 'prompt2')),
+                ('complete_on_space', (YLeaf(YType.boolean, 'complete-on-space'), ['bool'])),
+                ('ignore_leading_space', (YLeaf(YType.boolean, 'ignore-leading-space'), ['bool'])),
+                ('idle_timeout', (YLeaf(YType.uint64, 'idle-timeout'), ['int'])),
+                ('paginate', (YLeaf(YType.boolean, 'paginate'), ['bool'])),
+                ('history', (YLeaf(YType.uint64, 'history'), ['int'])),
+                ('autowizard', (YLeaf(YType.boolean, 'autowizard'), ['bool'])),
+                ('show_defaults', (YLeaf(YType.boolean, 'show-defaults'), ['bool'])),
+                ('display_level', (YLeaf(YType.uint64, 'display-level'), ['int'])),
+                ('prompt1', (YLeaf(YType.str, 'prompt1'), ['str'])),
+                ('prompt2', (YLeaf(YType.str, 'prompt2'), ['str'])),
             ])
             self.complete_on_space = None
             self.ignore_leading_space = None
@@ -1626,6 +1651,7 @@ class User(Entity):
             self.prompt1 = None
             self.prompt2 = None
             self._segment_path = lambda: "session"
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(User.Session, [u'complete_on_space', u'ignore_leading_space', u'idle_timeout', u'paginate', u'history', u'autowizard', u'show_defaults', u'display_level', u'prompt1', u'prompt2'], name, value)

@@ -14,6 +14,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class SNMPTARGETMIB(Entity):
     """
     
@@ -64,6 +65,7 @@ class SNMPTARGETMIB(Entity):
         self.snmptargetparamstable.parent = self
         self._children_name_map["snmptargetparamstable"] = "snmpTargetParamsTable"
         self._segment_path = lambda: "SNMP-TARGET-MIB:SNMP-TARGET-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SNMPTARGETMIB, [], name, value)
@@ -111,18 +113,19 @@ class SNMPTARGETMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('snmptargetspinlock', YLeaf(YType.int32, 'snmpTargetSpinLock')),
-                ('snmpunavailablecontexts', YLeaf(YType.uint32, 'snmpUnavailableContexts')),
-                ('snmpunknowncontexts', YLeaf(YType.uint32, 'snmpUnknownContexts')),
+                ('snmptargetspinlock', (YLeaf(YType.int32, 'snmpTargetSpinLock'), ['int'])),
+                ('snmpunavailablecontexts', (YLeaf(YType.uint32, 'snmpUnavailableContexts'), ['int'])),
+                ('snmpunknowncontexts', (YLeaf(YType.uint32, 'snmpUnknownContexts'), ['int'])),
             ])
             self.snmptargetspinlock = None
             self.snmpunavailablecontexts = None
             self.snmpunknowncontexts = None
             self._segment_path = lambda: "snmpTargetObjects"
             self._absolute_path = lambda: "SNMP-TARGET-MIB:SNMP-TARGET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SNMPTARGETMIB.SnmpTargetObjects, ['snmptargetspinlock', 'snmpunavailablecontexts', 'snmpunknowncontexts'], name, value)
+            self._perform_setattr(SNMPTARGETMIB.SnmpTargetObjects, [u'snmptargetspinlock', u'snmpunavailablecontexts', u'snmpunknowncontexts'], name, value)
 
 
     class SnmpTargetAddrTable(Entity):
@@ -156,6 +159,7 @@ class SNMPTARGETMIB(Entity):
             self.snmptargetaddrentry = YList(self)
             self._segment_path = lambda: "snmpTargetAddrTable"
             self._absolute_path = lambda: "SNMP-TARGET-MIB:SNMP-TARGET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SNMPTARGETMIB.SnmpTargetAddrTable, [], name, value)
@@ -243,15 +247,15 @@ class SNMPTARGETMIB(Entity):
                 self.ylist_key_names = ['snmptargetaddrname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('snmptargetaddrname', YLeaf(YType.str, 'snmpTargetAddrName')),
-                    ('snmptargetaddrtdomain', YLeaf(YType.str, 'snmpTargetAddrTDomain')),
-                    ('snmptargetaddrtaddress', YLeaf(YType.str, 'snmpTargetAddrTAddress')),
-                    ('snmptargetaddrtimeout', YLeaf(YType.int32, 'snmpTargetAddrTimeout')),
-                    ('snmptargetaddrretrycount', YLeaf(YType.int32, 'snmpTargetAddrRetryCount')),
-                    ('snmptargetaddrtaglist', YLeaf(YType.str, 'snmpTargetAddrTagList')),
-                    ('snmptargetaddrparams', YLeaf(YType.str, 'snmpTargetAddrParams')),
-                    ('snmptargetaddrstoragetype', YLeaf(YType.enumeration, 'snmpTargetAddrStorageType')),
-                    ('snmptargetaddrrowstatus', YLeaf(YType.enumeration, 'snmpTargetAddrRowStatus')),
+                    ('snmptargetaddrname', (YLeaf(YType.str, 'snmpTargetAddrName'), ['str'])),
+                    ('snmptargetaddrtdomain', (YLeaf(YType.str, 'snmpTargetAddrTDomain'), ['str'])),
+                    ('snmptargetaddrtaddress', (YLeaf(YType.str, 'snmpTargetAddrTAddress'), ['str'])),
+                    ('snmptargetaddrtimeout', (YLeaf(YType.int32, 'snmpTargetAddrTimeout'), ['int'])),
+                    ('snmptargetaddrretrycount', (YLeaf(YType.int32, 'snmpTargetAddrRetryCount'), ['int'])),
+                    ('snmptargetaddrtaglist', (YLeaf(YType.str, 'snmpTargetAddrTagList'), ['str'])),
+                    ('snmptargetaddrparams', (YLeaf(YType.str, 'snmpTargetAddrParams'), ['str'])),
+                    ('snmptargetaddrstoragetype', (YLeaf(YType.enumeration, 'snmpTargetAddrStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('snmptargetaddrrowstatus', (YLeaf(YType.enumeration, 'snmpTargetAddrRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.snmptargetaddrname = None
                 self.snmptargetaddrtdomain = None
@@ -264,9 +268,10 @@ class SNMPTARGETMIB(Entity):
                 self.snmptargetaddrrowstatus = None
                 self._segment_path = lambda: "snmpTargetAddrEntry" + "[snmpTargetAddrName='" + str(self.snmptargetaddrname) + "']"
                 self._absolute_path = lambda: "SNMP-TARGET-MIB:SNMP-TARGET-MIB/snmpTargetAddrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SNMPTARGETMIB.SnmpTargetAddrTable.SnmpTargetAddrEntry, ['snmptargetaddrname', 'snmptargetaddrtdomain', 'snmptargetaddrtaddress', 'snmptargetaddrtimeout', 'snmptargetaddrretrycount', 'snmptargetaddrtaglist', 'snmptargetaddrparams', 'snmptargetaddrstoragetype', 'snmptargetaddrrowstatus'], name, value)
+                self._perform_setattr(SNMPTARGETMIB.SnmpTargetAddrTable.SnmpTargetAddrEntry, [u'snmptargetaddrname', u'snmptargetaddrtdomain', u'snmptargetaddrtaddress', u'snmptargetaddrtimeout', u'snmptargetaddrretrycount', u'snmptargetaddrtaglist', u'snmptargetaddrparams', u'snmptargetaddrstoragetype', u'snmptargetaddrrowstatus'], name, value)
 
 
     class SnmpTargetParamsTable(Entity):
@@ -300,6 +305,7 @@ class SNMPTARGETMIB(Entity):
             self.snmptargetparamsentry = YList(self)
             self._segment_path = lambda: "snmpTargetParamsTable"
             self._absolute_path = lambda: "SNMP-TARGET-MIB:SNMP-TARGET-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SNMPTARGETMIB.SnmpTargetParamsTable, [], name, value)
@@ -370,13 +376,13 @@ class SNMPTARGETMIB(Entity):
                 self.ylist_key_names = ['snmptargetparamsname']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('snmptargetparamsname', YLeaf(YType.str, 'snmpTargetParamsName')),
-                    ('snmptargetparamsmpmodel', YLeaf(YType.int32, 'snmpTargetParamsMPModel')),
-                    ('snmptargetparamssecuritymodel', YLeaf(YType.int32, 'snmpTargetParamsSecurityModel')),
-                    ('snmptargetparamssecurityname', YLeaf(YType.str, 'snmpTargetParamsSecurityName')),
-                    ('snmptargetparamssecuritylevel', YLeaf(YType.enumeration, 'snmpTargetParamsSecurityLevel')),
-                    ('snmptargetparamsstoragetype', YLeaf(YType.enumeration, 'snmpTargetParamsStorageType')),
-                    ('snmptargetparamsrowstatus', YLeaf(YType.enumeration, 'snmpTargetParamsRowStatus')),
+                    ('snmptargetparamsname', (YLeaf(YType.str, 'snmpTargetParamsName'), ['str'])),
+                    ('snmptargetparamsmpmodel', (YLeaf(YType.int32, 'snmpTargetParamsMPModel'), ['int'])),
+                    ('snmptargetparamssecuritymodel', (YLeaf(YType.int32, 'snmpTargetParamsSecurityModel'), ['int'])),
+                    ('snmptargetparamssecurityname', (YLeaf(YType.str, 'snmpTargetParamsSecurityName'), ['str'])),
+                    ('snmptargetparamssecuritylevel', (YLeaf(YType.enumeration, 'snmpTargetParamsSecurityLevel'), [('ydk.models.cisco_ios_xe.SNMP_FRAMEWORK_MIB', 'SnmpSecurityLevel', '')])),
+                    ('snmptargetparamsstoragetype', (YLeaf(YType.enumeration, 'snmpTargetParamsStorageType'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('snmptargetparamsrowstatus', (YLeaf(YType.enumeration, 'snmpTargetParamsRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.snmptargetparamsname = None
                 self.snmptargetparamsmpmodel = None
@@ -387,9 +393,10 @@ class SNMPTARGETMIB(Entity):
                 self.snmptargetparamsrowstatus = None
                 self._segment_path = lambda: "snmpTargetParamsEntry" + "[snmpTargetParamsName='" + str(self.snmptargetparamsname) + "']"
                 self._absolute_path = lambda: "SNMP-TARGET-MIB:SNMP-TARGET-MIB/snmpTargetParamsTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(SNMPTARGETMIB.SnmpTargetParamsTable.SnmpTargetParamsEntry, ['snmptargetparamsname', 'snmptargetparamsmpmodel', 'snmptargetparamssecuritymodel', 'snmptargetparamssecurityname', 'snmptargetparamssecuritylevel', 'snmptargetparamsstoragetype', 'snmptargetparamsrowstatus'], name, value)
+                self._perform_setattr(SNMPTARGETMIB.SnmpTargetParamsTable.SnmpTargetParamsEntry, [u'snmptargetparamsname', u'snmptargetparamsmpmodel', u'snmptargetparamssecuritymodel', u'snmptargetparamssecurityname', u'snmptargetparamssecuritylevel', u'snmptargetparamsstoragetype', u'snmptargetparamsrowstatus'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SNMPTARGETMIB()

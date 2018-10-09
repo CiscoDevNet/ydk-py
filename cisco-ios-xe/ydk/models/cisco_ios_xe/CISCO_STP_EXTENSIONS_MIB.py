@@ -13,6 +13,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class CISCOSTPEXTENSIONSMIB(Entity):
     """
     
@@ -314,6 +315,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
         self.stpxsmstporttable.parent = self
         self._children_name_map["stpxsmstporttable"] = "stpxSMSTPortTable"
         self._segment_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(CISCOSTPEXTENSIONSMIB, [], name, value)
@@ -377,11 +379,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('stpxuplinkfastenabled', YLeaf(YType.boolean, 'stpxUplinkFastEnabled')),
-                ('stpxuplinkfasttransitions', YLeaf(YType.uint32, 'stpxUplinkFastTransitions')),
-                ('stpxuplinkstationlearninggenrate', YLeaf(YType.int32, 'stpxUplinkStationLearningGenRate')),
-                ('stpxuplinkstationlearningframes', YLeaf(YType.uint32, 'stpxUplinkStationLearningFrames')),
-                ('stpxuplinkfastoperenabled', YLeaf(YType.boolean, 'stpxUplinkFastOperEnabled')),
+                ('stpxuplinkfastenabled', (YLeaf(YType.boolean, 'stpxUplinkFastEnabled'), ['bool'])),
+                ('stpxuplinkfasttransitions', (YLeaf(YType.uint32, 'stpxUplinkFastTransitions'), ['int'])),
+                ('stpxuplinkstationlearninggenrate', (YLeaf(YType.int32, 'stpxUplinkStationLearningGenRate'), ['int'])),
+                ('stpxuplinkstationlearningframes', (YLeaf(YType.uint32, 'stpxUplinkStationLearningFrames'), ['int'])),
+                ('stpxuplinkfastoperenabled', (YLeaf(YType.boolean, 'stpxUplinkFastOperEnabled'), ['bool'])),
             ])
             self.stpxuplinkfastenabled = None
             self.stpxuplinkfasttransitions = None
@@ -390,6 +392,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxuplinkfastoperenabled = None
             self._segment_path = lambda: "stpxUplinkFastObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxUplinkFastObjects, ['stpxuplinkfastenabled', 'stpxuplinkfasttransitions', 'stpxuplinkstationlearninggenrate', 'stpxuplinkstationlearningframes', 'stpxuplinkfastoperenabled'], name, value)
@@ -461,13 +464,13 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('stpxbackbonefastenabled', YLeaf(YType.boolean, 'stpxBackboneFastEnabled')),
-                ('stpxbackbonefastininferiorbpdus', YLeaf(YType.uint32, 'stpxBackboneFastInInferiorBPDUs')),
-                ('stpxbackbonefastinrlqrequestpdus', YLeaf(YType.uint32, 'stpxBackboneFastInRLQRequestPDUs')),
-                ('stpxbackbonefastinrlqresponsepdus', YLeaf(YType.uint32, 'stpxBackboneFastInRLQResponsePDUs')),
-                ('stpxbackbonefastoutrlqrequestpdus', YLeaf(YType.uint32, 'stpxBackboneFastOutRLQRequestPDUs')),
-                ('stpxbackbonefastoutrlqresponsepdus', YLeaf(YType.uint32, 'stpxBackboneFastOutRLQResponsePDUs')),
-                ('stpxbackbonefastoperenabled', YLeaf(YType.boolean, 'stpxBackboneFastOperEnabled')),
+                ('stpxbackbonefastenabled', (YLeaf(YType.boolean, 'stpxBackboneFastEnabled'), ['bool'])),
+                ('stpxbackbonefastininferiorbpdus', (YLeaf(YType.uint32, 'stpxBackboneFastInInferiorBPDUs'), ['int'])),
+                ('stpxbackbonefastinrlqrequestpdus', (YLeaf(YType.uint32, 'stpxBackboneFastInRLQRequestPDUs'), ['int'])),
+                ('stpxbackbonefastinrlqresponsepdus', (YLeaf(YType.uint32, 'stpxBackboneFastInRLQResponsePDUs'), ['int'])),
+                ('stpxbackbonefastoutrlqrequestpdus', (YLeaf(YType.uint32, 'stpxBackboneFastOutRLQRequestPDUs'), ['int'])),
+                ('stpxbackbonefastoutrlqresponsepdus', (YLeaf(YType.uint32, 'stpxBackboneFastOutRLQResponsePDUs'), ['int'])),
+                ('stpxbackbonefastoperenabled', (YLeaf(YType.boolean, 'stpxBackboneFastOperEnabled'), ['bool'])),
             ])
             self.stpxbackbonefastenabled = None
             self.stpxbackbonefastininferiorbpdus = None
@@ -478,6 +481,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxbackbonefastoperenabled = None
             self._segment_path = lambda: "stpxBackboneFastObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxBackboneFastObjects, ['stpxbackbonefastenabled', 'stpxbackbonefastininferiorbpdus', 'stpxbackbonefastinrlqrequestpdus', 'stpxbackbonefastinrlqresponsepdus', 'stpxbackbonefastoutrlqrequestpdus', 'stpxbackbonefastoutrlqresponsepdus', 'stpxbackbonefastoperenabled'], name, value)
@@ -534,12 +538,12 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('stpxspanningtreetype', YLeaf(YType.enumeration, 'stpxSpanningTreeType')),
-                ('stpxspanningtreepathcostmode', YLeaf(YType.enumeration, 'stpxSpanningTreePathCostMode')),
-                ('stpxextendedsysidadminenabled', YLeaf(YType.boolean, 'stpxExtendedSysIDAdminEnabled')),
-                ('stpxextendedsysidoperenabled', YLeaf(YType.boolean, 'stpxExtendedSysIDOperEnabled')),
-                ('stpxnotificationenable', YLeaf(YType.bits, 'stpxNotificationEnable')),
-                ('stpxspanningtreepathcostopermode', YLeaf(YType.enumeration, 'stpxSpanningTreePathCostOperMode')),
+                ('stpxspanningtreetype', (YLeaf(YType.enumeration, 'stpxSpanningTreeType'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxSpanningTreeObjects.StpxSpanningTreeType')])),
+                ('stpxspanningtreepathcostmode', (YLeaf(YType.enumeration, 'stpxSpanningTreePathCostMode'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxSpanningTreeObjects.StpxSpanningTreePathCostMode')])),
+                ('stpxextendedsysidadminenabled', (YLeaf(YType.boolean, 'stpxExtendedSysIDAdminEnabled'), ['bool'])),
+                ('stpxextendedsysidoperenabled', (YLeaf(YType.boolean, 'stpxExtendedSysIDOperEnabled'), ['bool'])),
+                ('stpxnotificationenable', (YLeaf(YType.bits, 'stpxNotificationEnable'), ['Bits'])),
+                ('stpxspanningtreepathcostopermode', (YLeaf(YType.enumeration, 'stpxSpanningTreePathCostOperMode'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxSpanningTreeObjects.StpxSpanningTreePathCostOperMode')])),
             ])
             self.stpxspanningtreetype = None
             self.stpxspanningtreepathcostmode = None
@@ -549,6 +553,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxspanningtreepathcostopermode = None
             self._segment_path = lambda: "stpxSpanningTreeObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSpanningTreeObjects, ['stpxspanningtreetype', 'stpxspanningtreepathcostmode', 'stpxextendedsysidadminenabled', 'stpxextendedsysidoperenabled', 'stpxnotificationenable', 'stpxspanningtreepathcostopermode'], name, value)
@@ -707,11 +712,12 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('stpxmistpinstancenumber', YLeaf(YType.int32, 'stpxMISTPInstanceNumber')),
+                ('stpxmistpinstancenumber', (YLeaf(YType.int32, 'stpxMISTPInstanceNumber'), ['int'])),
             ])
             self.stpxmistpinstancenumber = None
             self._segment_path = lambda: "stpxMISTPObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMISTPObjects, ['stpxmistpinstancenumber'], name, value)
@@ -743,11 +749,12 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('stpxloopguardglobaldefaultmode', YLeaf(YType.enumeration, 'stpxLoopGuardGlobalDefaultMode')),
+                ('stpxloopguardglobaldefaultmode', (YLeaf(YType.enumeration, 'stpxLoopGuardGlobalDefaultMode'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxLoopGuardObjects.StpxLoopGuardGlobalDefaultMode')])),
             ])
             self.stpxloopguardglobaldefaultmode = None
             self._segment_path = lambda: "stpxLoopGuardObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxLoopGuardObjects, ['stpxloopguardglobaldefaultmode'], name, value)
@@ -808,15 +815,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('stpxfaststartbpduguardenable', YLeaf(YType.boolean, 'stpxFastStartBpduGuardEnable')),
-                ('stpxfaststartbpdufilterenable', YLeaf(YType.boolean, 'stpxFastStartBpduFilterEnable')),
-                ('stpxfaststartglobaldefaultmode', YLeaf(YType.enumeration, 'stpxFastStartGlobalDefaultMode')),
+                ('stpxfaststartbpduguardenable', (YLeaf(YType.boolean, 'stpxFastStartBpduGuardEnable'), ['bool'])),
+                ('stpxfaststartbpdufilterenable', (YLeaf(YType.boolean, 'stpxFastStartBpduFilterEnable'), ['bool'])),
+                ('stpxfaststartglobaldefaultmode', (YLeaf(YType.enumeration, 'stpxFastStartGlobalDefaultMode'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxFastStartObjects.StpxFastStartGlobalDefaultMode')])),
             ])
             self.stpxfaststartbpduguardenable = None
             self.stpxfaststartbpdufilterenable = None
             self.stpxfaststartglobaldefaultmode = None
             self._segment_path = lambda: "stpxFastStartObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxFastStartObjects, ['stpxfaststartbpduguardenable', 'stpxfaststartbpdufilterenable', 'stpxfaststartglobaldefaultmode'], name, value)
@@ -867,11 +875,12 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('stpxbpduskewingdetectionenable', YLeaf(YType.boolean, 'stpxBpduSkewingDetectionEnable')),
+                ('stpxbpduskewingdetectionenable', (YLeaf(YType.boolean, 'stpxBpduSkewingDetectionEnable'), ['bool'])),
             ])
             self.stpxbpduskewingdetectionenable = None
             self._segment_path = lambda: "stpxBpduSkewingObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxBpduSkewingObjects, ['stpxbpduskewingdetectionenable'], name, value)
@@ -958,14 +967,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('stpxmstmaxinstancenumber', YLeaf(YType.int32, 'stpxMSTMaxInstanceNumber')),
-                ('stpxmstregionname', YLeaf(YType.str, 'stpxMSTRegionName')),
-                ('stpxmstregionrevision', YLeaf(YType.int32, 'stpxMSTRegionRevision')),
-                ('stpxmstregioneditbufferstatus', YLeaf(YType.enumeration, 'stpxMSTRegionEditBufferStatus')),
-                ('stpxmstregioneditbufferoperation', YLeaf(YType.enumeration, 'stpxMSTRegionEditBufferOperation')),
-                ('stpxmstregioneditname', YLeaf(YType.str, 'stpxMSTRegionEditName')),
-                ('stpxmstregioneditrevision', YLeaf(YType.int32, 'stpxMSTRegionEditRevision')),
-                ('stpxmstmaxhopcount', YLeaf(YType.int32, 'stpxMSTMaxHopCount')),
+                ('stpxmstmaxinstancenumber', (YLeaf(YType.int32, 'stpxMSTMaxInstanceNumber'), ['int'])),
+                ('stpxmstregionname', (YLeaf(YType.str, 'stpxMSTRegionName'), ['str'])),
+                ('stpxmstregionrevision', (YLeaf(YType.int32, 'stpxMSTRegionRevision'), ['int'])),
+                ('stpxmstregioneditbufferstatus', (YLeaf(YType.enumeration, 'stpxMSTRegionEditBufferStatus'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxMSTObjects.StpxMSTRegionEditBufferStatus')])),
+                ('stpxmstregioneditbufferoperation', (YLeaf(YType.enumeration, 'stpxMSTRegionEditBufferOperation'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxMSTObjects.StpxMSTRegionEditBufferOperation')])),
+                ('stpxmstregioneditname', (YLeaf(YType.str, 'stpxMSTRegionEditName'), ['str'])),
+                ('stpxmstregioneditrevision', (YLeaf(YType.int32, 'stpxMSTRegionEditRevision'), ['int'])),
+                ('stpxmstmaxhopcount', (YLeaf(YType.int32, 'stpxMSTMaxHopCount'), ['int'])),
             ])
             self.stpxmstmaxinstancenumber = None
             self.stpxmstregionname = None
@@ -977,6 +986,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxmstmaxhopcount = None
             self._segment_path = lambda: "stpxMSTObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTObjects, ['stpxmstmaxinstancenumber', 'stpxmstregionname', 'stpxmstregionrevision', 'stpxmstregioneditbufferstatus', 'stpxmstregioneditbufferoperation', 'stpxmstregioneditname', 'stpxmstregioneditrevision', 'stpxmstmaxhopcount'], name, value)
@@ -1128,11 +1138,12 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('stpxrstptransmitholdcount', YLeaf(YType.uint32, 'stpxRSTPTransmitHoldCount')),
+                ('stpxrstptransmitholdcount', (YLeaf(YType.uint32, 'stpxRSTPTransmitHoldCount'), ['int'])),
             ])
             self.stpxrstptransmitholdcount = None
             self._segment_path = lambda: "stpxRSTPObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRSTPObjects, ['stpxrstptransmitholdcount'], name, value)
@@ -1204,13 +1215,13 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('stpxsmstmaxinstances', YLeaf(YType.uint32, 'stpxSMSTMaxInstances')),
-                ('stpxsmstmaxinstanceid', YLeaf(YType.uint32, 'stpxSMSTMaxInstanceID')),
-                ('stpxsmstregionrevision', YLeaf(YType.uint32, 'stpxSMSTRegionRevision')),
-                ('stpxsmstregioneditrevision', YLeaf(YType.uint32, 'stpxSMSTRegionEditRevision')),
-                ('stpxsmstmaxhopcount', YLeaf(YType.uint32, 'stpxSMSTMaxHopCount')),
-                ('stpxsmstconfigdigest', YLeaf(YType.str, 'stpxSMSTConfigDigest')),
-                ('stpxsmstconfigprestandarddigest', YLeaf(YType.str, 'stpxSMSTConfigPreStandardDigest')),
+                ('stpxsmstmaxinstances', (YLeaf(YType.uint32, 'stpxSMSTMaxInstances'), ['int'])),
+                ('stpxsmstmaxinstanceid', (YLeaf(YType.uint32, 'stpxSMSTMaxInstanceID'), ['int'])),
+                ('stpxsmstregionrevision', (YLeaf(YType.uint32, 'stpxSMSTRegionRevision'), ['int'])),
+                ('stpxsmstregioneditrevision', (YLeaf(YType.uint32, 'stpxSMSTRegionEditRevision'), ['int'])),
+                ('stpxsmstmaxhopcount', (YLeaf(YType.uint32, 'stpxSMSTMaxHopCount'), ['int'])),
+                ('stpxsmstconfigdigest', (YLeaf(YType.str, 'stpxSMSTConfigDigest'), ['str'])),
+                ('stpxsmstconfigprestandarddigest', (YLeaf(YType.str, 'stpxSMSTConfigPreStandardDigest'), ['str'])),
             ])
             self.stpxsmstmaxinstances = None
             self.stpxsmstmaxinstanceid = None
@@ -1221,6 +1232,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxsmstconfigprestandarddigest = None
             self._segment_path = lambda: "stpxSMSTObjects"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTObjects, ['stpxsmstmaxinstances', 'stpxsmstmaxinstanceid', 'stpxsmstregionrevision', 'stpxsmstregioneditrevision', 'stpxsmstmaxhopcount', 'stpxsmstconfigdigest', 'stpxsmstconfigprestandarddigest'], name, value)
@@ -1259,6 +1271,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxpvstvlanentry = YList(self)
             self._segment_path = lambda: "stpxPVSTVlanTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable, [], name, value)
@@ -1298,13 +1311,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxpvstvlanindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxpvstvlanindex', YLeaf(YType.int32, 'stpxPVSTVlanIndex')),
-                    ('stpxpvstvlanenable', YLeaf(YType.enumeration, 'stpxPVSTVlanEnable')),
+                    ('stpxpvstvlanindex', (YLeaf(YType.int32, 'stpxPVSTVlanIndex'), ['int'])),
+                    ('stpxpvstvlanenable', (YLeaf(YType.enumeration, 'stpxPVSTVlanEnable'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxPVSTVlanTable.StpxPVSTVlanEntry.StpxPVSTVlanEnable')])),
                 ])
                 self.stpxpvstvlanindex = None
                 self.stpxpvstvlanenable = None
                 self._segment_path = lambda: "stpxPVSTVlanEntry" + "[stpxPVSTVlanIndex='" + str(self.stpxpvstvlanindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxPVSTVlanTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxPVSTVlanTable.StpxPVSTVlanEntry, ['stpxpvstvlanindex', 'stpxpvstvlanenable'], name, value)
@@ -1399,6 +1413,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxinconsistencyentry = YList(self)
             self._segment_path = lambda: "stpxInconsistencyTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable, [], name, value)
@@ -1445,15 +1460,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxvlanindex','stpxportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxvlanindex', YLeaf(YType.int32, 'stpxVlanIndex')),
-                    ('stpxportindex', YLeaf(YType.int32, 'stpxPortIndex')),
-                    ('stpxinconsistentstate', YLeaf(YType.bits, 'stpxInconsistentState')),
+                    ('stpxvlanindex', (YLeaf(YType.int32, 'stpxVlanIndex'), ['int'])),
+                    ('stpxportindex', (YLeaf(YType.int32, 'stpxPortIndex'), ['int'])),
+                    ('stpxinconsistentstate', (YLeaf(YType.bits, 'stpxInconsistentState'), ['Bits'])),
                 ])
                 self.stpxvlanindex = None
                 self.stpxportindex = None
                 self.stpxinconsistentstate = Bits()
                 self._segment_path = lambda: "stpxInconsistencyEntry" + "[stpxVlanIndex='" + str(self.stpxvlanindex) + "']" + "[stpxPortIndex='" + str(self.stpxportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxInconsistencyTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxInconsistencyTable.StpxInconsistencyEntry, ['stpxvlanindex', 'stpxportindex', 'stpxinconsistentstate'], name, value)
@@ -1490,6 +1506,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxrootguardconfigentry = YList(self)
             self._segment_path = lambda: "stpxRootGuardConfigTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRootGuardConfigTable, [], name, value)
@@ -1529,13 +1546,14 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxrootguardconfigportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxrootguardconfigportindex', YLeaf(YType.int32, 'stpxRootGuardConfigPortIndex')),
-                    ('stpxrootguardconfigenabled', YLeaf(YType.boolean, 'stpxRootGuardConfigEnabled')),
+                    ('stpxrootguardconfigportindex', (YLeaf(YType.int32, 'stpxRootGuardConfigPortIndex'), ['int'])),
+                    ('stpxrootguardconfigenabled', (YLeaf(YType.boolean, 'stpxRootGuardConfigEnabled'), ['bool'])),
                 ])
                 self.stpxrootguardconfigportindex = None
                 self.stpxrootguardconfigenabled = None
                 self._segment_path = lambda: "stpxRootGuardConfigEntry" + "[stpxRootGuardConfigPortIndex='" + str(self.stpxrootguardconfigportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRootGuardConfigTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRootGuardConfigTable.StpxRootGuardConfigEntry, ['stpxrootguardconfigportindex', 'stpxrootguardconfigenabled'], name, value)
@@ -1576,6 +1594,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxrootinconsistencyentry = YList(self)
             self._segment_path = lambda: "stpxRootInconsistencyTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRootInconsistencyTable, [], name, value)
@@ -1623,15 +1642,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxrootinconsistencyindex','stpxrootinconsistencyportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxrootinconsistencyindex', YLeaf(YType.int32, 'stpxRootInconsistencyIndex')),
-                    ('stpxrootinconsistencyportindex', YLeaf(YType.int32, 'stpxRootInconsistencyPortIndex')),
-                    ('stpxrootinconsistencystate', YLeaf(YType.boolean, 'stpxRootInconsistencyState')),
+                    ('stpxrootinconsistencyindex', (YLeaf(YType.int32, 'stpxRootInconsistencyIndex'), ['int'])),
+                    ('stpxrootinconsistencyportindex', (YLeaf(YType.int32, 'stpxRootInconsistencyPortIndex'), ['int'])),
+                    ('stpxrootinconsistencystate', (YLeaf(YType.boolean, 'stpxRootInconsistencyState'), ['bool'])),
                 ])
                 self.stpxrootinconsistencyindex = None
                 self.stpxrootinconsistencyportindex = None
                 self.stpxrootinconsistencystate = None
                 self._segment_path = lambda: "stpxRootInconsistencyEntry" + "[stpxRootInconsistencyIndex='" + str(self.stpxrootinconsistencyindex) + "']" + "[stpxRootInconsistencyPortIndex='" + str(self.stpxrootinconsistencyportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRootInconsistencyTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRootInconsistencyTable.StpxRootInconsistencyEntry, ['stpxrootinconsistencyindex', 'stpxrootinconsistencyportindex', 'stpxrootinconsistencystate'], name, value)
@@ -1672,6 +1692,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxmistpinstanceentry = YList(self)
             self._segment_path = lambda: "stpxMISTPInstanceTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMISTPInstanceTable, [], name, value)
@@ -1739,12 +1760,12 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxmistpinstanceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxmistpinstanceindex', YLeaf(YType.int32, 'stpxMISTPInstanceIndex')),
-                    ('stpxmistpinstanceenable', YLeaf(YType.boolean, 'stpxMISTPInstanceEnable')),
-                    ('stpxmistpinstancevlansmapped', YLeaf(YType.str, 'stpxMISTPInstanceVlansMapped')),
-                    ('stpxmistpinstancevlansmapped2k', YLeaf(YType.str, 'stpxMISTPInstanceVlansMapped2k')),
-                    ('stpxmistpinstancevlansmapped3k', YLeaf(YType.str, 'stpxMISTPInstanceVlansMapped3k')),
-                    ('stpxmistpinstancevlansmapped4k', YLeaf(YType.str, 'stpxMISTPInstanceVlansMapped4k')),
+                    ('stpxmistpinstanceindex', (YLeaf(YType.int32, 'stpxMISTPInstanceIndex'), ['int'])),
+                    ('stpxmistpinstanceenable', (YLeaf(YType.boolean, 'stpxMISTPInstanceEnable'), ['bool'])),
+                    ('stpxmistpinstancevlansmapped', (YLeaf(YType.str, 'stpxMISTPInstanceVlansMapped'), ['str'])),
+                    ('stpxmistpinstancevlansmapped2k', (YLeaf(YType.str, 'stpxMISTPInstanceVlansMapped2k'), ['str'])),
+                    ('stpxmistpinstancevlansmapped3k', (YLeaf(YType.str, 'stpxMISTPInstanceVlansMapped3k'), ['str'])),
+                    ('stpxmistpinstancevlansmapped4k', (YLeaf(YType.str, 'stpxMISTPInstanceVlansMapped4k'), ['str'])),
                 ])
                 self.stpxmistpinstanceindex = None
                 self.stpxmistpinstanceenable = None
@@ -1754,6 +1775,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.stpxmistpinstancevlansmapped4k = None
                 self._segment_path = lambda: "stpxMISTPInstanceEntry" + "[stpxMISTPInstanceIndex='" + str(self.stpxmistpinstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMISTPInstanceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMISTPInstanceTable.StpxMISTPInstanceEntry, ['stpxmistpinstanceindex', 'stpxmistpinstanceenable', 'stpxmistpinstancevlansmapped', 'stpxmistpinstancevlansmapped2k', 'stpxmistpinstancevlansmapped3k', 'stpxmistpinstancevlansmapped4k'], name, value)
@@ -1790,6 +1812,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxloopguardconfigentry = YList(self)
             self._segment_path = lambda: "stpxLoopGuardConfigTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable, [], name, value)
@@ -1836,15 +1859,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxloopguardconfigportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxloopguardconfigportindex', YLeaf(YType.int32, 'stpxLoopGuardConfigPortIndex')),
-                    ('stpxloopguardconfigenabled', YLeaf(YType.boolean, 'stpxLoopGuardConfigEnabled')),
-                    ('stpxloopguardconfigmode', YLeaf(YType.enumeration, 'stpxLoopGuardConfigMode')),
+                    ('stpxloopguardconfigportindex', (YLeaf(YType.int32, 'stpxLoopGuardConfigPortIndex'), ['int'])),
+                    ('stpxloopguardconfigenabled', (YLeaf(YType.boolean, 'stpxLoopGuardConfigEnabled'), ['bool'])),
+                    ('stpxloopguardconfigmode', (YLeaf(YType.enumeration, 'stpxLoopGuardConfigMode'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxLoopGuardConfigTable.StpxLoopGuardConfigEntry.StpxLoopGuardConfigMode')])),
                 ])
                 self.stpxloopguardconfigportindex = None
                 self.stpxloopguardconfigenabled = None
                 self.stpxloopguardconfigmode = None
                 self._segment_path = lambda: "stpxLoopGuardConfigEntry" + "[stpxLoopGuardConfigPortIndex='" + str(self.stpxloopguardconfigportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxLoopGuardConfigTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxLoopGuardConfigTable.StpxLoopGuardConfigEntry, ['stpxloopguardconfigportindex', 'stpxloopguardconfigenabled', 'stpxloopguardconfigmode'], name, value)
@@ -1926,6 +1950,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxloopinconsistencyentry = YList(self)
             self._segment_path = lambda: "stpxLoopInconsistencyTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxLoopInconsistencyTable, [], name, value)
@@ -1973,15 +1998,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxloopinconsistencyindex','stpxloopinconsistencyportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxloopinconsistencyindex', YLeaf(YType.int32, 'stpxLoopInconsistencyIndex')),
-                    ('stpxloopinconsistencyportindex', YLeaf(YType.int32, 'stpxLoopInconsistencyPortIndex')),
-                    ('stpxloopinconsistencystate', YLeaf(YType.boolean, 'stpxLoopInconsistencyState')),
+                    ('stpxloopinconsistencyindex', (YLeaf(YType.int32, 'stpxLoopInconsistencyIndex'), ['int'])),
+                    ('stpxloopinconsistencyportindex', (YLeaf(YType.int32, 'stpxLoopInconsistencyPortIndex'), ['int'])),
+                    ('stpxloopinconsistencystate', (YLeaf(YType.boolean, 'stpxLoopInconsistencyState'), ['bool'])),
                 ])
                 self.stpxloopinconsistencyindex = None
                 self.stpxloopinconsistencyportindex = None
                 self.stpxloopinconsistencystate = None
                 self._segment_path = lambda: "stpxLoopInconsistencyEntry" + "[stpxLoopInconsistencyIndex='" + str(self.stpxloopinconsistencyindex) + "']" + "[stpxLoopInconsistencyPortIndex='" + str(self.stpxloopinconsistencyportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxLoopInconsistencyTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxLoopInconsistencyTable.StpxLoopInconsistencyEntry, ['stpxloopinconsistencyindex', 'stpxloopinconsistencyportindex', 'stpxloopinconsistencystate'], name, value)
@@ -2019,6 +2045,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxfaststartportentry = YList(self)
             self._segment_path = lambda: "stpxFastStartPortTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable, [], name, value)
@@ -2075,11 +2102,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxfaststartportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxfaststartportindex', YLeaf(YType.int32, 'stpxFastStartPortIndex')),
-                    ('stpxfaststartportenable', YLeaf(YType.boolean, 'stpxFastStartPortEnable')),
-                    ('stpxfaststartportmode', YLeaf(YType.enumeration, 'stpxFastStartPortMode')),
-                    ('stpxfaststartportbpduguardmode', YLeaf(YType.enumeration, 'stpxFastStartPortBpduGuardMode')),
-                    ('stpxfaststartportbpdufiltermode', YLeaf(YType.enumeration, 'stpxFastStartPortBpduFilterMode')),
+                    ('stpxfaststartportindex', (YLeaf(YType.int32, 'stpxFastStartPortIndex'), ['int'])),
+                    ('stpxfaststartportenable', (YLeaf(YType.boolean, 'stpxFastStartPortEnable'), ['bool'])),
+                    ('stpxfaststartportmode', (YLeaf(YType.enumeration, 'stpxFastStartPortMode'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxFastStartPortTable.StpxFastStartPortEntry.StpxFastStartPortMode')])),
+                    ('stpxfaststartportbpduguardmode', (YLeaf(YType.enumeration, 'stpxFastStartPortBpduGuardMode'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxFastStartPortTable.StpxFastStartPortEntry.StpxFastStartPortBpduGuardMode')])),
+                    ('stpxfaststartportbpdufiltermode', (YLeaf(YType.enumeration, 'stpxFastStartPortBpduFilterMode'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxFastStartPortTable.StpxFastStartPortEntry.StpxFastStartPortBpduFilterMode')])),
                 ])
                 self.stpxfaststartportindex = None
                 self.stpxfaststartportenable = None
@@ -2088,6 +2115,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.stpxfaststartportbpdufiltermode = None
                 self._segment_path = lambda: "stpxFastStartPortEntry" + "[stpxFastStartPortIndex='" + str(self.stpxfaststartportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxFastStartPortTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxFastStartPortTable.StpxFastStartPortEntry, ['stpxfaststartportindex', 'stpxfaststartportenable', 'stpxfaststartportmode', 'stpxfaststartportbpduguardmode', 'stpxfaststartportbpdufiltermode'], name, value)
@@ -2293,6 +2321,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxfaststartopermodeentry = YList(self)
             self._segment_path = lambda: "stpxFastStartOperModeTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable, [], name, value)
@@ -2340,15 +2369,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxfaststartopermodeinstindex','stpxfaststartopermodeportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxfaststartopermodeinstindex', YLeaf(YType.int32, 'stpxFastStartOperModeInstIndex')),
-                    ('stpxfaststartopermodeportindex', YLeaf(YType.int32, 'stpxFastStartOperModePortIndex')),
-                    ('stpxfaststartopermode', YLeaf(YType.enumeration, 'stpxFastStartOperMode')),
+                    ('stpxfaststartopermodeinstindex', (YLeaf(YType.int32, 'stpxFastStartOperModeInstIndex'), ['int'])),
+                    ('stpxfaststartopermodeportindex', (YLeaf(YType.int32, 'stpxFastStartOperModePortIndex'), ['int'])),
+                    ('stpxfaststartopermode', (YLeaf(YType.enumeration, 'stpxFastStartOperMode'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxFastStartOperModeTable.StpxFastStartOperModeEntry.StpxFastStartOperMode')])),
                 ])
                 self.stpxfaststartopermodeinstindex = None
                 self.stpxfaststartopermodeportindex = None
                 self.stpxfaststartopermode = None
                 self._segment_path = lambda: "stpxFastStartOperModeEntry" + "[stpxFastStartOperModeInstIndex='" + str(self.stpxfaststartopermodeinstindex) + "']" + "[stpxFastStartOperModePortIndex='" + str(self.stpxfaststartopermodeportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxFastStartOperModeTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxFastStartOperModeTable.StpxFastStartOperModeEntry, ['stpxfaststartopermodeinstindex', 'stpxfaststartopermodeportindex', 'stpxfaststartopermode'], name, value)
@@ -2417,6 +2447,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxbpduskewingentry = YList(self)
             self._segment_path = lambda: "stpxBpduSkewingTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxBpduSkewingTable, [], name, value)
@@ -2483,11 +2514,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxbpduskewinginstanceindex','stpxbpduskewingportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxbpduskewinginstanceindex', YLeaf(YType.int32, 'stpxBpduSkewingInstanceIndex')),
-                    ('stpxbpduskewingportindex', YLeaf(YType.int32, 'stpxBpduSkewingPortIndex')),
-                    ('stpxbpduskewinglastskewduration', YLeaf(YType.uint32, 'stpxBpduSkewingLastSkewDuration')),
-                    ('stpxbpduskewingworstskewduration', YLeaf(YType.uint32, 'stpxBpduSkewingWorstSkewDuration')),
-                    ('stpxbpduskewingworstskewtime', YLeaf(YType.uint32, 'stpxBpduSkewingWorstSkewTime')),
+                    ('stpxbpduskewinginstanceindex', (YLeaf(YType.int32, 'stpxBpduSkewingInstanceIndex'), ['int'])),
+                    ('stpxbpduskewingportindex', (YLeaf(YType.int32, 'stpxBpduSkewingPortIndex'), ['int'])),
+                    ('stpxbpduskewinglastskewduration', (YLeaf(YType.uint32, 'stpxBpduSkewingLastSkewDuration'), ['int'])),
+                    ('stpxbpduskewingworstskewduration', (YLeaf(YType.uint32, 'stpxBpduSkewingWorstSkewDuration'), ['int'])),
+                    ('stpxbpduskewingworstskewtime', (YLeaf(YType.uint32, 'stpxBpduSkewingWorstSkewTime'), ['int'])),
                 ])
                 self.stpxbpduskewinginstanceindex = None
                 self.stpxbpduskewingportindex = None
@@ -2496,6 +2527,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.stpxbpduskewingworstskewtime = None
                 self._segment_path = lambda: "stpxBpduSkewingEntry" + "[stpxBpduSkewingInstanceIndex='" + str(self.stpxbpduskewinginstanceindex) + "']" + "[stpxBpduSkewingPortIndex='" + str(self.stpxbpduskewingportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxBpduSkewingTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxBpduSkewingTable.StpxBpduSkewingEntry, ['stpxbpduskewinginstanceindex', 'stpxbpduskewingportindex', 'stpxbpduskewinglastskewduration', 'stpxbpduskewingworstskewduration', 'stpxbpduskewingworstskewtime'], name, value)
@@ -2538,6 +2570,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxmstinstanceentry = YList(self)
             self._segment_path = lambda: "stpxMSTInstanceTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTInstanceTable, [], name, value)
@@ -2619,12 +2652,12 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxmstinstanceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxmstinstanceindex', YLeaf(YType.int32, 'stpxMSTInstanceIndex')),
-                    ('stpxmstinstancevlansmapped', YLeaf(YType.str, 'stpxMSTInstanceVlansMapped')),
-                    ('stpxmstinstancevlansmapped2k', YLeaf(YType.str, 'stpxMSTInstanceVlansMapped2k')),
-                    ('stpxmstinstancevlansmapped3k', YLeaf(YType.str, 'stpxMSTInstanceVlansMapped3k')),
-                    ('stpxmstinstancevlansmapped4k', YLeaf(YType.str, 'stpxMSTInstanceVlansMapped4k')),
-                    ('stpxmstinstanceremaininghopcount', YLeaf(YType.int32, 'stpxMSTInstanceRemainingHopCount')),
+                    ('stpxmstinstanceindex', (YLeaf(YType.int32, 'stpxMSTInstanceIndex'), ['int'])),
+                    ('stpxmstinstancevlansmapped', (YLeaf(YType.str, 'stpxMSTInstanceVlansMapped'), ['str'])),
+                    ('stpxmstinstancevlansmapped2k', (YLeaf(YType.str, 'stpxMSTInstanceVlansMapped2k'), ['str'])),
+                    ('stpxmstinstancevlansmapped3k', (YLeaf(YType.str, 'stpxMSTInstanceVlansMapped3k'), ['str'])),
+                    ('stpxmstinstancevlansmapped4k', (YLeaf(YType.str, 'stpxMSTInstanceVlansMapped4k'), ['str'])),
+                    ('stpxmstinstanceremaininghopcount', (YLeaf(YType.int32, 'stpxMSTInstanceRemainingHopCount'), ['int'])),
                 ])
                 self.stpxmstinstanceindex = None
                 self.stpxmstinstancevlansmapped = None
@@ -2634,6 +2667,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.stpxmstinstanceremaininghopcount = None
                 self._segment_path = lambda: "stpxMSTInstanceEntry" + "[stpxMSTInstanceIndex='" + str(self.stpxmstinstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTInstanceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTInstanceTable.StpxMSTInstanceEntry, ['stpxmstinstanceindex', 'stpxmstinstancevlansmapped', 'stpxmstinstancevlansmapped2k', 'stpxmstinstancevlansmapped3k', 'stpxmstinstancevlansmapped4k', 'stpxmstinstanceremaininghopcount'], name, value)
@@ -2680,6 +2714,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxmstinstanceeditentry = YList(self)
             self._segment_path = lambda: "stpxMSTInstanceEditTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTInstanceEditTable, [], name, value)
@@ -2752,11 +2787,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxmstinstanceeditindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxmstinstanceeditindex', YLeaf(YType.int32, 'stpxMSTInstanceEditIndex')),
-                    ('stpxmstinstanceeditvlansmap', YLeaf(YType.str, 'stpxMSTInstanceEditVlansMap')),
-                    ('stpxmstinstanceeditvlansmap2k', YLeaf(YType.str, 'stpxMSTInstanceEditVlansMap2k')),
-                    ('stpxmstinstanceeditvlansmap3k', YLeaf(YType.str, 'stpxMSTInstanceEditVlansMap3k')),
-                    ('stpxmstinstanceeditvlansmap4k', YLeaf(YType.str, 'stpxMSTInstanceEditVlansMap4k')),
+                    ('stpxmstinstanceeditindex', (YLeaf(YType.int32, 'stpxMSTInstanceEditIndex'), ['int'])),
+                    ('stpxmstinstanceeditvlansmap', (YLeaf(YType.str, 'stpxMSTInstanceEditVlansMap'), ['str'])),
+                    ('stpxmstinstanceeditvlansmap2k', (YLeaf(YType.str, 'stpxMSTInstanceEditVlansMap2k'), ['str'])),
+                    ('stpxmstinstanceeditvlansmap3k', (YLeaf(YType.str, 'stpxMSTInstanceEditVlansMap3k'), ['str'])),
+                    ('stpxmstinstanceeditvlansmap4k', (YLeaf(YType.str, 'stpxMSTInstanceEditVlansMap4k'), ['str'])),
                 ])
                 self.stpxmstinstanceeditindex = None
                 self.stpxmstinstanceeditvlansmap = None
@@ -2765,6 +2800,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.stpxmstinstanceeditvlansmap4k = None
                 self._segment_path = lambda: "stpxMSTInstanceEditEntry" + "[stpxMSTInstanceEditIndex='" + str(self.stpxmstinstanceeditindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTInstanceEditTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTInstanceEditTable.StpxMSTInstanceEditEntry, ['stpxmstinstanceeditindex', 'stpxmstinstanceeditvlansmap', 'stpxmstinstanceeditvlansmap2k', 'stpxmstinstanceeditvlansmap3k', 'stpxmstinstanceeditvlansmap4k'], name, value)
@@ -2804,6 +2840,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxmstportentry = YList(self)
             self._segment_path = lambda: "stpxMSTPortTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTPortTable, [], name, value)
@@ -2868,11 +2905,11 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxmstportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxmstportindex', YLeaf(YType.int32, 'stpxMSTPortIndex')),
-                    ('stpxmstportadminlinktype', YLeaf(YType.enumeration, 'stpxMSTPortAdminLinkType')),
-                    ('stpxmstportoperlinktype', YLeaf(YType.enumeration, 'stpxMSTPortOperLinkType')),
-                    ('stpxmstportprotocolmigration', YLeaf(YType.boolean, 'stpxMSTPortProtocolMigration')),
-                    ('stpxmstportstatus', YLeaf(YType.bits, 'stpxMSTPortStatus')),
+                    ('stpxmstportindex', (YLeaf(YType.int32, 'stpxMSTPortIndex'), ['int'])),
+                    ('stpxmstportadminlinktype', (YLeaf(YType.enumeration, 'stpxMSTPortAdminLinkType'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxMSTPortTable.StpxMSTPortEntry.StpxMSTPortAdminLinkType')])),
+                    ('stpxmstportoperlinktype', (YLeaf(YType.enumeration, 'stpxMSTPortOperLinkType'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxMSTPortTable.StpxMSTPortEntry.StpxMSTPortOperLinkType')])),
+                    ('stpxmstportprotocolmigration', (YLeaf(YType.boolean, 'stpxMSTPortProtocolMigration'), ['bool'])),
+                    ('stpxmstportstatus', (YLeaf(YType.bits, 'stpxMSTPortStatus'), ['Bits'])),
                 ])
                 self.stpxmstportindex = None
                 self.stpxmstportadminlinktype = None
@@ -2881,6 +2918,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.stpxmstportstatus = Bits()
                 self._segment_path = lambda: "stpxMSTPortEntry" + "[stpxMSTPortIndex='" + str(self.stpxmstportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTPortTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTPortTable.StpxMSTPortEntry, ['stpxmstportindex', 'stpxmstportadminlinktype', 'stpxmstportoperlinktype', 'stpxmstportprotocolmigration', 'stpxmstportstatus'], name, value)
@@ -3015,6 +3053,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxmstportroleentry = YList(self)
             self._segment_path = lambda: "stpxMSTPortRoleTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable, [], name, value)
@@ -3068,15 +3107,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxmstportroleinstanceindex','stpxmstportroleportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxmstportroleinstanceindex', YLeaf(YType.int32, 'stpxMSTPortRoleInstanceIndex')),
-                    ('stpxmstportroleportindex', YLeaf(YType.int32, 'stpxMSTPortRolePortIndex')),
-                    ('stpxmstportrolevalue', YLeaf(YType.enumeration, 'stpxMSTPortRoleValue')),
+                    ('stpxmstportroleinstanceindex', (YLeaf(YType.int32, 'stpxMSTPortRoleInstanceIndex'), ['int'])),
+                    ('stpxmstportroleportindex', (YLeaf(YType.int32, 'stpxMSTPortRolePortIndex'), ['int'])),
+                    ('stpxmstportrolevalue', (YLeaf(YType.enumeration, 'stpxMSTPortRoleValue'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxMSTPortRoleTable.StpxMSTPortRoleEntry.StpxMSTPortRoleValue')])),
                 ])
                 self.stpxmstportroleinstanceindex = None
                 self.stpxmstportroleportindex = None
                 self.stpxmstportrolevalue = None
                 self._segment_path = lambda: "stpxMSTPortRoleEntry" + "[stpxMSTPortRoleInstanceIndex='" + str(self.stpxmstportroleinstanceindex) + "']" + "[stpxMSTPortRolePortIndex='" + str(self.stpxmstportroleportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxMSTPortRoleTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxMSTPortRoleTable.StpxMSTPortRoleEntry, ['stpxmstportroleinstanceindex', 'stpxmstportroleportindex', 'stpxmstportrolevalue'], name, value)
@@ -3179,6 +3219,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxrstpportentry = YList(self)
             self._segment_path = lambda: "stpxRSTPPortTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable, [], name, value)
@@ -3228,10 +3269,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxrstpportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxrstpportindex', YLeaf(YType.int32, 'stpxRSTPPortIndex')),
-                    ('stpxrstpportadminlinktype', YLeaf(YType.enumeration, 'stpxRSTPPortAdminLinkType')),
-                    ('stpxrstpportoperlinktype', YLeaf(YType.enumeration, 'stpxRSTPPortOperLinkType')),
-                    ('stpxrstpportprotocolmigration', YLeaf(YType.boolean, 'stpxRSTPPortProtocolMigration')),
+                    ('stpxrstpportindex', (YLeaf(YType.int32, 'stpxRSTPPortIndex'), ['int'])),
+                    ('stpxrstpportadminlinktype', (YLeaf(YType.enumeration, 'stpxRSTPPortAdminLinkType'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxRSTPPortTable.StpxRSTPPortEntry.StpxRSTPPortAdminLinkType')])),
+                    ('stpxrstpportoperlinktype', (YLeaf(YType.enumeration, 'stpxRSTPPortOperLinkType'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxRSTPPortTable.StpxRSTPPortEntry.StpxRSTPPortOperLinkType')])),
+                    ('stpxrstpportprotocolmigration', (YLeaf(YType.boolean, 'stpxRSTPPortProtocolMigration'), ['bool'])),
                 ])
                 self.stpxrstpportindex = None
                 self.stpxrstpportadminlinktype = None
@@ -3239,6 +3280,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.stpxrstpportprotocolmigration = None
                 self._segment_path = lambda: "stpxRSTPPortEntry" + "[stpxRSTPPortIndex='" + str(self.stpxrstpportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRSTPPortTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRSTPPortTable.StpxRSTPPortEntry, ['stpxrstpportindex', 'stpxrstpportadminlinktype', 'stpxrstpportoperlinktype', 'stpxrstpportprotocolmigration'], name, value)
@@ -3363,6 +3405,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxrstpportroleentry = YList(self)
             self._segment_path = lambda: "stpxRSTPPortRoleTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable, [], name, value)
@@ -3409,15 +3452,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxrstpportroleinstanceindex','stpxrstpportroleportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxrstpportroleinstanceindex', YLeaf(YType.int32, 'stpxRSTPPortRoleInstanceIndex')),
-                    ('stpxrstpportroleportindex', YLeaf(YType.int32, 'stpxRSTPPortRolePortIndex')),
-                    ('stpxrstpportrolevalue', YLeaf(YType.enumeration, 'stpxRSTPPortRoleValue')),
+                    ('stpxrstpportroleinstanceindex', (YLeaf(YType.int32, 'stpxRSTPPortRoleInstanceIndex'), ['int'])),
+                    ('stpxrstpportroleportindex', (YLeaf(YType.int32, 'stpxRSTPPortRolePortIndex'), ['int'])),
+                    ('stpxrstpportrolevalue', (YLeaf(YType.enumeration, 'stpxRSTPPortRoleValue'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxRSTPPortRoleTable.StpxRSTPPortRoleEntry.StpxRSTPPortRoleValue')])),
                 ])
                 self.stpxrstpportroleinstanceindex = None
                 self.stpxrstpportroleportindex = None
                 self.stpxrstpportrolevalue = None
                 self._segment_path = lambda: "stpxRSTPPortRoleEntry" + "[stpxRSTPPortRoleInstanceIndex='" + str(self.stpxrstpportroleinstanceindex) + "']" + "[stpxRSTPPortRolePortIndex='" + str(self.stpxrstpportroleportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRSTPPortRoleTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRSTPPortRoleTable.StpxRSTPPortRoleEntry, ['stpxrstpportroleinstanceindex', 'stpxrstpportroleportindex', 'stpxrstpportrolevalue'], name, value)
@@ -3527,6 +3571,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxrpvstportentry = YList(self)
             self._segment_path = lambda: "stpxRPVSTPortTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable, [], name, value)
@@ -3574,15 +3619,16 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxrpvstportvlanindex','stpxrpvstportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxrpvstportvlanindex', YLeaf(YType.int32, 'stpxRPVSTPortVlanIndex')),
-                    ('stpxrpvstportindex', YLeaf(YType.int32, 'stpxRPVSTPortIndex')),
-                    ('stpxrpvstportstatus', YLeaf(YType.bits, 'stpxRPVSTPortStatus')),
+                    ('stpxrpvstportvlanindex', (YLeaf(YType.int32, 'stpxRPVSTPortVlanIndex'), ['int'])),
+                    ('stpxrpvstportindex', (YLeaf(YType.int32, 'stpxRPVSTPortIndex'), ['int'])),
+                    ('stpxrpvstportstatus', (YLeaf(YType.bits, 'stpxRPVSTPortStatus'), ['Bits'])),
                 ])
                 self.stpxrpvstportvlanindex = None
                 self.stpxrpvstportindex = None
                 self.stpxrpvstportstatus = Bits()
                 self._segment_path = lambda: "stpxRPVSTPortEntry" + "[stpxRPVSTPortVlanIndex='" + str(self.stpxrpvstportvlanindex) + "']" + "[stpxRPVSTPortIndex='" + str(self.stpxrpvstportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxRPVSTPortTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxRPVSTPortTable.StpxRPVSTPortEntry, ['stpxrpvstportvlanindex', 'stpxrpvstportindex', 'stpxrpvstportstatus'], name, value)
@@ -3619,6 +3665,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxsmstinstanceentry = YList(self)
             self._segment_path = lambda: "stpxSMSTInstanceTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceTable, [], name, value)
@@ -3688,12 +3735,12 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxsmstinstanceindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxsmstinstanceindex', YLeaf(YType.uint32, 'stpxSMSTInstanceIndex')),
-                    ('stpxsmstinstancevlansmapped1k2k', YLeaf(YType.str, 'stpxSMSTInstanceVlansMapped1k2k')),
-                    ('stpxsmstinstancevlansmapped3k4k', YLeaf(YType.str, 'stpxSMSTInstanceVlansMapped3k4k')),
-                    ('stpxsmstinstanceremaininghopcount', YLeaf(YType.int32, 'stpxSMSTInstanceRemainingHopCount')),
-                    ('stpxsmstinstancecistregionalroot', YLeaf(YType.str, 'stpxSMSTInstanceCISTRegionalRoot')),
-                    ('stpxsmstinstancecistintrootcost', YLeaf(YType.uint32, 'stpxSMSTInstanceCISTIntRootCost')),
+                    ('stpxsmstinstanceindex', (YLeaf(YType.uint32, 'stpxSMSTInstanceIndex'), ['int'])),
+                    ('stpxsmstinstancevlansmapped1k2k', (YLeaf(YType.str, 'stpxSMSTInstanceVlansMapped1k2k'), ['str'])),
+                    ('stpxsmstinstancevlansmapped3k4k', (YLeaf(YType.str, 'stpxSMSTInstanceVlansMapped3k4k'), ['str'])),
+                    ('stpxsmstinstanceremaininghopcount', (YLeaf(YType.int32, 'stpxSMSTInstanceRemainingHopCount'), ['int'])),
+                    ('stpxsmstinstancecistregionalroot', (YLeaf(YType.str, 'stpxSMSTInstanceCISTRegionalRoot'), ['str'])),
+                    ('stpxsmstinstancecistintrootcost', (YLeaf(YType.uint32, 'stpxSMSTInstanceCISTIntRootCost'), ['int'])),
                 ])
                 self.stpxsmstinstanceindex = None
                 self.stpxsmstinstancevlansmapped1k2k = None
@@ -3703,6 +3750,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.stpxsmstinstancecistintrootcost = None
                 self._segment_path = lambda: "stpxSMSTInstanceEntry" + "[stpxSMSTInstanceIndex='" + str(self.stpxsmstinstanceindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxSMSTInstanceTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceTable.StpxSMSTInstanceEntry, ['stpxsmstinstanceindex', 'stpxsmstinstancevlansmapped1k2k', 'stpxsmstinstancevlansmapped3k4k', 'stpxsmstinstanceremaininghopcount', 'stpxsmstinstancecistregionalroot', 'stpxsmstinstancecistintrootcost'], name, value)
@@ -3743,6 +3791,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxsmstinstanceeditentry = YList(self)
             self._segment_path = lambda: "stpxSMSTInstanceEditTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceEditTable, [], name, value)
@@ -3799,10 +3848,10 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxsmstinstanceeditindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxsmstinstanceeditindex', YLeaf(YType.uint32, 'stpxSMSTInstanceEditIndex')),
-                    ('stpxsmstinstanceeditvlansmap1k2k', YLeaf(YType.str, 'stpxSMSTInstanceEditVlansMap1k2k')),
-                    ('stpxsmstinstanceeditvlansmap3k4k', YLeaf(YType.str, 'stpxSMSTInstanceEditVlansMap3k4k')),
-                    ('stpxsmstinstanceeditrowstatus', YLeaf(YType.enumeration, 'stpxSMSTInstanceEditRowStatus')),
+                    ('stpxsmstinstanceeditindex', (YLeaf(YType.uint32, 'stpxSMSTInstanceEditIndex'), ['int'])),
+                    ('stpxsmstinstanceeditvlansmap1k2k', (YLeaf(YType.str, 'stpxSMSTInstanceEditVlansMap1k2k'), ['str'])),
+                    ('stpxsmstinstanceeditvlansmap3k4k', (YLeaf(YType.str, 'stpxSMSTInstanceEditVlansMap3k4k'), ['str'])),
+                    ('stpxsmstinstanceeditrowstatus', (YLeaf(YType.enumeration, 'stpxSMSTInstanceEditRowStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.stpxsmstinstanceeditindex = None
                 self.stpxsmstinstanceeditvlansmap1k2k = None
@@ -3810,6 +3859,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.stpxsmstinstanceeditrowstatus = None
                 self._segment_path = lambda: "stpxSMSTInstanceEditEntry" + "[stpxSMSTInstanceEditIndex='" + str(self.stpxsmstinstanceeditindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxSMSTInstanceEditTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTInstanceEditTable.StpxSMSTInstanceEditEntry, ['stpxsmstinstanceeditindex', 'stpxsmstinstanceeditvlansmap1k2k', 'stpxsmstinstanceeditvlansmap3k4k', 'stpxsmstinstanceeditrowstatus'], name, value)
@@ -3850,6 +3900,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
             self.stpxsmstportentry = YList(self)
             self._segment_path = lambda: "stpxSMSTPortTable"
             self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable, [], name, value)
@@ -3926,13 +3977,13 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.ylist_key_names = ['stpxsmstportindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('stpxsmstportindex', YLeaf(YType.int32, 'stpxSMSTPortIndex')),
-                    ('stpxsmstportstatus', YLeaf(YType.bits, 'stpxSMSTPortStatus')),
-                    ('stpxsmstportadminhellotime', YLeaf(YType.uint32, 'stpxSMSTPortAdminHelloTime')),
-                    ('stpxsmstportconfigedhellotime', YLeaf(YType.uint32, 'stpxSMSTPortConfigedHelloTime')),
-                    ('stpxsmstportoperhellotime', YLeaf(YType.int32, 'stpxSMSTPortOperHelloTime')),
-                    ('stpxsmstportadminmstmode', YLeaf(YType.enumeration, 'stpxSMSTPortAdminMSTMode')),
-                    ('stpxsmstportopermstmode', YLeaf(YType.enumeration, 'stpxSMSTPortOperMSTMode')),
+                    ('stpxsmstportindex', (YLeaf(YType.int32, 'stpxSMSTPortIndex'), ['int'])),
+                    ('stpxsmstportstatus', (YLeaf(YType.bits, 'stpxSMSTPortStatus'), ['Bits'])),
+                    ('stpxsmstportadminhellotime', (YLeaf(YType.uint32, 'stpxSMSTPortAdminHelloTime'), ['int'])),
+                    ('stpxsmstportconfigedhellotime', (YLeaf(YType.uint32, 'stpxSMSTPortConfigedHelloTime'), ['int'])),
+                    ('stpxsmstportoperhellotime', (YLeaf(YType.int32, 'stpxSMSTPortOperHelloTime'), ['int'])),
+                    ('stpxsmstportadminmstmode', (YLeaf(YType.enumeration, 'stpxSMSTPortAdminMSTMode'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxSMSTPortTable.StpxSMSTPortEntry.StpxSMSTPortAdminMSTMode')])),
+                    ('stpxsmstportopermstmode', (YLeaf(YType.enumeration, 'stpxSMSTPortOperMSTMode'), [('ydk.models.cisco_ios_xe.CISCO_STP_EXTENSIONS_MIB', 'CISCOSTPEXTENSIONSMIB', 'StpxSMSTPortTable.StpxSMSTPortEntry.StpxSMSTPortOperMSTMode')])),
                 ])
                 self.stpxsmstportindex = None
                 self.stpxsmstportstatus = Bits()
@@ -3943,6 +3994,7 @@ class CISCOSTPEXTENSIONSMIB(Entity):
                 self.stpxsmstportopermstmode = None
                 self._segment_path = lambda: "stpxSMSTPortEntry" + "[stpxSMSTPortIndex='" + str(self.stpxsmstportindex) + "']"
                 self._absolute_path = lambda: "CISCO-STP-EXTENSIONS-MIB:CISCO-STP-EXTENSIONS-MIB/stpxSMSTPortTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(CISCOSTPEXTENSIONSMIB.StpxSMSTPortTable.StpxSMSTPortEntry, ['stpxsmstportindex', 'stpxsmstportstatus', 'stpxsmstportadminhellotime', 'stpxsmstportconfigedhellotime', 'stpxsmstportoperhellotime', 'stpxsmstportadminmstmode', 'stpxsmstportopermstmode'], name, value)

@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ppp\: PPP configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class Ppp(Entity):
         self.syslog.parent = self
         self._children_name_map["syslog"] = "syslog"
         self._segment_path = lambda: "Cisco-IOS-XR-ppp-ma-syslog-cfg:ppp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ppp, [], name, value)
@@ -83,11 +85,12 @@ class Ppp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('enable_session_status', YLeaf(YType.empty, 'enable-session-status')),
+                ('enable_session_status', (YLeaf(YType.empty, 'enable-session-status'), ['Empty'])),
             ])
             self.enable_session_status = None
             self._segment_path = lambda: "syslog"
             self._absolute_path = lambda: "Cisco-IOS-XR-ppp-ma-syslog-cfg:ppp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ppp.Syslog, ['enable_session_status'], name, value)

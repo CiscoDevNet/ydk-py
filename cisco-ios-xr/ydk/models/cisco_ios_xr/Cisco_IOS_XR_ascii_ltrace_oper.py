@@ -20,6 +20,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class Ltrace(Entity):
     """
     ASCII ltrace data
@@ -34,7 +35,7 @@ class Ltrace(Entity):
     """
 
     _prefix = 'ascii-ltrace-oper'
-    _revision = '2017-12-16'
+    _revision = '2018-01-21'
 
     def __init__(self):
         super(Ltrace, self).__init__()
@@ -52,6 +53,7 @@ class Ltrace(Entity):
         self.features.parent = self
         self._children_name_map["features"] = "features"
         self._segment_path = lambda: "Cisco-IOS-XR-ascii-ltrace-oper:ltrace"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ltrace, [], name, value)
@@ -71,7 +73,7 @@ class Ltrace(Entity):
         """
 
         _prefix = 'ascii-ltrace-oper'
-        _revision = '2017-12-16'
+        _revision = '2018-01-21'
 
         def __init__(self):
             super(Ltrace.Features, self).__init__()
@@ -87,6 +89,7 @@ class Ltrace(Entity):
             self.feature = YList(self)
             self._segment_path = lambda: "features"
             self._absolute_path = lambda: "Cisco-IOS-XR-ascii-ltrace-oper:ltrace/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ltrace.Features, [], name, value)
@@ -120,7 +123,7 @@ class Ltrace(Entity):
             """
 
             _prefix = 'ascii-ltrace-oper'
-            _revision = '2017-12-16'
+            _revision = '2018-01-21'
 
             def __init__(self):
                 super(Ltrace.Features.Feature, self).__init__()
@@ -132,8 +135,8 @@ class Ltrace(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("traces", ("traces", Ltrace.Features.Feature.Traces))])
                 self._leafs = OrderedDict([
-                    ('feature_name', YLeaf(YType.str, 'feature-name')),
-                    ('trace_buf', YLeaf(YType.str, 'trace-buf')),
+                    ('feature_name', (YLeaf(YType.str, 'feature-name'), ['str'])),
+                    ('trace_buf', (YLeaf(YType.str, 'trace-buf'), ['str'])),
                 ])
                 self.feature_name = None
                 self.trace_buf = None
@@ -143,6 +146,7 @@ class Ltrace(Entity):
                 self._children_name_map["traces"] = "traces"
                 self._segment_path = lambda: "feature"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ascii-ltrace-oper:ltrace/features/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ltrace.Features.Feature, ['feature_name', 'trace_buf'], name, value)
@@ -162,7 +166,7 @@ class Ltrace(Entity):
                 """
 
                 _prefix = 'ascii-ltrace-oper'
-                _revision = '2017-12-16'
+                _revision = '2018-01-21'
 
                 def __init__(self):
                     super(Ltrace.Features.Feature.Traces, self).__init__()
@@ -178,6 +182,7 @@ class Ltrace(Entity):
                     self.trace = YList(self)
                     self._segment_path = lambda: "traces"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ascii-ltrace-oper:ltrace/features/feature/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ltrace.Features.Feature.Traces, [], name, value)
@@ -209,7 +214,7 @@ class Ltrace(Entity):
                     """
 
                     _prefix = 'ascii-ltrace-oper'
-                    _revision = '2017-12-16'
+                    _revision = '2018-01-21'
 
                     def __init__(self):
                         super(Ltrace.Features.Feature.Traces.Trace, self).__init__()
@@ -221,18 +226,19 @@ class Ltrace(Entity):
                         self.ylist_key_names = ['ltrace_id']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ltrace_id', YLeaf(YType.uint32, 'ltrace-id')),
-                            ('timestamp', YLeaf(YType.str, 'timestamp')),
-                            ('line', YLeaf(YType.str, 'line')),
+                            ('ltrace_id', (YLeaf(YType.uint32, 'ltrace-id'), ['int'])),
+                            ('timestamp', (YLeaf(YType.str, 'timestamp'), ['str'])),
+                            ('line', (YLeaf(YType.str, 'line'), ['str'])),
                         ])
                         self.ltrace_id = None
                         self.timestamp = None
                         self.line = None
                         self._segment_path = lambda: "trace" + "[ltrace-id='" + str(self.ltrace_id) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ascii-ltrace-oper:ltrace/features/feature/traces/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Ltrace.Features.Feature.Traces.Trace, ['ltrace_id', u'timestamp', u'line'], name, value)
+                        self._perform_setattr(Ltrace.Features.Feature.Traces.Trace, ['ltrace_id', 'timestamp', 'line'], name, value)
 
     def clone_ptr(self):
         self._top_entity = Ltrace()

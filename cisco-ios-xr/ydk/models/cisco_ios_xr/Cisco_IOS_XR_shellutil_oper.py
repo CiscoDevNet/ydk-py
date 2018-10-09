@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   system\-time\: System time information
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class TimeSource(Enum):
@@ -100,6 +101,7 @@ class SystemTime(Entity):
         self.uptime.parent = self
         self._children_name_map["uptime"] = "uptime"
         self._segment_path = lambda: "Cisco-IOS-XR-shellutil-oper:system-time"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SystemTime, [], name, value)
@@ -192,16 +194,16 @@ class SystemTime(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('year', YLeaf(YType.uint16, 'year')),
-                ('month', YLeaf(YType.uint8, 'month')),
-                ('day', YLeaf(YType.uint8, 'day')),
-                ('hour', YLeaf(YType.uint8, 'hour')),
-                ('minute', YLeaf(YType.uint8, 'minute')),
-                ('second', YLeaf(YType.uint8, 'second')),
-                ('millisecond', YLeaf(YType.uint16, 'millisecond')),
-                ('wday', YLeaf(YType.uint16, 'wday')),
-                ('time_zone', YLeaf(YType.str, 'time-zone')),
-                ('time_source', YLeaf(YType.enumeration, 'time-source')),
+                ('year', (YLeaf(YType.uint16, 'year'), ['int'])),
+                ('month', (YLeaf(YType.uint8, 'month'), ['int'])),
+                ('day', (YLeaf(YType.uint8, 'day'), ['int'])),
+                ('hour', (YLeaf(YType.uint8, 'hour'), ['int'])),
+                ('minute', (YLeaf(YType.uint8, 'minute'), ['int'])),
+                ('second', (YLeaf(YType.uint8, 'second'), ['int'])),
+                ('millisecond', (YLeaf(YType.uint16, 'millisecond'), ['int'])),
+                ('wday', (YLeaf(YType.uint16, 'wday'), ['int'])),
+                ('time_zone', (YLeaf(YType.str, 'time-zone'), ['str'])),
+                ('time_source', (YLeaf(YType.enumeration, 'time-source'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_shellutil_oper', 'TimeSource', '')])),
             ])
             self.year = None
             self.month = None
@@ -215,9 +217,10 @@ class SystemTime(Entity):
             self.time_source = None
             self._segment_path = lambda: "clock"
             self._absolute_path = lambda: "Cisco-IOS-XR-shellutil-oper:system-time/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SystemTime.Clock, [u'year', u'month', u'day', u'hour', u'minute', u'second', u'millisecond', u'wday', u'time_zone', u'time_source'], name, value)
+            self._perform_setattr(SystemTime.Clock, ['year', 'month', 'day', 'hour', 'minute', 'second', 'millisecond', 'wday', 'time_zone', 'time_source'], name, value)
 
 
     class Uptime(Entity):
@@ -255,16 +258,17 @@ class SystemTime(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('host_name', YLeaf(YType.str, 'host-name')),
-                ('uptime', YLeaf(YType.uint32, 'uptime')),
+                ('host_name', (YLeaf(YType.str, 'host-name'), ['str'])),
+                ('uptime', (YLeaf(YType.uint32, 'uptime'), ['int'])),
             ])
             self.host_name = None
             self.uptime = None
             self._segment_path = lambda: "uptime"
             self._absolute_path = lambda: "Cisco-IOS-XR-shellutil-oper:system-time/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(SystemTime.Uptime, [u'host_name', u'uptime'], name, value)
+            self._perform_setattr(SystemTime.Uptime, ['host_name', 'uptime'], name, value)
 
     def clone_ptr(self):
         self._top_entity = SystemTime()

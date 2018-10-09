@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   lldp\: Link Layer Discovery Protocol operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class LldpL3AddrProtocol(Enum):
@@ -82,6 +83,7 @@ class Lldp(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-ethernet-lldp-oper:lldp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Lldp, [], name, value)
@@ -119,6 +121,7 @@ class Lldp(Entity):
             self._children_name_map["lldp_info"] = "lldp-info"
             self._segment_path = lambda: "global-lldp"
             self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-oper:lldp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Lldp.GlobalLldp, [], name, value)
@@ -183,12 +186,12 @@ class Lldp(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('chassis_id', YLeaf(YType.str, 'chassis-id')),
-                    ('chassis_id_sub_type', YLeaf(YType.uint8, 'chassis-id-sub-type')),
-                    ('system_name', YLeaf(YType.str, 'system-name')),
-                    ('timer', YLeaf(YType.uint32, 'timer')),
-                    ('hold_time', YLeaf(YType.uint32, 'hold-time')),
-                    ('re_init', YLeaf(YType.uint32, 're-init')),
+                    ('chassis_id', (YLeaf(YType.str, 'chassis-id'), ['str'])),
+                    ('chassis_id_sub_type', (YLeaf(YType.uint8, 'chassis-id-sub-type'), ['int'])),
+                    ('system_name', (YLeaf(YType.str, 'system-name'), ['str'])),
+                    ('timer', (YLeaf(YType.uint32, 'timer'), ['int'])),
+                    ('hold_time', (YLeaf(YType.uint32, 'hold-time'), ['int'])),
+                    ('re_init', (YLeaf(YType.uint32, 're-init'), ['int'])),
                 ])
                 self.chassis_id = None
                 self.chassis_id_sub_type = None
@@ -198,6 +201,7 @@ class Lldp(Entity):
                 self.re_init = None
                 self._segment_path = lambda: "lldp-info"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-oper:lldp/global-lldp/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.GlobalLldp.LldpInfo, [u'chassis_id', u'chassis_id_sub_type', u'system_name', u'timer', u'hold_time', u're_init'], name, value)
@@ -233,6 +237,7 @@ class Lldp(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-oper:lldp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Lldp.Nodes, [], name, value)
@@ -281,7 +286,7 @@ class Lldp(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("neighbors", ("neighbors", Lldp.Nodes.Node.Neighbors)), ("interfaces", ("interfaces", Lldp.Nodes.Node.Interfaces)), ("statistics", ("statistics", Lldp.Nodes.Node.Statistics))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -298,6 +303,7 @@ class Lldp(Entity):
                 self._children_name_map["statistics"] = "statistics"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ethernet-lldp-oper:lldp/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Lldp.Nodes.Node, ['node_name'], name, value)
@@ -352,6 +358,7 @@ class Lldp(Entity):
                     self.summaries.parent = self
                     self._children_name_map["summaries"] = "summaries"
                     self._segment_path = lambda: "neighbors"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Lldp.Nodes.Node.Neighbors, [], name, value)
@@ -387,6 +394,7 @@ class Lldp(Entity):
 
                         self.device = YList(self)
                         self._segment_path = lambda: "devices"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices, [], name, value)
@@ -407,7 +415,7 @@ class Lldp(Entity):
                         	The interface name
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: lldp_neighbor
                         
@@ -431,14 +439,15 @@ class Lldp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("lldp-neighbor", ("lldp_neighbor", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor))])
                             self._leafs = OrderedDict([
-                                ('device_id', YLeaf(YType.str, 'device-id')),
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
+                                ('device_id', (YLeaf(YType.str, 'device-id'), ['str'])),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                             ])
                             self.device_id = None
                             self.interface_name = None
 
                             self.lldp_neighbor = YList(self)
                             self._segment_path = lambda: "device"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device, ['device_id', 'interface_name'], name, value)
@@ -463,14 +472,14 @@ class Lldp(Entity):
                             	Interface the neighbor entry was received on 
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: receiving_parent_interface_name
                             
                             	Parent Interface the neighbor entry was received on 
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: device_id
                             
@@ -528,15 +537,15 @@ class Lldp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("detail", ("detail", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail)), ("mib", ("mib", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib))])
                                 self._leafs = OrderedDict([
-                                    ('receiving_interface_name', YLeaf(YType.str, 'receiving-interface-name')),
-                                    ('receiving_parent_interface_name', YLeaf(YType.str, 'receiving-parent-interface-name')),
-                                    ('device_id', YLeaf(YType.str, 'device-id')),
-                                    ('chassis_id', YLeaf(YType.str, 'chassis-id')),
-                                    ('port_id_detail', YLeaf(YType.str, 'port-id-detail')),
-                                    ('header_version', YLeaf(YType.uint8, 'header-version')),
-                                    ('hold_time', YLeaf(YType.uint16, 'hold-time')),
-                                    ('enabled_capabilities', YLeaf(YType.str, 'enabled-capabilities')),
-                                    ('platform', YLeaf(YType.str, 'platform')),
+                                    ('receiving_interface_name', (YLeaf(YType.str, 'receiving-interface-name'), ['str'])),
+                                    ('receiving_parent_interface_name', (YLeaf(YType.str, 'receiving-parent-interface-name'), ['str'])),
+                                    ('device_id', (YLeaf(YType.str, 'device-id'), ['str'])),
+                                    ('chassis_id', (YLeaf(YType.str, 'chassis-id'), ['str'])),
+                                    ('port_id_detail', (YLeaf(YType.str, 'port-id-detail'), ['str'])),
+                                    ('header_version', (YLeaf(YType.uint8, 'header-version'), ['int'])),
+                                    ('hold_time', (YLeaf(YType.uint16, 'hold-time'), ['int'])),
+                                    ('enabled_capabilities', (YLeaf(YType.str, 'enabled-capabilities'), ['str'])),
+                                    ('platform', (YLeaf(YType.str, 'platform'), ['str'])),
                                 ])
                                 self.receiving_interface_name = None
                                 self.receiving_parent_interface_name = None
@@ -556,6 +565,7 @@ class Lldp(Entity):
                                 self.mib.parent = self
                                 self._children_name_map["mib"] = "mib"
                                 self._segment_path = lambda: "lldp-neighbor"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor, ['receiving_interface_name', 'receiving_parent_interface_name', 'device_id', 'chassis_id', 'port_id_detail', 'header_version', 'hold_time', 'enabled_capabilities', 'platform'], name, value)
@@ -650,17 +660,17 @@ class Lldp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("network-addresses", ("network_addresses", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses))])
                                     self._leafs = OrderedDict([
-                                        ('peer_mac_address', YLeaf(YType.str, 'peer-mac-address')),
-                                        ('port_description', YLeaf(YType.str, 'port-description')),
-                                        ('system_name', YLeaf(YType.str, 'system-name')),
-                                        ('system_description', YLeaf(YType.str, 'system-description')),
-                                        ('time_remaining', YLeaf(YType.uint32, 'time-remaining')),
-                                        ('system_capabilities', YLeaf(YType.str, 'system-capabilities')),
-                                        ('enabled_capabilities', YLeaf(YType.str, 'enabled-capabilities')),
-                                        ('auto_negotiation', YLeaf(YType.str, 'auto-negotiation')),
-                                        ('physical_media_capabilities', YLeaf(YType.str, 'physical-media-capabilities')),
-                                        ('media_attachment_unit_type', YLeaf(YType.uint32, 'media-attachment-unit-type')),
-                                        ('port_vlan_id', YLeaf(YType.uint32, 'port-vlan-id')),
+                                        ('peer_mac_address', (YLeaf(YType.str, 'peer-mac-address'), ['str'])),
+                                        ('port_description', (YLeaf(YType.str, 'port-description'), ['str'])),
+                                        ('system_name', (YLeaf(YType.str, 'system-name'), ['str'])),
+                                        ('system_description', (YLeaf(YType.str, 'system-description'), ['str'])),
+                                        ('time_remaining', (YLeaf(YType.uint32, 'time-remaining'), ['int'])),
+                                        ('system_capabilities', (YLeaf(YType.str, 'system-capabilities'), ['str'])),
+                                        ('enabled_capabilities', (YLeaf(YType.str, 'enabled-capabilities'), ['str'])),
+                                        ('auto_negotiation', (YLeaf(YType.str, 'auto-negotiation'), ['str'])),
+                                        ('physical_media_capabilities', (YLeaf(YType.str, 'physical-media-capabilities'), ['str'])),
+                                        ('media_attachment_unit_type', (YLeaf(YType.uint32, 'media-attachment-unit-type'), ['int'])),
+                                        ('port_vlan_id', (YLeaf(YType.uint32, 'port-vlan-id'), ['int'])),
                                     ])
                                     self.peer_mac_address = None
                                     self.port_description = None
@@ -678,6 +688,7 @@ class Lldp(Entity):
                                     self.network_addresses.parent = self
                                     self._children_name_map["network_addresses"] = "network-addresses"
                                     self._segment_path = lambda: "detail"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail, ['peer_mac_address', 'port_description', 'system_name', 'system_description', 'time_remaining', 'system_capabilities', 'enabled_capabilities', 'auto_negotiation', 'physical_media_capabilities', 'media_attachment_unit_type', 'port_vlan_id'], name, value)
@@ -712,6 +723,7 @@ class Lldp(Entity):
 
                                         self.lldp_addr_entry = YList(self)
                                         self._segment_path = lambda: "network-addresses"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses, [], name, value)
@@ -757,8 +769,8 @@ class Lldp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("address", ("address", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address))])
                                             self._leafs = OrderedDict([
-                                                ('ma_subtype', YLeaf(YType.uint8, 'ma-subtype')),
-                                                ('if_num', YLeaf(YType.uint32, 'if-num')),
+                                                ('ma_subtype', (YLeaf(YType.uint8, 'ma-subtype'), ['int'])),
+                                                ('if_num', (YLeaf(YType.uint32, 'if-num'), ['int'])),
                                             ])
                                             self.ma_subtype = None
                                             self.if_num = None
@@ -767,6 +779,7 @@ class Lldp(Entity):
                                             self.address.parent = self
                                             self._children_name_map["address"] = "address"
                                             self._segment_path = lambda: "lldp-addr-entry"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
@@ -812,14 +825,15 @@ class Lldp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'LldpL3AddrProtocol', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.address_type = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "address"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
@@ -912,14 +926,14 @@ class Lldp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("unknown-tlv-list", ("unknown_tlv_list", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList)), ("org-def-tlv-list", ("org_def_tlv_list", Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList))])
                                     self._leafs = OrderedDict([
-                                        ('rem_time_mark', YLeaf(YType.uint32, 'rem-time-mark')),
-                                        ('rem_local_port_num', YLeaf(YType.uint32, 'rem-local-port-num')),
-                                        ('rem_index', YLeaf(YType.uint32, 'rem-index')),
-                                        ('chassis_id_sub_type', YLeaf(YType.uint8, 'chassis-id-sub-type')),
-                                        ('chassis_id_len', YLeaf(YType.uint16, 'chassis-id-len')),
-                                        ('port_id_sub_type', YLeaf(YType.uint8, 'port-id-sub-type')),
-                                        ('port_id_len', YLeaf(YType.uint16, 'port-id-len')),
-                                        ('combined_capabilities', YLeaf(YType.uint32, 'combined-capabilities')),
+                                        ('rem_time_mark', (YLeaf(YType.uint32, 'rem-time-mark'), ['int'])),
+                                        ('rem_local_port_num', (YLeaf(YType.uint32, 'rem-local-port-num'), ['int'])),
+                                        ('rem_index', (YLeaf(YType.uint32, 'rem-index'), ['int'])),
+                                        ('chassis_id_sub_type', (YLeaf(YType.uint8, 'chassis-id-sub-type'), ['int'])),
+                                        ('chassis_id_len', (YLeaf(YType.uint16, 'chassis-id-len'), ['int'])),
+                                        ('port_id_sub_type', (YLeaf(YType.uint8, 'port-id-sub-type'), ['int'])),
+                                        ('port_id_len', (YLeaf(YType.uint16, 'port-id-len'), ['int'])),
+                                        ('combined_capabilities', (YLeaf(YType.uint32, 'combined-capabilities'), ['int'])),
                                     ])
                                     self.rem_time_mark = None
                                     self.rem_local_port_num = None
@@ -938,6 +952,7 @@ class Lldp(Entity):
                                     self.org_def_tlv_list.parent = self
                                     self._children_name_map["org_def_tlv_list"] = "org-def-tlv-list"
                                     self._segment_path = lambda: "mib"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib, ['rem_time_mark', 'rem_local_port_num', 'rem_index', 'chassis_id_sub_type', 'chassis_id_len', 'port_id_sub_type', 'port_id_len', 'combined_capabilities'], name, value)
@@ -972,6 +987,7 @@ class Lldp(Entity):
 
                                         self.lldp_unknown_tlv_entry = YList(self)
                                         self._segment_path = lambda: "unknown-tlv-list"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList, [], name, value)
@@ -1012,12 +1028,13 @@ class Lldp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('tlv_type', YLeaf(YType.uint8, 'tlv-type')),
-                                                ('tlv_value', YLeaf(YType.str, 'tlv-value')),
+                                                ('tlv_type', (YLeaf(YType.uint8, 'tlv-type'), ['int'])),
+                                                ('tlv_value', (YLeaf(YType.str, 'tlv-value'), ['str'])),
                                             ])
                                             self.tlv_type = None
                                             self.tlv_value = None
                                             self._segment_path = lambda: "lldp-unknown-tlv-entry"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, ['tlv_type', 'tlv_value'], name, value)
@@ -1052,6 +1069,7 @@ class Lldp(Entity):
 
                                         self.lldp_org_def_tlv_entry = YList(self)
                                         self._segment_path = lambda: "org-def-tlv-list"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList, [], name, value)
@@ -1106,16 +1124,17 @@ class Lldp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('oui', YLeaf(YType.uint32, 'oui')),
-                                                ('tlv_subtype', YLeaf(YType.uint8, 'tlv-subtype')),
-                                                ('tlv_info_indes', YLeaf(YType.uint32, 'tlv-info-indes')),
-                                                ('tlv_value', YLeaf(YType.str, 'tlv-value')),
+                                                ('oui', (YLeaf(YType.uint32, 'oui'), ['int'])),
+                                                ('tlv_subtype', (YLeaf(YType.uint8, 'tlv-subtype'), ['int'])),
+                                                ('tlv_info_indes', (YLeaf(YType.uint32, 'tlv-info-indes'), ['int'])),
+                                                ('tlv_value', (YLeaf(YType.str, 'tlv-value'), ['str'])),
                                             ])
                                             self.oui = None
                                             self.tlv_subtype = None
                                             self.tlv_info_indes = None
                                             self.tlv_value = None
                                             self._segment_path = lambda: "lldp-org-def-tlv-entry"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Devices.Device.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, ['oui', 'tlv_subtype', 'tlv_info_indes', 'tlv_value'], name, value)
@@ -1150,6 +1169,7 @@ class Lldp(Entity):
 
                         self.detail = YList(self)
                         self._segment_path = lambda: "details"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details, [], name, value)
@@ -1165,7 +1185,7 @@ class Lldp(Entity):
                         	The interface name
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: device_id
                         
@@ -1194,14 +1214,15 @@ class Lldp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("lldp-neighbor", ("lldp_neighbor", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor))])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('device_id', YLeaf(YType.str, 'device-id')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('device_id', (YLeaf(YType.str, 'device-id'), ['str'])),
                             ])
                             self.interface_name = None
                             self.device_id = None
 
                             self.lldp_neighbor = YList(self)
                             self._segment_path = lambda: "detail"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail, ['interface_name', 'device_id'], name, value)
@@ -1226,14 +1247,14 @@ class Lldp(Entity):
                             	Interface the neighbor entry was received on 
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: receiving_parent_interface_name
                             
                             	Parent Interface the neighbor entry was received on 
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: device_id
                             
@@ -1291,15 +1312,15 @@ class Lldp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("detail", ("detail", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_)), ("mib", ("mib", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib))])
                                 self._leafs = OrderedDict([
-                                    ('receiving_interface_name', YLeaf(YType.str, 'receiving-interface-name')),
-                                    ('receiving_parent_interface_name', YLeaf(YType.str, 'receiving-parent-interface-name')),
-                                    ('device_id', YLeaf(YType.str, 'device-id')),
-                                    ('chassis_id', YLeaf(YType.str, 'chassis-id')),
-                                    ('port_id_detail', YLeaf(YType.str, 'port-id-detail')),
-                                    ('header_version', YLeaf(YType.uint8, 'header-version')),
-                                    ('hold_time', YLeaf(YType.uint16, 'hold-time')),
-                                    ('enabled_capabilities', YLeaf(YType.str, 'enabled-capabilities')),
-                                    ('platform', YLeaf(YType.str, 'platform')),
+                                    ('receiving_interface_name', (YLeaf(YType.str, 'receiving-interface-name'), ['str'])),
+                                    ('receiving_parent_interface_name', (YLeaf(YType.str, 'receiving-parent-interface-name'), ['str'])),
+                                    ('device_id', (YLeaf(YType.str, 'device-id'), ['str'])),
+                                    ('chassis_id', (YLeaf(YType.str, 'chassis-id'), ['str'])),
+                                    ('port_id_detail', (YLeaf(YType.str, 'port-id-detail'), ['str'])),
+                                    ('header_version', (YLeaf(YType.uint8, 'header-version'), ['int'])),
+                                    ('hold_time', (YLeaf(YType.uint16, 'hold-time'), ['int'])),
+                                    ('enabled_capabilities', (YLeaf(YType.str, 'enabled-capabilities'), ['str'])),
+                                    ('platform', (YLeaf(YType.str, 'platform'), ['str'])),
                                 ])
                                 self.receiving_interface_name = None
                                 self.receiving_parent_interface_name = None
@@ -1319,6 +1340,7 @@ class Lldp(Entity):
                                 self.mib.parent = self
                                 self._children_name_map["mib"] = "mib"
                                 self._segment_path = lambda: "lldp-neighbor"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor, ['receiving_interface_name', 'receiving_parent_interface_name', 'device_id', 'chassis_id', 'port_id_detail', 'header_version', 'hold_time', 'enabled_capabilities', 'platform'], name, value)
@@ -1413,17 +1435,17 @@ class Lldp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("network-addresses", ("network_addresses", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses))])
                                     self._leafs = OrderedDict([
-                                        ('peer_mac_address', YLeaf(YType.str, 'peer-mac-address')),
-                                        ('port_description', YLeaf(YType.str, 'port-description')),
-                                        ('system_name', YLeaf(YType.str, 'system-name')),
-                                        ('system_description', YLeaf(YType.str, 'system-description')),
-                                        ('time_remaining', YLeaf(YType.uint32, 'time-remaining')),
-                                        ('system_capabilities', YLeaf(YType.str, 'system-capabilities')),
-                                        ('enabled_capabilities', YLeaf(YType.str, 'enabled-capabilities')),
-                                        ('auto_negotiation', YLeaf(YType.str, 'auto-negotiation')),
-                                        ('physical_media_capabilities', YLeaf(YType.str, 'physical-media-capabilities')),
-                                        ('media_attachment_unit_type', YLeaf(YType.uint32, 'media-attachment-unit-type')),
-                                        ('port_vlan_id', YLeaf(YType.uint32, 'port-vlan-id')),
+                                        ('peer_mac_address', (YLeaf(YType.str, 'peer-mac-address'), ['str'])),
+                                        ('port_description', (YLeaf(YType.str, 'port-description'), ['str'])),
+                                        ('system_name', (YLeaf(YType.str, 'system-name'), ['str'])),
+                                        ('system_description', (YLeaf(YType.str, 'system-description'), ['str'])),
+                                        ('time_remaining', (YLeaf(YType.uint32, 'time-remaining'), ['int'])),
+                                        ('system_capabilities', (YLeaf(YType.str, 'system-capabilities'), ['str'])),
+                                        ('enabled_capabilities', (YLeaf(YType.str, 'enabled-capabilities'), ['str'])),
+                                        ('auto_negotiation', (YLeaf(YType.str, 'auto-negotiation'), ['str'])),
+                                        ('physical_media_capabilities', (YLeaf(YType.str, 'physical-media-capabilities'), ['str'])),
+                                        ('media_attachment_unit_type', (YLeaf(YType.uint32, 'media-attachment-unit-type'), ['int'])),
+                                        ('port_vlan_id', (YLeaf(YType.uint32, 'port-vlan-id'), ['int'])),
                                     ])
                                     self.peer_mac_address = None
                                     self.port_description = None
@@ -1441,6 +1463,7 @@ class Lldp(Entity):
                                     self.network_addresses.parent = self
                                     self._children_name_map["network_addresses"] = "network-addresses"
                                     self._segment_path = lambda: "detail"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_, ['peer_mac_address', 'port_description', 'system_name', 'system_description', 'time_remaining', 'system_capabilities', 'enabled_capabilities', 'auto_negotiation', 'physical_media_capabilities', 'media_attachment_unit_type', 'port_vlan_id'], name, value)
@@ -1475,6 +1498,7 @@ class Lldp(Entity):
 
                                         self.lldp_addr_entry = YList(self)
                                         self._segment_path = lambda: "network-addresses"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses, [], name, value)
@@ -1520,8 +1544,8 @@ class Lldp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("address", ("address", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address))])
                                             self._leafs = OrderedDict([
-                                                ('ma_subtype', YLeaf(YType.uint8, 'ma-subtype')),
-                                                ('if_num', YLeaf(YType.uint32, 'if-num')),
+                                                ('ma_subtype', (YLeaf(YType.uint8, 'ma-subtype'), ['int'])),
+                                                ('if_num', (YLeaf(YType.uint32, 'if-num'), ['int'])),
                                             ])
                                             self.ma_subtype = None
                                             self.if_num = None
@@ -1530,6 +1554,7 @@ class Lldp(Entity):
                                             self.address.parent = self
                                             self._children_name_map["address"] = "address"
                                             self._segment_path = lambda: "lldp-addr-entry"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
@@ -1575,14 +1600,15 @@ class Lldp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'LldpL3AddrProtocol', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.address_type = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "address"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Detail_.NetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
@@ -1675,14 +1701,14 @@ class Lldp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("unknown-tlv-list", ("unknown_tlv_list", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList)), ("org-def-tlv-list", ("org_def_tlv_list", Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList))])
                                     self._leafs = OrderedDict([
-                                        ('rem_time_mark', YLeaf(YType.uint32, 'rem-time-mark')),
-                                        ('rem_local_port_num', YLeaf(YType.uint32, 'rem-local-port-num')),
-                                        ('rem_index', YLeaf(YType.uint32, 'rem-index')),
-                                        ('chassis_id_sub_type', YLeaf(YType.uint8, 'chassis-id-sub-type')),
-                                        ('chassis_id_len', YLeaf(YType.uint16, 'chassis-id-len')),
-                                        ('port_id_sub_type', YLeaf(YType.uint8, 'port-id-sub-type')),
-                                        ('port_id_len', YLeaf(YType.uint16, 'port-id-len')),
-                                        ('combined_capabilities', YLeaf(YType.uint32, 'combined-capabilities')),
+                                        ('rem_time_mark', (YLeaf(YType.uint32, 'rem-time-mark'), ['int'])),
+                                        ('rem_local_port_num', (YLeaf(YType.uint32, 'rem-local-port-num'), ['int'])),
+                                        ('rem_index', (YLeaf(YType.uint32, 'rem-index'), ['int'])),
+                                        ('chassis_id_sub_type', (YLeaf(YType.uint8, 'chassis-id-sub-type'), ['int'])),
+                                        ('chassis_id_len', (YLeaf(YType.uint16, 'chassis-id-len'), ['int'])),
+                                        ('port_id_sub_type', (YLeaf(YType.uint8, 'port-id-sub-type'), ['int'])),
+                                        ('port_id_len', (YLeaf(YType.uint16, 'port-id-len'), ['int'])),
+                                        ('combined_capabilities', (YLeaf(YType.uint32, 'combined-capabilities'), ['int'])),
                                     ])
                                     self.rem_time_mark = None
                                     self.rem_local_port_num = None
@@ -1701,6 +1727,7 @@ class Lldp(Entity):
                                     self.org_def_tlv_list.parent = self
                                     self._children_name_map["org_def_tlv_list"] = "org-def-tlv-list"
                                     self._segment_path = lambda: "mib"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib, ['rem_time_mark', 'rem_local_port_num', 'rem_index', 'chassis_id_sub_type', 'chassis_id_len', 'port_id_sub_type', 'port_id_len', 'combined_capabilities'], name, value)
@@ -1735,6 +1762,7 @@ class Lldp(Entity):
 
                                         self.lldp_unknown_tlv_entry = YList(self)
                                         self._segment_path = lambda: "unknown-tlv-list"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList, [], name, value)
@@ -1775,12 +1803,13 @@ class Lldp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('tlv_type', YLeaf(YType.uint8, 'tlv-type')),
-                                                ('tlv_value', YLeaf(YType.str, 'tlv-value')),
+                                                ('tlv_type', (YLeaf(YType.uint8, 'tlv-type'), ['int'])),
+                                                ('tlv_value', (YLeaf(YType.str, 'tlv-value'), ['str'])),
                                             ])
                                             self.tlv_type = None
                                             self.tlv_value = None
                                             self._segment_path = lambda: "lldp-unknown-tlv-entry"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, ['tlv_type', 'tlv_value'], name, value)
@@ -1815,6 +1844,7 @@ class Lldp(Entity):
 
                                         self.lldp_org_def_tlv_entry = YList(self)
                                         self._segment_path = lambda: "org-def-tlv-list"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList, [], name, value)
@@ -1869,16 +1899,17 @@ class Lldp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('oui', YLeaf(YType.uint32, 'oui')),
-                                                ('tlv_subtype', YLeaf(YType.uint8, 'tlv-subtype')),
-                                                ('tlv_info_indes', YLeaf(YType.uint32, 'tlv-info-indes')),
-                                                ('tlv_value', YLeaf(YType.str, 'tlv-value')),
+                                                ('oui', (YLeaf(YType.uint32, 'oui'), ['int'])),
+                                                ('tlv_subtype', (YLeaf(YType.uint8, 'tlv-subtype'), ['int'])),
+                                                ('tlv_info_indes', (YLeaf(YType.uint32, 'tlv-info-indes'), ['int'])),
+                                                ('tlv_value', (YLeaf(YType.str, 'tlv-value'), ['str'])),
                                             ])
                                             self.oui = None
                                             self.tlv_subtype = None
                                             self.tlv_info_indes = None
                                             self.tlv_value = None
                                             self._segment_path = lambda: "lldp-org-def-tlv-entry"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Details.Detail.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, ['oui', 'tlv_subtype', 'tlv_info_indes', 'tlv_value'], name, value)
@@ -1913,6 +1944,7 @@ class Lldp(Entity):
 
                         self.summary = YList(self)
                         self._segment_path = lambda: "summaries"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries, [], name, value)
@@ -1928,7 +1960,7 @@ class Lldp(Entity):
                         	The interface name
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: device_id
                         
@@ -1957,14 +1989,15 @@ class Lldp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([("lldp-neighbor", ("lldp_neighbor", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor))])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('device_id', YLeaf(YType.str, 'device-id')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('device_id', (YLeaf(YType.str, 'device-id'), ['str'])),
                             ])
                             self.interface_name = None
                             self.device_id = None
 
                             self.lldp_neighbor = YList(self)
                             self._segment_path = lambda: "summary"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary, ['interface_name', 'device_id'], name, value)
@@ -1989,14 +2022,14 @@ class Lldp(Entity):
                             	Interface the neighbor entry was received on 
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: receiving_parent_interface_name
                             
                             	Parent Interface the neighbor entry was received on 
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: device_id
                             
@@ -2054,15 +2087,15 @@ class Lldp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("detail", ("detail", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail)), ("mib", ("mib", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib))])
                                 self._leafs = OrderedDict([
-                                    ('receiving_interface_name', YLeaf(YType.str, 'receiving-interface-name')),
-                                    ('receiving_parent_interface_name', YLeaf(YType.str, 'receiving-parent-interface-name')),
-                                    ('device_id', YLeaf(YType.str, 'device-id')),
-                                    ('chassis_id', YLeaf(YType.str, 'chassis-id')),
-                                    ('port_id_detail', YLeaf(YType.str, 'port-id-detail')),
-                                    ('header_version', YLeaf(YType.uint8, 'header-version')),
-                                    ('hold_time', YLeaf(YType.uint16, 'hold-time')),
-                                    ('enabled_capabilities', YLeaf(YType.str, 'enabled-capabilities')),
-                                    ('platform', YLeaf(YType.str, 'platform')),
+                                    ('receiving_interface_name', (YLeaf(YType.str, 'receiving-interface-name'), ['str'])),
+                                    ('receiving_parent_interface_name', (YLeaf(YType.str, 'receiving-parent-interface-name'), ['str'])),
+                                    ('device_id', (YLeaf(YType.str, 'device-id'), ['str'])),
+                                    ('chassis_id', (YLeaf(YType.str, 'chassis-id'), ['str'])),
+                                    ('port_id_detail', (YLeaf(YType.str, 'port-id-detail'), ['str'])),
+                                    ('header_version', (YLeaf(YType.uint8, 'header-version'), ['int'])),
+                                    ('hold_time', (YLeaf(YType.uint16, 'hold-time'), ['int'])),
+                                    ('enabled_capabilities', (YLeaf(YType.str, 'enabled-capabilities'), ['str'])),
+                                    ('platform', (YLeaf(YType.str, 'platform'), ['str'])),
                                 ])
                                 self.receiving_interface_name = None
                                 self.receiving_parent_interface_name = None
@@ -2082,6 +2115,7 @@ class Lldp(Entity):
                                 self.mib.parent = self
                                 self._children_name_map["mib"] = "mib"
                                 self._segment_path = lambda: "lldp-neighbor"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor, ['receiving_interface_name', 'receiving_parent_interface_name', 'device_id', 'chassis_id', 'port_id_detail', 'header_version', 'hold_time', 'enabled_capabilities', 'platform'], name, value)
@@ -2176,17 +2210,17 @@ class Lldp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("network-addresses", ("network_addresses", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses))])
                                     self._leafs = OrderedDict([
-                                        ('peer_mac_address', YLeaf(YType.str, 'peer-mac-address')),
-                                        ('port_description', YLeaf(YType.str, 'port-description')),
-                                        ('system_name', YLeaf(YType.str, 'system-name')),
-                                        ('system_description', YLeaf(YType.str, 'system-description')),
-                                        ('time_remaining', YLeaf(YType.uint32, 'time-remaining')),
-                                        ('system_capabilities', YLeaf(YType.str, 'system-capabilities')),
-                                        ('enabled_capabilities', YLeaf(YType.str, 'enabled-capabilities')),
-                                        ('auto_negotiation', YLeaf(YType.str, 'auto-negotiation')),
-                                        ('physical_media_capabilities', YLeaf(YType.str, 'physical-media-capabilities')),
-                                        ('media_attachment_unit_type', YLeaf(YType.uint32, 'media-attachment-unit-type')),
-                                        ('port_vlan_id', YLeaf(YType.uint32, 'port-vlan-id')),
+                                        ('peer_mac_address', (YLeaf(YType.str, 'peer-mac-address'), ['str'])),
+                                        ('port_description', (YLeaf(YType.str, 'port-description'), ['str'])),
+                                        ('system_name', (YLeaf(YType.str, 'system-name'), ['str'])),
+                                        ('system_description', (YLeaf(YType.str, 'system-description'), ['str'])),
+                                        ('time_remaining', (YLeaf(YType.uint32, 'time-remaining'), ['int'])),
+                                        ('system_capabilities', (YLeaf(YType.str, 'system-capabilities'), ['str'])),
+                                        ('enabled_capabilities', (YLeaf(YType.str, 'enabled-capabilities'), ['str'])),
+                                        ('auto_negotiation', (YLeaf(YType.str, 'auto-negotiation'), ['str'])),
+                                        ('physical_media_capabilities', (YLeaf(YType.str, 'physical-media-capabilities'), ['str'])),
+                                        ('media_attachment_unit_type', (YLeaf(YType.uint32, 'media-attachment-unit-type'), ['int'])),
+                                        ('port_vlan_id', (YLeaf(YType.uint32, 'port-vlan-id'), ['int'])),
                                     ])
                                     self.peer_mac_address = None
                                     self.port_description = None
@@ -2204,6 +2238,7 @@ class Lldp(Entity):
                                     self.network_addresses.parent = self
                                     self._children_name_map["network_addresses"] = "network-addresses"
                                     self._segment_path = lambda: "detail"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail, ['peer_mac_address', 'port_description', 'system_name', 'system_description', 'time_remaining', 'system_capabilities', 'enabled_capabilities', 'auto_negotiation', 'physical_media_capabilities', 'media_attachment_unit_type', 'port_vlan_id'], name, value)
@@ -2238,6 +2273,7 @@ class Lldp(Entity):
 
                                         self.lldp_addr_entry = YList(self)
                                         self._segment_path = lambda: "network-addresses"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses, [], name, value)
@@ -2283,8 +2319,8 @@ class Lldp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([("address", ("address", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address))])
                                             self._leafs = OrderedDict([
-                                                ('ma_subtype', YLeaf(YType.uint8, 'ma-subtype')),
-                                                ('if_num', YLeaf(YType.uint32, 'if-num')),
+                                                ('ma_subtype', (YLeaf(YType.uint8, 'ma-subtype'), ['int'])),
+                                                ('if_num', (YLeaf(YType.uint32, 'if-num'), ['int'])),
                                             ])
                                             self.ma_subtype = None
                                             self.if_num = None
@@ -2293,6 +2329,7 @@ class Lldp(Entity):
                                             self.address.parent = self
                                             self._children_name_map["address"] = "address"
                                             self._segment_path = lambda: "lldp-addr-entry"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
@@ -2338,14 +2375,15 @@ class Lldp(Entity):
                                                 self.ylist_key_names = []
                                                 self._child_classes = OrderedDict([])
                                                 self._leafs = OrderedDict([
-                                                    ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                                    ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                                    ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                                    ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'LldpL3AddrProtocol', '')])),
+                                                    ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                                    ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                                 ])
                                                 self.address_type = None
                                                 self.ipv4_address = None
                                                 self.ipv6_address = None
                                                 self._segment_path = lambda: "address"
+                                                self._is_frozen = True
 
                                             def __setattr__(self, name, value):
                                                 self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Detail.NetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
@@ -2438,14 +2476,14 @@ class Lldp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("unknown-tlv-list", ("unknown_tlv_list", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList)), ("org-def-tlv-list", ("org_def_tlv_list", Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList))])
                                     self._leafs = OrderedDict([
-                                        ('rem_time_mark', YLeaf(YType.uint32, 'rem-time-mark')),
-                                        ('rem_local_port_num', YLeaf(YType.uint32, 'rem-local-port-num')),
-                                        ('rem_index', YLeaf(YType.uint32, 'rem-index')),
-                                        ('chassis_id_sub_type', YLeaf(YType.uint8, 'chassis-id-sub-type')),
-                                        ('chassis_id_len', YLeaf(YType.uint16, 'chassis-id-len')),
-                                        ('port_id_sub_type', YLeaf(YType.uint8, 'port-id-sub-type')),
-                                        ('port_id_len', YLeaf(YType.uint16, 'port-id-len')),
-                                        ('combined_capabilities', YLeaf(YType.uint32, 'combined-capabilities')),
+                                        ('rem_time_mark', (YLeaf(YType.uint32, 'rem-time-mark'), ['int'])),
+                                        ('rem_local_port_num', (YLeaf(YType.uint32, 'rem-local-port-num'), ['int'])),
+                                        ('rem_index', (YLeaf(YType.uint32, 'rem-index'), ['int'])),
+                                        ('chassis_id_sub_type', (YLeaf(YType.uint8, 'chassis-id-sub-type'), ['int'])),
+                                        ('chassis_id_len', (YLeaf(YType.uint16, 'chassis-id-len'), ['int'])),
+                                        ('port_id_sub_type', (YLeaf(YType.uint8, 'port-id-sub-type'), ['int'])),
+                                        ('port_id_len', (YLeaf(YType.uint16, 'port-id-len'), ['int'])),
+                                        ('combined_capabilities', (YLeaf(YType.uint32, 'combined-capabilities'), ['int'])),
                                     ])
                                     self.rem_time_mark = None
                                     self.rem_local_port_num = None
@@ -2464,6 +2502,7 @@ class Lldp(Entity):
                                     self.org_def_tlv_list.parent = self
                                     self._children_name_map["org_def_tlv_list"] = "org-def-tlv-list"
                                     self._segment_path = lambda: "mib"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib, ['rem_time_mark', 'rem_local_port_num', 'rem_index', 'chassis_id_sub_type', 'chassis_id_len', 'port_id_sub_type', 'port_id_len', 'combined_capabilities'], name, value)
@@ -2498,6 +2537,7 @@ class Lldp(Entity):
 
                                         self.lldp_unknown_tlv_entry = YList(self)
                                         self._segment_path = lambda: "unknown-tlv-list"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList, [], name, value)
@@ -2538,12 +2578,13 @@ class Lldp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('tlv_type', YLeaf(YType.uint8, 'tlv-type')),
-                                                ('tlv_value', YLeaf(YType.str, 'tlv-value')),
+                                                ('tlv_type', (YLeaf(YType.uint8, 'tlv-type'), ['int'])),
+                                                ('tlv_value', (YLeaf(YType.str, 'tlv-value'), ['str'])),
                                             ])
                                             self.tlv_type = None
                                             self.tlv_value = None
                                             self._segment_path = lambda: "lldp-unknown-tlv-entry"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.UnknownTlvList.LldpUnknownTlvEntry, ['tlv_type', 'tlv_value'], name, value)
@@ -2578,6 +2619,7 @@ class Lldp(Entity):
 
                                         self.lldp_org_def_tlv_entry = YList(self)
                                         self._segment_path = lambda: "org-def-tlv-list"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
                                         self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList, [], name, value)
@@ -2632,16 +2674,17 @@ class Lldp(Entity):
                                             self.ylist_key_names = []
                                             self._child_classes = OrderedDict([])
                                             self._leafs = OrderedDict([
-                                                ('oui', YLeaf(YType.uint32, 'oui')),
-                                                ('tlv_subtype', YLeaf(YType.uint8, 'tlv-subtype')),
-                                                ('tlv_info_indes', YLeaf(YType.uint32, 'tlv-info-indes')),
-                                                ('tlv_value', YLeaf(YType.str, 'tlv-value')),
+                                                ('oui', (YLeaf(YType.uint32, 'oui'), ['int'])),
+                                                ('tlv_subtype', (YLeaf(YType.uint8, 'tlv-subtype'), ['int'])),
+                                                ('tlv_info_indes', (YLeaf(YType.uint32, 'tlv-info-indes'), ['int'])),
+                                                ('tlv_value', (YLeaf(YType.str, 'tlv-value'), ['str'])),
                                             ])
                                             self.oui = None
                                             self.tlv_subtype = None
                                             self.tlv_info_indes = None
                                             self.tlv_value = None
                                             self._segment_path = lambda: "lldp-org-def-tlv-entry"
+                                            self._is_frozen = True
 
                                         def __setattr__(self, name, value):
                                             self._perform_setattr(Lldp.Nodes.Node.Neighbors.Summaries.Summary.LldpNeighbor.Mib.OrgDefTlvList.LldpOrgDefTlvEntry, ['oui', 'tlv_subtype', 'tlv_info_indes', 'tlv_value'], name, value)
@@ -2677,6 +2720,7 @@ class Lldp(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Lldp.Nodes.Node.Interfaces, [], name, value)
@@ -2692,7 +2736,7 @@ class Lldp(Entity):
                     	The interface name
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: local_network_addresses
                     
@@ -2704,7 +2748,7 @@ class Lldp(Entity):
                     	Interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: tx_enabled
                     
@@ -2771,16 +2815,16 @@ class Lldp(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("local-network-addresses", ("local_network_addresses", Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('interface_name_xr', YLeaf(YType.str, 'interface-name-xr')),
-                            ('tx_enabled', YLeaf(YType.uint8, 'tx-enabled')),
-                            ('rx_enabled', YLeaf(YType.uint8, 'rx-enabled')),
-                            ('tx_state', YLeaf(YType.str, 'tx-state')),
-                            ('rx_state', YLeaf(YType.str, 'rx-state')),
-                            ('if_index', YLeaf(YType.uint32, 'if-index')),
-                            ('port_id', YLeaf(YType.str, 'port-id')),
-                            ('port_id_sub_type', YLeaf(YType.uint8, 'port-id-sub-type')),
-                            ('port_description', YLeaf(YType.str, 'port-description')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('interface_name_xr', (YLeaf(YType.str, 'interface-name-xr'), ['str'])),
+                            ('tx_enabled', (YLeaf(YType.uint8, 'tx-enabled'), ['int'])),
+                            ('rx_enabled', (YLeaf(YType.uint8, 'rx-enabled'), ['int'])),
+                            ('tx_state', (YLeaf(YType.str, 'tx-state'), ['str'])),
+                            ('rx_state', (YLeaf(YType.str, 'rx-state'), ['str'])),
+                            ('if_index', (YLeaf(YType.uint32, 'if-index'), ['int'])),
+                            ('port_id', (YLeaf(YType.str, 'port-id'), ['str'])),
+                            ('port_id_sub_type', (YLeaf(YType.uint8, 'port-id-sub-type'), ['int'])),
+                            ('port_description', (YLeaf(YType.str, 'port-description'), ['str'])),
                         ])
                         self.interface_name = None
                         self.interface_name_xr = None
@@ -2797,6 +2841,7 @@ class Lldp(Entity):
                         self.local_network_addresses.parent = self
                         self._children_name_map["local_network_addresses"] = "local-network-addresses"
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface, ['interface_name', 'interface_name_xr', 'tx_enabled', 'rx_enabled', 'tx_state', 'rx_state', 'if_index', 'port_id', 'port_id_sub_type', 'port_description'], name, value)
@@ -2831,6 +2876,7 @@ class Lldp(Entity):
 
                             self.lldp_addr_entry = YList(self)
                             self._segment_path = lambda: "local-network-addresses"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses, [], name, value)
@@ -2876,8 +2922,8 @@ class Lldp(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([("address", ("address", Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address))])
                                 self._leafs = OrderedDict([
-                                    ('ma_subtype', YLeaf(YType.uint8, 'ma-subtype')),
-                                    ('if_num', YLeaf(YType.uint32, 'if-num')),
+                                    ('ma_subtype', (YLeaf(YType.uint8, 'ma-subtype'), ['int'])),
+                                    ('if_num', (YLeaf(YType.uint32, 'if-num'), ['int'])),
                                 ])
                                 self.ma_subtype = None
                                 self.if_num = None
@@ -2886,6 +2932,7 @@ class Lldp(Entity):
                                 self.address.parent = self
                                 self._children_name_map["address"] = "address"
                                 self._segment_path = lambda: "lldp-addr-entry"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry, ['ma_subtype', 'if_num'], name, value)
@@ -2931,14 +2978,15 @@ class Lldp(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([])
                                     self._leafs = OrderedDict([
-                                        ('address_type', YLeaf(YType.enumeration, 'address-type')),
-                                        ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                        ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                        ('address_type', (YLeaf(YType.enumeration, 'address-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ethernet_lldp_oper', 'LldpL3AddrProtocol', '')])),
+                                        ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                        ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                                     ])
                                     self.address_type = None
                                     self.ipv4_address = None
                                     self.ipv6_address = None
                                     self._segment_path = lambda: "address"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
                                     self._perform_setattr(Lldp.Nodes.Node.Interfaces.Interface.LocalNetworkAddresses.LldpAddrEntry.Address, ['address_type', 'ipv4_address', 'ipv6_address'], name, value)
@@ -3042,17 +3090,17 @@ class Lldp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('transmitted_packets', YLeaf(YType.uint32, 'transmitted-packets')),
-                        ('aged_out_entries', YLeaf(YType.uint32, 'aged-out-entries')),
-                        ('discarded_packets', YLeaf(YType.uint32, 'discarded-packets')),
-                        ('bad_packets', YLeaf(YType.uint32, 'bad-packets')),
-                        ('received_packets', YLeaf(YType.uint32, 'received-packets')),
-                        ('discarded_tl_vs', YLeaf(YType.uint32, 'discarded-tl-vs')),
-                        ('unrecognized_tl_vs', YLeaf(YType.uint32, 'unrecognized-tl-vs')),
-                        ('out_of_memory_errors', YLeaf(YType.uint32, 'out-of-memory-errors')),
-                        ('encapsulation_errors', YLeaf(YType.uint32, 'encapsulation-errors')),
-                        ('queue_overflow_errors', YLeaf(YType.uint32, 'queue-overflow-errors')),
-                        ('table_overflow_errors', YLeaf(YType.uint32, 'table-overflow-errors')),
+                        ('transmitted_packets', (YLeaf(YType.uint32, 'transmitted-packets'), ['int'])),
+                        ('aged_out_entries', (YLeaf(YType.uint32, 'aged-out-entries'), ['int'])),
+                        ('discarded_packets', (YLeaf(YType.uint32, 'discarded-packets'), ['int'])),
+                        ('bad_packets', (YLeaf(YType.uint32, 'bad-packets'), ['int'])),
+                        ('received_packets', (YLeaf(YType.uint32, 'received-packets'), ['int'])),
+                        ('discarded_tl_vs', (YLeaf(YType.uint32, 'discarded-tl-vs'), ['int'])),
+                        ('unrecognized_tl_vs', (YLeaf(YType.uint32, 'unrecognized-tl-vs'), ['int'])),
+                        ('out_of_memory_errors', (YLeaf(YType.uint32, 'out-of-memory-errors'), ['int'])),
+                        ('encapsulation_errors', (YLeaf(YType.uint32, 'encapsulation-errors'), ['int'])),
+                        ('queue_overflow_errors', (YLeaf(YType.uint32, 'queue-overflow-errors'), ['int'])),
+                        ('table_overflow_errors', (YLeaf(YType.uint32, 'table-overflow-errors'), ['int'])),
                     ])
                     self.transmitted_packets = None
                     self.aged_out_entries = None
@@ -3066,6 +3114,7 @@ class Lldp(Entity):
                     self.queue_overflow_errors = None
                     self.table_overflow_errors = None
                     self._segment_path = lambda: "statistics"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Lldp.Nodes.Node.Statistics, ['transmitted_packets', 'aged_out_entries', 'discarded_packets', 'bad_packets', 'received_packets', 'discarded_tl_vs', 'unrecognized_tl_vs', 'out_of_memory_errors', 'encapsulation_errors', 'queue_overflow_errors', 'table_overflow_errors'], name, value)

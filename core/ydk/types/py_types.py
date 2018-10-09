@@ -22,7 +22,15 @@
         - Entity
 """
 from collections import OrderedDict
+from functools import reduce
+
+import importlib
 import logging
+
+import sys
+if sys.version_info > (3,):
+    long = int
+    unicode = str
 
 from ydk_ import is_set
 from ydk.ext.types import Bits
@@ -31,6 +39,8 @@ from ydk.ext.types import Enum as _Enum
 from ydk.ext.types import YLeaf as _YLeaf
 from ydk.ext.types import YLeafList as _YLeafList
 from ydk.ext.types import YType
+from ydk.ext.types import Empty
+from ydk.ext.types import Decimal64 # Do not remove. Used in eval()
 from ydk.ext.types import Entity as _Entity
 from ydk.ext.types import LeafDataList
 from ydk.filters import YFilter as _YFilter
@@ -80,11 +90,14 @@ class YLeafList(_YLeafList):
         rep = [i for i in self.getYLeafs()]
         return "%s('%s', %r)" % (self.__class__.__name__, self.leaf_name, rep)
 
+
 class Entity(_Entity):
     """ Entity wrapper class overrides some of the ydk::Entity methods.
     """
     def __init__(self):
         super(Entity, self).__init__()
+        self._is_frozen = False
+        self.parent = None
         self.logger = logging.getLogger("ydk.types.EntityCollection")
         self._local_refs = {}
         self._children_name_map = OrderedDict()
@@ -93,6 +106,7 @@ class Entity(_Entity):
         self._leafs = OrderedDict()
         self._segment_path = lambda : ''
         self._absolute_path = lambda : ''
+        self._python_type_validation_enabled = True
         self.logger = logging.getLogger("ydk.types.Entity")
 
     def __eq__(self, other):
@@ -179,12 +193,12 @@ class Entity(_Entity):
             if isinstance(value, _YFilter):
                 return True
             if name in self._leafs:
-                leaf = self._leafs[name]
-                if isinstance(leaf, _YLeaf):
+                leaf = _get_leaf_object(self._leafs[name])
+                if _is_yleaf(leaf):
                     if value is not None:
                         if not isinstance(value, Bits) or len(value.get_bitmap()) > 0:
                             return True
-                elif isinstance(leaf, _YLeafList) and len(value) > 0:
+                elif _is_yleaflist(leaf) and len(value) > 0:
                     return True
             if isinstance(value, Entity) and value.has_data():
                 return True
@@ -201,7 +215,7 @@ class Entity(_Entity):
         for name, value in vars(self).items():
             if value is not None:
                 if name in self._leafs:
-                    leaf = self._leafs[name]
+                    leaf = _get_leaf_object(self._leafs[name])
                     isYLeaf = isinstance(leaf, _YLeaf)
                     isYLeafList = isinstance(leaf, _YLeafList)
                     isBits = isinstance(value, Bits)
@@ -224,21 +238,20 @@ class Entity(_Entity):
 
     def set_value(self, path, value, name_space='', name_space_prefix=''):
         for name, leaf in self._leafs.items():
-            if leaf.name == path:
-                if isinstance(leaf, _YLeaf):
-                    if isinstance(self.__dict__[name], Bits):
-                        self.__dict__[name][value] = True
-                    else:
-                        self.__dict__[name] = value
+            leaf = _get_leaf_object(leaf)
+            if _leaf_name_matches(leaf, path):
+                v = _get_decoded_value_object(self._leafs[name], self, value)
+                if _is_yleaf(leaf):
+                    self._assign_yleaf(name, value, v)
                 elif isinstance(leaf, _YLeafList):
-                    self.__dict__[name].append(value)
+                    self._assign_yleaflist(name, value, v)
 
     def set_filter(self, path, yfilter):
         pass
 
     def has_leaf_or_child_of_name(self, name):
         for _, leaf in self._leafs.items():
-            if name == leaf.name:
+            if name == _get_leaf_object(leaf).name:
                 return True
 
         if name in self._child_classes:
@@ -250,7 +263,7 @@ class Entity(_Entity):
         leaf_name_data = LeafDataList()
         for name in self._leafs:
             value = self.__dict__[name]
-            leaf = self._leafs[name]
+            leaf = _get_leaf_object(self._leafs[name])
 
             if isinstance(value, _YFilter):
                 self.logger.debug('YFilter assigned to "%s", "%s"' % (name, value))
@@ -285,7 +298,7 @@ class Entity(_Entity):
         if ("[" in path) and hasattr(self, 'ylist_key_names') and len(self.ylist_key_names) > 0:
             path = path.split('[')[0]
             for attr_name in self.ylist_key_names:
-                leaf = self._leafs[attr_name]
+                leaf = _get_leaf_object(self._leafs[attr_name])
                 if leaf is not None:
                     attr_str = format(self.__dict__[attr_name])
                     if "'" in attr_str:
@@ -312,18 +325,22 @@ class Entity(_Entity):
 
     def _perform_setattr(self, clazz, leaf_names, name, value):
         with _handle_type_error():
+            if name != 'yfilter' and name != 'parent' and hasattr(self,
+                                                                  '_is_frozen') and self._is_frozen and \
+                                                                    name not in self.__dict__:
+                raise _YModelError("Attempt to assign unknown attribute '{0}' to '{1}'.".format(name,
+                                                                                            self.__class__.__name__))
             if name in self.__dict__ and isinstance(self.__dict__[name], YList):
                 raise _YModelError("Attempt to assign value of '{}' to YList ldata. "
                                     "Please use list append or extend method."
                                     .format(value))
-            if isinstance(value, _Enum.YLeaf):
-                value = value.name
             if name in leaf_names and name in self.__dict__:
-                # bits ..?
+                if self._python_type_validation_enabled:
+                    _validate_value(self._leafs[name], name, value, self.logger)
+                leaf = _get_leaf_object(self._leafs[name])
                 prev_value = self.__dict__[name]
                 self.__dict__[name] = value
 
-                leaf = self._leafs[name]
                 if not isinstance(value, _YFilter):
                     if isinstance(leaf, _YLeaf):
                         leaf.set(value)
@@ -347,6 +364,21 @@ class Entity(_Entity):
                         if not value.is_top_level_class:
                             value.parent = self
                 super(Entity, self).__setattr__(name, value)
+
+    def _assign_yleaf(self, name, value, v):
+        if isinstance(self.__dict__[name], Bits):
+            self.__dict__[name][value] = True
+        else:
+            if v is not None:
+                self.__dict__[name] = v
+            else:
+                self.__dict__[name] = value
+
+    def _assign_yleaflist(self, name, value, v):
+        if v is not None:
+            self.__dict__[name].append(v)
+        else:
+            self.__dict__[name].append(value)
 
     def __str__(self):
         return "{}.{}".format(self.__class__.__module__, self.__class__.__name__)
@@ -496,11 +528,14 @@ class EntityCollection(object):
             ent_strs.append(format(entity))
         return "Entities in {}: {}".format(self.__class__.__name__, ent_strs)
 
+
 class Filter(EntityCollection):
     pass
 
+
 class Config(EntityCollection):
     pass
+
 
 class YList(EntityCollection):
     """ Represents a list with support for hanging a parent
@@ -599,3 +634,187 @@ class YList(EntityCollection):
 
     def __len__(self):
         return self._entity_map.__len__() + self._cache_dict.__len__()
+
+
+def _get_bundle_name(entity):
+    mod_name = str(getattr(entity, '__module__'))
+    return mod_name.split('.')[2]
+
+
+def _get_bundle_yang_ns(bundle_name):
+    mod_yang_ns = None
+    from ydk import models
+    import pkgutil
+    for (_, name, ispkg) in pkgutil.iter_modules(models.__path__):
+        if ispkg and name == bundle_name:
+            try:
+                mod_yang_ns = importlib.import_module('ydk.models.{}._yang_ns'.format(name))
+                break
+            except ImportError:
+                continue
+    return mod_yang_ns
+
+
+def _get_class(py_mod_name, clazz_name):
+    module = importlib.import_module(py_mod_name)
+    return reduce(getattr, clazz_name.split('.'), module)
+
+
+def _get_class_instance(py_mod_name, clazz_name):
+    return _get_class(py_mod_name, clazz_name)()
+
+
+def _get_decoded_value_object(leaf_tuple, entity, value):
+    if not isinstance(leaf_tuple, tuple):
+        return None
+    typs = leaf_tuple[1]
+    value_object = None
+    for typ in typs:
+        if _is_identity(typ):
+            value_object = _decode_identity_value_object(entity, value)
+        elif _is_enum(typ):
+            value_object = _decode_enum_value_object(typ, value)
+        else:
+            value_object = _decode_other_type_value_object(typ, value)
+        if value_object is not None:
+            return value_object
+
+
+def _validate_value(leaf_tuple, name, value, logger):
+    if not isinstance(leaf_tuple, tuple):
+        return
+    if isinstance(value, _YFilter):
+        return
+    typs = leaf_tuple[1]
+    for typ in typs:
+        if _is_identity(typ):
+            if _validate_identity_value_object(typ, value):
+                return
+        elif _is_enum(typ):
+            if _validate_enum_value_object(typ, value):
+                return
+        else:
+            if _validate_other_type_value_object(typ, value):
+                return
+    err_msg = "Invalid value {0} for '{1}'. Got type: '{2}'. Expected types: {3}".format(value, name,
+                                                                                         type(value).__name__,
+                                                                                         _get_types_string(typs))
+    logger.error(err_msg)
+    raise _YModelError(err_msg)
+
+
+def _get_types_string(typs):
+    typs_string = []
+    for typ in typs:
+        if isinstance(typ, tuple):
+            s = '.'.join(typ)
+            if s.endswith('.'):
+                s = s[:-1]
+            typs_string.append("'%s'" % s)
+        else:
+            typs_string.append("'%s'" % typ)
+    return ' or '.join(typs_string)
+
+
+def _is_identity(typ):
+    return isinstance(typ, tuple) and len(typ) == 2
+
+
+def _is_enum(typ):
+    return isinstance(typ, tuple) and len(typ) == 3
+
+
+def _validate_identity_value_object(typ, value):
+    if not _is_identity(typ):
+        return False
+    mod = importlib.import_module(typ[0])
+    base_identity_class = getattr(mod, typ[1])
+    return isinstance(value, base_identity_class)
+
+
+def _decode_identity_value_object(entity, value):
+    bundle_yang_ns = _get_bundle_yang_ns(_get_bundle_name(entity))
+    if 'IDENTITY_LOOKUP' in bundle_yang_ns.__dict__:
+        identity_lookup = bundle_yang_ns.__dict__['IDENTITY_LOOKUP']
+        if value in identity_lookup:
+            (py_mod_name, identity_clazz_name) = identity_lookup[value]
+            return _get_class_instance(py_mod_name, identity_clazz_name)
+    return None
+
+
+def _get_enum_class(module_name, class_name, nested_class_name):
+    mod = importlib.import_module(module_name)
+    clazz_name = '%s%s' % (class_name, '' if len(nested_class_name) == 0 else '.%s' % (nested_class_name))
+    enum_clazz = None
+    for c in clazz_name.split('.'):
+        if enum_clazz is None:
+            enum_clazz = getattr(mod, c)
+        else:
+            enum_clazz = getattr(enum_clazz, c)
+    return enum_clazz
+
+
+def _validate_enum_value_object(typ, value):
+    if not isinstance(value, _Enum.YLeaf):
+        return False
+    if not _is_enum(typ):
+        return False
+    enum_clazz = _get_enum_class(typ[0], typ[1], typ[2])
+    for _, v in enum_clazz.__dict__.items():
+        if isinstance(v, _Enum.YLeaf) and value.name == v.name:
+            return True
+    return False
+
+
+def _decode_enum_value_object(typ, value):
+    if not _is_enum(typ):
+        return None
+    enum_clazz = _get_enum_class(typ[0], typ[1], typ[2])
+    for _, v in enum_clazz.__dict__.items():
+        if isinstance(v, _Enum.YLeaf) and value == v.name:
+            return v
+    return None
+
+
+def _validate_other_type_value_object(typ, value):
+    if typ == 'Empty':
+        return isinstance(value, Empty)
+    if typ == 'str' and (isinstance(value, bytes) or isinstance(value, unicode)):
+        return True
+    if typ == 'int' and (isinstance(value, int) or isinstance(value, long)):
+        return True
+    typ = eval(typ)
+    return isinstance(value, typ)
+
+
+def _decode_other_type_value_object(typ, value):
+    value_object = None
+    if typ == 'bool':
+        return True if value == 'true' else False
+    elif typ == 'Empty':
+        return Empty()
+    typ = eval(typ)
+    try:
+        value_object = typ(value)
+    except:
+        pass
+    return value_object
+
+
+def _get_leaf_object(leaf):
+    # Backward compatibility
+    if isinstance(leaf, tuple):
+        return leaf[0]
+    return leaf
+
+
+def _leaf_name_matches(leaf, path):
+    return leaf.name == path
+
+
+def _is_yleaf(leaf):
+    return isinstance(leaf, _YLeaf)
+
+
+def _is_yleaflist(leaf):
+    return isinstance(leaf, _YLeafList)

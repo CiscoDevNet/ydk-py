@@ -16,6 +16,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class Action(Entity):
     """
     Support Tail\-F actions rpc format.
@@ -57,6 +58,7 @@ class Action(Entity):
         self.output.parent = self
         self._children_name_map["output"] = "output"
         self._segment_path = lambda: "tailf-actions:action"
+        self._is_frozen = True
 
 
     class Input(Entity):
@@ -85,11 +87,12 @@ class Action(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('data', YLeaf(YType.str, 'data')),
+                ('data', (YLeaf(YType.str, 'data'), ['str'])),
             ])
             self.data = None
             self._segment_path = lambda: "input"
             self._absolute_path = lambda: "tailf-actions:action/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Action.Input, ['data'], name, value)
@@ -121,11 +124,12 @@ class Action(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('data', YLeaf(YType.str, 'data')),
+                ('data', (YLeaf(YType.str, 'data'), ['str'])),
             ])
             self.data = None
             self._segment_path = lambda: "output"
             self._absolute_path = lambda: "tailf-actions:action/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Action.Output, ['data'], name, value)

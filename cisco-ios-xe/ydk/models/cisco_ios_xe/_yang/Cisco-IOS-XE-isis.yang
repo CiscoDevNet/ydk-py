@@ -45,6 +45,11 @@ module Cisco-IOS-XE-isis {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-06-28{
+    description
+        "Added must constraints for deleting vrf";
+  }
+
   revision 2017-11-27 {
      description
        "Added Change 25GE name";
@@ -1594,6 +1599,9 @@ module Cisco-IOS-XE-isis {
         leaf vrf {
           description
             "VPN Routing/Forwarding Instance";
+	  must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+	    error-message "VRF must be created 1st, deleted last";
+          }
           type string;
         }
       }
@@ -1638,6 +1646,9 @@ module Cisco-IOS-XE-isis {
         leaf vrf {
           description
             "VPN Routing/Forwarding Instance";
+	  must "/ios:native/ios:vrf/ios:definition[ios:name=current()] or /ios:native/ios:ip/ios:vrf[ios:name=current()]" {
+	    error-message "VRF must be created 1st, deleted last";
+          }
           type string;
         }
       }

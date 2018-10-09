@@ -11,7 +11,7 @@ for the following management objects\:
     a Layer 2 instance such as a virtual switch instance (VSI).
     Mixed Layer 2 and Layer 3 instances are also supported.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -61,6 +62,7 @@ class OcniNiIntfbase(Entity):
         self.network_instances.parent = self
         self._children_name_map["network_instances"] = "network-instances"
         self._segment_path = lambda: "Cisco-IOS-XR-ocni-intfbase-oper:ocni-ni-intfbase"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(OcniNiIntfbase, [], name, value)
@@ -96,6 +98,7 @@ class OcniNiIntfbase(Entity):
             self.network_instance = YList(self)
             self._segment_path = lambda: "network-instances"
             self._absolute_path = lambda: "Cisco-IOS-XR-ocni-intfbase-oper:ocni-ni-intfbase/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(OcniNiIntfbase.NetworkInstances, [], name, value)
@@ -133,7 +136,7 @@ class OcniNiIntfbase(Entity):
                 self.ylist_key_names = ['name']
                 self._child_classes = OrderedDict([("interfaces", ("interfaces", OcniNiIntfbase.NetworkInstances.NetworkInstance.Interfaces))])
                 self._leafs = OrderedDict([
-                    ('name', YLeaf(YType.str, 'name')),
+                    ('name', (YLeaf(YType.str, 'name'), ['str'])),
                 ])
                 self.name = None
 
@@ -142,6 +145,7 @@ class OcniNiIntfbase(Entity):
                 self._children_name_map["interfaces"] = "interfaces"
                 self._segment_path = lambda: "network-instance" + "[name='" + str(self.name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ocni-intfbase-oper:ocni-ni-intfbase/network-instances/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(OcniNiIntfbase.NetworkInstances.NetworkInstance, ['name'], name, value)
@@ -177,6 +181,7 @@ class OcniNiIntfbase(Entity):
 
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(OcniNiIntfbase.NetworkInstances.NetworkInstance.Interfaces, [], name, value)
@@ -214,7 +219,7 @@ class OcniNiIntfbase(Entity):
                         self.ylist_key_names = ['id']
                         self._child_classes = OrderedDict([("state", ("state", OcniNiIntfbase.NetworkInstances.NetworkInstance.Interfaces.Interface.State))])
                         self._leafs = OrderedDict([
-                            ('id', YLeaf(YType.str, 'id')),
+                            ('id', (YLeaf(YType.str, 'id'), ['str'])),
                         ])
                         self.id = None
 
@@ -222,6 +227,7 @@ class OcniNiIntfbase(Entity):
                         self.state.parent = self
                         self._children_name_map["state"] = "state"
                         self._segment_path = lambda: "interface" + "[id='" + str(self.id) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(OcniNiIntfbase.NetworkInstances.NetworkInstance.Interfaces.Interface, ['id'], name, value)
@@ -271,19 +277,20 @@ class OcniNiIntfbase(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('id', YLeaf(YType.str, 'id')),
-                                ('interface', YLeaf(YType.str, 'interface')),
-                                ('subinterface', YLeaf(YType.uint32, 'subinterface')),
-                                ('associated_address_family', YLeafList(YType.str, 'associated-address-family')),
+                                ('id', (YLeaf(YType.str, 'id'), ['str'])),
+                                ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
+                                ('subinterface', (YLeaf(YType.uint32, 'subinterface'), ['int'])),
+                                ('associated_address_family', (YLeafList(YType.str, 'associated-address-family'), ['str'])),
                             ])
                             self.id = None
                             self.interface = None
                             self.subinterface = None
                             self.associated_address_family = []
                             self._segment_path = lambda: "state"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(OcniNiIntfbase.NetworkInstances.NetworkInstance.Interfaces.Interface.State, ['id', 'interface', 'subinterface', 'associated_address_family'], name, value)
+                            self._perform_setattr(OcniNiIntfbase.NetworkInstances.NetworkInstance.Interfaces.Interface.State, [u'id', u'interface', u'subinterface', u'associated_address_family'], name, value)
 
     def clone_ptr(self):
         self._top_entity = OcniNiIntfbase()

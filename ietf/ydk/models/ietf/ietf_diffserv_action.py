@@ -19,9 +19,11 @@ from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
+from ydk.models.ietf.ietf_diffserv_policy import ActionType
 
 
-class Marking(Identity):
+
+class Marking(ActionType):
     """
     marking action type
     
@@ -32,8 +34,8 @@ class Marking(Identity):
     _prefix = 'action'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(Marking, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-action", "ietf-diffserv-action", "ietf-diffserv-action:marking")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:marking"):
+        super(Marking, self).__init__(ns, pref, tag)
 
 
 class DropType(Identity):
@@ -47,11 +49,11 @@ class DropType(Identity):
     _prefix = 'action'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(DropType, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-action", "ietf-diffserv-action", "ietf-diffserv-action:drop-type")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:drop-type"):
+        super(DropType, self).__init__(ns, pref, tag)
 
 
-class MinRate(Identity):
+class MinRate(ActionType):
     """
     min\-rate action type
     
@@ -62,11 +64,11 @@ class MinRate(Identity):
     _prefix = 'action'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(MinRate, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-action", "ietf-diffserv-action", "ietf-diffserv-action:min-rate")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:min-rate"):
+        super(MinRate, self).__init__(ns, pref, tag)
 
 
-class Meter(Identity):
+class Meter(ActionType):
     """
     meter action type
     
@@ -77,11 +79,11 @@ class Meter(Identity):
     _prefix = 'action'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(Meter, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-action", "ietf-diffserv-action", "ietf-diffserv-action:meter")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:meter"):
+        super(Meter, self).__init__(ns, pref, tag)
 
 
-class Priority(Identity):
+class Priority(ActionType):
     """
     priority action type
     
@@ -92,11 +94,11 @@ class Priority(Identity):
     _prefix = 'action'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(Priority, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-action", "ietf-diffserv-action", "ietf-diffserv-action:priority")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:priority"):
+        super(Priority, self).__init__(ns, pref, tag)
 
 
-class MaxRate(Identity):
+class MaxRate(ActionType):
     """
     max\-rate action type
     
@@ -107,8 +109,8 @@ class MaxRate(Identity):
     _prefix = 'action'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(MaxRate, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-action", "ietf-diffserv-action", "ietf-diffserv-action:max-rate")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:max-rate"):
+        super(MaxRate, self).__init__(ns, pref, tag)
 
 
 class MeterActionType(Identity):
@@ -122,11 +124,11 @@ class MeterActionType(Identity):
     _prefix = 'action'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(MeterActionType, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-action", "ietf-diffserv-action", "ietf-diffserv-action:meter-action-type")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:meter-action-type"):
+        super(MeterActionType, self).__init__(ns, pref, tag)
 
 
-class AlgorithmicDrop(Identity):
+class AlgorithmicDrop(ActionType):
     """
     algorithmic\-drop action type
     
@@ -137,11 +139,11 @@ class AlgorithmicDrop(Identity):
     _prefix = 'action'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(AlgorithmicDrop, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-action", "ietf-diffserv-action", "ietf-diffserv-action:algorithmic-drop")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:algorithmic-drop"):
+        super(AlgorithmicDrop, self).__init__(ns, pref, tag)
 
 
-class AlwaysDrop(Identity):
+class AlwaysDrop(DropType):
     """
     always drop algorithm
     
@@ -152,11 +154,11 @@ class AlwaysDrop(Identity):
     _prefix = 'action'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(AlwaysDrop, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-action", "ietf-diffserv-action", "ietf-diffserv-action:always-drop")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:always-drop"):
+        super(AlwaysDrop, self).__init__(ns, pref, tag)
 
 
-class TailDrop(Identity):
+class TailDrop(DropType):
     """
     tail drop algorithm
     
@@ -167,11 +169,11 @@ class TailDrop(Identity):
     _prefix = 'action'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(TailDrop, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-action", "ietf-diffserv-action", "ietf-diffserv-action:tail-drop")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:tail-drop"):
+        super(TailDrop, self).__init__(ns, pref, tag)
 
 
-class MeterActionDrop(Identity):
+class MeterActionDrop(MeterActionType):
     """
     drop action type in a meter
     
@@ -182,11 +184,11 @@ class MeterActionDrop(Identity):
     _prefix = 'action'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(MeterActionDrop, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-action", "ietf-diffserv-action", "ietf-diffserv-action:meter-action-drop")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:meter-action-drop"):
+        super(MeterActionDrop, self).__init__(ns, pref, tag)
 
 
-class MeterActionSet(Identity):
+class MeterActionSet(MeterActionType):
     """
     mark action type in a meter
     
@@ -197,11 +199,11 @@ class MeterActionSet(Identity):
     _prefix = 'action'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(MeterActionSet, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-action", "ietf-diffserv-action", "ietf-diffserv-action:meter-action-set")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:meter-action-set"):
+        super(MeterActionSet, self).__init__(ns, pref, tag)
 
 
-class RandomDetect(Identity):
+class RandomDetect(DropType):
     """
     random detect algorithm
     
@@ -212,7 +214,7 @@ class RandomDetect(Identity):
     _prefix = 'action'
     _revision = '2015-04-07'
 
-    def __init__(self):
-        super(RandomDetect, self).__init__("urn:ietf:params:xml:ns:yang:ietf-diffserv-action", "ietf-diffserv-action", "ietf-diffserv-action:random-detect")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:ietf-diffserv-action", pref="ietf-diffserv-action", tag="ietf-diffserv-action:random-detect"):
+        super(RandomDetect, self).__init__(ns, pref, tag)
 
 

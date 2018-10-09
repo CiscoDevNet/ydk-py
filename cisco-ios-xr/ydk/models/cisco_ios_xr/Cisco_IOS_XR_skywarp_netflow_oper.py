@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   net\-flow\: NetFlow operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class NetFlow(Entity):
         self.statistics.parent = self
         self._children_name_map["statistics"] = "statistics"
         self._segment_path = lambda: "Cisco-IOS-XR-skywarp-netflow-oper:net-flow"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(NetFlow, [], name, value)
@@ -87,6 +89,7 @@ class NetFlow(Entity):
             self.statistic = YList(self)
             self._segment_path = lambda: "statistics"
             self._absolute_path = lambda: "Cisco-IOS-XR-skywarp-netflow-oper:net-flow/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NetFlow.Statistics, [], name, value)
@@ -131,7 +134,7 @@ class NetFlow(Entity):
                 self.ylist_key_names = ['node']
                 self._child_classes = OrderedDict([("producer", ("producer", NetFlow.Statistics.Statistic.Producer)), ("server", ("server", NetFlow.Statistics.Statistic.Server))])
                 self._leafs = OrderedDict([
-                    ('node', YLeaf(YType.str, 'node')),
+                    ('node', (YLeaf(YType.str, 'node'), ['str'])),
                 ])
                 self.node = None
 
@@ -144,6 +147,7 @@ class NetFlow(Entity):
                 self._children_name_map["server"] = "server"
                 self._segment_path = lambda: "statistic" + "[node='" + str(self.node) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-skywarp-netflow-oper:net-flow/statistics/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetFlow.Statistics.Statistic, ['node'], name, value)
@@ -180,6 +184,7 @@ class NetFlow(Entity):
                     self.statistics.parent = self
                     self._children_name_map["statistics"] = "statistics"
                     self._segment_path = lambda: "producer"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetFlow.Statistics.Statistic.Producer, [], name, value)
@@ -260,14 +265,14 @@ class NetFlow(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('ethernet_pkts', YLeaf(YType.uint64, 'ethernet-pkts')),
-                            ('drops_no_space', YLeaf(YType.uint64, 'drops-no-space')),
-                            ('drops_others', YLeaf(YType.uint64, 'drops-others')),
-                            ('unknown_ingress_flows', YLeaf(YType.uint64, 'unknown-ingress-flows')),
-                            ('waiting_servers', YLeaf(YType.uint64, 'waiting-servers')),
-                            ('spp_rx_counts', YLeaf(YType.uint64, 'spp-rx-counts')),
-                            ('flow_packet_counts', YLeaf(YType.uint64, 'flow-packet-counts')),
-                            ('last_cleared', YLeaf(YType.str, 'last-cleared')),
+                            ('ethernet_pkts', (YLeaf(YType.uint64, 'ethernet-pkts'), ['int'])),
+                            ('drops_no_space', (YLeaf(YType.uint64, 'drops-no-space'), ['int'])),
+                            ('drops_others', (YLeaf(YType.uint64, 'drops-others'), ['int'])),
+                            ('unknown_ingress_flows', (YLeaf(YType.uint64, 'unknown-ingress-flows'), ['int'])),
+                            ('waiting_servers', (YLeaf(YType.uint64, 'waiting-servers'), ['int'])),
+                            ('spp_rx_counts', (YLeaf(YType.uint64, 'spp-rx-counts'), ['int'])),
+                            ('flow_packet_counts', (YLeaf(YType.uint64, 'flow-packet-counts'), ['int'])),
+                            ('last_cleared', (YLeaf(YType.str, 'last-cleared'), ['str'])),
                         ])
                         self.ethernet_pkts = None
                         self.drops_no_space = None
@@ -278,9 +283,10 @@ class NetFlow(Entity):
                         self.flow_packet_counts = None
                         self.last_cleared = None
                         self._segment_path = lambda: "statistics"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(NetFlow.Statistics.Statistic.Producer.Statistics_, [u'ethernet_pkts', u'drops_no_space', u'drops_others', u'unknown_ingress_flows', u'waiting_servers', u'spp_rx_counts', u'flow_packet_counts', u'last_cleared'], name, value)
+                        self._perform_setattr(NetFlow.Statistics.Statistic.Producer.Statistics_, ['ethernet_pkts', 'drops_no_space', 'drops_others', 'unknown_ingress_flows', 'waiting_servers', 'spp_rx_counts', 'flow_packet_counts', 'last_cleared'], name, value)
 
 
             class Server(Entity):
@@ -314,6 +320,7 @@ class NetFlow(Entity):
                     self.flow_exporters.parent = self
                     self._children_name_map["flow_exporters"] = "flow-exporters"
                     self._segment_path = lambda: "server"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetFlow.Statistics.Statistic.Server, [], name, value)
@@ -348,6 +355,7 @@ class NetFlow(Entity):
 
                         self.flow_exporter = YList(self)
                         self._segment_path = lambda: "flow-exporters"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters, [], name, value)
@@ -386,7 +394,7 @@ class NetFlow(Entity):
                             self.ylist_key_names = ['exporter_name']
                             self._child_classes = OrderedDict([("exporter", ("exporter", NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter))])
                             self._leafs = OrderedDict([
-                                ('exporter_name', YLeaf(YType.str, 'exporter-name')),
+                                ('exporter_name', (YLeaf(YType.str, 'exporter-name'), ['str'])),
                             ])
                             self.exporter_name = None
 
@@ -394,6 +402,7 @@ class NetFlow(Entity):
                             self.exporter.parent = self
                             self._children_name_map["exporter"] = "exporter"
                             self._segment_path = lambda: "flow-exporter" + "[exporter-name='" + str(self.exporter_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter, ['exporter_name'], name, value)
@@ -428,6 +437,7 @@ class NetFlow(Entity):
 
                                 self.statistic = YList(self)
                                 self._segment_path = lambda: "exporter"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter, [], name, value)
@@ -476,9 +486,9 @@ class NetFlow(Entity):
                                     self.ylist_key_names = []
                                     self._child_classes = OrderedDict([("collector", ("collector", NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector))])
                                     self._leafs = OrderedDict([
-                                        ('name', YLeaf(YType.str, 'name')),
-                                        ('memory_usage', YLeaf(YType.uint32, 'memory-usage')),
-                                        ('used_by_flow_monitor', YLeafList(YType.str, 'used-by-flow-monitor')),
+                                        ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                        ('memory_usage', (YLeaf(YType.uint32, 'memory-usage'), ['int'])),
+                                        ('used_by_flow_monitor', (YLeafList(YType.str, 'used-by-flow-monitor'), ['str'])),
                                     ])
                                     self.name = None
                                     self.memory_usage = None
@@ -486,9 +496,10 @@ class NetFlow(Entity):
 
                                     self.collector = YList(self)
                                     self._segment_path = lambda: "statistic"
+                                    self._is_frozen = True
 
                                 def __setattr__(self, name, value):
-                                    self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_, [u'name', u'memory_usage', u'used_by_flow_monitor'], name, value)
+                                    self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_, ['name', 'memory_usage', 'used_by_flow_monitor'], name, value)
 
 
                                 class Collector(Entity):
@@ -778,42 +789,42 @@ class NetFlow(Entity):
                                         self.ylist_key_names = []
                                         self._child_classes = OrderedDict([])
                                         self._leafs = OrderedDict([
-                                            ('exporter_state', YLeaf(YType.str, 'exporter-state')),
-                                            ('destination_address', YLeaf(YType.str, 'destination-address')),
-                                            ('source_address', YLeaf(YType.str, 'source-address')),
-                                            ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                            ('destination_port', YLeaf(YType.uint16, 'destination-port')),
-                                            ('souce_port', YLeaf(YType.uint16, 'souce-port')),
-                                            ('transport_protocol', YLeaf(YType.str, 'transport-protocol')),
-                                            ('packets_sent', YLeaf(YType.uint64, 'packets-sent')),
-                                            ('flows_sent', YLeaf(YType.uint64, 'flows-sent')),
-                                            ('templates_sent', YLeaf(YType.uint64, 'templates-sent')),
-                                            ('option_templates_sent', YLeaf(YType.uint64, 'option-templates-sent')),
-                                            ('option_data_sent', YLeaf(YType.uint64, 'option-data-sent')),
-                                            ('bytes_sent', YLeaf(YType.uint64, 'bytes-sent')),
-                                            ('flow_bytes_sent', YLeaf(YType.uint64, 'flow-bytes-sent')),
-                                            ('template_bytes_sent', YLeaf(YType.uint64, 'template-bytes-sent')),
-                                            ('option_template_bytes_sent', YLeaf(YType.uint64, 'option-template-bytes-sent')),
-                                            ('option_data_bytes_sent', YLeaf(YType.uint64, 'option-data-bytes-sent')),
-                                            ('packets_dropped', YLeaf(YType.uint64, 'packets-dropped')),
-                                            ('flows_dropped', YLeaf(YType.uint64, 'flows-dropped')),
-                                            ('templates_dropped', YLeaf(YType.uint64, 'templates-dropped')),
-                                            ('option_templates_dropped', YLeaf(YType.uint64, 'option-templates-dropped')),
-                                            ('option_data_dropped', YLeaf(YType.uint64, 'option-data-dropped')),
-                                            ('bytes_dropped', YLeaf(YType.uint64, 'bytes-dropped')),
-                                            ('flow_bytes_dropped', YLeaf(YType.uint64, 'flow-bytes-dropped')),
-                                            ('template_bytes_dropped', YLeaf(YType.uint64, 'template-bytes-dropped')),
-                                            ('option_template_bytes_dropped', YLeaf(YType.uint64, 'option-template-bytes-dropped')),
-                                            ('option_data_bytes_dropped', YLeaf(YType.uint64, 'option-data-bytes-dropped')),
-                                            ('last_hour_packest_sent', YLeaf(YType.uint64, 'last-hour-packest-sent')),
-                                            ('last_hour_bytes_sent', YLeaf(YType.uint64, 'last-hour-bytes-sent')),
-                                            ('last_hour_flows_sent', YLeaf(YType.uint64, 'last-hour-flows-sent')),
-                                            ('last_minute_packets', YLeaf(YType.uint64, 'last-minute-packets')),
-                                            ('last_minute_bytes_sent', YLeaf(YType.uint64, 'last-minute-bytes-sent')),
-                                            ('last_minute_flows_sent', YLeaf(YType.uint64, 'last-minute-flows-sent')),
-                                            ('last_second_packets_sent', YLeaf(YType.uint64, 'last-second-packets-sent')),
-                                            ('last_second_bytes_sent', YLeaf(YType.uint64, 'last-second-bytes-sent')),
-                                            ('last_second_flows_sent', YLeaf(YType.uint64, 'last-second-flows-sent')),
+                                            ('exporter_state', (YLeaf(YType.str, 'exporter-state'), ['str'])),
+                                            ('destination_address', (YLeaf(YType.str, 'destination-address'), ['str'])),
+                                            ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                            ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                            ('destination_port', (YLeaf(YType.uint16, 'destination-port'), ['int'])),
+                                            ('souce_port', (YLeaf(YType.uint16, 'souce-port'), ['int'])),
+                                            ('transport_protocol', (YLeaf(YType.str, 'transport-protocol'), ['str'])),
+                                            ('packets_sent', (YLeaf(YType.uint64, 'packets-sent'), ['int'])),
+                                            ('flows_sent', (YLeaf(YType.uint64, 'flows-sent'), ['int'])),
+                                            ('templates_sent', (YLeaf(YType.uint64, 'templates-sent'), ['int'])),
+                                            ('option_templates_sent', (YLeaf(YType.uint64, 'option-templates-sent'), ['int'])),
+                                            ('option_data_sent', (YLeaf(YType.uint64, 'option-data-sent'), ['int'])),
+                                            ('bytes_sent', (YLeaf(YType.uint64, 'bytes-sent'), ['int'])),
+                                            ('flow_bytes_sent', (YLeaf(YType.uint64, 'flow-bytes-sent'), ['int'])),
+                                            ('template_bytes_sent', (YLeaf(YType.uint64, 'template-bytes-sent'), ['int'])),
+                                            ('option_template_bytes_sent', (YLeaf(YType.uint64, 'option-template-bytes-sent'), ['int'])),
+                                            ('option_data_bytes_sent', (YLeaf(YType.uint64, 'option-data-bytes-sent'), ['int'])),
+                                            ('packets_dropped', (YLeaf(YType.uint64, 'packets-dropped'), ['int'])),
+                                            ('flows_dropped', (YLeaf(YType.uint64, 'flows-dropped'), ['int'])),
+                                            ('templates_dropped', (YLeaf(YType.uint64, 'templates-dropped'), ['int'])),
+                                            ('option_templates_dropped', (YLeaf(YType.uint64, 'option-templates-dropped'), ['int'])),
+                                            ('option_data_dropped', (YLeaf(YType.uint64, 'option-data-dropped'), ['int'])),
+                                            ('bytes_dropped', (YLeaf(YType.uint64, 'bytes-dropped'), ['int'])),
+                                            ('flow_bytes_dropped', (YLeaf(YType.uint64, 'flow-bytes-dropped'), ['int'])),
+                                            ('template_bytes_dropped', (YLeaf(YType.uint64, 'template-bytes-dropped'), ['int'])),
+                                            ('option_template_bytes_dropped', (YLeaf(YType.uint64, 'option-template-bytes-dropped'), ['int'])),
+                                            ('option_data_bytes_dropped', (YLeaf(YType.uint64, 'option-data-bytes-dropped'), ['int'])),
+                                            ('last_hour_packest_sent', (YLeaf(YType.uint64, 'last-hour-packest-sent'), ['int'])),
+                                            ('last_hour_bytes_sent', (YLeaf(YType.uint64, 'last-hour-bytes-sent'), ['int'])),
+                                            ('last_hour_flows_sent', (YLeaf(YType.uint64, 'last-hour-flows-sent'), ['int'])),
+                                            ('last_minute_packets', (YLeaf(YType.uint64, 'last-minute-packets'), ['int'])),
+                                            ('last_minute_bytes_sent', (YLeaf(YType.uint64, 'last-minute-bytes-sent'), ['int'])),
+                                            ('last_minute_flows_sent', (YLeaf(YType.uint64, 'last-minute-flows-sent'), ['int'])),
+                                            ('last_second_packets_sent', (YLeaf(YType.uint64, 'last-second-packets-sent'), ['int'])),
+                                            ('last_second_bytes_sent', (YLeaf(YType.uint64, 'last-second-bytes-sent'), ['int'])),
+                                            ('last_second_flows_sent', (YLeaf(YType.uint64, 'last-second-flows-sent'), ['int'])),
                                         ])
                                         self.exporter_state = None
                                         self.destination_address = None
@@ -852,9 +863,10 @@ class NetFlow(Entity):
                                         self.last_second_bytes_sent = None
                                         self.last_second_flows_sent = None
                                         self._segment_path = lambda: "collector"
+                                        self._is_frozen = True
 
                                     def __setattr__(self, name, value):
-                                        self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector, [u'exporter_state', u'destination_address', u'source_address', u'vrf_name', u'destination_port', u'souce_port', u'transport_protocol', u'packets_sent', u'flows_sent', u'templates_sent', u'option_templates_sent', u'option_data_sent', u'bytes_sent', u'flow_bytes_sent', u'template_bytes_sent', u'option_template_bytes_sent', u'option_data_bytes_sent', u'packets_dropped', u'flows_dropped', u'templates_dropped', u'option_templates_dropped', u'option_data_dropped', u'bytes_dropped', u'flow_bytes_dropped', u'template_bytes_dropped', u'option_template_bytes_dropped', u'option_data_bytes_dropped', u'last_hour_packest_sent', u'last_hour_bytes_sent', u'last_hour_flows_sent', u'last_minute_packets', u'last_minute_bytes_sent', u'last_minute_flows_sent', u'last_second_packets_sent', u'last_second_bytes_sent', u'last_second_flows_sent'], name, value)
+                                        self._perform_setattr(NetFlow.Statistics.Statistic.Server.FlowExporters.FlowExporter.Exporter.Statistic_.Collector, ['exporter_state', 'destination_address', 'source_address', 'vrf_name', 'destination_port', 'souce_port', 'transport_protocol', 'packets_sent', 'flows_sent', 'templates_sent', 'option_templates_sent', 'option_data_sent', 'bytes_sent', 'flow_bytes_sent', 'template_bytes_sent', 'option_template_bytes_sent', 'option_data_bytes_sent', 'packets_dropped', 'flows_dropped', 'templates_dropped', 'option_templates_dropped', 'option_data_dropped', 'bytes_dropped', 'flow_bytes_dropped', 'template_bytes_dropped', 'option_template_bytes_dropped', 'option_data_bytes_dropped', 'last_hour_packest_sent', 'last_hour_bytes_sent', 'last_hour_flows_sent', 'last_minute_packets', 'last_minute_bytes_sent', 'last_minute_flows_sent', 'last_second_packets_sent', 'last_second_bytes_sent', 'last_second_flows_sent'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NetFlow()

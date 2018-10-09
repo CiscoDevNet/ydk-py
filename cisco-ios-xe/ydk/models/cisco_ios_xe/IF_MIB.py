@@ -15,6 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class IFMIB(Entity):
     """
     
@@ -83,6 +84,7 @@ class IFMIB(Entity):
         self.ifrcvaddresstable.parent = self
         self._children_name_map["ifrcvaddresstable"] = "ifRcvAddressTable"
         self._segment_path = lambda: "IF-MIB:IF-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(IFMIB, [], name, value)
@@ -116,11 +118,12 @@ class IFMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('ifnumber', YLeaf(YType.int32, 'ifNumber')),
+                ('ifnumber', (YLeaf(YType.int32, 'ifNumber'), ['int'])),
             ])
             self.ifnumber = None
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "IF-MIB:IF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IFMIB.Interfaces, [u'ifnumber'], name, value)
@@ -161,13 +164,14 @@ class IFMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('iftablelastchange', YLeaf(YType.uint32, 'ifTableLastChange')),
-                ('ifstacklastchange', YLeaf(YType.uint32, 'ifStackLastChange')),
+                ('iftablelastchange', (YLeaf(YType.uint32, 'ifTableLastChange'), ['int'])),
+                ('ifstacklastchange', (YLeaf(YType.uint32, 'ifStackLastChange'), ['int'])),
             ])
             self.iftablelastchange = None
             self.ifstacklastchange = None
             self._segment_path = lambda: "ifMIBObjects"
             self._absolute_path = lambda: "IF-MIB:IF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IFMIB.IfMIBObjects, [u'iftablelastchange', u'ifstacklastchange'], name, value)
@@ -204,6 +208,7 @@ class IFMIB(Entity):
             self.ifentry = YList(self)
             self._segment_path = lambda: "ifTable"
             self._absolute_path = lambda: "IF-MIB:IF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IFMIB.IfTable, [], name, value)
@@ -560,53 +565,53 @@ class IFMIB(Entity):
                 self.ylist_key_names = ['ifindex']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.int32, 'ifIndex')),
-                    ('ifdescr', YLeaf(YType.str, 'ifDescr')),
-                    ('iftype', YLeaf(YType.enumeration, 'ifType')),
-                    ('ifmtu', YLeaf(YType.int32, 'ifMtu')),
-                    ('ifspeed', YLeaf(YType.uint32, 'ifSpeed')),
-                    ('ifphysaddress', YLeaf(YType.str, 'ifPhysAddress')),
-                    ('ifadminstatus', YLeaf(YType.enumeration, 'ifAdminStatus')),
-                    ('ifoperstatus', YLeaf(YType.enumeration, 'ifOperStatus')),
-                    ('iflastchange', YLeaf(YType.uint32, 'ifLastChange')),
-                    ('ifinoctets', YLeaf(YType.uint32, 'ifInOctets')),
-                    ('ifinucastpkts', YLeaf(YType.uint32, 'ifInUcastPkts')),
-                    ('ifinnucastpkts', YLeaf(YType.uint32, 'ifInNUcastPkts')),
-                    ('ifindiscards', YLeaf(YType.uint32, 'ifInDiscards')),
-                    ('ifinerrors', YLeaf(YType.uint32, 'ifInErrors')),
-                    ('ifinunknownprotos', YLeaf(YType.uint32, 'ifInUnknownProtos')),
-                    ('ifoutoctets', YLeaf(YType.uint32, 'ifOutOctets')),
-                    ('ifoutucastpkts', YLeaf(YType.uint32, 'ifOutUcastPkts')),
-                    ('ifoutnucastpkts', YLeaf(YType.uint32, 'ifOutNUcastPkts')),
-                    ('ifoutdiscards', YLeaf(YType.uint32, 'ifOutDiscards')),
-                    ('ifouterrors', YLeaf(YType.uint32, 'ifOutErrors')),
-                    ('ifoutqlen', YLeaf(YType.uint32, 'ifOutQLen')),
-                    ('ifspecific', YLeaf(YType.str, 'ifSpecific')),
-                    ('ifname', YLeaf(YType.str, 'ifName')),
-                    ('ifinmulticastpkts', YLeaf(YType.uint32, 'ifInMulticastPkts')),
-                    ('ifinbroadcastpkts', YLeaf(YType.uint32, 'ifInBroadcastPkts')),
-                    ('ifoutmulticastpkts', YLeaf(YType.uint32, 'ifOutMulticastPkts')),
-                    ('ifoutbroadcastpkts', YLeaf(YType.uint32, 'ifOutBroadcastPkts')),
-                    ('ifhcinoctets', YLeaf(YType.uint64, 'ifHCInOctets')),
-                    ('ifhcinucastpkts', YLeaf(YType.uint64, 'ifHCInUcastPkts')),
-                    ('ifhcinmulticastpkts', YLeaf(YType.uint64, 'ifHCInMulticastPkts')),
-                    ('ifhcinbroadcastpkts', YLeaf(YType.uint64, 'ifHCInBroadcastPkts')),
-                    ('ifhcoutoctets', YLeaf(YType.uint64, 'ifHCOutOctets')),
-                    ('ifhcoutucastpkts', YLeaf(YType.uint64, 'ifHCOutUcastPkts')),
-                    ('ifhcoutmulticastpkts', YLeaf(YType.uint64, 'ifHCOutMulticastPkts')),
-                    ('ifhcoutbroadcastpkts', YLeaf(YType.uint64, 'ifHCOutBroadcastPkts')),
-                    ('iflinkupdowntrapenable', YLeaf(YType.enumeration, 'ifLinkUpDownTrapEnable')),
-                    ('ifhighspeed', YLeaf(YType.uint32, 'ifHighSpeed')),
-                    ('ifpromiscuousmode', YLeaf(YType.boolean, 'ifPromiscuousMode')),
-                    ('ifconnectorpresent', YLeaf(YType.boolean, 'ifConnectorPresent')),
-                    ('ifalias', YLeaf(YType.str, 'ifAlias')),
-                    ('ifcounterdiscontinuitytime', YLeaf(YType.uint32, 'ifCounterDiscontinuityTime')),
-                    ('iftestid', YLeaf(YType.int32, 'ifTestId')),
-                    ('ifteststatus', YLeaf(YType.enumeration, 'ifTestStatus')),
-                    ('iftesttype', YLeaf(YType.str, 'ifTestType')),
-                    ('iftestresult', YLeaf(YType.enumeration, 'ifTestResult')),
-                    ('iftestcode', YLeaf(YType.str, 'ifTestCode')),
-                    ('iftestowner', YLeaf(YType.str, 'ifTestOwner')),
+                    ('ifindex', (YLeaf(YType.int32, 'ifIndex'), ['int'])),
+                    ('ifdescr', (YLeaf(YType.str, 'ifDescr'), ['str'])),
+                    ('iftype', (YLeaf(YType.enumeration, 'ifType'), [('ydk.models.cisco_ios_xe.IANAifType_MIB', 'IANAifType', '')])),
+                    ('ifmtu', (YLeaf(YType.int32, 'ifMtu'), ['int'])),
+                    ('ifspeed', (YLeaf(YType.uint32, 'ifSpeed'), ['int'])),
+                    ('ifphysaddress', (YLeaf(YType.str, 'ifPhysAddress'), ['str'])),
+                    ('ifadminstatus', (YLeaf(YType.enumeration, 'ifAdminStatus'), [('ydk.models.cisco_ios_xe.IF_MIB', 'IFMIB', 'IfTable.IfEntry.IfAdminStatus')])),
+                    ('ifoperstatus', (YLeaf(YType.enumeration, 'ifOperStatus'), [('ydk.models.cisco_ios_xe.IF_MIB', 'IFMIB', 'IfTable.IfEntry.IfOperStatus')])),
+                    ('iflastchange', (YLeaf(YType.uint32, 'ifLastChange'), ['int'])),
+                    ('ifinoctets', (YLeaf(YType.uint32, 'ifInOctets'), ['int'])),
+                    ('ifinucastpkts', (YLeaf(YType.uint32, 'ifInUcastPkts'), ['int'])),
+                    ('ifinnucastpkts', (YLeaf(YType.uint32, 'ifInNUcastPkts'), ['int'])),
+                    ('ifindiscards', (YLeaf(YType.uint32, 'ifInDiscards'), ['int'])),
+                    ('ifinerrors', (YLeaf(YType.uint32, 'ifInErrors'), ['int'])),
+                    ('ifinunknownprotos', (YLeaf(YType.uint32, 'ifInUnknownProtos'), ['int'])),
+                    ('ifoutoctets', (YLeaf(YType.uint32, 'ifOutOctets'), ['int'])),
+                    ('ifoutucastpkts', (YLeaf(YType.uint32, 'ifOutUcastPkts'), ['int'])),
+                    ('ifoutnucastpkts', (YLeaf(YType.uint32, 'ifOutNUcastPkts'), ['int'])),
+                    ('ifoutdiscards', (YLeaf(YType.uint32, 'ifOutDiscards'), ['int'])),
+                    ('ifouterrors', (YLeaf(YType.uint32, 'ifOutErrors'), ['int'])),
+                    ('ifoutqlen', (YLeaf(YType.uint32, 'ifOutQLen'), ['int'])),
+                    ('ifspecific', (YLeaf(YType.str, 'ifSpecific'), ['str'])),
+                    ('ifname', (YLeaf(YType.str, 'ifName'), ['str'])),
+                    ('ifinmulticastpkts', (YLeaf(YType.uint32, 'ifInMulticastPkts'), ['int'])),
+                    ('ifinbroadcastpkts', (YLeaf(YType.uint32, 'ifInBroadcastPkts'), ['int'])),
+                    ('ifoutmulticastpkts', (YLeaf(YType.uint32, 'ifOutMulticastPkts'), ['int'])),
+                    ('ifoutbroadcastpkts', (YLeaf(YType.uint32, 'ifOutBroadcastPkts'), ['int'])),
+                    ('ifhcinoctets', (YLeaf(YType.uint64, 'ifHCInOctets'), ['int'])),
+                    ('ifhcinucastpkts', (YLeaf(YType.uint64, 'ifHCInUcastPkts'), ['int'])),
+                    ('ifhcinmulticastpkts', (YLeaf(YType.uint64, 'ifHCInMulticastPkts'), ['int'])),
+                    ('ifhcinbroadcastpkts', (YLeaf(YType.uint64, 'ifHCInBroadcastPkts'), ['int'])),
+                    ('ifhcoutoctets', (YLeaf(YType.uint64, 'ifHCOutOctets'), ['int'])),
+                    ('ifhcoutucastpkts', (YLeaf(YType.uint64, 'ifHCOutUcastPkts'), ['int'])),
+                    ('ifhcoutmulticastpkts', (YLeaf(YType.uint64, 'ifHCOutMulticastPkts'), ['int'])),
+                    ('ifhcoutbroadcastpkts', (YLeaf(YType.uint64, 'ifHCOutBroadcastPkts'), ['int'])),
+                    ('iflinkupdowntrapenable', (YLeaf(YType.enumeration, 'ifLinkUpDownTrapEnable'), [('ydk.models.cisco_ios_xe.IF_MIB', 'IFMIB', 'IfTable.IfEntry.IfLinkUpDownTrapEnable')])),
+                    ('ifhighspeed', (YLeaf(YType.uint32, 'ifHighSpeed'), ['int'])),
+                    ('ifpromiscuousmode', (YLeaf(YType.boolean, 'ifPromiscuousMode'), ['bool'])),
+                    ('ifconnectorpresent', (YLeaf(YType.boolean, 'ifConnectorPresent'), ['bool'])),
+                    ('ifalias', (YLeaf(YType.str, 'ifAlias'), ['str'])),
+                    ('ifcounterdiscontinuitytime', (YLeaf(YType.uint32, 'ifCounterDiscontinuityTime'), ['int'])),
+                    ('iftestid', (YLeaf(YType.int32, 'ifTestId'), ['int'])),
+                    ('ifteststatus', (YLeaf(YType.enumeration, 'ifTestStatus'), [('ydk.models.cisco_ios_xe.IF_MIB', 'IFMIB', 'IfTable.IfEntry.IfTestStatus')])),
+                    ('iftesttype', (YLeaf(YType.str, 'ifTestType'), ['str'])),
+                    ('iftestresult', (YLeaf(YType.enumeration, 'ifTestResult'), [('ydk.models.cisco_ios_xe.IF_MIB', 'IFMIB', 'IfTable.IfEntry.IfTestResult')])),
+                    ('iftestcode', (YLeaf(YType.str, 'ifTestCode'), ['str'])),
+                    ('iftestowner', (YLeaf(YType.str, 'ifTestOwner'), ['str'])),
                 ])
                 self.ifindex = None
                 self.ifdescr = None
@@ -657,6 +662,7 @@ class IFMIB(Entity):
                 self.iftestowner = None
                 self._segment_path = lambda: "ifEntry" + "[ifIndex='" + str(self.ifindex) + "']"
                 self._absolute_path = lambda: "IF-MIB:IF-MIB/ifTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IFMIB.IfTable.IfEntry, [u'ifindex', u'ifdescr', u'iftype', u'ifmtu', u'ifspeed', u'ifphysaddress', u'ifadminstatus', u'ifoperstatus', u'iflastchange', u'ifinoctets', u'ifinucastpkts', u'ifinnucastpkts', u'ifindiscards', u'ifinerrors', u'ifinunknownprotos', u'ifoutoctets', u'ifoutucastpkts', u'ifoutnucastpkts', u'ifoutdiscards', u'ifouterrors', u'ifoutqlen', u'ifspecific', u'ifname', u'ifinmulticastpkts', u'ifinbroadcastpkts', u'ifoutmulticastpkts', u'ifoutbroadcastpkts', u'ifhcinoctets', u'ifhcinucastpkts', u'ifhcinmulticastpkts', u'ifhcinbroadcastpkts', u'ifhcoutoctets', u'ifhcoutucastpkts', u'ifhcoutmulticastpkts', u'ifhcoutbroadcastpkts', u'iflinkupdowntrapenable', u'ifhighspeed', u'ifpromiscuousmode', u'ifconnectorpresent', u'ifalias', u'ifcounterdiscontinuitytime', u'iftestid', u'ifteststatus', u'iftesttype', u'iftestresult', u'iftestcode', u'iftestowner'], name, value)
@@ -912,6 +918,7 @@ class IFMIB(Entity):
             self.ifstackentry = YList(self)
             self._segment_path = lambda: "ifStackTable"
             self._absolute_path = lambda: "IF-MIB:IF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IFMIB.IfStackTable, [], name, value)
@@ -960,15 +967,16 @@ class IFMIB(Entity):
                 self.ylist_key_names = ['ifstackhigherlayer','ifstacklowerlayer']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifstackhigherlayer', YLeaf(YType.int32, 'ifStackHigherLayer')),
-                    ('ifstacklowerlayer', YLeaf(YType.int32, 'ifStackLowerLayer')),
-                    ('ifstackstatus', YLeaf(YType.enumeration, 'ifStackStatus')),
+                    ('ifstackhigherlayer', (YLeaf(YType.int32, 'ifStackHigherLayer'), ['int'])),
+                    ('ifstacklowerlayer', (YLeaf(YType.int32, 'ifStackLowerLayer'), ['int'])),
+                    ('ifstackstatus', (YLeaf(YType.enumeration, 'ifStackStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ifstackhigherlayer = None
                 self.ifstacklowerlayer = None
                 self.ifstackstatus = None
                 self._segment_path = lambda: "ifStackEntry" + "[ifStackHigherLayer='" + str(self.ifstackhigherlayer) + "']" + "[ifStackLowerLayer='" + str(self.ifstacklowerlayer) + "']"
                 self._absolute_path = lambda: "IF-MIB:IF-MIB/ifStackTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IFMIB.IfStackTable.IfStackEntry, [u'ifstackhigherlayer', u'ifstacklowerlayer', u'ifstackstatus'], name, value)
@@ -1019,6 +1027,7 @@ class IFMIB(Entity):
             self.ifrcvaddressentry = YList(self)
             self._segment_path = lambda: "ifRcvAddressTable"
             self._absolute_path = lambda: "IF-MIB:IF-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IFMIB.IfRcvAddressTable, [], name, value)
@@ -1073,10 +1082,10 @@ class IFMIB(Entity):
                 self.ylist_key_names = ['ifindex','ifrcvaddressaddress']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('ifrcvaddressaddress', YLeaf(YType.str, 'ifRcvAddressAddress')),
-                    ('ifrcvaddressstatus', YLeaf(YType.enumeration, 'ifRcvAddressStatus')),
-                    ('ifrcvaddresstype', YLeaf(YType.enumeration, 'ifRcvAddressType')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('ifrcvaddressaddress', (YLeaf(YType.str, 'ifRcvAddressAddress'), ['str'])),
+                    ('ifrcvaddressstatus', (YLeaf(YType.enumeration, 'ifRcvAddressStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
+                    ('ifrcvaddresstype', (YLeaf(YType.enumeration, 'ifRcvAddressType'), [('ydk.models.cisco_ios_xe.IF_MIB', 'IFMIB', 'IfRcvAddressTable.IfRcvAddressEntry.IfRcvAddressType')])),
                 ])
                 self.ifindex = None
                 self.ifrcvaddressaddress = None
@@ -1084,6 +1093,7 @@ class IFMIB(Entity):
                 self.ifrcvaddresstype = None
                 self._segment_path = lambda: "ifRcvAddressEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[ifRcvAddressAddress='" + str(self.ifrcvaddressaddress) + "']"
                 self._absolute_path = lambda: "IF-MIB:IF-MIB/ifRcvAddressTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(IFMIB.IfRcvAddressTable.IfRcvAddressEntry, [u'ifindex', u'ifrcvaddressaddress', u'ifrcvaddressstatus', u'ifrcvaddresstype'], name, value)

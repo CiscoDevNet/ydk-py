@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   accounting\: Global Accounting configuration commands
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,7 +53,7 @@ class Accounting(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("interfaces", ("interfaces", Accounting.Interfaces))])
         self._leafs = OrderedDict([
-            ('enable', YLeaf(YType.empty, 'enable')),
+            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
         ])
         self.enable = None
 
@@ -60,6 +61,7 @@ class Accounting(Entity):
         self.interfaces.parent = self
         self._children_name_map["interfaces"] = "interfaces"
         self._segment_path = lambda: "Cisco-IOS-XR-accounting-cfg:accounting"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Accounting, ['enable'], name, value)
@@ -101,7 +103,7 @@ class Accounting(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("mpls", ("mpls", Accounting.Interfaces.Mpls)), ("segment-routing", ("segment_routing", Accounting.Interfaces.SegmentRouting))])
             self._leafs = OrderedDict([
-                ('enable', YLeaf(YType.empty, 'enable')),
+                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
             ])
             self.enable = None
 
@@ -114,6 +116,7 @@ class Accounting(Entity):
             self._children_name_map["segment_routing"] = "segment-routing"
             self._segment_path = lambda: "interfaces"
             self._absolute_path = lambda: "Cisco-IOS-XR-accounting-cfg:accounting/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Accounting.Interfaces, ['enable'], name, value)
@@ -150,13 +153,14 @@ class Accounting(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('enable', YLeaf(YType.empty, 'enable')),
-                    ('enable_v4rsvpte', YLeaf(YType.empty, 'enable-v4rsvpte')),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                    ('enable_v4rsvpte', (YLeaf(YType.empty, 'enable-v4rsvpte'), ['Empty'])),
                 ])
                 self.enable = None
                 self.enable_v4rsvpte = None
                 self._segment_path = lambda: "mpls"
                 self._absolute_path = lambda: "Cisco-IOS-XR-accounting-cfg:accounting/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Accounting.Interfaces.Mpls, ['enable', 'enable_v4rsvpte'], name, value)
@@ -198,15 +202,16 @@ class Accounting(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('enable', YLeaf(YType.empty, 'enable')),
-                    ('enable_mplsv4', YLeaf(YType.empty, 'enable-mplsv4')),
-                    ('enable_mplsv6', YLeaf(YType.empty, 'enable-mplsv6')),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                    ('enable_mplsv4', (YLeaf(YType.empty, 'enable-mplsv4'), ['Empty'])),
+                    ('enable_mplsv6', (YLeaf(YType.empty, 'enable-mplsv6'), ['Empty'])),
                 ])
                 self.enable = None
                 self.enable_mplsv4 = None
                 self.enable_mplsv6 = None
                 self._segment_path = lambda: "segment-routing"
                 self._absolute_path = lambda: "Cisco-IOS-XR-accounting-cfg:accounting/interfaces/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Accounting.Interfaces.SegmentRouting, ['enable', 'enable_mplsv4', 'enable_mplsv6'], name, value)

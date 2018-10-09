@@ -33,6 +33,11 @@ module Cisco-IOS-XE-eem {
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2017-12-20 {
+    description
+      "fix applet resource configuration";
+  }
+ 
   revision 2017-11-20 {
     description
       "fix event oir event removal";
@@ -92,7 +97,7 @@ module Cisco-IOS-XE-eem {
     }
   }
 
-  grouping eem-maxrun-incomplete-group {
+  grouping eem-set-maxrun-group {
     leaf maxrun {
       description
         "Maximum runtime of applet";
@@ -112,7 +117,7 @@ module Cisco-IOS-XE-eem {
     }
   }
 
-  grouping eem-ratelimit-incomplete-group {
+  grouping eem-set-ratelimit-group {
     leaf ratelimit {
       description
         "seconds[.milliseconds] value";
@@ -354,8 +359,8 @@ module Cisco-IOS-XE-eem {
                 "Resource policy name string";
               type string;
             } 
-            uses eem-maxrun-incomplete-group;
-            uses eem-ratelimit-incomplete-group;
+            uses eem-set-maxrun-group;
+            uses eem-set-ratelimit-group;
           }
           container rpc {
             description

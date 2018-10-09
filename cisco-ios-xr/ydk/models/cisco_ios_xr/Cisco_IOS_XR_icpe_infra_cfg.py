@@ -13,7 +13,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-rgmgr\-cfg,
 modules with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -23,6 +23,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -58,6 +59,7 @@ class NvSatelliteGlobal(Entity):
         self.chassis_mac.parent = self
         self._children_name_map["chassis_mac"] = "chassis-mac"
         self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-global"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(NvSatelliteGlobal, [], name, value)
@@ -111,18 +113,19 @@ class NvSatelliteGlobal(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('mac1', YLeaf(YType.uint32, 'mac1')),
-                ('mac2', YLeaf(YType.uint32, 'mac2')),
-                ('mac3', YLeaf(YType.uint32, 'mac3')),
+                ('mac1', (YLeaf(YType.uint32, 'mac1'), ['int'])),
+                ('mac2', (YLeaf(YType.uint32, 'mac2'), ['int'])),
+                ('mac3', (YLeaf(YType.uint32, 'mac3'), ['int'])),
             ])
             self.mac1 = None
             self.mac2 = None
             self.mac3 = None
             self._segment_path = lambda: "chassis-mac"
             self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellite-global/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NvSatelliteGlobal.ChassisMac, ['mac1', 'mac2', 'mac3'], name, value)
+            self._perform_setattr(NvSatelliteGlobal.ChassisMac, [u'mac1', u'mac2', u'mac3'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NvSatelliteGlobal()
@@ -158,6 +161,7 @@ class NvSatellites(Entity):
 
         self.nv_satellite = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(NvSatellites, [], name, value)
@@ -288,18 +292,18 @@ class NvSatellites(Entity):
             self.ylist_key_names = ['satellite_id']
             self._child_classes = OrderedDict([("upgrade-on-connect", ("upgrade_on_connect", NvSatellites.NvSatellite.UpgradeOnConnect)), ("candidate-fabric-ports", ("candidate_fabric_ports", NvSatellites.NvSatellite.CandidateFabricPorts)), ("connection-info", ("connection_info", NvSatellites.NvSatellite.ConnectionInfo)), ("redundancy", ("redundancy", NvSatellites.NvSatellite.Redundancy))])
             self._leafs = OrderedDict([
-                ('satellite_id', YLeaf(YType.uint32, 'satellite-id')),
-                ('vrf', YLeaf(YType.str, 'vrf')),
-                ('timeout_warning', YLeaf(YType.uint32, 'timeout-warning')),
-                ('device_name', YLeaf(YType.str, 'device-name')),
-                ('description', YLeaf(YType.str, 'description')),
-                ('type', YLeaf(YType.str, 'type')),
-                ('enable', YLeaf(YType.empty, 'enable')),
-                ('disc_timeout', YLeaf(YType.uint32, 'disc-timeout')),
-                ('delayed_switchback', YLeaf(YType.uint32, 'delayed-switchback')),
-                ('serial_number', YLeaf(YType.str, 'serial-number')),
-                ('secret', YLeaf(YType.str, 'secret')),
-                ('ip_address', YLeaf(YType.str, 'ip-address')),
+                ('satellite_id', (YLeaf(YType.uint32, 'satellite-id'), ['int'])),
+                ('vrf', (YLeaf(YType.str, 'vrf'), ['str'])),
+                ('timeout_warning', (YLeaf(YType.uint32, 'timeout-warning'), ['int'])),
+                ('device_name', (YLeaf(YType.str, 'device-name'), ['str'])),
+                ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                ('type', (YLeaf(YType.str, 'type'), ['str'])),
+                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                ('disc_timeout', (YLeaf(YType.uint32, 'disc-timeout'), ['int'])),
+                ('delayed_switchback', (YLeaf(YType.uint32, 'delayed-switchback'), ['int'])),
+                ('serial_number', (YLeaf(YType.str, 'serial-number'), ['str'])),
+                ('secret', (YLeaf(YType.str, 'secret'), ['str'])),
+                ('ip_address', (YLeaf(YType.str, 'ip-address'), ['str','str'])),
             ])
             self.satellite_id = None
             self.vrf = None
@@ -331,9 +335,10 @@ class NvSatellites(Entity):
             self._children_name_map["redundancy"] = "redundancy"
             self._segment_path = lambda: "nv-satellite" + "[satellite-id='" + str(self.satellite_id) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-icpe-infra-cfg:nv-satellites/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
-            self._perform_setattr(NvSatellites.NvSatellite, ['satellite_id', 'vrf', 'timeout_warning', 'device_name', 'description', 'type', 'enable', 'disc_timeout', 'delayed_switchback', 'serial_number', 'secret', 'ip_address'], name, value)
+            self._perform_setattr(NvSatellites.NvSatellite, [u'satellite_id', u'vrf', u'timeout_warning', u'device_name', u'description', u'type', u'enable', u'disc_timeout', u'delayed_switchback', u'serial_number', u'secret', u'ip_address'], name, value)
 
 
         class UpgradeOnConnect(Entity):
@@ -348,6 +353,11 @@ class NvSatellites(Entity):
             .. attribute:: reference
             
             	Reference name
+            	**type**\: str
+            
+            .. attribute:: image_reference
+            
+            	Image Reference name
             	**type**\: str
             
             
@@ -367,15 +377,18 @@ class NvSatellites(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('connect_type', YLeaf(YType.enumeration, 'connect-type')),
-                    ('reference', YLeaf(YType.str, 'reference')),
+                    ('connect_type', (YLeaf(YType.enumeration, 'connect-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_icpe_infra_cfg', 'NvSatellites', 'NvSatellite.UpgradeOnConnect.ConnectType')])),
+                    ('reference', (YLeaf(YType.str, 'reference'), ['str'])),
+                    ('image_reference', (YLeaf(YType.str, 'image-reference'), ['str'])),
                 ])
                 self.connect_type = None
                 self.reference = None
+                self.image_reference = None
                 self._segment_path = lambda: "upgrade-on-connect"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellites.NvSatellite.UpgradeOnConnect, ['connect_type', 'reference'], name, value)
+                self._perform_setattr(NvSatellites.NvSatellite.UpgradeOnConnect, [u'connect_type', u'reference', u'image_reference'], name, value)
 
             class ConnectType(Enum):
                 """
@@ -431,6 +444,7 @@ class NvSatellites(Entity):
 
                 self.candidate_fabric_port = YList(self)
                 self._segment_path = lambda: "candidate-fabric-ports"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NvSatellites.NvSatellite.CandidateFabricPorts, [], name, value)
@@ -486,19 +500,20 @@ class NvSatellites(Entity):
                     self.ylist_key_names = ['port_type','slot','sub_slot']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('port_type', YLeaf(YType.str, 'port-type')),
-                        ('slot', YLeaf(YType.uint32, 'slot')),
-                        ('sub_slot', YLeaf(YType.uint32, 'sub-slot')),
-                        ('port_range', YLeaf(YType.str, 'port-range')),
+                        ('port_type', (YLeaf(YType.str, 'port-type'), ['str'])),
+                        ('slot', (YLeaf(YType.uint32, 'slot'), ['int'])),
+                        ('sub_slot', (YLeaf(YType.uint32, 'sub-slot'), ['int'])),
+                        ('port_range', (YLeaf(YType.str, 'port-range'), ['str'])),
                     ])
                     self.port_type = None
                     self.slot = None
                     self.sub_slot = None
                     self.port_range = None
                     self._segment_path = lambda: "candidate-fabric-port" + "[port-type='" + str(self.port_type) + "']" + "[slot='" + str(self.slot) + "']" + "[sub-slot='" + str(self.sub_slot) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, ['port_type', 'slot', 'sub_slot', 'port_range'], name, value)
+                    self._perform_setattr(NvSatellites.NvSatellite.CandidateFabricPorts.CandidateFabricPort, [u'port_type', u'slot', u'sub_slot', u'port_range'], name, value)
 
 
         class ConnectionInfo(Entity):
@@ -534,15 +549,16 @@ class NvSatellites(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('username', YLeaf(YType.str, 'username')),
-                    ('password', YLeaf(YType.str, 'password')),
+                    ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                    ('password', (YLeaf(YType.str, 'password'), ['str'])),
                 ])
                 self.username = None
                 self.password = None
                 self._segment_path = lambda: "connection-info"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellites.NvSatellite.ConnectionInfo, ['username', 'password'], name, value)
+                self._perform_setattr(NvSatellites.NvSatellite.ConnectionInfo, [u'username', u'password'], name, value)
 
 
         class Redundancy(Entity):
@@ -573,13 +589,14 @@ class NvSatellites(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('host_priority', YLeaf(YType.uint32, 'host-priority')),
+                    ('host_priority', (YLeaf(YType.uint32, 'host-priority'), ['int'])),
                 ])
                 self.host_priority = None
                 self._segment_path = lambda: "redundancy"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(NvSatellites.NvSatellite.Redundancy, ['host_priority'], name, value)
+                self._perform_setattr(NvSatellites.NvSatellite.Redundancy, [u'host_priority'], name, value)
 
     def clone_ptr(self):
         self._top_entity = NvSatellites()

@@ -12,6 +12,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class NetconfYang(Entity):
     """
     Top level container shared by cisco\-ia and cisco\-odm models
@@ -44,6 +45,7 @@ class NetconfYang(Entity):
         self.cisco_ia.parent = self
         self._children_name_map["cisco_ia"] = "cisco-ia:cisco-ia"
         self._segment_path = lambda: "cisco-self-mgmt:netconf-yang"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(NetconfYang, [], name, value)
@@ -188,7 +190,7 @@ class NetconfYang(Entity):
         """
 
         _prefix = 'cisco-ia'
-        _revision = '2018-01-22'
+        _revision = '2018-03-28'
 
         def __init__(self):
             super(NetconfYang.CiscoIa, self).__init__()
@@ -200,18 +202,18 @@ class NetconfYang(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("snmp-trap-control", ("snmp_trap_control", NetconfYang.CiscoIa.SnmpTrapControl)), ("preserve-ned-path", ("preserve_ned_path", NetconfYang.CiscoIa.PreserveNedPath)), ("parser-msg-ignore", ("parser_msg_ignore", NetconfYang.CiscoIa.ParserMsgIgnore)), ("conf-parser-msg-ignore", ("conf_parser_msg_ignore", NetconfYang.CiscoIa.ConfParserMsgIgnore)), ("full-sync-cli", ("full_sync_cli", NetconfYang.CiscoIa.FullSyncCli)), ("conf-full-sync-cli", ("conf_full_sync_cli", NetconfYang.CiscoIa.ConfFullSyncCli)), ("logging", ("logging", NetconfYang.CiscoIa.Logging)), ("blocking", ("blocking", NetconfYang.CiscoIa.Blocking))])
             self._leafs = OrderedDict([
-                ('auto_sync', YLeaf(YType.enumeration, 'auto-sync')),
-                ('init_sync', YLeaf(YType.enumeration, 'init-sync')),
-                ('intelligent_sync', YLeaf(YType.boolean, 'intelligent-sync')),
-                ('message_diag_level', YLeaf(YType.int16, 'message-diag-level')),
-                ('max_diag_messages_saved', YLeaf(YType.int16, 'max-diag-messages-saved')),
-                ('post_sync_acl_process', YLeaf(YType.boolean, 'post-sync-acl-process')),
-                ('config_change_delay', YLeaf(YType.int16, 'config-change-delay')),
-                ('process_missing_prc', YLeaf(YType.boolean, 'process-missing-prc')),
-                ('snmp_community_string', YLeaf(YType.str, 'snmp-community-string')),
-                ('preserve_paths_enabled', YLeaf(YType.boolean, 'preserve-paths-enabled')),
-                ('nes_ttynum', YLeaf(YType.int16, 'nes-ttynum')),
-                ('restored', YLeaf(YType.boolean, 'restored')),
+                ('auto_sync', (YLeaf(YType.enumeration, 'auto-sync'), [('ydk.models.cisco_ios_xe.cisco_ia', 'CiaSyncType', '')])),
+                ('init_sync', (YLeaf(YType.enumeration, 'init-sync'), [('ydk.models.cisco_ios_xe.cisco_ia', 'CiaSyncType', '')])),
+                ('intelligent_sync', (YLeaf(YType.boolean, 'intelligent-sync'), ['bool'])),
+                ('message_diag_level', (YLeaf(YType.int16, 'message-diag-level'), ['int'])),
+                ('max_diag_messages_saved', (YLeaf(YType.int16, 'max-diag-messages-saved'), ['int'])),
+                ('post_sync_acl_process', (YLeaf(YType.boolean, 'post-sync-acl-process'), ['bool'])),
+                ('config_change_delay', (YLeaf(YType.int16, 'config-change-delay'), ['int'])),
+                ('process_missing_prc', (YLeaf(YType.boolean, 'process-missing-prc'), ['bool'])),
+                ('snmp_community_string', (YLeaf(YType.str, 'snmp-community-string'), ['str'])),
+                ('preserve_paths_enabled', (YLeaf(YType.boolean, 'preserve-paths-enabled'), ['bool'])),
+                ('nes_ttynum', (YLeaf(YType.int16, 'nes-ttynum'), ['int'])),
+                ('restored', (YLeaf(YType.boolean, 'restored'), ['bool'])),
             ])
             self.auto_sync = None
             self.init_sync = None
@@ -245,6 +247,7 @@ class NetconfYang(Entity):
             self.conf_full_sync_cli = YList(self)
             self._segment_path = lambda: "cisco-ia:cisco-ia"
             self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(NetconfYang.CiscoIa, ['auto_sync', 'init_sync', 'intelligent_sync', 'message_diag_level', 'max_diag_messages_saved', 'post_sync_acl_process', 'config_change_delay', 'process_missing_prc', 'snmp_community_string', 'preserve_paths_enabled', 'nes_ttynum', 'restored'], name, value)
@@ -272,7 +275,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-01-22'
+            _revision = '2018-03-28'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.SnmpTrapControl, self).__init__()
@@ -284,13 +287,14 @@ class NetconfYang(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("trap-list", ("trap_list", NetconfYang.CiscoIa.SnmpTrapControl.TrapList))])
                 self._leafs = OrderedDict([
-                    ('global_forwarding', YLeaf(YType.boolean, 'global-forwarding')),
+                    ('global_forwarding', (YLeaf(YType.boolean, 'global-forwarding'), ['bool'])),
                 ])
                 self.global_forwarding = None
 
                 self.trap_list = YList(self)
                 self._segment_path = lambda: "snmp-trap-control"
                 self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.CiscoIa.SnmpTrapControl, ['global_forwarding'], name, value)
@@ -326,7 +330,7 @@ class NetconfYang(Entity):
                 """
 
                 _prefix = 'cisco-ia'
-                _revision = '2018-01-22'
+                _revision = '2018-03-28'
 
                 def __init__(self):
                     super(NetconfYang.CiscoIa.SnmpTrapControl.TrapList, self).__init__()
@@ -338,15 +342,16 @@ class NetconfYang(Entity):
                     self.ylist_key_names = ['trap_oid']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('trap_oid', YLeaf(YType.str, 'trap-oid')),
-                        ('description', YLeaf(YType.str, 'description')),
-                        ('forward', YLeaf(YType.boolean, 'forward')),
+                        ('trap_oid', (YLeaf(YType.str, 'trap-oid'), ['str'])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                        ('forward', (YLeaf(YType.boolean, 'forward'), ['bool'])),
                     ])
                     self.trap_oid = None
                     self.description = None
                     self.forward = None
                     self._segment_path = lambda: "trap-list" + "[trap-oid='" + str(self.trap_oid) + "']"
                     self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/snmp-trap-control/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetconfYang.CiscoIa.SnmpTrapControl.TrapList, ['trap_oid', 'description', 'forward'], name, value)
@@ -373,7 +378,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-01-22'
+            _revision = '2018-03-28'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.PreserveNedPath, self).__init__()
@@ -385,11 +390,12 @@ class NetconfYang(Entity):
                 self.ylist_key_names = ['xpath']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('xpath', YLeaf(YType.str, 'xpath')),
+                    ('xpath', (YLeaf(YType.str, 'xpath'), ['str'])),
                 ])
                 self.xpath = None
                 self._segment_path = lambda: "preserve-ned-path" + "[xpath='" + str(self.xpath) + "']"
                 self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.CiscoIa.PreserveNedPath, ['xpath'], name, value)
@@ -415,7 +421,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-01-22'
+            _revision = '2018-03-28'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.ParserMsgIgnore, self).__init__()
@@ -427,11 +433,12 @@ class NetconfYang(Entity):
                 self.ylist_key_names = ['message']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('message', YLeaf(YType.str, 'message')),
+                    ('message', (YLeaf(YType.str, 'message'), ['str'])),
                 ])
                 self.message = None
                 self._segment_path = lambda: "parser-msg-ignore" + "[message='" + str(self.message) + "']"
                 self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.CiscoIa.ParserMsgIgnore, ['message'], name, value)
@@ -455,7 +462,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-01-22'
+            _revision = '2018-03-28'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.ConfParserMsgIgnore, self).__init__()
@@ -467,11 +474,12 @@ class NetconfYang(Entity):
                 self.ylist_key_names = ['message']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('message', YLeaf(YType.str, 'message')),
+                    ('message', (YLeaf(YType.str, 'message'), ['str'])),
                 ])
                 self.message = None
                 self._segment_path = lambda: "conf-parser-msg-ignore" + "[message='" + str(self.message) + "']"
                 self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.CiscoIa.ConfParserMsgIgnore, ['message'], name, value)
@@ -495,7 +503,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-01-22'
+            _revision = '2018-03-28'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.FullSyncCli, self).__init__()
@@ -507,11 +515,12 @@ class NetconfYang(Entity):
                 self.ylist_key_names = ['command']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('command', YLeaf(YType.str, 'command')),
+                    ('command', (YLeaf(YType.str, 'command'), ['str'])),
                 ])
                 self.command = None
                 self._segment_path = lambda: "full-sync-cli" + "[command='" + str(self.command) + "']"
                 self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.CiscoIa.FullSyncCli, ['command'], name, value)
@@ -536,7 +545,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-01-22'
+            _revision = '2018-03-28'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.ConfFullSyncCli, self).__init__()
@@ -548,11 +557,12 @@ class NetconfYang(Entity):
                 self.ylist_key_names = ['command']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('command', YLeaf(YType.str, 'command')),
+                    ('command', (YLeaf(YType.str, 'command'), ['str'])),
                 ])
                 self.command = None
                 self._segment_path = lambda: "conf-full-sync-cli" + "[command='" + str(self.command) + "']"
                 self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.CiscoIa.ConfFullSyncCli, ['command'], name, value)
@@ -611,7 +621,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-01-22'
+            _revision = '2018-03-28'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.Logging, self).__init__()
@@ -623,12 +633,12 @@ class NetconfYang(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('confd_log_level', YLeaf(YType.enumeration, 'confd-log-level')),
-                    ('ciaauthd_log_level', YLeaf(YType.enumeration, 'ciaauthd-log-level')),
-                    ('nes_log_level', YLeaf(YType.enumeration, 'nes-log-level')),
-                    ('onep_log_level', YLeaf(YType.enumeration, 'onep-log-level')),
-                    ('odm_log_level', YLeaf(YType.enumeration, 'odm-log-level')),
-                    ('sync_log_level', YLeaf(YType.enumeration, 'sync-log-level')),
+                    ('confd_log_level', (YLeaf(YType.enumeration, 'confd-log-level'), [('ydk.models.cisco_ios_xe.cisco_ia', 'SyslogSeverity', '')])),
+                    ('ciaauthd_log_level', (YLeaf(YType.enumeration, 'ciaauthd-log-level'), [('ydk.models.cisco_ios_xe.cisco_ia', 'CiaLogLevel', '')])),
+                    ('nes_log_level', (YLeaf(YType.enumeration, 'nes-log-level'), [('ydk.models.cisco_ios_xe.cisco_ia', 'CiaLogLevel', '')])),
+                    ('onep_log_level', (YLeaf(YType.enumeration, 'onep-log-level'), [('ydk.models.cisco_ios_xe.cisco_ia', 'OnepLogLevel', '')])),
+                    ('odm_log_level', (YLeaf(YType.enumeration, 'odm-log-level'), [('ydk.models.cisco_ios_xe.cisco_ia', 'CiaLogLevel', '')])),
+                    ('sync_log_level', (YLeaf(YType.enumeration, 'sync-log-level'), [('ydk.models.cisco_ios_xe.cisco_ia', 'CiaLogLevel', '')])),
                 ])
                 self.confd_log_level = None
                 self.ciaauthd_log_level = None
@@ -638,6 +648,7 @@ class NetconfYang(Entity):
                 self.sync_log_level = None
                 self._segment_path = lambda: "logging"
                 self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.CiscoIa.Logging, ['confd_log_level', 'ciaauthd_log_level', 'nes_log_level', 'onep_log_level', 'odm_log_level', 'sync_log_level'], name, value)
@@ -678,7 +689,7 @@ class NetconfYang(Entity):
             """
 
             _prefix = 'cisco-ia'
-            _revision = '2018-01-22'
+            _revision = '2018-03-28'
 
             def __init__(self):
                 super(NetconfYang.CiscoIa.Blocking, self).__init__()
@@ -690,8 +701,8 @@ class NetconfYang(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("network-element-command", ("network_element_command", NetconfYang.CiscoIa.Blocking.NetworkElementCommand)), ("confd-cfg-command", ("confd_cfg_command", NetconfYang.CiscoIa.Blocking.ConfdCfgCommand))])
                 self._leafs = OrderedDict([
-                    ('cli_blocking_enabled', YLeaf(YType.boolean, 'cli-blocking-enabled')),
-                    ('confd_cfg_blocking_enabled', YLeaf(YType.boolean, 'confd-cfg-blocking-enabled')),
+                    ('cli_blocking_enabled', (YLeaf(YType.boolean, 'cli-blocking-enabled'), ['bool'])),
+                    ('confd_cfg_blocking_enabled', (YLeaf(YType.boolean, 'confd-cfg-blocking-enabled'), ['bool'])),
                 ])
                 self.cli_blocking_enabled = None
                 self.confd_cfg_blocking_enabled = None
@@ -700,6 +711,7 @@ class NetconfYang(Entity):
                 self.confd_cfg_command = YList(self)
                 self._segment_path = lambda: "blocking"
                 self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(NetconfYang.CiscoIa.Blocking, ['cli_blocking_enabled', 'confd_cfg_blocking_enabled'], name, value)
@@ -722,7 +734,7 @@ class NetconfYang(Entity):
                 """
 
                 _prefix = 'cisco-ia'
-                _revision = '2018-01-22'
+                _revision = '2018-03-28'
 
                 def __init__(self):
                     super(NetconfYang.CiscoIa.Blocking.NetworkElementCommand, self).__init__()
@@ -734,11 +746,12 @@ class NetconfYang(Entity):
                     self.ylist_key_names = ['command']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('command', YLeaf(YType.str, 'command')),
+                        ('command', (YLeaf(YType.str, 'command'), ['str'])),
                     ])
                     self.command = None
                     self._segment_path = lambda: "network-element-command" + "[command='" + str(self.command) + "']"
                     self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/blocking/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetconfYang.CiscoIa.Blocking.NetworkElementCommand, ['command'], name, value)
@@ -758,7 +771,7 @@ class NetconfYang(Entity):
                 """
 
                 _prefix = 'cisco-ia'
-                _revision = '2018-01-22'
+                _revision = '2018-03-28'
 
                 def __init__(self):
                     super(NetconfYang.CiscoIa.Blocking.ConfdCfgCommand, self).__init__()
@@ -770,11 +783,12 @@ class NetconfYang(Entity):
                     self.ylist_key_names = ['command']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('command', YLeaf(YType.str, 'command')),
+                        ('command', (YLeaf(YType.str, 'command'), ['str'])),
                     ])
                     self.command = None
                     self._segment_path = lambda: "confd-cfg-command" + "[command='" + str(self.command) + "']"
                     self._absolute_path = lambda: "cisco-self-mgmt:netconf-yang/cisco-ia:cisco-ia/blocking/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(NetconfYang.CiscoIa.Blocking.ConfdCfgCommand, ['command'], name, value)

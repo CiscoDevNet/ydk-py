@@ -11,7 +11,7 @@ Alarm management YANG model
 Copyright(c) 2011\-2017 by Cisco Systems, Inc.
 All rights reserved.
 
-Copyright (c) 2012\-2017 by Cisco Systems, Inc.
+Copyright (c) 2012\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class AgentStateTd(Enum):
@@ -269,6 +270,7 @@ class AlarmMgr(Entity):
 
         self.trace = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(AlarmMgr, [], name, value)
@@ -305,13 +307,14 @@ class AlarmMgr(Entity):
             self.ylist_key_names = ['buffer']
             self._child_classes = OrderedDict([("location", ("location", AlarmMgr.Trace.Location))])
             self._leafs = OrderedDict([
-                ('buffer', YLeaf(YType.str, 'buffer')),
+                ('buffer', (YLeaf(YType.str, 'buffer'), ['str'])),
             ])
             self.buffer = None
 
             self.location = YList(self)
             self._segment_path = lambda: "trace" + "[buffer='" + str(self.buffer) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AlarmMgr.Trace, [u'buffer'], name, value)
@@ -348,12 +351,13 @@ class AlarmMgr(Entity):
                 self.ylist_key_names = ['location_name']
                 self._child_classes = OrderedDict([("all-options", ("all_options", AlarmMgr.Trace.Location.AllOptions))])
                 self._leafs = OrderedDict([
-                    ('location_name', YLeaf(YType.str, 'location_name')),
+                    ('location_name', (YLeaf(YType.str, 'location_name'), ['str'])),
                 ])
                 self.location_name = None
 
                 self.all_options = YList(self)
                 self._segment_path = lambda: "location" + "[location_name='" + str(self.location_name) + "']"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AlarmMgr.Trace.Location, [u'location_name'], name, value)
@@ -390,12 +394,13 @@ class AlarmMgr(Entity):
                     self.ylist_key_names = ['option']
                     self._child_classes = OrderedDict([("trace-blocks", ("trace_blocks", AlarmMgr.Trace.Location.AllOptions.TraceBlocks))])
                     self._leafs = OrderedDict([
-                        ('option', YLeaf(YType.str, 'option')),
+                        ('option', (YLeaf(YType.str, 'option'), ['str'])),
                     ])
                     self.option = None
 
                     self.trace_blocks = YList(self)
                     self._segment_path = lambda: "all-options" + "[option='" + str(self.option) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Trace.Location.AllOptions, [u'option'], name, value)
@@ -427,10 +432,11 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('data', YLeaf(YType.str, 'data')),
+                            ('data', (YLeaf(YType.str, 'data'), ['str'])),
                         ])
                         self.data = None
                         self._segment_path = lambda: "trace-blocks"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Trace.Location.AllOptions.TraceBlocks, [u'data'], name, value)
@@ -486,6 +492,7 @@ class AlarmMgr(Entity):
             self._children_name_map["system"] = "system"
             self._segment_path = lambda: "brief"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AlarmMgr.Brief, [], name, value)
@@ -522,6 +529,7 @@ class AlarmMgr(Entity):
                 self.location = YList(self)
                 self._segment_path = lambda: "card"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AlarmMgr.Brief.Card, [], name, value)
@@ -536,7 +544,7 @@ class AlarmMgr(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: active
                 
@@ -570,7 +578,7 @@ class AlarmMgr(Entity):
                     self.ylist_key_names = ['locations']
                     self._child_classes = OrderedDict([("active", ("active", AlarmMgr.Brief.Card.Location.Active)), ("history", ("history", AlarmMgr.Brief.Card.Location.History)), ("suppressed", ("suppressed", AlarmMgr.Brief.Card.Location.Suppressed))])
                     self._leafs = OrderedDict([
-                        ('locations', YLeaf(YType.str, 'locations')),
+                        ('locations', (YLeaf(YType.str, 'locations'), ['str'])),
                     ])
                     self.locations = None
 
@@ -579,6 +587,7 @@ class AlarmMgr(Entity):
                     self.suppressed = YList(self)
                     self._segment_path = lambda: "location" + "[locations='" + str(self.locations) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/card/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Brief.Card.Location, ['locations'], name, value)
@@ -650,15 +659,15 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['aid','eid']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('aid', YLeaf(YType.str, 'aid')),
-                            ('eid', YLeaf(YType.str, 'eid')),
-                            ('tag', YLeaf(YType.str, 'tag')),
-                            ('module', YLeaf(YType.str, 'module')),
-                            ('gen_location', YLeaf(YType.str, 'gen_location')),
-                            ('severity', YLeaf(YType.enumeration, 'severity')),
-                            ('group', YLeaf(YType.enumeration, 'group')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('set_time', YLeaf(YType.str, 'set_time')),
+                            ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                            ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                            ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                            ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                            ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                            ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                            ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
                         ])
                         self.aid = None
                         self.eid = None
@@ -670,6 +679,7 @@ class AlarmMgr(Entity):
                         self.description = None
                         self.set_time = None
                         self._segment_path = lambda: "active" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Brief.Card.Location.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time'], name, value)
@@ -746,16 +756,16 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['aid','eid']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('aid', YLeaf(YType.str, 'aid')),
-                            ('eid', YLeaf(YType.str, 'eid')),
-                            ('tag', YLeaf(YType.str, 'tag')),
-                            ('module', YLeaf(YType.str, 'module')),
-                            ('gen_location', YLeaf(YType.str, 'gen_location')),
-                            ('severity', YLeaf(YType.enumeration, 'severity')),
-                            ('group', YLeaf(YType.enumeration, 'group')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('set_time', YLeaf(YType.str, 'set_time')),
-                            ('clear_time', YLeaf(YType.str, 'clear_time')),
+                            ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                            ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                            ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                            ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                            ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                            ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                            ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
+                            ('clear_time', (YLeaf(YType.str, 'clear_time'), ['str'])),
                         ])
                         self.aid = None
                         self.eid = None
@@ -768,6 +778,7 @@ class AlarmMgr(Entity):
                         self.set_time = None
                         self.clear_time = None
                         self._segment_path = lambda: "history" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Brief.Card.Location.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'clear_time'], name, value)
@@ -844,16 +855,16 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['aid','eid']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('aid', YLeaf(YType.str, 'aid')),
-                            ('eid', YLeaf(YType.str, 'eid')),
-                            ('tag', YLeaf(YType.str, 'tag')),
-                            ('module', YLeaf(YType.str, 'module')),
-                            ('gen_location', YLeaf(YType.str, 'gen_location')),
-                            ('severity', YLeaf(YType.enumeration, 'severity')),
-                            ('group', YLeaf(YType.enumeration, 'group')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('set_time', YLeaf(YType.str, 'set_time')),
-                            ('suppressed_time', YLeaf(YType.str, 'suppressed_time')),
+                            ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                            ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                            ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                            ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                            ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                            ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                            ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
+                            ('suppressed_time', (YLeaf(YType.str, 'suppressed_time'), ['str'])),
                         ])
                         self.aid = None
                         self.eid = None
@@ -866,6 +877,7 @@ class AlarmMgr(Entity):
                         self.set_time = None
                         self.suppressed_time = None
                         self._segment_path = lambda: "suppressed" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Brief.Card.Location.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'suppressed_time'], name, value)
@@ -902,6 +914,7 @@ class AlarmMgr(Entity):
                 self.rack_locations = YList(self)
                 self._segment_path = lambda: "rack"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AlarmMgr.Brief.Rack, [], name, value)
@@ -950,7 +963,7 @@ class AlarmMgr(Entity):
                     self.ylist_key_names = ['rackid']
                     self._child_classes = OrderedDict([("active", ("active", AlarmMgr.Brief.Rack.RackLocations.Active)), ("history", ("history", AlarmMgr.Brief.Rack.RackLocations.History)), ("suppressed", ("suppressed", AlarmMgr.Brief.Rack.RackLocations.Suppressed))])
                     self._leafs = OrderedDict([
-                        ('rackid', YLeaf(YType.uint32, 'rackid')),
+                        ('rackid', (YLeaf(YType.uint32, 'rackid'), ['int'])),
                     ])
                     self.rackid = None
 
@@ -959,6 +972,7 @@ class AlarmMgr(Entity):
                     self.suppressed = YList(self)
                     self._segment_path = lambda: "rack_locations" + "[rackid='" + str(self.rackid) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/rack/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Brief.Rack.RackLocations, ['rackid'], name, value)
@@ -1030,15 +1044,15 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['aid','eid']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('aid', YLeaf(YType.str, 'aid')),
-                            ('eid', YLeaf(YType.str, 'eid')),
-                            ('tag', YLeaf(YType.str, 'tag')),
-                            ('module', YLeaf(YType.str, 'module')),
-                            ('gen_location', YLeaf(YType.str, 'gen_location')),
-                            ('severity', YLeaf(YType.enumeration, 'severity')),
-                            ('group', YLeaf(YType.enumeration, 'group')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('set_time', YLeaf(YType.str, 'set_time')),
+                            ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                            ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                            ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                            ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                            ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                            ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                            ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
                         ])
                         self.aid = None
                         self.eid = None
@@ -1050,6 +1064,7 @@ class AlarmMgr(Entity):
                         self.description = None
                         self.set_time = None
                         self._segment_path = lambda: "active" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Brief.Rack.RackLocations.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time'], name, value)
@@ -1126,16 +1141,16 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['aid','eid']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('aid', YLeaf(YType.str, 'aid')),
-                            ('eid', YLeaf(YType.str, 'eid')),
-                            ('tag', YLeaf(YType.str, 'tag')),
-                            ('module', YLeaf(YType.str, 'module')),
-                            ('gen_location', YLeaf(YType.str, 'gen_location')),
-                            ('severity', YLeaf(YType.enumeration, 'severity')),
-                            ('group', YLeaf(YType.enumeration, 'group')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('set_time', YLeaf(YType.str, 'set_time')),
-                            ('clear_time', YLeaf(YType.str, 'clear_time')),
+                            ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                            ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                            ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                            ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                            ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                            ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                            ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
+                            ('clear_time', (YLeaf(YType.str, 'clear_time'), ['str'])),
                         ])
                         self.aid = None
                         self.eid = None
@@ -1148,6 +1163,7 @@ class AlarmMgr(Entity):
                         self.set_time = None
                         self.clear_time = None
                         self._segment_path = lambda: "history" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Brief.Rack.RackLocations.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'clear_time'], name, value)
@@ -1224,16 +1240,16 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['aid','eid']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('aid', YLeaf(YType.str, 'aid')),
-                            ('eid', YLeaf(YType.str, 'eid')),
-                            ('tag', YLeaf(YType.str, 'tag')),
-                            ('module', YLeaf(YType.str, 'module')),
-                            ('gen_location', YLeaf(YType.str, 'gen_location')),
-                            ('severity', YLeaf(YType.enumeration, 'severity')),
-                            ('group', YLeaf(YType.enumeration, 'group')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('set_time', YLeaf(YType.str, 'set_time')),
-                            ('suppressed_time', YLeaf(YType.str, 'suppressed_time')),
+                            ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                            ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                            ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                            ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                            ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                            ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                            ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
+                            ('suppressed_time', (YLeaf(YType.str, 'suppressed_time'), ['str'])),
                         ])
                         self.aid = None
                         self.eid = None
@@ -1246,6 +1262,7 @@ class AlarmMgr(Entity):
                         self.set_time = None
                         self.suppressed_time = None
                         self._segment_path = lambda: "suppressed" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Brief.Rack.RackLocations.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'suppressed_time'], name, value)
@@ -1293,6 +1310,7 @@ class AlarmMgr(Entity):
                 self.suppressed = YList(self)
                 self._segment_path = lambda: "system"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AlarmMgr.Brief.System, [], name, value)
@@ -1364,15 +1382,15 @@ class AlarmMgr(Entity):
                     self.ylist_key_names = ['aid','eid']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('aid', YLeaf(YType.str, 'aid')),
-                        ('eid', YLeaf(YType.str, 'eid')),
-                        ('tag', YLeaf(YType.str, 'tag')),
-                        ('module', YLeaf(YType.str, 'module')),
-                        ('gen_location', YLeaf(YType.str, 'gen_location')),
-                        ('severity', YLeaf(YType.enumeration, 'severity')),
-                        ('group', YLeaf(YType.enumeration, 'group')),
-                        ('description', YLeaf(YType.str, 'description')),
-                        ('set_time', YLeaf(YType.str, 'set_time')),
+                        ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                        ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                        ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                        ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                        ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                        ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                        ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                        ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
                     ])
                     self.aid = None
                     self.eid = None
@@ -1385,6 +1403,7 @@ class AlarmMgr(Entity):
                     self.set_time = None
                     self._segment_path = lambda: "active" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/system/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Brief.System.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time'], name, value)
@@ -1461,16 +1480,16 @@ class AlarmMgr(Entity):
                     self.ylist_key_names = ['aid','eid']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('aid', YLeaf(YType.str, 'aid')),
-                        ('eid', YLeaf(YType.str, 'eid')),
-                        ('tag', YLeaf(YType.str, 'tag')),
-                        ('module', YLeaf(YType.str, 'module')),
-                        ('gen_location', YLeaf(YType.str, 'gen_location')),
-                        ('severity', YLeaf(YType.enumeration, 'severity')),
-                        ('group', YLeaf(YType.enumeration, 'group')),
-                        ('description', YLeaf(YType.str, 'description')),
-                        ('set_time', YLeaf(YType.str, 'set_time')),
-                        ('clear_time', YLeaf(YType.str, 'clear_time')),
+                        ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                        ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                        ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                        ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                        ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                        ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                        ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                        ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
+                        ('clear_time', (YLeaf(YType.str, 'clear_time'), ['str'])),
                     ])
                     self.aid = None
                     self.eid = None
@@ -1484,6 +1503,7 @@ class AlarmMgr(Entity):
                     self.clear_time = None
                     self._segment_path = lambda: "history" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/system/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Brief.System.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'clear_time'], name, value)
@@ -1560,16 +1580,16 @@ class AlarmMgr(Entity):
                     self.ylist_key_names = ['aid','eid']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('aid', YLeaf(YType.str, 'aid')),
-                        ('eid', YLeaf(YType.str, 'eid')),
-                        ('tag', YLeaf(YType.str, 'tag')),
-                        ('module', YLeaf(YType.str, 'module')),
-                        ('gen_location', YLeaf(YType.str, 'gen_location')),
-                        ('severity', YLeaf(YType.enumeration, 'severity')),
-                        ('group', YLeaf(YType.enumeration, 'group')),
-                        ('description', YLeaf(YType.str, 'description')),
-                        ('set_time', YLeaf(YType.str, 'set_time')),
-                        ('suppressed_time', YLeaf(YType.str, 'suppressed_time')),
+                        ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                        ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                        ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                        ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                        ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                        ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                        ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                        ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
+                        ('suppressed_time', (YLeaf(YType.str, 'suppressed_time'), ['str'])),
                     ])
                     self.aid = None
                     self.eid = None
@@ -1583,6 +1603,7 @@ class AlarmMgr(Entity):
                     self.suppressed_time = None
                     self._segment_path = lambda: "suppressed" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/brief/system/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Brief.System.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'suppressed_time'], name, value)
@@ -1638,6 +1659,7 @@ class AlarmMgr(Entity):
             self._children_name_map["system"] = "system"
             self._segment_path = lambda: "detail"
             self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(AlarmMgr.Detail, [], name, value)
@@ -1674,6 +1696,7 @@ class AlarmMgr(Entity):
                 self.location = YList(self)
                 self._segment_path = lambda: "card"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AlarmMgr.Detail.Card, [], name, value)
@@ -1688,7 +1711,7 @@ class AlarmMgr(Entity):
                 	
                 	**type**\: str
                 
-                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-3])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[1\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
+                	**pattern:** ((([bB][0\-9])/(([a\-zA\-Z]){2}\\d{1,2}))\|(([fF][0\-7])/(([a\-zA\-Z]){2}\\d{1,2}))\|((0?[0\-9]\|1[0\-5])/((([a\-zA\-Z]){2,3})?\\d{1,2})))(/[cC][pP][uU]0)?
                 
                 .. attribute:: active
                 
@@ -1732,7 +1755,7 @@ class AlarmMgr(Entity):
                     self.ylist_key_names = ['locations']
                     self._child_classes = OrderedDict([("active", ("active", AlarmMgr.Detail.Card.Location.Active)), ("history", ("history", AlarmMgr.Detail.Card.Location.History)), ("stats", ("stats", AlarmMgr.Detail.Card.Location.Stats)), ("clients", ("clients", AlarmMgr.Detail.Card.Location.Clients)), ("suppressed", ("suppressed", AlarmMgr.Detail.Card.Location.Suppressed))])
                     self._leafs = OrderedDict([
-                        ('locations', YLeaf(YType.str, 'locations')),
+                        ('locations', (YLeaf(YType.str, 'locations'), ['str'])),
                     ])
                     self.locations = None
 
@@ -1743,6 +1766,7 @@ class AlarmMgr(Entity):
                     self.suppressed = YList(self)
                     self._segment_path = lambda: "location" + "[locations='" + str(self.locations) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/card/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Detail.Card.Location, ['locations'], name, value)
@@ -1843,20 +1867,20 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['aid','eid']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('aid', YLeaf(YType.str, 'aid')),
-                            ('eid', YLeaf(YType.str, 'eid')),
-                            ('tag', YLeaf(YType.str, 'tag')),
-                            ('module', YLeaf(YType.str, 'module')),
-                            ('gen_location', YLeaf(YType.str, 'gen_location')),
-                            ('severity', YLeaf(YType.enumeration, 'severity')),
-                            ('group', YLeaf(YType.enumeration, 'group')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('set_time', YLeaf(YType.str, 'set_time')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('reporting_agent_id', YLeaf(YType.uint32, 'reporting_agent_id')),
-                            ('resynced', YLeaf(YType.uint32, 'resynced')),
-                            ('detail_desc', YLeaf(YType.str, 'detail_desc')),
-                            ('clear_time', YLeaf(YType.str, 'clear_time')),
+                            ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                            ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                            ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                            ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                            ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                            ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                            ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'StatusTd', '')])),
+                            ('reporting_agent_id', (YLeaf(YType.uint32, 'reporting_agent_id'), ['int'])),
+                            ('resynced', (YLeaf(YType.uint32, 'resynced'), ['int'])),
+                            ('detail_desc', (YLeaf(YType.str, 'detail_desc'), ['str'])),
+                            ('clear_time', (YLeaf(YType.str, 'clear_time'), ['str'])),
                         ])
                         self.aid = None
                         self.eid = None
@@ -1873,6 +1897,7 @@ class AlarmMgr(Entity):
                         self.detail_desc = None
                         self.clear_time = None
                         self._segment_path = lambda: "active" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Card.Location.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
@@ -1973,20 +1998,20 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['aid','eid']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('aid', YLeaf(YType.str, 'aid')),
-                            ('eid', YLeaf(YType.str, 'eid')),
-                            ('tag', YLeaf(YType.str, 'tag')),
-                            ('module', YLeaf(YType.str, 'module')),
-                            ('gen_location', YLeaf(YType.str, 'gen_location')),
-                            ('severity', YLeaf(YType.enumeration, 'severity')),
-                            ('group', YLeaf(YType.enumeration, 'group')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('set_time', YLeaf(YType.str, 'set_time')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('reporting_agent_id', YLeaf(YType.uint32, 'reporting_agent_id')),
-                            ('resynced', YLeaf(YType.uint32, 'resynced')),
-                            ('detail_desc', YLeaf(YType.str, 'detail_desc')),
-                            ('clear_time', YLeaf(YType.str, 'clear_time')),
+                            ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                            ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                            ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                            ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                            ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                            ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                            ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'StatusTd', '')])),
+                            ('reporting_agent_id', (YLeaf(YType.uint32, 'reporting_agent_id'), ['int'])),
+                            ('resynced', (YLeaf(YType.uint32, 'resynced'), ['int'])),
+                            ('detail_desc', (YLeaf(YType.str, 'detail_desc'), ['str'])),
+                            ('clear_time', (YLeaf(YType.str, 'clear_time'), ['str'])),
                         ])
                         self.aid = None
                         self.eid = None
@@ -2003,6 +2028,7 @@ class AlarmMgr(Entity):
                         self.detail_desc = None
                         self.clear_time = None
                         self._segment_path = lambda: "history" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Card.Location.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
@@ -2118,19 +2144,19 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['attime']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('attime', YLeaf(YType.str, 'attime')),
-                            ('reported', YLeaf(YType.uint64, 'reported')),
-                            ('dropped', YLeaf(YType.uint64, 'dropped')),
-                            ('bi_set', YLeaf(YType.uint64, 'bi_set')),
-                            ('bi_clear', YLeaf(YType.uint64, 'bi_clear')),
-                            ('suppressed', YLeaf(YType.uint64, 'suppressed')),
-                            ('drop_inv_aid', YLeaf(YType.uint64, 'drop_inv_aid')),
-                            ('drop_no_mem', YLeaf(YType.uint64, 'drop_no_mem')),
-                            ('drop_db_error', YLeaf(YType.uint64, 'drop_db_error')),
-                            ('drop_clear_no_set', YLeaf(YType.uint64, 'drop_clear_no_set')),
-                            ('drop_dup', YLeaf(YType.uint64, 'drop_dup')),
-                            ('cache_hit', YLeaf(YType.uint64, 'cache_hit')),
-                            ('cache_miss', YLeaf(YType.uint64, 'cache_miss')),
+                            ('attime', (YLeaf(YType.str, 'attime'), ['str'])),
+                            ('reported', (YLeaf(YType.uint64, 'reported'), ['int'])),
+                            ('dropped', (YLeaf(YType.uint64, 'dropped'), ['int'])),
+                            ('bi_set', (YLeaf(YType.uint64, 'bi_set'), ['int'])),
+                            ('bi_clear', (YLeaf(YType.uint64, 'bi_clear'), ['int'])),
+                            ('suppressed', (YLeaf(YType.uint64, 'suppressed'), ['int'])),
+                            ('drop_inv_aid', (YLeaf(YType.uint64, 'drop_inv_aid'), ['int'])),
+                            ('drop_no_mem', (YLeaf(YType.uint64, 'drop_no_mem'), ['int'])),
+                            ('drop_db_error', (YLeaf(YType.uint64, 'drop_db_error'), ['int'])),
+                            ('drop_clear_no_set', (YLeaf(YType.uint64, 'drop_clear_no_set'), ['int'])),
+                            ('drop_dup', (YLeaf(YType.uint64, 'drop_dup'), ['int'])),
+                            ('cache_hit', (YLeaf(YType.uint64, 'cache_hit'), ['int'])),
+                            ('cache_miss', (YLeaf(YType.uint64, 'cache_miss'), ['int'])),
                         ])
                         self.attime = None
                         self.reported = None
@@ -2146,6 +2172,7 @@ class AlarmMgr(Entity):
                         self.cache_hit = None
                         self.cache_miss = None
                         self._segment_path = lambda: "stats" + "[attime='" + str(self.attime) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Card.Location.Stats, ['attime', 'reported', 'dropped', 'bi_set', 'bi_clear', 'suppressed', 'drop_inv_aid', 'drop_no_mem', 'drop_db_error', 'drop_clear_no_set', 'drop_dup', 'cache_hit', 'cache_miss'], name, value)
@@ -2271,23 +2298,23 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['agent_handle']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('agent_handle', YLeaf(YType.str, 'agent_handle')),
-                            ('agent_name', YLeaf(YType.str, 'agent_name')),
-                            ('agent_id', YLeaf(YType.uint32, 'agent_id')),
-                            ('agent_location', YLeaf(YType.str, 'agent_location')),
-                            ('agent_state', YLeaf(YType.enumeration, 'agent_state')),
-                            ('agent_type', YLeaf(YType.enumeration, 'agent_type')),
-                            ('agent_filter_disp', YLeaf(YType.boolean, 'agent_filter_disp')),
-                            ('agent_subs_id', YLeaf(YType.uint32, 'agent_subs_id')),
-                            ('agent_filter_state', YLeaf(YType.enumeration, 'agent_filter_state')),
-                            ('agent_filter_severity', YLeaf(YType.enumeration, 'agent_filter_severity')),
-                            ('agent_filter_group', YLeaf(YType.enumeration, 'agent_filter_group')),
-                            ('agent_sdr_id', YLeaf(YType.uint32, 'agent_sdr_id')),
-                            ('agent_connect_count', YLeaf(YType.uint64, 'agent_connect_count')),
-                            ('agent_connect_time', YLeaf(YType.str, 'agent_connect_time')),
-                            ('agent_get_count', YLeaf(YType.uint64, 'agent_get_count')),
-                            ('agent_subscribe_count', YLeaf(YType.uint64, 'agent_subscribe_count')),
-                            ('agent_report_count', YLeaf(YType.uint64, 'agent_report_count')),
+                            ('agent_handle', (YLeaf(YType.str, 'agent_handle'), ['str'])),
+                            ('agent_name', (YLeaf(YType.str, 'agent_name'), ['str'])),
+                            ('agent_id', (YLeaf(YType.uint32, 'agent_id'), ['int'])),
+                            ('agent_location', (YLeaf(YType.str, 'agent_location'), ['str'])),
+                            ('agent_state', (YLeaf(YType.enumeration, 'agent_state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'AgentStateTd', '')])),
+                            ('agent_type', (YLeaf(YType.enumeration, 'agent_type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'AgentTypeTd', '')])),
+                            ('agent_filter_disp', (YLeaf(YType.boolean, 'agent_filter_disp'), ['bool'])),
+                            ('agent_subs_id', (YLeaf(YType.uint32, 'agent_subs_id'), ['int'])),
+                            ('agent_filter_state', (YLeaf(YType.enumeration, 'agent_filter_state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'StatusTd', '')])),
+                            ('agent_filter_severity', (YLeaf(YType.enumeration, 'agent_filter_severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                            ('agent_filter_group', (YLeaf(YType.enumeration, 'agent_filter_group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                            ('agent_sdr_id', (YLeaf(YType.uint32, 'agent_sdr_id'), ['int'])),
+                            ('agent_connect_count', (YLeaf(YType.uint64, 'agent_connect_count'), ['int'])),
+                            ('agent_connect_time', (YLeaf(YType.str, 'agent_connect_time'), ['str'])),
+                            ('agent_get_count', (YLeaf(YType.uint64, 'agent_get_count'), ['int'])),
+                            ('agent_subscribe_count', (YLeaf(YType.uint64, 'agent_subscribe_count'), ['int'])),
+                            ('agent_report_count', (YLeaf(YType.uint64, 'agent_report_count'), ['int'])),
                         ])
                         self.agent_handle = None
                         self.agent_name = None
@@ -2307,6 +2334,7 @@ class AlarmMgr(Entity):
                         self.agent_subscribe_count = None
                         self.agent_report_count = None
                         self._segment_path = lambda: "clients" + "[agent_handle='" + str(self.agent_handle) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Card.Location.Clients, ['agent_handle', 'agent_name', 'agent_id', 'agent_location', 'agent_state', 'agent_type', 'agent_filter_disp', 'agent_subs_id', 'agent_filter_state', 'agent_filter_severity', 'agent_filter_group', 'agent_sdr_id', 'agent_connect_count', 'agent_connect_time', 'agent_get_count', 'agent_subscribe_count', 'agent_report_count'], name, value)
@@ -2407,20 +2435,20 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['aid','eid']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('aid', YLeaf(YType.str, 'aid')),
-                            ('eid', YLeaf(YType.str, 'eid')),
-                            ('tag', YLeaf(YType.str, 'tag')),
-                            ('module', YLeaf(YType.str, 'module')),
-                            ('gen_location', YLeaf(YType.str, 'gen_location')),
-                            ('severity', YLeaf(YType.enumeration, 'severity')),
-                            ('group', YLeaf(YType.enumeration, 'group')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('set_time', YLeaf(YType.str, 'set_time')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('reporting_agent_id', YLeaf(YType.uint32, 'reporting_agent_id')),
-                            ('resynced', YLeaf(YType.uint32, 'resynced')),
-                            ('detail_desc', YLeaf(YType.str, 'detail_desc')),
-                            ('suppressed_time', YLeaf(YType.str, 'suppressed_time')),
+                            ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                            ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                            ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                            ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                            ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                            ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                            ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'StatusTd', '')])),
+                            ('reporting_agent_id', (YLeaf(YType.uint32, 'reporting_agent_id'), ['int'])),
+                            ('resynced', (YLeaf(YType.uint32, 'resynced'), ['int'])),
+                            ('detail_desc', (YLeaf(YType.str, 'detail_desc'), ['str'])),
+                            ('suppressed_time', (YLeaf(YType.str, 'suppressed_time'), ['str'])),
                         ])
                         self.aid = None
                         self.eid = None
@@ -2437,6 +2465,7 @@ class AlarmMgr(Entity):
                         self.detail_desc = None
                         self.suppressed_time = None
                         self._segment_path = lambda: "suppressed" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Card.Location.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'suppressed_time'], name, value)
@@ -2473,6 +2502,7 @@ class AlarmMgr(Entity):
                 self.rack_locations = YList(self)
                 self._segment_path = lambda: "rack"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AlarmMgr.Detail.Rack, [], name, value)
@@ -2531,7 +2561,7 @@ class AlarmMgr(Entity):
                     self.ylist_key_names = ['rackid']
                     self._child_classes = OrderedDict([("active", ("active", AlarmMgr.Detail.Rack.RackLocations.Active)), ("history", ("history", AlarmMgr.Detail.Rack.RackLocations.History)), ("stats", ("stats", AlarmMgr.Detail.Rack.RackLocations.Stats)), ("clients", ("clients", AlarmMgr.Detail.Rack.RackLocations.Clients)), ("suppressed", ("suppressed", AlarmMgr.Detail.Rack.RackLocations.Suppressed))])
                     self._leafs = OrderedDict([
-                        ('rackid', YLeaf(YType.uint32, 'rackid')),
+                        ('rackid', (YLeaf(YType.uint32, 'rackid'), ['int'])),
                     ])
                     self.rackid = None
 
@@ -2542,6 +2572,7 @@ class AlarmMgr(Entity):
                     self.suppressed = YList(self)
                     self._segment_path = lambda: "rack_locations" + "[rackid='" + str(self.rackid) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/rack/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations, ['rackid'], name, value)
@@ -2642,20 +2673,20 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['aid','eid']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('aid', YLeaf(YType.str, 'aid')),
-                            ('eid', YLeaf(YType.str, 'eid')),
-                            ('tag', YLeaf(YType.str, 'tag')),
-                            ('module', YLeaf(YType.str, 'module')),
-                            ('gen_location', YLeaf(YType.str, 'gen_location')),
-                            ('severity', YLeaf(YType.enumeration, 'severity')),
-                            ('group', YLeaf(YType.enumeration, 'group')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('set_time', YLeaf(YType.str, 'set_time')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('reporting_agent_id', YLeaf(YType.uint32, 'reporting_agent_id')),
-                            ('resynced', YLeaf(YType.uint32, 'resynced')),
-                            ('detail_desc', YLeaf(YType.str, 'detail_desc')),
-                            ('clear_time', YLeaf(YType.str, 'clear_time')),
+                            ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                            ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                            ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                            ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                            ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                            ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                            ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'StatusTd', '')])),
+                            ('reporting_agent_id', (YLeaf(YType.uint32, 'reporting_agent_id'), ['int'])),
+                            ('resynced', (YLeaf(YType.uint32, 'resynced'), ['int'])),
+                            ('detail_desc', (YLeaf(YType.str, 'detail_desc'), ['str'])),
+                            ('clear_time', (YLeaf(YType.str, 'clear_time'), ['str'])),
                         ])
                         self.aid = None
                         self.eid = None
@@ -2672,6 +2703,7 @@ class AlarmMgr(Entity):
                         self.detail_desc = None
                         self.clear_time = None
                         self._segment_path = lambda: "active" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
@@ -2772,20 +2804,20 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['aid','eid']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('aid', YLeaf(YType.str, 'aid')),
-                            ('eid', YLeaf(YType.str, 'eid')),
-                            ('tag', YLeaf(YType.str, 'tag')),
-                            ('module', YLeaf(YType.str, 'module')),
-                            ('gen_location', YLeaf(YType.str, 'gen_location')),
-                            ('severity', YLeaf(YType.enumeration, 'severity')),
-                            ('group', YLeaf(YType.enumeration, 'group')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('set_time', YLeaf(YType.str, 'set_time')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('reporting_agent_id', YLeaf(YType.uint32, 'reporting_agent_id')),
-                            ('resynced', YLeaf(YType.uint32, 'resynced')),
-                            ('detail_desc', YLeaf(YType.str, 'detail_desc')),
-                            ('clear_time', YLeaf(YType.str, 'clear_time')),
+                            ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                            ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                            ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                            ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                            ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                            ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                            ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'StatusTd', '')])),
+                            ('reporting_agent_id', (YLeaf(YType.uint32, 'reporting_agent_id'), ['int'])),
+                            ('resynced', (YLeaf(YType.uint32, 'resynced'), ['int'])),
+                            ('detail_desc', (YLeaf(YType.str, 'detail_desc'), ['str'])),
+                            ('clear_time', (YLeaf(YType.str, 'clear_time'), ['str'])),
                         ])
                         self.aid = None
                         self.eid = None
@@ -2802,6 +2834,7 @@ class AlarmMgr(Entity):
                         self.detail_desc = None
                         self.clear_time = None
                         self._segment_path = lambda: "history" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
@@ -2917,19 +2950,19 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['attime']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('attime', YLeaf(YType.str, 'attime')),
-                            ('reported', YLeaf(YType.uint64, 'reported')),
-                            ('dropped', YLeaf(YType.uint64, 'dropped')),
-                            ('bi_set', YLeaf(YType.uint64, 'bi_set')),
-                            ('bi_clear', YLeaf(YType.uint64, 'bi_clear')),
-                            ('suppressed', YLeaf(YType.uint64, 'suppressed')),
-                            ('drop_inv_aid', YLeaf(YType.uint64, 'drop_inv_aid')),
-                            ('drop_no_mem', YLeaf(YType.uint64, 'drop_no_mem')),
-                            ('drop_db_error', YLeaf(YType.uint64, 'drop_db_error')),
-                            ('drop_clear_no_set', YLeaf(YType.uint64, 'drop_clear_no_set')),
-                            ('drop_dup', YLeaf(YType.uint64, 'drop_dup')),
-                            ('cache_hit', YLeaf(YType.uint64, 'cache_hit')),
-                            ('cache_miss', YLeaf(YType.uint64, 'cache_miss')),
+                            ('attime', (YLeaf(YType.str, 'attime'), ['str'])),
+                            ('reported', (YLeaf(YType.uint64, 'reported'), ['int'])),
+                            ('dropped', (YLeaf(YType.uint64, 'dropped'), ['int'])),
+                            ('bi_set', (YLeaf(YType.uint64, 'bi_set'), ['int'])),
+                            ('bi_clear', (YLeaf(YType.uint64, 'bi_clear'), ['int'])),
+                            ('suppressed', (YLeaf(YType.uint64, 'suppressed'), ['int'])),
+                            ('drop_inv_aid', (YLeaf(YType.uint64, 'drop_inv_aid'), ['int'])),
+                            ('drop_no_mem', (YLeaf(YType.uint64, 'drop_no_mem'), ['int'])),
+                            ('drop_db_error', (YLeaf(YType.uint64, 'drop_db_error'), ['int'])),
+                            ('drop_clear_no_set', (YLeaf(YType.uint64, 'drop_clear_no_set'), ['int'])),
+                            ('drop_dup', (YLeaf(YType.uint64, 'drop_dup'), ['int'])),
+                            ('cache_hit', (YLeaf(YType.uint64, 'cache_hit'), ['int'])),
+                            ('cache_miss', (YLeaf(YType.uint64, 'cache_miss'), ['int'])),
                         ])
                         self.attime = None
                         self.reported = None
@@ -2945,6 +2978,7 @@ class AlarmMgr(Entity):
                         self.cache_hit = None
                         self.cache_miss = None
                         self._segment_path = lambda: "stats" + "[attime='" + str(self.attime) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations.Stats, ['attime', 'reported', 'dropped', 'bi_set', 'bi_clear', 'suppressed', 'drop_inv_aid', 'drop_no_mem', 'drop_db_error', 'drop_clear_no_set', 'drop_dup', 'cache_hit', 'cache_miss'], name, value)
@@ -3070,23 +3104,23 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['agent_handle']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('agent_handle', YLeaf(YType.str, 'agent_handle')),
-                            ('agent_name', YLeaf(YType.str, 'agent_name')),
-                            ('agent_id', YLeaf(YType.uint32, 'agent_id')),
-                            ('agent_location', YLeaf(YType.str, 'agent_location')),
-                            ('agent_state', YLeaf(YType.enumeration, 'agent_state')),
-                            ('agent_type', YLeaf(YType.enumeration, 'agent_type')),
-                            ('agent_filter_disp', YLeaf(YType.boolean, 'agent_filter_disp')),
-                            ('agent_subs_id', YLeaf(YType.uint32, 'agent_subs_id')),
-                            ('agent_filter_state', YLeaf(YType.enumeration, 'agent_filter_state')),
-                            ('agent_filter_severity', YLeaf(YType.enumeration, 'agent_filter_severity')),
-                            ('agent_filter_group', YLeaf(YType.enumeration, 'agent_filter_group')),
-                            ('agent_sdr_id', YLeaf(YType.uint32, 'agent_sdr_id')),
-                            ('agent_connect_count', YLeaf(YType.uint64, 'agent_connect_count')),
-                            ('agent_connect_time', YLeaf(YType.str, 'agent_connect_time')),
-                            ('agent_get_count', YLeaf(YType.uint64, 'agent_get_count')),
-                            ('agent_subscribe_count', YLeaf(YType.uint64, 'agent_subscribe_count')),
-                            ('agent_report_count', YLeaf(YType.uint64, 'agent_report_count')),
+                            ('agent_handle', (YLeaf(YType.str, 'agent_handle'), ['str'])),
+                            ('agent_name', (YLeaf(YType.str, 'agent_name'), ['str'])),
+                            ('agent_id', (YLeaf(YType.uint32, 'agent_id'), ['int'])),
+                            ('agent_location', (YLeaf(YType.str, 'agent_location'), ['str'])),
+                            ('agent_state', (YLeaf(YType.enumeration, 'agent_state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'AgentStateTd', '')])),
+                            ('agent_type', (YLeaf(YType.enumeration, 'agent_type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'AgentTypeTd', '')])),
+                            ('agent_filter_disp', (YLeaf(YType.boolean, 'agent_filter_disp'), ['bool'])),
+                            ('agent_subs_id', (YLeaf(YType.uint32, 'agent_subs_id'), ['int'])),
+                            ('agent_filter_state', (YLeaf(YType.enumeration, 'agent_filter_state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'StatusTd', '')])),
+                            ('agent_filter_severity', (YLeaf(YType.enumeration, 'agent_filter_severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                            ('agent_filter_group', (YLeaf(YType.enumeration, 'agent_filter_group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                            ('agent_sdr_id', (YLeaf(YType.uint32, 'agent_sdr_id'), ['int'])),
+                            ('agent_connect_count', (YLeaf(YType.uint64, 'agent_connect_count'), ['int'])),
+                            ('agent_connect_time', (YLeaf(YType.str, 'agent_connect_time'), ['str'])),
+                            ('agent_get_count', (YLeaf(YType.uint64, 'agent_get_count'), ['int'])),
+                            ('agent_subscribe_count', (YLeaf(YType.uint64, 'agent_subscribe_count'), ['int'])),
+                            ('agent_report_count', (YLeaf(YType.uint64, 'agent_report_count'), ['int'])),
                         ])
                         self.agent_handle = None
                         self.agent_name = None
@@ -3106,6 +3140,7 @@ class AlarmMgr(Entity):
                         self.agent_subscribe_count = None
                         self.agent_report_count = None
                         self._segment_path = lambda: "clients" + "[agent_handle='" + str(self.agent_handle) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations.Clients, ['agent_handle', 'agent_name', 'agent_id', 'agent_location', 'agent_state', 'agent_type', 'agent_filter_disp', 'agent_subs_id', 'agent_filter_state', 'agent_filter_severity', 'agent_filter_group', 'agent_sdr_id', 'agent_connect_count', 'agent_connect_time', 'agent_get_count', 'agent_subscribe_count', 'agent_report_count'], name, value)
@@ -3206,20 +3241,20 @@ class AlarmMgr(Entity):
                         self.ylist_key_names = ['aid','eid']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('aid', YLeaf(YType.str, 'aid')),
-                            ('eid', YLeaf(YType.str, 'eid')),
-                            ('tag', YLeaf(YType.str, 'tag')),
-                            ('module', YLeaf(YType.str, 'module')),
-                            ('gen_location', YLeaf(YType.str, 'gen_location')),
-                            ('severity', YLeaf(YType.enumeration, 'severity')),
-                            ('group', YLeaf(YType.enumeration, 'group')),
-                            ('description', YLeaf(YType.str, 'description')),
-                            ('set_time', YLeaf(YType.str, 'set_time')),
-                            ('state', YLeaf(YType.enumeration, 'state')),
-                            ('reporting_agent_id', YLeaf(YType.uint32, 'reporting_agent_id')),
-                            ('resynced', YLeaf(YType.uint32, 'resynced')),
-                            ('detail_desc', YLeaf(YType.str, 'detail_desc')),
-                            ('suppressed_time', YLeaf(YType.str, 'suppressed_time')),
+                            ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                            ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                            ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                            ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                            ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                            ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                            ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                            ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                            ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
+                            ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'StatusTd', '')])),
+                            ('reporting_agent_id', (YLeaf(YType.uint32, 'reporting_agent_id'), ['int'])),
+                            ('resynced', (YLeaf(YType.uint32, 'resynced'), ['int'])),
+                            ('detail_desc', (YLeaf(YType.str, 'detail_desc'), ['str'])),
+                            ('suppressed_time', (YLeaf(YType.str, 'suppressed_time'), ['str'])),
                         ])
                         self.aid = None
                         self.eid = None
@@ -3236,6 +3271,7 @@ class AlarmMgr(Entity):
                         self.detail_desc = None
                         self.suppressed_time = None
                         self._segment_path = lambda: "suppressed" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(AlarmMgr.Detail.Rack.RackLocations.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'suppressed_time'], name, value)
@@ -3296,6 +3332,7 @@ class AlarmMgr(Entity):
                 self.suppressed = YList(self)
                 self._segment_path = lambda: "system"
                 self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(AlarmMgr.Detail.System, [], name, value)
@@ -3396,20 +3433,20 @@ class AlarmMgr(Entity):
                     self.ylist_key_names = ['aid','eid']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('aid', YLeaf(YType.str, 'aid')),
-                        ('eid', YLeaf(YType.str, 'eid')),
-                        ('tag', YLeaf(YType.str, 'tag')),
-                        ('module', YLeaf(YType.str, 'module')),
-                        ('gen_location', YLeaf(YType.str, 'gen_location')),
-                        ('severity', YLeaf(YType.enumeration, 'severity')),
-                        ('group', YLeaf(YType.enumeration, 'group')),
-                        ('description', YLeaf(YType.str, 'description')),
-                        ('set_time', YLeaf(YType.str, 'set_time')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('reporting_agent_id', YLeaf(YType.uint32, 'reporting_agent_id')),
-                        ('resynced', YLeaf(YType.uint32, 'resynced')),
-                        ('detail_desc', YLeaf(YType.str, 'detail_desc')),
-                        ('clear_time', YLeaf(YType.str, 'clear_time')),
+                        ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                        ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                        ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                        ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                        ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                        ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                        ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                        ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'StatusTd', '')])),
+                        ('reporting_agent_id', (YLeaf(YType.uint32, 'reporting_agent_id'), ['int'])),
+                        ('resynced', (YLeaf(YType.uint32, 'resynced'), ['int'])),
+                        ('detail_desc', (YLeaf(YType.str, 'detail_desc'), ['str'])),
+                        ('clear_time', (YLeaf(YType.str, 'clear_time'), ['str'])),
                     ])
                     self.aid = None
                     self.eid = None
@@ -3427,6 +3464,7 @@ class AlarmMgr(Entity):
                     self.clear_time = None
                     self._segment_path = lambda: "active" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/system/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Detail.System.Active, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
@@ -3527,20 +3565,20 @@ class AlarmMgr(Entity):
                     self.ylist_key_names = ['aid','eid']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('aid', YLeaf(YType.str, 'aid')),
-                        ('eid', YLeaf(YType.str, 'eid')),
-                        ('tag', YLeaf(YType.str, 'tag')),
-                        ('module', YLeaf(YType.str, 'module')),
-                        ('gen_location', YLeaf(YType.str, 'gen_location')),
-                        ('severity', YLeaf(YType.enumeration, 'severity')),
-                        ('group', YLeaf(YType.enumeration, 'group')),
-                        ('description', YLeaf(YType.str, 'description')),
-                        ('set_time', YLeaf(YType.str, 'set_time')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('reporting_agent_id', YLeaf(YType.uint32, 'reporting_agent_id')),
-                        ('resynced', YLeaf(YType.uint32, 'resynced')),
-                        ('detail_desc', YLeaf(YType.str, 'detail_desc')),
-                        ('clear_time', YLeaf(YType.str, 'clear_time')),
+                        ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                        ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                        ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                        ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                        ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                        ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                        ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                        ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'StatusTd', '')])),
+                        ('reporting_agent_id', (YLeaf(YType.uint32, 'reporting_agent_id'), ['int'])),
+                        ('resynced', (YLeaf(YType.uint32, 'resynced'), ['int'])),
+                        ('detail_desc', (YLeaf(YType.str, 'detail_desc'), ['str'])),
+                        ('clear_time', (YLeaf(YType.str, 'clear_time'), ['str'])),
                     ])
                     self.aid = None
                     self.eid = None
@@ -3558,6 +3596,7 @@ class AlarmMgr(Entity):
                     self.clear_time = None
                     self._segment_path = lambda: "history" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/system/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Detail.System.History, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'clear_time'], name, value)
@@ -3673,19 +3712,19 @@ class AlarmMgr(Entity):
                     self.ylist_key_names = ['attime']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('attime', YLeaf(YType.str, 'attime')),
-                        ('reported', YLeaf(YType.uint64, 'reported')),
-                        ('dropped', YLeaf(YType.uint64, 'dropped')),
-                        ('bi_set', YLeaf(YType.uint64, 'bi_set')),
-                        ('bi_clear', YLeaf(YType.uint64, 'bi_clear')),
-                        ('suppressed', YLeaf(YType.uint64, 'suppressed')),
-                        ('drop_inv_aid', YLeaf(YType.uint64, 'drop_inv_aid')),
-                        ('drop_no_mem', YLeaf(YType.uint64, 'drop_no_mem')),
-                        ('drop_db_error', YLeaf(YType.uint64, 'drop_db_error')),
-                        ('drop_clear_no_set', YLeaf(YType.uint64, 'drop_clear_no_set')),
-                        ('drop_dup', YLeaf(YType.uint64, 'drop_dup')),
-                        ('cache_hit', YLeaf(YType.uint64, 'cache_hit')),
-                        ('cache_miss', YLeaf(YType.uint64, 'cache_miss')),
+                        ('attime', (YLeaf(YType.str, 'attime'), ['str'])),
+                        ('reported', (YLeaf(YType.uint64, 'reported'), ['int'])),
+                        ('dropped', (YLeaf(YType.uint64, 'dropped'), ['int'])),
+                        ('bi_set', (YLeaf(YType.uint64, 'bi_set'), ['int'])),
+                        ('bi_clear', (YLeaf(YType.uint64, 'bi_clear'), ['int'])),
+                        ('suppressed', (YLeaf(YType.uint64, 'suppressed'), ['int'])),
+                        ('drop_inv_aid', (YLeaf(YType.uint64, 'drop_inv_aid'), ['int'])),
+                        ('drop_no_mem', (YLeaf(YType.uint64, 'drop_no_mem'), ['int'])),
+                        ('drop_db_error', (YLeaf(YType.uint64, 'drop_db_error'), ['int'])),
+                        ('drop_clear_no_set', (YLeaf(YType.uint64, 'drop_clear_no_set'), ['int'])),
+                        ('drop_dup', (YLeaf(YType.uint64, 'drop_dup'), ['int'])),
+                        ('cache_hit', (YLeaf(YType.uint64, 'cache_hit'), ['int'])),
+                        ('cache_miss', (YLeaf(YType.uint64, 'cache_miss'), ['int'])),
                     ])
                     self.attime = None
                     self.reported = None
@@ -3702,6 +3741,7 @@ class AlarmMgr(Entity):
                     self.cache_miss = None
                     self._segment_path = lambda: "stats" + "[attime='" + str(self.attime) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/system/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Detail.System.Stats, ['attime', 'reported', 'dropped', 'bi_set', 'bi_clear', 'suppressed', 'drop_inv_aid', 'drop_no_mem', 'drop_db_error', 'drop_clear_no_set', 'drop_dup', 'cache_hit', 'cache_miss'], name, value)
@@ -3827,23 +3867,23 @@ class AlarmMgr(Entity):
                     self.ylist_key_names = ['agent_handle']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('agent_handle', YLeaf(YType.str, 'agent_handle')),
-                        ('agent_name', YLeaf(YType.str, 'agent_name')),
-                        ('agent_id', YLeaf(YType.uint32, 'agent_id')),
-                        ('agent_location', YLeaf(YType.str, 'agent_location')),
-                        ('agent_state', YLeaf(YType.enumeration, 'agent_state')),
-                        ('agent_type', YLeaf(YType.enumeration, 'agent_type')),
-                        ('agent_filter_disp', YLeaf(YType.boolean, 'agent_filter_disp')),
-                        ('agent_subs_id', YLeaf(YType.uint32, 'agent_subs_id')),
-                        ('agent_filter_state', YLeaf(YType.enumeration, 'agent_filter_state')),
-                        ('agent_filter_severity', YLeaf(YType.enumeration, 'agent_filter_severity')),
-                        ('agent_filter_group', YLeaf(YType.enumeration, 'agent_filter_group')),
-                        ('agent_sdr_id', YLeaf(YType.uint32, 'agent_sdr_id')),
-                        ('agent_connect_count', YLeaf(YType.uint64, 'agent_connect_count')),
-                        ('agent_connect_time', YLeaf(YType.str, 'agent_connect_time')),
-                        ('agent_get_count', YLeaf(YType.uint64, 'agent_get_count')),
-                        ('agent_subscribe_count', YLeaf(YType.uint64, 'agent_subscribe_count')),
-                        ('agent_report_count', YLeaf(YType.uint64, 'agent_report_count')),
+                        ('agent_handle', (YLeaf(YType.str, 'agent_handle'), ['str'])),
+                        ('agent_name', (YLeaf(YType.str, 'agent_name'), ['str'])),
+                        ('agent_id', (YLeaf(YType.uint32, 'agent_id'), ['int'])),
+                        ('agent_location', (YLeaf(YType.str, 'agent_location'), ['str'])),
+                        ('agent_state', (YLeaf(YType.enumeration, 'agent_state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'AgentStateTd', '')])),
+                        ('agent_type', (YLeaf(YType.enumeration, 'agent_type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'AgentTypeTd', '')])),
+                        ('agent_filter_disp', (YLeaf(YType.boolean, 'agent_filter_disp'), ['bool'])),
+                        ('agent_subs_id', (YLeaf(YType.uint32, 'agent_subs_id'), ['int'])),
+                        ('agent_filter_state', (YLeaf(YType.enumeration, 'agent_filter_state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'StatusTd', '')])),
+                        ('agent_filter_severity', (YLeaf(YType.enumeration, 'agent_filter_severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                        ('agent_filter_group', (YLeaf(YType.enumeration, 'agent_filter_group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                        ('agent_sdr_id', (YLeaf(YType.uint32, 'agent_sdr_id'), ['int'])),
+                        ('agent_connect_count', (YLeaf(YType.uint64, 'agent_connect_count'), ['int'])),
+                        ('agent_connect_time', (YLeaf(YType.str, 'agent_connect_time'), ['str'])),
+                        ('agent_get_count', (YLeaf(YType.uint64, 'agent_get_count'), ['int'])),
+                        ('agent_subscribe_count', (YLeaf(YType.uint64, 'agent_subscribe_count'), ['int'])),
+                        ('agent_report_count', (YLeaf(YType.uint64, 'agent_report_count'), ['int'])),
                     ])
                     self.agent_handle = None
                     self.agent_name = None
@@ -3864,6 +3904,7 @@ class AlarmMgr(Entity):
                     self.agent_report_count = None
                     self._segment_path = lambda: "clients" + "[agent_handle='" + str(self.agent_handle) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/system/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Detail.System.Clients, ['agent_handle', 'agent_name', 'agent_id', 'agent_location', 'agent_state', 'agent_type', 'agent_filter_disp', 'agent_subs_id', 'agent_filter_state', 'agent_filter_severity', 'agent_filter_group', 'agent_sdr_id', 'agent_connect_count', 'agent_connect_time', 'agent_get_count', 'agent_subscribe_count', 'agent_report_count'], name, value)
@@ -3964,20 +4005,20 @@ class AlarmMgr(Entity):
                     self.ylist_key_names = ['aid','eid']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('aid', YLeaf(YType.str, 'aid')),
-                        ('eid', YLeaf(YType.str, 'eid')),
-                        ('tag', YLeaf(YType.str, 'tag')),
-                        ('module', YLeaf(YType.str, 'module')),
-                        ('gen_location', YLeaf(YType.str, 'gen_location')),
-                        ('severity', YLeaf(YType.enumeration, 'severity')),
-                        ('group', YLeaf(YType.enumeration, 'group')),
-                        ('description', YLeaf(YType.str, 'description')),
-                        ('set_time', YLeaf(YType.str, 'set_time')),
-                        ('state', YLeaf(YType.enumeration, 'state')),
-                        ('reporting_agent_id', YLeaf(YType.uint32, 'reporting_agent_id')),
-                        ('resynced', YLeaf(YType.uint32, 'resynced')),
-                        ('detail_desc', YLeaf(YType.str, 'detail_desc')),
-                        ('suppressed_time', YLeaf(YType.str, 'suppressed_time')),
+                        ('aid', (YLeaf(YType.str, 'aid'), ['str'])),
+                        ('eid', (YLeaf(YType.str, 'eid'), ['str'])),
+                        ('tag', (YLeaf(YType.str, 'tag'), ['str'])),
+                        ('module', (YLeaf(YType.str, 'module'), ['str'])),
+                        ('gen_location', (YLeaf(YType.str, 'gen_location'), ['str'])),
+                        ('severity', (YLeaf(YType.enumeration, 'severity'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'SeverityTd', '')])),
+                        ('group', (YLeaf(YType.enumeration, 'group'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'GroupTd', '')])),
+                        ('description', (YLeaf(YType.str, 'description'), ['str'])),
+                        ('set_time', (YLeaf(YType.str, 'set_time'), ['str'])),
+                        ('state', (YLeaf(YType.enumeration, 'state'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_sysadmin_alarm_mgr', 'StatusTd', '')])),
+                        ('reporting_agent_id', (YLeaf(YType.uint32, 'reporting_agent_id'), ['int'])),
+                        ('resynced', (YLeaf(YType.uint32, 'resynced'), ['int'])),
+                        ('detail_desc', (YLeaf(YType.str, 'detail_desc'), ['str'])),
+                        ('suppressed_time', (YLeaf(YType.str, 'suppressed_time'), ['str'])),
                     ])
                     self.aid = None
                     self.eid = None
@@ -3995,6 +4036,7 @@ class AlarmMgr(Entity):
                     self.suppressed_time = None
                     self._segment_path = lambda: "suppressed" + "[aid='" + str(self.aid) + "']" + "[eid='" + str(self.eid) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-sysadmin-alarm-mgr:alarm_mgr/detail/system/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(AlarmMgr.Detail.System.Suppressed, ['aid', 'eid', 'tag', 'module', 'gen_location', 'severity', 'group', 'description', 'set_time', 'state', 'reporting_agent_id', 'resynced', 'detail_desc', 'suppressed_time'], name, value)

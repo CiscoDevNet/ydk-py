@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-subscriber\-infra\-tmplmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -38,7 +39,7 @@ class SubscriberAccounting(Entity):
     """
 
     _prefix = 'subscriber-accounting-cfg'
-    _revision = '2015-11-09'
+    _revision = '2017-09-07'
 
     def __init__(self):
         super(SubscriberAccounting, self).__init__()
@@ -56,6 +57,7 @@ class SubscriberAccounting(Entity):
         self.prepaid_configurations.parent = self
         self._children_name_map["prepaid_configurations"] = "prepaid-configurations"
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-accounting-cfg:subscriber-accounting"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(SubscriberAccounting, [], name, value)
@@ -75,7 +77,7 @@ class SubscriberAccounting(Entity):
         """
 
         _prefix = 'subscriber-accounting-cfg'
-        _revision = '2015-11-09'
+        _revision = '2017-09-07'
 
         def __init__(self):
             super(SubscriberAccounting.PrepaidConfigurations, self).__init__()
@@ -91,6 +93,7 @@ class SubscriberAccounting(Entity):
             self.prepaid_configuration = YList(self)
             self._segment_path = lambda: "prepaid-configurations"
             self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-accounting-cfg:subscriber-accounting/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(SubscriberAccounting.PrepaidConfigurations, [], name, value)
@@ -119,7 +122,7 @@ class SubscriberAccounting(Entity):
             	Threshold at which to send prepaid volume quota request
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: accounting_method_list
             
@@ -133,7 +136,7 @@ class SubscriberAccounting(Entity):
             	Idle Threshold for which prepaid quota is valid
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: author_method_list
             
@@ -152,21 +155,21 @@ class SubscriberAccounting(Entity):
             	Threshold at which to send prepaid time quota request
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             .. attribute:: time_valid
             
             	Threshold for which prepaid quota is valid
             	**type**\: int
             
-            	**range:** \-2147483648..2147483647
+            	**range:** 0..4294967295
             
             
 
             """
 
             _prefix = 'subscriber-accounting-cfg'
-            _revision = '2015-11-09'
+            _revision = '2017-09-07'
 
             def __init__(self):
                 super(SubscriberAccounting.PrepaidConfigurations.PrepaidConfiguration, self).__init__()
@@ -178,15 +181,15 @@ class SubscriberAccounting(Entity):
                 self.ylist_key_names = ['prepaid_config_name']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('prepaid_config_name', YLeaf(YType.str, 'prepaid-config-name')),
-                    ('password', YLeaf(YType.str, 'password')),
-                    ('volume_threshold', YLeaf(YType.int32, 'volume-threshold')),
-                    ('accounting_method_list', YLeaf(YType.str, 'accounting-method-list')),
-                    ('time_hold', YLeaf(YType.int32, 'time-hold')),
-                    ('author_method_list', YLeaf(YType.str, 'author-method-list')),
-                    ('traffic_direction', YLeaf(YType.str, 'traffic-direction')),
-                    ('time_threshold', YLeaf(YType.int32, 'time-threshold')),
-                    ('time_valid', YLeaf(YType.int32, 'time-valid')),
+                    ('prepaid_config_name', (YLeaf(YType.str, 'prepaid-config-name'), ['str'])),
+                    ('password', (YLeaf(YType.str, 'password'), ['str'])),
+                    ('volume_threshold', (YLeaf(YType.uint32, 'volume-threshold'), ['int'])),
+                    ('accounting_method_list', (YLeaf(YType.str, 'accounting-method-list'), ['str'])),
+                    ('time_hold', (YLeaf(YType.uint32, 'time-hold'), ['int'])),
+                    ('author_method_list', (YLeaf(YType.str, 'author-method-list'), ['str'])),
+                    ('traffic_direction', (YLeaf(YType.str, 'traffic-direction'), ['str'])),
+                    ('time_threshold', (YLeaf(YType.uint32, 'time-threshold'), ['int'])),
+                    ('time_valid', (YLeaf(YType.uint32, 'time-valid'), ['int'])),
                 ])
                 self.prepaid_config_name = None
                 self.password = None
@@ -199,6 +202,7 @@ class SubscriberAccounting(Entity):
                 self.time_valid = None
                 self._segment_path = lambda: "prepaid-configuration" + "[prepaid-config-name='" + str(self.prepaid_config_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-accounting-cfg:subscriber-accounting/prepaid-configurations/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(SubscriberAccounting.PrepaidConfigurations.PrepaidConfiguration, ['prepaid_config_name', 'password', 'volume_threshold', 'accounting_method_list', 'time_hold', 'author_method_list', 'traffic_direction', 'time_threshold', 'time_valid'], name, value)

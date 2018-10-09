@@ -9,7 +9,7 @@ for the following management objects\:
   ftp\: ftp
   tftp\: tftp
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -19,6 +19,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -54,6 +55,7 @@ class Rcp(Entity):
         self.rcp_client.parent = self
         self._children_name_map["rcp_client"] = "rcp-client"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:rcp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Rcp, [], name, value)
@@ -73,7 +75,7 @@ class Rcp(Entity):
         	Specify interface for source address in connections
         	**type**\: str
         
-        	**pattern:** [a\-zA\-Z0\-9./\-]+
+        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
         
         
 
@@ -92,13 +94,14 @@ class Rcp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('username', YLeaf(YType.str, 'username')),
-                ('source_interface', YLeaf(YType.str, 'source-interface')),
+                ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
             ])
             self.username = None
             self.source_interface = None
             self._segment_path = lambda: "rcp-client"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:rcp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Rcp.RcpClient, ['username', 'source_interface'], name, value)
@@ -139,6 +142,7 @@ class Ftp(Entity):
         self.ftp_client.parent = self
         self._children_name_map["ftp_client"] = "ftp-client"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Ftp, [], name, value)
@@ -180,7 +184,7 @@ class Ftp(Entity):
         	Specify interface for source address in connections
         	**type**\: str
         
-        	**pattern:** [a\-zA\-Z0\-9./\-]+
+        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
         
         
 
@@ -199,11 +203,11 @@ class Ftp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("vrfs", ("vrfs", Ftp.FtpClient.Vrfs))])
             self._leafs = OrderedDict([
-                ('passive', YLeaf(YType.empty, 'passive')),
-                ('password', YLeaf(YType.str, 'password')),
-                ('anonymous_password', YLeaf(YType.str, 'anonymous-password')),
-                ('username', YLeaf(YType.str, 'username')),
-                ('source_interface', YLeaf(YType.str, 'source-interface')),
+                ('passive', (YLeaf(YType.empty, 'passive'), ['Empty'])),
+                ('password', (YLeaf(YType.str, 'password'), ['str'])),
+                ('anonymous_password', (YLeaf(YType.str, 'anonymous-password'), ['str'])),
+                ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
             ])
             self.passive = None
             self.password = None
@@ -216,6 +220,7 @@ class Ftp(Entity):
             self._children_name_map["vrfs"] = "vrfs"
             self._segment_path = lambda: "ftp-client"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Ftp.FtpClient, ['passive', 'password', 'anonymous_password', 'username', 'source_interface'], name, value)
@@ -251,6 +256,7 @@ class Ftp(Entity):
                 self.vrf = YList(self)
                 self._segment_path = lambda: "vrfs"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp/ftp-client/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Ftp.FtpClient.Vrfs, [], name, value)
@@ -272,7 +278,7 @@ class Ftp(Entity):
                 	Specify interface for source address in connections
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: username
                 
@@ -313,12 +319,12 @@ class Ftp(Entity):
                     self.ylist_key_names = ['vrf_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                        ('source_interface', YLeaf(YType.str, 'source-interface')),
-                        ('username', YLeaf(YType.str, 'username')),
-                        ('anonymous_password', YLeaf(YType.str, 'anonymous-password')),
-                        ('password', YLeaf(YType.str, 'password')),
-                        ('passive', YLeaf(YType.empty, 'passive')),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                        ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
+                        ('username', (YLeaf(YType.str, 'username'), ['str'])),
+                        ('anonymous_password', (YLeaf(YType.str, 'anonymous-password'), ['str'])),
+                        ('password', (YLeaf(YType.str, 'password'), ['str'])),
+                        ('passive', (YLeaf(YType.empty, 'passive'), ['Empty'])),
                     ])
                     self.vrf_name = None
                     self.source_interface = None
@@ -328,6 +334,7 @@ class Ftp(Entity):
                     self.passive = None
                     self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:ftp/ftp-client/vrfs/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Ftp.FtpClient.Vrfs.Vrf, ['vrf_name', 'source_interface', 'username', 'anonymous_password', 'password', 'passive'], name, value)
@@ -368,6 +375,7 @@ class Tftp(Entity):
         self.tftp_client.parent = self
         self._children_name_map["tftp_client"] = "tftp-client"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:tftp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Tftp, [], name, value)
@@ -403,7 +411,7 @@ class Tftp(Entity):
         	Specify interface for source address in connections
         	**type**\: str
         
-        	**pattern:** [a\-zA\-Z0\-9./\-]+
+        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
         
         
 
@@ -422,9 +430,9 @@ class Tftp(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([("vrfs", ("vrfs", Tftp.TftpClient.Vrfs))])
             self._leafs = OrderedDict([
-                ('retry', YLeaf(YType.uint32, 'retry')),
-                ('timeout', YLeaf(YType.uint32, 'timeout')),
-                ('source_interface', YLeaf(YType.str, 'source-interface')),
+                ('retry', (YLeaf(YType.uint32, 'retry'), ['int'])),
+                ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
+                ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
             ])
             self.retry = None
             self.timeout = None
@@ -435,6 +443,7 @@ class Tftp(Entity):
             self._children_name_map["vrfs"] = "vrfs"
             self._segment_path = lambda: "tftp-client"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:tftp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Tftp.TftpClient, ['retry', 'timeout', 'source_interface'], name, value)
@@ -470,6 +479,7 @@ class Tftp(Entity):
                 self.vrf = YList(self)
                 self._segment_path = lambda: "vrfs"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:tftp/tftp-client/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Tftp.TftpClient.Vrfs, [], name, value)
@@ -491,7 +501,7 @@ class Tftp(Entity):
                 	Specify interface for source address in connections
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: retry
                 
@@ -526,10 +536,10 @@ class Tftp(Entity):
                     self.ylist_key_names = ['vrf_name']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                        ('source_interface', YLeaf(YType.str, 'source-interface')),
-                        ('retry', YLeaf(YType.uint32, 'retry')),
-                        ('timeout', YLeaf(YType.uint32, 'timeout')),
+                        ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                        ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
+                        ('retry', (YLeaf(YType.uint32, 'retry'), ['int'])),
+                        ('timeout', (YLeaf(YType.uint32, 'timeout'), ['int'])),
                     ])
                     self.vrf_name = None
                     self.source_interface = None
@@ -537,6 +547,7 @@ class Tftp(Entity):
                     self.timeout = None
                     self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-filesystems-cfg:tftp/tftp-client/vrfs/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Tftp.TftpClient.Vrfs.Vrf, ['vrf_name', 'source_interface', 'retry', 'timeout'], name, value)

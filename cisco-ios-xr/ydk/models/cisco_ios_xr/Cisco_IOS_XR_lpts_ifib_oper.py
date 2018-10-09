@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   lpts\-ifib\: lpts ifib database
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -52,6 +53,7 @@ class LptsIfib(Entity):
         self.nodes.parent = self
         self._children_name_map["nodes"] = "nodes"
         self._segment_path = lambda: "Cisco-IOS-XR-lpts-ifib-oper:lpts-ifib"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(LptsIfib, [], name, value)
@@ -87,6 +89,7 @@ class LptsIfib(Entity):
             self.node = YList(self)
             self._segment_path = lambda: "nodes"
             self._absolute_path = lambda: "Cisco-IOS-XR-lpts-ifib-oper:lpts-ifib/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(LptsIfib.Nodes, [], name, value)
@@ -125,7 +128,7 @@ class LptsIfib(Entity):
                 self.ylist_key_names = ['node_name']
                 self._child_classes = OrderedDict([("slice-ids", ("slice_ids", LptsIfib.Nodes.Node.SliceIds))])
                 self._leafs = OrderedDict([
-                    ('node_name', YLeaf(YType.str, 'node-name')),
+                    ('node_name', (YLeaf(YType.str, 'node-name'), ['str'])),
                 ])
                 self.node_name = None
 
@@ -134,6 +137,7 @@ class LptsIfib(Entity):
                 self._children_name_map["slice_ids"] = "slice-ids"
                 self._segment_path = lambda: "node" + "[node-name='" + str(self.node_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lpts-ifib-oper:lpts-ifib/nodes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(LptsIfib.Nodes.Node, ['node_name'], name, value)
@@ -168,6 +172,7 @@ class LptsIfib(Entity):
 
                     self.slice_id = YList(self)
                     self._segment_path = lambda: "slice-ids"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(LptsIfib.Nodes.Node.SliceIds, [], name, value)
@@ -206,12 +211,13 @@ class LptsIfib(Entity):
                         self.ylist_key_names = ['slice_name']
                         self._child_classes = OrderedDict([("entry", ("entry", LptsIfib.Nodes.Node.SliceIds.SliceId.Entry))])
                         self._leafs = OrderedDict([
-                            ('slice_name', YLeaf(YType.str, 'slice-name')),
+                            ('slice_name', (YLeaf(YType.str, 'slice-name'), ['str'])),
                         ])
                         self.slice_name = None
 
                         self.entry = YList(self)
                         self._segment_path = lambda: "slice-id" + "[slice-name='" + str(self.slice_name) + "']"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(LptsIfib.Nodes.Node.SliceIds.SliceId, ['slice_name'], name, value)
@@ -394,32 +400,32 @@ class LptsIfib(Entity):
                             self.ylist_key_names = ['entry']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('entry', YLeaf(YType.uint32, 'entry')),
-                                ('destination_type', YLeaf(YType.str, 'destination-type')),
-                                ('destination_value', YLeaf(YType.str, 'destination-value')),
-                                ('source_port', YLeaf(YType.str, 'source-port')),
-                                ('destination_addr', YLeaf(YType.str, 'destination-addr')),
-                                ('source_addr', YLeaf(YType.str, 'source-addr')),
-                                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
-                                ('vid', YLeaf(YType.uint32, 'vid')),
-                                ('l3protocol', YLeaf(YType.uint32, 'l3protocol')),
-                                ('l4protocol', YLeaf(YType.uint32, 'l4protocol')),
-                                ('intf_name', YLeaf(YType.str, 'intf-name')),
-                                ('intf_handle', YLeaf(YType.uint32, 'intf-handle')),
-                                ('is_syn', YLeaf(YType.uint8, 'is-syn')),
-                                ('opcode', YLeaf(YType.str, 'opcode')),
-                                ('accepts', YLeaf(YType.uint64, 'accepts')),
-                                ('drops', YLeaf(YType.uint64, 'drops')),
-                                ('flow_type', YLeaf(YType.str, 'flow-type')),
-                                ('listener_tag', YLeaf(YType.str, 'listener-tag')),
-                                ('local_flag', YLeaf(YType.uint8, 'local-flag')),
-                                ('is_fgid', YLeaf(YType.uint8, 'is-fgid')),
-                                ('deliver_list_short', YLeaf(YType.str, 'deliver-list-short')),
-                                ('deliver_list_long', YLeaf(YType.str, 'deliver-list-long')),
-                                ('min_ttl', YLeaf(YType.uint8, 'min-ttl')),
-                                ('pending_ifibq_delay', YLeaf(YType.uint32, 'pending-ifibq-delay')),
-                                ('sl_ifibq_delay', YLeaf(YType.uint32, 'sl-ifibq-delay')),
-                                ('ifib_program_time', YLeaf(YType.str, 'ifib-program-time')),
+                                ('entry', (YLeaf(YType.uint32, 'entry'), ['int'])),
+                                ('destination_type', (YLeaf(YType.str, 'destination-type'), ['str'])),
+                                ('destination_value', (YLeaf(YType.str, 'destination-value'), ['str'])),
+                                ('source_port', (YLeaf(YType.str, 'source-port'), ['str'])),
+                                ('destination_addr', (YLeaf(YType.str, 'destination-addr'), ['str'])),
+                                ('source_addr', (YLeaf(YType.str, 'source-addr'), ['str'])),
+                                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
+                                ('vid', (YLeaf(YType.uint32, 'vid'), ['int'])),
+                                ('l3protocol', (YLeaf(YType.uint32, 'l3protocol'), ['int'])),
+                                ('l4protocol', (YLeaf(YType.uint32, 'l4protocol'), ['int'])),
+                                ('intf_name', (YLeaf(YType.str, 'intf-name'), ['str'])),
+                                ('intf_handle', (YLeaf(YType.uint32, 'intf-handle'), ['int'])),
+                                ('is_syn', (YLeaf(YType.uint8, 'is-syn'), ['int'])),
+                                ('opcode', (YLeaf(YType.str, 'opcode'), ['str'])),
+                                ('accepts', (YLeaf(YType.uint64, 'accepts'), ['int'])),
+                                ('drops', (YLeaf(YType.uint64, 'drops'), ['int'])),
+                                ('flow_type', (YLeaf(YType.str, 'flow-type'), ['str'])),
+                                ('listener_tag', (YLeaf(YType.str, 'listener-tag'), ['str'])),
+                                ('local_flag', (YLeaf(YType.uint8, 'local-flag'), ['int'])),
+                                ('is_fgid', (YLeaf(YType.uint8, 'is-fgid'), ['int'])),
+                                ('deliver_list_short', (YLeaf(YType.str, 'deliver-list-short'), ['str'])),
+                                ('deliver_list_long', (YLeaf(YType.str, 'deliver-list-long'), ['str'])),
+                                ('min_ttl', (YLeaf(YType.uint8, 'min-ttl'), ['int'])),
+                                ('pending_ifibq_delay', (YLeaf(YType.uint32, 'pending-ifibq-delay'), ['int'])),
+                                ('sl_ifibq_delay', (YLeaf(YType.uint32, 'sl-ifibq-delay'), ['int'])),
+                                ('ifib_program_time', (YLeaf(YType.str, 'ifib-program-time'), ['str'])),
                             ])
                             self.entry = None
                             self.destination_type = None
@@ -448,9 +454,10 @@ class LptsIfib(Entity):
                             self.sl_ifibq_delay = None
                             self.ifib_program_time = None
                             self._segment_path = lambda: "entry" + "[entry='" + str(self.entry) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(LptsIfib.Nodes.Node.SliceIds.SliceId.Entry, ['entry', u'destination_type', u'destination_value', u'source_port', u'destination_addr', u'source_addr', u'vrf_name', u'vid', u'l3protocol', u'l4protocol', u'intf_name', u'intf_handle', u'is_syn', u'opcode', u'accepts', u'drops', u'flow_type', u'listener_tag', u'local_flag', u'is_fgid', u'deliver_list_short', u'deliver_list_long', u'min_ttl', u'pending_ifibq_delay', u'sl_ifibq_delay', u'ifib_program_time'], name, value)
+                            self._perform_setattr(LptsIfib.Nodes.Node.SliceIds.SliceId.Entry, ['entry', 'destination_type', 'destination_value', 'source_port', 'destination_addr', 'source_addr', 'vrf_name', 'vid', 'l3protocol', 'l4protocol', 'intf_name', 'intf_handle', 'is_syn', 'opcode', 'accepts', 'drops', 'flow_type', 'listener_tag', 'local_flag', 'is_fgid', 'deliver_list_short', 'deliver_list_long', 'min_ttl', 'pending_ifibq_delay', 'sl_ifibq_delay', 'ifib_program_time'], name, value)
 
     def clone_ptr(self):
         self._top_entity = LptsIfib()

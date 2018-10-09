@@ -13,6 +13,8 @@ from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
+from ydk.models.ietf.ietf_yang_smiv2 import ObjectIdentity
+
 
 class IfDirection(Enum):
     """
@@ -38,7 +40,7 @@ class IfDirection(Enum):
 
 
 
-class DiffServTBParamTrTCMBlind(Identity):
+class DiffServTBParamTrTCMBlind(ObjectIdentity):
     """
     Two Rate Three Color Marker Metering as defined by RFC 2698, in
     the `Color Blind' mode as described by the RFC.
@@ -50,11 +52,11 @@ class DiffServTBParamTrTCMBlind(Identity):
     _prefix = 'DIFFSERV-MIB'
     _revision = '2002-02-07'
 
-    def __init__(self):
-        super(DiffServTBParamTrTCMBlind, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", "DIFFSERV-MIB", "DIFFSERV-MIB:diffServTBParamTrTCMBlind")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamTrTCMBlind"):
+        super(DiffServTBParamTrTCMBlind, self).__init__(ns, pref, tag)
 
 
-class DiffServSchedulerWFQ(Identity):
+class DiffServSchedulerWFQ(ObjectIdentity):
     """
     For use with diffServSchedulerMethod to indicate the Weighted
     Fair Queuing scheduling method, defined as any algorithm in which
@@ -70,11 +72,11 @@ class DiffServSchedulerWFQ(Identity):
     _prefix = 'DIFFSERV-MIB'
     _revision = '2002-02-07'
 
-    def __init__(self):
-        super(DiffServSchedulerWFQ, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", "DIFFSERV-MIB", "DIFFSERV-MIB:diffServSchedulerWFQ")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServSchedulerWFQ"):
+        super(DiffServSchedulerWFQ, self).__init__(ns, pref, tag)
 
 
-class DiffServTBParamTswTCM(Identity):
+class DiffServTBParamTswTCM(ObjectIdentity):
     """
     Time Sliding Window Three Color Marker Metering as defined by
     RFC 2859.
@@ -86,11 +88,11 @@ class DiffServTBParamTswTCM(Identity):
     _prefix = 'DIFFSERV-MIB'
     _revision = '2002-02-07'
 
-    def __init__(self):
-        super(DiffServTBParamTswTCM, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", "DIFFSERV-MIB", "DIFFSERV-MIB:diffServTBParamTswTCM")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamTswTCM"):
+        super(DiffServTBParamTswTCM, self).__init__(ns, pref, tag)
 
 
-class DiffServTBParamAvgRate(Identity):
+class DiffServTBParamAvgRate(ObjectIdentity):
     """
     Average Rate Meter as described in the Informal Differentiated
     Services Model section 5.2.1.
@@ -102,11 +104,11 @@ class DiffServTBParamAvgRate(Identity):
     _prefix = 'DIFFSERV-MIB'
     _revision = '2002-02-07'
 
-    def __init__(self):
-        super(DiffServTBParamAvgRate, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", "DIFFSERV-MIB", "DIFFSERV-MIB:diffServTBParamAvgRate")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamAvgRate"):
+        super(DiffServTBParamAvgRate, self).__init__(ns, pref, tag)
 
 
-class DiffServSchedulerWRR(Identity):
+class DiffServSchedulerWRR(ObjectIdentity):
     """
     For use with diffServSchedulerMethod to indicate the Weighted
     Round Robin scheduling method, defined as any algorithm in which
@@ -123,11 +125,11 @@ class DiffServSchedulerWRR(Identity):
     _prefix = 'DIFFSERV-MIB'
     _revision = '2002-02-07'
 
-    def __init__(self):
-        super(DiffServSchedulerWRR, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", "DIFFSERV-MIB", "DIFFSERV-MIB:diffServSchedulerWRR")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServSchedulerWRR"):
+        super(DiffServSchedulerWRR, self).__init__(ns, pref, tag)
 
 
-class DiffServTBParamSrTCMAware(Identity):
+class DiffServTBParamSrTCMAware(ObjectIdentity):
     """
     Single Rate Three Color Marker Metering as defined by RFC 2697,
     in the `Color Aware' mode as described by the RFC.
@@ -139,11 +141,11 @@ class DiffServTBParamSrTCMAware(Identity):
     _prefix = 'DIFFSERV-MIB'
     _revision = '2002-02-07'
 
-    def __init__(self):
-        super(DiffServTBParamSrTCMAware, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", "DIFFSERV-MIB", "DIFFSERV-MIB:diffServTBParamSrTCMAware")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamSrTCMAware"):
+        super(DiffServTBParamSrTCMAware, self).__init__(ns, pref, tag)
 
 
-class DiffServTBParamSrTCMBlind(Identity):
+class DiffServTBParamSrTCMBlind(ObjectIdentity):
     """
     Single Rate Three Color Marker Metering as defined by RFC 2697,
     in the `Color Blind' mode as described by the RFC.
@@ -155,11 +157,11 @@ class DiffServTBParamSrTCMBlind(Identity):
     _prefix = 'DIFFSERV-MIB'
     _revision = '2002-02-07'
 
-    def __init__(self):
-        super(DiffServTBParamSrTCMBlind, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", "DIFFSERV-MIB", "DIFFSERV-MIB:diffServTBParamSrTCMBlind")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamSrTCMBlind"):
+        super(DiffServTBParamSrTCMBlind, self).__init__(ns, pref, tag)
 
 
-class DiffServTBParamSimpleTokenBucket(Identity):
+class DiffServTBParamSimpleTokenBucket(ObjectIdentity):
     """
     Two Parameter Token Bucket Meter as described in the Informal
     Differentiated Services Model section 5.2.3.
@@ -171,11 +173,11 @@ class DiffServTBParamSimpleTokenBucket(Identity):
     _prefix = 'DIFFSERV-MIB'
     _revision = '2002-02-07'
 
-    def __init__(self):
-        super(DiffServTBParamSimpleTokenBucket, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", "DIFFSERV-MIB", "DIFFSERV-MIB:diffServTBParamSimpleTokenBucket")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamSimpleTokenBucket"):
+        super(DiffServTBParamSimpleTokenBucket, self).__init__(ns, pref, tag)
 
 
-class DiffServSchedulerPriority(Identity):
+class DiffServSchedulerPriority(ObjectIdentity):
     """
     For use with diffServSchedulerMethod to indicate the Priority
     scheduling method.  This is defined as an algorithm in which the
@@ -192,11 +194,11 @@ class DiffServSchedulerPriority(Identity):
     _prefix = 'DIFFSERV-MIB'
     _revision = '2002-02-07'
 
-    def __init__(self):
-        super(DiffServSchedulerPriority, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", "DIFFSERV-MIB", "DIFFSERV-MIB:diffServSchedulerPriority")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServSchedulerPriority"):
+        super(DiffServSchedulerPriority, self).__init__(ns, pref, tag)
 
 
-class DiffServTBParamTrTCMAware(Identity):
+class DiffServTBParamTrTCMAware(ObjectIdentity):
     """
     Two Rate Three Color Marker Metering as defined by RFC 2698, in
     the `Color Aware' mode as described by the RFC.
@@ -208,8 +210,8 @@ class DiffServTBParamTrTCMAware(Identity):
     _prefix = 'DIFFSERV-MIB'
     _revision = '2002-02-07'
 
-    def __init__(self):
-        super(DiffServTBParamTrTCMAware, self).__init__("urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", "DIFFSERV-MIB", "DIFFSERV-MIB:diffServTBParamTrTCMAware")
+    def __init__(self, ns="urn:ietf:params:xml:ns:yang:smiv2:DIFFSERV-MIB", pref="DIFFSERV-MIB", tag="DIFFSERV-MIB:diffServTBParamTrTCMAware"):
+        super(DiffServTBParamTrTCMAware, self).__init__(ns, pref, tag)
 
 
 class DIFFSERVMIB(Entity):
@@ -433,6 +435,7 @@ class DIFFSERVMIB(Entity):
         self.diffservmaxratetable.parent = self
         self._children_name_map["diffservmaxratetable"] = "diffServMaxRateTable"
         self._segment_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(DIFFSERVMIB, [], name, value)
@@ -480,15 +483,16 @@ class DIFFSERVMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('diffservclfrnextfree', YLeaf(YType.uint32, 'diffServClfrNextFree')),
-                ('diffservclfrelementnextfree', YLeaf(YType.uint32, 'diffServClfrElementNextFree')),
-                ('diffservmultifieldclfrnextfree', YLeaf(YType.uint32, 'diffServMultiFieldClfrNextFree')),
+                ('diffservclfrnextfree', (YLeaf(YType.uint32, 'diffServClfrNextFree'), ['int'])),
+                ('diffservclfrelementnextfree', (YLeaf(YType.uint32, 'diffServClfrElementNextFree'), ['int'])),
+                ('diffservmultifieldclfrnextfree', (YLeaf(YType.uint32, 'diffServMultiFieldClfrNextFree'), ['int'])),
             ])
             self.diffservclfrnextfree = None
             self.diffservclfrelementnextfree = None
             self.diffservmultifieldclfrnextfree = None
             self._segment_path = lambda: "diffServClassifier"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServClassifier, [u'diffservclfrnextfree', u'diffservclfrelementnextfree', u'diffservmultifieldclfrnextfree'], name, value)
@@ -522,11 +526,12 @@ class DIFFSERVMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('diffservmeternextfree', YLeaf(YType.uint32, 'diffServMeterNextFree')),
+                ('diffservmeternextfree', (YLeaf(YType.uint32, 'diffServMeterNextFree'), ['int'])),
             ])
             self.diffservmeternextfree = None
             self._segment_path = lambda: "diffServMeter"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServMeter, [u'diffservmeternextfree'], name, value)
@@ -560,11 +565,12 @@ class DIFFSERVMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('diffservtbparamnextfree', YLeaf(YType.uint32, 'diffServTBParamNextFree')),
+                ('diffservtbparamnextfree', (YLeaf(YType.uint32, 'diffServTBParamNextFree'), ['int'])),
             ])
             self.diffservtbparamnextfree = None
             self._segment_path = lambda: "diffServTBParam"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServTBParam, [u'diffservtbparamnextfree'], name, value)
@@ -605,13 +611,14 @@ class DIFFSERVMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('diffservactionnextfree', YLeaf(YType.uint32, 'diffServActionNextFree')),
-                ('diffservcountactnextfree', YLeaf(YType.uint32, 'diffServCountActNextFree')),
+                ('diffservactionnextfree', (YLeaf(YType.uint32, 'diffServActionNextFree'), ['int'])),
+                ('diffservcountactnextfree', (YLeaf(YType.uint32, 'diffServCountActNextFree'), ['int'])),
             ])
             self.diffservactionnextfree = None
             self.diffservcountactnextfree = None
             self._segment_path = lambda: "diffServAction"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServAction, [u'diffservactionnextfree', u'diffservcountactnextfree'], name, value)
@@ -652,13 +659,14 @@ class DIFFSERVMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('diffservalgdropnextfree', YLeaf(YType.uint32, 'diffServAlgDropNextFree')),
-                ('diffservrandomdropnextfree', YLeaf(YType.uint32, 'diffServRandomDropNextFree')),
+                ('diffservalgdropnextfree', (YLeaf(YType.uint32, 'diffServAlgDropNextFree'), ['int'])),
+                ('diffservrandomdropnextfree', (YLeaf(YType.uint32, 'diffServRandomDropNextFree'), ['int'])),
             ])
             self.diffservalgdropnextfree = None
             self.diffservrandomdropnextfree = None
             self._segment_path = lambda: "diffServAlgDrop"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServAlgDrop, [u'diffservalgdropnextfree', u'diffservrandomdropnextfree'], name, value)
@@ -692,11 +700,12 @@ class DIFFSERVMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('diffservqnextfree', YLeaf(YType.uint32, 'diffServQNextFree')),
+                ('diffservqnextfree', (YLeaf(YType.uint32, 'diffServQNextFree'), ['int'])),
             ])
             self.diffservqnextfree = None
             self._segment_path = lambda: "diffServQueue"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServQueue, [u'diffservqnextfree'], name, value)
@@ -744,15 +753,16 @@ class DIFFSERVMIB(Entity):
             self.ylist_key_names = []
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('diffservschedulernextfree', YLeaf(YType.uint32, 'diffServSchedulerNextFree')),
-                ('diffservminratenextfree', YLeaf(YType.uint32, 'diffServMinRateNextFree')),
-                ('diffservmaxratenextfree', YLeaf(YType.uint32, 'diffServMaxRateNextFree')),
+                ('diffservschedulernextfree', (YLeaf(YType.uint32, 'diffServSchedulerNextFree'), ['int'])),
+                ('diffservminratenextfree', (YLeaf(YType.uint32, 'diffServMinRateNextFree'), ['int'])),
+                ('diffservmaxratenextfree', (YLeaf(YType.uint32, 'diffServMaxRateNextFree'), ['int'])),
             ])
             self.diffservschedulernextfree = None
             self.diffservminratenextfree = None
             self.diffservmaxratenextfree = None
             self._segment_path = lambda: "diffServScheduler"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServScheduler, [u'diffservschedulernextfree', u'diffservminratenextfree', u'diffservmaxratenextfree'], name, value)
@@ -791,6 +801,7 @@ class DIFFSERVMIB(Entity):
             self.diffservdatapathentry = YList(self)
             self._segment_path = lambda: "diffServDataPathTable"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServDataPathTable, [], name, value)
@@ -860,11 +871,11 @@ class DIFFSERVMIB(Entity):
                 self.ylist_key_names = ['ifindex','diffservdatapathifdirection']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('ifindex', YLeaf(YType.str, 'ifIndex')),
-                    ('diffservdatapathifdirection', YLeaf(YType.enumeration, 'diffServDataPathIfDirection')),
-                    ('diffservdatapathstart', YLeaf(YType.str, 'diffServDataPathStart')),
-                    ('diffservdatapathstorage', YLeaf(YType.enumeration, 'diffServDataPathStorage')),
-                    ('diffservdatapathstatus', YLeaf(YType.enumeration, 'diffServDataPathStatus')),
+                    ('ifindex', (YLeaf(YType.str, 'ifIndex'), ['int'])),
+                    ('diffservdatapathifdirection', (YLeaf(YType.enumeration, 'diffServDataPathIfDirection'), [('ydk.models.cisco_ios_xe.DIFFSERV_MIB', 'IfDirection', '')])),
+                    ('diffservdatapathstart', (YLeaf(YType.str, 'diffServDataPathStart'), ['str'])),
+                    ('diffservdatapathstorage', (YLeaf(YType.enumeration, 'diffServDataPathStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('diffservdatapathstatus', (YLeaf(YType.enumeration, 'diffServDataPathStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.ifindex = None
                 self.diffservdatapathifdirection = None
@@ -873,6 +884,7 @@ class DIFFSERVMIB(Entity):
                 self.diffservdatapathstatus = None
                 self._segment_path = lambda: "diffServDataPathEntry" + "[ifIndex='" + str(self.ifindex) + "']" + "[diffServDataPathIfDirection='" + str(self.diffservdatapathifdirection) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServDataPathTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DIFFSERVMIB.DiffServDataPathTable.DiffServDataPathEntry, [u'ifindex', u'diffservdatapathifdirection', u'diffservdatapathstart', u'diffservdatapathstorage', u'diffservdatapathstatus'], name, value)
@@ -928,6 +940,7 @@ class DIFFSERVMIB(Entity):
             self.diffservclfrentry = YList(self)
             self._segment_path = lambda: "diffServClfrTable"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServClfrTable, [], name, value)
@@ -973,15 +986,16 @@ class DIFFSERVMIB(Entity):
                 self.ylist_key_names = ['diffservclfrid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('diffservclfrid', YLeaf(YType.uint32, 'diffServClfrId')),
-                    ('diffservclfrstorage', YLeaf(YType.enumeration, 'diffServClfrStorage')),
-                    ('diffservclfrstatus', YLeaf(YType.enumeration, 'diffServClfrStatus')),
+                    ('diffservclfrid', (YLeaf(YType.uint32, 'diffServClfrId'), ['int'])),
+                    ('diffservclfrstorage', (YLeaf(YType.enumeration, 'diffServClfrStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('diffservclfrstatus', (YLeaf(YType.enumeration, 'diffServClfrStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.diffservclfrid = None
                 self.diffservclfrstorage = None
                 self.diffservclfrstatus = None
                 self._segment_path = lambda: "diffServClfrEntry" + "[diffServClfrId='" + str(self.diffservclfrid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServClfrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DIFFSERVMIB.DiffServClfrTable.DiffServClfrEntry, [u'diffservclfrid', u'diffservclfrstorage', u'diffservclfrstatus'], name, value)
@@ -1036,6 +1050,7 @@ class DIFFSERVMIB(Entity):
             self.diffservclfrelemententry = YList(self)
             self._segment_path = lambda: "diffServClfrElementTable"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServClfrElementTable, [], name, value)
@@ -1110,13 +1125,13 @@ class DIFFSERVMIB(Entity):
                 self.ylist_key_names = ['diffservclfrid','diffservclfrelementid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('diffservclfrid', YLeaf(YType.str, 'diffServClfrId')),
-                    ('diffservclfrelementid', YLeaf(YType.uint32, 'diffServClfrElementId')),
-                    ('diffservclfrelementprecedence', YLeaf(YType.uint32, 'diffServClfrElementPrecedence')),
-                    ('diffservclfrelementnext', YLeaf(YType.str, 'diffServClfrElementNext')),
-                    ('diffservclfrelementspecific', YLeaf(YType.str, 'diffServClfrElementSpecific')),
-                    ('diffservclfrelementstorage', YLeaf(YType.enumeration, 'diffServClfrElementStorage')),
-                    ('diffservclfrelementstatus', YLeaf(YType.enumeration, 'diffServClfrElementStatus')),
+                    ('diffservclfrid', (YLeaf(YType.str, 'diffServClfrId'), ['int'])),
+                    ('diffservclfrelementid', (YLeaf(YType.uint32, 'diffServClfrElementId'), ['int'])),
+                    ('diffservclfrelementprecedence', (YLeaf(YType.uint32, 'diffServClfrElementPrecedence'), ['int'])),
+                    ('diffservclfrelementnext', (YLeaf(YType.str, 'diffServClfrElementNext'), ['str'])),
+                    ('diffservclfrelementspecific', (YLeaf(YType.str, 'diffServClfrElementSpecific'), ['str'])),
+                    ('diffservclfrelementstorage', (YLeaf(YType.enumeration, 'diffServClfrElementStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('diffservclfrelementstatus', (YLeaf(YType.enumeration, 'diffServClfrElementStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.diffservclfrid = None
                 self.diffservclfrelementid = None
@@ -1127,6 +1142,7 @@ class DIFFSERVMIB(Entity):
                 self.diffservclfrelementstatus = None
                 self._segment_path = lambda: "diffServClfrElementEntry" + "[diffServClfrId='" + str(self.diffservclfrid) + "']" + "[diffServClfrElementId='" + str(self.diffservclfrelementid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServClfrElementTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DIFFSERVMIB.DiffServClfrElementTable.DiffServClfrElementEntry, [u'diffservclfrid', u'diffservclfrelementid', u'diffservclfrelementprecedence', u'diffservclfrelementnext', u'diffservclfrelementspecific', u'diffservclfrelementstorage', u'diffservclfrelementstatus'], name, value)
@@ -1166,6 +1182,7 @@ class DIFFSERVMIB(Entity):
             self.diffservmultifieldclfrentry = YList(self)
             self._segment_path = lambda: "diffServMultiFieldClfrTable"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServMultiFieldClfrTable, [], name, value)
@@ -1295,21 +1312,21 @@ class DIFFSERVMIB(Entity):
                 self.ylist_key_names = ['diffservmultifieldclfrid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('diffservmultifieldclfrid', YLeaf(YType.uint32, 'diffServMultiFieldClfrId')),
-                    ('diffservmultifieldclfraddrtype', YLeaf(YType.enumeration, 'diffServMultiFieldClfrAddrType')),
-                    ('diffservmultifieldclfrdstaddr', YLeaf(YType.str, 'diffServMultiFieldClfrDstAddr')),
-                    ('diffservmultifieldclfrdstprefixlength', YLeaf(YType.uint32, 'diffServMultiFieldClfrDstPrefixLength')),
-                    ('diffservmultifieldclfrsrcaddr', YLeaf(YType.str, 'diffServMultiFieldClfrSrcAddr')),
-                    ('diffservmultifieldclfrsrcprefixlength', YLeaf(YType.uint32, 'diffServMultiFieldClfrSrcPrefixLength')),
-                    ('diffservmultifieldclfrdscp', YLeaf(YType.int32, 'diffServMultiFieldClfrDscp')),
-                    ('diffservmultifieldclfrflowid', YLeaf(YType.uint32, 'diffServMultiFieldClfrFlowId')),
-                    ('diffservmultifieldclfrprotocol', YLeaf(YType.uint32, 'diffServMultiFieldClfrProtocol')),
-                    ('diffservmultifieldclfrdstl4portmin', YLeaf(YType.uint16, 'diffServMultiFieldClfrDstL4PortMin')),
-                    ('diffservmultifieldclfrdstl4portmax', YLeaf(YType.uint16, 'diffServMultiFieldClfrDstL4PortMax')),
-                    ('diffservmultifieldclfrsrcl4portmin', YLeaf(YType.uint16, 'diffServMultiFieldClfrSrcL4PortMin')),
-                    ('diffservmultifieldclfrsrcl4portmax', YLeaf(YType.uint16, 'diffServMultiFieldClfrSrcL4PortMax')),
-                    ('diffservmultifieldclfrstorage', YLeaf(YType.enumeration, 'diffServMultiFieldClfrStorage')),
-                    ('diffservmultifieldclfrstatus', YLeaf(YType.enumeration, 'diffServMultiFieldClfrStatus')),
+                    ('diffservmultifieldclfrid', (YLeaf(YType.uint32, 'diffServMultiFieldClfrId'), ['int'])),
+                    ('diffservmultifieldclfraddrtype', (YLeaf(YType.enumeration, 'diffServMultiFieldClfrAddrType'), [('ydk.models.cisco_ios_xe.INET_ADDRESS_MIB', 'InetAddressType', '')])),
+                    ('diffservmultifieldclfrdstaddr', (YLeaf(YType.str, 'diffServMultiFieldClfrDstAddr'), ['str'])),
+                    ('diffservmultifieldclfrdstprefixlength', (YLeaf(YType.uint32, 'diffServMultiFieldClfrDstPrefixLength'), ['int'])),
+                    ('diffservmultifieldclfrsrcaddr', (YLeaf(YType.str, 'diffServMultiFieldClfrSrcAddr'), ['str'])),
+                    ('diffservmultifieldclfrsrcprefixlength', (YLeaf(YType.uint32, 'diffServMultiFieldClfrSrcPrefixLength'), ['int'])),
+                    ('diffservmultifieldclfrdscp', (YLeaf(YType.int32, 'diffServMultiFieldClfrDscp'), ['int'])),
+                    ('diffservmultifieldclfrflowid', (YLeaf(YType.uint32, 'diffServMultiFieldClfrFlowId'), ['int'])),
+                    ('diffservmultifieldclfrprotocol', (YLeaf(YType.uint32, 'diffServMultiFieldClfrProtocol'), ['int'])),
+                    ('diffservmultifieldclfrdstl4portmin', (YLeaf(YType.uint16, 'diffServMultiFieldClfrDstL4PortMin'), ['int'])),
+                    ('diffservmultifieldclfrdstl4portmax', (YLeaf(YType.uint16, 'diffServMultiFieldClfrDstL4PortMax'), ['int'])),
+                    ('diffservmultifieldclfrsrcl4portmin', (YLeaf(YType.uint16, 'diffServMultiFieldClfrSrcL4PortMin'), ['int'])),
+                    ('diffservmultifieldclfrsrcl4portmax', (YLeaf(YType.uint16, 'diffServMultiFieldClfrSrcL4PortMax'), ['int'])),
+                    ('diffservmultifieldclfrstorage', (YLeaf(YType.enumeration, 'diffServMultiFieldClfrStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('diffservmultifieldclfrstatus', (YLeaf(YType.enumeration, 'diffServMultiFieldClfrStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.diffservmultifieldclfrid = None
                 self.diffservmultifieldclfraddrtype = None
@@ -1328,6 +1345,7 @@ class DIFFSERVMIB(Entity):
                 self.diffservmultifieldclfrstatus = None
                 self._segment_path = lambda: "diffServMultiFieldClfrEntry" + "[diffServMultiFieldClfrId='" + str(self.diffservmultifieldclfrid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServMultiFieldClfrTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DIFFSERVMIB.DiffServMultiFieldClfrTable.DiffServMultiFieldClfrEntry, [u'diffservmultifieldclfrid', u'diffservmultifieldclfraddrtype', u'diffservmultifieldclfrdstaddr', u'diffservmultifieldclfrdstprefixlength', u'diffservmultifieldclfrsrcaddr', u'diffservmultifieldclfrsrcprefixlength', u'diffservmultifieldclfrdscp', u'diffservmultifieldclfrflowid', u'diffservmultifieldclfrprotocol', u'diffservmultifieldclfrdstl4portmin', u'diffservmultifieldclfrdstl4portmax', u'diffservmultifieldclfrsrcl4portmin', u'diffservmultifieldclfrsrcl4portmax', u'diffservmultifieldclfrstorage', u'diffservmultifieldclfrstatus'], name, value)
@@ -1371,6 +1389,7 @@ class DIFFSERVMIB(Entity):
             self.diffservmeterentry = YList(self)
             self._segment_path = lambda: "diffServMeterTable"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServMeterTable, [], name, value)
@@ -1436,12 +1455,12 @@ class DIFFSERVMIB(Entity):
                 self.ylist_key_names = ['diffservmeterid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('diffservmeterid', YLeaf(YType.uint32, 'diffServMeterId')),
-                    ('diffservmetersucceednext', YLeaf(YType.str, 'diffServMeterSucceedNext')),
-                    ('diffservmeterfailnext', YLeaf(YType.str, 'diffServMeterFailNext')),
-                    ('diffservmeterspecific', YLeaf(YType.str, 'diffServMeterSpecific')),
-                    ('diffservmeterstorage', YLeaf(YType.enumeration, 'diffServMeterStorage')),
-                    ('diffservmeterstatus', YLeaf(YType.enumeration, 'diffServMeterStatus')),
+                    ('diffservmeterid', (YLeaf(YType.uint32, 'diffServMeterId'), ['int'])),
+                    ('diffservmetersucceednext', (YLeaf(YType.str, 'diffServMeterSucceedNext'), ['str'])),
+                    ('diffservmeterfailnext', (YLeaf(YType.str, 'diffServMeterFailNext'), ['str'])),
+                    ('diffservmeterspecific', (YLeaf(YType.str, 'diffServMeterSpecific'), ['str'])),
+                    ('diffservmeterstorage', (YLeaf(YType.enumeration, 'diffServMeterStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('diffservmeterstatus', (YLeaf(YType.enumeration, 'diffServMeterStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.diffservmeterid = None
                 self.diffservmetersucceednext = None
@@ -1451,6 +1470,7 @@ class DIFFSERVMIB(Entity):
                 self.diffservmeterstatus = None
                 self._segment_path = lambda: "diffServMeterEntry" + "[diffServMeterId='" + str(self.diffservmeterid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServMeterTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DIFFSERVMIB.DiffServMeterTable.DiffServMeterEntry, [u'diffservmeterid', u'diffservmetersucceednext', u'diffservmeterfailnext', u'diffservmeterspecific', u'diffservmeterstorage', u'diffservmeterstatus'], name, value)
@@ -1490,6 +1510,7 @@ class DIFFSERVMIB(Entity):
             self.diffservtbparamentry = YList(self)
             self._segment_path = lambda: "diffServTBParamTable"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServTBParamTable, [], name, value)
@@ -1568,13 +1589,13 @@ class DIFFSERVMIB(Entity):
                 self.ylist_key_names = ['diffservtbparamid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('diffservtbparamid', YLeaf(YType.uint32, 'diffServTBParamId')),
-                    ('diffservtbparamtype', YLeaf(YType.str, 'diffServTBParamType')),
-                    ('diffservtbparamrate', YLeaf(YType.uint32, 'diffServTBParamRate')),
-                    ('diffservtbparamburstsize', YLeaf(YType.int32, 'diffServTBParamBurstSize')),
-                    ('diffservtbparaminterval', YLeaf(YType.uint32, 'diffServTBParamInterval')),
-                    ('diffservtbparamstorage', YLeaf(YType.enumeration, 'diffServTBParamStorage')),
-                    ('diffservtbparamstatus', YLeaf(YType.enumeration, 'diffServTBParamStatus')),
+                    ('diffservtbparamid', (YLeaf(YType.uint32, 'diffServTBParamId'), ['int'])),
+                    ('diffservtbparamtype', (YLeaf(YType.str, 'diffServTBParamType'), ['str'])),
+                    ('diffservtbparamrate', (YLeaf(YType.uint32, 'diffServTBParamRate'), ['int'])),
+                    ('diffservtbparamburstsize', (YLeaf(YType.int32, 'diffServTBParamBurstSize'), ['int'])),
+                    ('diffservtbparaminterval', (YLeaf(YType.uint32, 'diffServTBParamInterval'), ['int'])),
+                    ('diffservtbparamstorage', (YLeaf(YType.enumeration, 'diffServTBParamStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('diffservtbparamstatus', (YLeaf(YType.enumeration, 'diffServTBParamStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.diffservtbparamid = None
                 self.diffservtbparamtype = None
@@ -1585,6 +1606,7 @@ class DIFFSERVMIB(Entity):
                 self.diffservtbparamstatus = None
                 self._segment_path = lambda: "diffServTBParamEntry" + "[diffServTBParamId='" + str(self.diffservtbparamid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServTBParamTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DIFFSERVMIB.DiffServTBParamTable.DiffServTBParamEntry, [u'diffservtbparamid', u'diffservtbparamtype', u'diffservtbparamrate', u'diffservtbparamburstsize', u'diffservtbparaminterval', u'diffservtbparamstorage', u'diffservtbparamstatus'], name, value)
@@ -1627,6 +1649,7 @@ class DIFFSERVMIB(Entity):
             self.diffservactionentry = YList(self)
             self._segment_path = lambda: "diffServActionTable"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServActionTable, [], name, value)
@@ -1692,12 +1715,12 @@ class DIFFSERVMIB(Entity):
                 self.ylist_key_names = ['diffservactionid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('diffservactionid', YLeaf(YType.uint32, 'diffServActionId')),
-                    ('diffservactioninterface', YLeaf(YType.int32, 'diffServActionInterface')),
-                    ('diffservactionnext', YLeaf(YType.str, 'diffServActionNext')),
-                    ('diffservactionspecific', YLeaf(YType.str, 'diffServActionSpecific')),
-                    ('diffservactionstorage', YLeaf(YType.enumeration, 'diffServActionStorage')),
-                    ('diffservactionstatus', YLeaf(YType.enumeration, 'diffServActionStatus')),
+                    ('diffservactionid', (YLeaf(YType.uint32, 'diffServActionId'), ['int'])),
+                    ('diffservactioninterface', (YLeaf(YType.int32, 'diffServActionInterface'), ['int'])),
+                    ('diffservactionnext', (YLeaf(YType.str, 'diffServActionNext'), ['str'])),
+                    ('diffservactionspecific', (YLeaf(YType.str, 'diffServActionSpecific'), ['str'])),
+                    ('diffservactionstorage', (YLeaf(YType.enumeration, 'diffServActionStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('diffservactionstatus', (YLeaf(YType.enumeration, 'diffServActionStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.diffservactionid = None
                 self.diffservactioninterface = None
@@ -1707,6 +1730,7 @@ class DIFFSERVMIB(Entity):
                 self.diffservactionstatus = None
                 self._segment_path = lambda: "diffServActionEntry" + "[diffServActionId='" + str(self.diffservactionid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServActionTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DIFFSERVMIB.DiffServActionTable.DiffServActionEntry, [u'diffservactionid', u'diffservactioninterface', u'diffservactionnext', u'diffservactionspecific', u'diffservactionstorage', u'diffservactionstatus'], name, value)
@@ -1744,6 +1768,7 @@ class DIFFSERVMIB(Entity):
             self.diffservdscpmarkactentry = YList(self)
             self._segment_path = lambda: "diffServDscpMarkActTable"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServDscpMarkActTable, [], name, value)
@@ -1778,11 +1803,12 @@ class DIFFSERVMIB(Entity):
                 self.ylist_key_names = ['diffservdscpmarkactdscp']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('diffservdscpmarkactdscp', YLeaf(YType.uint8, 'diffServDscpMarkActDscp')),
+                    ('diffservdscpmarkactdscp', (YLeaf(YType.uint8, 'diffServDscpMarkActDscp'), ['int'])),
                 ])
                 self.diffservdscpmarkactdscp = None
                 self._segment_path = lambda: "diffServDscpMarkActEntry" + "[diffServDscpMarkActDscp='" + str(self.diffservdscpmarkactdscp) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServDscpMarkActTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DIFFSERVMIB.DiffServDscpMarkActTable.DiffServDscpMarkActEntry, [u'diffservdscpmarkactdscp'], name, value)
@@ -1819,6 +1845,7 @@ class DIFFSERVMIB(Entity):
             self.diffservcountactentry = YList(self)
             self._segment_path = lambda: "diffServCountActTable"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServCountActTable, [], name, value)
@@ -1877,11 +1904,11 @@ class DIFFSERVMIB(Entity):
                 self.ylist_key_names = ['diffservcountactid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('diffservcountactid', YLeaf(YType.uint32, 'diffServCountActId')),
-                    ('diffservcountactoctets', YLeaf(YType.uint64, 'diffServCountActOctets')),
-                    ('diffservcountactpkts', YLeaf(YType.uint64, 'diffServCountActPkts')),
-                    ('diffservcountactstorage', YLeaf(YType.enumeration, 'diffServCountActStorage')),
-                    ('diffservcountactstatus', YLeaf(YType.enumeration, 'diffServCountActStatus')),
+                    ('diffservcountactid', (YLeaf(YType.uint32, 'diffServCountActId'), ['int'])),
+                    ('diffservcountactoctets', (YLeaf(YType.uint64, 'diffServCountActOctets'), ['int'])),
+                    ('diffservcountactpkts', (YLeaf(YType.uint64, 'diffServCountActPkts'), ['int'])),
+                    ('diffservcountactstorage', (YLeaf(YType.enumeration, 'diffServCountActStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('diffservcountactstatus', (YLeaf(YType.enumeration, 'diffServCountActStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.diffservcountactid = None
                 self.diffservcountactoctets = None
@@ -1890,6 +1917,7 @@ class DIFFSERVMIB(Entity):
                 self.diffservcountactstatus = None
                 self._segment_path = lambda: "diffServCountActEntry" + "[diffServCountActId='" + str(self.diffservcountactid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServCountActTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DIFFSERVMIB.DiffServCountActTable.DiffServCountActEntry, [u'diffservcountactid', u'diffservcountactoctets', u'diffservcountactpkts', u'diffservcountactstorage', u'diffservcountactstatus'], name, value)
@@ -1926,6 +1954,7 @@ class DIFFSERVMIB(Entity):
             self.diffservalgdropentry = YList(self)
             self._segment_path = lambda: "diffServAlgDropTable"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServAlgDropTable, [], name, value)
@@ -2035,18 +2064,18 @@ class DIFFSERVMIB(Entity):
                 self.ylist_key_names = ['diffservalgdropid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('diffservalgdropid', YLeaf(YType.uint32, 'diffServAlgDropId')),
-                    ('diffservalgdroptype', YLeaf(YType.enumeration, 'diffServAlgDropType')),
-                    ('diffservalgdropnext', YLeaf(YType.str, 'diffServAlgDropNext')),
-                    ('diffservalgdropqmeasure', YLeaf(YType.str, 'diffServAlgDropQMeasure')),
-                    ('diffservalgdropqthreshold', YLeaf(YType.uint32, 'diffServAlgDropQThreshold')),
-                    ('diffservalgdropspecific', YLeaf(YType.str, 'diffServAlgDropSpecific')),
-                    ('diffservalgdropoctets', YLeaf(YType.uint64, 'diffServAlgDropOctets')),
-                    ('diffservalgdroppkts', YLeaf(YType.uint64, 'diffServAlgDropPkts')),
-                    ('diffservalgrandomdropoctets', YLeaf(YType.uint64, 'diffServAlgRandomDropOctets')),
-                    ('diffservalgrandomdroppkts', YLeaf(YType.uint64, 'diffServAlgRandomDropPkts')),
-                    ('diffservalgdropstorage', YLeaf(YType.enumeration, 'diffServAlgDropStorage')),
-                    ('diffservalgdropstatus', YLeaf(YType.enumeration, 'diffServAlgDropStatus')),
+                    ('diffservalgdropid', (YLeaf(YType.uint32, 'diffServAlgDropId'), ['int'])),
+                    ('diffservalgdroptype', (YLeaf(YType.enumeration, 'diffServAlgDropType'), [('ydk.models.cisco_ios_xe.DIFFSERV_MIB', 'DIFFSERVMIB', 'DiffServAlgDropTable.DiffServAlgDropEntry.DiffServAlgDropType')])),
+                    ('diffservalgdropnext', (YLeaf(YType.str, 'diffServAlgDropNext'), ['str'])),
+                    ('diffservalgdropqmeasure', (YLeaf(YType.str, 'diffServAlgDropQMeasure'), ['str'])),
+                    ('diffservalgdropqthreshold', (YLeaf(YType.uint32, 'diffServAlgDropQThreshold'), ['int'])),
+                    ('diffservalgdropspecific', (YLeaf(YType.str, 'diffServAlgDropSpecific'), ['str'])),
+                    ('diffservalgdropoctets', (YLeaf(YType.uint64, 'diffServAlgDropOctets'), ['int'])),
+                    ('diffservalgdroppkts', (YLeaf(YType.uint64, 'diffServAlgDropPkts'), ['int'])),
+                    ('diffservalgrandomdropoctets', (YLeaf(YType.uint64, 'diffServAlgRandomDropOctets'), ['int'])),
+                    ('diffservalgrandomdroppkts', (YLeaf(YType.uint64, 'diffServAlgRandomDropPkts'), ['int'])),
+                    ('diffservalgdropstorage', (YLeaf(YType.enumeration, 'diffServAlgDropStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('diffservalgdropstatus', (YLeaf(YType.enumeration, 'diffServAlgDropStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.diffservalgdropid = None
                 self.diffservalgdroptype = None
@@ -2062,6 +2091,7 @@ class DIFFSERVMIB(Entity):
                 self.diffservalgdropstatus = None
                 self._segment_path = lambda: "diffServAlgDropEntry" + "[diffServAlgDropId='" + str(self.diffservalgdropid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServAlgDropTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DIFFSERVMIB.DiffServAlgDropTable.DiffServAlgDropEntry, [u'diffservalgdropid', u'diffservalgdroptype', u'diffservalgdropnext', u'diffservalgdropqmeasure', u'diffservalgdropqthreshold', u'diffservalgdropspecific', u'diffservalgdropoctets', u'diffservalgdroppkts', u'diffservalgrandomdropoctets', u'diffservalgrandomdroppkts', u'diffservalgdropstorage', u'diffservalgdropstatus'], name, value)
@@ -2178,6 +2208,7 @@ class DIFFSERVMIB(Entity):
             self.diffservrandomdropentry = YList(self)
             self._segment_path = lambda: "diffServRandomDropTable"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServRandomDropTable, [], name, value)
@@ -2279,16 +2310,16 @@ class DIFFSERVMIB(Entity):
                 self.ylist_key_names = ['diffservrandomdropid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('diffservrandomdropid', YLeaf(YType.uint32, 'diffServRandomDropId')),
-                    ('diffservrandomdropminthreshbytes', YLeaf(YType.uint32, 'diffServRandomDropMinThreshBytes')),
-                    ('diffservrandomdropminthreshpkts', YLeaf(YType.uint32, 'diffServRandomDropMinThreshPkts')),
-                    ('diffservrandomdropmaxthreshbytes', YLeaf(YType.uint32, 'diffServRandomDropMaxThreshBytes')),
-                    ('diffservrandomdropmaxthreshpkts', YLeaf(YType.uint32, 'diffServRandomDropMaxThreshPkts')),
-                    ('diffservrandomdropprobmax', YLeaf(YType.uint32, 'diffServRandomDropProbMax')),
-                    ('diffservrandomdropweight', YLeaf(YType.uint32, 'diffServRandomDropWeight')),
-                    ('diffservrandomdropsamplingrate', YLeaf(YType.uint32, 'diffServRandomDropSamplingRate')),
-                    ('diffservrandomdropstorage', YLeaf(YType.enumeration, 'diffServRandomDropStorage')),
-                    ('diffservrandomdropstatus', YLeaf(YType.enumeration, 'diffServRandomDropStatus')),
+                    ('diffservrandomdropid', (YLeaf(YType.uint32, 'diffServRandomDropId'), ['int'])),
+                    ('diffservrandomdropminthreshbytes', (YLeaf(YType.uint32, 'diffServRandomDropMinThreshBytes'), ['int'])),
+                    ('diffservrandomdropminthreshpkts', (YLeaf(YType.uint32, 'diffServRandomDropMinThreshPkts'), ['int'])),
+                    ('diffservrandomdropmaxthreshbytes', (YLeaf(YType.uint32, 'diffServRandomDropMaxThreshBytes'), ['int'])),
+                    ('diffservrandomdropmaxthreshpkts', (YLeaf(YType.uint32, 'diffServRandomDropMaxThreshPkts'), ['int'])),
+                    ('diffservrandomdropprobmax', (YLeaf(YType.uint32, 'diffServRandomDropProbMax'), ['int'])),
+                    ('diffservrandomdropweight', (YLeaf(YType.uint32, 'diffServRandomDropWeight'), ['int'])),
+                    ('diffservrandomdropsamplingrate', (YLeaf(YType.uint32, 'diffServRandomDropSamplingRate'), ['int'])),
+                    ('diffservrandomdropstorage', (YLeaf(YType.enumeration, 'diffServRandomDropStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('diffservrandomdropstatus', (YLeaf(YType.enumeration, 'diffServRandomDropStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.diffservrandomdropid = None
                 self.diffservrandomdropminthreshbytes = None
@@ -2302,6 +2333,7 @@ class DIFFSERVMIB(Entity):
                 self.diffservrandomdropstatus = None
                 self._segment_path = lambda: "diffServRandomDropEntry" + "[diffServRandomDropId='" + str(self.diffservrandomdropid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServRandomDropTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DIFFSERVMIB.DiffServRandomDropTable.DiffServRandomDropEntry, [u'diffservrandomdropid', u'diffservrandomdropminthreshbytes', u'diffservrandomdropminthreshpkts', u'diffservrandomdropmaxthreshbytes', u'diffservrandomdropmaxthreshpkts', u'diffservrandomdropprobmax', u'diffservrandomdropweight', u'diffservrandomdropsamplingrate', u'diffservrandomdropstorage', u'diffservrandomdropstatus'], name, value)
@@ -2341,6 +2373,7 @@ class DIFFSERVMIB(Entity):
             self.diffservqentry = YList(self)
             self._segment_path = lambda: "diffServQTable"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServQTable, [], name, value)
@@ -2406,12 +2439,12 @@ class DIFFSERVMIB(Entity):
                 self.ylist_key_names = ['diffservqid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('diffservqid', YLeaf(YType.uint32, 'diffServQId')),
-                    ('diffservqnext', YLeaf(YType.str, 'diffServQNext')),
-                    ('diffservqminrate', YLeaf(YType.str, 'diffServQMinRate')),
-                    ('diffservqmaxrate', YLeaf(YType.str, 'diffServQMaxRate')),
-                    ('diffservqstorage', YLeaf(YType.enumeration, 'diffServQStorage')),
-                    ('diffservqstatus', YLeaf(YType.enumeration, 'diffServQStatus')),
+                    ('diffservqid', (YLeaf(YType.uint32, 'diffServQId'), ['int'])),
+                    ('diffservqnext', (YLeaf(YType.str, 'diffServQNext'), ['str'])),
+                    ('diffservqminrate', (YLeaf(YType.str, 'diffServQMinRate'), ['str'])),
+                    ('diffservqmaxrate', (YLeaf(YType.str, 'diffServQMaxRate'), ['str'])),
+                    ('diffservqstorage', (YLeaf(YType.enumeration, 'diffServQStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('diffservqstatus', (YLeaf(YType.enumeration, 'diffServQStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.diffservqid = None
                 self.diffservqnext = None
@@ -2421,6 +2454,7 @@ class DIFFSERVMIB(Entity):
                 self.diffservqstatus = None
                 self._segment_path = lambda: "diffServQEntry" + "[diffServQId='" + str(self.diffservqid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServQTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DIFFSERVMIB.DiffServQTable.DiffServQEntry, [u'diffservqid', u'diffservqnext', u'diffservqminrate', u'diffservqmaxrate', u'diffservqstorage', u'diffservqstatus'], name, value)
@@ -2458,6 +2492,7 @@ class DIFFSERVMIB(Entity):
             self.diffservschedulerentry = YList(self)
             self._segment_path = lambda: "diffServSchedulerTable"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServSchedulerTable, [], name, value)
@@ -2530,13 +2565,13 @@ class DIFFSERVMIB(Entity):
                 self.ylist_key_names = ['diffservschedulerid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('diffservschedulerid', YLeaf(YType.uint32, 'diffServSchedulerId')),
-                    ('diffservschedulernext', YLeaf(YType.str, 'diffServSchedulerNext')),
-                    ('diffservschedulermethod', YLeaf(YType.str, 'diffServSchedulerMethod')),
-                    ('diffservschedulerminrate', YLeaf(YType.str, 'diffServSchedulerMinRate')),
-                    ('diffservschedulermaxrate', YLeaf(YType.str, 'diffServSchedulerMaxRate')),
-                    ('diffservschedulerstorage', YLeaf(YType.enumeration, 'diffServSchedulerStorage')),
-                    ('diffservschedulerstatus', YLeaf(YType.enumeration, 'diffServSchedulerStatus')),
+                    ('diffservschedulerid', (YLeaf(YType.uint32, 'diffServSchedulerId'), ['int'])),
+                    ('diffservschedulernext', (YLeaf(YType.str, 'diffServSchedulerNext'), ['str'])),
+                    ('diffservschedulermethod', (YLeaf(YType.str, 'diffServSchedulerMethod'), ['str'])),
+                    ('diffservschedulerminrate', (YLeaf(YType.str, 'diffServSchedulerMinRate'), ['str'])),
+                    ('diffservschedulermaxrate', (YLeaf(YType.str, 'diffServSchedulerMaxRate'), ['str'])),
+                    ('diffservschedulerstorage', (YLeaf(YType.enumeration, 'diffServSchedulerStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('diffservschedulerstatus', (YLeaf(YType.enumeration, 'diffServSchedulerStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.diffservschedulerid = None
                 self.diffservschedulernext = None
@@ -2547,6 +2582,7 @@ class DIFFSERVMIB(Entity):
                 self.diffservschedulerstatus = None
                 self._segment_path = lambda: "diffServSchedulerEntry" + "[diffServSchedulerId='" + str(self.diffservschedulerid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServSchedulerTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DIFFSERVMIB.DiffServSchedulerTable.DiffServSchedulerEntry, [u'diffservschedulerid', u'diffservschedulernext', u'diffservschedulermethod', u'diffservschedulerminrate', u'diffservschedulermaxrate', u'diffservschedulerstorage', u'diffservschedulerstatus'], name, value)
@@ -2584,6 +2620,7 @@ class DIFFSERVMIB(Entity):
             self.diffservminrateentry = YList(self)
             self._segment_path = lambda: "diffServMinRateTable"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServMinRateTable, [], name, value)
@@ -2652,12 +2689,12 @@ class DIFFSERVMIB(Entity):
                 self.ylist_key_names = ['diffservminrateid']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('diffservminrateid', YLeaf(YType.uint32, 'diffServMinRateId')),
-                    ('diffservminratepriority', YLeaf(YType.uint32, 'diffServMinRatePriority')),
-                    ('diffservminrateabsolute', YLeaf(YType.uint32, 'diffServMinRateAbsolute')),
-                    ('diffservminraterelative', YLeaf(YType.uint32, 'diffServMinRateRelative')),
-                    ('diffservminratestorage', YLeaf(YType.enumeration, 'diffServMinRateStorage')),
-                    ('diffservminratestatus', YLeaf(YType.enumeration, 'diffServMinRateStatus')),
+                    ('diffservminrateid', (YLeaf(YType.uint32, 'diffServMinRateId'), ['int'])),
+                    ('diffservminratepriority', (YLeaf(YType.uint32, 'diffServMinRatePriority'), ['int'])),
+                    ('diffservminrateabsolute', (YLeaf(YType.uint32, 'diffServMinRateAbsolute'), ['int'])),
+                    ('diffservminraterelative', (YLeaf(YType.uint32, 'diffServMinRateRelative'), ['int'])),
+                    ('diffservminratestorage', (YLeaf(YType.enumeration, 'diffServMinRateStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('diffservminratestatus', (YLeaf(YType.enumeration, 'diffServMinRateStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.diffservminrateid = None
                 self.diffservminratepriority = None
@@ -2667,6 +2704,7 @@ class DIFFSERVMIB(Entity):
                 self.diffservminratestatus = None
                 self._segment_path = lambda: "diffServMinRateEntry" + "[diffServMinRateId='" + str(self.diffservminrateid) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServMinRateTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DIFFSERVMIB.DiffServMinRateTable.DiffServMinRateEntry, [u'diffservminrateid', u'diffservminratepriority', u'diffservminrateabsolute', u'diffservminraterelative', u'diffservminratestorage', u'diffservminratestatus'], name, value)
@@ -2704,6 +2742,7 @@ class DIFFSERVMIB(Entity):
             self.diffservmaxrateentry = YList(self)
             self._segment_path = lambda: "diffServMaxRateTable"
             self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(DIFFSERVMIB.DiffServMaxRateTable, [], name, value)
@@ -2781,13 +2820,13 @@ class DIFFSERVMIB(Entity):
                 self.ylist_key_names = ['diffservmaxrateid','diffservmaxratelevel']
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('diffservmaxrateid', YLeaf(YType.uint32, 'diffServMaxRateId')),
-                    ('diffservmaxratelevel', YLeaf(YType.uint32, 'diffServMaxRateLevel')),
-                    ('diffservmaxrateabsolute', YLeaf(YType.uint32, 'diffServMaxRateAbsolute')),
-                    ('diffservmaxraterelative', YLeaf(YType.uint32, 'diffServMaxRateRelative')),
-                    ('diffservmaxratethreshold', YLeaf(YType.int32, 'diffServMaxRateThreshold')),
-                    ('diffservmaxratestorage', YLeaf(YType.enumeration, 'diffServMaxRateStorage')),
-                    ('diffservmaxratestatus', YLeaf(YType.enumeration, 'diffServMaxRateStatus')),
+                    ('diffservmaxrateid', (YLeaf(YType.uint32, 'diffServMaxRateId'), ['int'])),
+                    ('diffservmaxratelevel', (YLeaf(YType.uint32, 'diffServMaxRateLevel'), ['int'])),
+                    ('diffservmaxrateabsolute', (YLeaf(YType.uint32, 'diffServMaxRateAbsolute'), ['int'])),
+                    ('diffservmaxraterelative', (YLeaf(YType.uint32, 'diffServMaxRateRelative'), ['int'])),
+                    ('diffservmaxratethreshold', (YLeaf(YType.int32, 'diffServMaxRateThreshold'), ['int'])),
+                    ('diffservmaxratestorage', (YLeaf(YType.enumeration, 'diffServMaxRateStorage'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'StorageType', '')])),
+                    ('diffservmaxratestatus', (YLeaf(YType.enumeration, 'diffServMaxRateStatus'), [('ydk.models.cisco_ios_xe.SNMPv2_TC', 'RowStatus', '')])),
                 ])
                 self.diffservmaxrateid = None
                 self.diffservmaxratelevel = None
@@ -2798,6 +2837,7 @@ class DIFFSERVMIB(Entity):
                 self.diffservmaxratestatus = None
                 self._segment_path = lambda: "diffServMaxRateEntry" + "[diffServMaxRateId='" + str(self.diffservmaxrateid) + "']" + "[diffServMaxRateLevel='" + str(self.diffservmaxratelevel) + "']"
                 self._absolute_path = lambda: "DIFFSERV-MIB:DIFFSERV-MIB/diffServMaxRateTable/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(DIFFSERVMIB.DiffServMaxRateTable.DiffServMaxRateEntry, [u'diffservmaxrateid', u'diffservmaxratelevel', u'diffservmaxrateabsolute', u'diffservmaxraterelative', u'diffservmaxratethreshold', u'diffservmaxratestorage', u'diffservmaxratestatus'], name, value)

@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-infra\-rsi\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -58,7 +59,7 @@ class Rib(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("af", ("af", Rib.Af))])
         self._leafs = OrderedDict([
-            ('max_recursion_depth', YLeaf(YType.uint32, 'max-recursion-depth')),
+            ('max_recursion_depth', (YLeaf(YType.uint32, 'max-recursion-depth'), ['int'])),
         ])
         self.max_recursion_depth = None
 
@@ -66,6 +67,7 @@ class Rib(Entity):
         self.af.parent = self
         self._children_name_map["af"] = "af"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Rib, ['max_recursion_depth'], name, value)
@@ -112,6 +114,7 @@ class Rib(Entity):
             self._children_name_map["ipv6"] = "ipv6"
             self._segment_path = lambda: "af"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Rib.Af, [], name, value)
@@ -148,7 +151,7 @@ class Rib(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("redistribution-history", ("redistribution_history", Rib.Af.Ipv4.RedistributionHistory))])
                 self._leafs = OrderedDict([
-                    ('next_hop_dampening_disable', YLeaf(YType.empty, 'next-hop-dampening-disable')),
+                    ('next_hop_dampening_disable', (YLeaf(YType.empty, 'next-hop-dampening-disable'), ['Empty'])),
                 ])
                 self.next_hop_dampening_disable = None
 
@@ -157,6 +160,7 @@ class Rib(Entity):
                 self._children_name_map["redistribution_history"] = "redistribution-history"
                 self._segment_path = lambda: "ipv4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib/af/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rib.Af.Ipv4, ['next_hop_dampening_disable'], name, value)
@@ -202,8 +206,8 @@ class Rib(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("keep", ("keep", Rib.Af.Ipv4.RedistributionHistory.Keep))])
                     self._leafs = OrderedDict([
-                        ('bcdl_client', YLeaf(YType.uint32, 'bcdl-client')),
-                        ('protocol_client', YLeaf(YType.uint32, 'protocol-client')),
+                        ('bcdl_client', (YLeaf(YType.uint32, 'bcdl-client'), ['int'])),
+                        ('protocol_client', (YLeaf(YType.uint32, 'protocol-client'), ['int'])),
                     ])
                     self.bcdl_client = None
                     self.protocol_client = None
@@ -213,6 +217,7 @@ class Rib(Entity):
                     self._children_name_map["keep"] = "keep"
                     self._segment_path = lambda: "redistribution-history"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib/af/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rib.Af.Ipv4.RedistributionHistory, ['bcdl_client', 'protocol_client'], name, value)
@@ -244,11 +249,12 @@ class Rib(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('bcdl', YLeaf(YType.empty, 'bcdl')),
+                            ('bcdl', (YLeaf(YType.empty, 'bcdl'), ['Empty'])),
                         ])
                         self.bcdl = None
                         self._segment_path = lambda: "keep"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib/af/ipv4/redistribution-history/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rib.Af.Ipv4.RedistributionHistory.Keep, ['bcdl'], name, value)
@@ -285,7 +291,7 @@ class Rib(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("redistribution-history", ("redistribution_history", Rib.Af.Ipv6.RedistributionHistory))])
                 self._leafs = OrderedDict([
-                    ('next_hop_dampening_disable', YLeaf(YType.empty, 'next-hop-dampening-disable')),
+                    ('next_hop_dampening_disable', (YLeaf(YType.empty, 'next-hop-dampening-disable'), ['Empty'])),
                 ])
                 self.next_hop_dampening_disable = None
 
@@ -294,6 +300,7 @@ class Rib(Entity):
                 self._children_name_map["redistribution_history"] = "redistribution-history"
                 self._segment_path = lambda: "ipv6"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib/af/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Rib.Af.Ipv6, ['next_hop_dampening_disable'], name, value)
@@ -339,8 +346,8 @@ class Rib(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("keep", ("keep", Rib.Af.Ipv6.RedistributionHistory.Keep))])
                     self._leafs = OrderedDict([
-                        ('bcdl_client', YLeaf(YType.uint32, 'bcdl-client')),
-                        ('protocol_client', YLeaf(YType.uint32, 'protocol-client')),
+                        ('bcdl_client', (YLeaf(YType.uint32, 'bcdl-client'), ['int'])),
+                        ('protocol_client', (YLeaf(YType.uint32, 'protocol-client'), ['int'])),
                     ])
                     self.bcdl_client = None
                     self.protocol_client = None
@@ -350,6 +357,7 @@ class Rib(Entity):
                     self._children_name_map["keep"] = "keep"
                     self._segment_path = lambda: "redistribution-history"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib/af/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Rib.Af.Ipv6.RedistributionHistory, ['bcdl_client', 'protocol_client'], name, value)
@@ -381,11 +389,12 @@ class Rib(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('bcdl', YLeaf(YType.empty, 'bcdl')),
+                            ('bcdl', (YLeaf(YType.empty, 'bcdl'), ['Empty'])),
                         ])
                         self.bcdl = None
                         self._segment_path = lambda: "keep"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ip-rib-cfg:rib/af/ipv6/redistribution-history/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Rib.Af.Ipv6.RedistributionHistory.Keep, ['bcdl'], name, value)

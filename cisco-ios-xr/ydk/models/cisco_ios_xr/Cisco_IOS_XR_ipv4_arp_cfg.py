@@ -14,7 +14,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -24,6 +24,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class ArpEncap(Enum):
@@ -124,14 +125,15 @@ class Arp(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
-            ('max_entries', YLeaf(YType.uint32, 'max-entries')),
-            ('inner_cos', YLeaf(YType.uint32, 'inner-cos')),
-            ('outer_cos', YLeaf(YType.uint32, 'outer-cos')),
+            ('max_entries', (YLeaf(YType.uint32, 'max-entries'), ['int'])),
+            ('inner_cos', (YLeaf(YType.uint32, 'inner-cos'), ['int'])),
+            ('outer_cos', (YLeaf(YType.uint32, 'outer-cos'), ['int'])),
         ])
         self.max_entries = None
         self.inner_cos = None
         self.outer_cos = None
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-arp-cfg:arp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Arp, ['max_entries', 'inner_cos', 'outer_cos'], name, value)
@@ -172,12 +174,13 @@ class IedgeCfg(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([])
         self._leafs = OrderedDict([
-            ('subscriber_uncond_proxy', YLeaf(YType.empty, 'subscriber-uncond-proxy')),
-            ('subscriber_scale_mode', YLeaf(YType.empty, 'subscriber-scale-mode')),
+            ('subscriber_uncond_proxy', (YLeaf(YType.empty, 'subscriber-uncond-proxy'), ['Empty'])),
+            ('subscriber_scale_mode', (YLeaf(YType.empty, 'subscriber-scale-mode'), ['Empty'])),
         ])
         self.subscriber_uncond_proxy = None
         self.subscriber_scale_mode = None
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-arp-cfg:iedge-cfg"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(IedgeCfg, ['subscriber_uncond_proxy', 'subscriber_scale_mode'], name, value)
@@ -216,6 +219,7 @@ class Arpgmp(Entity):
 
         self.vrf = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-arp-cfg:arpgmp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Arpgmp, [], name, value)
@@ -255,7 +259,7 @@ class Arpgmp(Entity):
             self.ylist_key_names = ['vrf_name']
             self._child_classes = OrderedDict([("entries", ("entries", Arpgmp.Vrf.Entries))])
             self._leafs = OrderedDict([
-                ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
             ])
             self.vrf_name = None
 
@@ -264,6 +268,7 @@ class Arpgmp(Entity):
             self._children_name_map["entries"] = "entries"
             self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-arp-cfg:arpgmp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Arpgmp.Vrf, ['vrf_name'], name, value)
@@ -298,6 +303,7 @@ class Arpgmp(Entity):
 
                 self.entry = YList(self)
                 self._segment_path = lambda: "entries"
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Arpgmp.Vrf.Entries, [], name, value)
@@ -336,7 +342,7 @@ class Arpgmp(Entity):
                 	Interface name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 
 
@@ -355,11 +361,11 @@ class Arpgmp(Entity):
                     self.ylist_key_names = ['address']
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('address', YLeaf(YType.str, 'address')),
-                        ('mac_address', YLeaf(YType.str, 'mac-address')),
-                        ('encapsulation', YLeaf(YType.enumeration, 'encapsulation')),
-                        ('entry_type', YLeaf(YType.enumeration, 'entry-type')),
-                        ('interface', YLeaf(YType.str, 'interface')),
+                        ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                        ('mac_address', (YLeaf(YType.str, 'mac-address'), ['str'])),
+                        ('encapsulation', (YLeaf(YType.enumeration, 'encapsulation'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpEncap', '')])),
+                        ('entry_type', (YLeaf(YType.enumeration, 'entry-type'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_arp_cfg', 'ArpEntry', '')])),
+                        ('interface', (YLeaf(YType.str, 'interface'), ['str'])),
                     ])
                     self.address = None
                     self.mac_address = None
@@ -367,6 +373,7 @@ class Arpgmp(Entity):
                     self.entry_type = None
                     self.interface = None
                     self._segment_path = lambda: "entry" + "[address='" + str(self.address) + "']"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Arpgmp.Vrf.Entries.Entry, ['address', 'mac_address', 'encapsulation', 'entry_type', 'interface'], name, value)
@@ -408,6 +415,7 @@ class ArpRedundancy(Entity):
         self.redundancy = None
         self._children_name_map["redundancy"] = "redundancy"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-arp-cfg:arp-redundancy"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ArpRedundancy, [], name, value)
@@ -449,7 +457,7 @@ class ArpRedundancy(Entity):
             self._child_classes = OrderedDict([("groups", ("groups", ArpRedundancy.Redundancy.Groups))])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('enable', YLeaf(YType.empty, 'enable')),
+                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
             ])
             self.enable = None
 
@@ -458,6 +466,7 @@ class ArpRedundancy(Entity):
             self._children_name_map["groups"] = "groups"
             self._segment_path = lambda: "redundancy"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-arp-cfg:arp-redundancy/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ArpRedundancy.Redundancy, ['enable'], name, value)
@@ -493,6 +502,7 @@ class ArpRedundancy(Entity):
                 self.group = YList(self)
                 self._segment_path = lambda: "groups"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-arp-cfg:arp-redundancy/redundancy/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ArpRedundancy.Redundancy.Groups, [], name, value)
@@ -526,7 +536,7 @@ class ArpRedundancy(Entity):
                 	Interface name
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 
 
@@ -545,8 +555,8 @@ class ArpRedundancy(Entity):
                     self.ylist_key_names = ['group_id']
                     self._child_classes = OrderedDict([("peers", ("peers", ArpRedundancy.Redundancy.Groups.Group.Peers)), ("interface-list", ("interface_list", ArpRedundancy.Redundancy.Groups.Group.InterfaceList))])
                     self._leafs = OrderedDict([
-                        ('group_id', YLeaf(YType.uint32, 'group-id')),
-                        ('source_interface', YLeaf(YType.str, 'source-interface')),
+                        ('group_id', (YLeaf(YType.uint32, 'group-id'), ['int'])),
+                        ('source_interface', (YLeaf(YType.str, 'source-interface'), ['str'])),
                     ])
                     self.group_id = None
                     self.source_interface = None
@@ -559,6 +569,7 @@ class ArpRedundancy(Entity):
                     self._children_name_map["interface_list"] = "interface-list"
                     self._segment_path = lambda: "group" + "[group-id='" + str(self.group_id) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-arp-cfg:arp-redundancy/redundancy/groups/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group, ['group_id', 'source_interface'], name, value)
@@ -593,6 +604,7 @@ class ArpRedundancy(Entity):
 
                         self.peer = YList(self)
                         self._segment_path = lambda: "peers"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group.Peers, [], name, value)
@@ -632,10 +644,11 @@ class ArpRedundancy(Entity):
                             self.ylist_key_names = ['prefix_string']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('prefix_string', YLeaf(YType.str, 'prefix-string')),
+                                ('prefix_string', (YLeaf(YType.str, 'prefix-string'), ['str','str'])),
                             ])
                             self.prefix_string = None
                             self._segment_path = lambda: "peer" + "[prefix-string='" + str(self.prefix_string) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group.Peers.Peer, ['prefix_string'], name, value)
@@ -677,7 +690,7 @@ class ArpRedundancy(Entity):
                         self._child_classes = OrderedDict([("interfaces", ("interfaces", ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces))])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.empty, 'enable')),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
                         ])
                         self.enable = None
 
@@ -685,6 +698,7 @@ class ArpRedundancy(Entity):
                         self.interfaces.parent = self
                         self._children_name_map["interfaces"] = "interfaces"
                         self._segment_path = lambda: "interface-list"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group.InterfaceList, ['enable'], name, value)
@@ -719,6 +733,7 @@ class ArpRedundancy(Entity):
 
                             self.interface = YList(self)
                             self._segment_path = lambda: "interfaces"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces, [], name, value)
@@ -733,7 +748,7 @@ class ArpRedundancy(Entity):
                             	Interface name
                             	**type**\: str
                             
-                            	**pattern:** [a\-zA\-Z0\-9./\-]+
+                            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                             
                             .. attribute:: interface_id
                             
@@ -761,12 +776,13 @@ class ArpRedundancy(Entity):
                                 self.ylist_key_names = ['interface_name']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                    ('interface_id', YLeaf(YType.uint32, 'interface-id')),
+                                    ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                    ('interface_id', (YLeaf(YType.uint32, 'interface-id'), ['int'])),
                                 ])
                                 self.interface_name = None
                                 self.interface_id = None
                                 self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(ArpRedundancy.Redundancy.Groups.Group.InterfaceList.Interfaces.Interface, ['interface_name', 'interface_id'], name, value)

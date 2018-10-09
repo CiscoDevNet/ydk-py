@@ -21,24 +21,52 @@ module confd_dyncfg {
     "This module defines the Tail-f ConfD configuration parameters
      that can be modified in runtime.";
 
-  revision 2017-09-15 {
+  revision 2018-03-15 {
     description
-      "Released as part of ConfD-6.4.4.
+      "Released as part of ConfD-6.5.5.
 
-       Updated description for /confdConfig/logs/errorLog.";
+       Added /confdConfig/enableCompressedSchema.";
   }
-  revision 2017-08-21 {
+  revision 2018-03-01 {
     description
-      "Released as part of ConfD-6.4.3.
+      "Released as part of ConfD-6.6.
 
-       Added /confdConfig/cli/cliLeafListStyleType.";
+       Added /confdConfig/aaa/validationOrder.
+
+       Added /confdConfig/aaa/externalValidation.
+
+       Added /confdConfig/aaa/externalValidation/enabled.
+
+       Added /confdConfig/aaa/externalValidation/executable.
+
+       Added /confdConfig/aaa/externalValidation/useBase64.
+
+       Added /confdConfig/aaa/externalValidation/includeExtra.
+
+       Added /confdConfig/restconf/tokenResponse.
+
+       Added /confdConfig/restconf/tokenResponse/xAuthToken.
+
+       Added /confdConfig/restconf/tokenResponse/tokenCookie.
+
+       Added /confdConfig/restconf/tokenResponse/tokenCookie/name.
+
+       Added /confdConfig/restconf/tokenResponse/tokenCookie/directives.
+
+       Added /confdConfig/aaa/authorization/nacmCompliant.
+
+       Updated /confdConfig/smartLicense.";
   }
-  revision 2017-07-09 {
+  revision 2017-09-16 {
     description
-      "Released as part of ConfD-6.4.2.1.
+      "Released as part of ConfD-6.5.
+
+       Added /confdConfig/cli/cliLeafListStyleType.
 
        Added NCS-specific /confdConfig/javaVm, /confdConfig/pythonVm, and
-       /confdConfig/smartLicense.";
+       /confdConfig/smartLicense.
+
+       Updated description for /confdConfig/logs/errorLog.";
   }
   revision 2017-02-21 {
     description
@@ -777,6 +805,17 @@ module confd_dyncfg {
     }
   }
 
+  typedef cliActionNoListInst {
+    type enumeration {
+      enum "create-instance" {
+        value 784973112;
+      }
+      enum "deny-call" {
+        value 1762837762;
+      }
+    }
+  }
+
   container confdConfig {
     tailf:validate "confdConfig" {
       tailf:internal;
@@ -956,9 +995,10 @@ module confd_dyncfg {
 
                If replay support is enabled ConfD automatically stores
                all notifications on disk ready to be replayed should a
-               NETCONF manager ask for logged notifications. The replay
-               store uses a set of wrapping log files on disk (of a
-               certain number and size) to store the notifications.
+               NETCONF manager or RESTCONF event notification subscriber ask
+               for logged notifications. The replay store uses a set of
+               wrapping log files on disk (of a certain number and size) to
+               store the notifications.
 
                The max size of each wrap log file (see below) should
                not be too large. This to acheive fast replay of
@@ -985,7 +1025,7 @@ module confd_dyncfg {
               mandatory true;
               tailf:info
                 "The max size of each log wrap file. The recommended
-                 setting is approximately S10MB.";
+                 setting is approximately S10M.";
             }
             leaf maxFiles {
               type maxFilesType;
@@ -1035,6 +1075,17 @@ module confd_dyncfg {
         type inet:port-number;
         tailf:info
           "The port number to listen for traps on.";
+      }
+      leaf rowCacheMaxAge {
+        type xs:duration;
+        default "PT5S";
+        tailf:info
+          "Whenever any object is requested from an agent, all objects in the
+           same conceptual row will be fetched and cached. This value limits
+           the age of values in the cache. Higher values may give higher
+           performance but increases the probability that the SNMP gateway
+           returns stale data.
+           The default is 5 seconds.";
       }
       list agent {
         key "name";
@@ -1350,7 +1401,8 @@ module confd_dyncfg {
         tailf:info
           "confdLog is ConfD's daemon log. Check this log for startup
            problems of the ConfD daemon itself. This log is not
-           rotated, i.e. use logrotate(8).";
+           rotated, i.e. use logrotate(8). This configuration parameter
+           takes effect for both existing and new sessions.";
         leaf enabled {
           type boolean;
           default "true";
@@ -1407,7 +1459,8 @@ module confd_dyncfg {
           default "true";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true', the
-             log is enabled.";
+             log is enabled. This configuration parameter takes effect
+             for both existing and new sessions.";
         }
         container file {
           presence "";
@@ -1450,7 +1503,8 @@ module confd_dyncfg {
         default "info";
         tailf:info
           "Controls which level of developer messages are printed in
-           the developer log.";
+           the developer log. This configuration parameter takes
+           effect for both existing and new sessions.";
       }
       container auditLog {
         presence "";
@@ -1459,7 +1513,8 @@ module confd_dyncfg {
            logins to the ConfD backplane. This log is enabled by
            default. In all other regards it can be configured as
            /confdConfig/logs/confdLog. This log is not rotated,
-           i.e. use logrotate(8).";
+           i.e. use logrotate(8). This configuration parameter
+           takes effect for both existing and new sessions.";
         leaf enabled {
           type boolean;
           default "true";
@@ -1509,7 +1564,8 @@ module confd_dyncfg {
         tailf:info
           "Controls whether the audit log should include messages about
            the resulting configuration changes for each commit to the
-           running data store.";
+           running data store.  This configuration parameter takes effect
+           for both existing and new sessions.";
       }
       container netconfLog {
         presence "";
@@ -1525,7 +1581,8 @@ module confd_dyncfg {
           default "true";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true', the
-             log is enabled.";
+             log is enabled. This configuration parameter takes effect
+             for both existing and new sessions.";
         }
         container file {
           presence "";
@@ -1692,7 +1749,8 @@ module confd_dyncfg {
           default "false";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true', all
-             NETCONF traffic is logged.";
+             NETCONF traffic is logged. This configuration parameter
+             takes effect for both existing and new sessions.";
         }
         leaf filename {
           type string;
@@ -1706,7 +1764,9 @@ module confd_dyncfg {
           default "pretty";
           tailf:info
             "The value 'pretty' means that the XML data is
-             pretty-printed.  The value 'raw' means that it is not.";
+             pretty-printed.  The value 'raw' means that it is not. This
+             configuration parameter takes effect for both existing and
+             new sessions.";
         }
       }
       container xpathTraceLog {
@@ -1747,7 +1807,8 @@ module confd_dyncfg {
           default "false";
           tailf:info
             "enabled is either 'true' or 'false'. If 'true', error
-             logging is performed.";
+             logging is performed. This configuration parameter takes
+             effect for both existing and new sessions.";
         }
         leaf filename {
           type string;
@@ -1762,7 +1823,8 @@ module confd_dyncfg {
           tailf:info
             "maxSize is the maximum size of an individual log file
              before it is rotated. Log filenames are reused when five
-             logs have been exhausted.";
+             logs have been exhausted. This configuration parameter
+             takes effect for both existing and new sessions.";
         }
         container debug {
           presence "";
@@ -1788,7 +1850,8 @@ module confd_dyncfg {
         type limitType;
         default "unbounded";
         tailf:info
-          "Puts a limit to the total number of concurrent sessions to ConfD.";
+          "Puts a limit to the total number of concurrent sessions to ConfD.
+           This configuration parameter takes effect only for new sessions.";
       }
       list sessionLimit {
         key "context";
@@ -1811,7 +1874,8 @@ module confd_dyncfg {
           mandatory true;
           tailf:info
             "Puts a limit to the total number of concurrent sessions to
-             ConfD.";
+             ConfD.  This configuration parameter takes effect only for
+             new sessions.";
         }
       }
       leaf maxConfigSessions {
@@ -1819,7 +1883,8 @@ module confd_dyncfg {
         default "unbounded";
         tailf:info
           "Puts a limit to the total number of concurrent configuration
-           sessions to ConfD.";
+           sessions to ConfD. This configuration parameter takes effect
+           only for new sessions.";
       }
       list configSessionLimit {
         key "context";
@@ -1843,7 +1908,8 @@ module confd_dyncfg {
           tailf:info
             "Puts a limit to the total number of concurrent
              configuration sessions to ConfD for the corresponding
-             context.";
+             context. This configuration parameter takes effect only
+             for new sessions.";
         }
       }
     }
@@ -1924,6 +1990,18 @@ module confd_dyncfg {
            order to always try pam authentication before local auth set
            it to: 'pam localAuthentication'";
       }
+      leaf validationOrder {
+        type string;
+        tailf:info
+          "By default the AAA system will try token validation for a user by
+           the externalValidation configurables, as that is the only
+           one currently available - i.e. an external program is invoked to
+           validate the token.
+
+           The default is thus:
+
+           'externalValidation'";
+      }
       leaf expirationWarning {
         type expirationWarningType;
         default "ignore";
@@ -2003,6 +2081,13 @@ module confd_dyncfg {
              is PT10S, i.e. 10 seconds. Setting to PT0S, i.e. 0 seconds,
              effectively disables the authentication cache.";
         }
+        leaf enableAuthCacheClientIp {
+          type boolean;
+          default "false";
+          tailf:info
+            "If enabled, a clients source IP address will also be stored
+             in the REST/RESTCONF authentication cache.";
+        }
       }
       container externalAuthentication {
         presence "";
@@ -2079,6 +2164,65 @@ module confd_dyncfg {
              the callback details.";
         }
       }
+      container externalValidation {
+        presence "";
+        leaf enabled {
+          type boolean;
+          default "false";
+          tailf:info
+            "When set to 'true', external token validation is used.";
+        }
+        leaf executable {
+          type string;
+          tailf:info
+            "If we enable external token validation, an executable on the
+             local host can be launched to validate a user.  The
+             executable will receive a cleartext token on its standard
+             input. The format is '[${TOKEN};\\n'. For example if the token is
+             '7ea345123', the executable will receive the string '[7ea345123;]'
+             followed by a newline on its standard input. The program must parse
+             this line.
+
+             The task of the external program, which for example could
+             be a FUSION client, is to validate the token and also provide
+             the token to user and groups mappings. Refer to the External
+             validation section of the AAA chapter in the User
+             Guide for the details of how the program should report the
+             result back to ConfD.";
+        }
+        leaf useBase64 {
+          type boolean;
+          default "false";
+          tailf:info
+            "When set to true, ${TOKEN} in the data passed to the executable
+             will be base64-encoded, allowing e.g. for the token to contain ';'
+             characters.";
+        }
+        leaf includeExtra {
+          type boolean;
+          default "false";
+          tailf:info
+            "When set to true, additional information items will be
+             provided to the executable: source IP address and port,
+             context, and protocol. I.e. the complete format will be
+             '[${TOKEN};${IP};${PORT};${CONTEXT};${PROTO};]\\n'.
+             Example: '[7ea345123;192.168.1.1;12345;cli;ssh;]\\n'.";
+        }
+      }
+      container validationCallback {
+        presence "";
+        leaf enabled {
+          type boolean;
+          default "false";
+          tailf:info
+            "When set to true, ConfD will invoke an application
+             callback when validation has succeeded or failed. The
+             callback may reject an otherwise successful validation.
+             If the callback has not been registered, all
+             validation attempts will fail. See confd_lib_dp(3) for
+             the callback details.";
+        }
+      }
       container authorization {
         presence "";
         leaf enabled {
@@ -2099,6 +2243,18 @@ module confd_dyncfg {
                been registered, all authorization checks will be
                rejected. See confd_lib_dp(3) for the callback details.";
           }
+        }
+        leaf nacmCompliant {
+          type boolean;
+          default "true";
+          tailf:info
+            "In earlier versions, ConfD did not fully comply with the
+             NACM specification: the 'module-name' leaf was required to
+             match toplevel nodes, but it was not considered for the
+             node being accessed. If this leaf is set to false, this
+             non-compliant behavior remains - this setting is only
+             provided for backward compatibility with existing rule
+             sets, and is not recommended.";
         }
       }
     }
@@ -2761,6 +2917,17 @@ module confd_dyncfg {
            and disabling transactions in configure mode, ie
            'enable transactions' and 'disable transactions'.
            If set to 'false' no such commands will be present.";
+      }
+      leaf actionCallNoListInstance {
+        type cliActionNoListInst;
+        default "deny-call";
+        tailf:info
+          "actionCallNoListInstance can be set to either 'deny-call',
+           or 'create-instance'. If attempting to call an action placed
+           in a non existing list instance, 'deny-call' will give an
+           error. 'create-instance' will create the missing list instance
+           and subsequently call the action.
+           This is only effective in configuration mode in C-style CLI";
       }
       leaf style {
         type cliStyle;
@@ -4090,10 +4257,21 @@ module confd_dyncfg {
         type boolean;
         default "false";
         tailf:info
-          "cmdAAAForAutowizard si either 'true' or 'false'. If set to
+          "cmdAAAForAutowizard is either 'true' or 'false'. If set to
            'true' then the CLI will generate synthetic commands, and
            perform AAA command rule checks for, for all paths and
            values requested by the autowizard functionality.";
+      }
+      leaf cStrictAAA {
+        type boolean;
+        default "false";
+        tailf:info
+          "cStrictAAA is either 'true' or 'false'. If set to 'true' then the CLI
+           will match all auto-rendered C-style commands (eg. C-style config
+           commands and C-style actions) against AAA data-rules and all other
+           C-Style commands will be matched against AAA command-rules.
+           If set to 'false', the CLI will match all commands against both
+           AAA data-rules and AAA command-rules.";
       }
       leaf quoteStyle {
         type quoteStyleType;
@@ -4464,12 +4642,9 @@ module confd_dyncfg {
           "Where to redirect after successful login, which by default
            is '/index.html'.";
       }
-      leaf hatcheryUrl {
+      leaf webuiOneUrl {
         type string;
-        default "/webui";
-        tailf:info
-          "Url where the 'hatchery' webui is mapped if enabled.
-           The default is '/webui'.";
+        default "/webui-one";
       }
       leaf loginDir {
         type string;
@@ -4782,9 +4957,10 @@ module confd_dyncfg {
                ECDHE-ECDSA-AES128-SHA, ECDHE-RSA-AES128-SHA,
                DHE-RSA-AES128-SHA, DHE-DSS-AES128-SHA, ECDH-ECDSA-AES128-SHA,
                ECDH-RSA-AES128-SHA, AES128-SHA, EDH-RSA-DES-CBC-SHA, and
-               DES-CBC-SHA, or the word 'DEFAULT' (use all supported
-               cipher suites in that list). See the OpenSSL manual page
-               ciphers(1) for the definition of the cipher suites.
+               DES-CBC-SHA, or the word 'DEFAULT' (use all cipher suites in
+               that list for which the required support is implemented in
+               libcrypto). See the OpenSSL manual page ciphers(1) for the
+               definition of the cipher suites.
                NOTE: The general cipher list syntax described in
                ciphers(1) is not supported.";
           }
@@ -4853,10 +5029,10 @@ module confd_dyncfg {
       }
       leaf absoluteTimeout {
         type xs:duration;
-        default "PT60M";
+        default "PT16H";
         tailf:info
           "Maximum absolute time before terminating a Web UI session.
-           PT0M means no timeout. Default is PT60M, ie 60 minutes.";
+           PT0M means no timeout. Default is PT16H, ie 16 hours.";
       }
       leaf rateLimiting {
         type uint64 {
@@ -4947,6 +5123,44 @@ module confd_dyncfg {
         tailf:info
           "Change the schema element in the ietf-yang-library:modules-state
            resource response.";
+      }
+      container tokenResponse {
+        presence "";
+        tailf:info
+          "
+           When authenticating via AAA externalAuthentication or
+           externalValidation and a token is returned, it is possible
+           to include a header with the token in the response.";
+        leaf xAuthToken {
+          type boolean;
+          default "false";
+          tailf:info
+            "
+             Either 'true' or 'false'. If 'true', a x-auth-token header is
+             included in the response with any token returned from AAA.";
+        }
+        container tokenCookie {
+          presence "";
+          tailf:info
+            "Configuration of RESTCONF token cookies.";
+          leaf name {
+            type string;
+            default "";
+            tailf:info
+              "
+               The cookie name, exactly as it is to be sent.
+               If configured, a HTTP cookie of that name included in the
+               response with any token returned from AAA as value.";
+          }
+          leaf directives {
+            type string;
+            default "";
+            tailf:info
+              "
+               An optional string with directives appended to the cookie,
+               exactly as it is to be sent.";
+          }
+        }
       }
     }
     container proxyForwarding {
@@ -5307,7 +5521,8 @@ module confd_dyncfg {
         default "true";
         tailf:info
           "enabled is either 'true' or 'false'. If 'true', the NETCONF
-           server is started.";
+           server is started. If 'false' the NETCONF server is stopped
+           and any existing sessions are closed.";
       }
       container transport {
         presence "";

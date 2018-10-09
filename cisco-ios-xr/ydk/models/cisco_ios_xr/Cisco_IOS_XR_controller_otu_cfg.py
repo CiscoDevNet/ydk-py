@@ -7,7 +7,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-ifmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class OtnExpTtiTypeDapi(Enum):
@@ -260,6 +261,14 @@ class OtuForwardErrorCorrection(Enum):
 
     	EnhancedHG7 Fec
 
+    .. data:: enhanced_sd15 = 512
+
+    	EnhancedSD15 Fec
+
+    .. data:: enhanced_sd27 = 1024
+
+    	EnhancedSD27 Fec
+
     """
 
     none = Enum.YLeaf(1, "none")
@@ -275,6 +284,10 @@ class OtuForwardErrorCorrection(Enum):
     enhanced_hg20 = Enum.YLeaf(32, "enhanced-hg20")
 
     enhanced_hg7 = Enum.YLeaf(64, "enhanced-hg7")
+
+    enhanced_sd15 = Enum.YLeaf(512, "enhanced-sd15")
+
+    enhanced_sd27 = Enum.YLeaf(1024, "enhanced-sd27")
 
 
 class OtuMode(Enum):

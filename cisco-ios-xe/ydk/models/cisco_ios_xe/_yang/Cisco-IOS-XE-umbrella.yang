@@ -10,6 +10,10 @@ module Cisco-IOS-XE-umbrella {
     prefix ios;
   }
 
+  import Cisco-IOS-XE-policy {
+    prefix ios-policy;
+  }
+
 
   organization
     "Cisco Systems, Inc.";
@@ -27,15 +31,30 @@ module Cisco-IOS-XE-umbrella {
 
   description
     "Cisco XE Native Umbrella Yang model.
-     Copyright (c) 2017 by Cisco Systems, Inc.
+     Copyright (c) 2017-2018 by Cisco Systems, Inc.
      All rights reserved.";
 
   // =========================================================================
   // REVISION
   // =========================================================================
+  revision 2018-05-14 {
+    description
+      "Limit string lengths for threat-defense features";
+  }
+
+  revision 2018-02-22 {
+    description
+      "Add threat-defense support for Ethernet interfaces";
+  }
+
+  revision 2018-02-06 {
+    description
+      "Refactor parameter-map";
+  }
+
   revision 2017-11-27 {
-     description
-       "Added Change 25GE name";
+    description
+      "Added Change 25GE name";
   }
 
   revision 2017-11-14 {
@@ -49,56 +68,65 @@ module Cisco-IOS-XE-umbrella {
   }
 
   grouping config-umbrella-grouping {
-    container umbrella-global {
+    container umbrella {
       description
-        "umbrella global parameter-map";
-      when "/ios:native/ios:parameter-map/ios:type = 'umbrella'";
-      leaf token {
-        description  
-          "Config umbrella token";
-        type string;
-      }
-      leaf local-domain {
+        "Umbrella mode";
+      container global {
         description
-          "Local domain processing";
-        type union {
-         type string;
-        }
-      }
-      leaf dnscrypt {
-        description
-          "Enable DNSCrypt";
-        type boolean;
-      }
-      leaf public-key {
-        description
-          "DNSCrypt provider public key";
-        type string;
-      }
-      leaf udp-timeout {
-        description
-          "Config timeout value for UDP sessions";
-        type uint8 {
-          range "1..30";
-        }
-      }
-      container resolver {
-        description
-          "Anycast address";
-        list ipv4 {
-          description
-            "IPv4 anycast address";
-          key address;
-          leaf address {
-            type inet:ipv4-address;
+          "umbrella global parameter-map";
+        presence true;
+        leaf token {
+          description  
+            "Config umbrella token";
+          type string {
+            length "1..64";
           }
         }
-        list ipv6 {
+        leaf local-domain {
           description
-            "IPv6 anycast address";
-          key address;
-          leaf address {
-            type inet:ipv6-address;
+            "Local domain processing";
+          type string {
+            length "1..256";
+          }
+        }
+        leaf dnscrypt {
+          description
+            "Enable DNSCrypt";
+          type boolean;
+          default true;
+        }
+        leaf public-key {
+          description
+            "DNSCrypt provider public key";
+          type string {
+            length "1..80";
+          }
+        }
+        leaf udp-timeout {
+          description
+            "Config timeout value for UDP sessions";
+          type uint8 {
+            range "1..30";
+          }
+        }
+        container resolver {
+          description
+            "Anycast address";
+          list ipv4 {
+            description
+              "IPv4 anycast address";
+            key address;
+            leaf address {
+              type inet:ipv4-address;
+            }
+          }
+          list ipv6 {
+            description
+              "IPv6 anycast address";
+            key address;
+            leaf address {
+              type inet:ipv6-address;
+            }
           }
         }
       }
@@ -118,7 +146,9 @@ module Cisco-IOS-XE-umbrella {
       leaf in {
         description
           "Umbrella In direction";
-        type string;
+        type string {
+          length "1..49";
+        }
       }
     }
   }
@@ -126,13 +156,17 @@ module Cisco-IOS-XE-umbrella {
   /////////////////////////////////////////////////////////
   // native / parameter-map type umbrella
   /////////////////////////////////////////////////////////
-  augment "/ios:native/ios:parameter-map" {
+  augment "/ios:native/ios:parameter-map/ios:type" {
     uses config-umbrella-grouping;
   } //augment
 
   /////////////////////////////////////////////////////////
   // native / interface
   /////////////////////////////////////////////////////////
+  augment "/ios:native/ios:interface/ios:Ethernet" {
+    uses config-interface-umbrella-grouping;
+  }
+
   augment "/ios:native/ios:interface/ios:FastEthernet" {
     uses config-interface-umbrella-grouping;
   }

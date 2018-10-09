@@ -8,7 +8,7 @@ for the following management objects\:
   management\-plane\-protection\: Management Plane Protection (MPP)
     operational data
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -18,6 +18,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class MppAllow(Enum):
@@ -89,8 +90,8 @@ class MppAfIdBase(Identity):
     _prefix = 'Cisco-IOS-XR-lib-mpp-oper'
     _revision = '2017-05-01'
 
-    def __init__(self):
-        super(MppAfIdBase, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-lib-mpp-oper", "Cisco-IOS-XR-lib-mpp-oper", "Cisco-IOS-XR-lib-mpp-oper:Mpp-af-id-base")
+    def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XR-lib-mpp-oper", pref="Cisco-IOS-XR-lib-mpp-oper", tag="Cisco-IOS-XR-lib-mpp-oper:Mpp-af-id-base"):
+        super(MppAfIdBase, self).__init__(ns, pref, tag)
 
 
 class ManagementPlaneProtection(Entity):
@@ -135,6 +136,7 @@ class ManagementPlaneProtection(Entity):
         self.inband.parent = self
         self._children_name_map["inband"] = "inband"
         self._segment_path = lambda: "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(ManagementPlaneProtection, [], name, value)
@@ -182,6 +184,7 @@ class ManagementPlaneProtection(Entity):
             self._children_name_map["interfaces"] = "interfaces"
             self._segment_path = lambda: "outband"
             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ManagementPlaneProtection.Outband, [], name, value)
@@ -213,14 +216,15 @@ class ManagementPlaneProtection(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ])
                 self.vrf_name = None
                 self._segment_path = lambda: "vrf"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/outband/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
-                self._perform_setattr(ManagementPlaneProtection.Outband.Vrf, [u'vrf_name'], name, value)
+                self._perform_setattr(ManagementPlaneProtection.Outband.Vrf, ['vrf_name'], name, value)
 
 
         class Interfaces(Entity):
@@ -253,6 +257,7 @@ class ManagementPlaneProtection(Entity):
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/outband/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces, [], name, value)
@@ -289,13 +294,14 @@ class ManagementPlaneProtection(Entity):
                     self.ylist_key_names = ['interface_name']
                     self._child_classes = OrderedDict([("protocol", ("protocol", ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                     ])
                     self.interface_name = None
 
                     self.protocol = YList(self)
                     self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/outband/interfaces/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface, ['interface_name'], name, value)
@@ -337,17 +343,18 @@ class ManagementPlaneProtection(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("peer-address", ("peer_address", ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress))])
                         self._leafs = OrderedDict([
-                            ('allow', YLeaf(YType.enumeration, 'allow')),
-                            ('is_all_peers_allowed', YLeaf(YType.boolean, 'is-all-peers-allowed')),
+                            ('allow', (YLeaf(YType.enumeration, 'allow'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper', 'MppAllow', '')])),
+                            ('is_all_peers_allowed', (YLeaf(YType.boolean, 'is-all-peers-allowed'), ['bool'])),
                         ])
                         self.allow = None
                         self.is_all_peers_allowed = None
 
                         self.peer_address = YList(self)
                         self._segment_path = lambda: "protocol"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol, [u'allow', u'is_all_peers_allowed'], name, value)
+                        self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol, ['allow', 'is_all_peers_allowed'], name, value)
 
 
                     class PeerAddress(Entity):
@@ -390,17 +397,18 @@ class ManagementPlaneProtection(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.identityref, 'af-name')),
-                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                ('af_name', (YLeaf(YType.identityref, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper', 'MppAfIdBase')])),
+                                ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4_address = None
                             self.ipv6_address = None
                             self._segment_path = lambda: "peer-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(ManagementPlaneProtection.Outband.Interfaces.Interface.Protocol.PeerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
 
     class Inband(Entity):
@@ -436,6 +444,7 @@ class ManagementPlaneProtection(Entity):
             self._children_name_map["interfaces"] = "interfaces"
             self._segment_path = lambda: "inband"
             self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(ManagementPlaneProtection.Inband, [], name, value)
@@ -471,6 +480,7 @@ class ManagementPlaneProtection(Entity):
                 self.interface = YList(self)
                 self._segment_path = lambda: "interfaces"
                 self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/inband/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces, [], name, value)
@@ -507,13 +517,14 @@ class ManagementPlaneProtection(Entity):
                     self.ylist_key_names = ['interface_name']
                     self._child_classes = OrderedDict([("protocol", ("protocol", ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol))])
                     self._leafs = OrderedDict([
-                        ('interface_name', YLeaf(YType.str, 'interface-name')),
+                        ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
                     ])
                     self.interface_name = None
 
                     self.protocol = YList(self)
                     self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                     self._absolute_path = lambda: "Cisco-IOS-XR-lib-mpp-oper:management-plane-protection/inband/interfaces/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface, ['interface_name'], name, value)
@@ -555,17 +566,18 @@ class ManagementPlaneProtection(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("peer-address", ("peer_address", ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress))])
                         self._leafs = OrderedDict([
-                            ('allow', YLeaf(YType.enumeration, 'allow')),
-                            ('is_all_peers_allowed', YLeaf(YType.boolean, 'is-all-peers-allowed')),
+                            ('allow', (YLeaf(YType.enumeration, 'allow'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper', 'MppAllow', '')])),
+                            ('is_all_peers_allowed', (YLeaf(YType.boolean, 'is-all-peers-allowed'), ['bool'])),
                         ])
                         self.allow = None
                         self.is_all_peers_allowed = None
 
                         self.peer_address = YList(self)
                         self._segment_path = lambda: "protocol"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol, [u'allow', u'is_all_peers_allowed'], name, value)
+                        self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol, ['allow', 'is_all_peers_allowed'], name, value)
 
 
                     class PeerAddress(Entity):
@@ -608,23 +620,24 @@ class ManagementPlaneProtection(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('af_name', YLeaf(YType.identityref, 'af-name')),
-                                ('ipv4_address', YLeaf(YType.str, 'ipv4-address')),
-                                ('ipv6_address', YLeaf(YType.str, 'ipv6-address')),
+                                ('af_name', (YLeaf(YType.identityref, 'af-name'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_lib_mpp_oper', 'MppAfIdBase')])),
+                                ('ipv4_address', (YLeaf(YType.str, 'ipv4-address'), ['str'])),
+                                ('ipv6_address', (YLeaf(YType.str, 'ipv6-address'), ['str'])),
                             ])
                             self.af_name = None
                             self.ipv4_address = None
                             self.ipv6_address = None
                             self._segment_path = lambda: "peer-address"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
-                            self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress, [u'af_name', u'ipv4_address', u'ipv6_address'], name, value)
+                            self._perform_setattr(ManagementPlaneProtection.Inband.Interfaces.Interface.Protocol.PeerAddress, ['af_name', 'ipv4_address', 'ipv6_address'], name, value)
 
     def clone_ptr(self):
         self._top_entity = ManagementPlaneProtection()
         return self._top_entity
 
-class Ipv4(Identity):
+class Ipv4(MppAfIdBase):
     """
     IPv4 address family
     
@@ -635,11 +648,11 @@ class Ipv4(Identity):
     _prefix = 'Cisco-IOS-XR-lib-mpp-oper'
     _revision = '2017-05-01'
 
-    def __init__(self):
-        super(Ipv4, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-lib-mpp-oper", "Cisco-IOS-XR-lib-mpp-oper", "Cisco-IOS-XR-lib-mpp-oper:ipv4")
+    def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XR-lib-mpp-oper", pref="Cisco-IOS-XR-lib-mpp-oper", tag="Cisco-IOS-XR-lib-mpp-oper:ipv4"):
+        super(Ipv4, self).__init__(ns, pref, tag)
 
 
-class Ipv6(Identity):
+class Ipv6(MppAfIdBase):
     """
     IPv6 address family
     
@@ -650,7 +663,7 @@ class Ipv6(Identity):
     _prefix = 'Cisco-IOS-XR-lib-mpp-oper'
     _revision = '2017-05-01'
 
-    def __init__(self):
-        super(Ipv6, self).__init__("http://cisco.com/ns/yang/Cisco-IOS-XR-lib-mpp-oper", "Cisco-IOS-XR-lib-mpp-oper", "Cisco-IOS-XR-lib-mpp-oper:ipv6")
+    def __init__(self, ns="http://cisco.com/ns/yang/Cisco-IOS-XR-lib-mpp-oper", pref="Cisco-IOS-XR-lib-mpp-oper", tag="Cisco-IOS-XR-lib-mpp-oper:ipv6"):
+        super(Ipv6, self).__init__(ns, pref, tag)
 
 

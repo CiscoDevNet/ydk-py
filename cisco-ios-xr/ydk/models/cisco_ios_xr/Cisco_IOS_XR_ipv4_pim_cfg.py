@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   pim\: PIM configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class PimMultipath(Enum):
@@ -127,6 +128,7 @@ class Pim(Entity):
         self.default_context.parent = self
         self._children_name_map["default_context"] = "default-context"
         self._segment_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(Pim, [], name, value)
@@ -162,6 +164,7 @@ class Pim(Entity):
             self.vrf = YList(self)
             self._segment_path = lambda: "vrfs"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pim.Vrfs, [], name, value)
@@ -205,7 +208,7 @@ class Pim(Entity):
                 self.ylist_key_names = ['vrf_name']
                 self._child_classes = OrderedDict([("ipv4", ("ipv4", Pim.Vrfs.Vrf.Ipv4)), ("ipv6", ("ipv6", Pim.Vrfs.Vrf.Ipv6))])
                 self._leafs = OrderedDict([
-                    ('vrf_name', YLeaf(YType.str, 'vrf-name')),
+                    ('vrf_name', (YLeaf(YType.str, 'vrf-name'), ['str'])),
                 ])
                 self.vrf_name = None
 
@@ -218,6 +221,7 @@ class Pim(Entity):
                 self._children_name_map["ipv6"] = "ipv6"
                 self._segment_path = lambda: "vrf" + "[vrf-name='" + str(self.vrf_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/vrfs/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pim.Vrfs.Vrf, ['vrf_name'], name, value)
@@ -274,7 +278,7 @@ class Pim(Entity):
                 	Source address to use for register messages
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: maximum
                 
@@ -401,20 +405,20 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("sparse-mode-rp-addresses", ("sparse_mode_rp_addresses", Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses)), ("inheritable-defaults", ("inheritable_defaults", Pim.Vrfs.Vrf.Ipv4.InheritableDefaults)), ("rpf", ("rpf", Pim.Vrfs.Vrf.Ipv4.Rpf)), ("maximum", ("maximum", Pim.Vrfs.Vrf.Ipv4.Maximum)), ("sg-expiry-timer", ("sg_expiry_timer", Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer)), ("rpf-vector-enable", ("rpf_vector_enable", Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable)), ("ssm", ("ssm", Pim.Vrfs.Vrf.Ipv4.Ssm)), ("injects", ("injects", Pim.Vrfs.Vrf.Ipv4.Injects)), ("bidir-rp-addresses", ("bidir_rp_addresses", Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses)), ("bsr", ("bsr", Pim.Vrfs.Vrf.Ipv4.Bsr)), ("mofrr", ("mofrr", Pim.Vrfs.Vrf.Ipv4.Mofrr)), ("paths", ("paths", Pim.Vrfs.Vrf.Ipv4.Paths)), ("allow-rp", ("allow_rp", Pim.Vrfs.Vrf.Ipv4.AllowRp)), ("convergence", ("convergence", Pim.Vrfs.Vrf.Ipv4.Convergence)), ("interfaces", ("interfaces", Pim.Vrfs.Vrf.Ipv4.Interfaces))])
                     self._leafs = OrderedDict([
-                        ('neighbor_check_on_receive', YLeaf(YType.empty, 'neighbor-check-on-receive')),
-                        ('old_register_checksum', YLeaf(YType.empty, 'old-register-checksum')),
-                        ('neighbor_filter', YLeaf(YType.str, 'neighbor-filter')),
-                        ('spt_threshold_infinity', YLeaf(YType.str, 'spt-threshold-infinity')),
-                        ('log_neighbor_changes', YLeaf(YType.empty, 'log-neighbor-changes')),
-                        ('register_source', YLeaf(YType.str, 'register-source')),
-                        ('accept_register', YLeaf(YType.str, 'accept-register')),
-                        ('suppress_rpf_prunes', YLeaf(YType.empty, 'suppress-rpf-prunes')),
-                        ('ssm_allow_override', YLeaf(YType.empty, 'ssm-allow-override')),
-                        ('multipath', YLeaf(YType.enumeration, 'multipath')),
-                        ('rp_static_deny', YLeaf(YType.str, 'rp-static-deny')),
-                        ('suppress_data_registers', YLeaf(YType.empty, 'suppress-data-registers')),
-                        ('neighbor_check_on_send', YLeaf(YType.empty, 'neighbor-check-on-send')),
-                        ('auto_rp_disable', YLeaf(YType.empty, 'auto-rp-disable')),
+                        ('neighbor_check_on_receive', (YLeaf(YType.empty, 'neighbor-check-on-receive'), ['Empty'])),
+                        ('old_register_checksum', (YLeaf(YType.empty, 'old-register-checksum'), ['Empty'])),
+                        ('neighbor_filter', (YLeaf(YType.str, 'neighbor-filter'), ['str'])),
+                        ('spt_threshold_infinity', (YLeaf(YType.str, 'spt-threshold-infinity'), ['str'])),
+                        ('log_neighbor_changes', (YLeaf(YType.empty, 'log-neighbor-changes'), ['Empty'])),
+                        ('register_source', (YLeaf(YType.str, 'register-source'), ['str'])),
+                        ('accept_register', (YLeaf(YType.str, 'accept-register'), ['str'])),
+                        ('suppress_rpf_prunes', (YLeaf(YType.empty, 'suppress-rpf-prunes'), ['Empty'])),
+                        ('ssm_allow_override', (YLeaf(YType.empty, 'ssm-allow-override'), ['Empty'])),
+                        ('multipath', (YLeaf(YType.enumeration, 'multipath'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg', 'PimMultipath', '')])),
+                        ('rp_static_deny', (YLeaf(YType.str, 'rp-static-deny'), ['str'])),
+                        ('suppress_data_registers', (YLeaf(YType.empty, 'suppress-data-registers'), ['Empty'])),
+                        ('neighbor_check_on_send', (YLeaf(YType.empty, 'neighbor-check-on-send'), ['Empty'])),
+                        ('auto_rp_disable', (YLeaf(YType.empty, 'auto-rp-disable'), ['Empty'])),
                     ])
                     self.neighbor_check_on_receive = None
                     self.old_register_checksum = None
@@ -489,6 +493,7 @@ class Pim(Entity):
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
                     self._segment_path = lambda: "ipv4"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.Vrfs.Vrf.Ipv4, ['neighbor_check_on_receive', 'old_register_checksum', 'neighbor_filter', 'spt_threshold_infinity', 'log_neighbor_changes', 'register_source', 'accept_register', 'suppress_rpf_prunes', 'ssm_allow_override', 'multipath', 'rp_static_deny', 'suppress_data_registers', 'neighbor_check_on_send', 'auto_rp_disable'], name, value)
@@ -523,6 +528,7 @@ class Pim(Entity):
 
                         self.sparse_mode_rp_address = YList(self)
                         self._segment_path = lambda: "sparse-mode-rp-addresses"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses, [], name, value)
@@ -574,14 +580,15 @@ class Pim(Entity):
                             self.ylist_key_names = ['rp_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('rp_address', YLeaf(YType.str, 'rp-address')),
-                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
-                                ('auto_rp_override', YLeaf(YType.boolean, 'auto-rp-override')),
+                                ('rp_address', (YLeaf(YType.str, 'rp-address'), ['str','str'])),
+                                ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
+                                ('auto_rp_override', (YLeaf(YType.boolean, 'auto-rp-override'), ['bool'])),
                             ])
                             self.rp_address = None
                             self.access_list_name = None
                             self.auto_rp_override = None
                             self._segment_path = lambda: "sparse-mode-rp-address" + "[rp-address='" + str(self.rp_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
@@ -669,13 +676,13 @@ class Pim(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('convergence_timeout', YLeaf(YType.uint32, 'convergence-timeout')),
-                            ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
-                            ('propagation_delay', YLeaf(YType.uint32, 'propagation-delay')),
-                            ('dr_priority', YLeaf(YType.uint32, 'dr-priority')),
-                            ('join_prune_mtu', YLeaf(YType.uint32, 'join-prune-mtu')),
-                            ('jp_interval', YLeaf(YType.uint32, 'jp-interval')),
-                            ('override_interval', YLeaf(YType.uint32, 'override-interval')),
+                            ('convergence_timeout', (YLeaf(YType.uint32, 'convergence-timeout'), ['int'])),
+                            ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
+                            ('propagation_delay', (YLeaf(YType.uint32, 'propagation-delay'), ['int'])),
+                            ('dr_priority', (YLeaf(YType.uint32, 'dr-priority'), ['int'])),
+                            ('join_prune_mtu', (YLeaf(YType.uint32, 'join-prune-mtu'), ['int'])),
+                            ('jp_interval', (YLeaf(YType.uint32, 'jp-interval'), ['int'])),
+                            ('override_interval', (YLeaf(YType.uint32, 'override-interval'), ['int'])),
                         ])
                         self.convergence_timeout = None
                         self.hello_interval = None
@@ -685,6 +692,7 @@ class Pim(Entity):
                         self.jp_interval = None
                         self.override_interval = None
                         self._segment_path = lambda: "inheritable-defaults"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
@@ -718,10 +726,11 @@ class Pim(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('route_policy', YLeaf(YType.str, 'route-policy')),
+                            ('route_policy', (YLeaf(YType.str, 'route-policy'), ['str'])),
                         ])
                         self.route_policy = None
                         self._segment_path = lambda: "rpf"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Rpf, ['route_policy'], name, value)
@@ -809,6 +818,7 @@ class Pim(Entity):
                         self.routes = None
                         self._children_name_map["routes"] = "routes"
                         self._segment_path = lambda: "maximum"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum, [], name, value)
@@ -857,12 +867,13 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('maximum_group_ranges_auto_rp', YLeaf(YType.uint32, 'maximum-group-ranges-auto-rp')),
-                                ('threshold_group_ranges_auto_rp', YLeaf(YType.uint32, 'threshold-group-ranges-auto-rp')),
+                                ('maximum_group_ranges_auto_rp', (YLeaf(YType.uint32, 'maximum-group-ranges-auto-rp'), ['int'])),
+                                ('threshold_group_ranges_auto_rp', (YLeaf(YType.uint32, 'threshold-group-ranges-auto-rp'), ['int'])),
                             ])
                             self.maximum_group_ranges_auto_rp = None
                             self.threshold_group_ranges_auto_rp = None
                             self._segment_path = lambda: "group-mappings-auto-rp"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
@@ -911,12 +922,13 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('bsr_maximum_group_ranges', YLeaf(YType.uint32, 'bsr-maximum-group-ranges')),
-                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                                ('bsr_maximum_group_ranges', (YLeaf(YType.uint32, 'bsr-maximum-group-ranges'), ['int'])),
+                                ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                             ])
                             self.bsr_maximum_group_ranges = None
                             self.warning_threshold = None
                             self._segment_path = lambda: "bsr-group-mappings"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
@@ -965,12 +977,13 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('maximum_register_states', YLeaf(YType.uint32, 'maximum-register-states')),
-                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                                ('maximum_register_states', (YLeaf(YType.uint32, 'maximum-register-states'), ['int'])),
+                                ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                             ])
                             self.maximum_register_states = None
                             self.warning_threshold = None
                             self._segment_path = lambda: "register-states"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
@@ -1019,12 +1032,13 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('maximum_route_interfaces', YLeaf(YType.uint32, 'maximum-route-interfaces')),
-                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                                ('maximum_route_interfaces', (YLeaf(YType.uint32, 'maximum-route-interfaces'), ['int'])),
+                                ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                             ])
                             self.maximum_route_interfaces = None
                             self.warning_threshold = None
                             self._segment_path = lambda: "route-interfaces"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
@@ -1073,12 +1087,13 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('bsr_maximum_candidate_rp_cache', YLeaf(YType.uint32, 'bsr-maximum-candidate-rp-cache')),
-                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                                ('bsr_maximum_candidate_rp_cache', (YLeaf(YType.uint32, 'bsr-maximum-candidate-rp-cache'), ['int'])),
+                                ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                             ])
                             self.bsr_maximum_candidate_rp_cache = None
                             self.warning_threshold = None
                             self._segment_path = lambda: "bsr-candidate-rp-cache"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
@@ -1126,12 +1141,13 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('maximum_routes', YLeaf(YType.uint32, 'maximum-routes')),
-                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                                ('maximum_routes', (YLeaf(YType.uint32, 'maximum-routes'), ['int'])),
+                                ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                             ])
                             self.maximum_routes = None
                             self.warning_threshold = None
                             self._segment_path = lambda: "routes"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
@@ -1174,12 +1190,13 @@ class Pim(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interval', YLeaf(YType.uint32, 'interval')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                         ])
                         self.interval = None
                         self.access_list_name = None
                         self._segment_path = lambda: "sg-expiry-timer"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
@@ -1206,6 +1223,11 @@ class Pim(Entity):
                     	Disable RPF Vector origination over iBGP sessions
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    .. attribute:: use_standard_encoding
+                    
+                    	Use RPF Vector RFC compliant encoding
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -1226,17 +1248,20 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('allow_ebgp', YLeaf(YType.empty, 'allow-ebgp')),
-                            ('disable_ibgp', YLeaf(YType.empty, 'disable-ibgp')),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('allow_ebgp', (YLeaf(YType.empty, 'allow-ebgp'), ['Empty'])),
+                            ('disable_ibgp', (YLeaf(YType.empty, 'disable-ibgp'), ['Empty'])),
+                            ('use_standard_encoding', (YLeaf(YType.empty, 'use-standard-encoding'), ['Empty'])),
                         ])
                         self.enable = None
                         self.allow_ebgp = None
                         self.disable_ibgp = None
+                        self.use_standard_encoding = None
                         self._segment_path = lambda: "rpf-vector-enable"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp'], name, value)
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp', 'use_standard_encoding'], name, value)
 
 
                 class Ssm(Entity):
@@ -1274,12 +1299,13 @@ class Pim(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('disable', YLeaf(YType.boolean, 'disable')),
-                            ('range', YLeaf(YType.str, 'range')),
+                            ('disable', (YLeaf(YType.boolean, 'disable'), ['bool'])),
+                            ('range', (YLeaf(YType.str, 'range'), ['str'])),
                         ])
                         self.disable = None
                         self.range = None
                         self._segment_path = lambda: "ssm"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Ssm, ['disable', 'range'], name, value)
@@ -1314,6 +1340,7 @@ class Pim(Entity):
 
                         self.inject = YList(self)
                         self._segment_path = lambda: "injects"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Injects, [], name, value)
@@ -1361,14 +1388,15 @@ class Pim(Entity):
                             self.ylist_key_names = ['source_address','prefix_length']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                                ('rpf_proxy_address', YLeafList(YType.str, 'rpf-proxy-address')),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                                ('rpf_proxy_address', (YLeafList(YType.str, 'rpf-proxy-address'), ['str'])),
                             ])
                             self.source_address = None
                             self.prefix_length = None
                             self.rpf_proxy_address = []
                             self._segment_path = lambda: "inject" + "[source-address='" + str(self.source_address) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Injects.Inject, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
@@ -1403,6 +1431,7 @@ class Pim(Entity):
 
                         self.bidir_rp_address = YList(self)
                         self._segment_path = lambda: "bidir-rp-addresses"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses, [], name, value)
@@ -1454,14 +1483,15 @@ class Pim(Entity):
                             self.ylist_key_names = ['rp_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('rp_address', YLeaf(YType.str, 'rp-address')),
-                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
-                                ('auto_rp_override', YLeaf(YType.boolean, 'auto-rp-override')),
+                                ('rp_address', (YLeaf(YType.str, 'rp-address'), ['str','str'])),
+                                ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
+                                ('auto_rp_override', (YLeaf(YType.boolean, 'auto-rp-override'), ['bool'])),
                             ])
                             self.rp_address = None
                             self.access_list_name = None
                             self.auto_rp_override = None
                             self._segment_path = lambda: "bidir-rp-address" + "[rp-address='" + str(self.rp_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
@@ -1508,6 +1538,7 @@ class Pim(Entity):
                         self.candidate_rps.parent = self
                         self._children_name_map["candidate_rps"] = "candidate-rps"
                         self._segment_path = lambda: "bsr"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr, [], name, value)
@@ -1570,14 +1601,15 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                                ('priority', YLeaf(YType.uint32, 'priority')),
+                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                                ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
                             ])
                             self.address = None
                             self.prefix_length = None
                             self.priority = None
                             self._segment_path = lambda: "candidate-bsr"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
@@ -1612,6 +1644,7 @@ class Pim(Entity):
 
                             self.candidate_rp = YList(self)
                             self._segment_path = lambda: "candidate-rps"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps, [], name, value)
@@ -1681,11 +1714,11 @@ class Pim(Entity):
                                 self.ylist_key_names = ['address','mode']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('address', YLeaf(YType.str, 'address')),
-                                    ('mode', YLeaf(YType.enumeration, 'mode')),
-                                    ('group_list', YLeaf(YType.str, 'group-list')),
-                                    ('priority', YLeaf(YType.uint32, 'priority')),
-                                    ('interval', YLeaf(YType.uint32, 'interval')),
+                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                                    ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg', 'PimProtocolMode', '')])),
+                                    ('group_list', (YLeaf(YType.str, 'group-list'), ['str'])),
+                                    ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                                    ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
                                 ])
                                 self.address = None
                                 self.mode = None
@@ -1693,6 +1726,7 @@ class Pim(Entity):
                                 self.priority = None
                                 self.interval = None
                                 self._segment_path = lambda: "candidate-rp" + "[address='" + str(self.address) + "']" + "[mode='" + str(self.mode) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
@@ -1753,10 +1787,10 @@ class Pim(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("clone-joins", ("clone_joins", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins)), ("clone-sources", ("clone_sources", Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources))])
                         self._leafs = OrderedDict([
-                            ('rib', YLeaf(YType.str, 'rib')),
-                            ('non_revertive', YLeaf(YType.empty, 'non-revertive')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('flow', YLeaf(YType.str, 'flow')),
+                            ('rib', (YLeaf(YType.str, 'rib'), ['str'])),
+                            ('non_revertive', (YLeaf(YType.empty, 'non-revertive'), ['Empty'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('flow', (YLeaf(YType.str, 'flow'), ['str'])),
                         ])
                         self.rib = None
                         self.non_revertive = None
@@ -1771,6 +1805,7 @@ class Pim(Entity):
                         self.clone_sources.parent = self
                         self._children_name_map["clone_sources"] = "clone-sources"
                         self._segment_path = lambda: "mofrr"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr, ['rib', 'non_revertive', 'enable', 'flow'], name, value)
@@ -1805,6 +1840,7 @@ class Pim(Entity):
 
                             self.clone_join = YList(self)
                             self._segment_path = lambda: "clone-joins"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins, [], name, value)
@@ -1859,16 +1895,17 @@ class Pim(Entity):
                                 self.ylist_key_names = ['source','primary','backup','prefix_length']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('source', YLeaf(YType.str, 'source')),
-                                    ('primary', YLeaf(YType.str, 'primary')),
-                                    ('backup', YLeaf(YType.str, 'backup')),
-                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                    ('source', (YLeaf(YType.str, 'source'), ['str'])),
+                                    ('primary', (YLeaf(YType.str, 'primary'), ['str'])),
+                                    ('backup', (YLeaf(YType.str, 'backup'), ['str'])),
+                                    ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                                 ])
                                 self.source = None
                                 self.primary = None
                                 self.backup = None
                                 self.prefix_length = None
                                 self._segment_path = lambda: "clone-join" + "[source='" + str(self.source) + "']" + "[primary='" + str(self.primary) + "']" + "[backup='" + str(self.backup) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneJoins.CloneJoin, ['source', 'primary', 'backup', 'prefix_length'], name, value)
@@ -1903,6 +1940,7 @@ class Pim(Entity):
 
                             self.clone_source = YList(self)
                             self._segment_path = lambda: "clone-sources"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources, [], name, value)
@@ -1958,16 +1996,17 @@ class Pim(Entity):
                                 self.ylist_key_names = ['source','primary','backup','prefix_length']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('source', YLeaf(YType.str, 'source')),
-                                    ('primary', YLeaf(YType.str, 'primary')),
-                                    ('backup', YLeaf(YType.str, 'backup')),
-                                    ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                    ('source', (YLeaf(YType.str, 'source'), ['str'])),
+                                    ('primary', (YLeaf(YType.str, 'primary'), ['str'])),
+                                    ('backup', (YLeaf(YType.str, 'backup'), ['str'])),
+                                    ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                                 ])
                                 self.source = None
                                 self.primary = None
                                 self.backup = None
                                 self.prefix_length = None
                                 self._segment_path = lambda: "clone-source" + "[source='" + str(self.source) + "']" + "[primary='" + str(self.primary) + "']" + "[backup='" + str(self.backup) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Mofrr.CloneSources.CloneSource, ['source', 'primary', 'backup', 'prefix_length'], name, value)
@@ -2002,6 +2041,7 @@ class Pim(Entity):
 
                         self.path = YList(self)
                         self._segment_path = lambda: "paths"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Paths, [], name, value)
@@ -2049,14 +2089,15 @@ class Pim(Entity):
                             self.ylist_key_names = ['source_address','prefix_length']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('source_address', YLeaf(YType.str, 'source-address')),
-                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                                ('rpf_proxy_address', YLeafList(YType.str, 'rpf-proxy-address')),
+                                ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                                ('rpf_proxy_address', (YLeafList(YType.str, 'rpf-proxy-address'), ['str'])),
                             ])
                             self.source_address = None
                             self.prefix_length = None
                             self.rpf_proxy_address = []
                             self._segment_path = lambda: "path" + "[source-address='" + str(self.source_address) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Paths.Path, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
@@ -2100,12 +2141,13 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('rp_list_name', YLeaf(YType.str, 'rp-list-name')),
-                            ('group_list_name', YLeaf(YType.str, 'group-list-name')),
+                            ('rp_list_name', (YLeaf(YType.str, 'rp-list-name'), ['str'])),
+                            ('group_list_name', (YLeaf(YType.str, 'group-list-name'), ['str'])),
                         ])
                         self.rp_list_name = None
                         self.group_list_name = None
                         self._segment_path = lambda: "allow-rp"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
@@ -2150,12 +2192,13 @@ class Pim(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('rpf_conflict_join_delay', YLeaf(YType.uint32, 'rpf-conflict-join-delay')),
-                            ('link_down_prune_delay', YLeaf(YType.uint32, 'link-down-prune-delay')),
+                            ('rpf_conflict_join_delay', (YLeaf(YType.uint32, 'rpf-conflict-join-delay'), ['int'])),
+                            ('link_down_prune_delay', (YLeaf(YType.uint32, 'link-down-prune-delay'), ['int'])),
                         ])
                         self.rpf_conflict_join_delay = None
                         self.link_down_prune_delay = None
                         self._segment_path = lambda: "convergence"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)
@@ -2190,6 +2233,7 @@ class Pim(Entity):
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces, [], name, value)
@@ -2204,7 +2248,7 @@ class Pim(Entity):
                         	The name of interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: enable
                         
@@ -2309,17 +2353,17 @@ class Pim(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([("maximum-routes", ("maximum_routes", Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes)), ("bfd", ("bfd", Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd))])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('enable', YLeaf(YType.empty, 'enable')),
-                                ('neighbor_filter', YLeaf(YType.str, 'neighbor-filter')),
-                                ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
-                                ('bsr_border', YLeaf(YType.boolean, 'bsr-border')),
-                                ('propagation_delay', YLeaf(YType.uint32, 'propagation-delay')),
-                                ('dr_priority', YLeaf(YType.uint32, 'dr-priority')),
-                                ('join_prune_mtu', YLeaf(YType.uint32, 'join-prune-mtu')),
-                                ('interface_enable', YLeaf(YType.boolean, 'interface-enable')),
-                                ('jp_interval', YLeaf(YType.uint32, 'jp-interval')),
-                                ('override_interval', YLeaf(YType.uint32, 'override-interval')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                ('neighbor_filter', (YLeaf(YType.str, 'neighbor-filter'), ['str'])),
+                                ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
+                                ('bsr_border', (YLeaf(YType.boolean, 'bsr-border'), ['bool'])),
+                                ('propagation_delay', (YLeaf(YType.uint32, 'propagation-delay'), ['int'])),
+                                ('dr_priority', (YLeaf(YType.uint32, 'dr-priority'), ['int'])),
+                                ('join_prune_mtu', (YLeaf(YType.uint32, 'join-prune-mtu'), ['int'])),
+                                ('interface_enable', (YLeaf(YType.boolean, 'interface-enable'), ['bool'])),
+                                ('jp_interval', (YLeaf(YType.uint32, 'jp-interval'), ['int'])),
+                                ('override_interval', (YLeaf(YType.uint32, 'override-interval'), ['int'])),
                             ])
                             self.interface_name = None
                             self.enable = None
@@ -2340,6 +2384,7 @@ class Pim(Entity):
                             self.bfd.parent = self
                             self._children_name_map["bfd"] = "bfd"
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface, ['interface_name', 'enable', 'neighbor_filter', 'hello_interval', 'bsr_border', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'interface_enable', 'jp_interval', 'override_interval'], name, value)
@@ -2393,14 +2438,15 @@ class Pim(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('maximum', YLeaf(YType.uint32, 'maximum')),
-                                    ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
-                                    ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                    ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                                    ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
+                                    ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                                 ])
                                 self.maximum = None
                                 self.warning_threshold = None
                                 self.access_list_name = None
                                 self._segment_path = lambda: "maximum-routes"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
@@ -2448,14 +2494,15 @@ class Pim(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                                    ('interval', YLeaf(YType.uint32, 'interval')),
-                                    ('enable', YLeaf(YType.boolean, 'enable')),
+                                    ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                                    ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                    ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                                 ])
                                 self.detection_multiplier = None
                                 self.interval = None
                                 self.enable = None
                                 self._segment_path = lambda: "bfd"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv4.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
@@ -2512,7 +2559,7 @@ class Pim(Entity):
                 	Source address to use for register messages
                 	**type**\: str
                 
-                	**pattern:** [a\-zA\-Z0\-9./\-]+
+                	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                 
                 .. attribute:: maximum
                 
@@ -2629,20 +2676,20 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("sparse-mode-rp-addresses", ("sparse_mode_rp_addresses", Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses)), ("inheritable-defaults", ("inheritable_defaults", Pim.Vrfs.Vrf.Ipv6.InheritableDefaults)), ("rpf", ("rpf", Pim.Vrfs.Vrf.Ipv6.Rpf)), ("maximum", ("maximum", Pim.Vrfs.Vrf.Ipv6.Maximum)), ("sg-expiry-timer", ("sg_expiry_timer", Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer)), ("rpf-vector-enable", ("rpf_vector_enable", Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable)), ("ssm", ("ssm", Pim.Vrfs.Vrf.Ipv6.Ssm)), ("bidir-rp-addresses", ("bidir_rp_addresses", Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses)), ("bsr", ("bsr", Pim.Vrfs.Vrf.Ipv6.Bsr)), ("allow-rp", ("allow_rp", Pim.Vrfs.Vrf.Ipv6.AllowRp)), ("embedded-rp-addresses", ("embedded_rp_addresses", Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses)), ("convergence", ("convergence", Pim.Vrfs.Vrf.Ipv6.Convergence)), ("interfaces", ("interfaces", Pim.Vrfs.Vrf.Ipv6.Interfaces))])
                     self._leafs = OrderedDict([
-                        ('neighbor_check_on_receive', YLeaf(YType.empty, 'neighbor-check-on-receive')),
-                        ('old_register_checksum', YLeaf(YType.empty, 'old-register-checksum')),
-                        ('neighbor_filter', YLeaf(YType.str, 'neighbor-filter')),
-                        ('spt_threshold_infinity', YLeaf(YType.str, 'spt-threshold-infinity')),
-                        ('log_neighbor_changes', YLeaf(YType.empty, 'log-neighbor-changes')),
-                        ('register_source', YLeaf(YType.str, 'register-source')),
-                        ('accept_register', YLeaf(YType.str, 'accept-register')),
-                        ('embedded_rp_disable', YLeaf(YType.empty, 'embedded-rp-disable')),
-                        ('suppress_rpf_prunes', YLeaf(YType.empty, 'suppress-rpf-prunes')),
-                        ('ssm_allow_override', YLeaf(YType.empty, 'ssm-allow-override')),
-                        ('multipath', YLeaf(YType.enumeration, 'multipath')),
-                        ('rp_static_deny', YLeaf(YType.str, 'rp-static-deny')),
-                        ('suppress_data_registers', YLeaf(YType.empty, 'suppress-data-registers')),
-                        ('neighbor_check_on_send', YLeaf(YType.empty, 'neighbor-check-on-send')),
+                        ('neighbor_check_on_receive', (YLeaf(YType.empty, 'neighbor-check-on-receive'), ['Empty'])),
+                        ('old_register_checksum', (YLeaf(YType.empty, 'old-register-checksum'), ['Empty'])),
+                        ('neighbor_filter', (YLeaf(YType.str, 'neighbor-filter'), ['str'])),
+                        ('spt_threshold_infinity', (YLeaf(YType.str, 'spt-threshold-infinity'), ['str'])),
+                        ('log_neighbor_changes', (YLeaf(YType.empty, 'log-neighbor-changes'), ['Empty'])),
+                        ('register_source', (YLeaf(YType.str, 'register-source'), ['str'])),
+                        ('accept_register', (YLeaf(YType.str, 'accept-register'), ['str'])),
+                        ('embedded_rp_disable', (YLeaf(YType.empty, 'embedded-rp-disable'), ['Empty'])),
+                        ('suppress_rpf_prunes', (YLeaf(YType.empty, 'suppress-rpf-prunes'), ['Empty'])),
+                        ('ssm_allow_override', (YLeaf(YType.empty, 'ssm-allow-override'), ['Empty'])),
+                        ('multipath', (YLeaf(YType.enumeration, 'multipath'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg', 'PimMultipath', '')])),
+                        ('rp_static_deny', (YLeaf(YType.str, 'rp-static-deny'), ['str'])),
+                        ('suppress_data_registers', (YLeaf(YType.empty, 'suppress-data-registers'), ['Empty'])),
+                        ('neighbor_check_on_send', (YLeaf(YType.empty, 'neighbor-check-on-send'), ['Empty'])),
                     ])
                     self.neighbor_check_on_receive = None
                     self.old_register_checksum = None
@@ -2709,6 +2756,7 @@ class Pim(Entity):
                     self.interfaces.parent = self
                     self._children_name_map["interfaces"] = "interfaces"
                     self._segment_path = lambda: "ipv6"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.Vrfs.Vrf.Ipv6, ['neighbor_check_on_receive', 'old_register_checksum', 'neighbor_filter', 'spt_threshold_infinity', 'log_neighbor_changes', 'register_source', 'accept_register', 'embedded_rp_disable', 'suppress_rpf_prunes', 'ssm_allow_override', 'multipath', 'rp_static_deny', 'suppress_data_registers', 'neighbor_check_on_send'], name, value)
@@ -2743,6 +2791,7 @@ class Pim(Entity):
 
                         self.sparse_mode_rp_address = YList(self)
                         self._segment_path = lambda: "sparse-mode-rp-addresses"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses, [], name, value)
@@ -2794,14 +2843,15 @@ class Pim(Entity):
                             self.ylist_key_names = ['rp_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('rp_address', YLeaf(YType.str, 'rp-address')),
-                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
-                                ('auto_rp_override', YLeaf(YType.boolean, 'auto-rp-override')),
+                                ('rp_address', (YLeaf(YType.str, 'rp-address'), ['str','str'])),
+                                ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
+                                ('auto_rp_override', (YLeaf(YType.boolean, 'auto-rp-override'), ['bool'])),
                             ])
                             self.rp_address = None
                             self.access_list_name = None
                             self.auto_rp_override = None
                             self._segment_path = lambda: "sparse-mode-rp-address" + "[rp-address='" + str(self.rp_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
@@ -2889,13 +2939,13 @@ class Pim(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('convergence_timeout', YLeaf(YType.uint32, 'convergence-timeout')),
-                            ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
-                            ('propagation_delay', YLeaf(YType.uint32, 'propagation-delay')),
-                            ('dr_priority', YLeaf(YType.uint32, 'dr-priority')),
-                            ('join_prune_mtu', YLeaf(YType.uint32, 'join-prune-mtu')),
-                            ('jp_interval', YLeaf(YType.uint32, 'jp-interval')),
-                            ('override_interval', YLeaf(YType.uint32, 'override-interval')),
+                            ('convergence_timeout', (YLeaf(YType.uint32, 'convergence-timeout'), ['int'])),
+                            ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
+                            ('propagation_delay', (YLeaf(YType.uint32, 'propagation-delay'), ['int'])),
+                            ('dr_priority', (YLeaf(YType.uint32, 'dr-priority'), ['int'])),
+                            ('join_prune_mtu', (YLeaf(YType.uint32, 'join-prune-mtu'), ['int'])),
+                            ('jp_interval', (YLeaf(YType.uint32, 'jp-interval'), ['int'])),
+                            ('override_interval', (YLeaf(YType.uint32, 'override-interval'), ['int'])),
                         ])
                         self.convergence_timeout = None
                         self.hello_interval = None
@@ -2905,6 +2955,7 @@ class Pim(Entity):
                         self.jp_interval = None
                         self.override_interval = None
                         self._segment_path = lambda: "inheritable-defaults"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
@@ -2938,10 +2989,11 @@ class Pim(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('route_policy', YLeaf(YType.str, 'route-policy')),
+                            ('route_policy', (YLeaf(YType.str, 'route-policy'), ['str'])),
                         ])
                         self.route_policy = None
                         self._segment_path = lambda: "rpf"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Rpf, ['route_policy'], name, value)
@@ -3029,6 +3081,7 @@ class Pim(Entity):
                         self.routes = None
                         self._children_name_map["routes"] = "routes"
                         self._segment_path = lambda: "maximum"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum, [], name, value)
@@ -3077,12 +3130,13 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('maximum_group_ranges_auto_rp', YLeaf(YType.uint32, 'maximum-group-ranges-auto-rp')),
-                                ('threshold_group_ranges_auto_rp', YLeaf(YType.uint32, 'threshold-group-ranges-auto-rp')),
+                                ('maximum_group_ranges_auto_rp', (YLeaf(YType.uint32, 'maximum-group-ranges-auto-rp'), ['int'])),
+                                ('threshold_group_ranges_auto_rp', (YLeaf(YType.uint32, 'threshold-group-ranges-auto-rp'), ['int'])),
                             ])
                             self.maximum_group_ranges_auto_rp = None
                             self.threshold_group_ranges_auto_rp = None
                             self._segment_path = lambda: "group-mappings-auto-rp"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
@@ -3131,12 +3185,13 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('bsr_maximum_group_ranges', YLeaf(YType.uint32, 'bsr-maximum-group-ranges')),
-                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                                ('bsr_maximum_group_ranges', (YLeaf(YType.uint32, 'bsr-maximum-group-ranges'), ['int'])),
+                                ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                             ])
                             self.bsr_maximum_group_ranges = None
                             self.warning_threshold = None
                             self._segment_path = lambda: "bsr-group-mappings"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
@@ -3185,12 +3240,13 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('maximum_register_states', YLeaf(YType.uint32, 'maximum-register-states')),
-                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                                ('maximum_register_states', (YLeaf(YType.uint32, 'maximum-register-states'), ['int'])),
+                                ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                             ])
                             self.maximum_register_states = None
                             self.warning_threshold = None
                             self._segment_path = lambda: "register-states"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
@@ -3239,12 +3295,13 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('maximum_route_interfaces', YLeaf(YType.uint32, 'maximum-route-interfaces')),
-                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                                ('maximum_route_interfaces', (YLeaf(YType.uint32, 'maximum-route-interfaces'), ['int'])),
+                                ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                             ])
                             self.maximum_route_interfaces = None
                             self.warning_threshold = None
                             self._segment_path = lambda: "route-interfaces"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
@@ -3293,12 +3350,13 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('bsr_maximum_candidate_rp_cache', YLeaf(YType.uint32, 'bsr-maximum-candidate-rp-cache')),
-                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                                ('bsr_maximum_candidate_rp_cache', (YLeaf(YType.uint32, 'bsr-maximum-candidate-rp-cache'), ['int'])),
+                                ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                             ])
                             self.bsr_maximum_candidate_rp_cache = None
                             self.warning_threshold = None
                             self._segment_path = lambda: "bsr-candidate-rp-cache"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
@@ -3346,12 +3404,13 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('maximum_routes', YLeaf(YType.uint32, 'maximum-routes')),
-                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                                ('maximum_routes', (YLeaf(YType.uint32, 'maximum-routes'), ['int'])),
+                                ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                             ])
                             self.maximum_routes = None
                             self.warning_threshold = None
                             self._segment_path = lambda: "routes"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
@@ -3394,12 +3453,13 @@ class Pim(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interval', YLeaf(YType.uint32, 'interval')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                         ])
                         self.interval = None
                         self.access_list_name = None
                         self._segment_path = lambda: "sg-expiry-timer"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
@@ -3426,6 +3486,11 @@ class Pim(Entity):
                     	Disable RPF Vector origination over iBGP sessions
                     	**type**\: :py:class:`Empty<ydk.types.Empty>`
                     
+                    .. attribute:: use_standard_encoding
+                    
+                    	Use RPF Vector RFC compliant encoding
+                    	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                    
                     
 
                     This class is a :ref:`presence class<presence-class>`
@@ -3446,17 +3511,20 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('allow_ebgp', YLeaf(YType.empty, 'allow-ebgp')),
-                            ('disable_ibgp', YLeaf(YType.empty, 'disable-ibgp')),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('allow_ebgp', (YLeaf(YType.empty, 'allow-ebgp'), ['Empty'])),
+                            ('disable_ibgp', (YLeaf(YType.empty, 'disable-ibgp'), ['Empty'])),
+                            ('use_standard_encoding', (YLeaf(YType.empty, 'use-standard-encoding'), ['Empty'])),
                         ])
                         self.enable = None
                         self.allow_ebgp = None
                         self.disable_ibgp = None
+                        self.use_standard_encoding = None
                         self._segment_path = lambda: "rpf-vector-enable"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
-                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp'], name, value)
+                        self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp', 'use_standard_encoding'], name, value)
 
 
                 class Ssm(Entity):
@@ -3494,12 +3562,13 @@ class Pim(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('disable', YLeaf(YType.boolean, 'disable')),
-                            ('range', YLeaf(YType.str, 'range')),
+                            ('disable', (YLeaf(YType.boolean, 'disable'), ['bool'])),
+                            ('range', (YLeaf(YType.str, 'range'), ['str'])),
                         ])
                         self.disable = None
                         self.range = None
                         self._segment_path = lambda: "ssm"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Ssm, ['disable', 'range'], name, value)
@@ -3534,6 +3603,7 @@ class Pim(Entity):
 
                         self.bidir_rp_address = YList(self)
                         self._segment_path = lambda: "bidir-rp-addresses"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses, [], name, value)
@@ -3585,14 +3655,15 @@ class Pim(Entity):
                             self.ylist_key_names = ['rp_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('rp_address', YLeaf(YType.str, 'rp-address')),
-                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
-                                ('auto_rp_override', YLeaf(YType.boolean, 'auto-rp-override')),
+                                ('rp_address', (YLeaf(YType.str, 'rp-address'), ['str','str'])),
+                                ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
+                                ('auto_rp_override', (YLeaf(YType.boolean, 'auto-rp-override'), ['bool'])),
                             ])
                             self.rp_address = None
                             self.access_list_name = None
                             self.auto_rp_override = None
                             self._segment_path = lambda: "bidir-rp-address" + "[rp-address='" + str(self.rp_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
@@ -3639,6 +3710,7 @@ class Pim(Entity):
                         self.candidate_rps.parent = self
                         self._children_name_map["candidate_rps"] = "candidate-rps"
                         self._segment_path = lambda: "bsr"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr, [], name, value)
@@ -3695,14 +3767,15 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                                ('priority', YLeaf(YType.uint32, 'priority')),
+                                ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                                ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
                             ])
                             self.address = None
                             self.prefix_length = None
                             self.priority = None
                             self._segment_path = lambda: "candidate-bsr"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
@@ -3737,6 +3810,7 @@ class Pim(Entity):
 
                             self.candidate_rp = YList(self)
                             self._segment_path = lambda: "candidate-rps"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps, [], name, value)
@@ -3806,11 +3880,11 @@ class Pim(Entity):
                                 self.ylist_key_names = ['address','mode']
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('address', YLeaf(YType.str, 'address')),
-                                    ('mode', YLeaf(YType.enumeration, 'mode')),
-                                    ('group_list', YLeaf(YType.str, 'group-list')),
-                                    ('priority', YLeaf(YType.uint32, 'priority')),
-                                    ('interval', YLeaf(YType.uint32, 'interval')),
+                                    ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                                    ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg', 'PimProtocolMode', '')])),
+                                    ('group_list', (YLeaf(YType.str, 'group-list'), ['str'])),
+                                    ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                                    ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
                                 ])
                                 self.address = None
                                 self.mode = None
@@ -3818,6 +3892,7 @@ class Pim(Entity):
                                 self.priority = None
                                 self.interval = None
                                 self._segment_path = lambda: "candidate-rp" + "[address='" + str(self.address) + "']" + "[mode='" + str(self.mode) + "']"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
@@ -3861,12 +3936,13 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('rp_list_name', YLeaf(YType.str, 'rp-list-name')),
-                            ('group_list_name', YLeaf(YType.str, 'group-list-name')),
+                            ('rp_list_name', (YLeaf(YType.str, 'rp-list-name'), ['str'])),
+                            ('group_list_name', (YLeaf(YType.str, 'group-list-name'), ['str'])),
                         ])
                         self.rp_list_name = None
                         self.group_list_name = None
                         self._segment_path = lambda: "allow-rp"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
@@ -3901,6 +3977,7 @@ class Pim(Entity):
 
                         self.embedded_rp_address = YList(self)
                         self._segment_path = lambda: "embedded-rp-addresses"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses, [], name, value)
@@ -3949,12 +4026,13 @@ class Pim(Entity):
                             self.ylist_key_names = ['rp_address']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('rp_address', YLeaf(YType.str, 'rp-address')),
-                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                ('rp_address', (YLeaf(YType.str, 'rp-address'), ['str','str'])),
+                                ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                             ])
                             self.rp_address = None
                             self.access_list_name = None
                             self._segment_path = lambda: "embedded-rp-address" + "[rp-address='" + str(self.rp_address) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, ['rp_address', 'access_list_name'], name, value)
@@ -3999,12 +4077,13 @@ class Pim(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('rpf_conflict_join_delay', YLeaf(YType.uint32, 'rpf-conflict-join-delay')),
-                            ('link_down_prune_delay', YLeaf(YType.uint32, 'link-down-prune-delay')),
+                            ('rpf_conflict_join_delay', (YLeaf(YType.uint32, 'rpf-conflict-join-delay'), ['int'])),
+                            ('link_down_prune_delay', (YLeaf(YType.uint32, 'link-down-prune-delay'), ['int'])),
                         ])
                         self.rpf_conflict_join_delay = None
                         self.link_down_prune_delay = None
                         self._segment_path = lambda: "convergence"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)
@@ -4039,6 +4118,7 @@ class Pim(Entity):
 
                         self.interface = YList(self)
                         self._segment_path = lambda: "interfaces"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces, [], name, value)
@@ -4053,7 +4133,7 @@ class Pim(Entity):
                         	The name of interface
                         	**type**\: str
                         
-                        	**pattern:** [a\-zA\-Z0\-9./\-]+
+                        	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                         
                         .. attribute:: enable
                         
@@ -4158,17 +4238,17 @@ class Pim(Entity):
                             self.ylist_key_names = ['interface_name']
                             self._child_classes = OrderedDict([("maximum-routes", ("maximum_routes", Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes)), ("bfd", ("bfd", Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd))])
                             self._leafs = OrderedDict([
-                                ('interface_name', YLeaf(YType.str, 'interface-name')),
-                                ('enable', YLeaf(YType.empty, 'enable')),
-                                ('neighbor_filter', YLeaf(YType.str, 'neighbor-filter')),
-                                ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
-                                ('bsr_border', YLeaf(YType.boolean, 'bsr-border')),
-                                ('propagation_delay', YLeaf(YType.uint32, 'propagation-delay')),
-                                ('dr_priority', YLeaf(YType.uint32, 'dr-priority')),
-                                ('join_prune_mtu', YLeaf(YType.uint32, 'join-prune-mtu')),
-                                ('interface_enable', YLeaf(YType.boolean, 'interface-enable')),
-                                ('jp_interval', YLeaf(YType.uint32, 'jp-interval')),
-                                ('override_interval', YLeaf(YType.uint32, 'override-interval')),
+                                ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                                ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                                ('neighbor_filter', (YLeaf(YType.str, 'neighbor-filter'), ['str'])),
+                                ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
+                                ('bsr_border', (YLeaf(YType.boolean, 'bsr-border'), ['bool'])),
+                                ('propagation_delay', (YLeaf(YType.uint32, 'propagation-delay'), ['int'])),
+                                ('dr_priority', (YLeaf(YType.uint32, 'dr-priority'), ['int'])),
+                                ('join_prune_mtu', (YLeaf(YType.uint32, 'join-prune-mtu'), ['int'])),
+                                ('interface_enable', (YLeaf(YType.boolean, 'interface-enable'), ['bool'])),
+                                ('jp_interval', (YLeaf(YType.uint32, 'jp-interval'), ['int'])),
+                                ('override_interval', (YLeaf(YType.uint32, 'override-interval'), ['int'])),
                             ])
                             self.interface_name = None
                             self.enable = None
@@ -4189,6 +4269,7 @@ class Pim(Entity):
                             self.bfd.parent = self
                             self._children_name_map["bfd"] = "bfd"
                             self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface, ['interface_name', 'enable', 'neighbor_filter', 'hello_interval', 'bsr_border', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'interface_enable', 'jp_interval', 'override_interval'], name, value)
@@ -4242,14 +4323,15 @@ class Pim(Entity):
                                 self._child_classes = OrderedDict([])
                                 self.is_presence_container = True
                                 self._leafs = OrderedDict([
-                                    ('maximum', YLeaf(YType.uint32, 'maximum')),
-                                    ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
-                                    ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                    ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                                    ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
+                                    ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                                 ])
                                 self.maximum = None
                                 self.warning_threshold = None
                                 self.access_list_name = None
                                 self._segment_path = lambda: "maximum-routes"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
@@ -4297,14 +4379,15 @@ class Pim(Entity):
                                 self.ylist_key_names = []
                                 self._child_classes = OrderedDict([])
                                 self._leafs = OrderedDict([
-                                    ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                                    ('interval', YLeaf(YType.uint32, 'interval')),
-                                    ('enable', YLeaf(YType.boolean, 'enable')),
+                                    ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                                    ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                    ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                                 ])
                                 self.detection_multiplier = None
                                 self.interval = None
                                 self.enable = None
                                 self._segment_path = lambda: "bfd"
+                                self._is_frozen = True
 
                             def __setattr__(self, name, value):
                                 self._perform_setattr(Pim.Vrfs.Vrf.Ipv6.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
@@ -4351,6 +4434,7 @@ class Pim(Entity):
             self._children_name_map["ipv4"] = "ipv4"
             self._segment_path = lambda: "default-context"
             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(Pim.DefaultContext, [], name, value)
@@ -4412,7 +4496,7 @@ class Pim(Entity):
             	Source address to use for register messages
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: accept_register
             
@@ -4529,20 +4613,20 @@ class Pim(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("interfaces", ("interfaces", Pim.DefaultContext.Ipv6.Interfaces)), ("sparse-mode-rp-addresses", ("sparse_mode_rp_addresses", Pim.DefaultContext.Ipv6.SparseModeRpAddresses)), ("inheritable-defaults", ("inheritable_defaults", Pim.DefaultContext.Ipv6.InheritableDefaults)), ("rpf", ("rpf", Pim.DefaultContext.Ipv6.Rpf)), ("sg-expiry-timer", ("sg_expiry_timer", Pim.DefaultContext.Ipv6.SgExpiryTimer)), ("rpf-vector-enable", ("rpf_vector_enable", Pim.DefaultContext.Ipv6.RpfVectorEnable)), ("nsf", ("nsf", Pim.DefaultContext.Ipv6.Nsf)), ("maximum", ("maximum", Pim.DefaultContext.Ipv6.Maximum)), ("ssm", ("ssm", Pim.DefaultContext.Ipv6.Ssm)), ("bidir-rp-addresses", ("bidir_rp_addresses", Pim.DefaultContext.Ipv6.BidirRpAddresses)), ("bsr", ("bsr", Pim.DefaultContext.Ipv6.Bsr)), ("allow-rp", ("allow_rp", Pim.DefaultContext.Ipv6.AllowRp)), ("embedded-rp-addresses", ("embedded_rp_addresses", Pim.DefaultContext.Ipv6.EmbeddedRpAddresses)), ("convergence", ("convergence", Pim.DefaultContext.Ipv6.Convergence))])
                 self._leafs = OrderedDict([
-                    ('neighbor_check_on_receive', YLeaf(YType.empty, 'neighbor-check-on-receive')),
-                    ('old_register_checksum', YLeaf(YType.empty, 'old-register-checksum')),
-                    ('neighbor_filter', YLeaf(YType.str, 'neighbor-filter')),
-                    ('spt_threshold_infinity', YLeaf(YType.str, 'spt-threshold-infinity')),
-                    ('log_neighbor_changes', YLeaf(YType.empty, 'log-neighbor-changes')),
-                    ('register_source', YLeaf(YType.str, 'register-source')),
-                    ('accept_register', YLeaf(YType.str, 'accept-register')),
-                    ('embedded_rp_disable', YLeaf(YType.empty, 'embedded-rp-disable')),
-                    ('suppress_rpf_prunes', YLeaf(YType.empty, 'suppress-rpf-prunes')),
-                    ('ssm_allow_override', YLeaf(YType.empty, 'ssm-allow-override')),
-                    ('multipath', YLeaf(YType.enumeration, 'multipath')),
-                    ('rp_static_deny', YLeaf(YType.str, 'rp-static-deny')),
-                    ('suppress_data_registers', YLeaf(YType.empty, 'suppress-data-registers')),
-                    ('neighbor_check_on_send', YLeaf(YType.empty, 'neighbor-check-on-send')),
+                    ('neighbor_check_on_receive', (YLeaf(YType.empty, 'neighbor-check-on-receive'), ['Empty'])),
+                    ('old_register_checksum', (YLeaf(YType.empty, 'old-register-checksum'), ['Empty'])),
+                    ('neighbor_filter', (YLeaf(YType.str, 'neighbor-filter'), ['str'])),
+                    ('spt_threshold_infinity', (YLeaf(YType.str, 'spt-threshold-infinity'), ['str'])),
+                    ('log_neighbor_changes', (YLeaf(YType.empty, 'log-neighbor-changes'), ['Empty'])),
+                    ('register_source', (YLeaf(YType.str, 'register-source'), ['str'])),
+                    ('accept_register', (YLeaf(YType.str, 'accept-register'), ['str'])),
+                    ('embedded_rp_disable', (YLeaf(YType.empty, 'embedded-rp-disable'), ['Empty'])),
+                    ('suppress_rpf_prunes', (YLeaf(YType.empty, 'suppress-rpf-prunes'), ['Empty'])),
+                    ('ssm_allow_override', (YLeaf(YType.empty, 'ssm-allow-override'), ['Empty'])),
+                    ('multipath', (YLeaf(YType.enumeration, 'multipath'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg', 'PimMultipath', '')])),
+                    ('rp_static_deny', (YLeaf(YType.str, 'rp-static-deny'), ['str'])),
+                    ('suppress_data_registers', (YLeaf(YType.empty, 'suppress-data-registers'), ['Empty'])),
+                    ('neighbor_check_on_send', (YLeaf(YType.empty, 'neighbor-check-on-send'), ['Empty'])),
                 ])
                 self.neighbor_check_on_receive = None
                 self.old_register_checksum = None
@@ -4614,6 +4698,7 @@ class Pim(Entity):
                 self._children_name_map["convergence"] = "convergence"
                 self._segment_path = lambda: "ipv6"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pim.DefaultContext.Ipv6, ['neighbor_check_on_receive', 'old_register_checksum', 'neighbor_filter', 'spt_threshold_infinity', 'log_neighbor_changes', 'register_source', 'accept_register', 'embedded_rp_disable', 'suppress_rpf_prunes', 'ssm_allow_override', 'multipath', 'rp_static_deny', 'suppress_data_registers', 'neighbor_check_on_send'], name, value)
@@ -4649,6 +4734,7 @@ class Pim(Entity):
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces, [], name, value)
@@ -4663,7 +4749,7 @@ class Pim(Entity):
                     	The name of interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: enable
                     
@@ -4768,17 +4854,17 @@ class Pim(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("maximum-routes", ("maximum_routes", Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes)), ("bfd", ("bfd", Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('neighbor_filter', YLeaf(YType.str, 'neighbor-filter')),
-                            ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
-                            ('bsr_border', YLeaf(YType.boolean, 'bsr-border')),
-                            ('propagation_delay', YLeaf(YType.uint32, 'propagation-delay')),
-                            ('dr_priority', YLeaf(YType.uint32, 'dr-priority')),
-                            ('join_prune_mtu', YLeaf(YType.uint32, 'join-prune-mtu')),
-                            ('interface_enable', YLeaf(YType.boolean, 'interface-enable')),
-                            ('jp_interval', YLeaf(YType.uint32, 'jp-interval')),
-                            ('override_interval', YLeaf(YType.uint32, 'override-interval')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('neighbor_filter', (YLeaf(YType.str, 'neighbor-filter'), ['str'])),
+                            ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
+                            ('bsr_border', (YLeaf(YType.boolean, 'bsr-border'), ['bool'])),
+                            ('propagation_delay', (YLeaf(YType.uint32, 'propagation-delay'), ['int'])),
+                            ('dr_priority', (YLeaf(YType.uint32, 'dr-priority'), ['int'])),
+                            ('join_prune_mtu', (YLeaf(YType.uint32, 'join-prune-mtu'), ['int'])),
+                            ('interface_enable', (YLeaf(YType.boolean, 'interface-enable'), ['bool'])),
+                            ('jp_interval', (YLeaf(YType.uint32, 'jp-interval'), ['int'])),
+                            ('override_interval', (YLeaf(YType.uint32, 'override-interval'), ['int'])),
                         ])
                         self.interface_name = None
                         self.enable = None
@@ -4800,6 +4886,7 @@ class Pim(Entity):
                         self._children_name_map["bfd"] = "bfd"
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/interfaces/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces.Interface, ['interface_name', 'enable', 'neighbor_filter', 'hello_interval', 'bsr_border', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'interface_enable', 'jp_interval', 'override_interval'], name, value)
@@ -4853,14 +4940,15 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('maximum', YLeaf(YType.uint32, 'maximum')),
-                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
-                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                                ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
+                                ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                             ])
                             self.maximum = None
                             self.warning_threshold = None
                             self.access_list_name = None
                             self._segment_path = lambda: "maximum-routes"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
@@ -4908,14 +4996,15 @@ class Pim(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                                ('interval', YLeaf(YType.uint32, 'interval')),
-                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                                ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                             ])
                             self.detection_multiplier = None
                             self.interval = None
                             self.enable = None
                             self._segment_path = lambda: "bfd"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv6.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
@@ -4951,6 +5040,7 @@ class Pim(Entity):
                     self.sparse_mode_rp_address = YList(self)
                     self._segment_path = lambda: "sparse-mode-rp-addresses"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.SparseModeRpAddresses, [], name, value)
@@ -5002,15 +5092,16 @@ class Pim(Entity):
                         self.ylist_key_names = ['rp_address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('rp_address', YLeaf(YType.str, 'rp-address')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
-                            ('auto_rp_override', YLeaf(YType.boolean, 'auto-rp-override')),
+                            ('rp_address', (YLeaf(YType.str, 'rp-address'), ['str','str'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
+                            ('auto_rp_override', (YLeaf(YType.boolean, 'auto-rp-override'), ['bool'])),
                         ])
                         self.rp_address = None
                         self.access_list_name = None
                         self.auto_rp_override = None
                         self._segment_path = lambda: "sparse-mode-rp-address" + "[rp-address='" + str(self.rp_address) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/sparse-mode-rp-addresses/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
@@ -5098,13 +5189,13 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('convergence_timeout', YLeaf(YType.uint32, 'convergence-timeout')),
-                        ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
-                        ('propagation_delay', YLeaf(YType.uint32, 'propagation-delay')),
-                        ('dr_priority', YLeaf(YType.uint32, 'dr-priority')),
-                        ('join_prune_mtu', YLeaf(YType.uint32, 'join-prune-mtu')),
-                        ('jp_interval', YLeaf(YType.uint32, 'jp-interval')),
-                        ('override_interval', YLeaf(YType.uint32, 'override-interval')),
+                        ('convergence_timeout', (YLeaf(YType.uint32, 'convergence-timeout'), ['int'])),
+                        ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
+                        ('propagation_delay', (YLeaf(YType.uint32, 'propagation-delay'), ['int'])),
+                        ('dr_priority', (YLeaf(YType.uint32, 'dr-priority'), ['int'])),
+                        ('join_prune_mtu', (YLeaf(YType.uint32, 'join-prune-mtu'), ['int'])),
+                        ('jp_interval', (YLeaf(YType.uint32, 'jp-interval'), ['int'])),
+                        ('override_interval', (YLeaf(YType.uint32, 'override-interval'), ['int'])),
                     ])
                     self.convergence_timeout = None
                     self.hello_interval = None
@@ -5115,6 +5206,7 @@ class Pim(Entity):
                     self.override_interval = None
                     self._segment_path = lambda: "inheritable-defaults"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
@@ -5148,11 +5240,12 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('route_policy', YLeaf(YType.str, 'route-policy')),
+                        ('route_policy', (YLeaf(YType.str, 'route-policy'), ['str'])),
                     ])
                     self.route_policy = None
                     self._segment_path = lambda: "rpf"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Rpf, ['route_policy'], name, value)
@@ -5195,13 +5288,14 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interval', YLeaf(YType.uint32, 'interval')),
-                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                        ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                     ])
                     self.interval = None
                     self.access_list_name = None
                     self._segment_path = lambda: "sg-expiry-timer"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
@@ -5228,6 +5322,11 @@ class Pim(Entity):
                 	Disable RPF Vector origination over iBGP sessions
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
+                .. attribute:: use_standard_encoding
+                
+                	Use RPF Vector RFC compliant encoding
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
                 
 
                 This class is a :ref:`presence class<presence-class>`
@@ -5248,18 +5347,21 @@ class Pim(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('enable', YLeaf(YType.empty, 'enable')),
-                        ('allow_ebgp', YLeaf(YType.empty, 'allow-ebgp')),
-                        ('disable_ibgp', YLeaf(YType.empty, 'disable-ibgp')),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ('allow_ebgp', (YLeaf(YType.empty, 'allow-ebgp'), ['Empty'])),
+                        ('disable_ibgp', (YLeaf(YType.empty, 'disable-ibgp'), ['Empty'])),
+                        ('use_standard_encoding', (YLeaf(YType.empty, 'use-standard-encoding'), ['Empty'])),
                     ])
                     self.enable = None
                     self.allow_ebgp = None
                     self.disable_ibgp = None
+                    self.use_standard_encoding = None
                     self._segment_path = lambda: "rpf-vector-enable"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv6.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp'], name, value)
+                    self._perform_setattr(Pim.DefaultContext.Ipv6.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp', 'use_standard_encoding'], name, value)
 
 
             class Nsf(Entity):
@@ -5292,11 +5394,12 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('lifetime', YLeaf(YType.uint32, 'lifetime')),
+                        ('lifetime', (YLeaf(YType.uint32, 'lifetime'), ['int'])),
                     ])
                     self.lifetime = None
                     self._segment_path = lambda: "nsf"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Nsf, ['lifetime'], name, value)
@@ -5425,8 +5528,8 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("bsr-global-group-mappings", ("bsr_global_group_mappings", Pim.DefaultContext.Ipv6.Maximum.BsrGlobalGroupMappings)), ("global-routes", ("global_routes", Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes)), ("global-group-mappings-auto-rp", ("global_group_mappings_auto_rp", Pim.DefaultContext.Ipv6.Maximum.GlobalGroupMappingsAutoRp)), ("bsr-global-candidate-rp-cache", ("bsr_global_candidate_rp_cache", Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache)), ("global-register-states", ("global_register_states", Pim.DefaultContext.Ipv6.Maximum.GlobalRegisterStates)), ("global-route-interfaces", ("global_route_interfaces", Pim.DefaultContext.Ipv6.Maximum.GlobalRouteInterfaces)), ("group-mappings-auto-rp", ("group_mappings_auto_rp", Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp)), ("bsr-group-mappings", ("bsr_group_mappings", Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings)), ("register-states", ("register_states", Pim.DefaultContext.Ipv6.Maximum.RegisterStates)), ("route-interfaces", ("route_interfaces", Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces)), ("bsr-candidate-rp-cache", ("bsr_candidate_rp_cache", Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache)), ("routes", ("routes", Pim.DefaultContext.Ipv6.Maximum.Routes))])
                     self._leafs = OrderedDict([
-                        ('global_low_priority_packet_queue', YLeaf(YType.uint32, 'global-low-priority-packet-queue')),
-                        ('global_high_priority_packet_queue', YLeaf(YType.uint32, 'global-high-priority-packet-queue')),
+                        ('global_low_priority_packet_queue', (YLeaf(YType.uint32, 'global-low-priority-packet-queue'), ['int'])),
+                        ('global_high_priority_packet_queue', (YLeaf(YType.uint32, 'global-high-priority-packet-queue'), ['int'])),
                     ])
                     self.global_low_priority_packet_queue = None
                     self.global_high_priority_packet_queue = None
@@ -5468,6 +5571,7 @@ class Pim(Entity):
                     self._children_name_map["routes"] = "routes"
                     self._segment_path = lambda: "maximum"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum, ['global_low_priority_packet_queue', 'global_high_priority_packet_queue'], name, value)
@@ -5516,13 +5620,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('bsr_maximum_global_group_mappings', YLeaf(YType.uint32, 'bsr-maximum-global-group-mappings')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('bsr_maximum_global_group_mappings', (YLeaf(YType.uint32, 'bsr-maximum-global-group-mappings'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.bsr_maximum_global_group_mappings = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "bsr-global-group-mappings"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalGroupMappings, ['bsr_maximum_global_group_mappings', 'warning_threshold'], name, value)
@@ -5570,13 +5675,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_routes', YLeaf(YType.uint32, 'maximum-routes')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('maximum_routes', (YLeaf(YType.uint32, 'maximum-routes'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.maximum_routes = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "global-routes"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalRoutes, ['maximum_routes', 'warning_threshold'], name, value)
@@ -5625,13 +5731,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_global_group_ranges_auto_rp', YLeaf(YType.uint32, 'maximum-global-group-ranges-auto-rp')),
-                            ('threshold_global_group_ranges_auto_rp', YLeaf(YType.uint32, 'threshold-global-group-ranges-auto-rp')),
+                            ('maximum_global_group_ranges_auto_rp', (YLeaf(YType.uint32, 'maximum-global-group-ranges-auto-rp'), ['int'])),
+                            ('threshold_global_group_ranges_auto_rp', (YLeaf(YType.uint32, 'threshold-global-group-ranges-auto-rp'), ['int'])),
                         ])
                         self.maximum_global_group_ranges_auto_rp = None
                         self.threshold_global_group_ranges_auto_rp = None
                         self._segment_path = lambda: "global-group-mappings-auto-rp"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalGroupMappingsAutoRp, ['maximum_global_group_ranges_auto_rp', 'threshold_global_group_ranges_auto_rp'], name, value)
@@ -5680,13 +5787,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('bsr_maximum_global_candidate_rp_cache', YLeaf(YType.uint32, 'bsr-maximum-global-candidate-rp-cache')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('bsr_maximum_global_candidate_rp_cache', (YLeaf(YType.uint32, 'bsr-maximum-global-candidate-rp-cache'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.bsr_maximum_global_candidate_rp_cache = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "bsr-global-candidate-rp-cache"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrGlobalCandidateRpCache, ['bsr_maximum_global_candidate_rp_cache', 'warning_threshold'], name, value)
@@ -5735,13 +5843,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_register_states', YLeaf(YType.uint32, 'maximum-register-states')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('maximum_register_states', (YLeaf(YType.uint32, 'maximum-register-states'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.maximum_register_states = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "global-register-states"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalRegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
@@ -5790,13 +5899,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_route_interfaces', YLeaf(YType.uint32, 'maximum-route-interfaces')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('maximum_route_interfaces', (YLeaf(YType.uint32, 'maximum-route-interfaces'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.maximum_route_interfaces = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "global-route-interfaces"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GlobalRouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
@@ -5845,13 +5955,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_group_ranges_auto_rp', YLeaf(YType.uint32, 'maximum-group-ranges-auto-rp')),
-                            ('threshold_group_ranges_auto_rp', YLeaf(YType.uint32, 'threshold-group-ranges-auto-rp')),
+                            ('maximum_group_ranges_auto_rp', (YLeaf(YType.uint32, 'maximum-group-ranges-auto-rp'), ['int'])),
+                            ('threshold_group_ranges_auto_rp', (YLeaf(YType.uint32, 'threshold-group-ranges-auto-rp'), ['int'])),
                         ])
                         self.maximum_group_ranges_auto_rp = None
                         self.threshold_group_ranges_auto_rp = None
                         self._segment_path = lambda: "group-mappings-auto-rp"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
@@ -5900,13 +6011,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('bsr_maximum_group_ranges', YLeaf(YType.uint32, 'bsr-maximum-group-ranges')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('bsr_maximum_group_ranges', (YLeaf(YType.uint32, 'bsr-maximum-group-ranges'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.bsr_maximum_group_ranges = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "bsr-group-mappings"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
@@ -5955,13 +6067,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_register_states', YLeaf(YType.uint32, 'maximum-register-states')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('maximum_register_states', (YLeaf(YType.uint32, 'maximum-register-states'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.maximum_register_states = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "register-states"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
@@ -6010,13 +6123,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_route_interfaces', YLeaf(YType.uint32, 'maximum-route-interfaces')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('maximum_route_interfaces', (YLeaf(YType.uint32, 'maximum-route-interfaces'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.maximum_route_interfaces = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "route-interfaces"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
@@ -6065,13 +6179,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('bsr_maximum_candidate_rp_cache', YLeaf(YType.uint32, 'bsr-maximum-candidate-rp-cache')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('bsr_maximum_candidate_rp_cache', (YLeaf(YType.uint32, 'bsr-maximum-candidate-rp-cache'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.bsr_maximum_candidate_rp_cache = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "bsr-candidate-rp-cache"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
@@ -6119,13 +6234,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_routes', YLeaf(YType.uint32, 'maximum-routes')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('maximum_routes', (YLeaf(YType.uint32, 'maximum-routes'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.maximum_routes = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "routes"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
@@ -6166,13 +6282,14 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('disable', YLeaf(YType.boolean, 'disable')),
-                        ('range', YLeaf(YType.str, 'range')),
+                        ('disable', (YLeaf(YType.boolean, 'disable'), ['bool'])),
+                        ('range', (YLeaf(YType.str, 'range'), ['str'])),
                     ])
                     self.disable = None
                     self.range = None
                     self._segment_path = lambda: "ssm"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Ssm, ['disable', 'range'], name, value)
@@ -6208,6 +6325,7 @@ class Pim(Entity):
                     self.bidir_rp_address = YList(self)
                     self._segment_path = lambda: "bidir-rp-addresses"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.BidirRpAddresses, [], name, value)
@@ -6259,15 +6377,16 @@ class Pim(Entity):
                         self.ylist_key_names = ['rp_address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('rp_address', YLeaf(YType.str, 'rp-address')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
-                            ('auto_rp_override', YLeaf(YType.boolean, 'auto-rp-override')),
+                            ('rp_address', (YLeaf(YType.str, 'rp-address'), ['str','str'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
+                            ('auto_rp_override', (YLeaf(YType.boolean, 'auto-rp-override'), ['bool'])),
                         ])
                         self.rp_address = None
                         self.access_list_name = None
                         self.auto_rp_override = None
                         self._segment_path = lambda: "bidir-rp-address" + "[rp-address='" + str(self.rp_address) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bidir-rp-addresses/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
@@ -6315,6 +6434,7 @@ class Pim(Entity):
                     self._children_name_map["candidate_rps"] = "candidate-rps"
                     self._segment_path = lambda: "bsr"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr, [], name, value)
@@ -6371,15 +6491,16 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('address', YLeaf(YType.str, 'address')),
-                            ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                            ('priority', YLeaf(YType.uint32, 'priority')),
+                            ('address', (YLeaf(YType.str, 'address'), ['str'])),
+                            ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                            ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
                         ])
                         self.address = None
                         self.prefix_length = None
                         self.priority = None
                         self._segment_path = lambda: "candidate-bsr"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bsr/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
@@ -6415,6 +6536,7 @@ class Pim(Entity):
                         self.candidate_rp = YList(self)
                         self._segment_path = lambda: "candidate-rps"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bsr/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr.CandidateRps, [], name, value)
@@ -6484,11 +6606,11 @@ class Pim(Entity):
                             self.ylist_key_names = ['address','mode']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('mode', YLeaf(YType.enumeration, 'mode')),
-                                ('group_list', YLeaf(YType.str, 'group-list')),
-                                ('priority', YLeaf(YType.uint32, 'priority')),
-                                ('interval', YLeaf(YType.uint32, 'interval')),
+                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg', 'PimProtocolMode', '')])),
+                                ('group_list', (YLeaf(YType.str, 'group-list'), ['str'])),
+                                ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                                ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
                             ])
                             self.address = None
                             self.mode = None
@@ -6497,6 +6619,7 @@ class Pim(Entity):
                             self.interval = None
                             self._segment_path = lambda: "candidate-rp" + "[address='" + str(self.address) + "']" + "[mode='" + str(self.mode) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/bsr/candidate-rps/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv6.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
@@ -6540,13 +6663,14 @@ class Pim(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('rp_list_name', YLeaf(YType.str, 'rp-list-name')),
-                        ('group_list_name', YLeaf(YType.str, 'group-list-name')),
+                        ('rp_list_name', (YLeaf(YType.str, 'rp-list-name'), ['str'])),
+                        ('group_list_name', (YLeaf(YType.str, 'group-list-name'), ['str'])),
                     ])
                     self.rp_list_name = None
                     self.group_list_name = None
                     self._segment_path = lambda: "allow-rp"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
@@ -6582,6 +6706,7 @@ class Pim(Entity):
                     self.embedded_rp_address = YList(self)
                     self._segment_path = lambda: "embedded-rp-addresses"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses, [], name, value)
@@ -6630,13 +6755,14 @@ class Pim(Entity):
                         self.ylist_key_names = ['rp_address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('rp_address', YLeaf(YType.str, 'rp-address')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                            ('rp_address', (YLeaf(YType.str, 'rp-address'), ['str','str'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                         ])
                         self.rp_address = None
                         self.access_list_name = None
                         self._segment_path = lambda: "embedded-rp-address" + "[rp-address='" + str(self.rp_address) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/embedded-rp-addresses/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv6.EmbeddedRpAddresses.EmbeddedRpAddress, ['rp_address', 'access_list_name'], name, value)
@@ -6681,13 +6807,14 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('rpf_conflict_join_delay', YLeaf(YType.uint32, 'rpf-conflict-join-delay')),
-                        ('link_down_prune_delay', YLeaf(YType.uint32, 'link-down-prune-delay')),
+                        ('rpf_conflict_join_delay', (YLeaf(YType.uint32, 'rpf-conflict-join-delay'), ['int'])),
+                        ('link_down_prune_delay', (YLeaf(YType.uint32, 'link-down-prune-delay'), ['int'])),
                     ])
                     self.rpf_conflict_join_delay = None
                     self.link_down_prune_delay = None
                     self._segment_path = lambda: "convergence"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv6/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv6.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)
@@ -6764,7 +6891,7 @@ class Pim(Entity):
             	Source address to use for register messages
             	**type**\: str
             
-            	**pattern:** [a\-zA\-Z0\-9./\-]+
+            	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
             
             .. attribute:: accept_register
             
@@ -6891,20 +7018,20 @@ class Pim(Entity):
                 self.ylist_key_names = []
                 self._child_classes = OrderedDict([("rpf-redirect", ("rpf_redirect", Pim.DefaultContext.Ipv4.RpfRedirect)), ("interfaces", ("interfaces", Pim.DefaultContext.Ipv4.Interfaces)), ("auto-rp-candidate-rps", ("auto_rp_candidate_rps", Pim.DefaultContext.Ipv4.AutoRpCandidateRps)), ("auto-rp-mapping-agent", ("auto_rp_mapping_agent", Pim.DefaultContext.Ipv4.AutoRpMappingAgent)), ("sparse-mode-rp-addresses", ("sparse_mode_rp_addresses", Pim.DefaultContext.Ipv4.SparseModeRpAddresses)), ("inheritable-defaults", ("inheritable_defaults", Pim.DefaultContext.Ipv4.InheritableDefaults)), ("rpf", ("rpf", Pim.DefaultContext.Ipv4.Rpf)), ("sg-expiry-timer", ("sg_expiry_timer", Pim.DefaultContext.Ipv4.SgExpiryTimer)), ("rpf-vector-enable", ("rpf_vector_enable", Pim.DefaultContext.Ipv4.RpfVectorEnable)), ("nsf", ("nsf", Pim.DefaultContext.Ipv4.Nsf)), ("maximum", ("maximum", Pim.DefaultContext.Ipv4.Maximum)), ("ssm", ("ssm", Pim.DefaultContext.Ipv4.Ssm)), ("injects", ("injects", Pim.DefaultContext.Ipv4.Injects)), ("bidir-rp-addresses", ("bidir_rp_addresses", Pim.DefaultContext.Ipv4.BidirRpAddresses)), ("bsr", ("bsr", Pim.DefaultContext.Ipv4.Bsr)), ("mofrr", ("mofrr", Pim.DefaultContext.Ipv4.Mofrr)), ("paths", ("paths", Pim.DefaultContext.Ipv4.Paths)), ("allow-rp", ("allow_rp", Pim.DefaultContext.Ipv4.AllowRp)), ("convergence", ("convergence", Pim.DefaultContext.Ipv4.Convergence))])
                 self._leafs = OrderedDict([
-                    ('neighbor_check_on_receive', YLeaf(YType.empty, 'neighbor-check-on-receive')),
-                    ('old_register_checksum', YLeaf(YType.empty, 'old-register-checksum')),
-                    ('neighbor_filter', YLeaf(YType.str, 'neighbor-filter')),
-                    ('spt_threshold_infinity', YLeaf(YType.str, 'spt-threshold-infinity')),
-                    ('log_neighbor_changes', YLeaf(YType.empty, 'log-neighbor-changes')),
-                    ('register_source', YLeaf(YType.str, 'register-source')),
-                    ('accept_register', YLeaf(YType.str, 'accept-register')),
-                    ('suppress_rpf_prunes', YLeaf(YType.empty, 'suppress-rpf-prunes')),
-                    ('ssm_allow_override', YLeaf(YType.empty, 'ssm-allow-override')),
-                    ('multipath', YLeaf(YType.enumeration, 'multipath')),
-                    ('rp_static_deny', YLeaf(YType.str, 'rp-static-deny')),
-                    ('suppress_data_registers', YLeaf(YType.empty, 'suppress-data-registers')),
-                    ('neighbor_check_on_send', YLeaf(YType.empty, 'neighbor-check-on-send')),
-                    ('auto_rp_disable', YLeaf(YType.empty, 'auto-rp-disable')),
+                    ('neighbor_check_on_receive', (YLeaf(YType.empty, 'neighbor-check-on-receive'), ['Empty'])),
+                    ('old_register_checksum', (YLeaf(YType.empty, 'old-register-checksum'), ['Empty'])),
+                    ('neighbor_filter', (YLeaf(YType.str, 'neighbor-filter'), ['str'])),
+                    ('spt_threshold_infinity', (YLeaf(YType.str, 'spt-threshold-infinity'), ['str'])),
+                    ('log_neighbor_changes', (YLeaf(YType.empty, 'log-neighbor-changes'), ['Empty'])),
+                    ('register_source', (YLeaf(YType.str, 'register-source'), ['str'])),
+                    ('accept_register', (YLeaf(YType.str, 'accept-register'), ['str'])),
+                    ('suppress_rpf_prunes', (YLeaf(YType.empty, 'suppress-rpf-prunes'), ['Empty'])),
+                    ('ssm_allow_override', (YLeaf(YType.empty, 'ssm-allow-override'), ['Empty'])),
+                    ('multipath', (YLeaf(YType.enumeration, 'multipath'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg', 'PimMultipath', '')])),
+                    ('rp_static_deny', (YLeaf(YType.str, 'rp-static-deny'), ['str'])),
+                    ('suppress_data_registers', (YLeaf(YType.empty, 'suppress-data-registers'), ['Empty'])),
+                    ('neighbor_check_on_send', (YLeaf(YType.empty, 'neighbor-check-on-send'), ['Empty'])),
+                    ('auto_rp_disable', (YLeaf(YType.empty, 'auto-rp-disable'), ['Empty'])),
                 ])
                 self.neighbor_check_on_receive = None
                 self.old_register_checksum = None
@@ -6996,6 +7123,7 @@ class Pim(Entity):
                 self._children_name_map["convergence"] = "convergence"
                 self._segment_path = lambda: "ipv4"
                 self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(Pim.DefaultContext.Ipv4, ['neighbor_check_on_receive', 'old_register_checksum', 'neighbor_filter', 'spt_threshold_infinity', 'log_neighbor_changes', 'register_source', 'accept_register', 'suppress_rpf_prunes', 'ssm_allow_override', 'multipath', 'rp_static_deny', 'suppress_data_registers', 'neighbor_check_on_send', 'auto_rp_disable'], name, value)
@@ -7029,11 +7157,12 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('route_policy', YLeaf(YType.str, 'route-policy')),
+                        ('route_policy', (YLeaf(YType.str, 'route-policy'), ['str'])),
                     ])
                     self.route_policy = None
                     self._segment_path = lambda: "rpf-redirect"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.RpfRedirect, ['route_policy'], name, value)
@@ -7069,6 +7198,7 @@ class Pim(Entity):
                     self.interface = YList(self)
                     self._segment_path = lambda: "interfaces"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces, [], name, value)
@@ -7083,7 +7213,7 @@ class Pim(Entity):
                     	The name of interface
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: redirect_bundle
                     
@@ -7193,17 +7323,17 @@ class Pim(Entity):
                         self.ylist_key_names = ['interface_name']
                         self._child_classes = OrderedDict([("redirect-bundle", ("redirect_bundle", Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle)), ("maximum-routes", ("maximum_routes", Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes)), ("bfd", ("bfd", Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd))])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('enable', YLeaf(YType.empty, 'enable')),
-                            ('neighbor_filter', YLeaf(YType.str, 'neighbor-filter')),
-                            ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
-                            ('bsr_border', YLeaf(YType.boolean, 'bsr-border')),
-                            ('propagation_delay', YLeaf(YType.uint32, 'propagation-delay')),
-                            ('dr_priority', YLeaf(YType.uint32, 'dr-priority')),
-                            ('join_prune_mtu', YLeaf(YType.uint32, 'join-prune-mtu')),
-                            ('interface_enable', YLeaf(YType.boolean, 'interface-enable')),
-                            ('jp_interval', YLeaf(YType.uint32, 'jp-interval')),
-                            ('override_interval', YLeaf(YType.uint32, 'override-interval')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                            ('neighbor_filter', (YLeaf(YType.str, 'neighbor-filter'), ['str'])),
+                            ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
+                            ('bsr_border', (YLeaf(YType.boolean, 'bsr-border'), ['bool'])),
+                            ('propagation_delay', (YLeaf(YType.uint32, 'propagation-delay'), ['int'])),
+                            ('dr_priority', (YLeaf(YType.uint32, 'dr-priority'), ['int'])),
+                            ('join_prune_mtu', (YLeaf(YType.uint32, 'join-prune-mtu'), ['int'])),
+                            ('interface_enable', (YLeaf(YType.boolean, 'interface-enable'), ['bool'])),
+                            ('jp_interval', (YLeaf(YType.uint32, 'jp-interval'), ['int'])),
+                            ('override_interval', (YLeaf(YType.uint32, 'override-interval'), ['int'])),
                         ])
                         self.interface_name = None
                         self.enable = None
@@ -7229,6 +7359,7 @@ class Pim(Entity):
                         self._children_name_map["bfd"] = "bfd"
                         self._segment_path = lambda: "interface" + "[interface-name='" + str(self.interface_name) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/interfaces/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface, ['interface_name', 'enable', 'neighbor_filter', 'hello_interval', 'bsr_border', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'interface_enable', 'jp_interval', 'override_interval'], name, value)
@@ -7281,14 +7412,15 @@ class Pim(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('bundle_name', YLeaf(YType.str, 'bundle-name')),
-                                ('interface_bandwidth', YLeaf(YType.uint32, 'interface-bandwidth')),
-                                ('threshold_bandwidth', YLeaf(YType.uint32, 'threshold-bandwidth')),
+                                ('bundle_name', (YLeaf(YType.str, 'bundle-name'), ['str'])),
+                                ('interface_bandwidth', (YLeaf(YType.uint32, 'interface-bandwidth'), ['int'])),
+                                ('threshold_bandwidth', (YLeaf(YType.uint32, 'threshold-bandwidth'), ['int'])),
                             ])
                             self.bundle_name = None
                             self.interface_bandwidth = None
                             self.threshold_bandwidth = None
                             self._segment_path = lambda: "redirect-bundle"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface.RedirectBundle, ['bundle_name', 'interface_bandwidth', 'threshold_bandwidth'], name, value)
@@ -7342,14 +7474,15 @@ class Pim(Entity):
                             self._child_classes = OrderedDict([])
                             self.is_presence_container = True
                             self._leafs = OrderedDict([
-                                ('maximum', YLeaf(YType.uint32, 'maximum')),
-                                ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
-                                ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                                ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
+                                ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
+                                ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                             ])
                             self.maximum = None
                             self.warning_threshold = None
                             self.access_list_name = None
                             self._segment_path = lambda: "maximum-routes"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface.MaximumRoutes, ['maximum', 'warning_threshold', 'access_list_name'], name, value)
@@ -7397,14 +7530,15 @@ class Pim(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('detection_multiplier', YLeaf(YType.uint32, 'detection-multiplier')),
-                                ('interval', YLeaf(YType.uint32, 'interval')),
-                                ('enable', YLeaf(YType.boolean, 'enable')),
+                                ('detection_multiplier', (YLeaf(YType.uint32, 'detection-multiplier'), ['int'])),
+                                ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                                ('enable', (YLeaf(YType.boolean, 'enable'), ['bool'])),
                             ])
                             self.detection_multiplier = None
                             self.interval = None
                             self.enable = None
                             self._segment_path = lambda: "bfd"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Interfaces.Interface.Bfd, ['detection_multiplier', 'interval', 'enable'], name, value)
@@ -7440,6 +7574,7 @@ class Pim(Entity):
                     self.auto_rp_candidate_rp = YList(self)
                     self._segment_path = lambda: "auto-rp-candidate-rps"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpCandidateRps, [], name, value)
@@ -7454,7 +7589,7 @@ class Pim(Entity):
                     	Interface from which Candidate\-RP packets will be sourced
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     .. attribute:: protocol_mode  (key)
                     
@@ -7507,11 +7642,11 @@ class Pim(Entity):
                         self.ylist_key_names = ['interface_name','protocol_mode']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('protocol_mode', YLeaf(YType.enumeration, 'protocol-mode')),
-                            ('ttl', YLeaf(YType.uint32, 'ttl')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
-                            ('announce_period', YLeaf(YType.uint32, 'announce-period')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('protocol_mode', (YLeaf(YType.enumeration, 'protocol-mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_autorp_datatypes', 'AutoRpProtocolMode', '')])),
+                            ('ttl', (YLeaf(YType.uint32, 'ttl'), ['int'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
+                            ('announce_period', (YLeaf(YType.uint32, 'announce-period'), ['int'])),
                         ])
                         self.interface_name = None
                         self.protocol_mode = None
@@ -7520,6 +7655,7 @@ class Pim(Entity):
                         self.announce_period = None
                         self._segment_path = lambda: "auto-rp-candidate-rp" + "[interface-name='" + str(self.interface_name) + "']" + "[protocol-mode='" + str(self.protocol_mode) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/auto-rp-candidate-rps/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpCandidateRps.AutoRpCandidateRp, ['interface_name', 'protocol_mode', 'ttl', 'access_list_name', 'announce_period'], name, value)
@@ -7568,6 +7704,7 @@ class Pim(Entity):
                     self._children_name_map["cache_limit"] = "cache-limit"
                     self._segment_path = lambda: "auto-rp-mapping-agent"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpMappingAgent, [], name, value)
@@ -7583,7 +7720,7 @@ class Pim(Entity):
                     	Interface from which mapping packets will be sourced 
                     	**type**\: str
                     
-                    	**pattern:** [a\-zA\-Z0\-9./\-]+
+                    	**pattern:** [a\-zA\-Z0\-9.\_/\-]+
                     
                     	**mandatory**\: True
                     
@@ -7627,15 +7764,16 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('interface_name', YLeaf(YType.str, 'interface-name')),
-                            ('ttl', YLeaf(YType.uint32, 'ttl')),
-                            ('announce_period', YLeaf(YType.uint32, 'announce-period')),
+                            ('interface_name', (YLeaf(YType.str, 'interface-name'), ['str'])),
+                            ('ttl', (YLeaf(YType.uint32, 'ttl'), ['int'])),
+                            ('announce_period', (YLeaf(YType.uint32, 'announce-period'), ['int'])),
                         ])
                         self.interface_name = None
                         self.ttl = None
                         self.announce_period = None
                         self._segment_path = lambda: "parameters"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/auto-rp-mapping-agent/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.Parameters, ['interface_name', 'ttl', 'announce_period'], name, value)
@@ -7683,13 +7821,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_cache_entry', YLeaf(YType.uint32, 'maximum-cache-entry')),
-                            ('threshold_cache_entry', YLeaf(YType.uint32, 'threshold-cache-entry')),
+                            ('maximum_cache_entry', (YLeaf(YType.uint32, 'maximum-cache-entry'), ['int'])),
+                            ('threshold_cache_entry', (YLeaf(YType.uint32, 'threshold-cache-entry'), ['int'])),
                         ])
                         self.maximum_cache_entry = None
                         self.threshold_cache_entry = None
                         self._segment_path = lambda: "cache-limit"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/auto-rp-mapping-agent/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.AutoRpMappingAgent.CacheLimit, ['maximum_cache_entry', 'threshold_cache_entry'], name, value)
@@ -7725,6 +7864,7 @@ class Pim(Entity):
                     self.sparse_mode_rp_address = YList(self)
                     self._segment_path = lambda: "sparse-mode-rp-addresses"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.SparseModeRpAddresses, [], name, value)
@@ -7776,15 +7916,16 @@ class Pim(Entity):
                         self.ylist_key_names = ['rp_address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('rp_address', YLeaf(YType.str, 'rp-address')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
-                            ('auto_rp_override', YLeaf(YType.boolean, 'auto-rp-override')),
+                            ('rp_address', (YLeaf(YType.str, 'rp-address'), ['str','str'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
+                            ('auto_rp_override', (YLeaf(YType.boolean, 'auto-rp-override'), ['bool'])),
                         ])
                         self.rp_address = None
                         self.access_list_name = None
                         self.auto_rp_override = None
                         self._segment_path = lambda: "sparse-mode-rp-address" + "[rp-address='" + str(self.rp_address) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/sparse-mode-rp-addresses/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.SparseModeRpAddresses.SparseModeRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
@@ -7872,13 +8013,13 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('convergence_timeout', YLeaf(YType.uint32, 'convergence-timeout')),
-                        ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
-                        ('propagation_delay', YLeaf(YType.uint32, 'propagation-delay')),
-                        ('dr_priority', YLeaf(YType.uint32, 'dr-priority')),
-                        ('join_prune_mtu', YLeaf(YType.uint32, 'join-prune-mtu')),
-                        ('jp_interval', YLeaf(YType.uint32, 'jp-interval')),
-                        ('override_interval', YLeaf(YType.uint32, 'override-interval')),
+                        ('convergence_timeout', (YLeaf(YType.uint32, 'convergence-timeout'), ['int'])),
+                        ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
+                        ('propagation_delay', (YLeaf(YType.uint32, 'propagation-delay'), ['int'])),
+                        ('dr_priority', (YLeaf(YType.uint32, 'dr-priority'), ['int'])),
+                        ('join_prune_mtu', (YLeaf(YType.uint32, 'join-prune-mtu'), ['int'])),
+                        ('jp_interval', (YLeaf(YType.uint32, 'jp-interval'), ['int'])),
+                        ('override_interval', (YLeaf(YType.uint32, 'override-interval'), ['int'])),
                     ])
                     self.convergence_timeout = None
                     self.hello_interval = None
@@ -7889,6 +8030,7 @@ class Pim(Entity):
                     self.override_interval = None
                     self._segment_path = lambda: "inheritable-defaults"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.InheritableDefaults, ['convergence_timeout', 'hello_interval', 'propagation_delay', 'dr_priority', 'join_prune_mtu', 'jp_interval', 'override_interval'], name, value)
@@ -7922,11 +8064,12 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('route_policy', YLeaf(YType.str, 'route-policy')),
+                        ('route_policy', (YLeaf(YType.str, 'route-policy'), ['str'])),
                     ])
                     self.route_policy = None
                     self._segment_path = lambda: "rpf"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Rpf, ['route_policy'], name, value)
@@ -7969,13 +8112,14 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('interval', YLeaf(YType.uint32, 'interval')),
-                        ('access_list_name', YLeaf(YType.str, 'access-list-name')),
+                        ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
+                        ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
                     ])
                     self.interval = None
                     self.access_list_name = None
                     self._segment_path = lambda: "sg-expiry-timer"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.SgExpiryTimer, ['interval', 'access_list_name'], name, value)
@@ -8002,6 +8146,11 @@ class Pim(Entity):
                 	Disable RPF Vector origination over iBGP sessions
                 	**type**\: :py:class:`Empty<ydk.types.Empty>`
                 
+                .. attribute:: use_standard_encoding
+                
+                	Use RPF Vector RFC compliant encoding
+                	**type**\: :py:class:`Empty<ydk.types.Empty>`
+                
                 
 
                 This class is a :ref:`presence class<presence-class>`
@@ -8022,18 +8171,21 @@ class Pim(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('enable', YLeaf(YType.empty, 'enable')),
-                        ('allow_ebgp', YLeaf(YType.empty, 'allow-ebgp')),
-                        ('disable_ibgp', YLeaf(YType.empty, 'disable-ibgp')),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ('allow_ebgp', (YLeaf(YType.empty, 'allow-ebgp'), ['Empty'])),
+                        ('disable_ibgp', (YLeaf(YType.empty, 'disable-ibgp'), ['Empty'])),
+                        ('use_standard_encoding', (YLeaf(YType.empty, 'use-standard-encoding'), ['Empty'])),
                     ])
                     self.enable = None
                     self.allow_ebgp = None
                     self.disable_ibgp = None
+                    self.use_standard_encoding = None
                     self._segment_path = lambda: "rpf-vector-enable"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
-                    self._perform_setattr(Pim.DefaultContext.Ipv4.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp'], name, value)
+                    self._perform_setattr(Pim.DefaultContext.Ipv4.RpfVectorEnable, ['enable', 'allow_ebgp', 'disable_ibgp', 'use_standard_encoding'], name, value)
 
 
             class Nsf(Entity):
@@ -8066,11 +8218,12 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('lifetime', YLeaf(YType.uint32, 'lifetime')),
+                        ('lifetime', (YLeaf(YType.uint32, 'lifetime'), ['int'])),
                     ])
                     self.lifetime = None
                     self._segment_path = lambda: "nsf"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Nsf, ['lifetime'], name, value)
@@ -8199,8 +8352,8 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("bsr-global-group-mappings", ("bsr_global_group_mappings", Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings)), ("global-routes", ("global_routes", Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes)), ("global-group-mappings-auto-rp", ("global_group_mappings_auto_rp", Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp)), ("bsr-global-candidate-rp-cache", ("bsr_global_candidate_rp_cache", Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache)), ("global-register-states", ("global_register_states", Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates)), ("global-route-interfaces", ("global_route_interfaces", Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces)), ("group-mappings-auto-rp", ("group_mappings_auto_rp", Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp)), ("bsr-group-mappings", ("bsr_group_mappings", Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings)), ("register-states", ("register_states", Pim.DefaultContext.Ipv4.Maximum.RegisterStates)), ("route-interfaces", ("route_interfaces", Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces)), ("bsr-candidate-rp-cache", ("bsr_candidate_rp_cache", Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache)), ("routes", ("routes", Pim.DefaultContext.Ipv4.Maximum.Routes))])
                     self._leafs = OrderedDict([
-                        ('global_low_priority_packet_queue', YLeaf(YType.uint32, 'global-low-priority-packet-queue')),
-                        ('global_high_priority_packet_queue', YLeaf(YType.uint32, 'global-high-priority-packet-queue')),
+                        ('global_low_priority_packet_queue', (YLeaf(YType.uint32, 'global-low-priority-packet-queue'), ['int'])),
+                        ('global_high_priority_packet_queue', (YLeaf(YType.uint32, 'global-high-priority-packet-queue'), ['int'])),
                     ])
                     self.global_low_priority_packet_queue = None
                     self.global_high_priority_packet_queue = None
@@ -8242,6 +8395,7 @@ class Pim(Entity):
                     self._children_name_map["routes"] = "routes"
                     self._segment_path = lambda: "maximum"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum, ['global_low_priority_packet_queue', 'global_high_priority_packet_queue'], name, value)
@@ -8290,13 +8444,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('bsr_maximum_global_group_mappings', YLeaf(YType.uint32, 'bsr-maximum-global-group-mappings')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('bsr_maximum_global_group_mappings', (YLeaf(YType.uint32, 'bsr-maximum-global-group-mappings'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.bsr_maximum_global_group_mappings = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "bsr-global-group-mappings"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalGroupMappings, ['bsr_maximum_global_group_mappings', 'warning_threshold'], name, value)
@@ -8344,13 +8499,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_routes', YLeaf(YType.uint32, 'maximum-routes')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('maximum_routes', (YLeaf(YType.uint32, 'maximum-routes'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.maximum_routes = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "global-routes"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalRoutes, ['maximum_routes', 'warning_threshold'], name, value)
@@ -8399,13 +8555,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_global_group_ranges_auto_rp', YLeaf(YType.uint32, 'maximum-global-group-ranges-auto-rp')),
-                            ('threshold_global_group_ranges_auto_rp', YLeaf(YType.uint32, 'threshold-global-group-ranges-auto-rp')),
+                            ('maximum_global_group_ranges_auto_rp', (YLeaf(YType.uint32, 'maximum-global-group-ranges-auto-rp'), ['int'])),
+                            ('threshold_global_group_ranges_auto_rp', (YLeaf(YType.uint32, 'threshold-global-group-ranges-auto-rp'), ['int'])),
                         ])
                         self.maximum_global_group_ranges_auto_rp = None
                         self.threshold_global_group_ranges_auto_rp = None
                         self._segment_path = lambda: "global-group-mappings-auto-rp"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalGroupMappingsAutoRp, ['maximum_global_group_ranges_auto_rp', 'threshold_global_group_ranges_auto_rp'], name, value)
@@ -8454,13 +8611,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('bsr_maximum_global_candidate_rp_cache', YLeaf(YType.uint32, 'bsr-maximum-global-candidate-rp-cache')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('bsr_maximum_global_candidate_rp_cache', (YLeaf(YType.uint32, 'bsr-maximum-global-candidate-rp-cache'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.bsr_maximum_global_candidate_rp_cache = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "bsr-global-candidate-rp-cache"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrGlobalCandidateRpCache, ['bsr_maximum_global_candidate_rp_cache', 'warning_threshold'], name, value)
@@ -8509,13 +8667,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_register_states', YLeaf(YType.uint32, 'maximum-register-states')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('maximum_register_states', (YLeaf(YType.uint32, 'maximum-register-states'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.maximum_register_states = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "global-register-states"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalRegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
@@ -8564,13 +8723,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_route_interfaces', YLeaf(YType.uint32, 'maximum-route-interfaces')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('maximum_route_interfaces', (YLeaf(YType.uint32, 'maximum-route-interfaces'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.maximum_route_interfaces = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "global-route-interfaces"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GlobalRouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
@@ -8619,13 +8779,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_group_ranges_auto_rp', YLeaf(YType.uint32, 'maximum-group-ranges-auto-rp')),
-                            ('threshold_group_ranges_auto_rp', YLeaf(YType.uint32, 'threshold-group-ranges-auto-rp')),
+                            ('maximum_group_ranges_auto_rp', (YLeaf(YType.uint32, 'maximum-group-ranges-auto-rp'), ['int'])),
+                            ('threshold_group_ranges_auto_rp', (YLeaf(YType.uint32, 'threshold-group-ranges-auto-rp'), ['int'])),
                         ])
                         self.maximum_group_ranges_auto_rp = None
                         self.threshold_group_ranges_auto_rp = None
                         self._segment_path = lambda: "group-mappings-auto-rp"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.GroupMappingsAutoRp, ['maximum_group_ranges_auto_rp', 'threshold_group_ranges_auto_rp'], name, value)
@@ -8674,13 +8835,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('bsr_maximum_group_ranges', YLeaf(YType.uint32, 'bsr-maximum-group-ranges')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('bsr_maximum_group_ranges', (YLeaf(YType.uint32, 'bsr-maximum-group-ranges'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.bsr_maximum_group_ranges = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "bsr-group-mappings"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrGroupMappings, ['bsr_maximum_group_ranges', 'warning_threshold'], name, value)
@@ -8729,13 +8891,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_register_states', YLeaf(YType.uint32, 'maximum-register-states')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('maximum_register_states', (YLeaf(YType.uint32, 'maximum-register-states'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.maximum_register_states = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "register-states"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.RegisterStates, ['maximum_register_states', 'warning_threshold'], name, value)
@@ -8784,13 +8947,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_route_interfaces', YLeaf(YType.uint32, 'maximum-route-interfaces')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('maximum_route_interfaces', (YLeaf(YType.uint32, 'maximum-route-interfaces'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.maximum_route_interfaces = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "route-interfaces"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.RouteInterfaces, ['maximum_route_interfaces', 'warning_threshold'], name, value)
@@ -8839,13 +9003,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('bsr_maximum_candidate_rp_cache', YLeaf(YType.uint32, 'bsr-maximum-candidate-rp-cache')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('bsr_maximum_candidate_rp_cache', (YLeaf(YType.uint32, 'bsr-maximum-candidate-rp-cache'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.bsr_maximum_candidate_rp_cache = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "bsr-candidate-rp-cache"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.BsrCandidateRpCache, ['bsr_maximum_candidate_rp_cache', 'warning_threshold'], name, value)
@@ -8893,13 +9058,14 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('maximum_routes', YLeaf(YType.uint32, 'maximum-routes')),
-                            ('warning_threshold', YLeaf(YType.uint32, 'warning-threshold')),
+                            ('maximum_routes', (YLeaf(YType.uint32, 'maximum-routes'), ['int'])),
+                            ('warning_threshold', (YLeaf(YType.uint32, 'warning-threshold'), ['int'])),
                         ])
                         self.maximum_routes = None
                         self.warning_threshold = None
                         self._segment_path = lambda: "routes"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/maximum/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Maximum.Routes, ['maximum_routes', 'warning_threshold'], name, value)
@@ -8940,13 +9106,14 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('disable', YLeaf(YType.boolean, 'disable')),
-                        ('range', YLeaf(YType.str, 'range')),
+                        ('disable', (YLeaf(YType.boolean, 'disable'), ['bool'])),
+                        ('range', (YLeaf(YType.str, 'range'), ['str'])),
                     ])
                     self.disable = None
                     self.range = None
                     self._segment_path = lambda: "ssm"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Ssm, ['disable', 'range'], name, value)
@@ -8982,6 +9149,7 @@ class Pim(Entity):
                     self.inject = YList(self)
                     self._segment_path = lambda: "injects"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Injects, [], name, value)
@@ -9029,15 +9197,16 @@ class Pim(Entity):
                         self.ylist_key_names = ['source_address','prefix_length']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('source_address', YLeaf(YType.str, 'source-address')),
-                            ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                            ('rpf_proxy_address', YLeafList(YType.str, 'rpf-proxy-address')),
+                            ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                            ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                            ('rpf_proxy_address', (YLeafList(YType.str, 'rpf-proxy-address'), ['str'])),
                         ])
                         self.source_address = None
                         self.prefix_length = None
                         self.rpf_proxy_address = []
                         self._segment_path = lambda: "inject" + "[source-address='" + str(self.source_address) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/injects/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Injects.Inject, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
@@ -9073,6 +9242,7 @@ class Pim(Entity):
                     self.bidir_rp_address = YList(self)
                     self._segment_path = lambda: "bidir-rp-addresses"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.BidirRpAddresses, [], name, value)
@@ -9124,15 +9294,16 @@ class Pim(Entity):
                         self.ylist_key_names = ['rp_address']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('rp_address', YLeaf(YType.str, 'rp-address')),
-                            ('access_list_name', YLeaf(YType.str, 'access-list-name')),
-                            ('auto_rp_override', YLeaf(YType.boolean, 'auto-rp-override')),
+                            ('rp_address', (YLeaf(YType.str, 'rp-address'), ['str','str'])),
+                            ('access_list_name', (YLeaf(YType.str, 'access-list-name'), ['str'])),
+                            ('auto_rp_override', (YLeaf(YType.boolean, 'auto-rp-override'), ['bool'])),
                         ])
                         self.rp_address = None
                         self.access_list_name = None
                         self.auto_rp_override = None
                         self._segment_path = lambda: "bidir-rp-address" + "[rp-address='" + str(self.rp_address) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bidir-rp-addresses/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.BidirRpAddresses.BidirRpAddress, ['rp_address', 'access_list_name', 'auto_rp_override'], name, value)
@@ -9180,6 +9351,7 @@ class Pim(Entity):
                     self._children_name_map["candidate_rps"] = "candidate-rps"
                     self._segment_path = lambda: "bsr"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr, [], name, value)
@@ -9242,15 +9414,16 @@ class Pim(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('address', YLeaf(YType.str, 'address')),
-                            ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                            ('priority', YLeaf(YType.uint32, 'priority')),
+                            ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                            ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                            ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
                         ])
                         self.address = None
                         self.prefix_length = None
                         self.priority = None
                         self._segment_path = lambda: "candidate-bsr"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bsr/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr.CandidateBsr, ['address', 'prefix_length', 'priority'], name, value)
@@ -9286,6 +9459,7 @@ class Pim(Entity):
                         self.candidate_rp = YList(self)
                         self._segment_path = lambda: "candidate-rps"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bsr/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr.CandidateRps, [], name, value)
@@ -9355,11 +9529,11 @@ class Pim(Entity):
                             self.ylist_key_names = ['address','mode']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('address', YLeaf(YType.str, 'address')),
-                                ('mode', YLeaf(YType.enumeration, 'mode')),
-                                ('group_list', YLeaf(YType.str, 'group-list')),
-                                ('priority', YLeaf(YType.uint32, 'priority')),
-                                ('interval', YLeaf(YType.uint32, 'interval')),
+                                ('address', (YLeaf(YType.str, 'address'), ['str','str'])),
+                                ('mode', (YLeaf(YType.enumeration, 'mode'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_ipv4_pim_cfg', 'PimProtocolMode', '')])),
+                                ('group_list', (YLeaf(YType.str, 'group-list'), ['str'])),
+                                ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
+                                ('interval', (YLeaf(YType.uint32, 'interval'), ['int'])),
                             ])
                             self.address = None
                             self.mode = None
@@ -9368,6 +9542,7 @@ class Pim(Entity):
                             self.interval = None
                             self._segment_path = lambda: "candidate-rp" + "[address='" + str(self.address) + "']" + "[mode='" + str(self.mode) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/bsr/candidate-rps/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Bsr.CandidateRps.CandidateRp, ['address', 'mode', 'group_list', 'priority', 'interval'], name, value)
@@ -9428,10 +9603,10 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("clone-joins", ("clone_joins", Pim.DefaultContext.Ipv4.Mofrr.CloneJoins)), ("clone-sources", ("clone_sources", Pim.DefaultContext.Ipv4.Mofrr.CloneSources))])
                     self._leafs = OrderedDict([
-                        ('rib', YLeaf(YType.str, 'rib')),
-                        ('non_revertive', YLeaf(YType.empty, 'non-revertive')),
-                        ('enable', YLeaf(YType.empty, 'enable')),
-                        ('flow', YLeaf(YType.str, 'flow')),
+                        ('rib', (YLeaf(YType.str, 'rib'), ['str'])),
+                        ('non_revertive', (YLeaf(YType.empty, 'non-revertive'), ['Empty'])),
+                        ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                        ('flow', (YLeaf(YType.str, 'flow'), ['str'])),
                     ])
                     self.rib = None
                     self.non_revertive = None
@@ -9447,6 +9622,7 @@ class Pim(Entity):
                     self._children_name_map["clone_sources"] = "clone-sources"
                     self._segment_path = lambda: "mofrr"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr, ['rib', 'non_revertive', 'enable', 'flow'], name, value)
@@ -9482,6 +9658,7 @@ class Pim(Entity):
                         self.clone_join = YList(self)
                         self._segment_path = lambda: "clone-joins"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins, [], name, value)
@@ -9536,10 +9713,10 @@ class Pim(Entity):
                             self.ylist_key_names = ['source','primary','backup','prefix_length']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('source', YLeaf(YType.str, 'source')),
-                                ('primary', YLeaf(YType.str, 'primary')),
-                                ('backup', YLeaf(YType.str, 'backup')),
-                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                ('source', (YLeaf(YType.str, 'source'), ['str'])),
+                                ('primary', (YLeaf(YType.str, 'primary'), ['str'])),
+                                ('backup', (YLeaf(YType.str, 'backup'), ['str'])),
+                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                             ])
                             self.source = None
                             self.primary = None
@@ -9547,6 +9724,7 @@ class Pim(Entity):
                             self.prefix_length = None
                             self._segment_path = lambda: "clone-join" + "[source='" + str(self.source) + "']" + "[primary='" + str(self.primary) + "']" + "[backup='" + str(self.backup) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/clone-joins/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneJoins.CloneJoin, ['source', 'primary', 'backup', 'prefix_length'], name, value)
@@ -9582,6 +9760,7 @@ class Pim(Entity):
                         self.clone_source = YList(self)
                         self._segment_path = lambda: "clone-sources"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneSources, [], name, value)
@@ -9637,10 +9816,10 @@ class Pim(Entity):
                             self.ylist_key_names = ['source','primary','backup','prefix_length']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('source', YLeaf(YType.str, 'source')),
-                                ('primary', YLeaf(YType.str, 'primary')),
-                                ('backup', YLeaf(YType.str, 'backup')),
-                                ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
+                                ('source', (YLeaf(YType.str, 'source'), ['str'])),
+                                ('primary', (YLeaf(YType.str, 'primary'), ['str'])),
+                                ('backup', (YLeaf(YType.str, 'backup'), ['str'])),
+                                ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
                             ])
                             self.source = None
                             self.primary = None
@@ -9648,6 +9827,7 @@ class Pim(Entity):
                             self.prefix_length = None
                             self._segment_path = lambda: "clone-source" + "[source='" + str(self.source) + "']" + "[primary='" + str(self.primary) + "']" + "[backup='" + str(self.backup) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
                             self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/mofrr/clone-sources/%s" % self._segment_path()
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(Pim.DefaultContext.Ipv4.Mofrr.CloneSources.CloneSource, ['source', 'primary', 'backup', 'prefix_length'], name, value)
@@ -9683,6 +9863,7 @@ class Pim(Entity):
                     self.path = YList(self)
                     self._segment_path = lambda: "paths"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Paths, [], name, value)
@@ -9730,15 +9911,16 @@ class Pim(Entity):
                         self.ylist_key_names = ['source_address','prefix_length']
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('source_address', YLeaf(YType.str, 'source-address')),
-                            ('prefix_length', YLeaf(YType.uint8, 'prefix-length')),
-                            ('rpf_proxy_address', YLeafList(YType.str, 'rpf-proxy-address')),
+                            ('source_address', (YLeaf(YType.str, 'source-address'), ['str'])),
+                            ('prefix_length', (YLeaf(YType.uint8, 'prefix-length'), ['int'])),
+                            ('rpf_proxy_address', (YLeafList(YType.str, 'rpf-proxy-address'), ['str'])),
                         ])
                         self.source_address = None
                         self.prefix_length = None
                         self.rpf_proxy_address = []
                         self._segment_path = lambda: "path" + "[source-address='" + str(self.source_address) + "']" + "[prefix-length='" + str(self.prefix_length) + "']"
                         self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/paths/%s" % self._segment_path()
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(Pim.DefaultContext.Ipv4.Paths.Path, ['source_address', 'prefix_length', 'rpf_proxy_address'], name, value)
@@ -9782,13 +9964,14 @@ class Pim(Entity):
                     self._child_classes = OrderedDict([])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('rp_list_name', YLeaf(YType.str, 'rp-list-name')),
-                        ('group_list_name', YLeaf(YType.str, 'group-list-name')),
+                        ('rp_list_name', (YLeaf(YType.str, 'rp-list-name'), ['str'])),
+                        ('group_list_name', (YLeaf(YType.str, 'group-list-name'), ['str'])),
                     ])
                     self.rp_list_name = None
                     self.group_list_name = None
                     self._segment_path = lambda: "allow-rp"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.AllowRp, ['rp_list_name', 'group_list_name'], name, value)
@@ -9833,13 +10016,14 @@ class Pim(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('rpf_conflict_join_delay', YLeaf(YType.uint32, 'rpf-conflict-join-delay')),
-                        ('link_down_prune_delay', YLeaf(YType.uint32, 'link-down-prune-delay')),
+                        ('rpf_conflict_join_delay', (YLeaf(YType.uint32, 'rpf-conflict-join-delay'), ['int'])),
+                        ('link_down_prune_delay', (YLeaf(YType.uint32, 'link-down-prune-delay'), ['int'])),
                     ])
                     self.rpf_conflict_join_delay = None
                     self.link_down_prune_delay = None
                     self._segment_path = lambda: "convergence"
                     self._absolute_path = lambda: "Cisco-IOS-XR-ipv4-pim-cfg:pim/default-context/ipv4/%s" % self._segment_path()
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(Pim.DefaultContext.Ipv4.Convergence, ['rpf_conflict_join_delay', 'link_down_prune_delay'], name, value)

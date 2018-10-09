@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   l2tp\: L2TPv3 class used for L2VPNs
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class L2tpDigestHashMethod(Enum):
@@ -100,6 +101,7 @@ class L2tp(Entity):
         self.classes.parent = self
         self._children_name_map["classes"] = "classes"
         self._segment_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(L2tp, [], name, value)
@@ -135,6 +137,7 @@ class L2tp(Entity):
             self.class_ = YList(self)
             self._segment_path = lambda: "classes"
             self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(L2tp.Classes, [], name, value)
@@ -263,17 +266,17 @@ class L2tp(Entity):
                 self.ylist_key_names = ['class_name']
                 self._child_classes = OrderedDict([("security", ("security", L2tp.Classes.Class.Security)), ("retransmit", ("retransmit", L2tp.Classes.Class.Retransmit)), ("tunnel", ("tunnel", L2tp.Classes.Class.Tunnel)), ("digest", ("digest", L2tp.Classes.Class.Digest)), ("ip", ("ip", L2tp.Classes.Class.Ip))])
                 self._leafs = OrderedDict([
-                    ('class_name', YLeaf(YType.str, 'class-name')),
-                    ('host_name', YLeaf(YType.str, 'host-name')),
-                    ('hidden', YLeaf(YType.empty, 'hidden')),
-                    ('hello_interval', YLeaf(YType.uint32, 'hello-interval')),
-                    ('timeout_setup', YLeaf(YType.uint32, 'timeout-setup')),
-                    ('receive_window', YLeaf(YType.uint32, 'receive-window')),
-                    ('congestion_control', YLeaf(YType.empty, 'congestion-control')),
-                    ('timeout_no_user', YLeaf(YType.uint32, 'timeout-no-user')),
-                    ('authentication', YLeaf(YType.uint32, 'authentication')),
-                    ('enable', YLeaf(YType.empty, 'enable')),
-                    ('password', YLeaf(YType.str, 'password')),
+                    ('class_name', (YLeaf(YType.str, 'class-name'), ['str'])),
+                    ('host_name', (YLeaf(YType.str, 'host-name'), ['str'])),
+                    ('hidden', (YLeaf(YType.empty, 'hidden'), ['Empty'])),
+                    ('hello_interval', (YLeaf(YType.uint32, 'hello-interval'), ['int'])),
+                    ('timeout_setup', (YLeaf(YType.uint32, 'timeout-setup'), ['int'])),
+                    ('receive_window', (YLeaf(YType.uint32, 'receive-window'), ['int'])),
+                    ('congestion_control', (YLeaf(YType.empty, 'congestion-control'), ['Empty'])),
+                    ('timeout_no_user', (YLeaf(YType.uint32, 'timeout-no-user'), ['int'])),
+                    ('authentication', (YLeaf(YType.uint32, 'authentication'), ['int'])),
+                    ('enable', (YLeaf(YType.empty, 'enable'), ['Empty'])),
+                    ('password', (YLeaf(YType.str, 'password'), ['str'])),
                 ])
                 self.class_name = None
                 self.host_name = None
@@ -308,6 +311,7 @@ class L2tp(Entity):
                 self._children_name_map["ip"] = "ip"
                 self._segment_path = lambda: "class" + "[class-name='" + str(self.class_name) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-tunnel-l2tun-cfg:l2tp/classes/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(L2tp.Classes.Class, ['class_name', 'host_name', 'hidden', 'hello_interval', 'timeout_setup', 'receive_window', 'congestion_control', 'timeout_no_user', 'authentication', 'enable', 'password'], name, value)
@@ -344,6 +348,7 @@ class L2tp(Entity):
                     self.ip.parent = self
                     self._children_name_map["ip"] = "ip"
                     self._segment_path = lambda: "security"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tp.Classes.Class.Security, [], name, value)
@@ -375,10 +380,11 @@ class L2tp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('address_check', YLeaf(YType.empty, 'address-check')),
+                            ('address_check', (YLeaf(YType.empty, 'address-check'), ['Empty'])),
                         ])
                         self.address_check = None
                         self._segment_path = lambda: "ip"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Classes.Class.Security.Ip, ['address_check'], name, value)
@@ -422,7 +428,7 @@ class L2tp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("initial", ("initial", L2tp.Classes.Class.Retransmit.Initial)), ("timeout", ("timeout", L2tp.Classes.Class.Retransmit.Timeout))])
                     self._leafs = OrderedDict([
-                        ('retry', YLeaf(YType.uint32, 'retry')),
+                        ('retry', (YLeaf(YType.uint32, 'retry'), ['int'])),
                     ])
                     self.retry = None
 
@@ -434,6 +440,7 @@ class L2tp(Entity):
                     self.timeout.parent = self
                     self._children_name_map["timeout"] = "timeout"
                     self._segment_path = lambda: "retransmit"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tp.Classes.Class.Retransmit, ['retry'], name, value)
@@ -472,7 +479,7 @@ class L2tp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([("timeout", ("timeout", L2tp.Classes.Class.Retransmit.Initial.Timeout))])
                         self._leafs = OrderedDict([
-                            ('retry', YLeaf(YType.uint32, 'retry')),
+                            ('retry', (YLeaf(YType.uint32, 'retry'), ['int'])),
                         ])
                         self.retry = None
 
@@ -480,6 +487,7 @@ class L2tp(Entity):
                         self.timeout.parent = self
                         self._children_name_map["timeout"] = "timeout"
                         self._segment_path = lambda: "initial"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Classes.Class.Retransmit.Initial, ['retry'], name, value)
@@ -520,12 +528,13 @@ class L2tp(Entity):
                             self.ylist_key_names = []
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('minimum', YLeaf(YType.uint32, 'minimum')),
-                                ('maximum', YLeaf(YType.uint32, 'maximum')),
+                                ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                                ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
                             ])
                             self.minimum = None
                             self.maximum = None
                             self._segment_path = lambda: "timeout"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Classes.Class.Retransmit.Initial.Timeout, ['minimum', 'maximum'], name, value)
@@ -566,12 +575,13 @@ class L2tp(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('minimum', YLeaf(YType.uint32, 'minimum')),
-                            ('maximum', YLeaf(YType.uint32, 'maximum')),
+                            ('minimum', (YLeaf(YType.uint32, 'minimum'), ['int'])),
+                            ('maximum', (YLeaf(YType.uint32, 'maximum'), ['int'])),
                         ])
                         self.minimum = None
                         self.maximum = None
                         self._segment_path = lambda: "timeout"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Classes.Class.Retransmit.Timeout, ['minimum', 'maximum'], name, value)
@@ -603,10 +613,11 @@ class L2tp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('accounting', YLeaf(YType.str, 'accounting')),
+                        ('accounting', (YLeaf(YType.str, 'accounting'), ['str'])),
                     ])
                     self.accounting = None
                     self._segment_path = lambda: "tunnel"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tp.Classes.Class.Tunnel, ['accounting'], name, value)
@@ -649,8 +660,8 @@ class L2tp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("secrets", ("secrets", L2tp.Classes.Class.Digest.Secrets))])
                     self._leafs = OrderedDict([
-                        ('hash', YLeaf(YType.enumeration, 'hash')),
-                        ('check_disable', YLeaf(YType.empty, 'check-disable')),
+                        ('hash', (YLeaf(YType.enumeration, 'hash'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg', 'L2tpDigestHashMethod', '')])),
+                        ('check_disable', (YLeaf(YType.empty, 'check-disable'), ['Empty'])),
                     ])
                     self.hash = None
                     self.check_disable = None
@@ -659,6 +670,7 @@ class L2tp(Entity):
                     self.secrets.parent = self
                     self._children_name_map["secrets"] = "secrets"
                     self._segment_path = lambda: "digest"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tp.Classes.Class.Digest, ['hash', 'check_disable'], name, value)
@@ -693,6 +705,7 @@ class L2tp(Entity):
 
                         self.secret = YList(self)
                         self._segment_path = lambda: "secrets"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(L2tp.Classes.Class.Digest.Secrets, [], name, value)
@@ -733,12 +746,13 @@ class L2tp(Entity):
                             self.ylist_key_names = ['secret_name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('secret_name', YLeaf(YType.str, 'secret-name')),
-                                ('hash', YLeaf(YType.enumeration, 'hash')),
+                                ('secret_name', (YLeaf(YType.str, 'secret-name'), ['str'])),
+                                ('hash', (YLeaf(YType.enumeration, 'hash'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_tunnel_l2tun_cfg', 'L2tpHashMethod', '')])),
                             ])
                             self.secret_name = None
                             self.hash = None
                             self._segment_path = lambda: "secret" + "[secret-name='" + str(self.secret_name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(L2tp.Classes.Class.Digest.Secrets.Secret, ['secret_name', 'hash'], name, value)
@@ -772,10 +786,11 @@ class L2tp(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('tos', YLeaf(YType.uint32, 'tos')),
+                        ('tos', (YLeaf(YType.uint32, 'tos'), ['int'])),
                     ])
                     self.tos = None
                     self._segment_path = lambda: "ip"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(L2tp.Classes.Class.Ip, ['tos'], name, value)

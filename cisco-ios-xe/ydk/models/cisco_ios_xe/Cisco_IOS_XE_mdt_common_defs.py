@@ -2,7 +2,7 @@
 
 This module contains a collection of common YANG 
 definitions for streaming telemetry.
-Copyright (c) 2016\-2017 by Cisco Systems, Inc.
+Copyright (c) 2016\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -12,6 +12,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class MdtSubFilterType(Enum):

@@ -11,7 +11,7 @@ This YANG module augments the
   Cisco\-IOS\-XR\-subscriber\-infra\-tmplmgr\-cfg
 module with configuration data.
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -21,6 +21,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 class PppoeInvalidSessionIdBehavior(Enum):
@@ -84,8 +85,8 @@ class PppoeCfg(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("pppoe-bba-groups", ("pppoe_bba_groups", PppoeCfg.PppoeBbaGroups))])
         self._leafs = OrderedDict([
-            ('session_id_space_flat', YLeaf(YType.empty, 'session-id-space-flat')),
-            ('in_flight_window', YLeaf(YType.uint32, 'in-flight-window')),
+            ('session_id_space_flat', (YLeaf(YType.empty, 'session-id-space-flat'), ['Empty'])),
+            ('in_flight_window', (YLeaf(YType.uint32, 'in-flight-window'), ['int'])),
         ])
         self.session_id_space_flat = None
         self.in_flight_window = None
@@ -94,6 +95,7 @@ class PppoeCfg(Entity):
         self.pppoe_bba_groups.parent = self
         self._children_name_map["pppoe_bba_groups"] = "pppoe-bba-groups"
         self._segment_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(PppoeCfg, ['session_id_space_flat', 'in_flight_window'], name, value)
@@ -129,6 +131,7 @@ class PppoeCfg(Entity):
             self.pppoe_bba_group = YList(self)
             self._segment_path = lambda: "pppoe-bba-groups"
             self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(PppoeCfg.PppoeBbaGroups, [], name, value)
@@ -208,11 +211,11 @@ class PppoeCfg(Entity):
                 self.ylist_key_names = ['bba_group']
                 self._child_classes = OrderedDict([("tag", ("tag", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag)), ("sessions", ("sessions", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions)), ("control-packets", ("control_packets", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets)), ("pa-do-delay", ("pa_do_delay", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay))])
                 self._leafs = OrderedDict([
-                    ('bba_group', YLeaf(YType.str, 'bba-group')),
-                    ('completion_timeout', YLeaf(YType.uint32, 'completion-timeout')),
-                    ('invalid_session_id', YLeaf(YType.enumeration, 'invalid-session-id')),
-                    ('enable_padt_after_shut_down', YLeaf(YType.empty, 'enable-padt-after-shut-down')),
-                    ('mtu', YLeaf(YType.uint32, 'mtu')),
+                    ('bba_group', (YLeaf(YType.str, 'bba-group'), ['str'])),
+                    ('completion_timeout', (YLeaf(YType.uint32, 'completion-timeout'), ['int'])),
+                    ('invalid_session_id', (YLeaf(YType.enumeration, 'invalid-session-id'), [('ydk.models.cisco_ios_xr.Cisco_IOS_XR_subscriber_pppoe_ma_gbl_cfg', 'PppoeInvalidSessionIdBehavior', '')])),
+                    ('enable_padt_after_shut_down', (YLeaf(YType.empty, 'enable-padt-after-shut-down'), ['Empty'])),
+                    ('mtu', (YLeaf(YType.uint32, 'mtu'), ['int'])),
                 ])
                 self.bba_group = None
                 self.completion_timeout = None
@@ -236,6 +239,7 @@ class PppoeCfg(Entity):
                 self._children_name_map["pa_do_delay"] = "pa-do-delay"
                 self._segment_path = lambda: "pppoe-bba-group" + "[bba-group='" + str(self.bba_group) + "']"
                 self._absolute_path = lambda: "Cisco-IOS-XR-subscriber-pppoe-ma-gbl-cfg:pppoe-cfg/pppoe-bba-groups/%s" % self._segment_path()
+                self._is_frozen = True
 
             def __setattr__(self, name, value):
                 self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup, ['bba_group', 'completion_timeout', 'invalid_session_id', 'enable_padt_after_shut_down', 'mtu'], name, value)
@@ -294,9 +298,9 @@ class PppoeCfg(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([("padr", ("padr", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr)), ("service-name-configureds", ("service_name_configureds", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds)), ("ppp-max-payload", ("ppp_max_payload", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.PppMaxPayload))])
                     self._leafs = OrderedDict([
-                        ('ppp_max_payload_deny', YLeaf(YType.empty, 'ppp-max-payload-deny')),
-                        ('service_selection_disable', YLeaf(YType.empty, 'service-selection-disable')),
-                        ('ac_name', YLeaf(YType.str, 'ac-name')),
+                        ('ppp_max_payload_deny', (YLeaf(YType.empty, 'ppp-max-payload-deny'), ['Empty'])),
+                        ('service_selection_disable', (YLeaf(YType.empty, 'service-selection-disable'), ['Empty'])),
+                        ('ac_name', (YLeaf(YType.str, 'ac-name'), ['str'])),
                     ])
                     self.ppp_max_payload_deny = None
                     self.service_selection_disable = None
@@ -313,6 +317,7 @@ class PppoeCfg(Entity):
                     self.ppp_max_payload = None
                     self._children_name_map["ppp_max_payload"] = "ppp-max-payload"
                     self._segment_path = lambda: "tag"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag, ['ppp_max_payload_deny', 'service_selection_disable', 'ac_name'], name, value)
@@ -349,12 +354,13 @@ class PppoeCfg(Entity):
                         self.ylist_key_names = []
                         self._child_classes = OrderedDict([])
                         self._leafs = OrderedDict([
-                            ('session_unique_relay_session_id', YLeaf(YType.empty, 'session-unique-relay-session-id')),
-                            ('invalid_payload_allow', YLeaf(YType.empty, 'invalid-payload-allow')),
+                            ('session_unique_relay_session_id', (YLeaf(YType.empty, 'session-unique-relay-session-id'), ['Empty'])),
+                            ('invalid_payload_allow', (YLeaf(YType.empty, 'invalid-payload-allow'), ['Empty'])),
                         ])
                         self.session_unique_relay_session_id = None
                         self.invalid_payload_allow = None
                         self._segment_path = lambda: "padr"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.Padr, ['session_unique_relay_session_id', 'invalid_payload_allow'], name, value)
@@ -389,6 +395,7 @@ class PppoeCfg(Entity):
 
                         self.service_name_configured = YList(self)
                         self._segment_path = lambda: "service-name-configureds"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds, [], name, value)
@@ -422,10 +429,11 @@ class PppoeCfg(Entity):
                             self.ylist_key_names = ['name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('name', YLeaf(YType.str, 'name')),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
                             ])
                             self.name = None
                             self._segment_path = lambda: "service-name-configured" + "[name='" + str(self.name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.ServiceNameConfigureds.ServiceNameConfigured, ['name'], name, value)
@@ -473,12 +481,13 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('min', YLeaf(YType.uint32, 'min')),
-                            ('max', YLeaf(YType.uint32, 'max')),
+                            ('min', (YLeaf(YType.uint32, 'min'), ['int'])),
+                            ('max', (YLeaf(YType.uint32, 'max'), ['int'])),
                         ])
                         self.min = None
                         self.max = None
                         self._segment_path = lambda: "ppp-max-payload"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Tag.PppMaxPayload, ['min', 'max'], name, value)
@@ -716,6 +725,7 @@ class PppoeCfg(Entity):
                     self.circuit_id_and_remote_id_throttle = None
                     self._children_name_map["circuit_id_and_remote_id_throttle"] = "circuit-id-and-remote-id-throttle"
                     self._segment_path = lambda: "sessions"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions, [], name, value)
@@ -773,14 +783,15 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('throttle', YLeaf(YType.uint32, 'throttle')),
-                            ('request_period', YLeaf(YType.uint32, 'request-period')),
-                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                            ('throttle', (YLeaf(YType.uint32, 'throttle'), ['int'])),
+                            ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                            ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                         ])
                         self.throttle = None
                         self.request_period = None
                         self.blocking_period = None
                         self._segment_path = lambda: "vlan-throttle"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
@@ -837,14 +848,15 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('throttle', YLeaf(YType.uint32, 'throttle')),
-                            ('request_period', YLeaf(YType.uint32, 'request-period')),
-                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                            ('throttle', (YLeaf(YType.uint32, 'throttle'), ['int'])),
+                            ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                            ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                         ])
                         self.throttle = None
                         self.request_period = None
                         self.blocking_period = None
                         self._segment_path = lambda: "inner-vlan-throttle"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
@@ -890,12 +902,13 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('limit', YLeaf(YType.uint32, 'limit')),
-                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                            ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
                         ])
                         self.limit = None
                         self.threshold = None
                         self._segment_path = lambda: "remote-id-limit"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdLimit, ['limit', 'threshold'], name, value)
@@ -953,14 +966,15 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('throttle', YLeaf(YType.uint32, 'throttle')),
-                            ('request_period', YLeaf(YType.uint32, 'request-period')),
-                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                            ('throttle', (YLeaf(YType.uint32, 'throttle'), ['int'])),
+                            ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                            ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                         ])
                         self.throttle = None
                         self.request_period = None
                         self.blocking_period = None
                         self._segment_path = lambda: "mac-iwf-access-interface-throttle"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
@@ -1006,12 +1020,13 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('limit', YLeaf(YType.uint32, 'limit')),
-                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                            ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
                         ])
                         self.limit = None
                         self.threshold = None
                         self._segment_path = lambda: "access-interface-limit"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.AccessInterfaceLimit, ['limit', 'threshold'], name, value)
@@ -1068,14 +1083,15 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('throttle', YLeaf(YType.uint32, 'throttle')),
-                            ('request_period', YLeaf(YType.uint32, 'request-period')),
-                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                            ('throttle', (YLeaf(YType.uint32, 'throttle'), ['int'])),
+                            ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                            ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                         ])
                         self.throttle = None
                         self.request_period = None
                         self.blocking_period = None
                         self._segment_path = lambda: "mac-access-interface-throttle"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
@@ -1121,12 +1137,13 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('limit', YLeaf(YType.uint32, 'limit')),
-                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                            ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
                         ])
                         self.limit = None
                         self.threshold = None
                         self._segment_path = lambda: "outer-vlan-limit"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanLimit, ['limit', 'threshold'], name, value)
@@ -1183,14 +1200,15 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('throttle', YLeaf(YType.uint32, 'throttle')),
-                            ('request_period', YLeaf(YType.uint32, 'request-period')),
-                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                            ('throttle', (YLeaf(YType.uint32, 'throttle'), ['int'])),
+                            ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                            ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                         ])
                         self.throttle = None
                         self.request_period = None
                         self.blocking_period = None
                         self._segment_path = lambda: "circuit-id-throttle"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
@@ -1237,12 +1255,13 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('limit', YLeaf(YType.uint32, 'limit')),
-                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                            ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
                         ])
                         self.limit = None
                         self.threshold = None
                         self._segment_path = lambda: "mac-limit"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacLimit, ['limit', 'threshold'], name, value)
@@ -1288,12 +1307,13 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('limit', YLeaf(YType.uint32, 'limit')),
-                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                            ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
                         ])
                         self.limit = None
                         self.threshold = None
                         self._segment_path = lambda: "circuit-id-limit"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdLimit, ['limit', 'threshold'], name, value)
@@ -1340,12 +1360,13 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('limit', YLeaf(YType.uint32, 'limit')),
-                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                            ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
                         ])
                         self.limit = None
                         self.threshold = None
                         self._segment_path = lambda: "mac-iwf-limit"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfLimit, ['limit', 'threshold'], name, value)
@@ -1392,12 +1413,13 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('limit', YLeaf(YType.uint32, 'limit')),
-                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                            ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
                         ])
                         self.limit = None
                         self.threshold = None
                         self._segment_path = lambda: "mac-iwf-access-interface-limit"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacIwfAccessInterfaceLimit, ['limit', 'threshold'], name, value)
@@ -1443,12 +1465,13 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('limit', YLeaf(YType.uint32, 'limit')),
-                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                            ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
                         ])
                         self.limit = None
                         self.threshold = None
                         self._segment_path = lambda: "inner-vlan-limit"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.InnerVlanLimit, ['limit', 'threshold'], name, value)
@@ -1505,14 +1528,15 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('throttle', YLeaf(YType.uint32, 'throttle')),
-                            ('request_period', YLeaf(YType.uint32, 'request-period')),
-                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                            ('throttle', (YLeaf(YType.uint32, 'throttle'), ['int'])),
+                            ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                            ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                         ])
                         self.throttle = None
                         self.request_period = None
                         self.blocking_period = None
                         self._segment_path = lambda: "outer-vlan-throttle"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.OuterVlanThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
@@ -1569,14 +1593,15 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('throttle', YLeaf(YType.uint32, 'throttle')),
-                            ('request_period', YLeaf(YType.uint32, 'request-period')),
-                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                            ('throttle', (YLeaf(YType.uint32, 'throttle'), ['int'])),
+                            ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                            ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                         ])
                         self.throttle = None
                         self.request_period = None
                         self.blocking_period = None
                         self._segment_path = lambda: "mac-throttle"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
@@ -1623,12 +1648,13 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('limit', YLeaf(YType.uint32, 'limit')),
-                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                            ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
                         ])
                         self.limit = None
                         self.threshold = None
                         self._segment_path = lambda: "circuit-id-and-remote-id-limit"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdLimit, ['limit', 'threshold'], name, value)
@@ -1675,12 +1701,13 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('limit', YLeaf(YType.uint32, 'limit')),
-                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                            ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
                         ])
                         self.limit = None
                         self.threshold = None
                         self._segment_path = lambda: "vlan-limit"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.VlanLimit, ['limit', 'threshold'], name, value)
@@ -1727,12 +1754,13 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('limit', YLeaf(YType.uint32, 'limit')),
-                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                            ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
                         ])
                         self.limit = None
                         self.threshold = None
                         self._segment_path = lambda: "mac-access-interface-limit"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MacAccessInterfaceLimit, ['limit', 'threshold'], name, value)
@@ -1789,14 +1817,15 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('throttle', YLeaf(YType.uint32, 'throttle')),
-                            ('request_period', YLeaf(YType.uint32, 'request-period')),
-                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                            ('throttle', (YLeaf(YType.uint32, 'throttle'), ['int'])),
+                            ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                            ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                         ])
                         self.throttle = None
                         self.request_period = None
                         self.blocking_period = None
                         self._segment_path = lambda: "remote-id-throttle"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.RemoteIdThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
@@ -1842,12 +1871,13 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('limit', YLeaf(YType.uint32, 'limit')),
-                            ('threshold', YLeaf(YType.uint32, 'threshold')),
+                            ('limit', (YLeaf(YType.uint32, 'limit'), ['int'])),
+                            ('threshold', (YLeaf(YType.uint32, 'threshold'), ['int'])),
                         ])
                         self.limit = None
                         self.threshold = None
                         self._segment_path = lambda: "max-limit"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.MaxLimit, ['limit', 'threshold'], name, value)
@@ -1904,14 +1934,15 @@ class PppoeCfg(Entity):
                         self._child_classes = OrderedDict([])
                         self.is_presence_container = True
                         self._leafs = OrderedDict([
-                            ('throttle', YLeaf(YType.uint32, 'throttle')),
-                            ('request_period', YLeaf(YType.uint32, 'request-period')),
-                            ('blocking_period', YLeaf(YType.uint32, 'blocking-period')),
+                            ('throttle', (YLeaf(YType.uint32, 'throttle'), ['int'])),
+                            ('request_period', (YLeaf(YType.uint32, 'request-period'), ['int'])),
+                            ('blocking_period', (YLeaf(YType.uint32, 'blocking-period'), ['int'])),
                         ])
                         self.throttle = None
                         self.request_period = None
                         self.blocking_period = None
                         self._segment_path = lambda: "circuit-id-and-remote-id-throttle"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.Sessions.CircuitIdAndRemoteIdThrottle, ['throttle', 'request_period', 'blocking_period'], name, value)
@@ -1945,10 +1976,11 @@ class PppoeCfg(Entity):
                     self.ylist_key_names = []
                     self._child_classes = OrderedDict([])
                     self._leafs = OrderedDict([
-                        ('priority', YLeaf(YType.uint32, 'priority')),
+                        ('priority', (YLeaf(YType.uint32, 'priority'), ['int'])),
                     ])
                     self.priority = None
                     self._segment_path = lambda: "control-packets"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.ControlPackets, ['priority'], name, value)
@@ -2006,8 +2038,6 @@ class PppoeCfg(Entity):
                 
                 	**range:** 0..10000
                 
-                	**mandatory**\: True
-                
                 	**units**\: millisecond
                 
                 .. attribute:: remote_id
@@ -2016,8 +2046,6 @@ class PppoeCfg(Entity):
                 	**type**\: int
                 
                 	**range:** 0..10000
-                
-                	**mandatory**\: True
                 
                 	**units**\: millisecond
                 
@@ -2041,9 +2069,9 @@ class PppoeCfg(Entity):
                     self._child_classes = OrderedDict([("remote-id-substrings", ("remote_id_substrings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings)), ("remote-id-strings", ("remote_id_strings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings)), ("service-name-strings", ("service_name_strings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings)), ("circuit-id-substrings", ("circuit_id_substrings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings)), ("service-name-substrings", ("service_name_substrings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings)), ("circuit-id-strings", ("circuit_id_strings", PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings))])
                     self.is_presence_container = True
                     self._leafs = OrderedDict([
-                        ('default', YLeaf(YType.uint32, 'default')),
-                        ('circuit_id', YLeaf(YType.uint32, 'circuit-id')),
-                        ('remote_id', YLeaf(YType.uint32, 'remote-id')),
+                        ('default', (YLeaf(YType.uint32, 'default'), ['int'])),
+                        ('circuit_id', (YLeaf(YType.uint32, 'circuit-id'), ['int'])),
+                        ('remote_id', (YLeaf(YType.uint32, 'remote-id'), ['int'])),
                     ])
                     self.default = None
                     self.circuit_id = None
@@ -2073,6 +2101,7 @@ class PppoeCfg(Entity):
                     self.circuit_id_strings.parent = self
                     self._children_name_map["circuit_id_strings"] = "circuit-id-strings"
                     self._segment_path = lambda: "pa-do-delay"
+                    self._is_frozen = True
 
                 def __setattr__(self, name, value):
                     self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay, ['default', 'circuit_id', 'remote_id'], name, value)
@@ -2108,6 +2137,7 @@ class PppoeCfg(Entity):
 
                         self.remote_id_substring = YList(self)
                         self._segment_path = lambda: "remote-id-substrings"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings, [], name, value)
@@ -2153,12 +2183,13 @@ class PppoeCfg(Entity):
                             self.ylist_key_names = ['name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('delay', YLeaf(YType.uint32, 'delay')),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('delay', (YLeaf(YType.uint32, 'delay'), ['int'])),
                             ])
                             self.name = None
                             self.delay = None
                             self._segment_path = lambda: "remote-id-substring" + "[name='" + str(self.name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdSubstrings.RemoteIdSubstring, ['name', 'delay'], name, value)
@@ -2194,6 +2225,7 @@ class PppoeCfg(Entity):
 
                         self.remote_id_string = YList(self)
                         self._segment_path = lambda: "remote-id-strings"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings, [], name, value)
@@ -2239,12 +2271,13 @@ class PppoeCfg(Entity):
                             self.ylist_key_names = ['name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('delay', YLeaf(YType.uint32, 'delay')),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('delay', (YLeaf(YType.uint32, 'delay'), ['int'])),
                             ])
                             self.name = None
                             self.delay = None
                             self._segment_path = lambda: "remote-id-string" + "[name='" + str(self.name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.RemoteIdStrings.RemoteIdString, ['name', 'delay'], name, value)
@@ -2280,6 +2313,7 @@ class PppoeCfg(Entity):
 
                         self.service_name_string = YList(self)
                         self._segment_path = lambda: "service-name-strings"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings, [], name, value)
@@ -2325,12 +2359,13 @@ class PppoeCfg(Entity):
                             self.ylist_key_names = ['name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('delay', YLeaf(YType.uint32, 'delay')),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('delay', (YLeaf(YType.uint32, 'delay'), ['int'])),
                             ])
                             self.name = None
                             self.delay = None
                             self._segment_path = lambda: "service-name-string" + "[name='" + str(self.name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameStrings.ServiceNameString, ['name', 'delay'], name, value)
@@ -2366,6 +2401,7 @@ class PppoeCfg(Entity):
 
                         self.circuit_id_substring = YList(self)
                         self._segment_path = lambda: "circuit-id-substrings"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings, [], name, value)
@@ -2411,12 +2447,13 @@ class PppoeCfg(Entity):
                             self.ylist_key_names = ['name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('delay', YLeaf(YType.uint32, 'delay')),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('delay', (YLeaf(YType.uint32, 'delay'), ['int'])),
                             ])
                             self.name = None
                             self.delay = None
                             self._segment_path = lambda: "circuit-id-substring" + "[name='" + str(self.name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdSubstrings.CircuitIdSubstring, ['name', 'delay'], name, value)
@@ -2452,6 +2489,7 @@ class PppoeCfg(Entity):
 
                         self.service_name_substring = YList(self)
                         self._segment_path = lambda: "service-name-substrings"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings, [], name, value)
@@ -2497,12 +2535,13 @@ class PppoeCfg(Entity):
                             self.ylist_key_names = ['name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('delay', YLeaf(YType.uint32, 'delay')),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('delay', (YLeaf(YType.uint32, 'delay'), ['int'])),
                             ])
                             self.name = None
                             self.delay = None
                             self._segment_path = lambda: "service-name-substring" + "[name='" + str(self.name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.ServiceNameSubstrings.ServiceNameSubstring, ['name', 'delay'], name, value)
@@ -2538,6 +2577,7 @@ class PppoeCfg(Entity):
 
                         self.circuit_id_string = YList(self)
                         self._segment_path = lambda: "circuit-id-strings"
+                        self._is_frozen = True
 
                     def __setattr__(self, name, value):
                         self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings, [], name, value)
@@ -2583,12 +2623,13 @@ class PppoeCfg(Entity):
                             self.ylist_key_names = ['name']
                             self._child_classes = OrderedDict([])
                             self._leafs = OrderedDict([
-                                ('name', YLeaf(YType.str, 'name')),
-                                ('delay', YLeaf(YType.uint32, 'delay')),
+                                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                                ('delay', (YLeaf(YType.uint32, 'delay'), ['int'])),
                             ])
                             self.name = None
                             self.delay = None
                             self._segment_path = lambda: "circuit-id-string" + "[name='" + str(self.name) + "']"
+                            self._is_frozen = True
 
                         def __setattr__(self, name, value):
                             self._perform_setattr(PppoeCfg.PppoeBbaGroups.PppoeBbaGroup.PaDoDelay.CircuitIdStrings.CircuitIdString, ['name', 'delay'], name, value)

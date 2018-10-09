@@ -7,7 +7,7 @@ This module contains definitions
 for the following management objects\:
   ip\-raw\: Global IP RAW configuration
 
-Copyright (c) 2013\-2017 by Cisco Systems, Inc.
+Copyright (c) 2013\-2018 by Cisco Systems, Inc.
 All rights reserved.
 
 """
@@ -17,6 +17,7 @@ from ydk.types import Entity, EntityPath, Identity, Enum, YType, YLeaf, YLeafLis
 from ydk.filters import YFilter
 from ydk.errors import YError, YModelError
 from ydk.errors.error_handler import handle_type_error as _handle_type_error
+
 
 
 
@@ -63,7 +64,7 @@ class IpRaw(Entity):
         self.ylist_key_names = []
         self._child_classes = OrderedDict([("num-thread", ("num_thread", IpRaw.NumThread)), ("directory", ("directory", IpRaw.Directory))])
         self._leafs = OrderedDict([
-            ('receive_q', YLeaf(YType.uint32, 'receive-q')),
+            ('receive_q', (YLeaf(YType.uint32, 'receive-q'), ['int'])),
         ])
         self.receive_q = None
 
@@ -73,6 +74,7 @@ class IpRaw(Entity):
         self.directory = None
         self._children_name_map["directory"] = "directory"
         self._segment_path = lambda: "Cisco-IOS-XR-ip-raw-cfg:ip-raw"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(IpRaw, ['receive_q'], name, value)
@@ -120,13 +122,14 @@ class IpRaw(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('raw_in_q_threads', YLeaf(YType.uint32, 'raw-in-q-threads')),
-                ('raw_out_q_threads', YLeaf(YType.uint32, 'raw-out-q-threads')),
+                ('raw_in_q_threads', (YLeaf(YType.uint32, 'raw-in-q-threads'), ['int'])),
+                ('raw_out_q_threads', (YLeaf(YType.uint32, 'raw-out-q-threads'), ['int'])),
             ])
             self.raw_in_q_threads = None
             self.raw_out_q_threads = None
             self._segment_path = lambda: "num-thread"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-raw-cfg:ip-raw/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IpRaw.NumThread, ['raw_in_q_threads', 'raw_out_q_threads'], name, value)
@@ -181,15 +184,16 @@ class IpRaw(Entity):
             self._child_classes = OrderedDict([])
             self.is_presence_container = True
             self._leafs = OrderedDict([
-                ('directoryname', YLeaf(YType.str, 'directoryname')),
-                ('max_raw_debug_files', YLeaf(YType.uint32, 'max-raw-debug-files')),
-                ('max_file_size_files', YLeaf(YType.uint32, 'max-file-size-files')),
+                ('directoryname', (YLeaf(YType.str, 'directoryname'), ['str'])),
+                ('max_raw_debug_files', (YLeaf(YType.uint32, 'max-raw-debug-files'), ['int'])),
+                ('max_file_size_files', (YLeaf(YType.uint32, 'max-file-size-files'), ['int'])),
             ])
             self.directoryname = None
             self.max_raw_debug_files = None
             self.max_file_size_files = None
             self._segment_path = lambda: "directory"
             self._absolute_path = lambda: "Cisco-IOS-XR-ip-raw-cfg:ip-raw/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(IpRaw.Directory, ['directoryname', 'max_raw_debug_files', 'max_file_size_files'], name, value)

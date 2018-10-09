@@ -15,6 +15,7 @@ from ydk.errors.error_handler import handle_type_error as _handle_type_error
 
 
 
+
 class TcamDetails(Entity):
     """
     ASIC TCAM Memory Statistics
@@ -45,6 +46,7 @@ class TcamDetails(Entity):
 
         self.tcam_detail = YList(self)
         self._segment_path = lambda: "Cisco-IOS-XE-tcam-oper:tcam-details"
+        self._is_frozen = True
 
     def __setattr__(self, name, value):
         self._perform_setattr(TcamDetails, [], name, value)
@@ -111,12 +113,12 @@ class TcamDetails(Entity):
             self.ylist_key_names = ['asic_no','name']
             self._child_classes = OrderedDict([])
             self._leafs = OrderedDict([
-                ('asic_no', YLeaf(YType.uint8, 'asic-no')),
-                ('name', YLeaf(YType.str, 'name')),
-                ('hash_entries_max', YLeaf(YType.uint32, 'hash-entries-max')),
-                ('tcam_entries_max', YLeaf(YType.uint32, 'tcam-entries-max')),
-                ('hash_entries_used', YLeaf(YType.uint32, 'hash-entries-used')),
-                ('tcam_entries_used', YLeaf(YType.uint32, 'tcam-entries-used')),
+                ('asic_no', (YLeaf(YType.uint8, 'asic-no'), ['int'])),
+                ('name', (YLeaf(YType.str, 'name'), ['str'])),
+                ('hash_entries_max', (YLeaf(YType.uint32, 'hash-entries-max'), ['int'])),
+                ('tcam_entries_max', (YLeaf(YType.uint32, 'tcam-entries-max'), ['int'])),
+                ('hash_entries_used', (YLeaf(YType.uint32, 'hash-entries-used'), ['int'])),
+                ('tcam_entries_used', (YLeaf(YType.uint32, 'tcam-entries-used'), ['int'])),
             ])
             self.asic_no = None
             self.name = None
@@ -126,6 +128,7 @@ class TcamDetails(Entity):
             self.tcam_entries_used = None
             self._segment_path = lambda: "tcam-detail" + "[asic-no='" + str(self.asic_no) + "']" + "[name='" + str(self.name) + "']"
             self._absolute_path = lambda: "Cisco-IOS-XE-tcam-oper:tcam-details/%s" % self._segment_path()
+            self._is_frozen = True
 
         def __setattr__(self, name, value):
             self._perform_setattr(TcamDetails.TcamDetail, ['asic_no', 'name', 'hash_entries_max', 'tcam_entries_max', 'hash_entries_used', 'tcam_entries_used'], name, value)
