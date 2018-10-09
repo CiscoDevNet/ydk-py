@@ -39,22 +39,6 @@ def _get_bgp_config():
     # Global config done
 
     # IPv4 Neighbor instance config
-    nbr_ipv4 = bgp_cfg.neighbors.Neighbor()
-    nbr_ipv4.neighbor_address = '192.168.1.1'
-    nbr_ipv4.config.neighbor_address = '192.168.1.1'
-    nbr_ipv4.config.peer_as = 65002
-
-    nbr_ipv4_afsf = nbr_ipv4.afi_safis.AfiSafi()
-    nbr_ipv4_afsf.afi_safi_name = openconfig_bgp_types.IPV4UNICAST()
-    nbr_ipv4_afsf.config.peer_as = 65002
-    nbr_ipv4_afsf.config.afi_safi_name = openconfig_bgp_types.IPV4UNICAST()
-    nbr_ipv4_afsf.config.enabled = True
-
-    # Create afi-safi policy instances
-    nbr_ipv4.afi_safis.afi_safi.append(nbr_ipv4_afsf)
-
-    bgp_cfg.neighbors.neighbor.append(nbr_ipv4)
-    nbr_ipv4.parent = bgp_cfg.neighbors
 
     return bgp_cfg
 
